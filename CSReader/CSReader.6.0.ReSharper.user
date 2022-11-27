@@ -1,0 +1,86 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketJtb.h" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:InnerDebug.cpp" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:sam.cpp" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:linker.h" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ApiEs.cpp" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:octcard.cpp" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:SerialLocal.cpp" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Download.h" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:typedefine.h" caret="0" fromTop="0" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ble.cpp" caret="28720" fromTop="20" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:algorithm.cpp" caret="8525" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:libserial.cpp" caret="15220" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:bleBaseProtocol.cpp" caret="402" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketBus.cpp" caret="28993" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ticket.cpp" caret="18664" fromTop="8" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamStructs.h" caret="5086" fromTop="11" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.h" caret="3839" fromTop="7" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ApiTvm.cpp" caret="3066" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ApiBom.cpp" caret="21760" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Errors.h" caret="1162" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ticketes.cpp" caret="142331" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketSvt.cpp" caret="43554" fromTop="3" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:CmdSort.cpp" caret="5525" fromTop="8" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:PackageMgr.cpp" caret="733" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="4079" fromTop="7" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketBase.cpp" caret="1222" fromTop="11" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ApiAgm.cpp" caret="10284" fromTop="17" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="66820" fromTop="12" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.h" caret="3295" fromTop="14" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="17269" fromTop="20" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:CmdSort.cpp" caret="7378" fromTop="12" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="2955" fromTop="11" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="2410" fromTop="3" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="3245" fromTop="7" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="3432" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Records.cpp" caret="4590" fromTop="9" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Records.cpp" caret="3250" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="7526" fromTop="9" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="84865" fromTop="4" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="85709" fromTop="7" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="86041" fromTop="16" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="86858" fromTop="8" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="87835" fromTop="15" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ParamMgr.cpp" caret="87229" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="9929" fromTop="9" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ble.cpp" caret="28720" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ble.cpp" caret="28994" fromTop="14" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:CmdSort.cpp" caret="4094" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:CmdSort.cpp" caret="3141" fromTop="11" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:CmdSort.cpp" caret="2639" fromTop="11" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ticket.cpp" caret="17644" fromTop="12" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:ticket.cpp" caret="18664" fromTop="8" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="6264" fromTop="5" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketElecT.cpp" caret="7418" fromTop="10" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:TicketBase.cpp" caret="1445" fromTop="4" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="3479" fromTop="17" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.h" caret="3431" fromTop="17" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="16749" fromTop="4" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="17271" fromTop="21" />
+      <File id="F1992012-8788-4593-ABC4-44F862DBC0DA/f:Api.cpp" caret="17045" fromTop="10" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

@@ -1,0 +1,46 @@
+
+
+
+//========================================================
+//功能:通过aid 选择应用目录
+//入口参数
+//	 aid=应用目录标识, 
+//出口参数
+//       无
+//返回值
+//       >=0成功
+//========================================================
+int svt_selecfileaid(unsigned char ulen, unsigned char *lpaid)
+{
+	unsigned char ucmdlen;
+	unsigned char sztmp[256];
+	unsigned char response_len;
+	unsigned short response_sw;
+	int nresult =  -1;
+	ucmdlen = 0;
+	memcpy(sztmp, "\x00\xA4\x04\x00",4);
+	ucmdlen += 4;
+	sztmp[ucmdlen] = ulen;
+	ulen++;
+	memcpy(sztmp, lpaid, ulen);
+	ucmdlen += ulen;
+	response_len = MifareProCom(ucmdlen, sztmp, &response_sw);
+
+	if (response_len==0)
+	{
+		//无回应
+		nresult = -1;
+	}
+	else if (0x9000!=response_sw)
+	{
+		//响应错误
+		nresult = -2;
+	}
+	else
+	{
+		nresult = 0;
+	}
+
+	return nresult;
+
+}

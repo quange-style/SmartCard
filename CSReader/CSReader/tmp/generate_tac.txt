@@ -1,0 +1,111 @@
+//=============================================================================================================
+//函 数 名: generate_tac
+//功    能: 计算单程票TAC码
+//入口参数:
+//          nsamsck: sam卡对应卡槽
+//   *lplogicnumber: 8byte逻辑卡号
+//            money: 4byte交易金额,long型
+//   trade_datetime: 7byte交易时间
+//出口参数:
+//        lpresult:计算结果(samid(6B)+dsn(4B)+tac(4B))，当返回值=0时有效
+//返回值:
+//       =0成功
+//=============================================================================================================
+//int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned char *lptacdata, unsigned char *lpresult)
+int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money, unsigned char *trade_datetime, unsigned char *lpresult)
+{
+    unsigned char sztmp[50];
+    unsigned char ulen;
+    unsigned char response_len;
+    unsigned short response_sw;
+    unsigned char tmpbuf[20];//samid(6B)+dsn(4B)+tac(4B)
+    int nresult = 0;
+
+
+    memset(tmpbuf, 0, sizeof(tmpbuf));
+    memcpy(tmpbuf,g_saminf[nsamsck].logicnumber, 6);
+    tmpbuf[6] = ((g_saminf[nsamsck].dsn >> 24) & 0xff);
+    tmpbuf[7] = ((g_saminf[nsamsck].dsn >> 16) & 0xff);
+    tmpbuf[8] = ((g_saminf[nsamsck].dsn >> 8) & 0xff);
+    tmpbuf[9] = (g_saminf[nsamsck].dsn & 0xff);
+
+
+    //des初始化
+    ulen = 5;
+//    memcpy(sztmp, "\x80\x1A\x26\x01\x08", 5);
+    memcpy(sztmp, "\x80\x1A\x24\x01\x08", 5);
+    memcpy(sztmp+ulen, lplogicnumber, 8);
+    ulen += 8;
+    response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
+    dbg_dumpmemory("801A=",sztmp, response_len);
+    if (0x9000 != response_sw )
+    {
+        ulen = 5;
+        memcpy(sztmp, "\x80\x1A\x24\x01\x08", 5);
+        memcpy(sztmp+ulen, lplogicnumber, 8);
+        ulen += 8;
+        sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
+    }
+
+
+    //计算TAC
+    ulen = 0;
+//    memcpy(sztmp, "\x80\xFA\x05\x00\x18", 5);
+	memset(sztmp, 0x00, sizeof(sztmp));
+	memcpy(sztmp, "\x80\xFA\x05\x00\x20", 5);
+	ulen += 5;
+	//vi,8byte全0
+	ulen += 8; 
+	//4byte交易金额
+	sztmp[ulen++] = ((money & 0xFF000000) >> 24);
+	sztmp[ulen++] = ((money & 0x00FF0000) >> 16);
+	sztmp[ulen++] = ((money & 0x0000FF00) >> 8);
+	sztmp[ulen++] = (money & 0xFF);
+	//1byte交易类型
+	sztmp[ulen++] = 0x05;
+	//6byte sam终端号
+	memcpy(sztmp+ulen, g_saminf[nsamsck].logicnumber, 6);
+	ulen += 6;
+	//4byte sam流水
+	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0xFF000000) >> 24);
+	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0x00FF0000) >> 16);
+	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0x0000FF00) >> 8);
+	sztmp[ulen++] = (g_saminf[nsamsck].dsn & 0xFF);
+	//7byte交易时间
+	memcpy(sztmp+ulen, trade_datetime, 7);
+	ulen += 7;
+	//2byte 结束标志
+	memcpy(sztmp+ulen, "\x80\x00", 2);
+	ulen += 2;
+//    dbg_dumpmemory("80FA=",sztmp, ulen);
+    response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
+//    dbg_dumpmemory("80FA!=",sztmp, response_len);
+
+    if (0x9000 == response_sw )
+    {
+        memcpy(tmpbuf+10,sztmp, 4);
+    }
+
+    //回写sam  流水
+    g_saminf[nsamsck].dsn++;
+    memcpy(sztmp, "\x00\xD6\x98\x00\x04\x00\x00\x00\x00", 9);
+    ulen = 9;
+    sztmp[5] = ((g_saminf[nsamsck].dsn >> 24) & 0xFF);
+    sztmp[6] = ((g_saminf[nsamsck].dsn >> 16) & 0xFF);
+    sztmp[7] = ((g_saminf[nsamsck].dsn >> 8) & 0xFF);
+    sztmp[8] = (g_saminf[nsamsck].dsn  & 0xFF);
+
+    memcpy(lpresult+6, sztmp+5, 4);//sam流水
+
+    response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
+//    dbg_dumpmemory("00D6=",sztmp, response_len);
+
+    if (0x9000 == response_sw )
+    {
+        g_saminf[nsamsck].dsn++;
+    }
+
+    memcpy(lpresult, tmpbuf, 14);
+
+	return nresult;
+}

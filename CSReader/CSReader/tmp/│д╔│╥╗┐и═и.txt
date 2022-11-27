@@ -1,0 +1,214 @@
+//========================================================
+//功能:对一卡通票进行脱机消费
+//入口参数
+//	 nsamsck=sam卡对应卡槽
+//    value = 消费金额
+//    trtype=交易类型, 06=普通消费,09=复合消费
+//    lpmetrofile=当trtype=09  时，作为复合文件更新的数据内容，普通消费时不使用
+//出口参数
+//       respone_data=SAM终端号(6BYTE) +  SAM终端流水( 4Byte) + TAC (4Byte)
+//返回值
+//       0=成功
+//========================================================
+int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnumber, unsigned long value,unsigned char trtype, unsigned char *lpmetrofile, unsigned char *respone_data)
+{
+	unsigned char sztmp[512];
+	unsigned char szmac[8];
+	unsigned char cainf[10];
+	unsigned char ulen;
+	unsigned char respone_len;
+	unsigned short sam_sw;
+	TPSAMGETMAC PsamGetMac1;
+	LPTINITCONSUME lpinitconsume;
+	LPTOUTMTRW lpout=(LPTOUTMTRW)respone_data;
+	int nresult=-1;
+
+
+	do
+	{
+
+
+		ulen  = 0;
+		memcpy(sztmp, "\x80\xCA\x00\x00\x09", 5);
+		ulen = 5;
+        respone_len = MifareProCom(respone_len, sztmp, &sam_sw);
+        if ((respone_len==0) ||(sam_sw!=0x9000))
+        {
+            nresult = -3;
+            break;
+        }
+
+		memcpy(cainf, sztmp, 9);
+
+        ulen=0;
+        memcpy(sztmp+ulen, "\x80\xCA\x00\x00\x09",5);
+        ulen += 5;
+        memcpy(sztmp+ulen, cainf,9);
+        ulen += 9;
+        
+        respone_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
+        if ((respone_len==0) ||(sam_sw!=0x9000))
+        {
+            nresult = -5;
+            break;
+        }
+
+        
+		ulen=0;
+		if (0x06==trtype)
+		{
+			memcpy(sztmp, "\x80\x50\x01\x02\x0B", 5);
+		}
+		else if (0x09==trtype)
+		{
+			memcpy(sztmp, "\x80\x50\x03\x02\x0B", 5);
+		}
+		else
+		{
+			nresult = -9; //参数错误
+			break;
+		}
+		ulen += 5;
+
+		sztmp[5]=g_saminf[nsamsck].keyidx;
+		ulen += 1;
+		sztmp[ulen] = ((value >> 24) & 0xFF);
+		ulen += 1;
+		sztmp[ulen] = ((value >> 16) & 0xFF);
+		ulen += 1;
+		sztmp[ulen] = ((value >> 8) & 0xFF);
+		ulen += 1;
+		sztmp[ulen] = (value & 0xFF);
+		ulen += 1;
+
+		memcpy(sztmp+ulen, g_saminf[nsamsck].terminalnumber, 6);
+		ulen += 6;
+		//		dbg_dumpmemory("8050=",sztmp,ulen);
+		respone_len = MifareProCom(ulen, sztmp, &sam_sw);
+		//		dbg_dumpmemory("8050-",sztmp,respone_len);
+		if ((respone_len==0) || (0x9000!=sam_sw))
+		{
+			nresult = -3;
+			break;
+		}
+
+		lpinitconsume = (LPTINITCONSUME)sztmp;
+
+		PsamGetMac1.encryver = lpinitconsume->encryver;
+		PsamGetMac1.calcmarker = lpinitconsume->calcmarker;
+		memcpy(PsamGetMac1.offlinedealserial, lpinitconsume->offlinedealserial, 2);
+		memcpy(PsamGetMac1.random, lpinitconsume->random, 4);
+		memcpy(PsamGetMac1.tm, p_timenow, 7);
+
+
+		PsamGetMac1.trflag = trtype;
+
+
+
+		memcpy(PsamGetMac1.logicnumber, lplogicnumber, 8);
+		PsamGetMac1.money[0] = ((value >> 24) & 0xFF);
+
+		PsamGetMac1.money[1] = ((value >> 16) & 0xFF);
+
+		PsamGetMac1.money[2] = ((value >> 8) & 0xFF);
+
+		PsamGetMac1.money[3] = (value & 0xFF);
+
+		if (0x09==trtype)
+		{
+
+//			memcpy(sztmp, "\x80\xDC\x02\xBC\x30", 5);     //地铁票
+//			memcpy(sztmp+ulen, "\x02\x2E\x00", 3);
+            memcpy(sztmp, "\x80\xDC\x03\xB8\x20", 5);//长沙一卡通
+			ulen = 5;
+			memcpy(sztmp+ulen, "\x03\x1E\x00", 3);
+			ulen += 3;
+			memcpy(sztmp+ulen, lpmetrofile, 29);
+			ulen += 29;
+
+			respone_len = MifareProCom(ulen, sztmp, &sam_sw);
+			if ((respone_len==0) || (0x9000!=sam_sw))
+			{
+				//					dbg_formatvar("80dc=%04X",sam_sw);
+				nresult = -4;
+				break;
+			}
+
+
+
+		}
+
+
+		memcpy(sztmp,"\x80\x70\x00\x00\x24",5);
+		ulen = 5;
+		memcpy(sztmp+5, (char *)&PsamGetMac1, sizeof(PsamGetMac1));
+		ulen += sizeof(PsamGetMac1);
+        memcpy(sztmp+ulen, "\x41\x00",2);
+        ulen += 2;
+        memcpy(sztmp+ulen, "\xFF\x00\x00\x00\x00\x00",6);
+        ulen += 6;
+		
+		//		dbg_dumpmemory("8070=",sztmp,ulen);
+		respone_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
+		//		dbg_dumpmemory("8070-",sztmp,respone_len);
+
+
+		if ((respone_len==0) || (0x9000!=sam_sw))
+		{
+			//if (0x9000==sam_sw)
+			nresult = -5;
+			break;
+		}
+
+		memcpy(lpout->sam_terminalserial, sztmp, 4);
+		memcpy(lpout->sam_terminalnumber, g_saminf[nsamsck].terminalnumber,6);
+
+		memcpy(szmac, sztmp, 8);
+		memcpy(sztmp,"\x80\x54\x01\x00\x0F", 5);
+		ulen = 5;
+		memcpy(sztmp+ulen, szmac, 4);
+		ulen += 4;
+		memcpy(sztmp+ulen, PsamGetMac1.tm, 7);
+		ulen += 7;
+		memcpy(sztmp+ulen, szmac+4, 4);
+		ulen += 4;
+
+		//		dbg_dumpmemory("8054=",sztmp,ulen);
+		respone_len = MifareProCom(ulen, sztmp, &sam_sw);
+		//		dbg_dumpmemory("8054-",sztmp,respone_len);
+
+		if ((respone_len==0) || (0x9000!=sam_sw))
+		{
+			nresult = -6;
+			break;
+		}
+		memcpy(lpout->tac, sztmp, 4);
+		memcpy(szmac, sztmp, 8);
+
+		memcpy(sztmp,"\x80\x72\x00\x00\x04",5);
+		ulen = 5;
+		memcpy(sztmp+5, szmac+4, 4);
+		ulen += 4;
+		////		dbg_dumpmemory("8072=",sztmp,ulen);
+		//respone_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
+		////		dbg_dumpmemory("8072-",sztmp,respone_len);
+		//if ((respone_len==0) || (0x9000!=sam_sw))
+		//{
+		//  票卡扣款成功无论SAM  卡操作如何都做成功处理让乘客通行
+		//	//nresult = -7;
+		//	//break;
+		//}
+
+		nresult = 0;
+	}
+	while (0);
+
+	//		gettimeofday(&end_tv, NULL);
+	//		et=end_tv.tv_sec*1000000L+end_tv.tv_usec;
+	//	dbg_formatvar("end=%d:%d",end_tv.tv_sec, end_tv.tv_usec);
+
+	//	dbg_formatvar("consum sum=%d",(et-bt)/1000);
+
+	return (nresult);
+
+}

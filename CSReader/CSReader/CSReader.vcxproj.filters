@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="link">
+      <UniqueIdentifier>{9a84f61b-a3b5-4381-ab47-65d87d8864bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{ab741133-b864-4f13-b73e-b49620267c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ble">
+      <UniqueIdentifier>{01a84ae8-db83-47c4-b502-9a31c866b3b3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="api\Api.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ApiAgm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ApiBom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ApiEs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ApiTcm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ApiTvm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\CmdSort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\DataSecurity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Download.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Extra.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\InnerDebug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\PackageMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\ParamMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Publics.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\QFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Records.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Reg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\SysCmd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketBM.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketBus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketSvt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketUl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TimesEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="link\algorithm.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\beep.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\iso14443.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\linker.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\myprintf.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\octcard.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\sam.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\ticket.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="link\ticketes.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketTct.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketJtb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="libserial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\SerialLocal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketElecT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_reader.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_value.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_writer.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\JsonCPP.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="ble\ble.cpp">
+      <Filter>ble</Filter>
+    </ClCompile>
+    <ClCompile Include="link\SerialFile.cpp">
+      <Filter>link</Filter>
+    </ClCompile>
+    <ClCompile Include="ble\bleBaseProtocol.cpp">
+      <Filter>ble</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketPostPayElecT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketSJTElecT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\TicketThirdPay.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\Api.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\CmdSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\DataSecurity.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Declares.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Download.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Errors.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Extra.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\InnerDebug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\libserial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\PackageMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\ParamMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\ParamStructs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Publics.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\QFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Records.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Reg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\Structs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\SysCmd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketBM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketBus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketSvt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketUl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TimesEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="link\algorithm.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\beep.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\datatype.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\iso14443.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\linker.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\myprintf.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\octcard.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\sam.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\ticket.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="link\ticketes.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketTct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketJtb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\serial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="link\vardef.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="api\SerialLocal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="link\typedefine.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketElecT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="json\config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="json\autolink.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\features.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\forwards.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json_batchallocator.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\reader.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\value.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\writer.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\JsonCPP.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="ble\ble.h">
+      <Filter>ble</Filter>
+    </ClInclude>
+    <ClInclude Include="link\SerialFile.h">
+      <Filter>link</Filter>
+    </ClInclude>
+    <ClInclude Include="ble\bleBaseProtocol.h">
+      <Filter>ble</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketPostPayElecT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketSJTElecT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\TicketThirdPay.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="json\json_internalarray.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\json_internalmap.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\json_valueiterator.inl">
+      <Filter>json</Filter>
+    </None>
+  </ItemGroup>
+</Project>
