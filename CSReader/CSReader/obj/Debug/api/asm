@@ -1,0 +1,4485 @@
+
+TicketUl.o:     file format elf32-littlearm
+
+Disassembly of section .text:
+
+00000000 <_ZN8TicketUl17get_simple_statusEh>:
+       0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+       4:	e28db000 	add	fp, sp, #0	; 0x0
+       8:	e24dd014 	sub	sp, sp, #20	; 0x14
+       c:	e50b0010 	str	r0, [fp, #-16]
+      10:	e1a03001 	mov	r3, r1
+      14:	e54b3011 	strb	r3, [fp, #-17]
+      18:	e3a0300b 	mov	r3, #11	; 0xb
+      1c:	e50b3008 	str	r3, [fp, #-8]
+      20:	e55b3011 	ldrb	r3, [fp, #-17]
+      24:	e2433001 	sub	r3, r3, #1	; 0x1
+      28:	e353000e 	cmp	r3, #14	; 0xe
+      2c:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+      30:	ea00002b 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      34:	00000070 	.word	0x00000070
+      38:	0000007c 	.word	0x0000007c
+      3c:	00000088 	.word	0x00000088
+      40:	00000094 	.word	0x00000094
+      44:	000000a0 	.word	0x000000a0
+      48:	000000ac 	.word	0x000000ac
+      4c:	000000b8 	.word	0x000000b8
+      50:	000000c4 	.word	0x000000c4
+      54:	000000e4 	.word	0x000000e4
+      58:	000000d0 	.word	0x000000d0
+      5c:	000000d0 	.word	0x000000d0
+      60:	000000d0 	.word	0x000000d0
+      64:	000000d0 	.word	0x000000d0
+      68:	000000d0 	.word	0x000000d0
+      6c:	000000dc 	.word	0x000000dc
+      70:	e3a03007 	mov	r3, #7	; 0x7
+      74:	e50b3008 	str	r3, [fp, #-8]
+      78:	ea000019 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      7c:	e3a03009 	mov	r3, #9	; 0x9
+      80:	e50b3008 	str	r3, [fp, #-8]
+      84:	ea000016 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      88:	e3a03008 	mov	r3, #8	; 0x8
+      8c:	e50b3008 	str	r3, [fp, #-8]
+      90:	ea000013 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      94:	e3a03005 	mov	r3, #5	; 0x5
+      98:	e50b3008 	str	r3, [fp, #-8]
+      9c:	ea000010 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      a0:	e3a03001 	mov	r3, #1	; 0x1
+      a4:	e50b3008 	str	r3, [fp, #-8]
+      a8:	ea00000d 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      ac:	e3a03003 	mov	r3, #3	; 0x3
+      b0:	e50b3008 	str	r3, [fp, #-8]
+      b4:	ea00000a 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      b8:	e3a03002 	mov	r3, #2	; 0x2
+      bc:	e50b3008 	str	r3, [fp, #-8]
+      c0:	ea000007 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      c4:	e3a03004 	mov	r3, #4	; 0x4
+      c8:	e50b3008 	str	r3, [fp, #-8]
+      cc:	ea000004 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      d0:	e3a03006 	mov	r3, #6	; 0x6
+      d4:	e50b3008 	str	r3, [fp, #-8]
+      d8:	ea000001 	b	e4 <_ZN8TicketUl17get_simple_statusEh+0xe4>
+      dc:	e3a0300a 	mov	r3, #10	; 0xa
+      e0:	e50b3008 	str	r3, [fp, #-8]
+      e4:	e51b3008 	ldr	r3, [fp, #-8]
+      e8:	e1a00003 	mov	r0, r3
+      ec:	e28bd000 	add	sp, fp, #0	; 0x0
+      f0:	e8bd0800 	pop	{fp}
+      f4:	e12fff1e 	bx	lr
+
+000000f8 <_ZN8TicketUl14unified_statusEv>:
+      f8:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+      fc:	e28db000 	add	fp, sp, #0	; 0x0
+     100:	e24dd014 	sub	sp, sp, #20	; 0x14
+     104:	e50b0010 	str	r0, [fp, #-16]
+     108:	e3e03000 	mvn	r3, #0	; 0x0
+     10c:	e54b3005 	strb	r3, [fp, #-5]
+     110:	e51b3010 	ldr	r3, [fp, #-16]
+     114:	e5d330d2 	ldrb	r3, [r3, #210]
+     118:	e2433001 	sub	r3, r3, #1	; 0x1
+     11c:	e353000e 	cmp	r3, #14	; 0xe
+     120:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+     124:	ea000037 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     128:	00000164 	.word	0x00000164
+     12c:	00000170 	.word	0x00000170
+     130:	0000017c 	.word	0x0000017c
+     134:	00000188 	.word	0x00000188
+     138:	00000194 	.word	0x00000194
+     13c:	000001a0 	.word	0x000001a0
+     140:	000001ac 	.word	0x000001ac
+     144:	000001b8 	.word	0x000001b8
+     148:	00000208 	.word	0x00000208
+     14c:	000001c4 	.word	0x000001c4
+     150:	000001d0 	.word	0x000001d0
+     154:	000001dc 	.word	0x000001dc
+     158:	000001e8 	.word	0x000001e8
+     15c:	000001f4 	.word	0x000001f4
+     160:	00000200 	.word	0x00000200
+     164:	e3e03037 	mvn	r3, #55	; 0x37
+     168:	e54b3005 	strb	r3, [fp, #-5]
+     16c:	ea000025 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     170:	e3e03036 	mvn	r3, #54	; 0x36
+     174:	e54b3005 	strb	r3, [fp, #-5]
+     178:	ea000022 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     17c:	e3e03035 	mvn	r3, #53	; 0x35
+     180:	e54b3005 	strb	r3, [fp, #-5]
+     184:	ea00001f 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     188:	e3e0302f 	mvn	r3, #47	; 0x2f
+     18c:	e54b3005 	strb	r3, [fp, #-5]
+     190:	ea00001c 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     194:	e3e03034 	mvn	r3, #52	; 0x34
+     198:	e54b3005 	strb	r3, [fp, #-5]
+     19c:	ea000019 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1a0:	e3e0302a 	mvn	r3, #42	; 0x2a
+     1a4:	e54b3005 	strb	r3, [fp, #-5]
+     1a8:	ea000016 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1ac:	e3e03033 	mvn	r3, #51	; 0x33
+     1b0:	e54b3005 	strb	r3, [fp, #-5]
+     1b4:	ea000013 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1b8:	e3e03031 	mvn	r3, #49	; 0x31
+     1bc:	e54b3005 	strb	r3, [fp, #-5]
+     1c0:	ea000010 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1c4:	e3e0302d 	mvn	r3, #45	; 0x2d
+     1c8:	e54b3005 	strb	r3, [fp, #-5]
+     1cc:	ea00000d 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1d0:	e3e0302e 	mvn	r3, #46	; 0x2e
+     1d4:	e54b3005 	strb	r3, [fp, #-5]
+     1d8:	ea00000a 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1dc:	e3e0302c 	mvn	r3, #44	; 0x2c
+     1e0:	e54b3005 	strb	r3, [fp, #-5]
+     1e4:	ea000007 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1e8:	e3e0302b 	mvn	r3, #43	; 0x2b
+     1ec:	e54b3005 	strb	r3, [fp, #-5]
+     1f0:	ea000004 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     1f4:	e3e0302e 	mvn	r3, #46	; 0x2e
+     1f8:	e54b3005 	strb	r3, [fp, #-5]
+     1fc:	ea000001 	b	208 <_ZN8TicketUl14unified_statusEv+0x110>
+     200:	e3e03029 	mvn	r3, #41	; 0x29
+     204:	e54b3005 	strb	r3, [fp, #-5]
+     208:	e55b3005 	ldrb	r3, [fp, #-5]
+     20c:	e1a00003 	mov	r0, r3
+     210:	e28bd000 	add	sp, fp, #0	; 0x0
+     214:	e8bd0800 	pop	{fp}
+     218:	e12fff1e 	bx	lr
+
+0000021c <_ZN8TicketUl19continue_last_tradeEPv>:
+     21c:	e92d4800 	push	{fp, lr}
+     220:	e28db004 	add	fp, sp, #4	; 0x4
+     224:	e24dd0b0 	sub	sp, sp, #176	; 0xb0
+     228:	e50b00a0 	str	r0, [fp, #-160]
+     22c:	e50b1098 	str	r1, [fp, #-152]
+     230:	e50b209c 	str	r2, [fp, #-156]
+     234:	e51b00a0 	ldr	r0, [fp, #-160]
+     238:	e50b00a4 	str	r0, [fp, #-164]
+     23c:	e3a03000 	mov	r3, #0	; 0x0
+     240:	e51b10a4 	ldr	r1, [fp, #-164]
+     244:	e5c13000 	strb	r3, [r1]
+     248:	e51b20a4 	ldr	r2, [fp, #-164]
+     24c:	e2822001 	add	r2, r2, #1	; 0x1
+     250:	e50b20a4 	str	r2, [fp, #-164]
+     254:	e3a03000 	mov	r3, #0	; 0x0
+     258:	e51b00a4 	ldr	r0, [fp, #-164]
+     25c:	e5c03000 	strb	r3, [r0]
+     260:	e51b10a4 	ldr	r1, [fp, #-164]
+     264:	e2811001 	add	r1, r1, #1	; 0x1
+     268:	e50b10a4 	str	r1, [fp, #-164]
+     26c:	e3a03000 	mov	r3, #0	; 0x0
+     270:	e51b20a4 	ldr	r2, [fp, #-164]
+     274:	e5c23000 	strb	r3, [r2]
+     278:	e51b30a4 	ldr	r3, [fp, #-164]
+     27c:	e2833001 	add	r3, r3, #1	; 0x1
+     280:	e50b30a4 	str	r3, [fp, #-164]
+     284:	e3a03000 	mov	r3, #0	; 0x0
+     288:	e51b00a4 	ldr	r0, [fp, #-164]
+     28c:	e5c03000 	strb	r3, [r0]
+     290:	e51b10a4 	ldr	r1, [fp, #-164]
+     294:	e2811001 	add	r1, r1, #1	; 0x1
+     298:	e50b10a4 	str	r1, [fp, #-164]
+     29c:	e3a03000 	mov	r3, #0	; 0x0
+     2a0:	e51b20a4 	ldr	r2, [fp, #-164]
+     2a4:	e5c23000 	strb	r3, [r2]
+     2a8:	e51b30a4 	ldr	r3, [fp, #-164]
+     2ac:	e2833001 	add	r3, r3, #1	; 0x1
+     2b0:	e24b308e 	sub	r3, fp, #142	; 0x8e
+     2b4:	e3a02040 	mov	r2, #64	; 0x40
+     2b8:	e1a00003 	mov	r0, r3
+     2bc:	e3a01000 	mov	r1, #0	; 0x0
+     2c0:	ebfffffe 	bl	0 <memset>
+     2c4:	e24b0019 	sub	r0, fp, #25	; 0x19
+     2c8:	e50b00a8 	str	r0, [fp, #-168]
+     2cc:	e3a03000 	mov	r3, #0	; 0x0
+     2d0:	e51b10a8 	ldr	r1, [fp, #-168]
+     2d4:	e5c13000 	strb	r3, [r1]
+     2d8:	e51b20a8 	ldr	r2, [fp, #-168]
+     2dc:	e2822001 	add	r2, r2, #1	; 0x1
+     2e0:	e50b20a8 	str	r2, [fp, #-168]
+     2e4:	e3a03000 	mov	r3, #0	; 0x0
+     2e8:	e51b00a8 	ldr	r0, [fp, #-168]
+     2ec:	e5c03000 	strb	r3, [r0]
+     2f0:	e51b10a8 	ldr	r1, [fp, #-168]
+     2f4:	e2811001 	add	r1, r1, #1	; 0x1
+     2f8:	e50b10a8 	str	r1, [fp, #-168]
+     2fc:	e3a03000 	mov	r3, #0	; 0x0
+     300:	e51b20a8 	ldr	r2, [fp, #-168]
+     304:	e5c23000 	strb	r3, [r2]
+     308:	e51b30a8 	ldr	r3, [fp, #-168]
+     30c:	e2833001 	add	r3, r3, #1	; 0x1
+     310:	e50b30a8 	str	r3, [fp, #-168]
+     314:	e3a03000 	mov	r3, #0	; 0x0
+     318:	e51b00a8 	ldr	r0, [fp, #-168]
+     31c:	e5c03000 	strb	r3, [r0]
+     320:	e51b10a8 	ldr	r1, [fp, #-168]
+     324:	e2811001 	add	r1, r1, #1	; 0x1
+     328:	e50b10a8 	str	r1, [fp, #-168]
+     32c:	e3a03000 	mov	r3, #0	; 0x0
+     330:	e51b20a8 	ldr	r2, [fp, #-168]
+     334:	e5c23000 	strb	r3, [r2]
+     338:	e51b30a8 	ldr	r3, [fp, #-168]
+     33c:	e2833001 	add	r3, r3, #1	; 0x1
+     340:	e50b30a8 	str	r3, [fp, #-168]
+     344:	e3a03000 	mov	r3, #0	; 0x0
+     348:	e51b00a8 	ldr	r0, [fp, #-168]
+     34c:	e5c03000 	strb	r3, [r0]
+     350:	e51b10a8 	ldr	r1, [fp, #-168]
+     354:	e2811001 	add	r1, r1, #1	; 0x1
+     358:	e50b10a8 	str	r1, [fp, #-168]
+     35c:	e3a03000 	mov	r3, #0	; 0x0
+     360:	e51b20a8 	ldr	r2, [fp, #-168]
+     364:	e5c23000 	strb	r3, [r2]
+     368:	e51b30a8 	ldr	r3, [fp, #-168]
+     36c:	e2833001 	add	r3, r3, #1	; 0x1
+     370:	e50b30a8 	str	r3, [fp, #-168]
+     374:	e3a03000 	mov	r3, #0	; 0x0
+     378:	e51b00a8 	ldr	r0, [fp, #-168]
+     37c:	e5c03000 	strb	r3, [r0]
+     380:	e51b10a8 	ldr	r1, [fp, #-168]
+     384:	e2811001 	add	r1, r1, #1	; 0x1
+     388:	e3a03000 	mov	r3, #0	; 0x0
+     38c:	e50b300c 	str	r3, [fp, #-12]
+     390:	e24b2024 	sub	r2, fp, #36	; 0x24
+     394:	e50b20ac 	str	r2, [fp, #-172]
+     398:	e3a03000 	mov	r3, #0	; 0x0
+     39c:	e51b00ac 	ldr	r0, [fp, #-172]
+     3a0:	e5803000 	str	r3, [r0]
+     3a4:	e51b10ac 	ldr	r1, [fp, #-172]
+     3a8:	e2811004 	add	r1, r1, #4	; 0x4
+     3ac:	e50b10ac 	str	r1, [fp, #-172]
+     3b0:	e3a03000 	mov	r3, #0	; 0x0
+     3b4:	e51b20ac 	ldr	r2, [fp, #-172]
+     3b8:	e5823000 	str	r3, [r2]
+     3bc:	e51b30ac 	ldr	r3, [fp, #-172]
+     3c0:	e2833004 	add	r3, r3, #4	; 0x4
+     3c4:	e50b30ac 	str	r3, [fp, #-172]
+     3c8:	e3a03000 	mov	r3, #0	; 0x0
+     3cc:	e51b00ac 	ldr	r0, [fp, #-172]
+     3d0:	e1c030b0 	strh	r3, [r0]
+     3d4:	e51b10ac 	ldr	r1, [fp, #-172]
+     3d8:	e2811002 	add	r1, r1, #2	; 0x2
+     3dc:	e50b10ac 	str	r1, [fp, #-172]
+     3e0:	e3a03000 	mov	r3, #0	; 0x0
+     3e4:	e51b20ac 	ldr	r2, [fp, #-172]
+     3e8:	e5c23000 	strb	r3, [r2]
+     3ec:	e51b30ac 	ldr	r3, [fp, #-172]
+     3f0:	e2833001 	add	r3, r3, #1	; 0x1
+     3f4:	e3e03039 	mvn	r3, #57	; 0x39
+     3f8:	e54b3005 	strb	r3, [fp, #-5]
+     3fc:	e24b304e 	sub	r3, fp, #78	; 0x4e
+     400:	e1a00003 	mov	r0, r3
+     404:	ebfffffe 	bl	0 <_ZN10TicketBase18get_confirm_factorEv>
+     408:	e24b304e 	sub	r3, fp, #78	; 0x4e
+     40c:	e2833004 	add	r3, r3, #4	; 0x4
+     410:	e24b2019 	sub	r2, fp, #25	; 0x19
+     414:	e1a00003 	mov	r0, r3
+     418:	e3a01010 	mov	r1, #16	; 0x10
+     41c:	e3a03008 	mov	r3, #8	; 0x8
+     420:	ebfffffe 	bl	0 <_ZN7Publics14string_to_bcdsEPcjPhj>
+     424:	e15b23b2 	ldrh	r2, [fp, #-50]
+     428:	e15b33b0 	ldrh	r3, [fp, #-48]
+     42c:	e1a03803 	lsl	r3, r3, #16
+     430:	e1833002 	orr	r3, r3, r2
+     434:	e1a02003 	mov	r2, r3
+     438:	e24b1019 	sub	r1, fp, #25	; 0x19
+     43c:	e24b304e 	sub	r3, fp, #78	; 0x4e
+     440:	e283c015 	add	ip, r3, #21	; 0x15
+     444:	e24b308e 	sub	r3, fp, #142	; 0x8e
+     448:	e58d3000 	str	r3, [sp]
+     44c:	e3a00000 	mov	r0, #0	; 0x0
+     450:	e1a0300c 	mov	r3, ip
+     454:	ebfffffe 	bl	0 <generate_tac>
+     458:	e1a03000 	mov	r3, r0
+     45c:	e3530000 	cmp	r3, #0	; 0x0
+     460:	03a03000 	moveq	r3, #0	; 0x0
+     464:	13a03001 	movne	r3, #1	; 0x1
+     468:	e20330ff 	and	r3, r3, #255	; 0xff
+     46c:	e3530000 	cmp	r3, #0	; 0x0
+     470:	0a000007 	beq	494 <_ZN8TicketUl19continue_last_tradeEPv+0x278>
+     474:	e3a03000 	mov	r3, #0	; 0x0
+     478:	e3833005 	orr	r3, r3, #5	; 0x5
+     47c:	e51b00a0 	ldr	r0, [fp, #-160]
+     480:	e5c03000 	strb	r3, [r0]
+     484:	e3a03000 	mov	r3, #0	; 0x0
+     488:	e51b10a0 	ldr	r1, [fp, #-160]
+     48c:	e5c13001 	strb	r3, [r1, #1]
+     490:	ea000030 	b	558 <_ZN8TicketUl19continue_last_tradeEPv+0x33c>
+     494:	e55b3088 	ldrb	r3, [fp, #-136]
+     498:	e1a02c03 	lsl	r2, r3, #24
+     49c:	e55b3087 	ldrb	r3, [fp, #-135]
+     4a0:	e1a03803 	lsl	r3, r3, #16
+     4a4:	e0822003 	add	r2, r2, r3
+     4a8:	e55b3086 	ldrb	r3, [fp, #-134]
+     4ac:	e1a03403 	lsl	r3, r3, #8
+     4b0:	e0822003 	add	r2, r2, r3
+     4b4:	e55b3085 	ldrb	r3, [fp, #-133]
+     4b8:	e0823003 	add	r3, r2, r3
+     4bc:	e50b300c 	str	r3, [fp, #-12]
+     4c0:	e55b3084 	ldrb	r3, [fp, #-132]
+     4c4:	e1a0c003 	mov	ip, r3
+     4c8:	e55b3083 	ldrb	r3, [fp, #-131]
+     4cc:	e1a0e003 	mov	lr, r3
+     4d0:	e55b3082 	ldrb	r3, [fp, #-130]
+     4d4:	e1a01003 	mov	r1, r3
+     4d8:	e55b3081 	ldrb	r3, [fp, #-129]
+     4dc:	e24b2024 	sub	r2, fp, #36	; 0x24
+     4e0:	e58d1000 	str	r1, [sp]
+     4e4:	e58d3004 	str	r3, [sp, #4]
+     4e8:	e1a00002 	mov	r0, r2
+     4ec:	e59f10c4 	ldr	r1, [pc, #196]	; 5b8 <_ZN8TicketUl19continue_last_tradeEPv+0x39c>
+     4f0:	e1a0200c 	mov	r2, ip
+     4f4:	e1a0300e 	mov	r3, lr
+     4f8:	ebfffffe 	bl	0 <sprintf>
+     4fc:	e51b3098 	ldr	r3, [fp, #-152]
+     500:	e55b2005 	ldrb	r2, [fp, #-5]
+     504:	e24bc024 	sub	ip, fp, #36	; 0x24
+     508:	e1a00003 	mov	r0, r3
+     50c:	e1a01002 	mov	r1, r2
+     510:	e51b200c 	ldr	r2, [fp, #-12]
+     514:	e1a0300c 	mov	r3, ip
+     518:	ebfffffe 	bl	0 <_ZN10TicketBase18set_confirm_factorEhlPc>
+     51c:	e59f2098 	ldr	r2, [pc, #152]	; 5bc <_ZN8TicketUl19continue_last_tradeEPv+0x3a0>
+     520:	e5d210dc 	ldrb	r1, [r2, #220]
+     524:	e5d230dd 	ldrb	r3, [r2, #221]
+     528:	e1a03403 	lsl	r3, r3, #8
+     52c:	e1831001 	orr	r1, r3, r1
+     530:	e5d230de 	ldrb	r3, [r2, #222]
+     534:	e1a03803 	lsl	r3, r3, #16
+     538:	e1831001 	orr	r1, r3, r1
+     53c:	e5d230df 	ldrb	r3, [r2, #223]
+     540:	e1a03c03 	lsl	r3, r3, #24
+     544:	e1833001 	orr	r3, r3, r1
+     548:	e51b009c 	ldr	r0, [fp, #-156]
+     54c:	e59f106c 	ldr	r1, [pc, #108]	; 5c0 <_ZN8TicketUl19continue_last_tradeEPv+0x3a4>
+     550:	e1a02003 	mov	r2, r3
+     554:	ebfffffe 	bl	0 <memcpy>
+     558:	e51b30a0 	ldr	r3, [fp, #-160]
+     55c:	e5d32000 	ldrb	r2, [r3]
+     560:	e51b00a0 	ldr	r0, [fp, #-160]
+     564:	e5d03001 	ldrb	r3, [r0, #1]
+     568:	e1a03403 	lsl	r3, r3, #8
+     56c:	e1833002 	orr	r3, r3, r2
+     570:	e1a03803 	lsl	r3, r3, #16
+     574:	e1a01823 	lsr	r1, r3, #16
+     578:	e51b30a0 	ldr	r3, [fp, #-160]
+     57c:	e5d32000 	ldrb	r2, [r3]
+     580:	e51b00a0 	ldr	r0, [fp, #-160]
+     584:	e5d03001 	ldrb	r3, [r0, #1]
+     588:	e1a03403 	lsl	r3, r3, #8
+     58c:	e1833002 	orr	r3, r3, r2
+     590:	e1a03803 	lsl	r3, r3, #16
+     594:	e1a03823 	lsr	r3, r3, #16
+     598:	e58d3000 	str	r3, [sp]
+     59c:	e59f0020 	ldr	r0, [pc, #32]	; 5c4 <_ZN8TicketUl19continue_last_tradeEPv+0x3a8>
+     5a0:	e3a02004 	mov	r2, #4	; 0x4
+     5a4:	e59f301c 	ldr	r3, [pc, #28]	; 5c8 <_ZN8TicketUl19continue_last_tradeEPv+0x3ac>
+     5a8:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+     5ac:	e51b00a0 	ldr	r0, [fp, #-160]
+     5b0:	e24bd004 	sub	sp, fp, #4	; 0x4
+     5b4:	e8bd8800 	pop	{fp, pc}
+	...
+     5c0:	00000010 	.word	0x00000010
+     5c4:	00000000 	.word	0x00000000
+     5c8:	00000014 	.word	0x00000014
+
+000005cc <_ZN8TicketUl24last_trade_need_continueEhtt>:
+     5cc:	e92d4810 	push	{r4, fp, lr}
+     5d0:	e28db008 	add	fp, sp, #8	; 0x8
+     5d4:	e24dd04c 	sub	sp, sp, #76	; 0x4c
+     5d8:	e50b0040 	str	r0, [fp, #-64]
+     5dc:	e1a00003 	mov	r0, r3
+     5e0:	e1a03001 	mov	r3, r1
+     5e4:	e54b3041 	strb	r3, [fp, #-65]
+     5e8:	e14b24b4 	strh	r2, [fp, #-68]
+     5ec:	e14b04b6 	strh	r0, [fp, #-70]
+     5f0:	e24b3037 	sub	r3, fp, #55	; 0x37
+     5f4:	e1a00003 	mov	r0, r3
+     5f8:	ebfffffe 	bl	0 <_ZN10TicketBase18get_confirm_factorEv>
+     5fc:	e51b1040 	ldr	r1, [fp, #-64]
+     600:	e51b3040 	ldr	r3, [fp, #-64]
+     604:	e5d3c0d2 	ldrb	ip, [r3, #210]
+     608:	e55b2041 	ldrb	r2, [fp, #-65]
+     60c:	e15b44b4 	ldrh	r4, [fp, #-68]
+     610:	e15b34b6 	ldrh	r3, [fp, #-70]
+     614:	e58d3000 	str	r3, [sp]
+     618:	e1a00001 	mov	r0, r1
+     61c:	e1a01002 	mov	r1, r2
+     620:	e1a0200c 	mov	r2, ip
+     624:	e1a03004 	mov	r3, r4
+     628:	ebfffffe 	bl	0 <_ZN10TicketBase13check_confirmEhhtt>
+     62c:	e1a03000 	mov	r3, r0
+     630:	e54b300d 	strb	r3, [fp, #-13]
+     634:	e55b300d 	ldrb	r3, [fp, #-13]
+     638:	e3530000 	cmp	r3, #0	; 0x0
+     63c:	0a000012 	beq	68c <_ZN8TicketUl24last_trade_need_continueEhtt+0xc0>
+     640:	e51b3040 	ldr	r3, [fp, #-64]
+     644:	e2833d05 	add	r3, r3, #320	; 0x140
+     648:	e2833001 	add	r3, r3, #1	; 0x1
+     64c:	e1a00003 	mov	r0, r3
+     650:	e59f1044 	ldr	r1, [pc, #68]	; 69c <_ZN8TicketUl24last_trade_need_continueEhtt+0xd0>
+     654:	e3a02010 	mov	r2, #16	; 0x10
+     658:	ebfffffe 	bl	0 <memcmp>
+     65c:	e1a03000 	mov	r3, r0
+     660:	e3530000 	cmp	r3, #0	; 0x0
+     664:	0a000006 	beq	684 <_ZN8TicketUl24last_trade_need_continueEhtt+0xb8>
+     668:	e59f0030 	ldr	r0, [pc, #48]	; 6a0 <_ZN8TicketUl24last_trade_need_continueEhtt+0xd4>
+     66c:	e3a01000 	mov	r1, #0	; 0x0
+     670:	e3a02fb9 	mov	r2, #740	; 0x2e4
+     674:	ebfffffe 	bl	0 <memset>
+     678:	e3a03000 	mov	r3, #0	; 0x0
+     67c:	e54b300d 	strb	r3, [fp, #-13]
+     680:	ea000001 	b	68c <_ZN8TicketUl24last_trade_need_continueEhtt+0xc0>
+     684:	e3a03001 	mov	r3, #1	; 0x1
+     688:	e54b300d 	strb	r3, [fp, #-13]
+     68c:	e55b300d 	ldrb	r3, [fp, #-13]
+     690:	e1a00003 	mov	r0, r3
+     694:	e24bd008 	sub	sp, fp, #8	; 0x8
+     698:	e8bd8810 	pop	{r4, fp, pc}
+     69c:	000000e0 	.word	0x000000e0
+     6a0:	00000000 	.word	0x00000000
+
+000006a4 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM>:
+     6a4:	e92d4800 	push	{fp, lr}
+     6a8:	e28db004 	add	fp, sp, #4	; 0x4
+     6ac:	e24dd018 	sub	sp, sp, #24	; 0x18
+     6b0:	e50b0010 	str	r0, [fp, #-16]
+     6b4:	e1a00001 	mov	r0, r1
+     6b8:	e24b101c 	sub	r1, fp, #28	; 0x1c
+     6bc:	e881000c 	stm	r1, {r2, r3}
+     6c0:	e1a03000 	mov	r3, r0
+     6c4:	e54b3011 	strb	r3, [fp, #-17]
+     6c8:	e3a03000 	mov	r3, #0	; 0x0
+     6cc:	e50b3008 	str	r3, [fp, #-8]
+     6d0:	e59b3004 	ldr	r3, [fp, #4]
+     6d4:	e2833074 	add	r3, r3, #116	; 0x74
+     6d8:	e1a00003 	mov	r0, r3
+     6dc:	ebfffffe 	bl	0 <_ZN8ParamMgr11permit_saleEPc>
+     6e0:	e1a03000 	mov	r3, r0
+     6e4:	e3530000 	cmp	r3, #0	; 0x0
+     6e8:	0a00000b 	beq	71c <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0x78>
+     6ec:	e55b301a 	ldrb	r3, [fp, #-26]
+     6f0:	e3530010 	cmp	r3, #16	; 0x10
+     6f4:	1a000002 	bne	704 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0x60>
+     6f8:	e51b3008 	ldr	r3, [fp, #-8]
+     6fc:	e3833004 	orr	r3, r3, #4	; 0x4
+     700:	e50b3008 	str	r3, [fp, #-8]
+     704:	e15b31bc 	ldrh	r3, [fp, #-28]
+     708:	e3530008 	cmp	r3, #8	; 0x8
+     70c:	1a000002 	bne	71c <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0x78>
+     710:	e51b3008 	ldr	r3, [fp, #-8]
+     714:	e3833004 	orr	r3, r3, #4	; 0x4
+     718:	e50b3008 	str	r3, [fp, #-8]
+     71c:	e55b3011 	ldrb	r3, [fp, #-17]
+     720:	e3530001 	cmp	r3, #1	; 0x1
+     724:	0a000013 	beq	778 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0xd4>
+     728:	e59b3004 	ldr	r3, [fp, #4]
+     72c:	e5d3301b 	ldrb	r3, [r3, #27]
+     730:	e3530000 	cmp	r3, #0	; 0x0
+     734:	0a00000f 	beq	778 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0xd4>
+     738:	e15b31bc 	ldrh	r3, [fp, #-28]
+     73c:	e3530000 	cmp	r3, #0	; 0x0
+     740:	1a00000c 	bne	778 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0xd4>
+     744:	e51b3010 	ldr	r3, [fp, #-16]
+     748:	e59330b0 	ldr	r3, [r3, #176]
+     74c:	e3530000 	cmp	r3, #0	; 0x0
+     750:	da000008 	ble	778 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0xd4>
+     754:	e51b3010 	ldr	r3, [fp, #-16]
+     758:	e59320b0 	ldr	r2, [r3, #176]
+     75c:	e59b3004 	ldr	r3, [fp, #4]
+     760:	e593306c 	ldr	r3, [r3, #108]
+     764:	e1520003 	cmp	r2, r3
+     768:	ca000002 	bgt	778 <_ZN8TicketUl15add_oper_statusEh7RETINFOP12TICKET_PARAM+0xd4>
+     76c:	e51b3008 	ldr	r3, [fp, #-8]
+     770:	e3833020 	orr	r3, r3, #32	; 0x20
+     774:	e50b3008 	str	r3, [fp, #-8]
+     778:	e51b3008 	ldr	r3, [fp, #-8]
+     77c:	e1a00003 	mov	r0, r3
+     780:	e24bd004 	sub	sp, fp, #4	; 0x4
+     784:	e8bd8800 	pop	{fp, pc}
+
+00000788 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc>:
+     788:	e92d4800 	push	{fp, lr}
+     78c:	e28db004 	add	fp, sp, #4	; 0x4
+     790:	e24dd020 	sub	sp, sp, #32	; 0x20
+     794:	e50b0020 	str	r0, [fp, #-32]
+     798:	e50b1010 	str	r1, [fp, #-16]
+     79c:	e50b3018 	str	r3, [fp, #-24]
+     7a0:	e1a03002 	mov	r3, r2
+     7a4:	e54b3011 	strb	r3, [fp, #-17]
+     7a8:	e51b2020 	ldr	r2, [fp, #-32]
+     7ac:	e50b2024 	str	r2, [fp, #-36]
+     7b0:	e3a03000 	mov	r3, #0	; 0x0
+     7b4:	e51b2024 	ldr	r2, [fp, #-36]
+     7b8:	e5c23000 	strb	r3, [r2]
+     7bc:	e51b3024 	ldr	r3, [fp, #-36]
+     7c0:	e2833001 	add	r3, r3, #1	; 0x1
+     7c4:	e50b3024 	str	r3, [fp, #-36]
+     7c8:	e3a03000 	mov	r3, #0	; 0x0
+     7cc:	e51b2024 	ldr	r2, [fp, #-36]
+     7d0:	e5c23000 	strb	r3, [r2]
+     7d4:	e51b3024 	ldr	r3, [fp, #-36]
+     7d8:	e2833001 	add	r3, r3, #1	; 0x1
+     7dc:	e50b3024 	str	r3, [fp, #-36]
+     7e0:	e3a03000 	mov	r3, #0	; 0x0
+     7e4:	e51b2024 	ldr	r2, [fp, #-36]
+     7e8:	e5c23000 	strb	r3, [r2]
+     7ec:	e51b3024 	ldr	r3, [fp, #-36]
+     7f0:	e2833001 	add	r3, r3, #1	; 0x1
+     7f4:	e50b3024 	str	r3, [fp, #-36]
+     7f8:	e3a03000 	mov	r3, #0	; 0x0
+     7fc:	e51b2024 	ldr	r2, [fp, #-36]
+     800:	e5c23000 	strb	r3, [r2]
+     804:	e51b3024 	ldr	r3, [fp, #-36]
+     808:	e2833001 	add	r3, r3, #1	; 0x1
+     80c:	e50b3024 	str	r3, [fp, #-36]
+     810:	e3a03000 	mov	r3, #0	; 0x0
+     814:	e51b2024 	ldr	r2, [fp, #-36]
+     818:	e5c23000 	strb	r3, [r2]
+     81c:	e51b3024 	ldr	r3, [fp, #-36]
+     820:	e2833001 	add	r3, r3, #1	; 0x1
+     824:	e3a03030 	mov	r3, #48	; 0x30
+     828:	e54b3005 	strb	r3, [fp, #-5]
+     82c:	e51b3010 	ldr	r3, [fp, #-16]
+     830:	e59330d4 	ldr	r3, [r3, #212]
+     834:	e353000b 	cmp	r3, #11	; 0xb
+     838:	1a000007 	bne	85c <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0xd4>
+     83c:	e3a03000 	mov	r3, #0	; 0x0
+     840:	e3833007 	orr	r3, r3, #7	; 0x7
+     844:	e51b2020 	ldr	r2, [fp, #-32]
+     848:	e5c23000 	strb	r3, [r2]
+     84c:	e3a03000 	mov	r3, #0	; 0x0
+     850:	e51b2020 	ldr	r2, [fp, #-32]
+     854:	e5c23001 	strb	r3, [r2, #1]
+     858:	ea0000a1 	b	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     85c:	e51b3010 	ldr	r3, [fp, #-16]
+     860:	e59330d4 	ldr	r3, [r3, #212]
+     864:	e353000a 	cmp	r3, #10	; 0xa
+     868:	1a00000a 	bne	898 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x110>
+     86c:	e3a03000 	mov	r3, #0	; 0x0
+     870:	e3833008 	orr	r3, r3, #8	; 0x8
+     874:	e51b2020 	ldr	r2, [fp, #-32]
+     878:	e5c23000 	strb	r3, [r2]
+     87c:	e3a03000 	mov	r3, #0	; 0x0
+     880:	e51b2020 	ldr	r2, [fp, #-32]
+     884:	e5c23001 	strb	r3, [r2, #1]
+     888:	e3a03010 	mov	r3, #16	; 0x10
+     88c:	e51b2020 	ldr	r2, [fp, #-32]
+     890:	e5c23002 	strb	r3, [r2, #2]
+     894:	ea000092 	b	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     898:	e59b3004 	ldr	r3, [fp, #4]
+     89c:	e2833074 	add	r3, r3, #116	; 0x74
+     8a0:	e1a00003 	mov	r0, r3
+     8a4:	ebfffffe 	bl	0 <_ZN8ParamMgr11permit_saleEPc>
+     8a8:	e1a03000 	mov	r3, r0
+     8ac:	e3530000 	cmp	r3, #0	; 0x0
+     8b0:	0a000035 	beq	98c <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x204>
+     8b4:	e51b3010 	ldr	r3, [fp, #-16]
+     8b8:	e59330d4 	ldr	r3, [r3, #212]
+     8bc:	e3530007 	cmp	r3, #7	; 0x7
+     8c0:	1a000031 	bne	98c <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x204>
+     8c4:	e3a03000 	mov	r3, #0	; 0x0
+     8c8:	e3833006 	orr	r3, r3, #6	; 0x6
+     8cc:	e51b2020 	ldr	r2, [fp, #-32]
+     8d0:	e5c23000 	strb	r3, [r2]
+     8d4:	e3a03000 	mov	r3, #0	; 0x0
+     8d8:	e51b2020 	ldr	r2, [fp, #-32]
+     8dc:	e5c23001 	strb	r3, [r2, #1]
+     8e0:	e59b3010 	ldr	r3, [fp, #16]
+     8e4:	e3530000 	cmp	r3, #0	; 0x0
+     8e8:	0a00007d 	beq	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     8ec:	e59b2010 	ldr	r2, [fp, #16]
+     8f0:	e5d21069 	ldrb	r1, [r2, #105]
+     8f4:	e5d2306a 	ldrb	r3, [r2, #106]
+     8f8:	e1a03403 	lsl	r3, r3, #8
+     8fc:	e1831001 	orr	r1, r3, r1
+     900:	e5d2306b 	ldrb	r3, [r2, #107]
+     904:	e1a03803 	lsl	r3, r3, #16
+     908:	e1831001 	orr	r1, r3, r1
+     90c:	e5d2306c 	ldrb	r3, [r2, #108]
+     910:	e1a03c03 	lsl	r3, r3, #24
+     914:	e1833001 	orr	r3, r3, r1
+     918:	e3830004 	orr	r0, r3, #4	; 0x4
+     91c:	e59bc010 	ldr	ip, [fp, #16]
+     920:	e20010ff 	and	r1, r0, #255	; 0xff
+     924:	e3a03000 	mov	r3, #0	; 0x0
+     928:	e1a02003 	mov	r2, r3
+     92c:	e1a03001 	mov	r3, r1
+     930:	e1823003 	orr	r3, r2, r3
+     934:	e5cc3069 	strb	r3, [ip, #105]
+     938:	e1a03420 	lsr	r3, r0, #8
+     93c:	e20310ff 	and	r1, r3, #255	; 0xff
+     940:	e3a03000 	mov	r3, #0	; 0x0
+     944:	e1a02003 	mov	r2, r3
+     948:	e1a03001 	mov	r3, r1
+     94c:	e1823003 	orr	r3, r2, r3
+     950:	e5cc306a 	strb	r3, [ip, #106]
+     954:	e1a03820 	lsr	r3, r0, #16
+     958:	e20310ff 	and	r1, r3, #255	; 0xff
+     95c:	e3a03000 	mov	r3, #0	; 0x0
+     960:	e1a02003 	mov	r2, r3
+     964:	e1a03001 	mov	r3, r1
+     968:	e1823003 	orr	r3, r2, r3
+     96c:	e5cc306b 	strb	r3, [ip, #107]
+     970:	e1a01c20 	lsr	r1, r0, #24
+     974:	e3a03000 	mov	r3, #0	; 0x0
+     978:	e1a02003 	mov	r2, r3
+     97c:	e1a03001 	mov	r3, r1
+     980:	e1823003 	orr	r3, r2, r3
+     984:	e5cc306c 	strb	r3, [ip, #108]
+     988:	ea000055 	b	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     98c:	e51b3010 	ldr	r3, [fp, #-16]
+     990:	e59330d4 	ldr	r3, [r3, #212]
+     994:	e3530003 	cmp	r3, #3	; 0x3
+     998:	0a000051 	beq	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     99c:	e51b3010 	ldr	r3, [fp, #-16]
+     9a0:	e59320b0 	ldr	r2, [r3, #176]
+     9a4:	e59b3004 	ldr	r3, [fp, #4]
+     9a8:	e5933004 	ldr	r3, [r3, #4]
+     9ac:	e1520003 	cmp	r2, r3
+     9b0:	da00004b 	ble	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     9b4:	e51b3018 	ldr	r3, [fp, #-24]
+     9b8:	e5d33001 	ldrb	r3, [r3, #1]
+     9bc:	e3530000 	cmp	r3, #0	; 0x0
+     9c0:	0a000002 	beq	9d0 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x248>
+     9c4:	e3a03031 	mov	r3, #49	; 0x31
+     9c8:	e54b3005 	strb	r3, [fp, #-5]
+     9cc:	ea000044 	b	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     9d0:	e3a03000 	mov	r3, #0	; 0x0
+     9d4:	e3833024 	orr	r3, r3, #36	; 0x24
+     9d8:	e51b2020 	ldr	r2, [fp, #-32]
+     9dc:	e5c23000 	strb	r3, [r2]
+     9e0:	e3a03000 	mov	r3, #0	; 0x0
+     9e4:	e51b2020 	ldr	r2, [fp, #-32]
+     9e8:	e5c23001 	strb	r3, [r2, #1]
+     9ec:	e55b3011 	ldrb	r3, [fp, #-17]
+     9f0:	e3530002 	cmp	r3, #2	; 0x2
+     9f4:	1a00000e 	bne	a34 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x2ac>
+     9f8:	e59b3010 	ldr	r3, [fp, #16]
+     9fc:	e3530000 	cmp	r3, #0	; 0x0
+     a00:	0a00000b 	beq	a34 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x2ac>
+     a04:	e59b3004 	ldr	r3, [fp, #4]
+     a08:	e2833074 	add	r3, r3, #116	; 0x74
+     a0c:	e1a00003 	mov	r0, r3
+     a10:	ebfffffe 	bl	0 <_ZN8ParamMgr11permit_saleEPc>
+     a14:	e1a03000 	mov	r3, r0
+     a18:	e2233001 	eor	r3, r3, #1	; 0x1
+     a1c:	e20330ff 	and	r3, r3, #255	; 0xff
+     a20:	e3530000 	cmp	r3, #0	; 0x0
+     a24:	1a000002 	bne	a34 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x2ac>
+     a28:	e3a03001 	mov	r3, #1	; 0x1
+     a2c:	e50b301c 	str	r3, [fp, #-28]
+     a30:	ea000001 	b	a3c <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x2b4>
+     a34:	e3a02000 	mov	r2, #0	; 0x0
+     a38:	e50b201c 	str	r2, [fp, #-28]
+     a3c:	e51b301c 	ldr	r3, [fp, #-28]
+     a40:	e3530000 	cmp	r3, #0	; 0x0
+     a44:	0a000026 	beq	ae4 <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x35c>
+     a48:	e59b2010 	ldr	r2, [fp, #16]
+     a4c:	e5d21069 	ldrb	r1, [r2, #105]
+     a50:	e5d2306a 	ldrb	r3, [r2, #106]
+     a54:	e1a03403 	lsl	r3, r3, #8
+     a58:	e1831001 	orr	r1, r3, r1
+     a5c:	e5d2306b 	ldrb	r3, [r2, #107]
+     a60:	e1a03803 	lsl	r3, r3, #16
+     a64:	e1831001 	orr	r1, r3, r1
+     a68:	e5d2306c 	ldrb	r3, [r2, #108]
+     a6c:	e1a03c03 	lsl	r3, r3, #24
+     a70:	e1833001 	orr	r3, r3, r1
+     a74:	e3830004 	orr	r0, r3, #4	; 0x4
+     a78:	e59bc010 	ldr	ip, [fp, #16]
+     a7c:	e20010ff 	and	r1, r0, #255	; 0xff
+     a80:	e3a03000 	mov	r3, #0	; 0x0
+     a84:	e1a02003 	mov	r2, r3
+     a88:	e1a03001 	mov	r3, r1
+     a8c:	e1823003 	orr	r3, r2, r3
+     a90:	e5cc3069 	strb	r3, [ip, #105]
+     a94:	e1a03420 	lsr	r3, r0, #8
+     a98:	e20310ff 	and	r1, r3, #255	; 0xff
+     a9c:	e3a03000 	mov	r3, #0	; 0x0
+     aa0:	e1a02003 	mov	r2, r3
+     aa4:	e1a03001 	mov	r3, r1
+     aa8:	e1823003 	orr	r3, r2, r3
+     aac:	e5cc306a 	strb	r3, [ip, #106]
+     ab0:	e1a03820 	lsr	r3, r0, #16
+     ab4:	e20310ff 	and	r1, r3, #255	; 0xff
+     ab8:	e3a03000 	mov	r3, #0	; 0x0
+     abc:	e1a02003 	mov	r2, r3
+     ac0:	e1a03001 	mov	r3, r1
+     ac4:	e1823003 	orr	r3, r2, r3
+     ac8:	e5cc306b 	strb	r3, [ip, #107]
+     acc:	e1a01c20 	lsr	r1, r0, #24
+     ad0:	e3a03000 	mov	r3, #0	; 0x0
+     ad4:	e1a02003 	mov	r2, r3
+     ad8:	e1a03001 	mov	r3, r1
+     adc:	e1823003 	orr	r3, r2, r3
+     ae0:	e5cc306c 	strb	r3, [ip, #108]
+     ae4:	e59b3014 	ldr	r3, [fp, #20]
+     ae8:	e3530000 	cmp	r3, #0	; 0x0
+     aec:	0a000002 	beq	afc <_ZN8TicketUl14analyse_commonEhP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10TICKETLOCKRtP10BOMANALYZEPc+0x374>
+     af0:	e59b2014 	ldr	r2, [fp, #20]
+     af4:	e55b3005 	ldrb	r3, [fp, #-5]
+     af8:	e5c23000 	strb	r3, [r2]
+     afc:	e51b0020 	ldr	r0, [fp, #-32]
+     b00:	e24bd004 	sub	sp, fp, #4	; 0x4
+     b04:	e8bd8800 	pop	{fp, pc}
+
+00000b08 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE>:
+     b08:	e92d4800 	push	{fp, lr}
+     b0c:	e28db004 	add	fp, sp, #4	; 0x4
+     b10:	e24dd040 	sub	sp, sp, #64	; 0x40
+     b14:	e50b0034 	str	r0, [fp, #-52]
+     b18:	e50b1018 	str	r1, [fp, #-24]
+     b1c:	e50b201c 	str	r2, [fp, #-28]
+     b20:	e50b3020 	str	r3, [fp, #-32]
+     b24:	e51b1034 	ldr	r1, [fp, #-52]
+     b28:	e50b1038 	str	r1, [fp, #-56]
+     b2c:	e3a03000 	mov	r3, #0	; 0x0
+     b30:	e51b2038 	ldr	r2, [fp, #-56]
+     b34:	e5c23000 	strb	r3, [r2]
+     b38:	e51b3038 	ldr	r3, [fp, #-56]
+     b3c:	e2833001 	add	r3, r3, #1	; 0x1
+     b40:	e50b3038 	str	r3, [fp, #-56]
+     b44:	e3a03000 	mov	r3, #0	; 0x0
+     b48:	e51b1038 	ldr	r1, [fp, #-56]
+     b4c:	e5c13000 	strb	r3, [r1]
+     b50:	e51b2038 	ldr	r2, [fp, #-56]
+     b54:	e2822001 	add	r2, r2, #1	; 0x1
+     b58:	e50b2038 	str	r2, [fp, #-56]
+     b5c:	e3a03000 	mov	r3, #0	; 0x0
+     b60:	e51b1038 	ldr	r1, [fp, #-56]
+     b64:	e5c13000 	strb	r3, [r1]
+     b68:	e51b2038 	ldr	r2, [fp, #-56]
+     b6c:	e2822001 	add	r2, r2, #1	; 0x1
+     b70:	e50b2038 	str	r2, [fp, #-56]
+     b74:	e3a03000 	mov	r3, #0	; 0x0
+     b78:	e51b1038 	ldr	r1, [fp, #-56]
+     b7c:	e5c13000 	strb	r3, [r1]
+     b80:	e51b2038 	ldr	r2, [fp, #-56]
+     b84:	e2822001 	add	r2, r2, #1	; 0x1
+     b88:	e50b2038 	str	r2, [fp, #-56]
+     b8c:	e3a03000 	mov	r3, #0	; 0x0
+     b90:	e51b1038 	ldr	r1, [fp, #-56]
+     b94:	e5c13000 	strb	r3, [r1]
+     b98:	e51b2038 	ldr	r2, [fp, #-56]
+     b9c:	e2822001 	add	r2, r2, #1	; 0x1
+     ba0:	e3a03000 	mov	r3, #0	; 0x0
+     ba4:	e50b3008 	str	r3, [fp, #-8]
+     ba8:	e51b3018 	ldr	r3, [fp, #-24]
+     bac:	e59330d4 	ldr	r3, [r3, #212]
+     bb0:	e3530003 	cmp	r3, #3	; 0x3
+     bb4:	0a000003 	beq	bc8 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0xc0>
+     bb8:	e51b3018 	ldr	r3, [fp, #-24]
+     bbc:	e59330d4 	ldr	r3, [r3, #212]
+     bc0:	e3530001 	cmp	r3, #1	; 0x1
+     bc4:	1a00000a 	bne	bf4 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0xec>
+     bc8:	e3a03000 	mov	r3, #0	; 0x0
+     bcc:	e383300a 	orr	r3, r3, #10	; 0xa
+     bd0:	e51b1034 	ldr	r1, [fp, #-52]
+     bd4:	e5c13000 	strb	r3, [r1]
+     bd8:	e3a03000 	mov	r3, #0	; 0x0
+     bdc:	e51b2034 	ldr	r2, [fp, #-52]
+     be0:	e5c23001 	strb	r3, [r2, #1]
+     be4:	e3a03010 	mov	r3, #16	; 0x10
+     be8:	e51b1034 	ldr	r1, [fp, #-52]
+     bec:	e5c13002 	strb	r3, [r1, #2]
+     bf0:	ea000064 	b	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     bf4:	e51b1018 	ldr	r1, [fp, #-24]
+     bf8:	e24b202c 	sub	r2, fp, #44	; 0x2c
+     bfc:	e59b3004 	ldr	r3, [fp, #4]
+     c00:	e58d3000 	str	r3, [sp]
+     c04:	e1a00002 	mov	r0, r2
+     c08:	e51b201c 	ldr	r2, [fp, #-28]
+     c0c:	e51b3020 	ldr	r3, [fp, #-32]
+     c10:	ebfffffe 	bl	0 <_ZN10TicketBase17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE>
+     c14:	e51b3034 	ldr	r3, [fp, #-52]
+     c18:	e24b202c 	sub	r2, fp, #44	; 0x2c
+     c1c:	e3a0c005 	mov	ip, #5	; 0x5
+     c20:	e1a00003 	mov	r0, r3
+     c24:	e1a01002 	mov	r1, r2
+     c28:	e1a0200c 	mov	r2, ip
+     c2c:	ebfffffe 	bl	0 <memcpy>
+     c30:	e51b3034 	ldr	r3, [fp, #-52]
+     c34:	e5d32000 	ldrb	r2, [r3]
+     c38:	e51b1034 	ldr	r1, [fp, #-52]
+     c3c:	e5d13001 	ldrb	r3, [r1, #1]
+     c40:	e1a03403 	lsl	r3, r3, #8
+     c44:	e1833002 	orr	r3, r3, r2
+     c48:	e1a03803 	lsl	r3, r3, #16
+     c4c:	e1a03823 	lsr	r3, r3, #16
+     c50:	e3530000 	cmp	r3, #0	; 0x0
+     c54:	0a000021 	beq	ce0 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x1d8>
+     c58:	e51b3034 	ldr	r3, [fp, #-52]
+     c5c:	e5d32000 	ldrb	r2, [r3]
+     c60:	e51b1034 	ldr	r1, [fp, #-52]
+     c64:	e5d13001 	ldrb	r3, [r1, #1]
+     c68:	e1a03403 	lsl	r3, r3, #8
+     c6c:	e1833002 	orr	r3, r3, r2
+     c70:	e1a03803 	lsl	r3, r3, #16
+     c74:	e1a03823 	lsr	r3, r3, #16
+     c78:	e3530025 	cmp	r3, #37	; 0x25
+     c7c:	0a000013 	beq	cd0 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x1c8>
+     c80:	e51b3034 	ldr	r3, [fp, #-52]
+     c84:	e5d32000 	ldrb	r2, [r3]
+     c88:	e51b1034 	ldr	r1, [fp, #-52]
+     c8c:	e5d13001 	ldrb	r3, [r1, #1]
+     c90:	e1a03403 	lsl	r3, r3, #8
+     c94:	e1833002 	orr	r3, r3, r2
+     c98:	e1a03803 	lsl	r3, r3, #16
+     c9c:	e1a03823 	lsr	r3, r3, #16
+     ca0:	e3530026 	cmp	r3, #38	; 0x26
+     ca4:	0a000009 	beq	cd0 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x1c8>
+     ca8:	e51b3034 	ldr	r3, [fp, #-52]
+     cac:	e5d32000 	ldrb	r2, [r3]
+     cb0:	e51b1034 	ldr	r1, [fp, #-52]
+     cb4:	e5d13001 	ldrb	r3, [r1, #1]
+     cb8:	e1a03403 	lsl	r3, r3, #8
+     cbc:	e1833002 	orr	r3, r3, r2
+     cc0:	e1a03803 	lsl	r3, r3, #16
+     cc4:	e1a03823 	lsr	r3, r3, #16
+     cc8:	e353000c 	cmp	r3, #12	; 0xc
+     ccc:	1a00002d 	bne	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     cd0:	e3a03010 	mov	r3, #16	; 0x10
+     cd4:	e51b2034 	ldr	r2, [fp, #-52]
+     cd8:	e5c23002 	strb	r3, [r2, #2]
+     cdc:	ea000029 	b	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     ce0:	e51b3020 	ldr	r3, [fp, #-32]
+     ce4:	e5d3306b 	ldrb	r3, [r3, #107]
+     ce8:	e3530000 	cmp	r3, #0	; 0x0
+     cec:	0a000025 	beq	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     cf0:	e51b3018 	ldr	r3, [fp, #-24]
+     cf4:	e59330d4 	ldr	r3, [r3, #212]
+     cf8:	e3530009 	cmp	r3, #9	; 0x9
+     cfc:	1a000021 	bne	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     d00:	e51b3018 	ldr	r3, [fp, #-24]
+     d04:	e1d32ebc 	ldrh	r2, [r3, #236]
+     d08:	e59f3204 	ldr	r3, [pc, #516]	; f14 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x40c>
+     d0c:	e1d330b0 	ldrh	r3, [r3]
+     d10:	e59f0200 	ldr	r0, [pc, #512]	; f18 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x410>
+     d14:	e1a01002 	mov	r1, r2
+     d18:	e1a02003 	mov	r2, r3
+     d1c:	ebfffffe 	bl	0 <_ZN8ParamMgr12same_stationEtt>
+     d20:	e1a03000 	mov	r3, r0
+     d24:	e2233001 	eor	r3, r3, #1	; 0x1
+     d28:	e20330ff 	and	r3, r3, #255	; 0xff
+     d2c:	e2233001 	eor	r3, r3, #1	; 0x1
+     d30:	e20330ff 	and	r3, r3, #255	; 0xff
+     d34:	e3530000 	cmp	r3, #0	; 0x0
+     d38:	1a000006 	bne	d58 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x250>
+     d3c:	e51b3018 	ldr	r3, [fp, #-24]
+     d40:	e1d33ebc 	ldrh	r3, [r3, #236]
+     d44:	e3530000 	cmp	r3, #0	; 0x0
+     d48:	0a000002 	beq	d58 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x250>
+     d4c:	e3a03001 	mov	r3, #1	; 0x1
+     d50:	e50b3030 	str	r3, [fp, #-48]
+     d54:	ea000001 	b	d60 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x258>
+     d58:	e3a01000 	mov	r1, #0	; 0x0
+     d5c:	e50b1030 	str	r1, [fp, #-48]
+     d60:	e51b3030 	ldr	r3, [fp, #-48]
+     d64:	e3530000 	cmp	r3, #0	; 0x0
+     d68:	0a000006 	beq	d88 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x280>
+     d6c:	e3a03000 	mov	r3, #0	; 0x0
+     d70:	e3833022 	orr	r3, r3, #34	; 0x22
+     d74:	e51b2034 	ldr	r2, [fp, #-52]
+     d78:	e5c23000 	strb	r3, [r2]
+     d7c:	e3a03000 	mov	r3, #0	; 0x0
+     d80:	e51b1034 	ldr	r1, [fp, #-52]
+     d84:	e5c13001 	strb	r3, [r1, #1]
+     d88:	e59b3004 	ldr	r3, [fp, #4]
+     d8c:	e3530000 	cmp	r3, #0	; 0x0
+     d90:	0a00005c 	beq	f08 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x400>
+     d94:	e59b2004 	ldr	r2, [fp, #4]
+     d98:	e5d21069 	ldrb	r1, [r2, #105]
+     d9c:	e5d2306a 	ldrb	r3, [r2, #106]
+     da0:	e1a03403 	lsl	r3, r3, #8
+     da4:	e1831001 	orr	r1, r3, r1
+     da8:	e5d2306b 	ldrb	r3, [r2, #107]
+     dac:	e1a03803 	lsl	r3, r3, #16
+     db0:	e1831001 	orr	r1, r3, r1
+     db4:	e5d2306c 	ldrb	r3, [r2, #108]
+     db8:	e1a03c03 	lsl	r3, r3, #24
+     dbc:	e1833001 	orr	r3, r3, r1
+     dc0:	e1a02003 	mov	r2, r3
+     dc4:	e51b3008 	ldr	r3, [fp, #-8]
+     dc8:	e1820003 	orr	r0, r2, r3
+     dcc:	e59bc004 	ldr	ip, [fp, #4]
+     dd0:	e20010ff 	and	r1, r0, #255	; 0xff
+     dd4:	e3a03000 	mov	r3, #0	; 0x0
+     dd8:	e1a02003 	mov	r2, r3
+     ddc:	e1a03001 	mov	r3, r1
+     de0:	e1823003 	orr	r3, r2, r3
+     de4:	e5cc3069 	strb	r3, [ip, #105]
+     de8:	e1a03420 	lsr	r3, r0, #8
+     dec:	e20310ff 	and	r1, r3, #255	; 0xff
+     df0:	e3a03000 	mov	r3, #0	; 0x0
+     df4:	e1a02003 	mov	r2, r3
+     df8:	e1a03001 	mov	r3, r1
+     dfc:	e1823003 	orr	r3, r2, r3
+     e00:	e5cc306a 	strb	r3, [ip, #106]
+     e04:	e1a03820 	lsr	r3, r0, #16
+     e08:	e20310ff 	and	r1, r3, #255	; 0xff
+     e0c:	e3a03000 	mov	r3, #0	; 0x0
+     e10:	e1a02003 	mov	r2, r3
+     e14:	e1a03001 	mov	r3, r1
+     e18:	e1823003 	orr	r3, r2, r3
+     e1c:	e5cc306b 	strb	r3, [ip, #107]
+     e20:	e1a01c20 	lsr	r1, r0, #24
+     e24:	e3a03000 	mov	r3, #0	; 0x0
+     e28:	e1a02003 	mov	r2, r3
+     e2c:	e1a03001 	mov	r3, r1
+     e30:	e1823003 	orr	r3, r2, r3
+     e34:	e5cc306c 	strb	r3, [ip, #108]
+     e38:	e51b2034 	ldr	r2, [fp, #-52]
+     e3c:	e5d23002 	ldrb	r3, [r2, #2]
+     e40:	e3530010 	cmp	r3, #16	; 0x10
+     e44:	1a00002f 	bne	f08 <_ZN8TicketUl17analyse_free_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZE+0x400>
+     e48:	e59b2004 	ldr	r2, [fp, #4]
+     e4c:	e5d21069 	ldrb	r1, [r2, #105]
+     e50:	e5d2306a 	ldrb	r3, [r2, #106]
+     e54:	e1a03403 	lsl	r3, r3, #8
+     e58:	e1831001 	orr	r1, r3, r1
+     e5c:	e5d2306b 	ldrb	r3, [r2, #107]
+     e60:	e1a03803 	lsl	r3, r3, #16
+     e64:	e1831001 	orr	r1, r3, r1
+     e68:	e5d2306c 	ldrb	r3, [r2, #108]
+     e6c:	e1a03c03 	lsl	r3, r3, #24
+     e70:	e1833001 	orr	r3, r3, r1
+     e74:	e3c30003 	bic	r0, r3, #3	; 0x3
+     e78:	e59bc004 	ldr	ip, [fp, #4]
+     e7c:	e20010ff 	and	r1, r0, #255	; 0xff
+     e80:	e3a03000 	mov	r3, #0	; 0x0
+     e84:	e1a02003 	mov	r2, r3
+     e88:	e1a03001 	mov	r3, r1
+     e8c:	e1823003 	orr	r3, r2, r3
+     e90:	e5cc3069 	strb	r3, [ip, #105]
+     e94:	e1a03420 	lsr	r3, r0, #8
+     e98:	e20310ff 	and	r1, r3, #255	; 0xff
+     e9c:	e3a03000 	mov	r3, #0	; 0x0
+     ea0:	e1a02003 	mov	r2, r3
+     ea4:	e1a03001 	mov	r3, r1
+     ea8:	e1823003 	orr	r3, r2, r3
+     eac:	e5cc306a 	strb	r3, [ip, #106]
+     eb0:	e1a03820 	lsr	r3, r0, #16
+     eb4:	e20310ff 	and	r1, r3, #255	; 0xff
+     eb8:	e3a03000 	mov	r3, #0	; 0x0
+     ebc:	e1a02003 	mov	r2, r3
+     ec0:	e1a03001 	mov	r3, r1
+     ec4:	e1823003 	orr	r3, r2, r3
+     ec8:	e5cc306b 	strb	r3, [ip, #107]
+     ecc:	e1a01c20 	lsr	r1, r0, #24
+     ed0:	e3a03000 	mov	r3, #0	; 0x0
+     ed4:	e1a02003 	mov	r2, r3
+     ed8:	e1a03001 	mov	r3, r1
+     edc:	e1823003 	orr	r3, r2, r3
+     ee0:	e5cc306c 	strb	r3, [ip, #108]
+     ee4:	e59b2004 	ldr	r2, [fp, #4]
+     ee8:	e3a03000 	mov	r3, #0	; 0x0
+     eec:	e5c23036 	strb	r3, [r2, #54]
+     ef0:	e3a03000 	mov	r3, #0	; 0x0
+     ef4:	e5c23037 	strb	r3, [r2, #55]
+     ef8:	e3a03000 	mov	r3, #0	; 0x0
+     efc:	e5c23038 	strb	r3, [r2, #56]
+     f00:	e3a03000 	mov	r3, #0	; 0x0
+     f04:	e5c23039 	strb	r3, [r2, #57]
+     f08:	e51b0034 	ldr	r0, [fp, #-52]
+     f0c:	e24bd004 	sub	sp, fp, #4	; 0x4
+     f10:	e8bd8800 	pop	{fp, pc}
+	...
+
+00000f1c <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE>:
+     f1c:	e92d4800 	push	{fp, lr}
+     f20:	e28db004 	add	fp, sp, #4	; 0x4
+     f24:	e24dd030 	sub	sp, sp, #48	; 0x30
+     f28:	e50b0028 	str	r0, [fp, #-40]
+     f2c:	e50b1010 	str	r1, [fp, #-16]
+     f30:	e50b2014 	str	r2, [fp, #-20]
+     f34:	e50b3018 	str	r3, [fp, #-24]
+     f38:	e51b1028 	ldr	r1, [fp, #-40]
+     f3c:	e50b102c 	str	r1, [fp, #-44]
+     f40:	e3a03000 	mov	r3, #0	; 0x0
+     f44:	e51b202c 	ldr	r2, [fp, #-44]
+     f48:	e5c23000 	strb	r3, [r2]
+     f4c:	e51b302c 	ldr	r3, [fp, #-44]
+     f50:	e2833001 	add	r3, r3, #1	; 0x1
+     f54:	e50b302c 	str	r3, [fp, #-44]
+     f58:	e3a03000 	mov	r3, #0	; 0x0
+     f5c:	e51b102c 	ldr	r1, [fp, #-44]
+     f60:	e5c13000 	strb	r3, [r1]
+     f64:	e51b202c 	ldr	r2, [fp, #-44]
+     f68:	e2822001 	add	r2, r2, #1	; 0x1
+     f6c:	e50b202c 	str	r2, [fp, #-44]
+     f70:	e3a03000 	mov	r3, #0	; 0x0
+     f74:	e51b102c 	ldr	r1, [fp, #-44]
+     f78:	e5c13000 	strb	r3, [r1]
+     f7c:	e51b202c 	ldr	r2, [fp, #-44]
+     f80:	e2822001 	add	r2, r2, #1	; 0x1
+     f84:	e50b202c 	str	r2, [fp, #-44]
+     f88:	e3a03000 	mov	r3, #0	; 0x0
+     f8c:	e51b102c 	ldr	r1, [fp, #-44]
+     f90:	e5c13000 	strb	r3, [r1]
+     f94:	e51b202c 	ldr	r2, [fp, #-44]
+     f98:	e2822001 	add	r2, r2, #1	; 0x1
+     f9c:	e50b202c 	str	r2, [fp, #-44]
+     fa0:	e3a03000 	mov	r3, #0	; 0x0
+     fa4:	e51b102c 	ldr	r1, [fp, #-44]
+     fa8:	e5c13000 	strb	r3, [r1]
+     fac:	e51b202c 	ldr	r2, [fp, #-44]
+     fb0:	e2822001 	add	r2, r2, #1	; 0x1
+     fb4:	e51b1010 	ldr	r1, [fp, #-16]
+     fb8:	e24b2024 	sub	r2, fp, #36	; 0x24
+     fbc:	e59b3004 	ldr	r3, [fp, #4]
+     fc0:	e58d3000 	str	r3, [sp]
+     fc4:	e59b3008 	ldr	r3, [fp, #8]
+     fc8:	e58d3004 	str	r3, [sp, #4]
+     fcc:	e1a00002 	mov	r0, r2
+     fd0:	e51b2014 	ldr	r2, [fp, #-20]
+     fd4:	e51b3018 	ldr	r3, [fp, #-24]
+     fd8:	ebfffffe 	bl	0 <_ZN10TicketBase17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE>
+     fdc:	e51b3028 	ldr	r3, [fp, #-40]
+     fe0:	e24b2024 	sub	r2, fp, #36	; 0x24
+     fe4:	e3a0c005 	mov	ip, #5	; 0x5
+     fe8:	e1a00003 	mov	r0, r3
+     fec:	e1a01002 	mov	r1, r2
+     ff0:	e1a0200c 	mov	r2, ip
+     ff4:	ebfffffe 	bl	0 <memcpy>
+     ff8:	e51b3028 	ldr	r3, [fp, #-40]
+     ffc:	e5d32000 	ldrb	r2, [r3]
+    1000:	e51b1028 	ldr	r1, [fp, #-40]
+    1004:	e5d13001 	ldrb	r3, [r1, #1]
+    1008:	e1a03403 	lsl	r3, r3, #8
+    100c:	e1833002 	orr	r3, r3, r2
+    1010:	e1a03803 	lsl	r3, r3, #16
+    1014:	e1a03823 	lsr	r3, r3, #16
+    1018:	e3530028 	cmp	r3, #40	; 0x28
+    101c:	1a000007 	bne	1040 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x124>
+    1020:	e51b3010 	ldr	r3, [fp, #-16]
+    1024:	e59330d4 	ldr	r3, [r3, #212]
+    1028:	e3530001 	cmp	r3, #1	; 0x1
+    102c:	1a000003 	bne	1040 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x124>
+    1030:	e3a03010 	mov	r3, #16	; 0x10
+    1034:	e51b2028 	ldr	r2, [fp, #-40]
+    1038:	e5c23002 	strb	r3, [r2, #2]
+    103c:	ea00002e 	b	10fc <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x1e0>
+    1040:	e51b3028 	ldr	r3, [fp, #-40]
+    1044:	e5d32000 	ldrb	r2, [r3]
+    1048:	e51b1028 	ldr	r1, [fp, #-40]
+    104c:	e5d13001 	ldrb	r3, [r1, #1]
+    1050:	e1a03403 	lsl	r3, r3, #8
+    1054:	e1833002 	orr	r3, r3, r2
+    1058:	e1a03803 	lsl	r3, r3, #16
+    105c:	e1a03823 	lsr	r3, r3, #16
+    1060:	e353002c 	cmp	r3, #44	; 0x2c
+    1064:	0a000013 	beq	10b8 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x19c>
+    1068:	e51b3028 	ldr	r3, [fp, #-40]
+    106c:	e5d32000 	ldrb	r2, [r3]
+    1070:	e51b1028 	ldr	r1, [fp, #-40]
+    1074:	e5d13001 	ldrb	r3, [r1, #1]
+    1078:	e1a03403 	lsl	r3, r3, #8
+    107c:	e1833002 	orr	r3, r3, r2
+    1080:	e1a03803 	lsl	r3, r3, #16
+    1084:	e1a03823 	lsr	r3, r3, #16
+    1088:	e353002b 	cmp	r3, #43	; 0x2b
+    108c:	0a000009 	beq	10b8 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x19c>
+    1090:	e51b3028 	ldr	r3, [fp, #-40]
+    1094:	e5d32000 	ldrb	r2, [r3]
+    1098:	e51b1028 	ldr	r1, [fp, #-40]
+    109c:	e5d13001 	ldrb	r3, [r1, #1]
+    10a0:	e1a03403 	lsl	r3, r3, #8
+    10a4:	e1833002 	orr	r3, r3, r2
+    10a8:	e1a03803 	lsl	r3, r3, #16
+    10ac:	e1a03823 	lsr	r3, r3, #16
+    10b0:	e353000c 	cmp	r3, #12	; 0xc
+    10b4:	1a000003 	bne	10c8 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x1ac>
+    10b8:	e3a03010 	mov	r3, #16	; 0x10
+    10bc:	e51b2028 	ldr	r2, [fp, #-40]
+    10c0:	e5c23002 	strb	r3, [r2, #2]
+    10c4:	ea00000c 	b	10fc <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x1e0>
+    10c8:	e51b3028 	ldr	r3, [fp, #-40]
+    10cc:	e5d32000 	ldrb	r2, [r3]
+    10d0:	e51b1028 	ldr	r1, [fp, #-40]
+    10d4:	e5d13001 	ldrb	r3, [r1, #1]
+    10d8:	e1a03403 	lsl	r3, r3, #8
+    10dc:	e1833002 	orr	r3, r3, r2
+    10e0:	e1a03803 	lsl	r3, r3, #16
+    10e4:	e1a03823 	lsr	r3, r3, #16
+    10e8:	e353002f 	cmp	r3, #47	; 0x2f
+    10ec:	1a000002 	bne	10fc <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x1e0>
+    10f0:	e3a03010 	mov	r3, #16	; 0x10
+    10f4:	e51b2028 	ldr	r2, [fp, #-40]
+    10f8:	e5c23002 	strb	r3, [r2, #2]
+    10fc:	e51b3028 	ldr	r3, [fp, #-40]
+    1100:	e5d32000 	ldrb	r2, [r3]
+    1104:	e51b1028 	ldr	r1, [fp, #-40]
+    1108:	e5d13001 	ldrb	r3, [r1, #1]
+    110c:	e1a03403 	lsl	r3, r3, #8
+    1110:	e1833002 	orr	r3, r3, r2
+    1114:	e1a03803 	lsl	r3, r3, #16
+    1118:	e1a03823 	lsr	r3, r3, #16
+    111c:	e3530000 	cmp	r3, #0	; 0x0
+    1120:	1a00002c 	bne	11d8 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x2bc>
+    1124:	e59b3008 	ldr	r3, [fp, #8]
+    1128:	e3530000 	cmp	r3, #0	; 0x0
+    112c:	0a000060 	beq	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    1130:	e51b3014 	ldr	r3, [fp, #-20]
+    1134:	e5d33001 	ldrb	r3, [r3, #1]
+    1138:	e2233001 	eor	r3, r3, #1	; 0x1
+    113c:	e20330ff 	and	r3, r3, #255	; 0xff
+    1140:	e3530000 	cmp	r3, #0	; 0x0
+    1144:	0a00005a 	beq	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    1148:	e51b3014 	ldr	r3, [fp, #-20]
+    114c:	e5d33000 	ldrb	r3, [r3]
+    1150:	e2233001 	eor	r3, r3, #1	; 0x1
+    1154:	e20330ff 	and	r3, r3, #255	; 0xff
+    1158:	e3530000 	cmp	r3, #0	; 0x0
+    115c:	0a000054 	beq	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    1160:	e51b3010 	ldr	r3, [fp, #-16]
+    1164:	e59300b0 	ldr	r0, [r3, #176]
+    1168:	e59bc008 	ldr	ip, [fp, #8]
+    116c:	e20010ff 	and	r1, r0, #255	; 0xff
+    1170:	e3a03000 	mov	r3, #0	; 0x0
+    1174:	e1a02003 	mov	r2, r3
+    1178:	e1a03001 	mov	r3, r1
+    117c:	e1823003 	orr	r3, r2, r3
+    1180:	e5cc3051 	strb	r3, [ip, #81]
+    1184:	e1a03420 	lsr	r3, r0, #8
+    1188:	e20310ff 	and	r1, r3, #255	; 0xff
+    118c:	e3a03000 	mov	r3, #0	; 0x0
+    1190:	e1a02003 	mov	r2, r3
+    1194:	e1a03001 	mov	r3, r1
+    1198:	e1823003 	orr	r3, r2, r3
+    119c:	e5cc3052 	strb	r3, [ip, #82]
+    11a0:	e1a03820 	lsr	r3, r0, #16
+    11a4:	e20310ff 	and	r1, r3, #255	; 0xff
+    11a8:	e3a03000 	mov	r3, #0	; 0x0
+    11ac:	e1a02003 	mov	r2, r3
+    11b0:	e1a03001 	mov	r3, r1
+    11b4:	e1823003 	orr	r3, r2, r3
+    11b8:	e5cc3053 	strb	r3, [ip, #83]
+    11bc:	e1a01c20 	lsr	r1, r0, #24
+    11c0:	e3a03000 	mov	r3, #0	; 0x0
+    11c4:	e1a02003 	mov	r2, r3
+    11c8:	e1a03001 	mov	r3, r1
+    11cc:	e1823003 	orr	r3, r2, r3
+    11d0:	e5cc3054 	strb	r3, [ip, #84]
+    11d4:	ea000036 	b	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    11d8:	e51b2028 	ldr	r2, [fp, #-40]
+    11dc:	e5d23002 	ldrb	r3, [r2, #2]
+    11e0:	e3530010 	cmp	r3, #16	; 0x10
+    11e4:	1a000032 	bne	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    11e8:	e59b3004 	ldr	r3, [fp, #4]
+    11ec:	e3530000 	cmp	r3, #0	; 0x0
+    11f0:	0a00002f 	beq	12b4 <_ZN8TicketUl17analyse_work_zoneEP17MODE_EFFECT_FLAGSP12TICKET_PARAMP10BOMANALYZEP10PURSETRADE+0x398>
+    11f4:	e59b2004 	ldr	r2, [fp, #4]
+    11f8:	e5d21069 	ldrb	r1, [r2, #105]
+    11fc:	e5d2306a 	ldrb	r3, [r2, #106]
+    1200:	e1a03403 	lsl	r3, r3, #8
+    1204:	e1831001 	orr	r1, r3, r1
+    1208:	e5d2306b 	ldrb	r3, [r2, #107]
+    120c:	e1a03803 	lsl	r3, r3, #16
+    1210:	e1831001 	orr	r1, r3, r1
+    1214:	e5d2306c 	ldrb	r3, [r2, #108]
+    1218:	e1a03c03 	lsl	r3, r3, #24
+    121c:	e1833001 	orr	r3, r3, r1
+    1220:	e3c30003 	bic	r0, r3, #3	; 0x3
+    1224:	e59bc004 	ldr	ip, [fp, #4]
+    1228:	e20010ff 	and	r1, r0, #255	; 0xff
+    122c:	e3a03000 	mov	r3, #0	; 0x0
+    1230:	e1a02003 	mov	r2, r3
+    1234:	e1a03001 	mov	r3, r1
+    1238:	e1823003 	orr	r3, r2, r3
+    123c:	e5cc3069 	strb	r3, [ip, #105]
+    1240:	e1a03420 	lsr	r3, r0, #8
+    1244:	e20310ff 	and	r1, r3, #255	; 0xff
+    1248:	e3a03000 	mov	r3, #0	; 0x0
+    124c:	e1a02003 	mov	r2, r3
+    1250:	e1a03001 	mov	r3, r1
+    1254:	e1823003 	orr	r3, r2, r3
+    1258:	e5cc306a 	strb	r3, [ip, #106]
+    125c:	e1a03820 	lsr	r3, r0, #16
+    1260:	e20310ff 	and	r1, r3, #255	; 0xff
+    1264:	e3a03000 	mov	r3, #0	; 0x0
+    1268:	e1a02003 	mov	r2, r3
+    126c:	e1a03001 	mov	r3, r1
+    1270:	e1823003 	orr	r3, r2, r3
+    1274:	e5cc306b 	strb	r3, [ip, #107]
+    1278:	e1a01c20 	lsr	r1, r0, #24
+    127c:	e3a03000 	mov	r3, #0	; 0x0
+    1280:	e1a02003 	mov	r2, r3
+    1284:	e1a03001 	mov	r3, r1
+    1288:	e1823003 	orr	r3, r2, r3
+    128c:	e5cc306c 	strb	r3, [ip, #108]
+    1290:	e59b2004 	ldr	r2, [fp, #4]
+    1294:	e3a03000 	mov	r3, #0	; 0x0
+    1298:	e5c23036 	strb	r3, [r2, #54]
+    129c:	e3a03000 	mov	r3, #0	; 0x0
+    12a0:	e5c23037 	strb	r3, [r2, #55]
+    12a4:	e3a03000 	mov	r3, #0	; 0x0
+    12a8:	e5c23038 	strb	r3, [r2, #56]
+    12ac:	e3a03000 	mov	r3, #0	; 0x0
+    12b0:	e5c23039 	strb	r3, [r2, #57]
+    12b4:	e51b0028 	ldr	r0, [fp, #-40]
+    12b8:	e24bd004 	sub	sp, fp, #4	; 0x4
+    12bc:	e8bd8800 	pop	{fp, pc}
+
+000012c0 <_ZN8TicketUl13set_deal_areaERNS_12UL_DEAL_AREAEPh>:
+    12c0:	e92d4800 	push	{fp, lr}
+    12c4:	e28db004 	add	fp, sp, #4	; 0x4
+    12c8:	e24dd010 	sub	sp, sp, #16	; 0x10
+    12cc:	e50b0008 	str	r0, [fp, #-8]
+    12d0:	e50b100c 	str	r1, [fp, #-12]
+    12d4:	e50b2010 	str	r2, [fp, #-16]
+    12d8:	e51b300c 	ldr	r3, [fp, #-12]
+    12dc:	e51b0010 	ldr	r0, [fp, #-16]
+    12e0:	e1a01003 	mov	r1, r3
+    12e4:	e3a02000 	mov	r2, #0	; 0x0
+    12e8:	ebfffffe 	bl	0 <_ZN7TimesEx17tm4_bcd7_exchangeEPhS0_b>
+    12ec:	e51b3010 	ldr	r3, [fp, #-16]
+    12f0:	e2831004 	add	r1, r3, #4	; 0x4
+    12f4:	e51b300c 	ldr	r3, [fp, #-12]
+    12f8:	e5d33007 	ldrb	r3, [r3, #7]
+    12fc:	e1a03103 	lsl	r3, r3, #2
+    1300:	e20320ff 	and	r2, r3, #255	; 0xff
+    1304:	e51b300c 	ldr	r3, [fp, #-12]
+    1308:	e5d33008 	ldrb	r3, [r3, #8]
+    130c:	e1a03243 	asr	r3, r3, #4
+    1310:	e20330ff 	and	r3, r3, #255	; 0xff
+    1314:	e2033003 	and	r3, r3, #3	; 0x3
+    1318:	e0823003 	add	r3, r2, r3
+    131c:	e20330ff 	and	r3, r3, #255	; 0xff
+    1320:	e5c13000 	strb	r3, [r1]
+    1324:	e51b3010 	ldr	r3, [fp, #-16]
+    1328:	e2831005 	add	r1, r3, #5	; 0x5
+    132c:	e51b300c 	ldr	r3, [fp, #-12]
+    1330:	e5d33008 	ldrb	r3, [r3, #8]
+    1334:	e1a03203 	lsl	r3, r3, #4
+    1338:	e20320ff 	and	r2, r3, #255	; 0xff
+    133c:	e51b300c 	ldr	r3, [fp, #-12]
+    1340:	e5d33009 	ldrb	r3, [r3, #9]
+    1344:	e203300f 	and	r3, r3, #15	; 0xf
+    1348:	e0823003 	add	r3, r2, r3
+    134c:	e20330ff 	and	r3, r3, #255	; 0xff
+    1350:	e5c13000 	strb	r3, [r1]
+    1354:	e51b3010 	ldr	r3, [fp, #-16]
+    1358:	e2832006 	add	r2, r3, #6	; 0x6
+    135c:	e51b300c 	ldr	r3, [fp, #-12]
+    1360:	e1d330ba 	ldrh	r3, [r3, #10]
+    1364:	e1a03143 	asr	r3, r3, #2
+    1368:	e20330ff 	and	r3, r3, #255	; 0xff
+    136c:	e5c23000 	strb	r3, [r2]
+    1370:	e51b3010 	ldr	r3, [fp, #-16]
+    1374:	e2831007 	add	r1, r3, #7	; 0x7
+    1378:	e51b300c 	ldr	r3, [fp, #-12]
+    137c:	e1d330ba 	ldrh	r3, [r3, #10]
+    1380:	e1a03303 	lsl	r3, r3, #6
+    1384:	e20320ff 	and	r2, r3, #255	; 0xff
+    1388:	e51b300c 	ldr	r3, [fp, #-12]
+    138c:	e1d330be 	ldrh	r3, [r3, #14]
+    1390:	e1a03443 	asr	r3, r3, #8
+    1394:	e20330ff 	and	r3, r3, #255	; 0xff
+    1398:	e203303f 	and	r3, r3, #63	; 0x3f
+    139c:	e0823003 	add	r3, r2, r3
+    13a0:	e20330ff 	and	r3, r3, #255	; 0xff
+    13a4:	e5c13000 	strb	r3, [r1]
+    13a8:	e51b3010 	ldr	r3, [fp, #-16]
+    13ac:	e2832008 	add	r2, r3, #8	; 0x8
+    13b0:	e51b300c 	ldr	r3, [fp, #-12]
+    13b4:	e1d330be 	ldrh	r3, [r3, #14]
+    13b8:	e20330ff 	and	r3, r3, #255	; 0xff
+    13bc:	e5c23000 	strb	r3, [r2]
+    13c0:	e51b3010 	ldr	r3, [fp, #-16]
+    13c4:	e2831009 	add	r1, r3, #9	; 0x9
+    13c8:	e51b300c 	ldr	r3, [fp, #-12]
+    13cc:	e5d3300c 	ldrb	r3, [r3, #12]
+    13d0:	e1a03183 	lsl	r3, r3, #3
+    13d4:	e20320ff 	and	r2, r3, #255	; 0xff
+    13d8:	e51b300c 	ldr	r3, [fp, #-12]
+    13dc:	e5d3300d 	ldrb	r3, [r3, #13]
+    13e0:	e2033007 	and	r3, r3, #7	; 0x7
+    13e4:	e0823003 	add	r3, r2, r3
+    13e8:	e20330ff 	and	r3, r3, #255	; 0xff
+    13ec:	e5c13000 	strb	r3, [r1]
+    13f0:	e51b3010 	ldr	r3, [fp, #-16]
+    13f4:	e283100a 	add	r1, r3, #10	; 0xa
+    13f8:	e51b300c 	ldr	r3, [fp, #-12]
+    13fc:	e5d33010 	ldrb	r3, [r3, #16]
+    1400:	e1a03103 	lsl	r3, r3, #2
+    1404:	e20320ff 	and	r2, r3, #255	; 0xff
+    1408:	e51b300c 	ldr	r3, [fp, #-12]
+    140c:	e5d33011 	ldrb	r3, [r3, #17]
+    1410:	e1a03243 	asr	r3, r3, #4
+    1414:	e20330ff 	and	r3, r3, #255	; 0xff
+    1418:	e2033003 	and	r3, r3, #3	; 0x3
+    141c:	e0823003 	add	r3, r2, r3
+    1420:	e20330ff 	and	r3, r3, #255	; 0xff
+    1424:	e5c13000 	strb	r3, [r1]
+    1428:	e51b3010 	ldr	r3, [fp, #-16]
+    142c:	e283100b 	add	r1, r3, #11	; 0xb
+    1430:	e51b300c 	ldr	r3, [fp, #-12]
+    1434:	e5d33011 	ldrb	r3, [r3, #17]
+    1438:	e1a03203 	lsl	r3, r3, #4
+    143c:	e20320ff 	and	r2, r3, #255	; 0xff
+    1440:	e51b3010 	ldr	r3, [fp, #-16]
+    1444:	e283300b 	add	r3, r3, #11	; 0xb
+    1448:	e5d33000 	ldrb	r3, [r3]
+    144c:	e203300f 	and	r3, r3, #15	; 0xf
+    1450:	e0823003 	add	r3, r2, r3
+    1454:	e20330ff 	and	r3, r3, #255	; 0xff
+    1458:	e5c13000 	strb	r3, [r1]
+    145c:	e51b3010 	ldr	r3, [fp, #-16]
+    1460:	e283200d 	add	r2, r3, #13	; 0xd
+    1464:	e51b300c 	ldr	r3, [fp, #-12]
+    1468:	e1d331b2 	ldrh	r3, [r3, #18]
+    146c:	e1a03443 	asr	r3, r3, #8
+    1470:	e20330ff 	and	r3, r3, #255	; 0xff
+    1474:	e5c23000 	strb	r3, [r2]
+    1478:	e51b3010 	ldr	r3, [fp, #-16]
+    147c:	e283200e 	add	r2, r3, #14	; 0xe
+    1480:	e51b300c 	ldr	r3, [fp, #-12]
+    1484:	e1d331b2 	ldrh	r3, [r3, #18]
+    1488:	e20330ff 	and	r3, r3, #255	; 0xff
+    148c:	e5c23000 	strb	r3, [r2]
+    1490:	e24bd004 	sub	sp, fp, #4	; 0x4
+    1494:	e8bd8800 	pop	{fp, pc}
+
+00001498 <_ZN8TicketUl13get_deal_areaERNS_12UL_DEAL_AREAEPh>:
+    1498:	e92d4800 	push	{fp, lr}
+    149c:	e28db004 	add	fp, sp, #4	; 0x4
+    14a0:	e24dd010 	sub	sp, sp, #16	; 0x10
+    14a4:	e50b0008 	str	r0, [fp, #-8]
+    14a8:	e50b100c 	str	r1, [fp, #-12]
+    14ac:	e50b2010 	str	r2, [fp, #-16]
+    14b0:	e51b300c 	ldr	r3, [fp, #-12]
+    14b4:	e51b0010 	ldr	r0, [fp, #-16]
+    14b8:	e1a01003 	mov	r1, r3
+    14bc:	e3a02001 	mov	r2, #1	; 0x1
+    14c0:	ebfffffe 	bl	0 <_ZN7TimesEx17tm4_bcd7_exchangeEPhS0_b>
+    14c4:	e51b3010 	ldr	r3, [fp, #-16]
+    14c8:	e2833004 	add	r3, r3, #4	; 0x4
+    14cc:	e5d33000 	ldrb	r3, [r3]
+    14d0:	e1a03123 	lsr	r3, r3, #2
+    14d4:	e20330ff 	and	r3, r3, #255	; 0xff
+    14d8:	e51b200c 	ldr	r2, [fp, #-12]
+    14dc:	e5c23007 	strb	r3, [r2, #7]
+    14e0:	e51b3010 	ldr	r3, [fp, #-16]
+    14e4:	e2833004 	add	r3, r3, #4	; 0x4
+    14e8:	e5d33000 	ldrb	r3, [r3]
+    14ec:	e2033003 	and	r3, r3, #3	; 0x3
+    14f0:	e1a03203 	lsl	r3, r3, #4
+    14f4:	e20320ff 	and	r2, r3, #255	; 0xff
+    14f8:	e51b3010 	ldr	r3, [fp, #-16]
+    14fc:	e2833005 	add	r3, r3, #5	; 0x5
+    1500:	e5d33000 	ldrb	r3, [r3]
+    1504:	e1a03223 	lsr	r3, r3, #4
+    1508:	e20330ff 	and	r3, r3, #255	; 0xff
+    150c:	e0823003 	add	r3, r2, r3
+    1510:	e20330ff 	and	r3, r3, #255	; 0xff
+    1514:	e51b200c 	ldr	r2, [fp, #-12]
+    1518:	e5c23008 	strb	r3, [r2, #8]
+    151c:	e51b3010 	ldr	r3, [fp, #-16]
+    1520:	e2833005 	add	r3, r3, #5	; 0x5
+    1524:	e5d33000 	ldrb	r3, [r3]
+    1528:	e203300f 	and	r3, r3, #15	; 0xf
+    152c:	e51b200c 	ldr	r2, [fp, #-12]
+    1530:	e5c23009 	strb	r3, [r2, #9]
+    1534:	e51b3010 	ldr	r3, [fp, #-16]
+    1538:	e2833006 	add	r3, r3, #6	; 0x6
+    153c:	e5d33000 	ldrb	r3, [r3]
+    1540:	e1a03103 	lsl	r3, r3, #2
+    1544:	e1a03803 	lsl	r3, r3, #16
+    1548:	e1a02823 	lsr	r2, r3, #16
+    154c:	e51b3010 	ldr	r3, [fp, #-16]
+    1550:	e2833007 	add	r3, r3, #7	; 0x7
+    1554:	e5d33000 	ldrb	r3, [r3]
+    1558:	e1a03343 	asr	r3, r3, #6
+    155c:	e1a03803 	lsl	r3, r3, #16
+    1560:	e1a03823 	lsr	r3, r3, #16
+    1564:	e0823003 	add	r3, r2, r3
+    1568:	e1a03803 	lsl	r3, r3, #16
+    156c:	e1a02823 	lsr	r2, r3, #16
+    1570:	e51b300c 	ldr	r3, [fp, #-12]
+    1574:	e1c320ba 	strh	r2, [r3, #10]
+    1578:	e51b3010 	ldr	r3, [fp, #-16]
+    157c:	e2833007 	add	r3, r3, #7	; 0x7
+    1580:	e5d33000 	ldrb	r3, [r3]
+    1584:	e203303f 	and	r3, r3, #63	; 0x3f
+    1588:	e1a03403 	lsl	r3, r3, #8
+    158c:	e1a03803 	lsl	r3, r3, #16
+    1590:	e1a02823 	lsr	r2, r3, #16
+    1594:	e51b3010 	ldr	r3, [fp, #-16]
+    1598:	e2833008 	add	r3, r3, #8	; 0x8
+    159c:	e5d33000 	ldrb	r3, [r3]
+    15a0:	e0823003 	add	r3, r2, r3
+    15a4:	e1a03803 	lsl	r3, r3, #16
+    15a8:	e1a02823 	lsr	r2, r3, #16
+    15ac:	e51b300c 	ldr	r3, [fp, #-12]
+    15b0:	e1c320be 	strh	r2, [r3, #14]
+    15b4:	e51b3010 	ldr	r3, [fp, #-16]
+    15b8:	e2833009 	add	r3, r3, #9	; 0x9
+    15bc:	e5d33000 	ldrb	r3, [r3]
+    15c0:	e1a031c3 	asr	r3, r3, #3
+    15c4:	e20330ff 	and	r3, r3, #255	; 0xff
+    15c8:	e51b200c 	ldr	r2, [fp, #-12]
+    15cc:	e5c2300c 	strb	r3, [r2, #12]
+    15d0:	e51b3010 	ldr	r3, [fp, #-16]
+    15d4:	e2833009 	add	r3, r3, #9	; 0x9
+    15d8:	e5d33000 	ldrb	r3, [r3]
+    15dc:	e2033007 	and	r3, r3, #7	; 0x7
+    15e0:	e51b200c 	ldr	r2, [fp, #-12]
+    15e4:	e5c2300d 	strb	r3, [r2, #13]
+    15e8:	e51b3010 	ldr	r3, [fp, #-16]
+    15ec:	e283300a 	add	r3, r3, #10	; 0xa
+    15f0:	e5d33000 	ldrb	r3, [r3]
+    15f4:	e1a03123 	lsr	r3, r3, #2
+    15f8:	e20330ff 	and	r3, r3, #255	; 0xff
+    15fc:	e51b200c 	ldr	r2, [fp, #-12]
+    1600:	e5c23010 	strb	r3, [r2, #16]
+    1604:	e51b3010 	ldr	r3, [fp, #-16]
+    1608:	e283300a 	add	r3, r3, #10	; 0xa
+    160c:	e5d33000 	ldrb	r3, [r3]
+    1610:	e2033003 	and	r3, r3, #3	; 0x3
+    1614:	e1a03203 	lsl	r3, r3, #4
+    1618:	e20320ff 	and	r2, r3, #255	; 0xff
+    161c:	e51b3010 	ldr	r3, [fp, #-16]
+    1620:	e283300b 	add	r3, r3, #11	; 0xb
+    1624:	e5d33000 	ldrb	r3, [r3]
+    1628:	e1a03223 	lsr	r3, r3, #4
+    162c:	e20330ff 	and	r3, r3, #255	; 0xff
+    1630:	e0823003 	add	r3, r2, r3
+    1634:	e20330ff 	and	r3, r3, #255	; 0xff
+    1638:	e51b200c 	ldr	r2, [fp, #-12]
+    163c:	e5c23011 	strb	r3, [r2, #17]
+    1640:	e51b3010 	ldr	r3, [fp, #-16]
+    1644:	e283300d 	add	r3, r3, #13	; 0xd
+    1648:	e5d33000 	ldrb	r3, [r3]
+    164c:	e1a03403 	lsl	r3, r3, #8
+    1650:	e1a03803 	lsl	r3, r3, #16
+    1654:	e1a02823 	lsr	r2, r3, #16
+    1658:	e51b3010 	ldr	r3, [fp, #-16]
+    165c:	e283300e 	add	r3, r3, #14	; 0xe
+    1660:	e5d33000 	ldrb	r3, [r3]
+    1664:	e0823003 	add	r3, r2, r3
+    1668:	e1a03803 	lsl	r3, r3, #16
+    166c:	e1a02823 	lsr	r2, r3, #16
+    1670:	e51b300c 	ldr	r3, [fp, #-12]
+    1674:	e1c321b2 	strh	r2, [r3, #18]
+    1678:	e24bd004 	sub	sp, fp, #4	; 0x4
+    167c:	e8bd8800 	pop	{fp, pc}
+
+00001680 <_ZN8TicketUl8write_ulEhPh>:
+    1680:	e92d4800 	push	{fp, lr}
+    1684:	e28db004 	add	fp, sp, #4	; 0x4
+    1688:	e24dd018 	sub	sp, sp, #24	; 0x18
+    168c:	e50b0010 	str	r0, [fp, #-16]
+    1690:	e1a03001 	mov	r3, r1
+    1694:	e50b2018 	str	r2, [fp, #-24]
+    1698:	e54b3011 	strb	r3, [fp, #-17]
+    169c:	e3a03000 	mov	r3, #0	; 0x0
+    16a0:	e14b30b6 	strh	r3, [fp, #-6]
+    16a4:	e55b3011 	ldrb	r3, [fp, #-17]
+    16a8:	e1a00003 	mov	r0, r3
+    16ac:	e51b1018 	ldr	r1, [fp, #-24]
+    16b0:	ebfffffe 	bl	0 <add_ul_crc8>
+    16b4:	e1a03000 	mov	r3, r0
+    16b8:	e14b30b6 	strh	r3, [fp, #-6]
+    16bc:	e15b30b6 	ldrh	r3, [fp, #-6]
+    16c0:	e3530000 	cmp	r3, #0	; 0x0
+    16c4:	1a000006 	bne	16e4 <_ZN8TicketUl8write_ulEhPh+0x64>
+    16c8:	e55b3011 	ldrb	r3, [fp, #-17]
+    16cc:	e3a00000 	mov	r0, #0	; 0x0
+    16d0:	e1a01003 	mov	r1, r3
+    16d4:	e51b2018 	ldr	r2, [fp, #-24]
+    16d8:	ebfffffe 	bl	0 <writeul_new>
+    16dc:	e1a03000 	mov	r3, r0
+    16e0:	e14b30b6 	strh	r3, [fp, #-6]
+    16e4:	e15b30b6 	ldrh	r3, [fp, #-6]
+    16e8:	e1a00003 	mov	r0, r3
+    16ec:	e24bd004 	sub	sp, fp, #4	; 0x4
+    16f0:	e8bd8800 	pop	{fp, pc}
+
+000016f4 <_ZN8TicketUl7read_ulEPh>:
+    16f4:	e92d4800 	push	{fp, lr}
+    16f8:	e28db004 	add	fp, sp, #4	; 0x4
+    16fc:	e24dd008 	sub	sp, sp, #8	; 0x8
+    1700:	e50b0008 	str	r0, [fp, #-8]
+    1704:	e50b100c 	str	r1, [fp, #-12]
+    1708:	e3a00000 	mov	r0, #0	; 0x0
+    170c:	e51b100c 	ldr	r1, [fp, #-12]
+    1710:	ebfffffe 	bl	0 <readul>
+    1714:	e1a03000 	mov	r3, r0
+    1718:	e1a03803 	lsl	r3, r3, #16
+    171c:	e1a03823 	lsr	r3, r3, #16
+    1720:	e1a00003 	mov	r0, r3
+    1724:	e24bd004 	sub	sp, fp, #4	; 0x4
+    1728:	e8bd8800 	pop	{fp, pc}
+
+0000172c <_ZN8TicketUl17read_equals_writeEPh>:
+    172c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    1730:	e28db020 	add	fp, sp, #32	; 0x20
+    1734:	e24ddf61 	sub	sp, sp, #388	; 0x184
+    1738:	e50b0140 	str	r0, [fp, #-320]
+    173c:	e50b1144 	str	r1, [fp, #-324]
+    1740:	e3a03000 	mov	r3, #0	; 0x0
+    1744:	e14b32ba 	strh	r3, [fp, #-42]
+    1748:	e24b3f4e 	sub	r3, fp, #312	; 0x138
+    174c:	e2433002 	sub	r3, r3, #2	; 0x2
+    1750:	e3a02c01 	mov	r2, #256	; 0x100
+    1754:	e1a00003 	mov	r0, r3
+    1758:	e3a01000 	mov	r1, #0	; 0x0
+    175c:	ebfffffe 	bl	0 <memset>
+    1760:	e24b203a 	sub	r2, fp, #58	; 0x3a
+    1764:	e50b2164 	str	r2, [fp, #-356]
+    1768:	e3a03000 	mov	r3, #0	; 0x0
+    176c:	e51b2164 	ldr	r2, [fp, #-356]
+    1770:	e1c230b0 	strh	r3, [r2]
+    1774:	e51b3164 	ldr	r3, [fp, #-356]
+    1778:	e2833002 	add	r3, r3, #2	; 0x2
+    177c:	e50b3164 	str	r3, [fp, #-356]
+    1780:	e3a03000 	mov	r3, #0	; 0x0
+    1784:	e51b2164 	ldr	r2, [fp, #-356]
+    1788:	e1c230b0 	strh	r3, [r2]
+    178c:	e51b3164 	ldr	r3, [fp, #-356]
+    1790:	e2833002 	add	r3, r3, #2	; 0x2
+    1794:	e50b3164 	str	r3, [fp, #-356]
+    1798:	e3a03000 	mov	r3, #0	; 0x0
+    179c:	e51b2164 	ldr	r2, [fp, #-356]
+    17a0:	e1c230b0 	strh	r3, [r2]
+    17a4:	e51b3164 	ldr	r3, [fp, #-356]
+    17a8:	e2833002 	add	r3, r3, #2	; 0x2
+    17ac:	e50b3164 	str	r3, [fp, #-356]
+    17b0:	e3a03000 	mov	r3, #0	; 0x0
+    17b4:	e51b2164 	ldr	r2, [fp, #-356]
+    17b8:	e1c230b0 	strh	r3, [r2]
+    17bc:	e51b3164 	ldr	r3, [fp, #-356]
+    17c0:	e2833002 	add	r3, r3, #2	; 0x2
+    17c4:	e50b3164 	str	r3, [fp, #-356]
+    17c8:	e3a03000 	mov	r3, #0	; 0x0
+    17cc:	e51b2164 	ldr	r2, [fp, #-356]
+    17d0:	e1c230b0 	strh	r3, [r2]
+    17d4:	e51b3164 	ldr	r3, [fp, #-356]
+    17d8:	e2833002 	add	r3, r3, #2	; 0x2
+    17dc:	e50b3164 	str	r3, [fp, #-356]
+    17e0:	e3a03000 	mov	r3, #0	; 0x0
+    17e4:	e51b2164 	ldr	r2, [fp, #-356]
+    17e8:	e1c230b0 	strh	r3, [r2]
+    17ec:	e51b3164 	ldr	r3, [fp, #-356]
+    17f0:	e2833002 	add	r3, r3, #2	; 0x2
+    17f4:	e50b3164 	str	r3, [fp, #-356]
+    17f8:	e3a03000 	mov	r3, #0	; 0x0
+    17fc:	e51b2164 	ldr	r2, [fp, #-356]
+    1800:	e1c230b0 	strh	r3, [r2]
+    1804:	e51b3164 	ldr	r3, [fp, #-356]
+    1808:	e2833002 	add	r3, r3, #2	; 0x2
+    180c:	e50b3164 	str	r3, [fp, #-356]
+    1810:	e3a03000 	mov	r3, #0	; 0x0
+    1814:	e51b2164 	ldr	r2, [fp, #-356]
+    1818:	e1c230b0 	strh	r3, [r2]
+    181c:	e51b3164 	ldr	r3, [fp, #-356]
+    1820:	e2833002 	add	r3, r3, #2	; 0x2
+    1824:	e24b3f4e 	sub	r3, fp, #312	; 0x138
+    1828:	e2433002 	sub	r3, r3, #2	; 0x2
+    182c:	e51b0140 	ldr	r0, [fp, #-320]
+    1830:	e1a01003 	mov	r1, r3
+    1834:	ebfffffe 	bl	16f4 <_ZN8TicketUl7read_ulEPh>
+    1838:	e1a03000 	mov	r3, r0
+    183c:	e50b3028 	str	r3, [fp, #-40]
+    1840:	e51b3028 	ldr	r3, [fp, #-40]
+    1844:	e3530000 	cmp	r3, #0	; 0x0
+    1848:	1a0000af 	bne	1b0c <_ZN8TicketUl17read_equals_writeEPh+0x3e0>
+    184c:	e51b3140 	ldr	r3, [fp, #-320]
+    1850:	e5d33140 	ldrb	r3, [r3, #320]
+    1854:	e2833002 	add	r3, r3, #2	; 0x2
+    1858:	e1a02203 	lsl	r2, r3, #4
+    185c:	e24b3f4e 	sub	r3, fp, #312	; 0x138
+    1860:	e2433002 	sub	r3, r3, #2	; 0x2
+    1864:	e0833002 	add	r3, r3, r2
+    1868:	e51b0144 	ldr	r0, [fp, #-324]
+    186c:	e1a01003 	mov	r1, r3
+    1870:	e3a0200f 	mov	r2, #15	; 0xf
+    1874:	ebfffffe 	bl	0 <memcmp>
+    1878:	e1a03000 	mov	r3, r0
+    187c:	e3530000 	cmp	r3, #0	; 0x0
+    1880:	0a0000a3 	beq	1b14 <_ZN8TicketUl17read_equals_writeEPh+0x3e8>
+    1884:	e51b3140 	ldr	r3, [fp, #-320]
+    1888:	e5d33140 	ldrb	r3, [r3, #320]
+    188c:	e58d3000 	str	r3, [sp]
+    1890:	e59f028c 	ldr	r0, [pc, #652]	; 1b24 <_ZN8TicketUl17read_equals_writeEPh+0x3f8>
+    1894:	e3a01000 	mov	r1, #0	; 0x0
+    1898:	e3a02005 	mov	r2, #5	; 0x5
+    189c:	e59f3284 	ldr	r3, [pc, #644]	; 1b28 <_ZN8TicketUl17read_equals_writeEPh+0x3fc>
+    18a0:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+    18a4:	e51b3144 	ldr	r3, [fp, #-324]
+    18a8:	e5d33000 	ldrb	r3, [r3]
+    18ac:	e1a02003 	mov	r2, r3
+    18b0:	e51b3144 	ldr	r3, [fp, #-324]
+    18b4:	e2833001 	add	r3, r3, #1	; 0x1
+    18b8:	e5d33000 	ldrb	r3, [r3]
+    18bc:	e1a01003 	mov	r1, r3
+    18c0:	e51b3144 	ldr	r3, [fp, #-324]
+    18c4:	e2833002 	add	r3, r3, #2	; 0x2
+    18c8:	e5d33000 	ldrb	r3, [r3]
+    18cc:	e1a00003 	mov	r0, r3
+    18d0:	e51b3144 	ldr	r3, [fp, #-324]
+    18d4:	e2833003 	add	r3, r3, #3	; 0x3
+    18d8:	e5d33000 	ldrb	r3, [r3]
+    18dc:	e1a0c003 	mov	ip, r3
+    18e0:	e51b3144 	ldr	r3, [fp, #-324]
+    18e4:	e2833004 	add	r3, r3, #4	; 0x4
+    18e8:	e5d33000 	ldrb	r3, [r3]
+    18ec:	e1a04003 	mov	r4, r3
+    18f0:	e51b3144 	ldr	r3, [fp, #-324]
+    18f4:	e2833005 	add	r3, r3, #5	; 0x5
+    18f8:	e5d33000 	ldrb	r3, [r3]
+    18fc:	e1a05003 	mov	r5, r3
+    1900:	e51b3144 	ldr	r3, [fp, #-324]
+    1904:	e2833006 	add	r3, r3, #6	; 0x6
+    1908:	e5d33000 	ldrb	r3, [r3]
+    190c:	e1a06003 	mov	r6, r3
+    1910:	e51b3144 	ldr	r3, [fp, #-324]
+    1914:	e2833007 	add	r3, r3, #7	; 0x7
+    1918:	e5d33000 	ldrb	r3, [r3]
+    191c:	e1a07003 	mov	r7, r3
+    1920:	e51b3144 	ldr	r3, [fp, #-324]
+    1924:	e2833008 	add	r3, r3, #8	; 0x8
+    1928:	e5d33000 	ldrb	r3, [r3]
+    192c:	e1a08003 	mov	r8, r3
+    1930:	e51b3144 	ldr	r3, [fp, #-324]
+    1934:	e2833009 	add	r3, r3, #9	; 0x9
+    1938:	e5d33000 	ldrb	r3, [r3]
+    193c:	e1a0a003 	mov	sl, r3
+    1940:	e51b3144 	ldr	r3, [fp, #-324]
+    1944:	e283300a 	add	r3, r3, #10	; 0xa
+    1948:	e5d33000 	ldrb	r3, [r3]
+    194c:	e1a09003 	mov	r9, r3
+    1950:	e51b3144 	ldr	r3, [fp, #-324]
+    1954:	e283300b 	add	r3, r3, #11	; 0xb
+    1958:	e5d33000 	ldrb	r3, [r3]
+    195c:	e50b3160 	str	r3, [fp, #-352]
+    1960:	e51b3144 	ldr	r3, [fp, #-324]
+    1964:	e283300c 	add	r3, r3, #12	; 0xc
+    1968:	e5d33000 	ldrb	r3, [r3]
+    196c:	e50b315c 	str	r3, [fp, #-348]
+    1970:	e51b3144 	ldr	r3, [fp, #-324]
+    1974:	e283300d 	add	r3, r3, #13	; 0xd
+    1978:	e5d33000 	ldrb	r3, [r3]
+    197c:	e50b3158 	str	r3, [fp, #-344]
+    1980:	e51b3144 	ldr	r3, [fp, #-324]
+    1984:	e283300e 	add	r3, r3, #14	; 0xe
+    1988:	e5d33000 	ldrb	r3, [r3]
+    198c:	e50b3154 	str	r3, [fp, #-340]
+    1990:	e51b3144 	ldr	r3, [fp, #-324]
+    1994:	e283300f 	add	r3, r3, #15	; 0xf
+    1998:	e5d33000 	ldrb	r3, [r3]
+    199c:	e58d2000 	str	r2, [sp]
+    19a0:	e58d1004 	str	r1, [sp, #4]
+    19a4:	e58d0008 	str	r0, [sp, #8]
+    19a8:	e58dc00c 	str	ip, [sp, #12]
+    19ac:	e58d4010 	str	r4, [sp, #16]
+    19b0:	e58d5014 	str	r5, [sp, #20]
+    19b4:	e58d6018 	str	r6, [sp, #24]
+    19b8:	e58d701c 	str	r7, [sp, #28]
+    19bc:	e58d8020 	str	r8, [sp, #32]
+    19c0:	e58da024 	str	sl, [sp, #36]
+    19c4:	e58d9028 	str	r9, [sp, #40]
+    19c8:	e51b2160 	ldr	r2, [fp, #-352]
+    19cc:	e58d202c 	str	r2, [sp, #44]
+    19d0:	e51b215c 	ldr	r2, [fp, #-348]
+    19d4:	e58d2030 	str	r2, [sp, #48]
+    19d8:	e51b2158 	ldr	r2, [fp, #-344]
+    19dc:	e58d2034 	str	r2, [sp, #52]
+    19e0:	e51b2154 	ldr	r2, [fp, #-340]
+    19e4:	e58d2038 	str	r2, [sp, #56]
+    19e8:	e58d303c 	str	r3, [sp, #60]
+    19ec:	e59f0130 	ldr	r0, [pc, #304]	; 1b24 <_ZN8TicketUl17read_equals_writeEPh+0x3f8>
+    19f0:	e3a01000 	mov	r1, #0	; 0x0
+    19f4:	e3a02005 	mov	r2, #5	; 0x5
+    19f8:	e59f312c 	ldr	r3, [pc, #300]	; 1b2c <_ZN8TicketUl17read_equals_writeEPh+0x400>
+    19fc:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+    1a00:	e51b3140 	ldr	r3, [fp, #-320]
+    1a04:	e5d33140 	ldrb	r3, [r3, #320]
+    1a08:	e2833002 	add	r3, r3, #2	; 0x2
+    1a0c:	e1a02203 	lsl	r2, r3, #4
+    1a10:	e24b3f4e 	sub	r3, fp, #312	; 0x138
+    1a14:	e2433002 	sub	r3, r3, #2	; 0x2
+    1a18:	e0833002 	add	r3, r3, r2
+    1a1c:	e24b203a 	sub	r2, fp, #58	; 0x3a
+    1a20:	e1a00002 	mov	r0, r2
+    1a24:	e1a01003 	mov	r1, r3
+    1a28:	e3a0200f 	mov	r2, #15	; 0xf
+    1a2c:	ebfffffe 	bl	0 <memcpy>
+    1a30:	e55b303a 	ldrb	r3, [fp, #-58]
+    1a34:	e1a02003 	mov	r2, r3
+    1a38:	e55b3039 	ldrb	r3, [fp, #-57]
+    1a3c:	e1a01003 	mov	r1, r3
+    1a40:	e55b3038 	ldrb	r3, [fp, #-56]
+    1a44:	e1a00003 	mov	r0, r3
+    1a48:	e55b3037 	ldrb	r3, [fp, #-55]
+    1a4c:	e1a0c003 	mov	ip, r3
+    1a50:	e55b3036 	ldrb	r3, [fp, #-54]
+    1a54:	e1a04003 	mov	r4, r3
+    1a58:	e55b3035 	ldrb	r3, [fp, #-53]
+    1a5c:	e1a05003 	mov	r5, r3
+    1a60:	e55b3034 	ldrb	r3, [fp, #-52]
+    1a64:	e1a06003 	mov	r6, r3
+    1a68:	e55b3033 	ldrb	r3, [fp, #-51]
+    1a6c:	e1a07003 	mov	r7, r3
+    1a70:	e55b3032 	ldrb	r3, [fp, #-50]
+    1a74:	e1a08003 	mov	r8, r3
+    1a78:	e55b3031 	ldrb	r3, [fp, #-49]
+    1a7c:	e1a0a003 	mov	sl, r3
+    1a80:	e55b3030 	ldrb	r3, [fp, #-48]
+    1a84:	e1a09003 	mov	r9, r3
+    1a88:	e55b302f 	ldrb	r3, [fp, #-47]
+    1a8c:	e50b3150 	str	r3, [fp, #-336]
+    1a90:	e55b302e 	ldrb	r3, [fp, #-46]
+    1a94:	e50b314c 	str	r3, [fp, #-332]
+    1a98:	e55b302d 	ldrb	r3, [fp, #-45]
+    1a9c:	e50b3148 	str	r3, [fp, #-328]
+    1aa0:	e55b302c 	ldrb	r3, [fp, #-44]
+    1aa4:	e58d2000 	str	r2, [sp]
+    1aa8:	e58d1004 	str	r1, [sp, #4]
+    1aac:	e58d0008 	str	r0, [sp, #8]
+    1ab0:	e58dc00c 	str	ip, [sp, #12]
+    1ab4:	e58d4010 	str	r4, [sp, #16]
+    1ab8:	e58d5014 	str	r5, [sp, #20]
+    1abc:	e58d6018 	str	r6, [sp, #24]
+    1ac0:	e58d701c 	str	r7, [sp, #28]
+    1ac4:	e58d8020 	str	r8, [sp, #32]
+    1ac8:	e58da024 	str	sl, [sp, #36]
+    1acc:	e58d9028 	str	r9, [sp, #40]
+    1ad0:	e51b2150 	ldr	r2, [fp, #-336]
+    1ad4:	e58d202c 	str	r2, [sp, #44]
+    1ad8:	e51b214c 	ldr	r2, [fp, #-332]
+    1adc:	e58d2030 	str	r2, [sp, #48]
+    1ae0:	e51b2148 	ldr	r2, [fp, #-328]
+    1ae4:	e58d2034 	str	r2, [sp, #52]
+    1ae8:	e58d3038 	str	r3, [sp, #56]
+    1aec:	e59f0030 	ldr	r0, [pc, #48]	; 1b24 <_ZN8TicketUl17read_equals_writeEPh+0x3f8>
+    1af0:	e3a01000 	mov	r1, #0	; 0x0
+    1af4:	e3a02005 	mov	r2, #5	; 0x5
+    1af8:	e59f3030 	ldr	r3, [pc, #48]	; 1b30 <_ZN8TicketUl17read_equals_writeEPh+0x404>
+    1afc:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+    1b00:	e3a03005 	mov	r3, #5	; 0x5
+    1b04:	e14b32ba 	strh	r3, [fp, #-42]
+    1b08:	ea000001 	b	1b14 <_ZN8TicketUl17read_equals_writeEPh+0x3e8>
+    1b0c:	e3a03004 	mov	r3, #4	; 0x4
+    1b10:	e14b32ba 	strh	r3, [fp, #-42]
+    1b14:	e15b32ba 	ldrh	r3, [fp, #-42]
+    1b18:	e1a00003 	mov	r0, r3
+    1b1c:	e24bd020 	sub	sp, fp, #32	; 0x20
+    1b20:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    1b24:	00000000 	.word	0x00000000
+    1b28:	0000003c 	.word	0x0000003c
+    1b2c:	0000005c 	.word	0x0000005c
+    1b30:	000000c0 	.word	0x000000c0
+
+00001b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>:
+    1b34:	e92d4800 	push	{fp, lr}
+    1b38:	e28db004 	add	fp, sp, #4	; 0x4
+    1b3c:	e24dd0a8 	sub	sp, sp, #168	; 0xa8
+    1b40:	e50b008c 	str	r0, [fp, #-140]
+    1b44:	e50b1080 	str	r1, [fp, #-128]
+    1b48:	e50b2084 	str	r2, [fp, #-132]
+    1b4c:	e50b3088 	str	r3, [fp, #-136]
+    1b50:	e51b008c 	ldr	r0, [fp, #-140]
+    1b54:	e50b0090 	str	r0, [fp, #-144]
+    1b58:	e3a03000 	mov	r3, #0	; 0x0
+    1b5c:	e51b1090 	ldr	r1, [fp, #-144]
+    1b60:	e5c13000 	strb	r3, [r1]
+    1b64:	e51b2090 	ldr	r2, [fp, #-144]
+    1b68:	e2822001 	add	r2, r2, #1	; 0x1
+    1b6c:	e50b2090 	str	r2, [fp, #-144]
+    1b70:	e3a03000 	mov	r3, #0	; 0x0
+    1b74:	e51b0090 	ldr	r0, [fp, #-144]
+    1b78:	e5c03000 	strb	r3, [r0]
+    1b7c:	e51b1090 	ldr	r1, [fp, #-144]
+    1b80:	e2811001 	add	r1, r1, #1	; 0x1
+    1b84:	e50b1090 	str	r1, [fp, #-144]
+    1b88:	e3a03000 	mov	r3, #0	; 0x0
+    1b8c:	e51b2090 	ldr	r2, [fp, #-144]
+    1b90:	e5c23000 	strb	r3, [r2]
+    1b94:	e51b3090 	ldr	r3, [fp, #-144]
+    1b98:	e2833001 	add	r3, r3, #1	; 0x1
+    1b9c:	e50b3090 	str	r3, [fp, #-144]
+    1ba0:	e3a03000 	mov	r3, #0	; 0x0
+    1ba4:	e51b0090 	ldr	r0, [fp, #-144]
+    1ba8:	e5c03000 	strb	r3, [r0]
+    1bac:	e51b1090 	ldr	r1, [fp, #-144]
+    1bb0:	e2811001 	add	r1, r1, #1	; 0x1
+    1bb4:	e50b1090 	str	r1, [fp, #-144]
+    1bb8:	e3a03000 	mov	r3, #0	; 0x0
+    1bbc:	e51b2090 	ldr	r2, [fp, #-144]
+    1bc0:	e5c23000 	strb	r3, [r2]
+    1bc4:	e51b3090 	ldr	r3, [fp, #-144]
+    1bc8:	e2833001 	add	r3, r3, #1	; 0x1
+    1bcc:	e3a03000 	mov	r3, #0	; 0x0
+    1bd0:	e50b3008 	str	r3, [fp, #-8]
+    1bd4:	e24b0015 	sub	r0, fp, #21	; 0x15
+    1bd8:	e50b0094 	str	r0, [fp, #-148]
+    1bdc:	e3a03000 	mov	r3, #0	; 0x0
+    1be0:	e51b1094 	ldr	r1, [fp, #-148]
+    1be4:	e5c13000 	strb	r3, [r1]
+    1be8:	e51b2094 	ldr	r2, [fp, #-148]
+    1bec:	e2822001 	add	r2, r2, #1	; 0x1
+    1bf0:	e50b2094 	str	r2, [fp, #-148]
+    1bf4:	e3a03000 	mov	r3, #0	; 0x0
+    1bf8:	e51b0094 	ldr	r0, [fp, #-148]
+    1bfc:	e5c03000 	strb	r3, [r0]
+    1c00:	e51b1094 	ldr	r1, [fp, #-148]
+    1c04:	e2811001 	add	r1, r1, #1	; 0x1
+    1c08:	e50b1094 	str	r1, [fp, #-148]
+    1c0c:	e3a03000 	mov	r3, #0	; 0x0
+    1c10:	e51b2094 	ldr	r2, [fp, #-148]
+    1c14:	e5c23000 	strb	r3, [r2]
+    1c18:	e51b3094 	ldr	r3, [fp, #-148]
+    1c1c:	e2833001 	add	r3, r3, #1	; 0x1
+    1c20:	e50b3094 	str	r3, [fp, #-148]
+    1c24:	e3a03000 	mov	r3, #0	; 0x0
+    1c28:	e51b0094 	ldr	r0, [fp, #-148]
+    1c2c:	e5c03000 	strb	r3, [r0]
+    1c30:	e51b1094 	ldr	r1, [fp, #-148]
+    1c34:	e2811001 	add	r1, r1, #1	; 0x1
+    1c38:	e50b1094 	str	r1, [fp, #-148]
+    1c3c:	e3a03000 	mov	r3, #0	; 0x0
+    1c40:	e51b2094 	ldr	r2, [fp, #-148]
+    1c44:	e5c23000 	strb	r3, [r2]
+    1c48:	e51b3094 	ldr	r3, [fp, #-148]
+    1c4c:	e2833001 	add	r3, r3, #1	; 0x1
+    1c50:	e50b3094 	str	r3, [fp, #-148]
+    1c54:	e3a03000 	mov	r3, #0	; 0x0
+    1c58:	e51b0094 	ldr	r0, [fp, #-148]
+    1c5c:	e5c03000 	strb	r3, [r0]
+    1c60:	e51b1094 	ldr	r1, [fp, #-148]
+    1c64:	e2811001 	add	r1, r1, #1	; 0x1
+    1c68:	e50b1094 	str	r1, [fp, #-148]
+    1c6c:	e3a03000 	mov	r3, #0	; 0x0
+    1c70:	e51b2094 	ldr	r2, [fp, #-148]
+    1c74:	e5c23000 	strb	r3, [r2]
+    1c78:	e51b3094 	ldr	r3, [fp, #-148]
+    1c7c:	e2833001 	add	r3, r3, #1	; 0x1
+    1c80:	e50b3094 	str	r3, [fp, #-148]
+    1c84:	e3a03000 	mov	r3, #0	; 0x0
+    1c88:	e51b0094 	ldr	r0, [fp, #-148]
+    1c8c:	e5c03000 	strb	r3, [r0]
+    1c90:	e51b1094 	ldr	r1, [fp, #-148]
+    1c94:	e2811001 	add	r1, r1, #1	; 0x1
+    1c98:	e24b307a 	sub	r3, fp, #122	; 0x7a
+    1c9c:	e3a02040 	mov	r2, #64	; 0x40
+    1ca0:	e1a00003 	mov	r0, r3
+    1ca4:	e3a01000 	mov	r1, #0	; 0x0
+    1ca8:	ebfffffe 	bl	0 <memset>
+    1cac:	e24b302a 	sub	r3, fp, #42	; 0x2a
+    1cb0:	e1a00003 	mov	r0, r3
+    1cb4:	e3a01000 	mov	r1, #0	; 0x0
+    1cb8:	e3a02014 	mov	r2, #20	; 0x14
+    1cbc:	ebfffffe 	bl	0 <memset>
+    1cc0:	e51b3080 	ldr	r3, [fp, #-128]
+    1cc4:	e2833f46 	add	r3, r3, #280	; 0x118
+    1cc8:	e2833002 	add	r3, r3, #2	; 0x2
+    1ccc:	e24b202a 	sub	r2, fp, #42	; 0x2a
+    1cd0:	e1a00002 	mov	r0, r2
+    1cd4:	e1a01003 	mov	r1, r3
+    1cd8:	e3a02007 	mov	r2, #7	; 0x7
+    1cdc:	ebfffffe 	bl	0 <memcpy>
+    1ce0:	e51b2080 	ldr	r2, [fp, #-128]
+    1ce4:	e3a03e11 	mov	r3, #272	; 0x110
+    1ce8:	e19230b3 	ldrh	r3, [r2, r3]
+    1cec:	e1a03443 	asr	r3, r3, #8
+    1cf0:	e20330ff 	and	r3, r3, #255	; 0xff
+    1cf4:	e1a00003 	mov	r0, r3
+    1cf8:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    1cfc:	e1a03000 	mov	r3, r0
+    1d00:	e54b3023 	strb	r3, [fp, #-35]
+    1d04:	e51b2080 	ldr	r2, [fp, #-128]
+    1d08:	e3a03e11 	mov	r3, #272	; 0x110
+    1d0c:	e19230b3 	ldrh	r3, [r2, r3]
+    1d10:	e20330ff 	and	r3, r3, #255	; 0xff
+    1d14:	e1a00003 	mov	r0, r3
+    1d18:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    1d1c:	e1a03000 	mov	r3, r0
+    1d20:	e54b3022 	strb	r3, [fp, #-34]
+    1d24:	e51b3080 	ldr	r3, [fp, #-128]
+    1d28:	e5933114 	ldr	r3, [r3, #276]
+    1d2c:	e20330ff 	and	r3, r3, #255	; 0xff
+    1d30:	e54b3021 	strb	r3, [fp, #-33]
+    1d34:	e51b2080 	ldr	r2, [fp, #-128]
+    1d38:	e3a03f46 	mov	r3, #280	; 0x118
+    1d3c:	e19230b3 	ldrh	r3, [r2, r3]
+    1d40:	e1a00003 	mov	r0, r3
+    1d44:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    1d48:	e1a03000 	mov	r3, r0
+    1d4c:	e14b32b0 	strh	r3, [fp, #-32]
+    1d50:	e51b3080 	ldr	r3, [fp, #-128]
+    1d54:	e5d330d2 	ldrb	r3, [r3, #210]
+    1d58:	e54b301e 	strb	r3, [fp, #-30]
+    1d5c:	e51b3080 	ldr	r3, [fp, #-128]
+    1d60:	e59330b0 	ldr	r3, [r3, #176]
+    1d64:	e1a03803 	lsl	r3, r3, #16
+    1d68:	e1a03823 	lsr	r3, r3, #16
+    1d6c:	e14b31bc 	strh	r3, [fp, #-28]
+    1d70:	e51b3080 	ldr	r3, [fp, #-128]
+    1d74:	e59330e0 	ldr	r3, [r3, #224]
+    1d78:	e1d330b0 	ldrh	r3, [r3]
+    1d7c:	e1a03443 	asr	r3, r3, #8
+    1d80:	e20330ff 	and	r3, r3, #255	; 0xff
+    1d84:	e1a00003 	mov	r0, r3
+    1d88:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    1d8c:	e1a03000 	mov	r3, r0
+    1d90:	e54b301a 	strb	r3, [fp, #-26]
+    1d94:	e51b3080 	ldr	r3, [fp, #-128]
+    1d98:	e59330e0 	ldr	r3, [r3, #224]
+    1d9c:	e1d330b0 	ldrh	r3, [r3]
+    1da0:	e20330ff 	and	r3, r3, #255	; 0xff
+    1da4:	e1a00003 	mov	r0, r3
+    1da8:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    1dac:	e1a03000 	mov	r3, r0
+    1db0:	e54b3019 	strb	r3, [fp, #-25]
+    1db4:	e51b3080 	ldr	r3, [fp, #-128]
+    1db8:	e59330c4 	ldr	r3, [r3, #196]
+    1dbc:	e2832001 	add	r2, r3, #1	; 0x1
+    1dc0:	e51b3080 	ldr	r3, [fp, #-128]
+    1dc4:	e58320c4 	str	r2, [r3, #196]
+    1dc8:	e51b3080 	ldr	r3, [fp, #-128]
+    1dcc:	e59330c4 	ldr	r3, [r3, #196]
+    1dd0:	e1a03803 	lsl	r3, r3, #16
+    1dd4:	e1a03823 	lsr	r3, r3, #16
+    1dd8:	e14b31b8 	strh	r3, [fp, #-24]
+    1ddc:	e51b3080 	ldr	r3, [fp, #-128]
+    1de0:	e5d33140 	ldrb	r3, [r3, #320]
+    1de4:	e2633001 	rsb	r3, r3, #1	; 0x1
+    1de8:	e20330ff 	and	r3, r3, #255	; 0xff
+    1dec:	e51b2080 	ldr	r2, [fp, #-128]
+    1df0:	e5c23140 	strb	r3, [r2, #320]
+    1df4:	e51b3080 	ldr	r3, [fp, #-128]
+    1df8:	e5d33140 	ldrb	r3, [r3, #320]
+    1dfc:	e58d3000 	str	r3, [sp]
+    1e00:	e59f0470 	ldr	r0, [pc, #1136]	; 2278 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x744>
+    1e04:	e3a01000 	mov	r1, #0	; 0x0
+    1e08:	e3a02005 	mov	r2, #5	; 0x5
+    1e0c:	e59f3468 	ldr	r3, [pc, #1128]	; 227c <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x748>
+    1e10:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+    1e14:	e51b3080 	ldr	r3, [fp, #-128]
+    1e18:	e2833e15 	add	r3, r3, #336	; 0x150
+    1e1c:	e2833001 	add	r3, r3, #1	; 0x1
+    1e20:	e24b202a 	sub	r2, fp, #42	; 0x2a
+    1e24:	e51b0080 	ldr	r0, [fp, #-128]
+    1e28:	e1a01002 	mov	r1, r2
+    1e2c:	e1a02003 	mov	r2, r3
+    1e30:	ebfffffe 	bl	12c0 <_ZN8TicketUl13set_deal_areaERNS_12UL_DEAL_AREAEPh>
+    1e34:	e3a03000 	mov	r3, #0	; 0x0
+    1e38:	e50b3008 	str	r3, [fp, #-8]
+    1e3c:	ea00004a 	b	1f6c <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x438>
+    1e40:	e51b3080 	ldr	r3, [fp, #-128]
+    1e44:	e5d32140 	ldrb	r2, [r3, #320]
+    1e48:	e51b3080 	ldr	r3, [fp, #-128]
+    1e4c:	e2833e15 	add	r3, r3, #336	; 0x150
+    1e50:	e2833001 	add	r3, r3, #1	; 0x1
+    1e54:	e51b0080 	ldr	r0, [fp, #-128]
+    1e58:	e1a01002 	mov	r1, r2
+    1e5c:	e1a02003 	mov	r2, r3
+    1e60:	ebfffffe 	bl	1680 <_ZN8TicketUl8write_ulEhPh>
+    1e64:	e1a03000 	mov	r3, r0
+    1e68:	e1a00003 	mov	r0, r3
+    1e6c:	e20010ff 	and	r1, r0, #255	; 0xff
+    1e70:	e3a03000 	mov	r3, #0	; 0x0
+    1e74:	e1a02003 	mov	r2, r3
+    1e78:	e1a03001 	mov	r3, r1
+    1e7c:	e1823003 	orr	r3, r2, r3
+    1e80:	e51b208c 	ldr	r2, [fp, #-140]
+    1e84:	e5c23000 	strb	r3, [r2]
+    1e88:	e1a03420 	lsr	r3, r0, #8
+    1e8c:	e1a03803 	lsl	r3, r3, #16
+    1e90:	e1a01823 	lsr	r1, r3, #16
+    1e94:	e3a03000 	mov	r3, #0	; 0x0
+    1e98:	e1a02003 	mov	r2, r3
+    1e9c:	e1a03001 	mov	r3, r1
+    1ea0:	e1823003 	orr	r3, r2, r3
+    1ea4:	e51b008c 	ldr	r0, [fp, #-140]
+    1ea8:	e5c03001 	strb	r3, [r0, #1]
+    1eac:	e51b108c 	ldr	r1, [fp, #-140]
+    1eb0:	e5d12000 	ldrb	r2, [r1]
+    1eb4:	e51b008c 	ldr	r0, [fp, #-140]
+    1eb8:	e5d03001 	ldrb	r3, [r0, #1]
+    1ebc:	e1a03403 	lsl	r3, r3, #8
+    1ec0:	e1833002 	orr	r3, r3, r2
+    1ec4:	e1a03803 	lsl	r3, r3, #16
+    1ec8:	e1a03823 	lsr	r3, r3, #16
+    1ecc:	e3530000 	cmp	r3, #0	; 0x0
+    1ed0:	1a000022 	bne	1f60 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x42c>
+    1ed4:	e51b3080 	ldr	r3, [fp, #-128]
+    1ed8:	e2833e15 	add	r3, r3, #336	; 0x150
+    1edc:	e2833001 	add	r3, r3, #1	; 0x1
+    1ee0:	e51b0080 	ldr	r0, [fp, #-128]
+    1ee4:	e1a01003 	mov	r1, r3
+    1ee8:	ebfffffe 	bl	172c <_ZN8TicketUl17read_equals_writeEPh>
+    1eec:	e1a03000 	mov	r3, r0
+    1ef0:	e1a00003 	mov	r0, r3
+    1ef4:	e20010ff 	and	r1, r0, #255	; 0xff
+    1ef8:	e3a03000 	mov	r3, #0	; 0x0
+    1efc:	e1a02003 	mov	r2, r3
+    1f00:	e1a03001 	mov	r3, r1
+    1f04:	e1823003 	orr	r3, r2, r3
+    1f08:	e51b108c 	ldr	r1, [fp, #-140]
+    1f0c:	e5c13000 	strb	r3, [r1]
+    1f10:	e1a03420 	lsr	r3, r0, #8
+    1f14:	e1a03803 	lsl	r3, r3, #16
+    1f18:	e1a01823 	lsr	r1, r3, #16
+    1f1c:	e3a03000 	mov	r3, #0	; 0x0
+    1f20:	e1a02003 	mov	r2, r3
+    1f24:	e1a03001 	mov	r3, r1
+    1f28:	e1823003 	orr	r3, r2, r3
+    1f2c:	e51b208c 	ldr	r2, [fp, #-140]
+    1f30:	e5c23001 	strb	r3, [r2, #1]
+    1f34:	e51b308c 	ldr	r3, [fp, #-140]
+    1f38:	e5d32000 	ldrb	r2, [r3]
+    1f3c:	e51b008c 	ldr	r0, [fp, #-140]
+    1f40:	e5d03001 	ldrb	r3, [r0, #1]
+    1f44:	e1a03403 	lsl	r3, r3, #8
+    1f48:	e1833002 	orr	r3, r3, r2
+    1f4c:	e1a03803 	lsl	r3, r3, #16
+    1f50:	e1a03823 	lsr	r3, r3, #16
+    1f54:	e3530000 	cmp	r3, #0	; 0x0
+    1f58:	0a000006 	beq	1f78 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x444>
+    1f5c:	ebfffffe 	bl	0 <rfdev_init>
+    1f60:	e51b3008 	ldr	r3, [fp, #-8]
+    1f64:	e2833001 	add	r3, r3, #1	; 0x1
+    1f68:	e50b3008 	str	r3, [fp, #-8]
+    1f6c:	e51b3008 	ldr	r3, [fp, #-8]
+    1f70:	e3530001 	cmp	r3, #1	; 0x1
+    1f74:	daffffb1 	ble	1e40 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x30c>
+    1f78:	e51b108c 	ldr	r1, [fp, #-140]
+    1f7c:	e5d12000 	ldrb	r2, [r1]
+    1f80:	e51b008c 	ldr	r0, [fp, #-140]
+    1f84:	e5d03001 	ldrb	r3, [r0, #1]
+    1f88:	e1a03403 	lsl	r3, r3, #8
+    1f8c:	e1833002 	orr	r3, r3, r2
+    1f90:	e1a03803 	lsl	r3, r3, #16
+    1f94:	e1a03823 	lsr	r3, r3, #16
+    1f98:	e3530000 	cmp	r3, #0	; 0x0
+    1f9c:	0a00000e 	beq	1fdc <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x4a8>
+    1fa0:	e3a03000 	mov	r3, #0	; 0x0
+    1fa4:	e3833005 	orr	r3, r3, #5	; 0x5
+    1fa8:	e51b108c 	ldr	r1, [fp, #-140]
+    1fac:	e5c13000 	strb	r3, [r1]
+    1fb0:	e3a03000 	mov	r3, #0	; 0x0
+    1fb4:	e51b208c 	ldr	r2, [fp, #-140]
+    1fb8:	e5c23001 	strb	r3, [r2, #1]
+    1fbc:	e59f32bc 	ldr	r3, [pc, #700]	; 2280 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x74c>
+    1fc0:	e5d33000 	ldrb	r3, [r3]
+    1fc4:	e3530002 	cmp	r3, #2	; 0x2
+    1fc8:	0a000079 	beq	21b4 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x680>
+    1fcc:	e3a03011 	mov	r3, #17	; 0x11
+    1fd0:	e51b008c 	ldr	r0, [fp, #-140]
+    1fd4:	e5c03002 	strb	r3, [r0, #2]
+    1fd8:	ea000075 	b	21b4 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x680>
+    1fdc:	e51b3080 	ldr	r3, [fp, #-128]
+    1fe0:	e283302d 	add	r3, r3, #45	; 0x2d
+    1fe4:	e24b2015 	sub	r2, fp, #21	; 0x15
+    1fe8:	e1a00003 	mov	r0, r3
+    1fec:	e3a01010 	mov	r1, #16	; 0x10
+    1ff0:	e3a03008 	mov	r3, #8	; 0x8
+    1ff4:	ebfffffe 	bl	0 <_ZN7Publics14string_to_bcdsEPcjPhj>
+    1ff8:	e51bc088 	ldr	ip, [fp, #-136]
+    1ffc:	e24b2015 	sub	r2, fp, #21	; 0x15
+    2000:	e24b307a 	sub	r3, fp, #122	; 0x7a
+    2004:	e58d3000 	str	r3, [sp]
+    2008:	e3a00000 	mov	r0, #0	; 0x0
+    200c:	e1a01002 	mov	r1, r2
+    2010:	e1a0200c 	mov	r2, ip
+    2014:	e59f3268 	ldr	r3, [pc, #616]	; 2284 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x750>
+    2018:	ebfffffe 	bl	0 <generate_tac>
+    201c:	e1a03000 	mov	r3, r0
+    2020:	e3530000 	cmp	r3, #0	; 0x0
+    2024:	03a03000 	moveq	r3, #0	; 0x0
+    2028:	13a03001 	movne	r3, #1	; 0x1
+    202c:	e20330ff 	and	r3, r3, #255	; 0xff
+    2030:	e3530000 	cmp	r3, #0	; 0x0
+    2034:	0a00000a 	beq	2064 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x530>
+    2038:	e3a03000 	mov	r3, #0	; 0x0
+    203c:	e3833005 	orr	r3, r3, #5	; 0x5
+    2040:	e51b108c 	ldr	r1, [fp, #-140]
+    2044:	e5c13000 	strb	r3, [r1]
+    2048:	e3a03000 	mov	r3, #0	; 0x0
+    204c:	e51b208c 	ldr	r2, [fp, #-140]
+    2050:	e5c23001 	strb	r3, [r2, #1]
+    2054:	e3a03011 	mov	r3, #17	; 0x11
+    2058:	e51b008c 	ldr	r0, [fp, #-140]
+    205c:	e5c03002 	strb	r3, [r0, #2]
+    2060:	ea000053 	b	21b4 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x680>
+    2064:	e55b3074 	ldrb	r3, [fp, #-116]
+    2068:	e1a02c03 	lsl	r2, r3, #24
+    206c:	e55b3073 	ldrb	r3, [fp, #-115]
+    2070:	e1a03803 	lsl	r3, r3, #16
+    2074:	e0822003 	add	r2, r2, r3
+    2078:	e55b3072 	ldrb	r3, [fp, #-114]
+    207c:	e1a03403 	lsl	r3, r3, #8
+    2080:	e0822003 	add	r2, r2, r3
+    2084:	e55b3071 	ldrb	r3, [fp, #-113]
+    2088:	e0822003 	add	r2, r2, r3
+    208c:	e59b3004 	ldr	r3, [fp, #4]
+    2090:	e5832000 	str	r2, [r3]
+    2094:	e59b3008 	ldr	r3, [fp, #8]
+    2098:	e3530000 	cmp	r3, #0	; 0x0
+    209c:	0a000044 	beq	21b4 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x680>
+    20a0:	e24b103a 	sub	r1, fp, #58	; 0x3a
+    20a4:	e50b1098 	str	r1, [fp, #-152]
+    20a8:	e3a03000 	mov	r3, #0	; 0x0
+    20ac:	e51b2098 	ldr	r2, [fp, #-152]
+    20b0:	e1c230b0 	strh	r3, [r2]
+    20b4:	e51b3098 	ldr	r3, [fp, #-152]
+    20b8:	e2833002 	add	r3, r3, #2	; 0x2
+    20bc:	e50b3098 	str	r3, [fp, #-152]
+    20c0:	e3a03000 	mov	r3, #0	; 0x0
+    20c4:	e51b0098 	ldr	r0, [fp, #-152]
+    20c8:	e1c030b0 	strh	r3, [r0]
+    20cc:	e51b1098 	ldr	r1, [fp, #-152]
+    20d0:	e2811002 	add	r1, r1, #2	; 0x2
+    20d4:	e50b1098 	str	r1, [fp, #-152]
+    20d8:	e3a03000 	mov	r3, #0	; 0x0
+    20dc:	e51b2098 	ldr	r2, [fp, #-152]
+    20e0:	e1c230b0 	strh	r3, [r2]
+    20e4:	e51b3098 	ldr	r3, [fp, #-152]
+    20e8:	e2833002 	add	r3, r3, #2	; 0x2
+    20ec:	e50b3098 	str	r3, [fp, #-152]
+    20f0:	e3a03000 	mov	r3, #0	; 0x0
+    20f4:	e51b0098 	ldr	r0, [fp, #-152]
+    20f8:	e1c030b0 	strh	r3, [r0]
+    20fc:	e51b1098 	ldr	r1, [fp, #-152]
+    2100:	e2811002 	add	r1, r1, #2	; 0x2
+    2104:	e50b1098 	str	r1, [fp, #-152]
+    2108:	e3a03000 	mov	r3, #0	; 0x0
+    210c:	e51b2098 	ldr	r2, [fp, #-152]
+    2110:	e1c230b0 	strh	r3, [r2]
+    2114:	e51b3098 	ldr	r3, [fp, #-152]
+    2118:	e2833002 	add	r3, r3, #2	; 0x2
+    211c:	e50b3098 	str	r3, [fp, #-152]
+    2120:	e3a03000 	mov	r3, #0	; 0x0
+    2124:	e51b0098 	ldr	r0, [fp, #-152]
+    2128:	e1c030b0 	strh	r3, [r0]
+    212c:	e51b1098 	ldr	r1, [fp, #-152]
+    2130:	e2811002 	add	r1, r1, #2	; 0x2
+    2134:	e50b1098 	str	r1, [fp, #-152]
+    2138:	e3a03000 	mov	r3, #0	; 0x0
+    213c:	e51b2098 	ldr	r2, [fp, #-152]
+    2140:	e1c230b0 	strh	r3, [r2]
+    2144:	e51b3098 	ldr	r3, [fp, #-152]
+    2148:	e2833002 	add	r3, r3, #2	; 0x2
+    214c:	e50b3098 	str	r3, [fp, #-152]
+    2150:	e3a03000 	mov	r3, #0	; 0x0
+    2154:	e51b0098 	ldr	r0, [fp, #-152]
+    2158:	e1c030b0 	strh	r3, [r0]
+    215c:	e51b1098 	ldr	r1, [fp, #-152]
+    2160:	e2811002 	add	r1, r1, #2	; 0x2
+    2164:	e55b3070 	ldrb	r3, [fp, #-112]
+    2168:	e1a0c003 	mov	ip, r3
+    216c:	e55b306f 	ldrb	r3, [fp, #-111]
+    2170:	e1a0e003 	mov	lr, r3
+    2174:	e55b306e 	ldrb	r3, [fp, #-110]
+    2178:	e1a01003 	mov	r1, r3
+    217c:	e55b306d 	ldrb	r3, [fp, #-109]
+    2180:	e24b203a 	sub	r2, fp, #58	; 0x3a
+    2184:	e58d1000 	str	r1, [sp]
+    2188:	e58d3004 	str	r3, [sp, #4]
+    218c:	e1a00002 	mov	r0, r2
+    2190:	e59f10f0 	ldr	r1, [pc, #240]	; 2288 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x754>
+    2194:	e1a0200c 	mov	r2, ip
+    2198:	e1a0300e 	mov	r3, lr
+    219c:	ebfffffe 	bl	0 <sprintf>
+    21a0:	e24b303a 	sub	r3, fp, #58	; 0x3a
+    21a4:	e59b0008 	ldr	r0, [fp, #8]
+    21a8:	e1a01003 	mov	r1, r3
+    21ac:	e3a0200a 	mov	r2, #10	; 0xa
+    21b0:	ebfffffe 	bl	0 <memcpy>
+    21b4:	e51b208c 	ldr	r2, [fp, #-140]
+    21b8:	e5d23002 	ldrb	r3, [r2, #2]
+    21bc:	e3530011 	cmp	r3, #17	; 0x11
+    21c0:	1a000006 	bne	21e0 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x6ac>
+    21c4:	e51b3080 	ldr	r3, [fp, #-128]
+    21c8:	e1a00003 	mov	r0, r3
+    21cc:	e51b1084 	ldr	r1, [fp, #-132]
+    21d0:	ebfffffe 	bl	0 <_ZN10TicketBase15support_confirmE9ETYTKOPER>
+    21d4:	e1a03000 	mov	r3, r0
+    21d8:	e51b008c 	ldr	r0, [fp, #-140]
+    21dc:	e5c03002 	strb	r3, [r0, #2]
+    21e0:	e51b3008 	ldr	r3, [fp, #-8]
+    21e4:	e3530001 	cmp	r3, #1	; 0x1
+    21e8:	da00001f 	ble	226c <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x738>
+    21ec:	e51b108c 	ldr	r1, [fp, #-140]
+    21f0:	e5d12000 	ldrb	r2, [r1]
+    21f4:	e51b008c 	ldr	r0, [fp, #-140]
+    21f8:	e5d03001 	ldrb	r3, [r0, #1]
+    21fc:	e1a03403 	lsl	r3, r3, #8
+    2200:	e1833002 	orr	r3, r3, r2
+    2204:	e1a03803 	lsl	r3, r3, #16
+    2208:	e1a0c823 	lsr	ip, r3, #16
+    220c:	e51b3080 	ldr	r3, [fp, #-128]
+    2210:	e2831029 	add	r1, r3, #41	; 0x29
+    2214:	e51b308c 	ldr	r3, [fp, #-140]
+    2218:	e5d32000 	ldrb	r2, [r3]
+    221c:	e51b008c 	ldr	r0, [fp, #-140]
+    2220:	e5d03001 	ldrb	r3, [r0, #1]
+    2224:	e1a03403 	lsl	r3, r3, #8
+    2228:	e1833002 	orr	r3, r3, r2
+    222c:	e1a03803 	lsl	r3, r3, #16
+    2230:	e1a03823 	lsr	r3, r3, #16
+    2234:	e1a00003 	mov	r0, r3
+    2238:	e51b208c 	ldr	r2, [fp, #-140]
+    223c:	e5d23002 	ldrb	r3, [r2, #2]
+    2240:	e1a02003 	mov	r2, r3
+    2244:	e58d1000 	str	r1, [sp]
+    2248:	e51b3008 	ldr	r3, [fp, #-8]
+    224c:	e58d3004 	str	r3, [sp, #4]
+    2250:	e58d0008 	str	r0, [sp, #8]
+    2254:	e58d200c 	str	r2, [sp, #12]
+    2258:	e59f0018 	ldr	r0, [pc, #24]	; 2278 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x744>
+    225c:	e1a0100c 	mov	r1, ip
+    2260:	e3a02004 	mov	r2, #4	; 0x4
+    2264:	e59f3020 	ldr	r3, [pc, #32]	; 228c <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc+0x758>
+    2268:	ebfffffe 	bl	0 <_ZN7Records7log_outEt9LOG_LEVELPKcz>
+    226c:	e51b008c 	ldr	r0, [fp, #-140]
+    2270:	e24bd004 	sub	sp, fp, #4	; 0x4
+    2274:	e8bd8800 	pop	{fp, pc}
+    2278:	00000000 	.word	0x00000000
+    227c:	00000118 	.word	0x00000118
+	...
+    228c:	00000128 	.word	0x00000128
+
+00002290 <_ZN8TicketUl10bom_refundEP12DIRECTREFUND>:
+    2290:	e92d4800 	push	{fp, lr}
+    2294:	e28db004 	add	fp, sp, #4	; 0x4
+    2298:	e24dd038 	sub	sp, sp, #56	; 0x38
+    229c:	e50b0028 	str	r0, [fp, #-40]
+    22a0:	e50b1018 	str	r1, [fp, #-24]
+    22a4:	e50b201c 	str	r2, [fp, #-28]
+    22a8:	e51b2028 	ldr	r2, [fp, #-40]
+    22ac:	e50b202c 	str	r2, [fp, #-44]
+    22b0:	e3a03000 	mov	r3, #0	; 0x0
+    22b4:	e51b202c 	ldr	r2, [fp, #-44]
+    22b8:	e5c23000 	strb	r3, [r2]
+    22bc:	e51b302c 	ldr	r3, [fp, #-44]
+    22c0:	e2833001 	add	r3, r3, #1	; 0x1
+    22c4:	e50b302c 	str	r3, [fp, #-44]
+    22c8:	e3a03000 	mov	r3, #0	; 0x0
+    22cc:	e51b202c 	ldr	r2, [fp, #-44]
+    22d0:	e5c23000 	strb	r3, [r2]
+    22d4:	e51b302c 	ldr	r3, [fp, #-44]
+    22d8:	e2833001 	add	r3, r3, #1	; 0x1
+    22dc:	e50b302c 	str	r3, [fp, #-44]
+    22e0:	e3a03000 	mov	r3, #0	; 0x0
+    22e4:	e51b202c 	ldr	r2, [fp, #-44]
+    22e8:	e5c23000 	strb	r3, [r2]
+    22ec:	e51b302c 	ldr	r3, [fp, #-44]
+    22f0:	e2833001 	add	r3, r3, #1	; 0x1
+    22f4:	e50b302c 	str	r3, [fp, #-44]
+    22f8:	e3a03000 	mov	r3, #0	; 0x0
+    22fc:	e51b202c 	ldr	r2, [fp, #-44]
+    2300:	e5c23000 	strb	r3, [r2]
+    2304:	e51b302c 	ldr	r3, [fp, #-44]
+    2308:	e2833001 	add	r3, r3, #1	; 0x1
+    230c:	e50b302c 	str	r3, [fp, #-44]
+    2310:	e3a03000 	mov	r3, #0	; 0x0
+    2314:	e51b202c 	ldr	r2, [fp, #-44]
+    2318:	e5c23000 	strb	r3, [r2]
+    231c:	e51b302c 	ldr	r3, [fp, #-44]
+    2320:	e2833001 	add	r3, r3, #1	; 0x1
+    2324:	e3a03000 	mov	r3, #0	; 0x0
+    2328:	e50b3010 	str	r3, [fp, #-16]
+    232c:	e51b2018 	ldr	r2, [fp, #-24]
+    2330:	e3a0300f 	mov	r3, #15	; 0xf
+    2334:	e5c230d2 	strb	r3, [r2, #210]
+    2338:	e51b3018 	ldr	r3, [fp, #-24]
+    233c:	e59300b0 	ldr	r0, [r3, #176]
+    2340:	e51bc01c 	ldr	ip, [fp, #-28]
+    2344:	e20010ff 	and	r1, r0, #255	; 0xff
+    2348:	e3a03000 	mov	r3, #0	; 0x0
+    234c:	e1a02003 	mov	r2, r3
+    2350:	e1a03001 	mov	r3, r1
+    2354:	e1823003 	orr	r3, r2, r3
+    2358:	e5cc304a 	strb	r3, [ip, #74]
+    235c:	e1a03420 	lsr	r3, r0, #8
+    2360:	e20310ff 	and	r1, r3, #255	; 0xff
+    2364:	e3a03000 	mov	r3, #0	; 0x0
+    2368:	e1a02003 	mov	r2, r3
+    236c:	e1a03001 	mov	r3, r1
+    2370:	e1823003 	orr	r3, r2, r3
+    2374:	e5cc304b 	strb	r3, [ip, #75]
+    2378:	e1a03820 	lsr	r3, r0, #16
+    237c:	e20310ff 	and	r1, r3, #255	; 0xff
+    2380:	e3a03000 	mov	r3, #0	; 0x0
+    2384:	e1a02003 	mov	r2, r3
+    2388:	e1a03001 	mov	r3, r1
+    238c:	e1823003 	orr	r3, r2, r3
+    2390:	e5cc304c 	strb	r3, [ip, #76]
+    2394:	e1a01c20 	lsr	r1, r0, #24
+    2398:	e3a03000 	mov	r3, #0	; 0x0
+    239c:	e1a02003 	mov	r2, r3
+    23a0:	e1a03001 	mov	r3, r1
+    23a4:	e1823003 	orr	r3, r2, r3
+    23a8:	e5cc304d 	strb	r3, [ip, #77]
+    23ac:	e51b3018 	ldr	r3, [fp, #-24]
+    23b0:	e59300b0 	ldr	r0, [r3, #176]
+    23b4:	e51b201c 	ldr	r2, [fp, #-28]
+    23b8:	e5d2104a 	ldrb	r1, [r2, #74]
+    23bc:	e5d2304b 	ldrb	r3, [r2, #75]
+    23c0:	e1a03403 	lsl	r3, r3, #8
+    23c4:	e1831001 	orr	r1, r3, r1
+    23c8:	e5d2304c 	ldrb	r3, [r2, #76]
+    23cc:	e1a03803 	lsl	r3, r3, #16
+    23d0:	e1831001 	orr	r1, r3, r1
+    23d4:	e5d2304d 	ldrb	r3, [r2, #77]
+    23d8:	e1a03c03 	lsl	r3, r3, #24
+    23dc:	e1833001 	orr	r3, r3, r1
+    23e0:	e0632000 	rsb	r2, r3, r0
+    23e4:	e51b3018 	ldr	r3, [fp, #-24]
+    23e8:	e58320b0 	str	r2, [r3, #176]
+    23ec:	e51b2018 	ldr	r2, [fp, #-24]
+    23f0:	e51b3018 	ldr	r3, [fp, #-24]
+    23f4:	e2833e11 	add	r3, r3, #272	; 0x110
+    23f8:	e1a00002 	mov	r0, r2
+    23fc:	e1a01003 	mov	r1, r3
+    2400:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    2404:	e51b301c 	ldr	r3, [fp, #-28]
+    2408:	e5d33052 	ldrb	r3, [r3, #82]
+    240c:	e3530006 	cmp	r3, #6	; 0x6
+    2410:	1a000003 	bne	2424 <_ZN8TicketUl10bom_refundEP12DIRECTREFUND+0x194>
+    2414:	e51b301c 	ldr	r3, [fp, #-28]
+    2418:	e3a02033 	mov	r2, #51	; 0x33
+    241c:	e5c32057 	strb	r2, [r3, #87]
+    2420:	ea000002 	b	2430 <_ZN8TicketUl10bom_refundEP12DIRECTREFUND+0x1a0>
+    2424:	e51b301c 	ldr	r3, [fp, #-28]
+    2428:	e3a02032 	mov	r2, #50	; 0x32
+    242c:	e5c32057 	strb	r2, [r3, #87]
+    2430:	e51b201c 	ldr	r2, [fp, #-28]
+    2434:	e5d2104a 	ldrb	r1, [r2, #74]
+    2438:	e5d2304b 	ldrb	r3, [r2, #75]
+    243c:	e1a03403 	lsl	r3, r3, #8
+    2440:	e1831001 	orr	r1, r3, r1
+    2444:	e5d2304c 	ldrb	r3, [r2, #76]
+    2448:	e1a03803 	lsl	r3, r3, #16
+    244c:	e1831001 	orr	r1, r3, r1
+    2450:	e5d2304d 	ldrb	r3, [r2, #77]
+    2454:	e1a03c03 	lsl	r3, r3, #24
+    2458:	e1833001 	orr	r3, r3, r1
+    245c:	e1a0c003 	mov	ip, r3
+    2460:	e51b301c 	ldr	r3, [fp, #-28]
+    2464:	e283206a 	add	r2, r3, #106	; 0x6a
+    2468:	e24b1024 	sub	r1, fp, #36	; 0x24
+    246c:	e24b3010 	sub	r3, fp, #16	; 0x10
+    2470:	e58d3000 	str	r3, [sp]
+    2474:	e58d2004 	str	r2, [sp, #4]
+    2478:	e1a00001 	mov	r0, r1
+    247c:	e51b1018 	ldr	r1, [fp, #-24]
+    2480:	e3a0200a 	mov	r2, #10	; 0xa
+    2484:	e1a0300c 	mov	r3, ip
+    2488:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    248c:	e51b3028 	ldr	r3, [fp, #-40]
+    2490:	e24b2024 	sub	r2, fp, #36	; 0x24
+    2494:	e3a0c005 	mov	ip, #5	; 0x5
+    2498:	e1a00003 	mov	r0, r3
+    249c:	e1a01002 	mov	r1, r2
+    24a0:	e1a0200c 	mov	r2, ip
+    24a4:	ebfffffe 	bl	0 <memcpy>
+    24a8:	e51b0010 	ldr	r0, [fp, #-16]
+    24ac:	e51bc01c 	ldr	ip, [fp, #-28]
+    24b0:	e20010ff 	and	r1, r0, #255	; 0xff
+    24b4:	e3a03000 	mov	r3, #0	; 0x0
+    24b8:	e1a02003 	mov	r2, r3
+    24bc:	e1a03001 	mov	r3, r1
+    24c0:	e1823003 	orr	r3, r2, r3
+    24c4:	e5cc301b 	strb	r3, [ip, #27]
+    24c8:	e1a03420 	lsr	r3, r0, #8
+    24cc:	e20310ff 	and	r1, r3, #255	; 0xff
+    24d0:	e3a03000 	mov	r3, #0	; 0x0
+    24d4:	e1a02003 	mov	r2, r3
+    24d8:	e1a03001 	mov	r3, r1
+    24dc:	e1823003 	orr	r3, r2, r3
+    24e0:	e5cc301c 	strb	r3, [ip, #28]
+    24e4:	e1a03820 	lsr	r3, r0, #16
+    24e8:	e20310ff 	and	r1, r3, #255	; 0xff
+    24ec:	e3a03000 	mov	r3, #0	; 0x0
+    24f0:	e1a02003 	mov	r2, r3
+    24f4:	e1a03001 	mov	r3, r1
+    24f8:	e1823003 	orr	r3, r2, r3
+    24fc:	e5cc301d 	strb	r3, [ip, #29]
+    2500:	e1a01c20 	lsr	r1, r0, #24
+    2504:	e3a03000 	mov	r3, #0	; 0x0
+    2508:	e1a02003 	mov	r2, r3
+    250c:	e1a03001 	mov	r3, r1
+    2510:	e1823003 	orr	r3, r2, r3
+    2514:	e5cc301e 	strb	r3, [ip, #30]
+    2518:	e51b3018 	ldr	r3, [fp, #-24]
+    251c:	e1a00003 	mov	r0, r3
+    2520:	e3a0100a 	mov	r1, #10	; 0xa
+    2524:	e51b201c 	ldr	r2, [fp, #-28]
+    2528:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    252c:	e51b201c 	ldr	r2, [fp, #-28]
+    2530:	e3a03072 	mov	r3, #114	; 0x72
+    2534:	e5c23049 	strb	r3, [r2, #73]
+    2538:	e51b301c 	ldr	r3, [fp, #-28]
+    253c:	e2833080 	add	r3, r3, #128	; 0x80
+    2540:	e1a00003 	mov	r0, r3
+    2544:	e3a01030 	mov	r1, #48	; 0x30
+    2548:	e3a02002 	mov	r2, #2	; 0x2
+    254c:	ebfffffe 	bl	0 <memset>
+    2550:	e51b2028 	ldr	r2, [fp, #-40]
+    2554:	e5d23002 	ldrb	r3, [r2, #2]
+    2558:	e3530011 	cmp	r3, #17	; 0x11
+    255c:	1a00000d 	bne	2598 <_ZN8TicketUl10bom_refundEP12DIRECTREFUND+0x308>
+    2560:	e51b2018 	ldr	r2, [fp, #-24]
+    2564:	e51b3018 	ldr	r3, [fp, #-24]
+    2568:	e2833e15 	add	r3, r3, #336	; 0x150
+    256c:	e2833001 	add	r3, r3, #1	; 0x1
+    2570:	e58d3000 	str	r3, [sp]
+    2574:	e3a03010 	mov	r3, #16	; 0x10
+    2578:	e58d3004 	str	r3, [sp, #4]
+    257c:	e3a03001 	mov	r3, #1	; 0x1
+    2580:	e58d3008 	str	r3, [sp, #8]
+    2584:	e1a00002 	mov	r0, r2
+    2588:	e3a0100a 	mov	r1, #10	; 0xa
+    258c:	e51b201c 	ldr	r2, [fp, #-28]
+    2590:	e3a0308e 	mov	r3, #142	; 0x8e
+    2594:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    2598:	e51b0028 	ldr	r0, [fp, #-40]
+    259c:	e24bd004 	sub	sp, fp, #4	; 0x4
+    25a0:	e8bd8800 	pop	{fp, pc}
+
+000025a4 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh>:
+    25a4:	e92d4800 	push	{fp, lr}
+    25a8:	e28db004 	add	fp, sp, #4	; 0x4
+    25ac:	e24dd040 	sub	sp, sp, #64	; 0x40
+    25b0:	e50b0030 	str	r0, [fp, #-48]
+    25b4:	e50b1018 	str	r1, [fp, #-24]
+    25b8:	e50b201c 	str	r2, [fp, #-28]
+    25bc:	e50b3020 	str	r3, [fp, #-32]
+    25c0:	e51b1030 	ldr	r1, [fp, #-48]
+    25c4:	e50b1034 	str	r1, [fp, #-52]
+    25c8:	e3a03000 	mov	r3, #0	; 0x0
+    25cc:	e51b2034 	ldr	r2, [fp, #-52]
+    25d0:	e5c23000 	strb	r3, [r2]
+    25d4:	e51b3034 	ldr	r3, [fp, #-52]
+    25d8:	e2833001 	add	r3, r3, #1	; 0x1
+    25dc:	e50b3034 	str	r3, [fp, #-52]
+    25e0:	e3a03000 	mov	r3, #0	; 0x0
+    25e4:	e51b1034 	ldr	r1, [fp, #-52]
+    25e8:	e5c13000 	strb	r3, [r1]
+    25ec:	e51b2034 	ldr	r2, [fp, #-52]
+    25f0:	e2822001 	add	r2, r2, #1	; 0x1
+    25f4:	e50b2034 	str	r2, [fp, #-52]
+    25f8:	e3a03000 	mov	r3, #0	; 0x0
+    25fc:	e51b1034 	ldr	r1, [fp, #-52]
+    2600:	e5c13000 	strb	r3, [r1]
+    2604:	e51b2034 	ldr	r2, [fp, #-52]
+    2608:	e2822001 	add	r2, r2, #1	; 0x1
+    260c:	e50b2034 	str	r2, [fp, #-52]
+    2610:	e3a03000 	mov	r3, #0	; 0x0
+    2614:	e51b1034 	ldr	r1, [fp, #-52]
+    2618:	e5c13000 	strb	r3, [r1]
+    261c:	e51b2034 	ldr	r2, [fp, #-52]
+    2620:	e2822001 	add	r2, r2, #1	; 0x1
+    2624:	e50b2034 	str	r2, [fp, #-52]
+    2628:	e3a03000 	mov	r3, #0	; 0x0
+    262c:	e51b1034 	ldr	r1, [fp, #-52]
+    2630:	e5c13000 	strb	r3, [r1]
+    2634:	e51b2034 	ldr	r2, [fp, #-52]
+    2638:	e2822001 	add	r2, r2, #1	; 0x1
+    263c:	e3a03000 	mov	r3, #0	; 0x0
+    2640:	e50b3010 	str	r3, [fp, #-16]
+    2644:	e3a03000 	mov	r3, #0	; 0x0
+    2648:	e50b3014 	str	r3, [fp, #-20]
+    264c:	e51b301c 	ldr	r3, [fp, #-28]
+    2650:	e5d3304f 	ldrb	r3, [r3, #79]
+    2654:	e2433001 	sub	r3, r3, #1	; 0x1
+    2658:	e353000f 	cmp	r3, #15	; 0xf
+    265c:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+    2660:	ea000085 	b	287c <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2d8>
+    2664:	000026a4 	.word	0x000026a4
+    2668:	000026c0 	.word	0x000026c0
+    266c:	000026dc 	.word	0x000026dc
+    2670:	0000287c 	.word	0x0000287c
+    2674:	0000287c 	.word	0x0000287c
+    2678:	0000287c 	.word	0x0000287c
+    267c:	0000287c 	.word	0x0000287c
+    2680:	0000287c 	.word	0x0000287c
+    2684:	0000287c 	.word	0x0000287c
+    2688:	0000287c 	.word	0x0000287c
+    268c:	0000287c 	.word	0x0000287c
+    2690:	0000287c 	.word	0x0000287c
+    2694:	0000287c 	.word	0x0000287c
+    2698:	0000287c 	.word	0x0000287c
+    269c:	0000287c 	.word	0x0000287c
+    26a0:	00002860 	.word	0x00002860
+    26a4:	e51b2018 	ldr	r2, [fp, #-24]
+    26a8:	e3a0300c 	mov	r3, #12	; 0xc
+    26ac:	e5c230d2 	strb	r3, [r2, #210]
+    26b0:	e51b201c 	ldr	r2, [fp, #-28]
+    26b4:	e3a0306f 	mov	r3, #111	; 0x6f
+    26b8:	e5c2304d 	strb	r3, [r2, #77]
+    26bc:	ea000075 	b	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    26c0:	e51b2018 	ldr	r2, [fp, #-24]
+    26c4:	e3a0300d 	mov	r3, #13	; 0xd
+    26c8:	e5c230d2 	strb	r3, [r2, #210]
+    26cc:	e51b201c 	ldr	r2, [fp, #-28]
+    26d0:	e3a03070 	mov	r3, #112	; 0x70
+    26d4:	e5c2304d 	strb	r3, [r2, #77]
+    26d8:	ea00006e 	b	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    26dc:	e51b3018 	ldr	r3, [fp, #-24]
+    26e0:	e59310e0 	ldr	r1, [r3, #224]
+    26e4:	e51b3020 	ldr	r3, [fp, #-32]
+    26e8:	e5d33000 	ldrb	r3, [r3]
+    26ec:	e1a03403 	lsl	r3, r3, #8
+    26f0:	e1a03803 	lsl	r3, r3, #16
+    26f4:	e1a02823 	lsr	r2, r3, #16
+    26f8:	e51b3020 	ldr	r3, [fp, #-32]
+    26fc:	e2833001 	add	r3, r3, #1	; 0x1
+    2700:	e5d33000 	ldrb	r3, [r3]
+    2704:	e0823003 	add	r3, r2, r3
+    2708:	e1a03803 	lsl	r3, r3, #16
+    270c:	e1a03823 	lsr	r3, r3, #16
+    2710:	e1c130b0 	strh	r3, [r1]
+    2714:	e51b2018 	ldr	r2, [fp, #-24]
+    2718:	e3a0300a 	mov	r3, #10	; 0xa
+    271c:	e5c230d2 	strb	r3, [r2, #210]
+    2720:	e51b201c 	ldr	r2, [fp, #-28]
+    2724:	e3a0306e 	mov	r3, #110	; 0x6e
+    2728:	e5c2304d 	strb	r3, [r2, #77]
+    272c:	e51b301c 	ldr	r3, [fp, #-28]
+    2730:	e2832050 	add	r2, r3, #80	; 0x50
+    2734:	e51b3018 	ldr	r3, [fp, #-24]
+    2738:	e283c0ad 	add	ip, r3, #173	; 0xad
+    273c:	e51b3018 	ldr	r3, [fp, #-24]
+    2740:	e59330e0 	ldr	r3, [r3, #224]
+    2744:	e1d3e0b0 	ldrh	lr, [r3]
+    2748:	e51b301c 	ldr	r3, [fp, #-28]
+    274c:	e2833050 	add	r3, r3, #80	; 0x50
+    2750:	e58d3000 	str	r3, [sp]
+    2754:	e24b3014 	sub	r3, fp, #20	; 0x14
+    2758:	e58d3004 	str	r3, [sp, #4]
+    275c:	e3a03000 	mov	r3, #0	; 0x0
+    2760:	e58d3008 	str	r3, [sp, #8]
+    2764:	e59f0298 	ldr	r0, [pc, #664]	; 2a04 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x460>
+    2768:	e1a01002 	mov	r1, r2
+    276c:	e1a0200c 	mov	r2, ip
+    2770:	e1a0300e 	mov	r3, lr
+    2774:	ebfffffe 	bl	0 <_ZN8ParamMgr10query_fareEPhS0_tS0_PlS1_>
+    2778:	e1a03000 	mov	r3, r0
+    277c:	e1a00003 	mov	r0, r3
+    2780:	e20010ff 	and	r1, r0, #255	; 0xff
+    2784:	e3a03000 	mov	r3, #0	; 0x0
+    2788:	e1a02003 	mov	r2, r3
+    278c:	e1a03001 	mov	r3, r1
+    2790:	e1823003 	orr	r3, r2, r3
+    2794:	e51b1030 	ldr	r1, [fp, #-48]
+    2798:	e5c13000 	strb	r3, [r1]
+    279c:	e1a03420 	lsr	r3, r0, #8
+    27a0:	e1a03803 	lsl	r3, r3, #16
+    27a4:	e1a01823 	lsr	r1, r3, #16
+    27a8:	e3a03000 	mov	r3, #0	; 0x0
+    27ac:	e1a02003 	mov	r2, r3
+    27b0:	e1a03001 	mov	r3, r1
+    27b4:	e1823003 	orr	r3, r2, r3
+    27b8:	e51b2030 	ldr	r2, [fp, #-48]
+    27bc:	e5c23001 	strb	r3, [r2, #1]
+    27c0:	e51b3030 	ldr	r3, [fp, #-48]
+    27c4:	e5d32000 	ldrb	r2, [r3]
+    27c8:	e51b1030 	ldr	r1, [fp, #-48]
+    27cc:	e5d13001 	ldrb	r3, [r1, #1]
+    27d0:	e1a03403 	lsl	r3, r3, #8
+    27d4:	e1833002 	orr	r3, r3, r2
+    27d8:	e1a03803 	lsl	r3, r3, #16
+    27dc:	e1a03823 	lsr	r3, r3, #16
+    27e0:	e3530000 	cmp	r3, #0	; 0x0
+    27e4:	1a00002b 	bne	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    27e8:	e51b3018 	ldr	r3, [fp, #-24]
+    27ec:	e59320b0 	ldr	r2, [r3, #176]
+    27f0:	e51b3014 	ldr	r3, [fp, #-20]
+    27f4:	e1520003 	cmp	r2, r3
+    27f8:	aa000026 	bge	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    27fc:	e51b301c 	ldr	r3, [fp, #-28]
+    2800:	e5d32058 	ldrb	r2, [r3, #88]
+    2804:	e5d33059 	ldrb	r3, [r3, #89]
+    2808:	e1a03403 	lsl	r3, r3, #8
+    280c:	e1833002 	orr	r3, r3, r2
+    2810:	e1a03803 	lsl	r3, r3, #16
+    2814:	e1a03843 	asr	r3, r3, #16
+    2818:	e1a03803 	lsl	r3, r3, #16
+    281c:	e1a03823 	lsr	r3, r3, #16
+    2820:	e1a03803 	lsl	r3, r3, #16
+    2824:	e1a01843 	asr	r1, r3, #16
+    2828:	e51b2014 	ldr	r2, [fp, #-20]
+    282c:	e51b3018 	ldr	r3, [fp, #-24]
+    2830:	e59330b0 	ldr	r3, [r3, #176]
+    2834:	e0633002 	rsb	r3, r3, r2
+    2838:	e1510003 	cmp	r1, r3
+    283c:	aa000015 	bge	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    2840:	e3a03000 	mov	r3, #0	; 0x0
+    2844:	e3833044 	orr	r3, r3, #68	; 0x44
+    2848:	e51b2030 	ldr	r2, [fp, #-48]
+    284c:	e5c23000 	strb	r3, [r2]
+    2850:	e3a03000 	mov	r3, #0	; 0x0
+    2854:	e51b1030 	ldr	r1, [fp, #-48]
+    2858:	e5c13001 	strb	r3, [r1, #1]
+    285c:	ea00000d 	b	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    2860:	e51b2018 	ldr	r2, [fp, #-24]
+    2864:	e3a03008 	mov	r3, #8	; 0x8
+    2868:	e5c230d2 	strb	r3, [r2, #210]
+    286c:	e51b201c 	ldr	r2, [fp, #-28]
+    2870:	e3a0306a 	mov	r3, #106	; 0x6a
+    2874:	e5c2304d 	strb	r3, [r2, #77]
+    2878:	ea000006 	b	2898 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x2f4>
+    287c:	e3a03000 	mov	r3, #0	; 0x0
+    2880:	e3833044 	orr	r3, r3, #68	; 0x44
+    2884:	e51b2030 	ldr	r2, [fp, #-48]
+    2888:	e5c23000 	strb	r3, [r2]
+    288c:	e3a03000 	mov	r3, #0	; 0x0
+    2890:	e51b1030 	ldr	r1, [fp, #-48]
+    2894:	e5c13001 	strb	r3, [r1, #1]
+    2898:	e51b3030 	ldr	r3, [fp, #-48]
+    289c:	e5d32000 	ldrb	r2, [r3]
+    28a0:	e51b1030 	ldr	r1, [fp, #-48]
+    28a4:	e5d13001 	ldrb	r3, [r1, #1]
+    28a8:	e1a03403 	lsl	r3, r3, #8
+    28ac:	e1833002 	orr	r3, r3, r2
+    28b0:	e1a03803 	lsl	r3, r3, #16
+    28b4:	e1a03823 	lsr	r3, r3, #16
+    28b8:	e3530000 	cmp	r3, #0	; 0x0
+    28bc:	1a00004d 	bne	29f8 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x454>
+    28c0:	e51b3018 	ldr	r3, [fp, #-24]
+    28c4:	e2832e11 	add	r2, r3, #272	; 0x110
+    28c8:	e51b3018 	ldr	r3, [fp, #-24]
+    28cc:	e58320e4 	str	r2, [r3, #228]
+    28d0:	e51b2018 	ldr	r2, [fp, #-24]
+    28d4:	e51b3018 	ldr	r3, [fp, #-24]
+    28d8:	e59330e4 	ldr	r3, [r3, #228]
+    28dc:	e1a00002 	mov	r0, r2
+    28e0:	e1a01003 	mov	r1, r3
+    28e4:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    28e8:	e24b202c 	sub	r2, fp, #44	; 0x2c
+    28ec:	e24b3010 	sub	r3, fp, #16	; 0x10
+    28f0:	e58d3000 	str	r3, [sp]
+    28f4:	e3a03000 	mov	r3, #0	; 0x0
+    28f8:	e58d3004 	str	r3, [sp, #4]
+    28fc:	e1a00002 	mov	r0, r2
+    2900:	e51b1018 	ldr	r1, [fp, #-24]
+    2904:	e3a02002 	mov	r2, #2	; 0x2
+    2908:	e3a03000 	mov	r3, #0	; 0x0
+    290c:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    2910:	e51b3030 	ldr	r3, [fp, #-48]
+    2914:	e24b202c 	sub	r2, fp, #44	; 0x2c
+    2918:	e3a0c005 	mov	ip, #5	; 0x5
+    291c:	e1a00003 	mov	r0, r3
+    2920:	e1a01002 	mov	r1, r2
+    2924:	e1a0200c 	mov	r2, ip
+    2928:	ebfffffe 	bl	0 <memcpy>
+    292c:	e51b0010 	ldr	r0, [fp, #-16]
+    2930:	e51bc01c 	ldr	ip, [fp, #-28]
+    2934:	e20010ff 	and	r1, r0, #255	; 0xff
+    2938:	e3a03000 	mov	r3, #0	; 0x0
+    293c:	e1a02003 	mov	r2, r3
+    2940:	e1a03001 	mov	r3, r1
+    2944:	e1823003 	orr	r3, r2, r3
+    2948:	e5cc301b 	strb	r3, [ip, #27]
+    294c:	e1a03420 	lsr	r3, r0, #8
+    2950:	e20310ff 	and	r1, r3, #255	; 0xff
+    2954:	e3a03000 	mov	r3, #0	; 0x0
+    2958:	e1a02003 	mov	r2, r3
+    295c:	e1a03001 	mov	r3, r1
+    2960:	e1823003 	orr	r3, r2, r3
+    2964:	e5cc301c 	strb	r3, [ip, #28]
+    2968:	e1a03820 	lsr	r3, r0, #16
+    296c:	e20310ff 	and	r1, r3, #255	; 0xff
+    2970:	e3a03000 	mov	r3, #0	; 0x0
+    2974:	e1a02003 	mov	r2, r3
+    2978:	e1a03001 	mov	r3, r1
+    297c:	e1823003 	orr	r3, r2, r3
+    2980:	e5cc301d 	strb	r3, [ip, #29]
+    2984:	e1a01c20 	lsr	r1, r0, #24
+    2988:	e3a03000 	mov	r3, #0	; 0x0
+    298c:	e1a02003 	mov	r2, r3
+    2990:	e1a03001 	mov	r3, r1
+    2994:	e1823003 	orr	r3, r2, r3
+    2998:	e5cc301e 	strb	r3, [ip, #30]
+    299c:	e51b3018 	ldr	r3, [fp, #-24]
+    29a0:	e1a00003 	mov	r0, r3
+    29a4:	e3a01002 	mov	r1, #2	; 0x2
+    29a8:	e51b201c 	ldr	r2, [fp, #-28]
+    29ac:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    29b0:	e51b2030 	ldr	r2, [fp, #-48]
+    29b4:	e5d23002 	ldrb	r3, [r2, #2]
+    29b8:	e3530011 	cmp	r3, #17	; 0x11
+    29bc:	1a00000d 	bne	29f8 <_ZN8TicketUl10bom_updateEP12TICKETUPDATEPh+0x454>
+    29c0:	e51b2018 	ldr	r2, [fp, #-24]
+    29c4:	e51b3018 	ldr	r3, [fp, #-24]
+    29c8:	e2833e15 	add	r3, r3, #336	; 0x150
+    29cc:	e2833001 	add	r3, r3, #1	; 0x1
+    29d0:	e58d3000 	str	r3, [sp]
+    29d4:	e3a03010 	mov	r3, #16	; 0x10
+    29d8:	e58d3004 	str	r3, [sp, #4]
+    29dc:	e3a03001 	mov	r3, #1	; 0x1
+    29e0:	e58d3008 	str	r3, [sp, #8]
+    29e4:	e1a00002 	mov	r0, r2
+    29e8:	e3a01002 	mov	r1, #2	; 0x2
+    29ec:	e51b201c 	ldr	r2, [fp, #-28]
+    29f0:	e3a03070 	mov	r3, #112	; 0x70
+    29f4:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    29f8:	e51b0030 	ldr	r0, [fp, #-48]
+    29fc:	e24bd004 	sub	sp, fp, #4	; 0x4
+    2a00:	e8bd8800 	pop	{fp, pc}
+    2a04:	00000000 	.word	0x00000000
+
+00002a08 <_ZN8TicketUl12sjt_decreaseEv>:
+    2a08:	e92d4800 	push	{fp, lr}
+    2a0c:	e28db004 	add	fp, sp, #4	; 0x4
+    2a10:	e24dd030 	sub	sp, sp, #48	; 0x30
+    2a14:	e50b0028 	str	r0, [fp, #-40]
+    2a18:	e50b1018 	str	r1, [fp, #-24]
+    2a1c:	e51b2028 	ldr	r2, [fp, #-40]
+    2a20:	e50b202c 	str	r2, [fp, #-44]
+    2a24:	e3a03000 	mov	r3, #0	; 0x0
+    2a28:	e51b202c 	ldr	r2, [fp, #-44]
+    2a2c:	e5c23000 	strb	r3, [r2]
+    2a30:	e51b302c 	ldr	r3, [fp, #-44]
+    2a34:	e2833001 	add	r3, r3, #1	; 0x1
+    2a38:	e50b302c 	str	r3, [fp, #-44]
+    2a3c:	e3a03000 	mov	r3, #0	; 0x0
+    2a40:	e51b202c 	ldr	r2, [fp, #-44]
+    2a44:	e5c23000 	strb	r3, [r2]
+    2a48:	e51b302c 	ldr	r3, [fp, #-44]
+    2a4c:	e2833001 	add	r3, r3, #1	; 0x1
+    2a50:	e50b302c 	str	r3, [fp, #-44]
+    2a54:	e3a03000 	mov	r3, #0	; 0x0
+    2a58:	e51b202c 	ldr	r2, [fp, #-44]
+    2a5c:	e5c23000 	strb	r3, [r2]
+    2a60:	e51b302c 	ldr	r3, [fp, #-44]
+    2a64:	e2833001 	add	r3, r3, #1	; 0x1
+    2a68:	e50b302c 	str	r3, [fp, #-44]
+    2a6c:	e3a03000 	mov	r3, #0	; 0x0
+    2a70:	e51b202c 	ldr	r2, [fp, #-44]
+    2a74:	e5c23000 	strb	r3, [r2]
+    2a78:	e51b302c 	ldr	r3, [fp, #-44]
+    2a7c:	e2833001 	add	r3, r3, #1	; 0x1
+    2a80:	e50b302c 	str	r3, [fp, #-44]
+    2a84:	e3a03000 	mov	r3, #0	; 0x0
+    2a88:	e51b202c 	ldr	r2, [fp, #-44]
+    2a8c:	e5c23000 	strb	r3, [r2]
+    2a90:	e51b302c 	ldr	r3, [fp, #-44]
+    2a94:	e2833001 	add	r3, r3, #1	; 0x1
+    2a98:	e3a03000 	mov	r3, #0	; 0x0
+    2a9c:	e50b3010 	str	r3, [fp, #-16]
+    2aa0:	e51b2018 	ldr	r2, [fp, #-24]
+    2aa4:	e3a03005 	mov	r3, #5	; 0x5
+    2aa8:	e5c230d2 	strb	r3, [r2, #210]
+    2aac:	e51b2018 	ldr	r2, [fp, #-24]
+    2ab0:	e3a03000 	mov	r3, #0	; 0x0
+    2ab4:	e58230b0 	str	r3, [r2, #176]
+    2ab8:	e51b3018 	ldr	r3, [fp, #-24]
+    2abc:	e593c0b0 	ldr	ip, [r3, #176]
+    2ac0:	e24b2024 	sub	r2, fp, #36	; 0x24
+    2ac4:	e24b3010 	sub	r3, fp, #16	; 0x10
+    2ac8:	e58d3000 	str	r3, [sp]
+    2acc:	e3a03000 	mov	r3, #0	; 0x0
+    2ad0:	e58d3004 	str	r3, [sp, #4]
+    2ad4:	e1a00002 	mov	r0, r2
+    2ad8:	e51b1018 	ldr	r1, [fp, #-24]
+    2adc:	e3a02007 	mov	r2, #7	; 0x7
+    2ae0:	e1a0300c 	mov	r3, ip
+    2ae4:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    2ae8:	e51b3028 	ldr	r3, [fp, #-40]
+    2aec:	e24b2024 	sub	r2, fp, #36	; 0x24
+    2af0:	e3a0c005 	mov	ip, #5	; 0x5
+    2af4:	e1a00003 	mov	r0, r3
+    2af8:	e1a01002 	mov	r1, r2
+    2afc:	e1a0200c 	mov	r2, ip
+    2b00:	ebfffffe 	bl	0 <memcpy>
+    2b04:	e51b2028 	ldr	r2, [fp, #-40]
+    2b08:	e5d23002 	ldrb	r3, [r2, #2]
+    2b0c:	e3530011 	cmp	r3, #17	; 0x11
+    2b10:	1a000002 	bne	2b20 <_ZN8TicketUl12sjt_decreaseEv+0x118>
+    2b14:	e3a03000 	mov	r3, #0	; 0x0
+    2b18:	e51b2028 	ldr	r2, [fp, #-40]
+    2b1c:	e5c23002 	strb	r3, [r2, #2]
+    2b20:	e51b0028 	ldr	r0, [fp, #-40]
+    2b24:	e24bd004 	sub	sp, fp, #4	; 0x4
+    2b28:	e8bd8800 	pop	{fp, pc}
+
+00002b2c <_ZN8TicketUl13exit_sjt_saleEP7SJTSALE>:
+    2b2c:	e92d4800 	push	{fp, lr}
+    2b30:	e28db004 	add	fp, sp, #4	; 0x4
+    2b34:	e24dd038 	sub	sp, sp, #56	; 0x38
+    2b38:	e50b0028 	str	r0, [fp, #-40]
+    2b3c:	e50b1018 	str	r1, [fp, #-24]
+    2b40:	e50b201c 	str	r2, [fp, #-28]
+    2b44:	e51b2028 	ldr	r2, [fp, #-40]
+    2b48:	e50b202c 	str	r2, [fp, #-44]
+    2b4c:	e3a03000 	mov	r3, #0	; 0x0
+    2b50:	e51b202c 	ldr	r2, [fp, #-44]
+    2b54:	e5c23000 	strb	r3, [r2]
+    2b58:	e51b302c 	ldr	r3, [fp, #-44]
+    2b5c:	e2833001 	add	r3, r3, #1	; 0x1
+    2b60:	e50b302c 	str	r3, [fp, #-44]
+    2b64:	e3a03000 	mov	r3, #0	; 0x0
+    2b68:	e51b202c 	ldr	r2, [fp, #-44]
+    2b6c:	e5c23000 	strb	r3, [r2]
+    2b70:	e51b302c 	ldr	r3, [fp, #-44]
+    2b74:	e2833001 	add	r3, r3, #1	; 0x1
+    2b78:	e50b302c 	str	r3, [fp, #-44]
+    2b7c:	e3a03000 	mov	r3, #0	; 0x0
+    2b80:	e51b202c 	ldr	r2, [fp, #-44]
+    2b84:	e5c23000 	strb	r3, [r2]
+    2b88:	e51b302c 	ldr	r3, [fp, #-44]
+    2b8c:	e2833001 	add	r3, r3, #1	; 0x1
+    2b90:	e50b302c 	str	r3, [fp, #-44]
+    2b94:	e3a03000 	mov	r3, #0	; 0x0
+    2b98:	e51b202c 	ldr	r2, [fp, #-44]
+    2b9c:	e5c23000 	strb	r3, [r2]
+    2ba0:	e51b302c 	ldr	r3, [fp, #-44]
+    2ba4:	e2833001 	add	r3, r3, #1	; 0x1
+    2ba8:	e50b302c 	str	r3, [fp, #-44]
+    2bac:	e3a03000 	mov	r3, #0	; 0x0
+    2bb0:	e51b202c 	ldr	r2, [fp, #-44]
+    2bb4:	e5c23000 	strb	r3, [r2]
+    2bb8:	e51b302c 	ldr	r3, [fp, #-44]
+    2bbc:	e2833001 	add	r3, r3, #1	; 0x1
+    2bc0:	e3a03000 	mov	r3, #0	; 0x0
+    2bc4:	e50b3010 	str	r3, [fp, #-16]
+    2bc8:	e51b2018 	ldr	r2, [fp, #-24]
+    2bcc:	e3a03006 	mov	r3, #6	; 0x6
+    2bd0:	e5c230d2 	strb	r3, [r2, #210]
+    2bd4:	e51b301c 	ldr	r3, [fp, #-28]
+    2bd8:	e5d32068 	ldrb	r2, [r3, #104]
+    2bdc:	e5d33069 	ldrb	r3, [r3, #105]
+    2be0:	e1a03403 	lsl	r3, r3, #8
+    2be4:	e1833002 	orr	r3, r3, r2
+    2be8:	e1a03803 	lsl	r3, r3, #16
+    2bec:	e1a03843 	asr	r3, r3, #16
+    2bf0:	e1a03803 	lsl	r3, r3, #16
+    2bf4:	e1a03823 	lsr	r3, r3, #16
+    2bf8:	e1a03803 	lsl	r3, r3, #16
+    2bfc:	e1a02843 	asr	r2, r3, #16
+    2c00:	e51b3018 	ldr	r3, [fp, #-24]
+    2c04:	e58320b0 	str	r2, [r3, #176]
+    2c08:	e51b2018 	ldr	r2, [fp, #-24]
+    2c0c:	e51b3018 	ldr	r3, [fp, #-24]
+    2c10:	e2833e11 	add	r3, r3, #272	; 0x110
+    2c14:	e1a00002 	mov	r0, r2
+    2c18:	e1a01003 	mov	r1, r3
+    2c1c:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    2c20:	e51b301c 	ldr	r3, [fp, #-28]
+    2c24:	e5d32068 	ldrb	r2, [r3, #104]
+    2c28:	e5d33069 	ldrb	r3, [r3, #105]
+    2c2c:	e1a03403 	lsl	r3, r3, #8
+    2c30:	e1833002 	orr	r3, r3, r2
+    2c34:	e1a03803 	lsl	r3, r3, #16
+    2c38:	e1a03843 	asr	r3, r3, #16
+    2c3c:	e1a03803 	lsl	r3, r3, #16
+    2c40:	e1a03823 	lsr	r3, r3, #16
+    2c44:	e1a03803 	lsl	r3, r3, #16
+    2c48:	e1a0c843 	asr	ip, r3, #16
+    2c4c:	e51b301c 	ldr	r3, [fp, #-28]
+    2c50:	e283206d 	add	r2, r3, #109	; 0x6d
+    2c54:	e24b1024 	sub	r1, fp, #36	; 0x24
+    2c58:	e24b3010 	sub	r3, fp, #16	; 0x10
+    2c5c:	e58d3000 	str	r3, [sp]
+    2c60:	e58d2004 	str	r2, [sp, #4]
+    2c64:	e1a00001 	mov	r0, r1
+    2c68:	e51b1018 	ldr	r1, [fp, #-24]
+    2c6c:	e3a02005 	mov	r2, #5	; 0x5
+    2c70:	e1a0300c 	mov	r3, ip
+    2c74:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    2c78:	e51b3028 	ldr	r3, [fp, #-40]
+    2c7c:	e24b2024 	sub	r2, fp, #36	; 0x24
+    2c80:	e3a0c005 	mov	ip, #5	; 0x5
+    2c84:	e1a00003 	mov	r0, r3
+    2c88:	e1a01002 	mov	r1, r2
+    2c8c:	e1a0200c 	mov	r2, ip
+    2c90:	ebfffffe 	bl	0 <memcpy>
+    2c94:	e51b0010 	ldr	r0, [fp, #-16]
+    2c98:	e51bc01c 	ldr	ip, [fp, #-28]
+    2c9c:	e20010ff 	and	r1, r0, #255	; 0xff
+    2ca0:	e3a03000 	mov	r3, #0	; 0x0
+    2ca4:	e1a02003 	mov	r2, r3
+    2ca8:	e1a03001 	mov	r3, r1
+    2cac:	e1823003 	orr	r3, r2, r3
+    2cb0:	e5cc301b 	strb	r3, [ip, #27]
+    2cb4:	e1a03420 	lsr	r3, r0, #8
+    2cb8:	e20310ff 	and	r1, r3, #255	; 0xff
+    2cbc:	e3a03000 	mov	r3, #0	; 0x0
+    2cc0:	e1a02003 	mov	r2, r3
+    2cc4:	e1a03001 	mov	r3, r1
+    2cc8:	e1823003 	orr	r3, r2, r3
+    2ccc:	e5cc301c 	strb	r3, [ip, #28]
+    2cd0:	e1a03820 	lsr	r3, r0, #16
+    2cd4:	e20310ff 	and	r1, r3, #255	; 0xff
+    2cd8:	e3a03000 	mov	r3, #0	; 0x0
+    2cdc:	e1a02003 	mov	r2, r3
+    2ce0:	e1a03001 	mov	r3, r1
+    2ce4:	e1823003 	orr	r3, r2, r3
+    2ce8:	e5cc301d 	strb	r3, [ip, #29]
+    2cec:	e1a01c20 	lsr	r1, r0, #24
+    2cf0:	e3a03000 	mov	r3, #0	; 0x0
+    2cf4:	e1a02003 	mov	r2, r3
+    2cf8:	e1a03001 	mov	r3, r1
+    2cfc:	e1823003 	orr	r3, r2, r3
+    2d00:	e5cc301e 	strb	r3, [ip, #30]
+    2d04:	e51b3018 	ldr	r3, [fp, #-24]
+    2d08:	e1a00003 	mov	r0, r3
+    2d0c:	e3a01005 	mov	r1, #5	; 0x5
+    2d10:	e51b201c 	ldr	r2, [fp, #-28]
+    2d14:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    2d18:	e51b201c 	ldr	r2, [fp, #-28]
+    2d1c:	e3a03071 	mov	r3, #113	; 0x71
+    2d20:	e5c23067 	strb	r3, [r2, #103]
+    2d24:	e51b201c 	ldr	r2, [fp, #-28]
+    2d28:	e3a03005 	mov	r3, #5	; 0x5
+    2d2c:	e5c23026 	strb	r3, [r2, #38]
+    2d30:	e51b301c 	ldr	r3, [fp, #-28]
+    2d34:	e2833086 	add	r3, r3, #134	; 0x86
+    2d38:	e1a00003 	mov	r0, r3
+    2d3c:	e3a01030 	mov	r1, #48	; 0x30
+    2d40:	e3a02002 	mov	r2, #2	; 0x2
+    2d44:	ebfffffe 	bl	0 <memset>
+    2d48:	e51b2028 	ldr	r2, [fp, #-40]
+    2d4c:	e5d23002 	ldrb	r3, [r2, #2]
+    2d50:	e3530011 	cmp	r3, #17	; 0x11
+    2d54:	1a00000d 	bne	2d90 <_ZN8TicketUl13exit_sjt_saleEP7SJTSALE+0x264>
+    2d58:	e51b2018 	ldr	r2, [fp, #-24]
+    2d5c:	e51b3018 	ldr	r3, [fp, #-24]
+    2d60:	e2833e15 	add	r3, r3, #336	; 0x150
+    2d64:	e2833001 	add	r3, r3, #1	; 0x1
+    2d68:	e58d3000 	str	r3, [sp]
+    2d6c:	e3a03010 	mov	r3, #16	; 0x10
+    2d70:	e58d3004 	str	r3, [sp, #4]
+    2d74:	e3a03001 	mov	r3, #1	; 0x1
+    2d78:	e58d3008 	str	r3, [sp, #8]
+    2d7c:	e1a00002 	mov	r0, r2
+    2d80:	e3a01005 	mov	r1, #5	; 0x5
+    2d84:	e51b201c 	ldr	r2, [fp, #-28]
+    2d88:	e3a03094 	mov	r3, #148	; 0x94
+    2d8c:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    2d90:	e51b0028 	ldr	r0, [fp, #-40]
+    2d94:	e24bd004 	sub	sp, fp, #4	; 0x4
+    2d98:	e8bd8800 	pop	{fp, pc}
+
+00002d9c <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM>:
+    2d9c:	e92d4800 	push	{fp, lr}
+    2da0:	e28db004 	add	fp, sp, #4	; 0x4
+    2da4:	e24dd040 	sub	sp, sp, #64	; 0x40
+    2da8:	e50b0030 	str	r0, [fp, #-48]
+    2dac:	e50b1018 	str	r1, [fp, #-24]
+    2db0:	e50b201c 	str	r2, [fp, #-28]
+    2db4:	e50b3020 	str	r3, [fp, #-32]
+    2db8:	e51b1030 	ldr	r1, [fp, #-48]
+    2dbc:	e50b1034 	str	r1, [fp, #-52]
+    2dc0:	e3a03000 	mov	r3, #0	; 0x0
+    2dc4:	e51b2034 	ldr	r2, [fp, #-52]
+    2dc8:	e5c23000 	strb	r3, [r2]
+    2dcc:	e51b3034 	ldr	r3, [fp, #-52]
+    2dd0:	e2833001 	add	r3, r3, #1	; 0x1
+    2dd4:	e50b3034 	str	r3, [fp, #-52]
+    2dd8:	e3a03000 	mov	r3, #0	; 0x0
+    2ddc:	e51b1034 	ldr	r1, [fp, #-52]
+    2de0:	e5c13000 	strb	r3, [r1]
+    2de4:	e51b2034 	ldr	r2, [fp, #-52]
+    2de8:	e2822001 	add	r2, r2, #1	; 0x1
+    2dec:	e50b2034 	str	r2, [fp, #-52]
+    2df0:	e3a03000 	mov	r3, #0	; 0x0
+    2df4:	e51b1034 	ldr	r1, [fp, #-52]
+    2df8:	e5c13000 	strb	r3, [r1]
+    2dfc:	e51b2034 	ldr	r2, [fp, #-52]
+    2e00:	e2822001 	add	r2, r2, #1	; 0x1
+    2e04:	e50b2034 	str	r2, [fp, #-52]
+    2e08:	e3a03000 	mov	r3, #0	; 0x0
+    2e0c:	e51b1034 	ldr	r1, [fp, #-52]
+    2e10:	e5c13000 	strb	r3, [r1]
+    2e14:	e51b2034 	ldr	r2, [fp, #-52]
+    2e18:	e2822001 	add	r2, r2, #1	; 0x1
+    2e1c:	e50b2034 	str	r2, [fp, #-52]
+    2e20:	e3a03000 	mov	r3, #0	; 0x0
+    2e24:	e51b1034 	ldr	r1, [fp, #-52]
+    2e28:	e5c13000 	strb	r3, [r1]
+    2e2c:	e51b2034 	ldr	r2, [fp, #-52]
+    2e30:	e2822001 	add	r2, r2, #1	; 0x1
+    2e34:	e3a03000 	mov	r3, #0	; 0x0
+    2e38:	e50b3010 	str	r3, [fp, #-16]
+    2e3c:	e59b2008 	ldr	r2, [fp, #8]
+    2e40:	e3a03000 	mov	r3, #0	; 0x0
+    2e44:	e1c230b0 	strh	r3, [r2]
+    2e48:	e51b301c 	ldr	r3, [fp, #-28]
+    2e4c:	e5d32068 	ldrb	r2, [r3, #104]
+    2e50:	e5d33069 	ldrb	r3, [r3, #105]
+    2e54:	e1a03403 	lsl	r3, r3, #8
+    2e58:	e1833002 	orr	r3, r3, r2
+    2e5c:	e1a03803 	lsl	r3, r3, #16
+    2e60:	e1a03843 	asr	r3, r3, #16
+    2e64:	e1a03803 	lsl	r3, r3, #16
+    2e68:	e1a03823 	lsr	r3, r3, #16
+    2e6c:	e1a03803 	lsl	r3, r3, #16
+    2e70:	e1a02843 	asr	r2, r3, #16
+    2e74:	e59b300c 	ldr	r3, [fp, #12]
+    2e78:	e5933004 	ldr	r3, [r3, #4]
+    2e7c:	e1520003 	cmp	r2, r3
+    2e80:	da000007 	ble	2ea4 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x108>
+    2e84:	e3a03000 	mov	r3, #0	; 0x0
+    2e88:	e3833024 	orr	r3, r3, #36	; 0x24
+    2e8c:	e51b1030 	ldr	r1, [fp, #-48]
+    2e90:	e5c13000 	strb	r3, [r1]
+    2e94:	e3a03000 	mov	r3, #0	; 0x0
+    2e98:	e51b2030 	ldr	r2, [fp, #-48]
+    2e9c:	e5c23001 	strb	r3, [r2, #1]
+    2ea0:	ea0000a8 	b	3148 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x3ac>
+    2ea4:	e51b3018 	ldr	r3, [fp, #-24]
+    2ea8:	e28310ab 	add	r1, r3, #171	; 0xab
+    2eac:	e51b301c 	ldr	r3, [fp, #-28]
+    2eb0:	e5d32068 	ldrb	r2, [r3, #104]
+    2eb4:	e5d33069 	ldrb	r3, [r3, #105]
+    2eb8:	e1a03403 	lsl	r3, r3, #8
+    2ebc:	e1833002 	orr	r3, r3, r2
+    2ec0:	e1a03803 	lsl	r3, r3, #16
+    2ec4:	e1a03843 	asr	r3, r3, #16
+    2ec8:	e1a03803 	lsl	r3, r3, #16
+    2ecc:	e1a03823 	lsr	r3, r3, #16
+    2ed0:	e1a03803 	lsl	r3, r3, #16
+    2ed4:	e1a02843 	asr	r2, r3, #16
+    2ed8:	e51b301c 	ldr	r3, [fp, #-28]
+    2edc:	e283306c 	add	r3, r3, #108	; 0x6c
+    2ee0:	e59f026c 	ldr	r0, [pc, #620]	; 3154 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x3b8>
+    2ee4:	ebfffffe 	bl	0 <_ZN8ParamMgr21fare_zone_by_sjt_fareEPhlRh>
+    2ee8:	e1a03000 	mov	r3, r0
+    2eec:	e1a00003 	mov	r0, r3
+    2ef0:	e20010ff 	and	r1, r0, #255	; 0xff
+    2ef4:	e3a03000 	mov	r3, #0	; 0x0
+    2ef8:	e1a02003 	mov	r2, r3
+    2efc:	e1a03001 	mov	r3, r1
+    2f00:	e1823003 	orr	r3, r2, r3
+    2f04:	e51b1030 	ldr	r1, [fp, #-48]
+    2f08:	e5c13000 	strb	r3, [r1]
+    2f0c:	e1a03420 	lsr	r3, r0, #8
+    2f10:	e1a03803 	lsl	r3, r3, #16
+    2f14:	e1a01823 	lsr	r1, r3, #16
+    2f18:	e3a03000 	mov	r3, #0	; 0x0
+    2f1c:	e1a02003 	mov	r2, r3
+    2f20:	e1a03001 	mov	r3, r1
+    2f24:	e1823003 	orr	r3, r2, r3
+    2f28:	e51b2030 	ldr	r2, [fp, #-48]
+    2f2c:	e5c23001 	strb	r3, [r2, #1]
+    2f30:	e51b3030 	ldr	r3, [fp, #-48]
+    2f34:	e5d32000 	ldrb	r2, [r3]
+    2f38:	e51b1030 	ldr	r1, [fp, #-48]
+    2f3c:	e5d13001 	ldrb	r3, [r1, #1]
+    2f40:	e1a03403 	lsl	r3, r3, #8
+    2f44:	e1833002 	orr	r3, r3, r2
+    2f48:	e1a03803 	lsl	r3, r3, #16
+    2f4c:	e1a03823 	lsr	r3, r3, #16
+    2f50:	e3530000 	cmp	r3, #0	; 0x0
+    2f54:	1a00007b 	bne	3148 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x3ac>
+    2f58:	e51b2018 	ldr	r2, [fp, #-24]
+    2f5c:	e3a03003 	mov	r3, #3	; 0x3
+    2f60:	e5c230d2 	strb	r3, [r2, #210]
+    2f64:	e51b301c 	ldr	r3, [fp, #-28]
+    2f68:	e5d32068 	ldrb	r2, [r3, #104]
+    2f6c:	e5d33069 	ldrb	r3, [r3, #105]
+    2f70:	e1a03403 	lsl	r3, r3, #8
+    2f74:	e1833002 	orr	r3, r3, r2
+    2f78:	e1a03803 	lsl	r3, r3, #16
+    2f7c:	e1a03843 	asr	r3, r3, #16
+    2f80:	e1a03803 	lsl	r3, r3, #16
+    2f84:	e1a03823 	lsr	r3, r3, #16
+    2f88:	e1a03803 	lsl	r3, r3, #16
+    2f8c:	e1a02843 	asr	r2, r3, #16
+    2f90:	e51b3018 	ldr	r3, [fp, #-24]
+    2f94:	e58320b0 	str	r2, [r3, #176]
+    2f98:	e51b2018 	ldr	r2, [fp, #-24]
+    2f9c:	e51b3018 	ldr	r3, [fp, #-24]
+    2fa0:	e2833e11 	add	r3, r3, #272	; 0x110
+    2fa4:	e1a00002 	mov	r0, r2
+    2fa8:	e1a01003 	mov	r1, r3
+    2fac:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    2fb0:	e51b301c 	ldr	r3, [fp, #-28]
+    2fb4:	e5d32068 	ldrb	r2, [r3, #104]
+    2fb8:	e5d33069 	ldrb	r3, [r3, #105]
+    2fbc:	e1a03403 	lsl	r3, r3, #8
+    2fc0:	e1833002 	orr	r3, r3, r2
+    2fc4:	e1a03803 	lsl	r3, r3, #16
+    2fc8:	e1a03843 	asr	r3, r3, #16
+    2fcc:	e1a03803 	lsl	r3, r3, #16
+    2fd0:	e1a03823 	lsr	r3, r3, #16
+    2fd4:	e1a03803 	lsl	r3, r3, #16
+    2fd8:	e1a0c843 	asr	ip, r3, #16
+    2fdc:	e51b301c 	ldr	r3, [fp, #-28]
+    2fe0:	e283206d 	add	r2, r3, #109	; 0x6d
+    2fe4:	e24b102c 	sub	r1, fp, #44	; 0x2c
+    2fe8:	e24b3010 	sub	r3, fp, #16	; 0x10
+    2fec:	e58d3000 	str	r3, [sp]
+    2ff0:	e58d2004 	str	r2, [sp, #4]
+    2ff4:	e1a00001 	mov	r0, r1
+    2ff8:	e51b1018 	ldr	r1, [fp, #-24]
+    2ffc:	e3a02005 	mov	r2, #5	; 0x5
+    3000:	e1a0300c 	mov	r3, ip
+    3004:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    3008:	e51b3030 	ldr	r3, [fp, #-48]
+    300c:	e24b202c 	sub	r2, fp, #44	; 0x2c
+    3010:	e3a0c005 	mov	ip, #5	; 0x5
+    3014:	e1a00003 	mov	r0, r3
+    3018:	e1a01002 	mov	r1, r2
+    301c:	e1a0200c 	mov	r2, ip
+    3020:	ebfffffe 	bl	0 <memcpy>
+    3024:	e51b0010 	ldr	r0, [fp, #-16]
+    3028:	e51bc01c 	ldr	ip, [fp, #-28]
+    302c:	e20010ff 	and	r1, r0, #255	; 0xff
+    3030:	e3a03000 	mov	r3, #0	; 0x0
+    3034:	e1a02003 	mov	r2, r3
+    3038:	e1a03001 	mov	r3, r1
+    303c:	e1823003 	orr	r3, r2, r3
+    3040:	e5cc301b 	strb	r3, [ip, #27]
+    3044:	e1a03420 	lsr	r3, r0, #8
+    3048:	e20310ff 	and	r1, r3, #255	; 0xff
+    304c:	e3a03000 	mov	r3, #0	; 0x0
+    3050:	e1a02003 	mov	r2, r3
+    3054:	e1a03001 	mov	r3, r1
+    3058:	e1823003 	orr	r3, r2, r3
+    305c:	e5cc301c 	strb	r3, [ip, #28]
+    3060:	e1a03820 	lsr	r3, r0, #16
+    3064:	e20310ff 	and	r1, r3, #255	; 0xff
+    3068:	e3a03000 	mov	r3, #0	; 0x0
+    306c:	e1a02003 	mov	r2, r3
+    3070:	e1a03001 	mov	r3, r1
+    3074:	e1823003 	orr	r3, r2, r3
+    3078:	e5cc301d 	strb	r3, [ip, #29]
+    307c:	e1a01c20 	lsr	r1, r0, #24
+    3080:	e3a03000 	mov	r3, #0	; 0x0
+    3084:	e1a02003 	mov	r2, r3
+    3088:	e1a03001 	mov	r3, r1
+    308c:	e1823003 	orr	r3, r2, r3
+    3090:	e5cc301e 	strb	r3, [ip, #30]
+    3094:	e51b3030 	ldr	r3, [fp, #-48]
+    3098:	e5d32000 	ldrb	r2, [r3]
+    309c:	e51b1030 	ldr	r1, [fp, #-48]
+    30a0:	e5d13001 	ldrb	r3, [r1, #1]
+    30a4:	e1a03403 	lsl	r3, r3, #8
+    30a8:	e1833002 	orr	r3, r3, r2
+    30ac:	e1a03803 	lsl	r3, r3, #16
+    30b0:	e1a03823 	lsr	r3, r3, #16
+    30b4:	e3530000 	cmp	r3, #0	; 0x0
+    30b8:	1a000002 	bne	30c8 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x32c>
+    30bc:	e51b3020 	ldr	r3, [fp, #-32]
+    30c0:	e3a02094 	mov	r2, #148	; 0x94
+    30c4:	e1c320b0 	strh	r2, [r3]
+    30c8:	e51b3018 	ldr	r3, [fp, #-24]
+    30cc:	e1a00003 	mov	r0, r3
+    30d0:	e3a01005 	mov	r1, #5	; 0x5
+    30d4:	e51b201c 	ldr	r2, [fp, #-28]
+    30d8:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    30dc:	e51b201c 	ldr	r2, [fp, #-28]
+    30e0:	e3a03066 	mov	r3, #102	; 0x66
+    30e4:	e5c23067 	strb	r3, [r2, #103]
+    30e8:	e51b301c 	ldr	r3, [fp, #-28]
+    30ec:	e2833086 	add	r3, r3, #134	; 0x86
+    30f0:	e1a00003 	mov	r0, r3
+    30f4:	e3a01030 	mov	r1, #48	; 0x30
+    30f8:	e3a02002 	mov	r2, #2	; 0x2
+    30fc:	ebfffffe 	bl	0 <memset>
+    3100:	e51b2030 	ldr	r2, [fp, #-48]
+    3104:	e5d23002 	ldrb	r3, [r2, #2]
+    3108:	e3530011 	cmp	r3, #17	; 0x11
+    310c:	1a00000d 	bne	3148 <_ZN8TicketUl4saleEP7SJTSALERtP9OTHERSALES2_R12TICKET_PARAM+0x3ac>
+    3110:	e51b2018 	ldr	r2, [fp, #-24]
+    3114:	e51b3018 	ldr	r3, [fp, #-24]
+    3118:	e2833e15 	add	r3, r3, #336	; 0x150
+    311c:	e2833001 	add	r3, r3, #1	; 0x1
+    3120:	e58d3000 	str	r3, [sp]
+    3124:	e3a03010 	mov	r3, #16	; 0x10
+    3128:	e58d3004 	str	r3, [sp, #4]
+    312c:	e3a03001 	mov	r3, #1	; 0x1
+    3130:	e58d3008 	str	r3, [sp, #8]
+    3134:	e1a00002 	mov	r0, r2
+    3138:	e3a01005 	mov	r1, #5	; 0x5
+    313c:	e51b201c 	ldr	r2, [fp, #-28]
+    3140:	e3a03094 	mov	r3, #148	; 0x94
+    3144:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    3148:	e51b0030 	ldr	r0, [fp, #-48]
+    314c:	e24bd004 	sub	sp, fp, #4	; 0x4
+    3150:	e8bd8800 	pop	{fp, pc}
+    3154:	00000000 	.word	0x00000000
+
+00003158 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS>:
+    3158:	e92d4800 	push	{fp, lr}
+    315c:	e28db004 	add	fp, sp, #4	; 0x4
+    3160:	e24dd040 	sub	sp, sp, #64	; 0x40
+    3164:	e50b0030 	str	r0, [fp, #-48]
+    3168:	e50b1018 	str	r1, [fp, #-24]
+    316c:	e50b201c 	str	r2, [fp, #-28]
+    3170:	e50b3020 	str	r3, [fp, #-32]
+    3174:	e51b2030 	ldr	r2, [fp, #-48]
+    3178:	e50b2034 	str	r2, [fp, #-52]
+    317c:	e3a03000 	mov	r3, #0	; 0x0
+    3180:	e51b2034 	ldr	r2, [fp, #-52]
+    3184:	e5c23000 	strb	r3, [r2]
+    3188:	e51b3034 	ldr	r3, [fp, #-52]
+    318c:	e2833001 	add	r3, r3, #1	; 0x1
+    3190:	e50b3034 	str	r3, [fp, #-52]
+    3194:	e3a03000 	mov	r3, #0	; 0x0
+    3198:	e51b2034 	ldr	r2, [fp, #-52]
+    319c:	e5c23000 	strb	r3, [r2]
+    31a0:	e51b3034 	ldr	r3, [fp, #-52]
+    31a4:	e2833001 	add	r3, r3, #1	; 0x1
+    31a8:	e50b3034 	str	r3, [fp, #-52]
+    31ac:	e3a03000 	mov	r3, #0	; 0x0
+    31b0:	e51b2034 	ldr	r2, [fp, #-52]
+    31b4:	e5c23000 	strb	r3, [r2]
+    31b8:	e51b3034 	ldr	r3, [fp, #-52]
+    31bc:	e2833001 	add	r3, r3, #1	; 0x1
+    31c0:	e50b3034 	str	r3, [fp, #-52]
+    31c4:	e3a03000 	mov	r3, #0	; 0x0
+    31c8:	e51b2034 	ldr	r2, [fp, #-52]
+    31cc:	e5c23000 	strb	r3, [r2]
+    31d0:	e51b3034 	ldr	r3, [fp, #-52]
+    31d4:	e2833001 	add	r3, r3, #1	; 0x1
+    31d8:	e50b3034 	str	r3, [fp, #-52]
+    31dc:	e3a03000 	mov	r3, #0	; 0x0
+    31e0:	e51b2034 	ldr	r2, [fp, #-52]
+    31e4:	e5c23000 	strb	r3, [r2]
+    31e8:	e51b3034 	ldr	r3, [fp, #-52]
+    31ec:	e2833001 	add	r3, r3, #1	; 0x1
+    31f0:	e3a03000 	mov	r3, #0	; 0x0
+    31f4:	e50b3010 	str	r3, [fp, #-16]
+    31f8:	e51b3020 	ldr	r3, [fp, #-32]
+    31fc:	e5d33001 	ldrb	r3, [r3, #1]
+    3200:	e3530000 	cmp	r3, #0	; 0x0
+    3204:	0a000003 	beq	3218 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0xc0>
+    3208:	e51b3018 	ldr	r3, [fp, #-24]
+    320c:	e3a02007 	mov	r2, #7	; 0x7
+    3210:	e5c320d2 	strb	r2, [r3, #210]
+    3214:	ea000002 	b	3224 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0xcc>
+    3218:	e51b3018 	ldr	r3, [fp, #-24]
+    321c:	e3a02005 	mov	r2, #5	; 0x5
+    3220:	e5c320d2 	strb	r2, [r3, #210]
+    3224:	e51b3018 	ldr	r3, [fp, #-24]
+    3228:	e59300b0 	ldr	r0, [r3, #176]
+    322c:	e51b201c 	ldr	r2, [fp, #-28]
+    3230:	e5d21051 	ldrb	r1, [r2, #81]
+    3234:	e5d23052 	ldrb	r3, [r2, #82]
+    3238:	e1a03403 	lsl	r3, r3, #8
+    323c:	e1831001 	orr	r1, r3, r1
+    3240:	e5d23053 	ldrb	r3, [r2, #83]
+    3244:	e1a03803 	lsl	r3, r3, #16
+    3248:	e1831001 	orr	r1, r3, r1
+    324c:	e5d23054 	ldrb	r3, [r2, #84]
+    3250:	e1a03c03 	lsl	r3, r3, #24
+    3254:	e1833001 	orr	r3, r3, r1
+    3258:	e0632000 	rsb	r2, r3, r0
+    325c:	e51b3018 	ldr	r3, [fp, #-24]
+    3260:	e58320b0 	str	r2, [r3, #176]
+    3264:	e51b3018 	ldr	r3, [fp, #-24]
+    3268:	e2832e11 	add	r2, r3, #272	; 0x110
+    326c:	e51b3018 	ldr	r3, [fp, #-24]
+    3270:	e58320e8 	str	r2, [r3, #232]
+    3274:	e51b2018 	ldr	r2, [fp, #-24]
+    3278:	e51b3018 	ldr	r3, [fp, #-24]
+    327c:	e59330e8 	ldr	r3, [r3, #232]
+    3280:	e1a00002 	mov	r0, r2
+    3284:	e1a01003 	mov	r1, r3
+    3288:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    328c:	e51b201c 	ldr	r2, [fp, #-28]
+    3290:	e5d21051 	ldrb	r1, [r2, #81]
+    3294:	e5d23052 	ldrb	r3, [r2, #82]
+    3298:	e1a03403 	lsl	r3, r3, #8
+    329c:	e1831001 	orr	r1, r3, r1
+    32a0:	e5d23053 	ldrb	r3, [r2, #83]
+    32a4:	e1a03803 	lsl	r3, r3, #16
+    32a8:	e1831001 	orr	r1, r3, r1
+    32ac:	e5d23054 	ldrb	r3, [r2, #84]
+    32b0:	e1a03c03 	lsl	r3, r3, #24
+    32b4:	e1833001 	orr	r3, r3, r1
+    32b8:	e1a0c003 	mov	ip, r3
+    32bc:	e51b301c 	ldr	r3, [fp, #-28]
+    32c0:	e2832067 	add	r2, r3, #103	; 0x67
+    32c4:	e24b102c 	sub	r1, fp, #44	; 0x2c
+    32c8:	e24b3010 	sub	r3, fp, #16	; 0x10
+    32cc:	e58d3000 	str	r3, [sp]
+    32d0:	e58d2004 	str	r2, [sp, #4]
+    32d4:	e1a00001 	mov	r0, r1
+    32d8:	e51b1018 	ldr	r1, [fp, #-24]
+    32dc:	e3a0200d 	mov	r2, #13	; 0xd
+    32e0:	e1a0300c 	mov	r3, ip
+    32e4:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    32e8:	e51b3030 	ldr	r3, [fp, #-48]
+    32ec:	e24b202c 	sub	r2, fp, #44	; 0x2c
+    32f0:	e3a0c005 	mov	ip, #5	; 0x5
+    32f4:	e1a00003 	mov	r0, r3
+    32f8:	e1a01002 	mov	r1, r2
+    32fc:	e1a0200c 	mov	r2, ip
+    3300:	ebfffffe 	bl	0 <memcpy>
+    3304:	e51b0010 	ldr	r0, [fp, #-16]
+    3308:	e51bc01c 	ldr	ip, [fp, #-28]
+    330c:	e20010ff 	and	r1, r0, #255	; 0xff
+    3310:	e3a03000 	mov	r3, #0	; 0x0
+    3314:	e1a02003 	mov	r2, r3
+    3318:	e1a03001 	mov	r3, r1
+    331c:	e1823003 	orr	r3, r2, r3
+    3320:	e5cc301b 	strb	r3, [ip, #27]
+    3324:	e1a03420 	lsr	r3, r0, #8
+    3328:	e20310ff 	and	r1, r3, #255	; 0xff
+    332c:	e3a03000 	mov	r3, #0	; 0x0
+    3330:	e1a02003 	mov	r2, r3
+    3334:	e1a03001 	mov	r3, r1
+    3338:	e1823003 	orr	r3, r2, r3
+    333c:	e5cc301c 	strb	r3, [ip, #28]
+    3340:	e1a03820 	lsr	r3, r0, #16
+    3344:	e20310ff 	and	r1, r3, #255	; 0xff
+    3348:	e3a03000 	mov	r3, #0	; 0x0
+    334c:	e1a02003 	mov	r2, r3
+    3350:	e1a03001 	mov	r3, r1
+    3354:	e1823003 	orr	r3, r2, r3
+    3358:	e5cc301d 	strb	r3, [ip, #29]
+    335c:	e1a01c20 	lsr	r1, r0, #24
+    3360:	e3a03000 	mov	r3, #0	; 0x0
+    3364:	e1a02003 	mov	r2, r3
+    3368:	e1a03001 	mov	r3, r1
+    336c:	e1823003 	orr	r3, r2, r3
+    3370:	e5cc301e 	strb	r3, [ip, #30]
+    3374:	e51b3018 	ldr	r3, [fp, #-24]
+    3378:	e1a00003 	mov	r0, r3
+    337c:	e3a0100d 	mov	r1, #13	; 0xd
+    3380:	e51b201c 	ldr	r2, [fp, #-28]
+    3384:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    3388:	e51b3018 	ldr	r3, [fp, #-24]
+    338c:	e59330d4 	ldr	r3, [r3, #212]
+    3390:	e3530006 	cmp	r3, #6	; 0x6
+    3394:	1a000006 	bne	33b4 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x25c>
+    3398:	e51b301c 	ldr	r3, [fp, #-28]
+    339c:	e2833061 	add	r3, r3, #97	; 0x61
+    33a0:	e1a00003 	mov	r0, r3
+    33a4:	e59f10f4 	ldr	r1, [pc, #244]	; 34a0 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x348>
+    33a8:	e3a02002 	mov	r2, #2	; 0x2
+    33ac:	ebfffffe 	bl	0 <memcpy>
+    33b0:	ea000005 	b	33cc <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x274>
+    33b4:	e51b301c 	ldr	r3, [fp, #-28]
+    33b8:	e2833061 	add	r3, r3, #97	; 0x61
+    33bc:	e1a00003 	mov	r0, r3
+    33c0:	e59f10dc 	ldr	r1, [pc, #220]	; 34a4 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x34c>
+    33c4:	e3a02002 	mov	r2, #2	; 0x2
+    33c8:	ebfffffe 	bl	0 <memcpy>
+    33cc:	e51b301c 	ldr	r3, [fp, #-28]
+    33d0:	e28330bd 	add	r3, r3, #189	; 0xbd
+    33d4:	e1a00003 	mov	r0, r3
+    33d8:	e3a01030 	mov	r1, #48	; 0x30
+    33dc:	e3a02002 	mov	r2, #2	; 0x2
+    33e0:	ebfffffe 	bl	0 <memset>
+    33e4:	e51b3018 	ldr	r3, [fp, #-24]
+    33e8:	e59330d4 	ldr	r3, [r3, #212]
+    33ec:	e3530003 	cmp	r3, #3	; 0x3
+    33f0:	1a000003 	bne	3404 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x2ac>
+    33f4:	e51b301c 	ldr	r3, [fp, #-28]
+    33f8:	e3a0207a 	mov	r2, #122	; 0x7a
+    33fc:	e5c32050 	strb	r2, [r3, #80]
+    3400:	ea000002 	b	3410 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x2b8>
+    3404:	e51b301c 	ldr	r3, [fp, #-28]
+    3408:	e3a02067 	mov	r2, #103	; 0x67
+    340c:	e5c32050 	strb	r2, [r3, #80]
+    3410:	e51b2030 	ldr	r2, [fp, #-48]
+    3414:	e5d23002 	ldrb	r3, [r2, #2]
+    3418:	e3530011 	cmp	r3, #17	; 0x11
+    341c:	1a00000d 	bne	3458 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x300>
+    3420:	e51b2018 	ldr	r2, [fp, #-24]
+    3424:	e51b3018 	ldr	r3, [fp, #-24]
+    3428:	e2833e15 	add	r3, r3, #336	; 0x150
+    342c:	e2833001 	add	r3, r3, #1	; 0x1
+    3430:	e58d3000 	str	r3, [sp]
+    3434:	e3a03010 	mov	r3, #16	; 0x10
+    3438:	e58d3004 	str	r3, [sp, #4]
+    343c:	e3a03000 	mov	r3, #0	; 0x0
+    3440:	e58d3008 	str	r3, [sp, #8]
+    3444:	e1a00002 	mov	r0, r2
+    3448:	e3a0100d 	mov	r1, #13	; 0xd
+    344c:	e51b201c 	ldr	r2, [fp, #-28]
+    3450:	e3a030cc 	mov	r3, #204	; 0xcc
+    3454:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    3458:	e51b3020 	ldr	r3, [fp, #-32]
+    345c:	e5d33001 	ldrb	r3, [r3, #1]
+    3460:	e3530000 	cmp	r3, #0	; 0x0
+    3464:	0a00000a 	beq	3494 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x33c>
+    3468:	e51b3018 	ldr	r3, [fp, #-24]
+    346c:	e59330d4 	ldr	r3, [r3, #212]
+    3470:	e3530003 	cmp	r3, #3	; 0x3
+    3474:	0a000006 	beq	3494 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x33c>
+    3478:	e51b3018 	ldr	r3, [fp, #-24]
+    347c:	e59330b0 	ldr	r3, [r3, #176]
+    3480:	e3530000 	cmp	r3, #0	; 0x0
+    3484:	0a000002 	beq	3494 <_ZN8TicketUl9exit_gateEP10PURSETRADEP17MODE_EFFECT_FLAGS+0x33c>
+    3488:	e3a03012 	mov	r3, #18	; 0x12
+    348c:	e51b2030 	ldr	r2, [fp, #-48]
+    3490:	e5c23002 	strb	r3, [r2, #2]
+    3494:	e51b0030 	ldr	r0, [fp, #-48]
+    3498:	e24bd004 	sub	sp, fp, #4	; 0x4
+    349c:	e8bd8800 	pop	{fp, pc}
+    34a0:	00000154 	.word	0x00000154
+    34a4:	00000158 	.word	0x00000158
+
+000034a8 <_ZN8TicketUl10entry_gateEP9ENTRYGATE>:
+    34a8:	e92d4800 	push	{fp, lr}
+    34ac:	e28db004 	add	fp, sp, #4	; 0x4
+    34b0:	e24dd038 	sub	sp, sp, #56	; 0x38
+    34b4:	e50b0028 	str	r0, [fp, #-40]
+    34b8:	e50b1018 	str	r1, [fp, #-24]
+    34bc:	e50b201c 	str	r2, [fp, #-28]
+    34c0:	e51b2028 	ldr	r2, [fp, #-40]
+    34c4:	e50b202c 	str	r2, [fp, #-44]
+    34c8:	e3a03000 	mov	r3, #0	; 0x0
+    34cc:	e51b202c 	ldr	r2, [fp, #-44]
+    34d0:	e5c23000 	strb	r3, [r2]
+    34d4:	e51b302c 	ldr	r3, [fp, #-44]
+    34d8:	e2833001 	add	r3, r3, #1	; 0x1
+    34dc:	e50b302c 	str	r3, [fp, #-44]
+    34e0:	e3a03000 	mov	r3, #0	; 0x0
+    34e4:	e51b202c 	ldr	r2, [fp, #-44]
+    34e8:	e5c23000 	strb	r3, [r2]
+    34ec:	e51b302c 	ldr	r3, [fp, #-44]
+    34f0:	e2833001 	add	r3, r3, #1	; 0x1
+    34f4:	e50b302c 	str	r3, [fp, #-44]
+    34f8:	e3a03000 	mov	r3, #0	; 0x0
+    34fc:	e51b202c 	ldr	r2, [fp, #-44]
+    3500:	e5c23000 	strb	r3, [r2]
+    3504:	e51b302c 	ldr	r3, [fp, #-44]
+    3508:	e2833001 	add	r3, r3, #1	; 0x1
+    350c:	e50b302c 	str	r3, [fp, #-44]
+    3510:	e3a03000 	mov	r3, #0	; 0x0
+    3514:	e51b202c 	ldr	r2, [fp, #-44]
+    3518:	e5c23000 	strb	r3, [r2]
+    351c:	e51b302c 	ldr	r3, [fp, #-44]
+    3520:	e2833001 	add	r3, r3, #1	; 0x1
+    3524:	e50b302c 	str	r3, [fp, #-44]
+    3528:	e3a03000 	mov	r3, #0	; 0x0
+    352c:	e51b202c 	ldr	r2, [fp, #-44]
+    3530:	e5c23000 	strb	r3, [r2]
+    3534:	e51b302c 	ldr	r3, [fp, #-44]
+    3538:	e2833001 	add	r3, r3, #1	; 0x1
+    353c:	e3a03000 	mov	r3, #0	; 0x0
+    3540:	e50b3010 	str	r3, [fp, #-16]
+    3544:	e51b2018 	ldr	r2, [fp, #-24]
+    3548:	e3a03004 	mov	r3, #4	; 0x4
+    354c:	e5c230d2 	strb	r3, [r2, #210]
+    3550:	e51b2018 	ldr	r2, [fp, #-24]
+    3554:	e51b3018 	ldr	r3, [fp, #-24]
+    3558:	e59330e0 	ldr	r3, [r3, #224]
+    355c:	e1a00002 	mov	r0, r2
+    3560:	e1a01003 	mov	r1, r3
+    3564:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    3568:	e51b2018 	ldr	r2, [fp, #-24]
+    356c:	e51b3018 	ldr	r3, [fp, #-24]
+    3570:	e2833e11 	add	r3, r3, #272	; 0x110
+    3574:	e1a00002 	mov	r0, r2
+    3578:	e1a01003 	mov	r1, r3
+    357c:	ebfffffe 	bl	0 <_ZN10TicketBase18current_trade_infoER9TradeInfo>
+    3580:	e24b2024 	sub	r2, fp, #36	; 0x24
+    3584:	e24b3010 	sub	r3, fp, #16	; 0x10
+    3588:	e58d3000 	str	r3, [sp]
+    358c:	e3a03000 	mov	r3, #0	; 0x0
+    3590:	e58d3004 	str	r3, [sp, #4]
+    3594:	e1a00002 	mov	r0, r2
+    3598:	e51b1018 	ldr	r1, [fp, #-24]
+    359c:	e3a0200c 	mov	r2, #12	; 0xc
+    35a0:	e3a03000 	mov	r3, #0	; 0x0
+    35a4:	ebfffffe 	bl	1b34 <_ZN8TicketUl10write_cardE9ETYTKOPERlRlPc>
+    35a8:	e51b3028 	ldr	r3, [fp, #-40]
+    35ac:	e24b2024 	sub	r2, fp, #36	; 0x24
+    35b0:	e3a0c005 	mov	ip, #5	; 0x5
+    35b4:	e1a00003 	mov	r0, r3
+    35b8:	e1a01002 	mov	r1, r2
+    35bc:	e1a0200c 	mov	r2, ip
+    35c0:	ebfffffe 	bl	0 <memcpy>
+    35c4:	e51b0010 	ldr	r0, [fp, #-16]
+    35c8:	e51bc01c 	ldr	ip, [fp, #-28]
+    35cc:	e20010ff 	and	r1, r0, #255	; 0xff
+    35d0:	e3a03000 	mov	r3, #0	; 0x0
+    35d4:	e1a02003 	mov	r2, r3
+    35d8:	e1a03001 	mov	r3, r1
+    35dc:	e1823003 	orr	r3, r2, r3
+    35e0:	e5cc301b 	strb	r3, [ip, #27]
+    35e4:	e1a03420 	lsr	r3, r0, #8
+    35e8:	e20310ff 	and	r1, r3, #255	; 0xff
+    35ec:	e3a03000 	mov	r3, #0	; 0x0
+    35f0:	e1a02003 	mov	r2, r3
+    35f4:	e1a03001 	mov	r3, r1
+    35f8:	e1823003 	orr	r3, r2, r3
+    35fc:	e5cc301c 	strb	r3, [ip, #28]
+    3600:	e1a03820 	lsr	r3, r0, #16
+    3604:	e20310ff 	and	r1, r3, #255	; 0xff
+    3608:	e3a03000 	mov	r3, #0	; 0x0
+    360c:	e1a02003 	mov	r2, r3
+    3610:	e1a03001 	mov	r3, r1
+    3614:	e1823003 	orr	r3, r2, r3
+    3618:	e5cc301d 	strb	r3, [ip, #29]
+    361c:	e1a01c20 	lsr	r1, r0, #24
+    3620:	e3a03000 	mov	r3, #0	; 0x0
+    3624:	e1a02003 	mov	r2, r3
+    3628:	e1a03001 	mov	r3, r1
+    362c:	e1823003 	orr	r3, r2, r3
+    3630:	e5cc301e 	strb	r3, [ip, #30]
+    3634:	e51b3018 	ldr	r3, [fp, #-24]
+    3638:	e1a00003 	mov	r0, r3
+    363c:	e3a0100c 	mov	r1, #12	; 0xc
+    3640:	e51b201c 	ldr	r2, [fp, #-28]
+    3644:	ebfffffe 	bl	0 <_ZN10TicketBase21transfer_data_for_outE9ETYTKOPERPv>
+    3648:	e51b201c 	ldr	r2, [fp, #-28]
+    364c:	e3a0306c 	mov	r3, #108	; 0x6c
+    3650:	e5c23050 	strb	r3, [r2, #80]
+    3654:	e51b2028 	ldr	r2, [fp, #-40]
+    3658:	e5d23002 	ldrb	r3, [r2, #2]
+    365c:	e3530011 	cmp	r3, #17	; 0x11
+    3660:	1a00000d 	bne	369c <_ZN8TicketUl10entry_gateEP9ENTRYGATE+0x1f4>
+    3664:	e51b2018 	ldr	r2, [fp, #-24]
+    3668:	e51b3018 	ldr	r3, [fp, #-24]
+    366c:	e2833e15 	add	r3, r3, #336	; 0x150
+    3670:	e2833001 	add	r3, r3, #1	; 0x1
+    3674:	e58d3000 	str	r3, [sp]
+    3678:	e3a03010 	mov	r3, #16	; 0x10
+    367c:	e58d3004 	str	r3, [sp, #4]
+    3680:	e3a03000 	mov	r3, #0	; 0x0
+    3684:	e58d3008 	str	r3, [sp, #8]
+    3688:	e1a00002 	mov	r0, r2
+    368c:	e3a0100c 	mov	r1, #12	; 0xc
+    3690:	e51b201c 	ldr	r2, [fp, #-28]
+    3694:	e3a03063 	mov	r3, #99	; 0x63
+    3698:	ebfffffe 	bl	0 <_ZN10TicketBase15save_last_stackE9ETYTKOPERPvjS1_jb>
+    369c:	e51b0028 	ldr	r0, [fp, #-40]
+    36a0:	e24bd004 	sub	sp, fp, #4	; 0x4
+    36a4:	e8bd8800 	pop	{fp, pc}
+
+000036a8 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh>:
+    36a8:	e92d4810 	push	{r4, fp, lr}
+    36ac:	e28db008 	add	fp, sp, #8	; 0x8
+    36b0:	e24ddf57 	sub	sp, sp, #348	; 0x15c
+    36b4:	e50b014c 	str	r0, [fp, #-332]
+    36b8:	e50b1140 	str	r1, [fp, #-320]
+    36bc:	e50b2144 	str	r2, [fp, #-324]
+    36c0:	e50b3148 	str	r3, [fp, #-328]
+    36c4:	e51b014c 	ldr	r0, [fp, #-332]
+    36c8:	e50b0150 	str	r0, [fp, #-336]
+    36cc:	e3a03000 	mov	r3, #0	; 0x0
+    36d0:	e51b1150 	ldr	r1, [fp, #-336]
+    36d4:	e5c13000 	strb	r3, [r1]
+    36d8:	e51b2150 	ldr	r2, [fp, #-336]
+    36dc:	e2822001 	add	r2, r2, #1	; 0x1
+    36e0:	e50b2150 	str	r2, [fp, #-336]
+    36e4:	e3a03000 	mov	r3, #0	; 0x0
+    36e8:	e51b0150 	ldr	r0, [fp, #-336]
+    36ec:	e5c03000 	strb	r3, [r0]
+    36f0:	e51b1150 	ldr	r1, [fp, #-336]
+    36f4:	e2811001 	add	r1, r1, #1	; 0x1
+    36f8:	e50b1150 	str	r1, [fp, #-336]
+    36fc:	e3a03000 	mov	r3, #0	; 0x0
+    3700:	e51b2150 	ldr	r2, [fp, #-336]
+    3704:	e5c23000 	strb	r3, [r2]
+    3708:	e51b3150 	ldr	r3, [fp, #-336]
+    370c:	e2833001 	add	r3, r3, #1	; 0x1
+    3710:	e50b3150 	str	r3, [fp, #-336]
+    3714:	e3a03000 	mov	r3, #0	; 0x0
+    3718:	e51b0150 	ldr	r0, [fp, #-336]
+    371c:	e5c03000 	strb	r3, [r0]
+    3720:	e51b1150 	ldr	r1, [fp, #-336]
+    3724:	e2811001 	add	r1, r1, #1	; 0x1
+    3728:	e50b1150 	str	r1, [fp, #-336]
+    372c:	e3a03000 	mov	r3, #0	; 0x0
+    3730:	e51b2150 	ldr	r2, [fp, #-336]
+    3734:	e5c23000 	strb	r3, [r2]
+    3738:	e51b3150 	ldr	r3, [fp, #-336]
+    373c:	e2833001 	add	r3, r3, #1	; 0x1
+    3740:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3744:	e2433002 	sub	r3, r3, #2	; 0x2
+    3748:	e3a02c01 	mov	r2, #256	; 0x100
+    374c:	e1a00003 	mov	r0, r3
+    3750:	e3a01000 	mov	r1, #0	; 0x0
+    3754:	ebfffffe 	bl	0 <memset>
+    3758:	e3a03000 	mov	r3, #0	; 0x0
+    375c:	e50b3018 	str	r3, [fp, #-24]
+    3760:	e3a03000 	mov	r3, #0	; 0x0
+    3764:	e14b32b2 	strh	r3, [fp, #-34]
+    3768:	e3a03000 	mov	r3, #0	; 0x0
+    376c:	e14b32b0 	strh	r3, [fp, #-32]
+    3770:	e3a03000 	mov	r3, #0	; 0x0
+    3774:	e14b31b2 	strh	r3, [fp, #-18]
+    3778:	e24b3036 	sub	r3, fp, #54	; 0x36
+    377c:	e1a00003 	mov	r0, r3
+    3780:	e3a01000 	mov	r1, #0	; 0x0
+    3784:	e3a02014 	mov	r2, #20	; 0x14
+    3788:	ebfffffe 	bl	0 <memset>
+    378c:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3790:	e2433002 	sub	r3, r3, #2	; 0x2
+    3794:	e51b0140 	ldr	r0, [fp, #-320]
+    3798:	e1a01003 	mov	r1, r3
+    379c:	ebfffffe 	bl	16f4 <_ZN8TicketUl7read_ulEPh>
+    37a0:	e1a03000 	mov	r3, r0
+    37a4:	e50b3018 	str	r3, [fp, #-24]
+    37a8:	e55b3109 	ldrb	r3, [fp, #-265]
+    37ac:	e1a03403 	lsl	r3, r3, #8
+    37b0:	e1a03803 	lsl	r3, r3, #16
+    37b4:	e1a02823 	lsr	r2, r3, #16
+    37b8:	e55b3108 	ldrb	r3, [fp, #-264]
+    37bc:	e0823003 	add	r3, r2, r3
+    37c0:	e1a03803 	lsl	r3, r3, #16
+    37c4:	e1a03823 	lsr	r3, r3, #16
+    37c8:	e14b32b2 	strh	r3, [fp, #-34]
+    37cc:	e55b30f9 	ldrb	r3, [fp, #-249]
+    37d0:	e1a03403 	lsl	r3, r3, #8
+    37d4:	e1a03803 	lsl	r3, r3, #16
+    37d8:	e1a02823 	lsr	r2, r3, #16
+    37dc:	e55b30f8 	ldrb	r3, [fp, #-248]
+    37e0:	e0823003 	add	r3, r2, r3
+    37e4:	e1a03803 	lsl	r3, r3, #16
+    37e8:	e1a03823 	lsr	r3, r3, #16
+    37ec:	e14b32b0 	strh	r3, [fp, #-32]
+    37f0:	e51b3018 	ldr	r3, [fp, #-24]
+    37f4:	e3530003 	cmp	r3, #3	; 0x3
+    37f8:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+    37fc:	ea000054 	b	3954 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2ac>
+    3800:	00003810 	.word	0x00003810
+    3804:	000038e8 	.word	0x000038e8
+    3808:	000038f8 	.word	0x000038f8
+    380c:	00003908 	.word	0x00003908
+    3810:	e15b22b2 	ldrh	r2, [fp, #-34]
+    3814:	e15b32b0 	ldrh	r3, [fp, #-32]
+    3818:	e1520003 	cmp	r2, r3
+    381c:	9a00000b 	bls	3850 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1a8>
+    3820:	e15b22b2 	ldrh	r2, [fp, #-34]
+    3824:	e59f3744 	ldr	r3, [pc, #1860]	; 3f70 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8c8>
+    3828:	e1520003 	cmp	r2, r3
+    382c:	0a000003 	beq	3840 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x198>
+    3830:	e51b3140 	ldr	r3, [fp, #-320]
+    3834:	e3a02000 	mov	r2, #0	; 0x0
+    3838:	e5c32140 	strb	r2, [r3, #320]
+    383c:	ea000012 	b	388c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1e4>
+    3840:	e51b3140 	ldr	r3, [fp, #-320]
+    3844:	e3a02001 	mov	r2, #1	; 0x1
+    3848:	e5c32140 	strb	r2, [r3, #320]
+    384c:	ea00000e 	b	388c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1e4>
+    3850:	e15b22b2 	ldrh	r2, [fp, #-34]
+    3854:	e15b32b0 	ldrh	r3, [fp, #-32]
+    3858:	e1520003 	cmp	r2, r3
+    385c:	2a00000a 	bcs	388c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1e4>
+    3860:	e15b22b0 	ldrh	r2, [fp, #-32]
+    3864:	e59f3704 	ldr	r3, [pc, #1796]	; 3f70 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8c8>
+    3868:	e1520003 	cmp	r2, r3
+    386c:	0a000003 	beq	3880 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1d8>
+    3870:	e51b3140 	ldr	r3, [fp, #-320]
+    3874:	e3a02001 	mov	r2, #1	; 0x1
+    3878:	e5c32140 	strb	r2, [r3, #320]
+    387c:	ea000002 	b	388c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x1e4>
+    3880:	e51b3140 	ldr	r3, [fp, #-320]
+    3884:	e3a02000 	mov	r2, #0	; 0x0
+    3888:	e5c32140 	strb	r2, [r3, #320]
+    388c:	e15b22b2 	ldrh	r2, [fp, #-34]
+    3890:	e15b32b0 	ldrh	r3, [fp, #-32]
+    3894:	e1520003 	cmp	r2, r3
+    3898:	1a000034 	bne	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    389c:	e59f36d0 	ldr	r3, [pc, #1744]	; 3f74 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8cc>
+    38a0:	e5d33000 	ldrb	r3, [r3]
+    38a4:	e3530002 	cmp	r3, #2	; 0x2
+    38a8:	0a000002 	beq	38b8 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x210>
+    38ac:	e51b3144 	ldr	r3, [fp, #-324]
+    38b0:	e3530003 	cmp	r3, #3	; 0x3
+    38b4:	1a000003 	bne	38c8 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x220>
+    38b8:	e51b3140 	ldr	r3, [fp, #-320]
+    38bc:	e3a02000 	mov	r2, #0	; 0x0
+    38c0:	e5c32140 	strb	r2, [r3, #320]
+    38c4:	ea000029 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    38c8:	e3a03000 	mov	r3, #0	; 0x0
+    38cc:	e383300a 	orr	r3, r3, #10	; 0xa
+    38d0:	e51b014c 	ldr	r0, [fp, #-332]
+    38d4:	e5c03000 	strb	r3, [r0]
+    38d8:	e3a03000 	mov	r3, #0	; 0x0
+    38dc:	e51b114c 	ldr	r1, [fp, #-332]
+    38e0:	e5c13001 	strb	r3, [r1, #1]
+    38e4:	ea000021 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    38e8:	e51b3140 	ldr	r3, [fp, #-320]
+    38ec:	e3a02001 	mov	r2, #1	; 0x1
+    38f0:	e5c32140 	strb	r2, [r3, #320]
+    38f4:	ea00001d 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    38f8:	e51b3140 	ldr	r3, [fp, #-320]
+    38fc:	e3a02000 	mov	r2, #0	; 0x0
+    3900:	e5c32140 	strb	r2, [r3, #320]
+    3904:	ea000019 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    3908:	e59f3664 	ldr	r3, [pc, #1636]	; 3f74 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8cc>
+    390c:	e5d33000 	ldrb	r3, [r3]
+    3910:	e3530002 	cmp	r3, #2	; 0x2
+    3914:	0a000002 	beq	3924 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x27c>
+    3918:	e51b3144 	ldr	r3, [fp, #-324]
+    391c:	e3530003 	cmp	r3, #3	; 0x3
+    3920:	1a000003 	bne	3934 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x28c>
+    3924:	e51b3140 	ldr	r3, [fp, #-320]
+    3928:	e3a02000 	mov	r2, #0	; 0x0
+    392c:	e5c32140 	strb	r2, [r3, #320]
+    3930:	ea00000e 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    3934:	e3a03000 	mov	r3, #0	; 0x0
+    3938:	e383300a 	orr	r3, r3, #10	; 0xa
+    393c:	e51b214c 	ldr	r2, [fp, #-332]
+    3940:	e5c23000 	strb	r3, [r2]
+    3944:	e3a03000 	mov	r3, #0	; 0x0
+    3948:	e51b014c 	ldr	r0, [fp, #-332]
+    394c:	e5c03001 	strb	r3, [r0, #1]
+    3950:	ea000006 	b	3970 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x2c8>
+    3954:	e3a03000 	mov	r3, #0	; 0x0
+    3958:	e3833004 	orr	r3, r3, #4	; 0x4
+    395c:	e51b114c 	ldr	r1, [fp, #-332]
+    3960:	e5c13000 	strb	r3, [r1]
+    3964:	e3a03000 	mov	r3, #0	; 0x0
+    3968:	e51b214c 	ldr	r2, [fp, #-332]
+    396c:	e5c23001 	strb	r3, [r2, #1]
+    3970:	e51b314c 	ldr	r3, [fp, #-332]
+    3974:	e5d32000 	ldrb	r2, [r3]
+    3978:	e51b014c 	ldr	r0, [fp, #-332]
+    397c:	e5d03001 	ldrb	r3, [r0, #1]
+    3980:	e1a03403 	lsl	r3, r3, #8
+    3984:	e1833002 	orr	r3, r3, r2
+    3988:	e1a03803 	lsl	r3, r3, #16
+    398c:	e1a03823 	lsr	r3, r3, #16
+    3990:	e3530000 	cmp	r3, #0	; 0x0
+    3994:	1a000172 	bne	3f64 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8bc>
+    3998:	e59b3004 	ldr	r3, [fp, #4]
+    399c:	e3530000 	cmp	r3, #0	; 0x0
+    39a0:	0a000005 	beq	39bc <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x314>
+    39a4:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    39a8:	e2433002 	sub	r3, r3, #2	; 0x2
+    39ac:	e59b0004 	ldr	r0, [fp, #4]
+    39b0:	e1a01003 	mov	r1, r3
+    39b4:	e3a02040 	mov	r2, #64	; 0x40
+    39b8:	ebfffffe 	bl	0 <memcpy>
+    39bc:	e51b3140 	ldr	r3, [fp, #-320]
+    39c0:	e283c029 	add	ip, r3, #41	; 0x29
+    39c4:	e55b3126 	ldrb	r3, [fp, #-294]
+    39c8:	e1a01003 	mov	r1, r3
+    39cc:	e55b3125 	ldrb	r3, [fp, #-293]
+    39d0:	e1a00003 	mov	r0, r3
+    39d4:	e55b3124 	ldrb	r3, [fp, #-292]
+    39d8:	e1a02003 	mov	r2, r3
+    39dc:	e55b3123 	ldrb	r3, [fp, #-291]
+    39e0:	e58d1000 	str	r1, [sp]
+    39e4:	e58d0004 	str	r0, [sp, #4]
+    39e8:	e58d2008 	str	r2, [sp, #8]
+    39ec:	e58d300c 	str	r3, [sp, #12]
+    39f0:	e1a0000c 	mov	r0, ip
+    39f4:	e59f157c 	ldr	r1, [pc, #1404]	; 3f78 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8d0>
+    39f8:	e3a02000 	mov	r2, #0	; 0x0
+    39fc:	e3a03003 	mov	r3, #3	; 0x3
+    3a00:	ebfffffe 	bl	0 <sprintf>
+    3a04:	e51b3140 	ldr	r3, [fp, #-320]
+    3a08:	e283203f 	add	r2, r3, #63	; 0x3f
+    3a0c:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3a10:	e2433002 	sub	r3, r3, #2	; 0x2
+    3a14:	e2833018 	add	r3, r3, #24	; 0x18
+    3a18:	e1a00003 	mov	r0, r3
+    3a1c:	e1a01002 	mov	r1, r2
+    3a20:	e3a02001 	mov	r2, #1	; 0x1
+    3a24:	ebfffffe 	bl	0 <_ZN7TimesEx17tm2_bcd4_exchangeEPhS0_b>
+    3a28:	e55b311d 	ldrb	r3, [fp, #-285]
+    3a2c:	e2033001 	and	r3, r3, #1	; 0x1
+    3a30:	e51b2140 	ldr	r2, [fp, #-320]
+    3a34:	e5c2303e 	strb	r3, [r2, #62]
+    3a38:	e51b3140 	ldr	r3, [fp, #-320]
+    3a3c:	e28320ab 	add	r2, r3, #171	; 0xab
+    3a40:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3a44:	e2433002 	sub	r3, r3, #2	; 0x2
+    3a48:	e283301a 	add	r3, r3, #26	; 0x1a
+    3a4c:	e1a00002 	mov	r0, r2
+    3a50:	e1a01003 	mov	r1, r3
+    3a54:	e3a02002 	mov	r2, #2	; 0x2
+    3a58:	ebfffffe 	bl	0 <memcpy>
+    3a5c:	e51b3140 	ldr	r3, [fp, #-320]
+    3a60:	e28320ad 	add	r2, r3, #173	; 0xad
+    3a64:	e51b3140 	ldr	r3, [fp, #-320]
+    3a68:	e28330ab 	add	r3, r3, #171	; 0xab
+    3a6c:	e1a00002 	mov	r0, r2
+    3a70:	e1a01003 	mov	r1, r3
+    3a74:	e3a02002 	mov	r2, #2	; 0x2
+    3a78:	ebfffffe 	bl	0 <memcpy>
+    3a7c:	e3a03000 	mov	r3, #0	; 0x0
+    3a80:	e50b3010 	str	r3, [fp, #-16]
+    3a84:	ea000071 	b	3c50 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x5a8>
+    3a88:	e51b3140 	ldr	r3, [fp, #-320]
+    3a8c:	e2832d05 	add	r2, r3, #320	; 0x140
+    3a90:	e2822001 	add	r2, r2, #1	; 0x1
+    3a94:	e51b3140 	ldr	r3, [fp, #-320]
+    3a98:	e5d33140 	ldrb	r3, [r3, #320]
+    3a9c:	e2833002 	add	r3, r3, #2	; 0x2
+    3aa0:	e1a01203 	lsl	r1, r3, #4
+    3aa4:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3aa8:	e2433002 	sub	r3, r3, #2	; 0x2
+    3aac:	e0833001 	add	r3, r3, r1
+    3ab0:	e1a00002 	mov	r0, r2
+    3ab4:	e1a01003 	mov	r1, r3
+    3ab8:	e3a02010 	mov	r2, #16	; 0x10
+    3abc:	ebfffffe 	bl	0 <memcpy>
+    3ac0:	e51b3140 	ldr	r3, [fp, #-320]
+    3ac4:	e5d33140 	ldrb	r3, [r3, #320]
+    3ac8:	e2833002 	add	r3, r3, #2	; 0x2
+    3acc:	e1a02203 	lsl	r2, r3, #4
+    3ad0:	e24b3f4d 	sub	r3, fp, #308	; 0x134
+    3ad4:	e2433002 	sub	r3, r3, #2	; 0x2
+    3ad8:	e0833002 	add	r3, r3, r2
+    3adc:	e24b2036 	sub	r2, fp, #54	; 0x36
+    3ae0:	e51b0140 	ldr	r0, [fp, #-320]
+    3ae4:	e1a01002 	mov	r1, r2
+    3ae8:	e1a02003 	mov	r2, r3
+    3aec:	ebfffffe 	bl	1498 <_ZN8TicketUl13get_deal_areaERNS_12UL_DEAL_AREAEPh>
+    3af0:	e59f347c 	ldr	r3, [pc, #1148]	; 3f74 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8cc>
+    3af4:	e5d33000 	ldrb	r3, [r3]
+    3af8:	e3530002 	cmp	r3, #2	; 0x2
+    3afc:	0a000056 	beq	3c5c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x5b4>
+    3b00:	e51b3144 	ldr	r3, [fp, #-324]
+    3b04:	e3530003 	cmp	r3, #3	; 0x3
+    3b08:	0a000053 	beq	3c5c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x5b4>
+    3b0c:	e15b12b8 	ldrh	r1, [fp, #-40]
+    3b10:	e59f3464 	ldr	r3, [pc, #1124]	; 3f7c <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8d4>
+    3b14:	e0832391 	umull	r2, r3, r1, r3
+    3b18:	e1a031a3 	lsr	r3, r3, #3
+    3b1c:	e1a03083 	lsl	r3, r3, #1
+    3b20:	e1a02103 	lsl	r2, r3, #2
+    3b24:	e0833002 	add	r3, r3, r2
+    3b28:	e0633001 	rsb	r3, r3, r1
+    3b2c:	e1a03803 	lsl	r3, r3, #16
+    3b30:	e1a03823 	lsr	r3, r3, #16
+    3b34:	e3530000 	cmp	r3, #0	; 0x0
+    3b38:	0a000041 	beq	3c44 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x59c>
+    3b3c:	e51b3018 	ldr	r3, [fp, #-24]
+    3b40:	e3530000 	cmp	r3, #0	; 0x0
+    3b44:	1a00003e 	bne	3c44 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x59c>
+    3b48:	e51b3140 	ldr	r3, [fp, #-320]
+    3b4c:	e5d33140 	ldrb	r3, [r3, #320]
+    3b50:	e3e02015 	mvn	r2, #21	; 0x15
+    3b54:	e1a03083 	lsl	r3, r3, #1
+    3b58:	e24b000c 	sub	r0, fp, #12	; 0xc
+    3b5c:	e0803003 	add	r3, r0, r3
+    3b60:	e0833002 	add	r3, r3, r2
+    3b64:	e1d310b0 	ldrh	r1, [r3]
+    3b68:	e51b3140 	ldr	r3, [fp, #-320]
+    3b6c:	e5d33140 	ldrb	r3, [r3, #320]
+    3b70:	e2633001 	rsb	r3, r3, #1	; 0x1
+    3b74:	e3e02015 	mvn	r2, #21	; 0x15
+    3b78:	e1a03083 	lsl	r3, r3, #1
+    3b7c:	e24b000c 	sub	r0, fp, #12	; 0xc
+    3b80:	e0803003 	add	r3, r0, r3
+    3b84:	e0833002 	add	r3, r3, r2
+    3b88:	e1d330b0 	ldrh	r3, [r3]
+    3b8c:	e1510003 	cmp	r1, r3
+    3b90:	9a00001b 	bls	3c04 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x55c>
+    3b94:	e51b3140 	ldr	r3, [fp, #-320]
+    3b98:	e5d33140 	ldrb	r3, [r3, #320]
+    3b9c:	e3e02015 	mvn	r2, #21	; 0x15
+    3ba0:	e1a03083 	lsl	r3, r3, #1
+    3ba4:	e24b100c 	sub	r1, fp, #12	; 0xc
+    3ba8:	e0813003 	add	r3, r1, r3
+    3bac:	e0833002 	add	r3, r3, r2
+    3bb0:	e1d330b0 	ldrh	r3, [r3]
+    3bb4:	e1a01003 	mov	r1, r3
+    3bb8:	e51b3140 	ldr	r3, [fp, #-320]
+    3bbc:	e5d33140 	ldrb	r3, [r3, #320]
+    3bc0:	e2633001 	rsb	r3, r3, #1	; 0x1
+    3bc4:	e3e02015 	mvn	r2, #21	; 0x15
+    3bc8:	e1a03083 	lsl	r3, r3, #1
+    3bcc:	e24b000c 	sub	r0, fp, #12	; 0xc
+    3bd0:	e0803003 	add	r3, r0, r3
+    3bd4:	e0833002 	add	r3, r3, r2
+    3bd8:	e1d330b0 	ldrh	r3, [r3]
+    3bdc:	e0633001 	rsb	r3, r3, r1
+    3be0:	e3530001 	cmp	r3, #1	; 0x1
+    3be4:	0a000016 	beq	3c44 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x59c>
+    3be8:	e51b3140 	ldr	r3, [fp, #-320]
+    3bec:	e5d33140 	ldrb	r3, [r3, #320]
+    3bf0:	e2633001 	rsb	r3, r3, #1	; 0x1
+    3bf4:	e20330ff 	and	r3, r3, #255	; 0xff
+    3bf8:	e51b2140 	ldr	r2, [fp, #-320]
+    3bfc:	e5c23140 	strb	r3, [r2, #320]
+    3c00:	ea00000f 	b	3c44 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x59c>
+    3c04:	e51b3140 	ldr	r3, [fp, #-320]
+    3c08:	e5d33140 	ldrb	r3, [r3, #320]
+    3c0c:	e3e02015 	mvn	r2, #21	; 0x15
+    3c10:	e1a03083 	lsl	r3, r3, #1
+    3c14:	e24b100c 	sub	r1, fp, #12	; 0xc
+    3c18:	e0813003 	add	r3, r1, r3
+    3c1c:	e0833002 	add	r3, r3, r2
+    3c20:	e1d330b0 	ldrh	r3, [r3]
+    3c24:	e3530000 	cmp	r3, #0	; 0x0
+    3c28:	0a000005 	beq	3c44 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x59c>
+    3c2c:	e51b3140 	ldr	r3, [fp, #-320]
+    3c30:	e5d33140 	ldrb	r3, [r3, #320]
+    3c34:	e2633001 	rsb	r3, r3, #1	; 0x1
+    3c38:	e20330ff 	and	r3, r3, #255	; 0xff
+    3c3c:	e51b2140 	ldr	r2, [fp, #-320]
+    3c40:	e5c23140 	strb	r3, [r2, #320]
+    3c44:	e51b3010 	ldr	r3, [fp, #-16]
+    3c48:	e2833001 	add	r3, r3, #1	; 0x1
+    3c4c:	e50b3010 	str	r3, [fp, #-16]
+    3c50:	e51b3010 	ldr	r3, [fp, #-16]
+    3c54:	e3530001 	cmp	r3, #1	; 0x1
+    3c58:	daffff8a 	ble	3a88 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x3e0>
+    3c5c:	e51b3140 	ldr	r3, [fp, #-320]
+    3c60:	e28330f6 	add	r3, r3, #246	; 0xf6
+    3c64:	e24b2036 	sub	r2, fp, #54	; 0x36
+    3c68:	e1a00003 	mov	r0, r3
+    3c6c:	e1a01002 	mov	r1, r2
+    3c70:	e3a02007 	mov	r2, #7	; 0x7
+    3c74:	ebfffffe 	bl	0 <memcpy>
+    3c78:	e55b302f 	ldrb	r3, [fp, #-47]
+    3c7c:	e1a03103 	lsl	r3, r3, #2
+    3c80:	e1a02103 	lsl	r2, r3, #2
+    3c84:	e0833002 	add	r3, r3, r2
+    3c88:	e1a02103 	lsl	r2, r3, #2
+    3c8c:	e0833002 	add	r3, r3, r2
+    3c90:	e1a03803 	lsl	r3, r3, #16
+    3c94:	e1a02823 	lsr	r2, r3, #16
+    3c98:	e55b302e 	ldrb	r3, [fp, #-46]
+    3c9c:	e0823003 	add	r3, r2, r3
+    3ca0:	e14b31b2 	strh	r3, [fp, #-18]
+    3ca4:	e15b31b2 	ldrh	r3, [fp, #-18]
+    3ca8:	e1a00003 	mov	r0, r3
+    3cac:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    3cb0:	e1a03000 	mov	r3, r0
+    3cb4:	e1a02003 	mov	r2, r3
+    3cb8:	e51b3140 	ldr	r3, [fp, #-320]
+    3cbc:	e1c32ebc 	strh	r2, [r3, #236]
+    3cc0:	e55b302d 	ldrb	r3, [fp, #-45]
+    3cc4:	e1a02003 	mov	r2, r3
+    3cc8:	e51b3140 	ldr	r3, [fp, #-320]
+    3ccc:	e58320f0 	str	r2, [r3, #240]
+    3cd0:	e15b32bc 	ldrh	r3, [fp, #-44]
+    3cd4:	e1a00003 	mov	r0, r3
+    3cd8:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    3cdc:	e1a03000 	mov	r3, r0
+    3ce0:	e1a02003 	mov	r2, r3
+    3ce4:	e51b3140 	ldr	r3, [fp, #-320]
+    3ce8:	e1c32fb4 	strh	r2, [r3, #244]
+    3cec:	e51b3140 	ldr	r3, [fp, #-320]
+    3cf0:	e1d31ebc 	ldrh	r1, [r3, #236]
+    3cf4:	e51b3140 	ldr	r3, [fp, #-320]
+    3cf8:	e593c0f0 	ldr	ip, [r3, #240]
+    3cfc:	e51b3140 	ldr	r3, [fp, #-320]
+    3d00:	e1d34fb4 	ldrh	r4, [r3, #244]
+    3d04:	e51b3140 	ldr	r3, [fp, #-320]
+    3d08:	e28320fd 	add	r2, r3, #253	; 0xfd
+    3d0c:	e3a03000 	mov	r3, #0	; 0x0
+    3d10:	e58d3000 	str	r3, [sp]
+    3d14:	e58d2004 	str	r2, [sp, #4]
+    3d18:	e59f0260 	ldr	r0, [pc, #608]	; 3f80 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8d8>
+    3d1c:	e1a0200c 	mov	r2, ip
+    3d20:	e1a03004 	mov	r3, r4
+    3d24:	ebfffffe 	bl	0 <_ZN8ParamMgr15sam_from_deviceEt6ETPDVCthPc>
+    3d28:	e55b302a 	ldrb	r3, [fp, #-42]
+    3d2c:	e51b2140 	ldr	r2, [fp, #-320]
+    3d30:	e5c230d2 	strb	r3, [r2, #210]
+    3d34:	e15b32b8 	ldrh	r3, [fp, #-40]
+    3d38:	e1a02003 	mov	r2, r3
+    3d3c:	e51b3140 	ldr	r3, [fp, #-320]
+    3d40:	e58320b0 	str	r2, [r3, #176]
+    3d44:	e55b3026 	ldrb	r3, [fp, #-38]
+    3d48:	e1a03103 	lsl	r3, r3, #2
+    3d4c:	e1a02103 	lsl	r2, r3, #2
+    3d50:	e0833002 	add	r3, r3, r2
+    3d54:	e1a02103 	lsl	r2, r3, #2
+    3d58:	e0833002 	add	r3, r3, r2
+    3d5c:	e1a03803 	lsl	r3, r3, #16
+    3d60:	e1a02823 	lsr	r2, r3, #16
+    3d64:	e55b3025 	ldrb	r3, [fp, #-37]
+    3d68:	e0823003 	add	r3, r2, r3
+    3d6c:	e14b31b2 	strh	r3, [fp, #-18]
+    3d70:	e51b3140 	ldr	r3, [fp, #-320]
+    3d74:	e59340e0 	ldr	r4, [r3, #224]
+    3d78:	e15b31b2 	ldrh	r3, [fp, #-18]
+    3d7c:	e1a00003 	mov	r0, r3
+    3d80:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    3d84:	e1a03000 	mov	r3, r0
+    3d88:	e1c430b0 	strh	r3, [r4]
+    3d8c:	e51b3140 	ldr	r3, [fp, #-320]
+    3d90:	e59330e0 	ldr	r3, [r3, #224]
+    3d94:	e283300a 	add	r3, r3, #10	; 0xa
+    3d98:	e24b2036 	sub	r2, fp, #54	; 0x36
+    3d9c:	e1a00003 	mov	r0, r3
+    3da0:	e1a01002 	mov	r1, r2
+    3da4:	e3a02007 	mov	r2, #7	; 0x7
+    3da8:	ebfffffe 	bl	0 <memcpy>
+    3dac:	e51b3140 	ldr	r3, [fp, #-320]
+    3db0:	e59330e0 	ldr	r3, [r3, #224]
+    3db4:	e2832011 	add	r2, r3, #17	; 0x11
+    3db8:	e51b3140 	ldr	r3, [fp, #-320]
+    3dbc:	e28330fd 	add	r3, r3, #253	; 0xfd
+    3dc0:	e1a00002 	mov	r0, r2
+    3dc4:	e1a01003 	mov	r1, r3
+    3dc8:	e3a02010 	mov	r2, #16	; 0x10
+    3dcc:	ebfffffe 	bl	0 <memcpy>
+    3dd0:	e15b32b4 	ldrh	r3, [fp, #-36]
+    3dd4:	e1a02003 	mov	r2, r3
+    3dd8:	e51b3140 	ldr	r3, [fp, #-320]
+    3ddc:	e58320c4 	str	r2, [r3, #196]
+    3de0:	e51b3140 	ldr	r3, [fp, #-320]
+    3de4:	e5d330d2 	ldrb	r3, [r3, #210]
+    3de8:	e51b0140 	ldr	r0, [fp, #-320]
+    3dec:	e1a01003 	mov	r1, r3
+    3df0:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    3df4:	e1a02000 	mov	r2, r0
+    3df8:	e51b3140 	ldr	r3, [fp, #-320]
+    3dfc:	e58320d4 	str	r2, [r3, #212]
+    3e00:	e51b3140 	ldr	r3, [fp, #-320]
+    3e04:	e28320ec 	add	r2, r3, #236	; 0xec
+    3e08:	e51b3140 	ldr	r3, [fp, #-320]
+    3e0c:	e58320e4 	str	r2, [r3, #228]
+    3e10:	e51b3140 	ldr	r3, [fp, #-320]
+    3e14:	e28320ec 	add	r2, r3, #236	; 0xec
+    3e18:	e51b3140 	ldr	r3, [fp, #-320]
+    3e1c:	e58320e8 	str	r2, [r3, #232]
+    3e20:	e51b3140 	ldr	r3, [fp, #-320]
+    3e24:	e28330ab 	add	r3, r3, #171	; 0xab
+    3e28:	e59f0150 	ldr	r0, [pc, #336]	; 3f80 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8d8>
+    3e2c:	e1a01003 	mov	r1, r3
+    3e30:	e51b2148 	ldr	r2, [fp, #-328]
+    3e34:	ebfffffe 	bl	0 <_ZN8ParamMgr16query_ticket_prmEPhR12TICKET_PARAM>
+    3e38:	e51b3140 	ldr	r3, [fp, #-320]
+    3e3c:	e59330d4 	ldr	r3, [r3, #212]
+    3e40:	e3530009 	cmp	r3, #9	; 0x9
+    3e44:	1a00000e 	bne	3e84 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x7dc>
+    3e48:	e51b3140 	ldr	r3, [fp, #-320]
+    3e4c:	e2833047 	add	r3, r3, #71	; 0x47
+    3e50:	e1a00003 	mov	r0, r3
+    3e54:	e59f1128 	ldr	r1, [pc, #296]	; 3f84 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x8dc>
+    3e58:	e3a02007 	mov	r2, #7	; 0x7
+    3e5c:	ebfffffe 	bl	0 <memcpy>
+    3e60:	e51b3140 	ldr	r3, [fp, #-320]
+    3e64:	e283204e 	add	r2, r3, #78	; 0x4e
+    3e68:	e51b3140 	ldr	r3, [fp, #-320]
+    3e6c:	e28330f6 	add	r3, r3, #246	; 0xf6
+    3e70:	e1a00002 	mov	r0, r2
+    3e74:	e1a01003 	mov	r1, r3
+    3e78:	e3a02007 	mov	r2, #7	; 0x7
+    3e7c:	ebfffffe 	bl	0 <memcpy>
+    3e80:	ea00001b 	b	3ef4 <_ZN8TicketUl9read_cardE9ETYTKOPERR12TICKET_PARAMPh+0x84c>
+    3e84:	e51b3140 	ldr	r3, [fp, #-320]
+    3e88:	e2832047 	add	r2, r3, #71	; 0x47
+    3e8c:	e51b3140 	ldr	r3, [fp, #-320]
+    3e90:	e28330f6 	add	r3, r3, #246	; 0xf6
+    3e94:	e1a00002 	mov	r0, r2
+    3e98:	e1a01003 	mov	r1, r3
+    3e9c:	e3a02007 	mov	r2, #7	; 0x7
+    3ea0:	ebfffffe 	bl	0 <memcpy>
+    3ea4:	e51b3140 	ldr	r3, [fp, #-320]
+    3ea8:	e283204e 	add	r2, r3, #78	; 0x4e
+    3eac:	e51b3140 	ldr	r3, [fp, #-320]
+    3eb0:	e28330f6 	add	r3, r3, #246	; 0xf6
+    3eb4:	e1a00002 	mov	r0, r2
+    3eb8:	e1a01003 	mov	r1, r3
+    3ebc:	e3a02007 	mov	r2, #7	; 0x7
+    3ec0:	ebfffffe 	bl	0 <memcpy>
+    3ec4:	e51b3140 	ldr	r3, [fp, #-320]
+    3ec8:	e283204e 	add	r2, r3, #78	; 0x4e
+    3ecc:	e51b3148 	ldr	r3, [fp, #-328]
+    3ed0:	e5933028 	ldr	r3, [r3, #40]
+    3ed4:	e58d3000 	str	r3, [sp]
+    3ed8:	e3a03000 	mov	r3, #0	; 0x0
+    3edc:	e58d3004 	str	r3, [sp, #4]
+    3ee0:	e1a00002 	mov	r0, r2
+    3ee4:	e3a0107f 	mov	r1, #127	; 0x7f
+    3ee8:	e3a02000 	mov	r2, #0	; 0x0
+    3eec:	e3a03000 	mov	r3, #0	; 0x0
+    3ef0:	ebfffffe 	bl	0 <_ZN7TimesEx18bcd_time_calculateEPhhiiii>
+    3ef4:	e51b3148 	ldr	r3, [fp, #-328]
+    3ef8:	e5932004 	ldr	r2, [r3, #4]
+    3efc:	e51b3140 	ldr	r3, [fp, #-320]
+    3f00:	e58320b8 	str	r2, [r3, #184]
+    3f04:	e51b3140 	ldr	r3, [fp, #-320]
+    3f08:	e283300c 	add	r3, r3, #12	; 0xc
+    3f0c:	e1a00003 	mov	r0, r3
+    3f10:	e3a01030 	mov	r1, #48	; 0x30
+    3f14:	e3a02004 	mov	r2, #4	; 0x4
+    3f18:	ebfffffe 	bl	0 <memset>
+    3f1c:	e51b3140 	ldr	r3, [fp, #-320]
+    3f20:	e2833008 	add	r3, r3, #8	; 0x8
+    3f24:	e1a00003 	mov	r0, r3
+    3f28:	e3a01030 	mov	r1, #48	; 0x30
+    3f2c:	e3a02004 	mov	r2, #4	; 0x4
+    3f30:	ebfffffe 	bl	0 <memset>
+    3f34:	e51b3140 	ldr	r3, [fp, #-320]
+    3f38:	e2833070 	add	r3, r3, #112	; 0x70
+    3f3c:	e1a00003 	mov	r0, r3
+    3f40:	e3a01030 	mov	r1, #48	; 0x30
+    3f44:	e3a02020 	mov	r2, #32	; 0x20
+    3f48:	ebfffffe 	bl	0 <memset>
+    3f4c:	e51b3140 	ldr	r3, [fp, #-320]
+    3f50:	e283305c 	add	r3, r3, #92	; 0x5c
+    3f54:	e1a00003 	mov	r0, r3
+    3f58:	e3a01030 	mov	r1, #48	; 0x30
+    3f5c:	e3a02014 	mov	r2, #20	; 0x14
+    3f60:	ebfffffe 	bl	0 <memset>
+    3f64:	e51b014c 	ldr	r0, [fp, #-332]
+    3f68:	e24bd008 	sub	sp, fp, #8	; 0x8
+    3f6c:	e8bd8810 	pop	{r4, fp, pc}
+    3f70:	0000ffff 	.word	0x0000ffff
+    3f74:	00000000 	.word	0x00000000
+    3f78:	0000015c 	.word	0x0000015c
+    3f7c:	cccccccd 	.word	0xcccccccd
+	...
+
+00003f88 <_ZN8TicketUlC1EPcS0_Ph>:
+    3f88:	e92d4870 	push	{r4, r5, r6, fp, lr}
+    3f8c:	e28db010 	add	fp, sp, #16	; 0x10
+    3f90:	e24dd034 	sub	sp, sp, #52	; 0x34
+    3f94:	e50b0020 	str	r0, [fp, #-32]
+    3f98:	e50b1024 	str	r1, [fp, #-36]
+    3f9c:	e50b2028 	str	r2, [fp, #-40]
+    3fa0:	e50b302c 	str	r3, [fp, #-44]
+    3fa4:	e51b3020 	ldr	r3, [fp, #-32]
+    3fa8:	e1a00003 	mov	r0, r3
+    3fac:	ebfffffe 	bl	0 <_ZN10TicketBaseC2Ev>
+    3fb0:	e51b2020 	ldr	r2, [fp, #-32]
+    3fb4:	e59f313c 	ldr	r3, [pc, #316]	; 40f8 <_ZN8TicketUlC1EPcS0_Ph+0x170>
+    3fb8:	e5823000 	str	r3, [r2]
+    3fbc:	e51b2020 	ldr	r2, [fp, #-32]
+    3fc0:	e51b3024 	ldr	r3, [fp, #-36]
+    3fc4:	e5823138 	str	r3, [r2, #312]
+    3fc8:	e51b2020 	ldr	r2, [fp, #-32]
+    3fcc:	e51b3028 	ldr	r3, [fp, #-40]
+    3fd0:	e582313c 	str	r3, [r2, #316]
+    3fd4:	e51b3020 	ldr	r3, [fp, #-32]
+    3fd8:	e2833004 	add	r3, r3, #4	; 0x4
+    3fdc:	e1a00003 	mov	r0, r3
+    3fe0:	e3a01000 	mov	r1, #0	; 0x0
+    3fe4:	e3a02f4d 	mov	r2, #308	; 0x134
+    3fe8:	ebfffffe 	bl	0 <memset>
+    3fec:	e51b3020 	ldr	r3, [fp, #-32]
+    3ff0:	e2831014 	add	r1, r3, #20	; 0x14
+    3ff4:	e51b302c 	ldr	r3, [fp, #-44]
+    3ff8:	e5d33000 	ldrb	r3, [r3]
+    3ffc:	e1a0c003 	mov	ip, r3
+    4000:	e51b302c 	ldr	r3, [fp, #-44]
+    4004:	e2833001 	add	r3, r3, #1	; 0x1
+    4008:	e5d33000 	ldrb	r3, [r3]
+    400c:	e1a04003 	mov	r4, r3
+    4010:	e51b302c 	ldr	r3, [fp, #-44]
+    4014:	e2833002 	add	r3, r3, #2	; 0x2
+    4018:	e5d33000 	ldrb	r3, [r3]
+    401c:	e1a00003 	mov	r0, r3
+    4020:	e51b302c 	ldr	r3, [fp, #-44]
+    4024:	e2833003 	add	r3, r3, #3	; 0x3
+    4028:	e5d33000 	ldrb	r3, [r3]
+    402c:	e1a05003 	mov	r5, r3
+    4030:	e51b302c 	ldr	r3, [fp, #-44]
+    4034:	e2833004 	add	r3, r3, #4	; 0x4
+    4038:	e5d33000 	ldrb	r3, [r3]
+    403c:	e1a06003 	mov	r6, r3
+    4040:	e51b302c 	ldr	r3, [fp, #-44]
+    4044:	e2833005 	add	r3, r3, #5	; 0x5
+    4048:	e5d33000 	ldrb	r3, [r3]
+    404c:	e1a02003 	mov	r2, r3
+    4050:	e51b302c 	ldr	r3, [fp, #-44]
+    4054:	e2833006 	add	r3, r3, #6	; 0x6
+    4058:	e5d33000 	ldrb	r3, [r3]
+    405c:	e58d0000 	str	r0, [sp]
+    4060:	e58d5004 	str	r5, [sp, #4]
+    4064:	e58d6008 	str	r6, [sp, #8]
+    4068:	e58d200c 	str	r2, [sp, #12]
+    406c:	e58d3010 	str	r3, [sp, #16]
+    4070:	e3a03020 	mov	r3, #32	; 0x20
+    4074:	e58d3014 	str	r3, [sp, #20]
+    4078:	e1a00001 	mov	r0, r1
+    407c:	e59f1078 	ldr	r1, [pc, #120]	; 40fc <_ZN8TicketUlC1EPcS0_Ph+0x174>
+    4080:	e1a0200c 	mov	r2, ip
+    4084:	e1a03004 	mov	r3, r4
+    4088:	ebfffffe 	bl	0 <sprintf>
+    408c:	e51b3020 	ldr	r3, [fp, #-32]
+    4090:	e2833f59 	add	r3, r3, #356	; 0x164
+    4094:	e50b3018 	str	r3, [fp, #-24]
+    4098:	e51b3018 	ldr	r3, [fp, #-24]
+    409c:	e3a00024 	mov	r0, #36	; 0x24
+    40a0:	e1a01003 	mov	r1, r3
+    40a4:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    40a8:	e1a03000 	mov	r3, r0
+    40ac:	e1a02003 	mov	r2, r3
+    40b0:	e51b3020 	ldr	r3, [fp, #-32]
+    40b4:	e58320e0 	str	r2, [r3, #224]
+    40b8:	e51b3020 	ldr	r3, [fp, #-32]
+    40bc:	e59330e0 	ldr	r3, [r3, #224]
+    40c0:	e1a00003 	mov	r0, r3
+    40c4:	e3a01000 	mov	r1, #0	; 0x0
+    40c8:	e3a02024 	mov	r2, #36	; 0x24
+    40cc:	ebfffffe 	bl	0 <memset>
+    40d0:	e51b3020 	ldr	r3, [fp, #-32]
+    40d4:	e28330ec 	add	r3, r3, #236	; 0xec
+    40d8:	e1a00003 	mov	r0, r3
+    40dc:	e3a01000 	mov	r1, #0	; 0x0
+    40e0:	e3a02024 	mov	r2, #36	; 0x24
+    40e4:	ebfffffe 	bl	0 <memset>
+    40e8:	e51b3020 	ldr	r3, [fp, #-32]
+    40ec:	e1a00003 	mov	r0, r3
+    40f0:	e24bd010 	sub	sp, fp, #16	; 0x10
+    40f4:	e8bd8870 	pop	{r4, r5, r6, fp, pc}
+    40f8:	00000008 	.word	0x00000008
+    40fc:	0000017c 	.word	0x0000017c
+
+00004100 <_ZN8TicketUlC2EPcS0_Ph>:
+    4100:	e92d4870 	push	{r4, r5, r6, fp, lr}
+    4104:	e28db010 	add	fp, sp, #16	; 0x10
+    4108:	e24dd034 	sub	sp, sp, #52	; 0x34
+    410c:	e50b0020 	str	r0, [fp, #-32]
+    4110:	e50b1024 	str	r1, [fp, #-36]
+    4114:	e50b2028 	str	r2, [fp, #-40]
+    4118:	e50b302c 	str	r3, [fp, #-44]
+    411c:	e51b3020 	ldr	r3, [fp, #-32]
+    4120:	e1a00003 	mov	r0, r3
+    4124:	ebfffffe 	bl	0 <_ZN10TicketBaseC2Ev>
+    4128:	e51b2020 	ldr	r2, [fp, #-32]
+    412c:	e59f313c 	ldr	r3, [pc, #316]	; 4270 <_ZN8TicketUlC2EPcS0_Ph+0x170>
+    4130:	e5823000 	str	r3, [r2]
+    4134:	e51b2020 	ldr	r2, [fp, #-32]
+    4138:	e51b3024 	ldr	r3, [fp, #-36]
+    413c:	e5823138 	str	r3, [r2, #312]
+    4140:	e51b2020 	ldr	r2, [fp, #-32]
+    4144:	e51b3028 	ldr	r3, [fp, #-40]
+    4148:	e582313c 	str	r3, [r2, #316]
+    414c:	e51b3020 	ldr	r3, [fp, #-32]
+    4150:	e2833004 	add	r3, r3, #4	; 0x4
+    4154:	e1a00003 	mov	r0, r3
+    4158:	e3a01000 	mov	r1, #0	; 0x0
+    415c:	e3a02f4d 	mov	r2, #308	; 0x134
+    4160:	ebfffffe 	bl	0 <memset>
+    4164:	e51b3020 	ldr	r3, [fp, #-32]
+    4168:	e2831014 	add	r1, r3, #20	; 0x14
+    416c:	e51b302c 	ldr	r3, [fp, #-44]
+    4170:	e5d33000 	ldrb	r3, [r3]
+    4174:	e1a0c003 	mov	ip, r3
+    4178:	e51b302c 	ldr	r3, [fp, #-44]
+    417c:	e2833001 	add	r3, r3, #1	; 0x1
+    4180:	e5d33000 	ldrb	r3, [r3]
+    4184:	e1a04003 	mov	r4, r3
+    4188:	e51b302c 	ldr	r3, [fp, #-44]
+    418c:	e2833002 	add	r3, r3, #2	; 0x2
+    4190:	e5d33000 	ldrb	r3, [r3]
+    4194:	e1a00003 	mov	r0, r3
+    4198:	e51b302c 	ldr	r3, [fp, #-44]
+    419c:	e2833003 	add	r3, r3, #3	; 0x3
+    41a0:	e5d33000 	ldrb	r3, [r3]
+    41a4:	e1a05003 	mov	r5, r3
+    41a8:	e51b302c 	ldr	r3, [fp, #-44]
+    41ac:	e2833004 	add	r3, r3, #4	; 0x4
+    41b0:	e5d33000 	ldrb	r3, [r3]
+    41b4:	e1a06003 	mov	r6, r3
+    41b8:	e51b302c 	ldr	r3, [fp, #-44]
+    41bc:	e2833005 	add	r3, r3, #5	; 0x5
+    41c0:	e5d33000 	ldrb	r3, [r3]
+    41c4:	e1a02003 	mov	r2, r3
+    41c8:	e51b302c 	ldr	r3, [fp, #-44]
+    41cc:	e2833006 	add	r3, r3, #6	; 0x6
+    41d0:	e5d33000 	ldrb	r3, [r3]
+    41d4:	e58d0000 	str	r0, [sp]
+    41d8:	e58d5004 	str	r5, [sp, #4]
+    41dc:	e58d6008 	str	r6, [sp, #8]
+    41e0:	e58d200c 	str	r2, [sp, #12]
+    41e4:	e58d3010 	str	r3, [sp, #16]
+    41e8:	e3a03020 	mov	r3, #32	; 0x20
+    41ec:	e58d3014 	str	r3, [sp, #20]
+    41f0:	e1a00001 	mov	r0, r1
+    41f4:	e59f1078 	ldr	r1, [pc, #120]	; 4274 <_ZN8TicketUlC2EPcS0_Ph+0x174>
+    41f8:	e1a0200c 	mov	r2, ip
+    41fc:	e1a03004 	mov	r3, r4
+    4200:	ebfffffe 	bl	0 <sprintf>
+    4204:	e51b3020 	ldr	r3, [fp, #-32]
+    4208:	e2833f59 	add	r3, r3, #356	; 0x164
+    420c:	e50b3018 	str	r3, [fp, #-24]
+    4210:	e51b3018 	ldr	r3, [fp, #-24]
+    4214:	e3a00024 	mov	r0, #36	; 0x24
+    4218:	e1a01003 	mov	r1, r3
+    421c:	ebfffffe 	bl	0 <_ZN8TicketUl17get_simple_statusEh>
+    4220:	e1a03000 	mov	r3, r0
+    4224:	e1a02003 	mov	r2, r3
+    4228:	e51b3020 	ldr	r3, [fp, #-32]
+    422c:	e58320e0 	str	r2, [r3, #224]
+    4230:	e51b3020 	ldr	r3, [fp, #-32]
+    4234:	e59330e0 	ldr	r3, [r3, #224]
+    4238:	e1a00003 	mov	r0, r3
+    423c:	e3a01000 	mov	r1, #0	; 0x0
+    4240:	e3a02024 	mov	r2, #36	; 0x24
+    4244:	ebfffffe 	bl	0 <memset>
+    4248:	e51b3020 	ldr	r3, [fp, #-32]
+    424c:	e28330ec 	add	r3, r3, #236	; 0xec
+    4250:	e1a00003 	mov	r0, r3
+    4254:	e3a01000 	mov	r1, #0	; 0x0
+    4258:	e3a02024 	mov	r2, #36	; 0x24
+    425c:	ebfffffe 	bl	0 <memset>
+    4260:	e51b3020 	ldr	r3, [fp, #-32]
+    4264:	e1a00003 	mov	r0, r3
+    4268:	e24bd010 	sub	sp, fp, #16	; 0x10
+    426c:	e8bd8870 	pop	{r4, r5, r6, fp, pc}
+    4270:	00000008 	.word	0x00000008
+    4274:	0000017c 	.word	0x0000017c
+
+00004278 <_ZN8TicketUlC1Ev>:
+    4278:	e92d4800 	push	{fp, lr}
+    427c:	e28db004 	add	fp, sp, #4	; 0x4
+    4280:	e24dd008 	sub	sp, sp, #8	; 0x8
+    4284:	e50b0008 	str	r0, [fp, #-8]
+    4288:	e51b3008 	ldr	r3, [fp, #-8]
+    428c:	e1a00003 	mov	r0, r3
+    4290:	ebfffffe 	bl	0 <_ZN10TicketBaseC2Ev>
+    4294:	e51b2008 	ldr	r2, [fp, #-8]
+    4298:	e59f3010 	ldr	r3, [pc, #16]	; 42b0 <_ZN8TicketUlC1Ev+0x38>
+    429c:	e5823000 	str	r3, [r2]
+    42a0:	e51b3008 	ldr	r3, [fp, #-8]
+    42a4:	e1a00003 	mov	r0, r3
+    42a8:	e24bd004 	sub	sp, fp, #4	; 0x4
+    42ac:	e8bd8800 	pop	{fp, pc}
+    42b0:	00000008 	.word	0x00000008
+
+000042b4 <_ZN8TicketUlC2Ev>:
+    42b4:	e92d4800 	push	{fp, lr}
+    42b8:	e28db004 	add	fp, sp, #4	; 0x4
+    42bc:	e24dd008 	sub	sp, sp, #8	; 0x8
+    42c0:	e50b0008 	str	r0, [fp, #-8]
+    42c4:	e51b3008 	ldr	r3, [fp, #-8]
+    42c8:	e1a00003 	mov	r0, r3
+    42cc:	ebfffffe 	bl	0 <_ZN10TicketBaseC2Ev>
+    42d0:	e51b2008 	ldr	r2, [fp, #-8]
+    42d4:	e59f3010 	ldr	r3, [pc, #16]	; 42ec <_ZN8TicketUlC2Ev+0x38>
+    42d8:	e5823000 	str	r3, [r2]
+    42dc:	e51b3008 	ldr	r3, [fp, #-8]
+    42e0:	e1a00003 	mov	r0, r3
+    42e4:	e24bd004 	sub	sp, fp, #4	; 0x4
+    42e8:	e8bd8800 	pop	{fp, pc}
+    42ec:	00000008 	.word	0x00000008
+Disassembly of section .text._ZnwjPv:
+
+00000000 <_ZnwjPv>:
+   0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0	; 0x0
+   8:	e24dd00c 	sub	sp, sp, #12	; 0xc
+   c:	e50b0008 	str	r0, [fp, #-8]
+  10:	e50b100c 	str	r1, [fp, #-12]
+  14:	e51b300c 	ldr	r3, [fp, #-12]
+  18:	e1a00003 	mov	r0, r3
+  1c:	e28bd000 	add	sp, fp, #0	; 0x0
+  20:	e8bd0800 	pop	{fp}
+  24:	e12fff1e 	bx	lr
+Disassembly of section .text._ZN7Publics10val_to_bcdItEET_S1_:
+
+00000000 <_ZN7Publics10val_to_bcdItEET_S1_>:
+   0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0	; 0x0
+   8:	e24dd01c 	sub	sp, sp, #28	; 0x1c
+   c:	e1a03000 	mov	r3, r0
+  10:	e14b31b6 	strh	r3, [fp, #-22]
+  14:	e3a03000 	mov	r3, #0	; 0x0
+  18:	e14b30be 	strh	r3, [fp, #-14]
+  1c:	e3a03000 	mov	r3, #0	; 0x0
+  20:	e50b300c 	str	r3, [fp, #-12]
+  24:	e3a03000 	mov	r3, #0	; 0x0
+  28:	e54b3005 	strb	r3, [fp, #-5]
+  2c:	e15b11b6 	ldrh	r1, [fp, #-22]
+  30:	e59f3090 	ldr	r3, [pc, #144]	; 268 <_ZN8TicketUl19continue_last_tradeEPv+0x4c>
+  34:	e0832391 	umull	r2, r3, r1, r3
+  38:	e1a031a3 	lsr	r3, r3, #3
+  3c:	e1a03083 	lsl	r3, r3, #1
+  40:	e1a02103 	lsl	r2, r3, #2
+  44:	e0833002 	add	r3, r3, r2
+  48:	e0633001 	rsb	r3, r3, r1
+  4c:	e1a03803 	lsl	r3, r3, #16
+  50:	e1a03823 	lsr	r3, r3, #16
+  54:	e54b3005 	strb	r3, [fp, #-5]
+  58:	e15b21b6 	ldrh	r2, [fp, #-22]
+  5c:	e55b3005 	ldrb	r3, [fp, #-5]
+  60:	e0631002 	rsb	r1, r3, r2
+  64:	e59f3060 	ldr	r3, [pc, #96]	; 26c <_ZN8TicketUl19continue_last_tradeEPv+0x50>
+  68:	e0c32391 	smull	r2, r3, r1, r3
+  6c:	e1a02143 	asr	r2, r3, #2
+  70:	e1a03fc1 	asr	r3, r1, #31
+  74:	e0633002 	rsb	r3, r3, r2
+  78:	e14b31b6 	strh	r3, [fp, #-22]
+  7c:	e55b2005 	ldrb	r2, [fp, #-5]
+  80:	e51b300c 	ldr	r3, [fp, #-12]
+  84:	e1a03312 	lsl	r3, r2, r3
+  88:	e1a03803 	lsl	r3, r3, #16
+  8c:	e1a02823 	lsr	r2, r3, #16
+  90:	e15b30be 	ldrh	r3, [fp, #-14]
+  94:	e0823003 	add	r3, r2, r3
+  98:	e14b30be 	strh	r3, [fp, #-14]
+  9c:	e51b300c 	ldr	r3, [fp, #-12]
+  a0:	e2833004 	add	r3, r3, #4	; 0x4
+  a4:	e50b300c 	str	r3, [fp, #-12]
+  a8:	e15b31b6 	ldrh	r3, [fp, #-22]
+  ac:	e3530000 	cmp	r3, #0	; 0x0
+  b0:	1affffdd 	bne	1cc <_ZTV8TicketUl+0x2c>
+  b4:	e15b30be 	ldrh	r3, [fp, #-14]
+  b8:	e1a00003 	mov	r0, r3
+  bc:	e28bd000 	add	sp, fp, #0	; 0x0
+  c0:	e8bd0800 	pop	{fp}
+  c4:	e12fff1e 	bx	lr
+  c8:	cccccccd 	.word	0xcccccccd
+  cc:	66666667 	.word	0x66666667
+Disassembly of section .text._ZN7Publics10bcd_to_valIhEET_S1_:
+
+00000000 <_ZN7Publics10bcd_to_valIhEET_S1_>:
+   0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0	; 0x0
+   8:	e24dd014 	sub	sp, sp, #20	; 0x14
+   c:	e1a03000 	mov	r3, r0
+  10:	e54b300d 	strb	r3, [fp, #-13]
+  14:	e3a03000 	mov	r3, #0	; 0x0
+  18:	e54b3007 	strb	r3, [fp, #-7]
+  1c:	e3a03001 	mov	r3, #1	; 0x1
+  20:	e54b3006 	strb	r3, [fp, #-6]
+  24:	e3a03000 	mov	r3, #0	; 0x0
+  28:	e54b3005 	strb	r3, [fp, #-5]
+  2c:	e55b300d 	ldrb	r3, [fp, #-13]
+  30:	e203300f 	and	r3, r3, #15	; 0xf
+  34:	e54b3005 	strb	r3, [fp, #-5]
+  38:	e55b300d 	ldrb	r3, [fp, #-13]
+  3c:	e1a03243 	asr	r3, r3, #4
+  40:	e54b300d 	strb	r3, [fp, #-13]
+  44:	e55b2005 	ldrb	r2, [fp, #-5]
+  48:	e55b3006 	ldrb	r3, [fp, #-6]
+  4c:	e0030392 	mul	r3, r2, r3
+  50:	e20320ff 	and	r2, r3, #255	; 0xff
+  54:	e55b3007 	ldrb	r3, [fp, #-7]
+  58:	e0823003 	add	r3, r2, r3
+  5c:	e54b3007 	strb	r3, [fp, #-7]
+  60:	e55b3006 	ldrb	r3, [fp, #-6]
+  64:	e1a02083 	lsl	r2, r3, #1
+  68:	e1a03102 	lsl	r3, r2, #2
+  6c:	e0823003 	add	r3, r2, r3
+  70:	e54b3006 	strb	r3, [fp, #-6]
+  74:	e55b300d 	ldrb	r3, [fp, #-13]
+  78:	e3530000 	cmp	r3, #0	; 0x0
+  7c:	1affffea 	bne	1cc <_ZTV8TicketUl+0x2c>
+  80:	e55b3007 	ldrb	r3, [fp, #-7]
+  84:	e1a00003 	mov	r0, r3
+  88:	e28bd000 	add	sp, fp, #0	; 0x0
+  8c:	e8bd0800 	pop	{fp}
+  90:	e12fff1e 	bx	lr
+Disassembly of section .text._ZN7Publics10bcd_to_valItEET_S1_:
+
+00000000 <_ZN7Publics10bcd_to_valItEET_S1_>:
+   0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
+   4:	e28db000 	add	fp, sp, #0	; 0x0
+   8:	e24dd014 	sub	sp, sp, #20	; 0x14
+   c:	e1a03000 	mov	r3, r0
+  10:	e14b30be 	strh	r3, [fp, #-14]
+  14:	e3a03000 	mov	r3, #0	; 0x0
+  18:	e14b30ba 	strh	r3, [fp, #-10]
+  1c:	e3a03001 	mov	r3, #1	; 0x1
+  20:	e14b30b8 	strh	r3, [fp, #-8]
+  24:	e3a03000 	mov	r3, #0	; 0x0
+  28:	e54b3005 	strb	r3, [fp, #-5]
+  2c:	e15b30be 	ldrh	r3, [fp, #-14]
+  30:	e20330ff 	and	r3, r3, #255	; 0xff
+  34:	e203300f 	and	r3, r3, #15	; 0xf
+  38:	e54b3005 	strb	r3, [fp, #-5]
+  3c:	e15b30be 	ldrh	r3, [fp, #-14]
+  40:	e1a03243 	asr	r3, r3, #4
+  44:	e14b30be 	strh	r3, [fp, #-14]
+  48:	e55b2005 	ldrb	r2, [fp, #-5]
+  4c:	e15b30b8 	ldrh	r3, [fp, #-8]
+  50:	e0030392 	mul	r3, r2, r3
+  54:	e1a03803 	lsl	r3, r3, #16
+  58:	e1a02823 	lsr	r2, r3, #16
+  5c:	e15b30ba 	ldrh	r3, [fp, #-10]
+  60:	e0823003 	add	r3, r2, r3
+  64:	e14b30ba 	strh	r3, [fp, #-10]
+  68:	e15b30b8 	ldrh	r3, [fp, #-8]
+  6c:	e1a02083 	lsl	r2, r3, #1
+  70:	e1a03102 	lsl	r3, r2, #2
+  74:	e0823003 	add	r3, r2, r3
+  78:	e14b30b8 	strh	r3, [fp, #-8]
+  7c:	e15b30be 	ldrh	r3, [fp, #-14]
+  80:	e3530000 	cmp	r3, #0	; 0x0
+  84:	1affffe8 	bne	1cc <_ZTV8TicketUl+0x2c>
+  88:	e15b30ba 	ldrh	r3, [fp, #-10]
+  8c:	e1a00003 	mov	r0, r3
+  90:	e28bd000 	add	sp, fp, #0	; 0x0
+  94:	e8bd0800 	pop	{fp}
+  98:	e12fff1e 	bx	lr

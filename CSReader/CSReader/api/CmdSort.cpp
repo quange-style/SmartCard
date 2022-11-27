@@ -44,20 +44,11 @@ int CmdSort::Serial_Listening()
 	uint8_t readbuf[SIZE_MAX_RECV]  = {0};
 	uint8_t databuf[SIZE_MAX_RECV]	= {0};
 	uint16_t len_data				= 0;
-	int ret;
 
-	
-	HS_LOG("libserial_init_local COM1=%s   \n",COM1);
-	if ((ret=libserial_init_local((char *)COM1, 115200, 8, 'N', 1, 0, 0)) > 0)
+	if ((libserial_init_local((char *)COM1, 115200, 8, 'N', 1, 0, 0)) > 0)
 	{
 		//dbg_formatvar("libserial_init_COM1");
-		
-		HS_LOG(" libserial_init_local %s ret=%d  success \n",COM1,ret);
 		ubeep(100);
-	}
-	else{
-		HS_LOG(" libserial_init_local %s error ret=%d  \n",COM1,ret);
-
 	}
 
 	//dbg_formatvar("libserial_init");
@@ -67,7 +58,7 @@ int CmdSort::Serial_Listening()
 		memset(readbuf, 0, SIZE_MAX_RECV);
 		memset(databuf, 0, SIZE_MAX_RECV);
 		received = libserial_recv_package_local(SIZE_MAX_RECV, 5, readbuf);
-		//HS_LOG(" received=%d \n",received);
+
 		if (received > 0)
 		{
 			// 如果设备每天都没有重新初始化读写器,那么读写器必须自行清理过期数据
@@ -110,13 +101,11 @@ int CmdSort::Serial_ListeningQR()
 	uint8_t readbuf[SIZE_MAX_RECV_QR]  = {0};
 	uint8_t databuf[SIZE_MAX_RECV_QR]	= {0};
 	uint16_t len_data				= 0;
-	int ret;
+
 	#ifdef _TERMINAL_BOM
-	
-	HS_LOG(" dev=%s   \n",COM4);
-	if ((ret=libserial_init_local((char *)COM4, 115200, 8, 'N', 1, 0, 0)) > 0)
+	if ((libserial_init_local((char *)COM4, 115200, 8, 'N', 1, 0, 0)) > 0)
 	{
-		HS_LOG(" libserial_init_local %s ret=%d  success \n",COM4,ret);
+		//dbg_formatvar("libserial_init_local");
 		ubeep(100);
 	}
 	#else
@@ -127,7 +116,6 @@ int CmdSort::Serial_ListeningQR()
 	}
 	#endif
 
-	HS_LOG(" success  \n");
 
 	while(m_flag_app_run)
 	{

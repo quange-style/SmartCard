@@ -7,34 +7,6 @@
 #include "Structs.h"
 #include "Api.h"
 
-#include <stdio.h>
-#include <stdarg.h>
-#include  <sys/time.h>
-
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <time.h>
-
-#include <string.h> //strrchr()函数所需头文件
-//linux :
-#define FILENAME(x) strrchr(x,'/')?strrchr(x,'/')+1:x
-
-
-#define HS_LOG_EN
-#ifdef HS_LOG_EN
-
-//#define HS_LOG(_fmt, arg...) \
-//	printf(" %s(%d): " _fmt, __func__, __LINE__, ##arg);
-
-#define HS_LOG(fmt, args...) printf("[%s::%s:%d] " fmt ,FILENAME(__FILE__),__FUNCTION__,__LINE__, ##args)
-
-#else
-#define HS_LOG(fmt, args...)
-#endif
-
-
 #define COM1				(char *)"/dev/ttyS0"
 #define COM2				(char *)"/dev/ttyS1"
 #define COM3				(char *)"/dev/ttyS2"

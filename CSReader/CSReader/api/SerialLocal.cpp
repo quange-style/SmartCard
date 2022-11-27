@@ -221,7 +221,6 @@ int libserial_re_set_local_ble(struct termios *save_tios)
 //==================================================================================================
 int libserial_init_local(char *dev, int speed, int parity, int databits, int stopbits, int hwf, int swf)
 {
-	HS_LOG("dev=%s   \n",dev);
 
     int i	= 0;
 	int ret = 0;
@@ -235,13 +234,9 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
 
 	//dbg_formatvar("g_fd=%d",g_fd);
 
-	HS_LOG("g_fd=%d   \n",g_fd);
-
     if (g_fd == -1)
     {
 		dbg_formatvar("-1");
-		
-		HS_LOG(" g_fd %d dev=%s error \n",g_fd,dev);
         return -1;
     }
 
@@ -249,8 +244,6 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
 
     if (ret<0)
     {
-    
-		HS_LOG("tcgetattr ret %d error \n",ret);
 		dbg_formatvar("-2");
         close(g_fd);
         g_fd = -1;
@@ -365,8 +358,6 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
 
     if (ret<0)
     {
-    
-		HS_LOG("tcsetattr  ret %d error \n",ret);
 		dbg_formatvar("-3");
         close(g_fd);
         g_fd = -1;
@@ -906,9 +897,6 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
             result = ERR_RECV_TIMEOUT;
             break;
         }
-		else{
-			//HS_LOG(" rc=%d g_fd=%d\n",rc,g_fd);
-		}
 
         sumlen += rc;
         pos += rc;

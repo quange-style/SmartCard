@@ -72,11 +72,9 @@ int main()
 
 	int received					= 0;
 	void *pdata;
-	HS_LOG("wcq runing1111  \n");
+
 	do
 	{
-	
-		HS_LOG("init_running_directory \n");
 		QFile::init_running_directory();
 
 		clear_tmp_folder();
@@ -84,28 +82,20 @@ int main()
 		g_Parameter.load_dat_config();
 		g_Parameter.load_itp_dat_config();
 
-		HS_LOG("rfdev_init \n");
-
 		while (rfdev_init() < 0)
 		{
-		
-			HS_LOG("Beep_Sleep \n");
 			Beep_Sleep(1, 2000, 10000 * 1000);
 		}
 
 		g_rfmain_status = rfdev_get_rfstatus(1);
 		g_rfsub_status |= rfdev_get_rfstatus(2);
-		HS_LOG("samdev_init \n");
 
 		if (samdev_init() < 0)
 			break;
 
-		HS_LOG("init_sam_inf \n");
-
         init_sam_inf();
 
 		Beep_Sleep(1);
-		HS_LOG("alloc_ticket_memory \n");
 
 		if (!alloc_ticket_memory())
 			break;
@@ -117,7 +107,6 @@ int main()
 		g_Record.log_out(ret, level_error, "reader running......");
 
 		pthread_t thrd1;
-		HS_LOG("FunMonitorQR \n");
 
 		pthread_create(&thrd1,NULL,FunMonitorQR,NULL);
 
@@ -127,7 +116,6 @@ int main()
 		struct timeval start;
 		struct timeval end;
 		gettimeofday(&start,NULL);*/
-		HS_LOG("Serial_ListeningBLE \n");
 
 		cmd_ble.Serial_ListeningBLE(115200);//115200
 		/*

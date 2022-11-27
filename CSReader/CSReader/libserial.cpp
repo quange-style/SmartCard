@@ -290,7 +290,6 @@ int libserial_re_set_local_ble(struct termios *save_tios)
 int libserial_init_local(char *dev, int speed, int parity, int databits, int stopbits, int hwf, int swf)
 {
 
-	HS_LOG("dev=%s   \n",dev);
     int i	= 0;
 	int ret = 0;
 
