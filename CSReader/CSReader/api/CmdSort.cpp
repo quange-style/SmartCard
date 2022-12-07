@@ -44,11 +44,20 @@ int CmdSort::Serial_Listening()
 	uint8_t readbuf[SIZE_MAX_RECV]  = {0};
 	uint8_t databuf[SIZE_MAX_RECV]	= {0};
 	uint16_t len_data				= 0;
+	int ret;
 
-	if ((libserial_init_local((char *)COM1, 115200, 8, 'N', 1, 0, 0)) > 0)
+	
+	HS_LOG("libserial_init_local COM1=%s   \n",COM1);
+	if ((ret=libserial_init_local((char *)COM1, 115200, 8, 'N', 1, 0, 0)) > 0)
 	{
 		//dbg_formatvar("libserial_init_COM1");
+		
+		HS_LOG(" libserial_init_local %s ret=%d  success \n",COM1,ret);
 		ubeep(100);
+	}
+	else{
+		HS_LOG(" libserial_init_local %s error ret=%d  \n",COM1,ret);
+
 	}
 
 	//dbg_formatvar("libserial_init");
@@ -57,10 +66,15 @@ int CmdSort::Serial_Listening()
 	{
 		memset(readbuf, 0, SIZE_MAX_RECV);
 		memset(databuf, 0, SIZE_MAX_RECV);
-		received = libserial_recv_package_local(SIZE_MAX_RECV, 5, readbuf);
 
+		
+		//HS_LOG(" begin libserial_recv_package_local \n");
+		received = libserial_recv_package_local(SIZE_MAX_RECV, 5, readbuf);
+		//HS_LOG(" received=%d \n",received);
 		if (received > 0)
 		{
+			
+			dbg_dumpmemory("rcv buf: ",readbuf,received);
 			// 如果设备每天都没有重新初始化读写器,那么读写器必须自行清理过期数据
 			if (memcmp(m_time_now, readbuf + 7, 4) != 0)
 			{
@@ -79,6 +93,8 @@ int CmdSort::Serial_Listening()
 			cmd_classic(readbuf, databuf, len_data);
 			if (len_data > 0)
 			{
+			
+				dbg_dumpmemory("cmd_send: ",databuf,len_data);
 				cmd_send(readbuf, databuf, len_data);
 			}
 
@@ -101,14 +117,19 @@ int CmdSort::Serial_ListeningQR()
 	uint8_t readbuf[SIZE_MAX_RECV_QR]  = {0};
 	uint8_t databuf[SIZE_MAX_RECV_QR]	= {0};
 	uint16_t len_data				= 0;
-
+	int ret;
 	#ifdef _TERMINAL_BOM
-	if ((libserial_init_local((char *)COM4, 115200, 8, 'N', 1, 0, 0)) > 0)
+	
+	HS_LOG(" dev=%s   \n",COM4);
+	if ((ret=libserial_init_local((char *)COM4, 115200, 8, 'N', 1, 0, 0)) > 0)
 	{
-		//dbg_formatvar("libserial_init_local");
+		HS_LOG(" libserial_init_local %s ret=%d  success \n",COM4,ret);
 		ubeep(100);
 	}
 	#else
+
+	
+	HS_LOG(" dev=%s   \n",COM3);
 	if ((libserial_init_local((char *)COM3, 115200, 8, 'N', 1, 0, 0)) > 0)
 	{
 		//dbg_formatvar("libserial_init_local");
@@ -116,13 +137,14 @@ int CmdSort::Serial_ListeningQR()
 	}
 	#endif
 
+	HS_LOG(" success  \n");
 
 	while(m_flag_app_run)
 	{
 		memset(readbuf, 0, SIZE_MAX_RECV_QR);
 		memset(databuf, 0, SIZE_MAX_RECV_QR);
 		received = libserial_recv_package_local(SIZE_MAX_RECV_QR, 5, readbuf);
-		//dbg_formatvar("received:%d",received);
+		dbg_formatvar("received:%d \n",received);
 		if (received > 0)
 		{
 			Api::qr_readbuf[0] = 0x51;
@@ -151,6 +173,7 @@ int CmdSort::Serial_ListeningBLE(int speed)
 	uint8_t databuf[SIZE_MAX_RECV_QR]	= {0};
 	uint16_t len_data				= 0;
 
+	HS_LOG(" dev=%s   \n",COM2);
 
 	if ((libserial_init_local_ble((char *)COM2, speed, 8, 'N', 1, 0, 0)) > 0)
 	{
@@ -232,6 +255,8 @@ void CmdSort::cmd_classic(uint8_t * p_cmd_recved, uint8_t * p_data_to_send, uint
 	Api::antFlag = p_cmd_recved[6];
 
 	change_antenna(CmdSort::m_antenna_mode);
+
+	HS_LOG(" cmdtype=%d  \n",p_cmd_recved[3]);
 
 	switch (p_cmd_recved[3])
 	{

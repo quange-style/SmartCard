@@ -7,8 +7,22 @@
 #include "Structs.h"
 #include "Api.h"
 
-#define COM1				(char *)"/dev/ttyS0"
-#define COM2				(char *)"/dev/ttyS1"
+#include <stdio.h>
+#include <stdarg.h>
+#include  <sys/time.h>
+
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <time.h>
+
+
+
+#define COM1				(char *)"/dev/ttyS1"
+#define COM2				(char *)"/dev/ttyS0"
+//#define COM1				(char *)"/dev/ttyS0"
+//#define COM2				(char *)"/dev/ttyS1"
 #define COM3				(char *)"/dev/ttyS2"
 #define COM4				(char *)"/dev/ttyS5"
 //#define COM4				(char *)"/dev/ttyACM0"

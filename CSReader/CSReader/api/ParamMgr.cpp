@@ -468,6 +468,8 @@ bool ParamMgr::prm_config_unison()
         if (m_prm_config.find(m_prm_for_reader[i].prm_type) == m_prm_config.end() && (!(((m_prm_for_reader[i].prm_type & 0xF0F0) == 0x9020) || (m_prm_for_reader[i].prm_type == 0x1002))))
         {
             ret = false;
+			
+			HS_LOG("prm_config_unison lack of %04x\n", m_prm_for_reader[i].prm_type);
 			g_Record.log_out(0, level_error, "prm_config_unison lack of %04x", m_prm_for_reader[i].prm_type);
 			break;
         }
@@ -507,6 +509,8 @@ void ParamMgr::device_initialize()
 
 uint16_t ParamMgr::device_initialized()
 {
+	HS_LOG("device_init_flag %d\n", device_init_flag);
+
 	if (device_init_flag)
 		return 0;
 

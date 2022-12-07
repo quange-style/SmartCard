@@ -185,6 +185,8 @@ void Api::api_calling(uint8_t api_addr, uint8_t * param_stack, uint8_t * data_to
     {
         if (api_addr == fun_list[i].addr_api)
         {
+        
+			HS_LOG("search addr  i=%d  \n",i);
             fun_list[i].api_fun_ptr(param_stack, data_to_send, len_data);
 			valid_app_addr = true;
             return;
@@ -232,6 +234,10 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
         current_device_type = param_stack[2];
         current_device_id = (uint16_t)((param_stack[3] << 8) + param_stack[4]);
 		current_city_id = (uint16_t)((param_stack[5] << 8) + param_stack[6]);
+
+		
+		HS_LOG("station_id =%d  device_type=%d  device_id=%d city_id=%d \n"
+			,current_station_id,current_device_type,current_device_id,current_city_id);
 		//memcpy(bLocalInstitutionCode,&param_stack[7],8);
 
 		//首先清掉二维码数据//
@@ -252,9 +258,11 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 		if (current_device_type != 0x09)
 		{
 			ret.wErrCode = g_Parameter.load_all_prms();
+			HS_LOG("wErrCode =%d\n",ret.wErrCode);
 			if (ret.wErrCode != 0)	break;
 
 			ret.wErrCode = g_Parameter.device_registed(current_station_id, current_device_type, current_device_id);
+			HS_LOG("wErrCode =%d\n",ret.wErrCode);
 			if (ret.wErrCode != 0)	break;
 
 			TicketBase::load_confirm_from_file();

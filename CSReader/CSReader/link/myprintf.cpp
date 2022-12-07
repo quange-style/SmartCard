@@ -35,5 +35,25 @@ void dbg_formatvar(char *fmt,...)
     fprintf(stdout,"%s ",szbuf);
     fprintf(stdout,"\n");
 }
+
+#else
+
+void hs_dumpmemory(char *lpprompt, void *indata, int len,const void *file,const void *fun, int line)
+{
+	//return;
+    int i;
+    unsigned char *lpdata=(unsigned char *)indata;
+
+    fprintf(stdout,"[%s::%s:%d] %s",file,fun,line,lpprompt);
+
+    for (i=0;i<len;i++)
+    {
+        fprintf(stdout,"%02X ",lpdata[i]);
+    }
+    fprintf(stdout,"\n");
+}
+
+
+
 #endif
 

@@ -46,6 +46,8 @@ int samdev_init(void)
     {
     	nresult = 0;
     }
+	
+	HS_LOG("nresult=%d success \n",nresult);
     return nresult;
 }
 
