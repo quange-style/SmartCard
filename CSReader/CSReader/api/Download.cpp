@@ -34,6 +34,8 @@ void Download::file_mgr(uint8_t * p_msg_file, uint8_t * p_data_send, uint16_t& l
     file_name_len = p_msg_file[25];
     memcpy(file_name, p_msg_file + 26, file_name_len);
 
+	HS_LOG("file_mgr file_name %s flag_start_end=%d\n",file_name,flag_start_end);
+
     if (flag_start_end == 0)
     {
         recv_new_file(p_msg_file, file_name, file_size, file_crc, p_data_send, len_send);
@@ -48,6 +50,8 @@ void Download::file_mgr(uint8_t * p_msg_file, uint8_t * p_data_send, uint16_t& l
 void Download::make_file_effect(uint8_t * p_msg_file, char * p_file_name, uint32_t size_file, uint32_t crc_file, uint8_t * p_data_send, uint16_t& len_send)
 {
     RETINFO ret							= {0};
+
+	HS_LOG("p_file_name %s \n",p_file_name);
 
     ret.wErrCode = g_Parameter.config_param(p_file_name);
 
@@ -83,6 +87,8 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
     strcat(file_path, p_file_name);
     if (access(file_path, 0) == 0)
         remove(file_path);
+
+	HS_LOG("file_path %s \n",file_path);
 
     fp = fopen(file_path, "w+b");
     if (fp == NULL)
@@ -125,6 +131,9 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
     }
 
     fclose(fp);
+
+
+	HS_LOG("size_last %d len_send=%d \n",size_last,len_send);
 
     // 检查文件是否正确
     if (size_last == 0)

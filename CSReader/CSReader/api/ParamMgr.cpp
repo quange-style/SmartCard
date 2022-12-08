@@ -188,6 +188,7 @@ bool ParamMgr::load_dat_config()
     m_prm_config.clear();
 
     sprintf(sz_temp, "%s/%s", QFile::running_directory(), NAME_PRM_CONFIG);
+	HS_LOG("load m_prm_config %s \n",sz_temp);
 
     if (access(sz_temp, 0) == 0)
     {
@@ -269,9 +270,11 @@ bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
 	bool ret								= true;
 	QFile file;
 
+
 	do
 	{
 		sprintf(sz_config_path, "%s/%s", QFile::running_directory(), NAME_PRM_CONFIG);
+		HS_LOG("save m_prm_config %s \n",sz_config_path);
 
 		if (!file.open(sz_config_path, mode_write))
 			break;
@@ -2902,6 +2905,8 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 
 	do
 	{
+	
+		HS_LOG("config_param %s \n",p_name_prm);
 		if (memcmp(p_name_prm, "PRM.", 4) != 0)
 		{
 			ret = ERR_PARAM_INVALID;

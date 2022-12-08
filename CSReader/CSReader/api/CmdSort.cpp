@@ -268,6 +268,8 @@ void CmdSort::cmd_classic(uint8_t * p_cmd_recved, uint8_t * p_data_to_send, uint
 	case COMMAND_B:
 		{
 			Download dl;
+			
+			HS_LOG("COMMAND_B p_cmd_recved=%s\n",p_cmd_recved);
 			dl.file_mgr(p_cmd_recved, p_data_to_send, lentosend);
 		}
 		break;
@@ -309,7 +311,7 @@ void CmdSort::cmd_send(uint8_t * p_cmd_recved, uint8_t * p_data_send, uint16_t l
 	memcpy(cmd_send + 5, &len_data_send, 2);
 	memcpy(cmd_send + 7, p_data_send, len_data_send);
 
-	//dbg_dumpmemory("cmd_send() =",cmd_send,len_data_send+7);
+	dbg_dumpmemory("cmd_send() =",cmd_send,len_data_send+7);
 
 	//g_Record.log_buffer("cmd_send() = ", cmd_send,len_data_send+7);
 
