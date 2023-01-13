@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1DD7E4F-6F36-4831-9208-7DFB8C86D696}</ProjectGuid>
+    <RootNamespace>CSTester</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0804</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0804</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CSTester.cpp" />
+    <ClCompile Include="CSTesterDlg.cpp" />
+    <ClCompile Include="DataBar.cpp" />
+    <ClCompile Include="DlgAgm.cpp" />
+    <ClCompile Include="DlgBom.cpp" />
+    <ClCompile Include="DlgCmd.cpp" />
+    <ClCompile Include="DlgConfirm.cpp" />
+    <ClCompile Include="DlgDebug.cpp" />
+    <ClCompile Include="DlgDec.cpp" />
+    <ClCompile Include="DlgDegrade.cpp" />
+    <ClCompile Include="DlgDescind.cpp" />
+    <ClCompile Include="DlgHarder.cpp" />
+    <ClCompile Include="DlgInc.cpp" />
+    <ClCompile Include="DlgLogin.cpp" />
+    <ClCompile Include="DlgNfs.cpp" />
+    <ClCompile Include="DlgOper.cpp" />
+    <ClCompile Include="DlgParam.cpp" />
+    <ClCompile Include="DlgPrice.cpp" />
+    <ClCompile Include="DlgRefund.cpp" />
+    <ClCompile Include="DlgRoot.cpp" />
+    <ClCompile Include="DlgSaleEx.cpp" />
+    <ClCompile Include="DlgSamAct.cpp" />
+    <ClCompile Include="DlgSjtSale.cpp" />
+    <ClCompile Include="DlgTcm.cpp" />
+    <ClCompile Include="DlgTvm.cpp" />
+    <ClCompile Include="DlgUpd.cpp" />
+    <ClCompile Include="GSFile.cpp" />
+    <ClCompile Include="HexEdit.cpp" />
+    <ClCompile Include="MpSocket.cpp" />
+    <ClCompile Include="PubFuncs.cpp" />
+    <ClCompile Include="Serial.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TradeFileConvert.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSTester.h" />
+    <ClInclude Include="CSTesterDlg.h" />
+    <ClInclude Include="DataBar.h" />
+    <ClInclude Include="DlgAgm.h" />
+    <ClInclude Include="DlgBom.h" />
+    <ClInclude Include="DlgCmd.h" />
+    <ClInclude Include="DlgConfirm.h" />
+    <ClInclude Include="DlgDebug.h" />
+    <ClInclude Include="DlgDec.h" />
+    <ClInclude Include="DlgDegrade.h" />
+    <ClInclude Include="DlgDescind.h" />
+    <ClInclude Include="DlgHarder.h" />
+    <ClInclude Include="DlgInc.h" />
+    <ClInclude Include="DlgLogin.h" />
+    <ClInclude Include="DlgNfs.h" />
+    <ClInclude Include="DlgOper.h" />
+    <ClInclude Include="DlgParam.h" />
+    <ClInclude Include="DlgPrice.h" />
+    <ClInclude Include="DlgRefund.h" />
+    <ClInclude Include="DlgRoot.h" />
+    <ClInclude Include="DlgSaleEx.h" />
+    <ClInclude Include="DlgSamAct.h" />
+    <ClInclude Include="DlgSjtSale.h" />
+    <ClInclude Include="DlgTcm.h" />
+    <ClInclude Include="DlgTvm.h" />
+    <ClInclude Include="DlgUpd.h" />
+    <ClInclude Include="GSFile.h" />
+    <ClInclude Include="HexEdit.h" />
+    <ClInclude Include="MpSocket.h" />
+    <ClInclude Include="PubFuncs.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Serial.h" />
+    <ClInclude Include="SockStruct.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Structs.h" />
+    <ClInclude Include="TradeFileConvert.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ABOUT.bmp" />
+    <Image Include="res\AGM.bmp" />
+    <Image Include="res\BOM.bmp" />
+    <Image Include="res\coldtool.bmp" />
+    <Image Include="res\CSTester.ico" />
+    <Image Include="res\Free.bmp" />
+    <Image Include="res\FZone.bmp" />
+    <Image Include="res\hottoolb.bmp" />
+    <Image Include="res\Pay.bmp" />
+    <Image Include="res\PZone.bmp" />
+    <Image Include="res\SEP.bmp" />
+    <Image Include="res\TCM.bmp" />
+    <Image Include="res\toolbar.bmp" />
+    <Image Include="res\TVM.bmp" />
+    <Image Include="res\Zone.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CSTester.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\CSTester.rc2" />
+    <None Include="res\MFC2.AVI" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="CSTester.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

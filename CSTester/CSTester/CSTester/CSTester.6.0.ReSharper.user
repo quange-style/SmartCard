@@ -1,0 +1,45 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:DlgParam.cpp" caret="0" fromTop="0" />
+      <File id="d:杂项文件/f:winuser.h" caret="83204" fromTop="12" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.h" caret="980" fromTop="12" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:DlgDescind.cpp" caret="0" fromTop="0" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:DlgOper.cpp" caret="0" fromTop="0" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:DlgTvm.cpp" caret="9355" fromTop="17" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:dlgsjtsale.cpp" caret="2443" fromTop="14" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:Structs.h" caret="6303" fromTop="12" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="24303" fromTop="16" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:DlgParam.cpp" caret="1507" fromTop="17" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:Structs.h" caret="2065" fromTop="15" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:Structs.h" caret="1644" fromTop="9" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="45630" fromTop="21" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="45422" fromTop="12" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="45604" fromTop="16" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="46846" fromTop="24" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:CSTesterDlg.cpp" caret="46638" fromTop="5" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:dlgsjtsale.cpp" caret="2856" fromTop="11" />
+      <File id="C1DD7E4F-6F36-4831-9208-7DFB8C86D696/f:dlgsjtsale.cpp" caret="1468" fromTop="15" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

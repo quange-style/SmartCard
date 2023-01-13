@@ -133,7 +133,6 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
     fclose(fp);
 
 
-	HS_LOG("size_last %d len_send=%d \n",size_last,len_send);
 
     // 检查文件是否正确
     if (size_last == 0)
@@ -143,6 +142,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
             ret.wErrCode = ERR_PARAM_INVALID;
         }
     }
+	HS_LOG("size_last %d len_send=%d  total_recv=%d size_file=%d crc_file=%d crc_calc=%d wErrCode=%d \n",size_last,len_send,total_recv,size_file,crc_file,crc_calc,ret.wErrCode);
 
     CmdSort::cmd_send(file_buffer, (uint8_t *)(&ret), sizeof(ret));
 

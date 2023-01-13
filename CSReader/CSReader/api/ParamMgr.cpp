@@ -192,11 +192,18 @@ bool ParamMgr::load_dat_config()
 
     if (access(sz_temp, 0) == 0)
     {
+    
+		HS_LOG("file exist \n");
         if (file.open(sz_temp, mode_read_text))
         {
+        
+			HS_LOG("file open succes  \n");
             while (file.read_line(sz_temp, sizeof(sz_temp), read_cnt))
             {
+            
                 prm_type = Publics::string_to_bcd<uint16_t>(sz_temp, 4);
+				
+				HS_LOG("read_line read_cnt=%d  prm_type=0x%x\n",read_cnt,prm_type);
                 if (prm_for_reader(prm_type))
                 {
                     memset(sz_name_prm, 0, sizeof(sz_name_prm));
@@ -207,14 +214,18 @@ bool ParamMgr::load_dat_config()
                         len_prm_name -= 5;
 
                     memcpy(sz_name_prm, sz_temp + 5, len_prm_name);
+					
+					HS_LOG("prm_type=%d sz_name_prm %s \n",prm_type,sz_name_prm);
                     m_prm_config.insert(make_pair(prm_type, sz_name_prm));
                 }
             }
             file.close();
+			HS_LOG("file close succes  \n");
 
             return true;
         }
     }
+
 
     return false;
 
@@ -288,6 +299,8 @@ bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
 				itor->second = strPath;
 			}
 			sprintf(sz_to_write, "%04x:%s\n", itor->first, (itor->second).c_str());
+			
+			HS_LOG("sz_to_write %s \n",sz_to_write);
 			len_to_write = strlen(sz_to_write);
 			if (file.write(sz_to_write, len_to_write) < len_to_write)
 			{
@@ -296,11 +309,16 @@ bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
 			}
 		}
 
+		
+		HS_LOG("ret %d add_new_to_config=%d  \n",ret,add_new_to_config);
+
 		if (ret && add_new_to_config)
 		{
 			m_prm_config.insert(make_pair(prm_type, strPath));
 
 			sprintf(sz_to_write, "%04x:%s\n", prm_type, strPath.c_str());
+			
+			HS_LOG("sz_to_write %s \n",sz_to_write);
 			len_to_write = strlen(sz_to_write);
 			if (file.write(sz_to_write, len_to_write) < len_to_write)
 			{
@@ -314,6 +332,8 @@ bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
 
 	if (!ret)
 		g_Record.log_out(0, level_error, "save_prm_config(%04x,%s)=false", prm_type, strPath.c_str());
+
+	HS_LOG("ret %d save_prm_config(%04x,%s) \n",ret, prm_type, strPath.c_str());
 
     return ret;
 }
@@ -344,6 +364,8 @@ int ParamMgr::load_all_prms()
         for (itor=m_prm_config.begin(); itor!= m_prm_config.end(); ++itor)
         {
 			sprintf(prm_path, "%s/%s/%s", QFile::running_directory(), NAME_PRM_FOLDER, itor->second.c_str());
+			HS_LOG("m_prm_config prm_path=%s \n", prm_path);
+
             ret = load_prm(itor->first, prm_path);
             if (ret)	break;
         }
@@ -468,10 +490,13 @@ bool ParamMgr::prm_config_unison()
     bool ret = true;
     for (size_t i=0; i<sizeof(m_prm_for_reader)/sizeof(m_prm_for_reader[0]); i++)
     {
+    
+		HS_LOG("prm_config_unison lack of %04x i=%d\n", m_prm_for_reader[i].prm_type,i);
         if (m_prm_config.find(m_prm_for_reader[i].prm_type) == m_prm_config.end() && (!(((m_prm_for_reader[i].prm_type & 0xF0F0) == 0x9020) || (m_prm_for_reader[i].prm_type == 0x1002))))
         {
+        
             ret = false;
-			
+			HS_LOG("m_prm_config size=%d \n", m_prm_config.size());
 			HS_LOG("prm_config_unison lack of %04x\n", m_prm_for_reader[i].prm_type);
 			g_Record.log_out(0, level_error, "prm_config_unison lack of %04x", m_prm_for_reader[i].prm_type);
 			break;
@@ -527,6 +552,9 @@ uint16_t ParamMgr::load_prm(const uint16_t prm_type, const char * p_prm_path, bo
 
 	do
 	{
+
+	
+		HS_LOG("prm_type=%x \n", prm_type);
 		// 直接移动到下载文件启用消息
 		if ((uint16_t)(prm_type & 0xF0F0) == 0x9020)
 		{
@@ -558,6 +586,8 @@ uint16_t ParamMgr::load_prm(const uint16_t prm_type, const char * p_prm_path, bo
 		}
 
 	} while (0);
+
+	HS_LOG("load_prm(%04x,%s, bool,bool)=%04x", prm_type, p_prm_path, ret);
 
 	g_Record.log_out(ret, level_invalid, "load_prm(%04x,%s, bool,bool)=%04x", prm_type, p_prm_path, ret);
 
@@ -2918,6 +2948,8 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 
 		sprintf(source_path, "%s/%s/%s", QFile::running_directory(), NAME_TEMP_FOLDER, p_name_prm);
 
+		HS_LOG("source_path %s prm_type=0x%x\n",source_path,prm_type);
+
 		if ((prm_type & 0xF0F0) == 0x9020)
 		{
 			// 存在需要更新驱动的情况，先卸载驱动
@@ -2932,6 +2964,8 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 			if (PackageMgr::ExcuteShell(source_path) != 0)
 			{
 				ret = ERR_FILE_ACCESS;
+				
+				HS_LOG("ERR_FILE_ACCESS \n");
 				break;
 			}
 
@@ -2941,16 +2975,23 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 		{
 			// 其他类型参数
 			ret = valid_prm(source_path);
-			if (ret != 0)	break;
+			if (ret != 0){
+				HS_LOG("valid_prm \n");
+				break;
+			}
 
 			ret = load_prm(prm_type, source_path, false, true);
-			if (ret != 0)	break;
+			if (ret != 0){				
+				HS_LOG("load_prm \n");
+				break;
+			}	
 
 			sprintf(target_path, "%s/%s/%s", QFile::running_directory(), NAME_PRM_FOLDER, p_name_prm);
 			if (rename(source_path, target_path) != 0)
 			{
 				ret = ERR_FILE_ACCESS;
 				g_Record.log_out(ret, level_error, "rename(%s,%s)=-1", source_path, target_path);
+				HS_LOG("rename(%s,%s)=-1\n", source_path, target_path);
 				break;
 			}
 
@@ -2967,6 +3008,7 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 		if (!save_prm_config(prm_type, p_name_prm))
 		{
 			ret = ERR_FILE_ACCESS;
+			HS_LOG("save_prm_config \n");
 			break;
 		}
 
@@ -2975,7 +3017,7 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 	} while (0);
 
 	g_Record.log_out(ret, level_disaster, "config_param(%s)=%04x", p_name_prm, ret);
-
+	HS_LOG("config_param(%s)=%04x \n", p_name_prm, ret);
 	return ret;
 }
 
