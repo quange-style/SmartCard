@@ -235,7 +235,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
         current_device_id = (uint16_t)((param_stack[3] << 8) + param_stack[4]);
 		current_city_id = (uint16_t)((param_stack[5] << 8) + param_stack[6]);
 
-		
+		current_device_type=0x09;
 		HS_LOG("station_id =%d  device_type=%d  device_id=%d city_id=%d \n"
 			,current_station_id,current_device_type,current_device_id,current_city_id);
 		//memcpy(bLocalInstitutionCode,&param_stack[7],8);
