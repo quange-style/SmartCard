@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 中文(中华人民共和国) resources
+// 中文(简体，中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
-#ifdef _WIN32
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 #pragma code_page(936)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -104,7 +102,7 @@ BEGIN
     PUSHBUTTON      "发售单程票",IDC_BN_SALE_SJT,7,147,96,27
     PUSHBUTTON      "储值票减值",IDC_BN_SVT_DEC,7,203,96,27
     PUSHBUTTON      "操作员注销",IDC_BN_DESTORY,7,232,96,27
-    CONTROL         157,IDC_STATIC_ZONE,"Static",SS_BITMAP | SS_NOTIFY,3,260,103,46
+    CONTROL         IDB_BMP_FZONE,IDC_STATIC_ZONE,"Static",SS_BITMAP | SS_NOTIFY,3,260,103,46
     PUSHBUTTON      "打开串口",IDC_BN_OPEN,7,7,96,27
     PUSHBUTTON      "SAM激活",IDC_BN_SAM_ACTV,7,63,96,27
 END
@@ -285,7 +283,7 @@ BEGIN
     COMBOBOX        IDC_COMB_TYPE,161,12,82,92,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_DLG_PARAM DIALOGEX 0, 0, 466, 40
+IDD_DLG_PARAM DIALOGEX 0, 0, 466, 54
 STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
 EXSTYLE WS_EX_CONTROLPARENT | WS_EX_STATICEDGE
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -293,8 +291,8 @@ BEGIN
     PUSHBUTTON      "当前参数",IDC_BN_CUR,107,3,60,19
     PUSHBUTTON      "取消",IDC_BN_CANCEL,294,3,60,19
     PUSHBUTTON      "配置参数",IDC_BN_CFG,44,3,60,19
-    CONTROL         "",IDC_PROGRESS_SEND,"msctls_progress32",0x0,45,23,407,15
-    RTEXT           "",IDC_STATIC_RATE,7,24,37,11
+    CONTROL         "",IDC_PROGRESS_SEND,"msctls_progress32",0x0,146,23,306,15
+    RTEXT           "",IDC_STATIC_RATE,7,24,135,11
     PUSHBUTTON      "获取站点信息",IDC_BN_STATION,170,3,60,19
     PUSHBUTTON      "配置ITP参数",IDC_BN_CFG2,232,3,60,19
 END
@@ -756,6 +754,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 459
         TOPMARGIN, 3
+        BOTTOMMARGIN, 40
     END
 
     IDD_DLG_SAM_ACT, DIALOG
@@ -818,6 +817,9 @@ BEGIN
         RIGHTMARGIN, 182
         TOPMARGIN, 7
         BOTTOMMARGIN, 212
+    END
+    IDD_DIALOG1, DIALOG
+    BEGIN
     END
 
     IDD_DLG_DEGRADE, DIALOG
@@ -1176,6 +1178,14 @@ IDB_BMP_TCM             BITMAP                  "res\\TCM.bmp"
 IDB_BMP_TVM             BITMAP                  "res\\TVM.bmp"
 IDB_BMP_FZONE           BITMAP                  "res\\FZone.bmp"
 IDB_BMP_PZONE           BITMAP                  "res\\PZone.bmp"
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+IDD_DLG_PARAM AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1187,7 +1197,7 @@ BEGIN
     IDS_ABOUTBOX            "关于 长沙地铁读写器测试程序(&A)..."
 END
 
-#endif    // 中文(中华人民共和国) resources
+#endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

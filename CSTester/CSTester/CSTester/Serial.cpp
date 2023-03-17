@@ -8,7 +8,7 @@ Serial::Serial(void)
 {
 	m_bOpen = false;
 	memset(&m_comStat, 0, sizeof(m_comStat));
-	m_dwTimeOut = 5000;
+	m_dwTimeOut = 20000;
 }
 
 Serial::~Serial(void)
