@@ -919,8 +919,10 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
 		dbg_formatvar("sumlen:%d last info=%x",sumlen,buf[sumlen - 1]);
 		dbg_dumpmemory("buf:",buf,sumlen);
 
-		if(buf[sumlen - 1] == 0x0D)
-			break;
+		if(buf[sumlen - 1] == 0x0D){			
+			dbg_formatvar("ERR_RECV_TIMEOUT 0x0D exit \n");
+			//break;
+		}
 
 		/*
 
@@ -984,7 +986,8 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
 
         if ( maxlimite <= 0 )
         {
-            result = ERR_RECV_FULL;
+            result = ERR_RECV_FULL;			
+			dbg_formatvar("maxlimite \n");
             break;
         }
 
@@ -992,6 +995,8 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
         //result = -1;
 
     }
+
+	//dbg_formatvar("ERR_RECV_TIMEOUT \n");
 
 	//dbg_dumpmemory("buf:",buf,sumlen);
 
