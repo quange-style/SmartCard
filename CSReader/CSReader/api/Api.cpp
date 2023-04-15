@@ -235,7 +235,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
         current_device_id = (uint16_t)((param_stack[3] << 8) + param_stack[4]);
 		current_city_id = (uint16_t)((param_stack[5] << 8) + param_stack[6]);
 
-		current_device_type=0x09;
+		//current_device_type=0x09;
 		HS_LOG("station_id =%d  device_type=%d  device_id=%d city_id=%d \n"
 			,current_station_id,current_device_type,current_device_id,current_city_id);
 		//memcpy(bLocalInstitutionCode,&param_stack[7],8);
@@ -268,7 +268,11 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 			TicketBase::load_confirm_from_file();
 		}
 
+
 		memset(sam_status, 0xFF, sizeof(sam_status));
+
+		
+		HS_LOG("sam_init prms sam1 \n" );
         if (sam_init(SAM_SOCK_1, m_sam[SAM_SOCK_1], m_tml[SAM_SOCK_1]) == 0)
 		{
 			if (g_Parameter.sam_counterpart(SAM_SOCK_1, m_sam[SAM_SOCK_1], param_stack, param_stack[2], param_stack + 3, true))
@@ -277,6 +281,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 				sam_status[SAM_SOCK_1] = 0x01;
 		}
 
+		HS_LOG("sam_init prms sam2 \n" );
 		if (sam_init(SAM_SOCK_2, m_sam[SAM_SOCK_2], m_tml[SAM_SOCK_2]) == 0)
 		{
 			if (g_Parameter.sam_counterpart(SAM_SOCK_2, m_sam[SAM_SOCK_2], param_stack, param_stack[2], param_stack + 3, true))
@@ -285,6 +290,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 				sam_status[SAM_SOCK_2] = 0x01;
 		}
 
+		HS_LOG("sam_init prms sam3 \n" );
 		if (sam_init(SAM_SOCK_3, m_sam[SAM_SOCK_3], m_tml[SAM_SOCK_3]) == 0)
 		{
 			if (g_Parameter.sam_counterpart(SAM_SOCK_3, m_sam[SAM_SOCK_3], param_stack, param_stack[2], param_stack + 3, true))
@@ -293,6 +299,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 				sam_status[SAM_SOCK_3] = 0x01;
 		}
 
+		HS_LOG("sam_init prms sam4 \n" );
 		if (sam_init(SAM_SOCK_4, m_sam[SAM_SOCK_4], m_tml[SAM_SOCK_4]) == 0)
 		{
 			if (g_Parameter.sam_counterpart(SAM_SOCK_4, m_sam[SAM_SOCK_4], param_stack, param_stack[2], param_stack + 3, true))

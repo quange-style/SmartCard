@@ -261,17 +261,35 @@ int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * 
 
 	do
 	{
-		dbg_formatvar("sam_setbaud");
+		dbg_formatvar("sam_setbaud SAM_BAUDRATE_38400 nsamsck=%d",nsamsck);
 		sam_setbaud(nsamsck, SAM_BAUDRATE_38400);
-		dbg_formatvar("sam_rst");
-		status = sam_rst(nsamsck,sztmp);
-		if ( status <= 0 )	break;
+		status = sam_rst(nsamsck,sztmp);		
+		dbg_formatvar("sam_rst  status=%d \n",status);
+		if ( status <= 0 )
+		{
+			sam_setbaud(nsamsck, SAM_BAUDRATE_38400);
+			status = sam_rst(nsamsck,sztmp);
+			dbg_formatvar("SAM_BAUDRATE_38400 - 2 = [%d]\n",status);
+			if ( status <= 0 )
+			{
+				sam_setbaud(nsamsck, SAM_BAUDRATE_9600);
+				status = sam_rst(nsamsck,sztmp);
+				dbg_formatvar("SAM_BAUDRATE_9600 - 1 = [%d]\n",status);
+				if ( status <= 0 )
+				{
+					sam_setbaud(nsamsck, SAM_BAUDRATE_9600);
+					status = sam_rst(nsamsck,sztmp);
+					dbg_formatvar("SAM_BAUDRATE_9600 - 2 = [%d]\n",status);
+					if ( status <= 0 ) break;
+				}
+			}
+		}
 
 		sam_len = 7;
 		memcpy(sztmp, "\x00\xA4\x00\x00\x02\x3f\x00",sam_len);
 		dbg_dumpmemory("00A4:",sztmp,sam_len);
 		status = sam_cmd(nsamsck,sam_len,sztmp, sztmp, &sam_sw);
-		dbg_formatvar("sam_sw |= %04X",sam_sw);
+		dbg_formatvar("sam_sw |= %04X \n",sam_sw);
 		if ( status <= 0 )	break;
 
 		sam_len = 5;
@@ -346,6 +364,12 @@ int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * 
 
 	} while (0);
 
+
+	if(nresult==0){	
+		dbg_formatvar("len_logical_id=%d \n ",g_saminf[nsamsck].len_logical_id);
+		dbg_dumpmemory("00A4:",g_saminf[nsamsck].sam_logical_id,8);
+	}
+	dbg_formatvar("nresult=%d \n",nresult);
 	return nresult;
 }
 

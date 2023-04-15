@@ -439,7 +439,7 @@ uint16_t rf_modify(uint8_t dev_type, uint8_t ant_mode, ETYTKOPER oper_type, int 
 			break;
 		}
 		*/
-		g_ant_type = 0x01;
+		g_ant_type = 0x0A;
 		change_antenna(ant_mode);
 		if (ISO14443A_Init(g_ant_type) != 0)
 			ret = ERR_CARD_NONE;

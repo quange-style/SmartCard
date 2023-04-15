@@ -531,21 +531,25 @@ int octjtb_saminit(int nsamsck, unsigned char * p_len_sam_id, unsigned char * p_
 		sam_setbaud(nsamsck, SAM_BAUDRATE_38400);
 		status = sam_rst(nsamsck,sztmp);
 		//dbg_formatvar("SAM_BAUDRATE_38400 - 1 = [%d]",status);
+		printf("SAM_BAUDRATE_38400 - 1 = [%d] nsamsck=%d \n",status,nsamsck);
 		if ( status <= 0 )
 		{
 			sam_setbaud(nsamsck, SAM_BAUDRATE_38400);
 			status = sam_rst(nsamsck,sztmp);
 			//dbg_formatvar("SAM_BAUDRATE_38400 - 2 = [%d]",status);
+			printf("SAM_BAUDRATE_38400 - 2 = [%d]\n",status);
 			if ( status <= 0 )
 			{
 				sam_setbaud(nsamsck, SAM_BAUDRATE_9600);
 				status = sam_rst(nsamsck,sztmp);
 				//dbg_formatvar("SAM_BAUDRATE_9600 - 1 = [%d]",status);
+				printf("SAM_BAUDRATE_9600 - 1 = [%d]\n",status);
 				if ( status <= 0 )
 				{
 					sam_setbaud(nsamsck, SAM_BAUDRATE_9600);
 					status = sam_rst(nsamsck,sztmp);
 					//dbg_formatvar("SAM_BAUDRATE_9600 - 2 = [%d]",status);
+					printf("SAM_BAUDRATE_9600 - 2 = [%d]\n",status);
 					if ( status <= 0 ) break;
 				}
 			}
@@ -626,7 +630,7 @@ int octjtb_saminit(int nsamsck, unsigned char * p_len_sam_id, unsigned char * p_
 		nresult = 0;
 
 	} while (0);
-	printf("g_saminf[nsamsck=%d].len_logical_id=%d \n ",g_saminf[nsamsck].len_logical_id);
+	printf("g_saminf[nsamsck=%d].len_logical_id=%d \n ",nsamsck,g_saminf[nsamsck].len_logical_id);
 	printf("logical_id=%x %x %x %x %x %x %x %x",g_saminf[nsamsck].sam_logical_id[0],g_saminf[nsamsck].sam_logical_id[1]
 		,g_saminf[nsamsck].sam_logical_id[2],g_saminf[nsamsck].sam_logical_id[3],g_saminf[nsamsck].sam_logical_id[4]
 		,g_saminf[nsamsck].sam_logical_id[5],g_saminf[nsamsck].sam_logical_id[6],g_saminf[nsamsck].sam_logical_id[7]);

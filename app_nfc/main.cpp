@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
         {
         case 1:
         {
-			sam_hst_active(nsamsck, &p_len_sam_id, p_sam_id, &p_len_terminal_id, p_terminal_id);
-			//octjtb_saminit(nsamsck, &p_len_sam_id, p_sam_id, &p_len_terminal_id, p_terminal_id);
+			//sam_hst_active(nsamsck, &p_len_sam_id, p_sam_id, &p_len_terminal_id, p_terminal_id);
+			octjtb_saminit(nsamsck, &p_len_sam_id, p_sam_id, &p_len_terminal_id, p_terminal_id);
             break;
         }
         case 2:

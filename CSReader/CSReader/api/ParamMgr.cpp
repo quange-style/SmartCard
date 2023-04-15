@@ -587,7 +587,7 @@ uint16_t ParamMgr::load_prm(const uint16_t prm_type, const char * p_prm_path, bo
 
 	} while (0);
 
-	HS_LOG("load_prm(%04x,%s, bool,bool)=%04x", prm_type, p_prm_path, ret);
+	HS_LOG("load_prm(%04x,%s, bool,bool)=%04x\n", prm_type, p_prm_path, ret);
 
 	g_Record.log_out(ret, level_invalid, "load_prm(%04x,%s, bool,bool)=%04x", prm_type, p_prm_path, ret);
 

@@ -62,6 +62,8 @@ uint16_t TicketBase::search_card(TicketBase ** pp_ticket, uint8_t * p_forbid_ant
 			break;
 		}
 
+		
+		dbg_formatvar("oper_type=%d",oper_type);
 		if( oper_type == operGetETicket)//如果是取票交易，则不用去查看rf的数据
 			ret = search_qr_card_ex(recv, type);
 		else if (oper_type == operThirdGetETicket)
