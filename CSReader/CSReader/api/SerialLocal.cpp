@@ -916,8 +916,8 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
         pos += rc;
         maxlimite -= rc;
 		dbg_formatvar("rc:%d",rc);
-		dbg_formatvar("sumlen:%d last info=%x",sumlen,buf[sumlen - 1]);
-		dbg_dumpmemory("buf:",buf,sumlen);
+		dbg_formatvar("sumlen:%d last info=%x \n",sumlen,buf[sumlen - 1]);
+		//dbg_dumpmemory("buf:",buf,sumlen);
 
 		if(buf[sumlen - 1] == 0x0D){			
 			dbg_formatvar("ERR_RECV_TIMEOUT 0x0D exit \n");

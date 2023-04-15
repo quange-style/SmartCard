@@ -105,7 +105,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
     while(true)
     {
 
-        received = libserial_recv_package_local(size_file_buf, 100, file_buffer);
+        received = libserial_recv_package_local(size_file_buf, 20, file_buffer);
         if (received <= 0)
         {
             //ret.wErrCode = ERR_RECIVE_DATA;
