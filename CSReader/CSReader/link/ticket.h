@@ -399,6 +399,7 @@ extern "C"
 	//========================================================
 	extern int distinguish_cpu(unsigned char * p_pid);
 	extern unsigned short distinguish_cpu_ex(unsigned char * p_pid, unsigned char& type);
+	
 
 
 	extern void get_qrHeadInfo(uint8_t * p_grInfo, char * encMode);

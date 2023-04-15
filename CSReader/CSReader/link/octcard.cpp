@@ -752,6 +752,8 @@ char octm1_readblock(unsigned char blk_idx, unsigned char *szdata)
     char ret=0;
     unsigned char currsector = (blk_idx >> 2);
 
+	dbg_formatvar("currsector=%d g_octcurrinf.currsector=%d\n ",currsector,g_octcurrinf.currsector);
+
     if (currsector != g_octcurrinf.currsector)
     {
         if (currsector == OCT_SECTOR_PUBLIC)
@@ -3551,13 +3553,14 @@ unsigned short octm1_judge_ex(unsigned char *lpcardnumber, unsigned char& type)
 
 	do
 	{
+
 		g_octcurrinf.currsector = -1;
 		memcpy(g_octcurrinf.physicalnumber, lpcardnumber, 4);
 
 		if (octm1_readblock(OCT_BLK_ISSUESUE_IDX, tmpbuf))
 		{
 
-			if (ISO14443A_Init(0x01) != 0)
+			if (ISO14443A_Init(0x0A) != 0)
 			{
 				dbg_formatvar("ISO14443A_Init");
 				g_Record.log_out(0, level_error,"ISO14443A_Init error");
@@ -3592,7 +3595,6 @@ unsigned short octm1_judge_ex(unsigned char *lpcardnumber, unsigned char& type)
 			type = 0x03;
 			break;
 		}
-
 		//如果能对cpu卡进行读取m1数据块，说明是公交仿cpu卡仿m1
 
 		if (lpissue->appflag  == 0x02)
@@ -3604,8 +3606,11 @@ unsigned short octm1_judge_ex(unsigned char *lpcardnumber, unsigned char& type)
 		{
 			type = 0x02;	// 不转入CPU流程的全部当作M1,进入M1流程再判断启用标识
 		}
+		
+		dbg_formatvar("ret=%d type=%d",ret,type);
 
 	} while (0);
+
 
 	return ret;
 }

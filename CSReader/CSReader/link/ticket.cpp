@@ -1044,7 +1044,7 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type)
 
 		if (type == 3)
 		{
-			dbg_formatvar("distinguish_cpu_ex");
+			dbg_formatvar("distinguish_cpu_ex lpcardno=%p",lpcardno);
 			ret = distinguish_cpu_ex(lpcardno, type);
 			//g_Record.log_out(0, level_error, "search_card_ex(ret=%d,type=%d)",ret,type);
 			if((ret !=0))
