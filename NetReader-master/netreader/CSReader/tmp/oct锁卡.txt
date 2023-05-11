@@ -1,0 +1,143 @@
+//========================================================
+//功能:对地铁票进行脱机消费
+//入口参数
+//   nsamsck=sam卡对应卡槽
+//    lplogicnumber = 票卡应用序列号
+//    lpcitycode=城市代码
+//    optflag=操作类型(1-加锁,0-解锁)
+//出口参数
+//       无
+//返回值
+//       0=成功
+//注:黑卡判断
+//在3F00应用目录发送00B203D400，前两字节为0x53,0x4B则为已锁定黑卡
+//========================================================
+int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcitycode, unsigned char optflag)
+{
+    unsigned char ulen, response_len;
+    unsigned short response_sw;
+    unsigned char sztmp[100];
+    unsigned char random[9],mac[9];
+    int nresult=-1;
+
+
+    do
+    {
+        //取随机数
+        ulen = 5;
+        memcpy(sztmp, "\x00\x84\x00\x00\x08",5);
+
+        //dbg_dumpmemory("0084_S=",sztmp,ulen);
+        response_len = MifareProCom(ulen,sztmp, &response_sw);
+        //dbg_dumpmemory("0084_R=",sztmp,response_len);
+
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+        memset(random, 0, sizeof(random));
+        memcpy(random, sztmp, 8);
+
+        //PSAM选择互联互通应用
+        ulen = 11;
+        memcpy(sztmp, "\x00\xA4\x04\x00\x06\xBD\xA8\xC9\xE8\xB2\xBF",11);
+        response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
+        //dbg_dumpmemory("psam 00A4_R=",sztmp,response_len);
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        //PSAM卡外部认证密钥初始化
+        ulen = 0;
+        memcpy(sztmp, "\x80\x1A\x45\x01\x10",5);
+        ulen = 5;
+        memcpy(sztmp+ulen, lplogicnumber, 8);//g_metroinf.logicnumber, 8);
+        ulen += 8;
+        memcpy(sztmp+ulen, lpcitycode,2);
+        ulen += 2;
+        memcpy(sztmp+ulen, "\xFF\x00\x00\x00\x00\x00",6);
+        ulen += 6;
+        //dbg_dumpmemory("801A_S=",sztmp,ulen);
+        response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
+        //dbg_dumpmemory("801A_R=",sztmp,response_len);
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        //PSAM卡外部认证CPU用户卡
+        ulen = 0;
+        memcpy(sztmp, "\x80\xFA\x00\x00\x08",5);
+        ulen += 5;
+        memcpy(sztmp+ulen, random, 8);
+        ulen +=8;
+        //dbg_dumpmemory("80FA_S=",sztmp,ulen);
+        response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
+        //dbg_dumpmemory("80FA_R=",sztmp,response_len);
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        memcpy(mac, sztmp, 8);
+
+        //CPU用户卡外部认证
+        ulen = 0;
+        memcpy(sztmp, "\x00\x82\x00\x03\x08", 5);
+        ulen += 5;
+        memcpy(sztmp+ulen, mac, 8);
+        ulen += 8;
+
+        //dbg_dumpmemory("0082_S=",sztmp,ulen);
+        response_len = MifareProCom(ulen,sztmp, &response_sw);
+        //dbg_dumpmemory("0082=",sztmp,response_len);
+
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        //写标记
+        ulen = 0;
+        memcpy(sztmp, "\x00\xDC\x03\xD4\x10",5);
+        ulen += 5;
+		if (optflag)
+         	memcpy(sztmp+ulen,"\x53\x4B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 16);
+        else
+       		memcpy(sztmp+ulen,"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 16);
+        
+        ulen += 16;
+        //dbg_dumpmemory("00DC_S=",sztmp,ulen);
+        response_len = MifareProCom(ulen,sztmp, &response_sw);
+        //dbg_dumpmemory("00DC=",sztmp,response_len);
+
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+
+        //PSAM恢复到应用目录
+        ulen = 7;
+        memcpy(sztmp, "\x00\xA4\x00\x00\x02\x10\x01",7);
+        response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
+        //dbg_dumpmemory("psam 00A4_R=",sztmp,response_len);
+        if (( response_len==0 ) || (0x9000!=response_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        nresult = 0;
+    }
+    while(0);
+
+    return nresult;
+}

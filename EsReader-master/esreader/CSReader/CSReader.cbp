@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CSReader" />
+		<Option pch_mode="2" />
+		<Option compiler="armelfgcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/CSReader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="armelfgcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="api/libgsserial.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/CSReader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="armelfgcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="api/libgsserial.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="libpthread" />
+		</Linker>
+		<Unit filename="api/Api.cpp" />
+		<Unit filename="api/Api.h" />
+		<Unit filename="api/ApiAgm.cpp" />
+		<Unit filename="api/ApiBom.cpp" />
+		<Unit filename="api/ApiEs.cpp" />
+		<Unit filename="api/ApiTcm.cpp" />
+		<Unit filename="api/ApiTvm.cpp" />
+		<Unit filename="api/CmdSort.cpp" />
+		<Unit filename="api/CmdSort.h" />
+		<Unit filename="api/DataSecurity.cpp" />
+		<Unit filename="api/DataSecurity.h" />
+		<Unit filename="api/Declares.h" />
+		<Unit filename="api/Download.cpp" />
+		<Unit filename="api/Download.h" />
+		<Unit filename="api/Errors.h" />
+		<Unit filename="api/Extra.cpp" />
+		<Unit filename="api/InnerDebug.cpp" />
+		<Unit filename="api/InnerDebug.h" />
+		<Unit filename="api/PackageMgr.cpp" />
+		<Unit filename="api/PackageMgr.h" />
+		<Unit filename="api/ParamMgr.cpp" />
+		<Unit filename="api/ParamMgr.h" />
+		<Unit filename="api/ParamStructs.h" />
+		<Unit filename="api/Publics.cpp" />
+		<Unit filename="api/Publics.h" />
+		<Unit filename="api/QFile.cpp" />
+		<Unit filename="api/QFile.h" />
+		<Unit filename="api/Records.cpp" />
+		<Unit filename="api/Records.h" />
+		<Unit filename="api/Structs.h" />
+		<Unit filename="api/SysCmd.cpp" />
+		<Unit filename="api/SysCmd.h" />
+		<Unit filename="api/TicketBM.cpp" />
+		<Unit filename="api/TicketBM.h" />
+		<Unit filename="api/TicketBase.cpp" />
+		<Unit filename="api/TicketBase.h" />
+		<Unit filename="api/TicketBus.cpp" />
+		<Unit filename="api/TicketBus.h" />
+		<Unit filename="api/TicketSvt.cpp" />
+		<Unit filename="api/TicketSvt.h" />
+		<Unit filename="api/TicketUl.cpp" />
+		<Unit filename="api/TicketUl.h" />
+		<Unit filename="api/TimesEx.cpp" />
+		<Unit filename="api/TimesEx.h" />
+		<Unit filename="api/libserial.h" />
+		<Unit filename="link/algorithm.cpp" />
+		<Unit filename="link/algorithm.h" />
+		<Unit filename="link/beep.cpp" />
+		<Unit filename="link/beep.h" />
+		<Unit filename="link/iso14443.cpp" />
+		<Unit filename="link/iso14443.h" />
+		<Unit filename="link/linker.cpp" />
+		<Unit filename="link/linker.h" />
+		<Unit filename="link/myprintf.cpp" />
+		<Unit filename="link/myprintf.h" />
+		<Unit filename="link/octcard.cpp" />
+		<Unit filename="link/octcard.h" />
+		<Unit filename="link/sam.cpp" />
+		<Unit filename="link/sam.h" />
+		<Unit filename="link/ticket.cpp" />
+		<Unit filename="link/ticket.h" />
+		<Unit filename="link/ticketes.cpp" />
+		<Unit filename="link/ticketes.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<lib_finder disable_auto="1" />
+			<debugger>
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_baud="115200" ip_address="192.168.1.11" ip_port="1000" />
+				</remote_debugging>
+			</debugger>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

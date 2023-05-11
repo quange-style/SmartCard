@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F1992012-8788-4593-ABC4-44F862DBC0DA}</ProjectGuid>
+    <RootNamespace>CSReader</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="api\Api.cpp" />
+    <ClCompile Include="api\ApiAgm.cpp" />
+    <ClCompile Include="api\ApiBom.cpp" />
+    <ClCompile Include="api\ApiEs.cpp" />
+    <ClCompile Include="api\ApiTcm.cpp" />
+    <ClCompile Include="api\ApiTvm.cpp" />
+    <ClCompile Include="api\CmdSort.cpp" />
+    <ClCompile Include="api\DataSecurity.cpp" />
+    <ClCompile Include="api\Download.cpp" />
+    <ClCompile Include="api\Extra.cpp" />
+    <ClCompile Include="api\InnerDebug.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="api\PackageMgr.cpp" />
+    <ClCompile Include="api\ParamMgr.cpp" />
+    <ClCompile Include="api\Publics.cpp" />
+    <ClCompile Include="api\QFile.cpp" />
+    <ClCompile Include="api\Records.cpp" />
+    <ClCompile Include="api\Reg.cpp" />
+    <ClCompile Include="api\SysCmd.cpp" />
+    <ClCompile Include="api\TicketBase.cpp" />
+    <ClCompile Include="api\TicketBM.cpp" />
+    <ClCompile Include="api\TicketBus.cpp" />
+    <ClCompile Include="api\TicketSvt.cpp" />
+    <ClCompile Include="api\TicketUl.cpp" />
+    <ClCompile Include="api\TimesEx.cpp" />
+    <ClCompile Include="link\algorithm.cpp" />
+    <ClCompile Include="link\beep.cpp" />
+    <ClCompile Include="link\iso14443.cpp" />
+    <ClCompile Include="link\linker.cpp" />
+    <ClCompile Include="link\myprintf.cpp" />
+    <ClCompile Include="link\octcard.cpp" />
+    <ClCompile Include="link\sam.cpp" />
+    <ClCompile Include="link\ticket.cpp" />
+    <ClCompile Include="link\ticketes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\Api.h" />
+    <ClInclude Include="api\CmdSort.h" />
+    <ClInclude Include="api\DataSecurity.h" />
+    <ClInclude Include="api\Declares.h" />
+    <ClInclude Include="api\Download.h" />
+    <ClInclude Include="api\Errors.h" />
+    <ClInclude Include="api\Extra.h" />
+    <ClInclude Include="api\InnerDebug.h" />
+    <ClInclude Include="api\libserial.h" />
+    <ClInclude Include="api\PackageMgr.h" />
+    <ClInclude Include="api\ParamMgr.h" />
+    <ClInclude Include="api\ParamStructs.h" />
+    <ClInclude Include="api\Publics.h" />
+    <ClInclude Include="api\QFile.h" />
+    <ClInclude Include="api\Records.h" />
+    <ClInclude Include="api\Reg.h" />
+    <ClInclude Include="api\Structs.h" />
+    <ClInclude Include="api\SysCmd.h" />
+    <ClInclude Include="api\TicketBase.h" />
+    <ClInclude Include="api\TicketBM.h" />
+    <ClInclude Include="api\TicketBus.h" />
+    <ClInclude Include="api\TicketSvt.h" />
+    <ClInclude Include="api\TicketUl.h" />
+    <ClInclude Include="api\TimesEx.h" />
+    <ClInclude Include="link\algorithm.h" />
+    <ClInclude Include="link\beep.h" />
+    <ClInclude Include="link\datatype.h" />
+    <ClInclude Include="link\iso14443.h" />
+    <ClInclude Include="link\linker.h" />
+    <ClInclude Include="link\myprintf.h" />
+    <ClInclude Include="link\octcard.h" />
+    <ClInclude Include="link\sam.h" />
+    <ClInclude Include="link\ticket.h" />
+    <ClInclude Include="link\ticketes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

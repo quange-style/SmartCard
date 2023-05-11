@@ -1,0 +1,173 @@
+
+
+//========================================================
+//函数名: svt_updata_more_complex
+//功能:一次更新地铁复合文件多条记录
+//入口参数
+//    nsamsck=sam卡对应卡槽
+//    lplogicnumber=要更新票卡的8字节逻辑卡号(应用序列号)
+//    recordcnt=要更新的记录总数
+//    dim_record_id=要更新的多条记录号数组
+//    dim_lock=对应多条记录的锁定标识数组,=0不锁定
+//    dim_lpfile=复合文件更新的多条记录的数据内容，赋值时需要注意不同的记录号对应的数据长度( 数据内容为不含记录前三个特定数据的内容)
+//出口参数
+//       respone_data=SAM终端号(6BYTE) +  SAM终端流水( 4Byte) + TAC (4Byte)
+//返回值
+//       0=成功
+//========================================================
+int svt_updata_more_complex(int nsamsck, unsigned char *lplogicnumber, unsigned char recordcnt, unsigned char *dim_record_id, unsigned char *dim_lock, unsigned char *dim_lpfile, unsigned char *respone_data)
+{
+    unsigned char sztmp[256];
+    unsigned char szmac[8];
+    unsigned char ulen;
+    unsigned char i;
+    unsigned char response_len;
+    unsigned short sam_sw;
+    unsigned char real_len;
+    const unsigned long value=0;
+    int offset=0;
+    TPSAMGETMAC PsamGetMac1;
+    LPTINITCONSUME lpinitconsume;
+    LPTOUTMTRW lpout=(LPTOUTMTRW)respone_data;
+    int nresult=-1;
+
+    do
+    {
+        ulen=0;
+        memcpy(sztmp, "\x80\x50\x03\x02\x0B", 5);
+        ulen += 5;
+
+        sztmp[5]=g_saminf[nsamsck].keyidx;
+        ulen += 1;
+        sztmp[ulen] = ((value >> 24) & 0xFF);
+        ulen += 1;
+        sztmp[ulen] = ((value >> 16) & 0xFF);
+        ulen += 1;
+        sztmp[ulen] = ((value >> 8) & 0xFF);
+        ulen += 1;
+        sztmp[ulen] = (value & 0xFF);
+        ulen += 1;
+
+        memcpy(sztmp+ulen, g_saminf[nsamsck].terminalnumber, 6);
+        ulen += 6;
+        response_len = MifareProCom(ulen, sztmp, &sam_sw);
+        if ((response_len==0) || (0x9000!=sam_sw))
+        {
+            nresult = -3;
+            break;
+        }
+
+        lpinitconsume = (LPTINITCONSUME)sztmp;
+
+        PsamGetMac1.encryver = lpinitconsume->encryver;
+        PsamGetMac1.calcmarker = lpinitconsume->calcmarker;
+        memcpy(PsamGetMac1.offlinedealserial, lpinitconsume->offlinedealserial, 2);
+        memcpy(PsamGetMac1.random, lpinitconsume->random, 4);
+        memcpy(PsamGetMac1.tm, "\x20\x13\x04\x23\x20\x00\x20", 7);
+
+
+        PsamGetMac1.trflag = 0x09;
+
+
+
+        memcpy(PsamGetMac1.logicnumber, lplogicnumber, 8);//g_metroinf.logicnumber
+        PsamGetMac1.money[0] = ((value >> 24) & 0xFF);
+
+        PsamGetMac1.money[1] = ((value >> 16) & 0xFF);
+
+        PsamGetMac1.money[2] = ((value >> 8) & 0xFF);
+
+        PsamGetMac1.money[3] = (value & 0xFF);
+
+		offset=0;
+        for (i=0;i<recordcnt;i++)
+        {
+        	//目前只有0x11文件长度是24, 未来有可能需要加入新记录标识
+            if (dim_record_id[i]==0x11)
+            {
+                real_len = _METROFILE_SIZE2_;
+            }
+            else
+            {
+                real_len = _METROFILE_SIZE1_;
+            }
+
+            memcpy(sztmp, "\x80\xDC\x02\xB8\x30", 5);
+            sztmp[2] = dim_record_id[i];
+            sztmp[4] = real_len+2;
+            ulen = 5;
+            sztmp[ulen++] = dim_record_id[i];
+            sztmp[ulen++] = real_len;
+            sztmp[ulen++] = dim_lock[i];
+            memcpy(sztmp+ulen, dim_lpfile+offset, real_len-1);
+
+
+            ulen += real_len-1;
+
+//            dbg_dumpmemory("Sbuf=",sztmp, ulen);
+            response_len = MifareProCom(ulen, sztmp, &sam_sw);
+//            dbg_dumpmemory("Rbuf=",sztmp, ulen);
+            if ((response_len==0) || (0x9000!=sam_sw))
+            {
+                nresult = -4;
+                break;
+            }
+            offset += real_len-1;
+
+        }
+
+        memcpy(sztmp,"\x80\x70\x00\x00\x1C",5);
+        ulen = 5;
+        memcpy(sztmp+5, (char *)&PsamGetMac1, sizeof(PsamGetMac1));
+        ulen += sizeof(PsamGetMac1);
+        response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
+
+
+        if ((response_len==0) || (0x9000!=sam_sw))
+        {
+            nresult = -5;
+            break;
+        }
+
+        memcpy(lpout->sam_terminalserial, sztmp, 4);
+        memcpy(lpout->sam_terminalnumber, g_saminf[nsamsck].terminalnumber,6);
+
+        memcpy(szmac, sztmp, 8);
+        memcpy(sztmp,"\x80\x54\x01\x00\x0F", 5);
+        ulen = 5;
+        memcpy(sztmp+ulen, szmac, 4);
+        ulen += 4;
+        memcpy(sztmp+ulen, PsamGetMac1.tm, 7);
+        ulen += 7;
+        memcpy(sztmp+ulen, szmac+4, 4);
+        ulen += 4;
+
+        response_len = MifareProCom(ulen, sztmp, &sam_sw);
+
+        if ((response_len==0) || (0x9000!=sam_sw))
+        {
+            nresult = -6;
+            break;
+        }
+        memcpy(lpout->tac, sztmp, 4);
+        memcpy(szmac, sztmp, 8);
+
+        memcpy(sztmp,"\x80\x72\x00\x00\x04",5);
+        ulen = 5;
+        memcpy(sztmp+5, szmac+4, 4);
+        ulen += 4;
+        response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
+//	        if ((response_len==0) || (0x9000!=sam_sw))
+//	        {
+//	            nresult = -7;
+//	            //break;
+//	        }
+
+        nresult = 0;
+    }
+    while (0);
+
+
+    return (nresult);
+
+}

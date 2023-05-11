@@ -1,0 +1,61 @@
+﻿  main.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ticketes.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ticket.cpp
+d:\linux-share\csreader\csreader\link\ticket.cpp(11): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  sam.cpp
+d:\linux-share\csreader\csreader\link\sam.cpp(3): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  octcard.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  linker.cpp
+d:\linux-share\csreader\csreader\link\linker.cpp(8): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  iso14443.cpp
+d:\linux-share\csreader\csreader\link\iso14443.cpp(4): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  beep.cpp
+d:\linux-share\csreader\csreader\link\beep.cpp(2): fatal error C1083: 无法打开包括文件:“termios.h”: No such file or directory
+  TicketUl.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  TicketSvt.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  TicketBus.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  TicketBase.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  TicketBM.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  Records.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  QFile.cpp
+d:\linux-share\csreader\csreader\api\qfile.cpp(5): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  ParamMgr.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  PackageMgr.cpp
+d:\linux-share\csreader\csreader\api\packagemgr.cpp(7): fatal error C1083: 无法打开包括文件:“unistd.h”: No such file or directory
+  InnerDebug.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  Extra.cpp
+d:\linux-share\csreader\csreader\api\extra.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  Download.cpp
+d:\linux-share\csreader\csreader\api\download.cpp(72): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files\microsoft visual studio 11.0\vc\include\stdio.h(357) : 参见“sprintf”的声明
+d:\linux-share\csreader\csreader\api\download.cpp(73): error C3861: “access”: 找不到标识符
+d:\linux-share\csreader\csreader\api\download.cpp(73): error C3861: “mkdir”: 找不到标识符
+d:\linux-share\csreader\csreader\api\download.cpp(83): error C3861: “access”: 找不到标识符
+  正在生成代码...
+  正在编译...
+  CmdSort.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ApiTvm.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ApiTcm.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ApiEs.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ApiBom.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  ApiAgm.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  Api.cpp
+d:\linux-share\csreader\csreader\api\records.h(6): fatal error C1083: 无法打开包括文件:“pthread.h”: No such file or directory
+  正在生成代码...

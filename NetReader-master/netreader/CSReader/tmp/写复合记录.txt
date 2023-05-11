@@ -1,0 +1,152 @@
+//===============================================================
+//功能:对SVT票的复合文件指定记录进行更新
+//入口参数
+//	 nsamsck=sam卡对应卡槽
+//  lplogicnumber=票卡逻辑卡号
+//        record_id=记录ID
+//           lock=锁定标记
+//         lpinf=复合文件对应要写入的数据(要与读取时获得的相同)
+
+//
+//出口参数
+//	无
+//返回值
+//       0=成功
+//===============================================================
+int svt_unlock_recordfile(int nsamsck,unsigned char *lplogicnumber,int record_id,, unsigned char lock, unsigned char *lpinf)
+{
+
+    unsigned char respone_len;
+    unsigned char sam_len;
+    unsigned char sztmp[256];
+    unsigned char random[8];
+    unsigned char fulldata[8]={0x80,0x00,0x00,0x00,0x00,0x00,0x00, 0x00};
+    unsigned char data_len;
+    unsigned char full_len;
+    unsigned short sam_sw;
+    unsigned char real_len;
+    unsigned char paramter_p1;
+    unsigned char offline_terminal[6];
+    TPSAMGETMAC PsamGetMac1;
+    LPTINITCONSUME lpinitconsume;
+    int nresult=-1;
+
+
+    do
+    {
+        sam_len = 5;
+        memcpy(sztmp, "\x00\x84\x00\x00\x04",5);
+
+        respone_len = MifareProCom(sam_len,sztmp, &sam_sw);
+
+        if (( respone_len==0 ) || (0x9000!=sam_sw))
+        {
+            nresult = -1;
+            break;
+        }
+        memset(random, 0, sizeof(random));
+        memcpy(random, sztmp, 4);
+
+        sam_len = 5;
+        memcpy(sztmp, "\x80\x1A\x26\x03\x08",5);
+        memcpy(sztmp+sam_len, lplogicnumber, 8);
+        sam_len += 8;
+        respone_len = sam_cmd(nsamsck, sam_len, sztmp, sztmp, &sam_sw);
+        if (( respone_len==0 ) || (0x9000!=sam_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+
+        if (record_id==0x11)
+        {
+            real_len = _METROFILE_SIZE2_;
+        }
+        else
+        {
+            real_len = _METROFILE_SIZE1_;
+        }
+
+
+        data_len = 8+5+real_len+2;//random+ins_cmd+data
+
+        if (data_len%8)
+        {
+            full_len = 8 - (data_len%8);
+        }
+        else
+        {
+            full_len = 0;
+        }
+
+
+
+        sam_len = 0;
+        memcpy(sztmp, "\x80\xFA\x05\x00\x10",5);
+        sztmp[4] = data_len + full_len;
+        sam_len += 5;
+        memcpy(sztmp+sam_len, random, 8);
+        sam_len += 8;
+        memcpy(sztmp+sam_len, "\x04\xDC\x00\x00\x06", 5);
+        sztmp[sam_len+2]=record_id;
+        sztmp[sam_len+3]=0xB8; //(((fild_id << 3) & 0xF8) | 0x04);;
+        sztmp[sam_len+4]=real_len+2+4;//+mac
+        sam_len += 5;
+        sztmp[sam_len++]=record_id;
+        sztmp[sam_len++]=real_len;
+        sztmp[sam_len++]=lock;
+
+        memcpy(sztmp+sam_len, lpinf, real_len-1);
+
+        sam_len += real_len-1;
+
+        if (full_len)
+        {
+            memcpy(sztmp+sam_len, fulldata, full_len);
+            sam_len += full_len;
+        }
+
+
+        respone_len = sam_cmd(nsamsck, sam_len, sztmp, sztmp, &sam_sw);
+        if (( respone_len==0 ) || (0x9000!=sam_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        memcpy(random, sztmp, 4);
+        memcpy(sztmp, "\x04\xDC\x96\x00\x06",5);
+        sztmp[2]=record_id;
+        sztmp[3]=0xB8;
+        sztmp[4]=real_len+2+4;//+mac
+        sam_len = 5;
+        sztmp[sam_len++]=record_id;
+        sztmp[sam_len++]=real_len;
+        sztmp[sam_len++]=lock;
+
+
+        memcpy(sztmp+sam_len,lpinf,real_len-1);
+        sam_len += real_len-1;
+        memcpy(sztmp+sam_len,random,4);
+        sam_len += 4;
+
+
+        respone_len = MifareProCom(sam_len,sztmp, &sam_sw);
+
+        if (( respone_len==0 ) || (0x9000!=sam_sw))
+        {
+            nresult = -1;
+            break;
+        }
+
+        nresult = 0;
+
+
+
+    }
+    while (0);
+
+    return(nresult);
+
+}

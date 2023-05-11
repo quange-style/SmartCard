@@ -1,0 +1,1196 @@
+# depslib dependency file v1.0
+1366630799 source:/mnt/hgfs/linux-share/CSReader/api/Api.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"../link/linker.h"
+	"Errors.h"
+	<string.h>
+
+1366706991 /mnt/hgfs/linux-share/CSReader/api/Api.h
+	<stdint.h>
+	"Structs.h"
+	"Declares.h"
+	<string.h>
+
+1365775687 /mnt/hgfs/linux-share/CSReader/api/Structs.h
+
+1366621791 /mnt/hgfs/linux-share/CSReader/api/Declares.h
+	<stdio.h>
+
+1366631678 /mnt/hgfs/linux-share/CSReader/api/Publics.h
+	<math.h>
+	<stdint.h>
+	<string.h>
+
+1366621791 /mnt/hgfs/linux-share/CSReader/api/ParamMgr.h
+	"Declares.h"
+	"ParamStructs.h"
+	"QFile.h"
+	<stdint.h>
+
+1366623771 /mnt/hgfs/linux-share/CSReader/api/ParamStructs.h
+	<map>
+	<vector>
+	<stdint.h>
+	<string>
+
+1366631871 /mnt/hgfs/linux-share/CSReader/api/QFile.h
+	<stdint.h>
+	<stdio.h>
+
+1366621791 /mnt/hgfs/linux-share/CSReader/api/TicketUl.h
+	"ticketbase.h"
+
+1366633243 /mnt/hgfs/linux-share/CSReader/link/linker.h
+	"algorithm.h"
+	"beep.h"
+	"iso14443.h"
+	"sam.h"
+	"ticket.h"
+	<stdint.h>
+
+1366621791 /mnt/hgfs/linux-share/CSReader/api/Errors.h
+
+1366622594 source:/mnt/hgfs/linux-share/CSReader/api/ApiAgm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+
+1366622726 source:/mnt/hgfs/linux-share/CSReader/api/ApiBom.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+
+1366622775 source:/mnt/hgfs/linux-share/CSReader/api/ApiTcm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+
+1366622775 source:/mnt/hgfs/linux-share/CSReader/api/ApiTvm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+
+1366631645 source:/mnt/hgfs/linux-share/CSReader/api/CmdSort.cpp
+	"CmdSort.h"
+	"Download.h"
+	"QFile.h"
+	"DataSecurity.h"
+	"InnerDebug.h"
+	"../link/linker.h"
+
+1366208750 /mnt/hgfs/linux-share/CSReader/api/CmdSort.h
+	<stdint.h>
+	"libserial.h"
+	"Structs.h"
+	"Api.h"
+
+1365720855 /mnt/hgfs/linux-share/CSReader/api/libserial.h
+
+1366621790 /mnt/hgfs/linux-share/CSReader/api/Download.h
+	"libserial.h"
+	<stdint.h>
+
+1366621790 /mnt/hgfs/linux-share/CSReader/api/DataSecurity.h
+	<stdint.h>
+
+1366621790 /mnt/hgfs/linux-share/CSReader/api/InnerDebug.h
+	<stdint.h>
+
+1366631805 source:/mnt/hgfs/linux-share/CSReader/api/DataSecurity.cpp
+	"DataSecurity.h"
+	"Publics.h"
+	"QFile.h"
+	"Publics.h"
+	<stdio.h>
+
+1365721508 /mnt/hgfs/linux-share/CSReader/link/algorithm.h
+
+1365721401 /mnt/hgfs/linux-share/CSReader/link/beep.h
+
+1365823682 /mnt/hgfs/linux-share/CSReader/link/iso14443.h
+
+1365601632 /mnt/hgfs/linux-share/CSReader/link/sam.h
+
+1366705347 /mnt/hgfs/linux-share/CSReader/link/ticket.h
+
+1366632180 source:/mnt/hgfs/linux-share/CSReader/api/Download.cpp
+	"Download.h"
+	"QFile.h"
+	"Structs.h"
+	"CmdSort.h"
+	"ParamMgr.h"
+	"DataSecurity.h"
+	"Errors.h"
+	<string.h>
+	<sys/stat.h>
+
+1366632447 source:/mnt/hgfs/linux-share/CSReader/api/InnerDebug.cpp
+	"InnerDebug.h"
+	"../link/linker.h"
+	<string.h>
+
+1366632689 source:/mnt/hgfs/linux-share/CSReader/api/ParamMgr.cpp
+	"ParamMgr.h"
+	"Publics.h"
+	"Api.h"
+	"TimesEx.h"
+	"DataSecurity.h"
+	"CmdSort.h"
+	"Errors.h"
+	<stdlib.h>
+
+1366621790 /mnt/hgfs/linux-share/CSReader/api/TimesEx.h
+	<time.h>
+	<stdint.h>
+
+1366632707 source:/mnt/hgfs/linux-share/CSReader/api/Publics.cpp
+	"Publics.h"
+	"Errors.h"
+
+1366632768 source:/mnt/hgfs/linux-share/CSReader/api/QFile.cpp
+	"QFile.h"
+	"Declares.h"
+	"CmdSort.h"
+	<stdarg.h>
+	<unistd.h>
+
+1366633550 source:/mnt/hgfs/linux-share/CSReader/api/TicketBase.cpp
+	"TicketBase.h"
+	"TimesEx.h"
+	"Api.h"
+	"TicketUl.h"
+	"Publics.h"
+	"Structs.h"
+	"CmdSort.h"
+	"Errors.h"
+	"../link/linker.h"
+	<stdarg.h>
+
+1366633492 /mnt/hgfs/linux-share/CSReader/api/TicketBase.h
+	"ParamMgr.h"
+	<stdint.h>
+	"Structs.h"
+	"CmdSort.h"
+
+1366633047 source:/mnt/hgfs/linux-share/CSReader/api/TicketUl.cpp
+	"TicketUl.h"
+	"TimesEx.h"
+	"Publics.h"
+	"DataSecurity.h"
+	"Errors.h"
+	"../link/linker.h"
+
+1366622853 source:/mnt/hgfs/linux-share/CSReader/api/TimesEx.cpp
+	"TimesEx.h"
+	"Publics.h"
+
+1365721696 source:/mnt/hgfs/linux-share/CSReader/link/algorithm.cpp
+	<string.h>
+	"algorithm.h"
+
+1366633181 source:/mnt/hgfs/linux-share/CSReader/link/beep.cpp
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdlib.h>
+	<linux/ioctl.h>
+	<sys/ioctl.h>
+	<fcntl.h>
+	"beep.h"
+
+1365719621 source:/mnt/hgfs/linux-share/CSReader/link/iso14443.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"iso14443.h"
+	<sys/ioctl.h>
+
+1366633296 source:/mnt/hgfs/linux-share/CSReader/link/linker.cpp
+	"linker.h"
+	<stdio.h>
+	<string.h>
+
+1365720228 source:/mnt/hgfs/linux-share/CSReader/link/sam.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"sam.h"
+	<sys/ioctl.h>
+
+1366633911 source:/mnt/hgfs/linux-share/CSReader/main.cpp
+	"link/linker.h"
+	"api/QFile.h"
+	"api/TicketUl.h"
+	<stdlib.h>
+
+1366633413 source:/mnt/hgfs/linux-share/CSReader/link/ticket.cpp
+	<string.h>
+	"iso14443.h"
+	<stdint.h>
+	"sam.h"
+	"algorithm.h"
+
+1436606993 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/CmdSort.cpp
+	"CmdSort.h"
+	"Download.h"
+	"QFile.h"
+	"DataSecurity.h"
+	"InnerDebug.h"
+	"../link/linker.h"
+	"libserial.h"
+	"Records.h"
+	<sys/reboot.h>
+	<unistd.h>
+	"SysCmd.h"
+
+1399344077 /mnt/hgfs/linux-share/CSReader/CSReader/api/CmdSort.h
+	<stdint.h>
+	"libserial.h"
+	"Structs.h"
+	"Api.h"
+
+1365720855 /mnt/hgfs/linux-share/CSReader/CSReader/api/libserial.h
+
+1435214170 /mnt/hgfs/linux-share/CSReader/CSReader/api/Structs.h
+	"Declares.h"
+
+1442897706 /mnt/hgfs/linux-share/CSReader/CSReader/api/Api.h
+	<stdint.h>
+	<string.h>
+	"Structs.h"
+	"Declares.h"
+
+1435213908 /mnt/hgfs/linux-share/CSReader/CSReader/api/Declares.h
+	<stdio.h>
+
+1366621790 /mnt/hgfs/linux-share/CSReader/CSReader/api/Download.h
+	"libserial.h"
+	<stdint.h>
+
+1386558086 /mnt/hgfs/linux-share/CSReader/CSReader/api/QFile.h
+	<stdint.h>
+	<stdio.h>
+
+1386414627 /mnt/hgfs/linux-share/CSReader/CSReader/api/DataSecurity.h
+	<stdint.h>
+
+1389874590 /mnt/hgfs/linux-share/CSReader/CSReader/api/InnerDebug.h
+	<stdint.h>
+
+1397909307 /mnt/hgfs/linux-share/CSReader/CSReader/link/linker.h
+	"algorithm.h"
+	"beep.h"
+	"iso14443.h"
+	"sam.h"
+	"ticket.h"
+	"octcard.h"
+	<stdint.h>
+	"../api/Declares.h"
+
+1388460254 /mnt/hgfs/linux-share/CSReader/CSReader/link/algorithm.h
+
+1365721401 /mnt/hgfs/linux-share/CSReader/CSReader/link/beep.h
+
+1396507027 /mnt/hgfs/linux-share/CSReader/CSReader/link/iso14443.h
+
+1372335630 /mnt/hgfs/linux-share/CSReader/CSReader/link/sam.h
+
+1442893560 /mnt/hgfs/linux-share/CSReader/CSReader/link/ticket.h
+	<stdint.h>
+
+1397215930 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/DataSecurity.cpp
+	"DataSecurity.h"
+	"Publics.h"
+	"QFile.h"
+	"Publics.h"
+	<stdio.h>
+
+1397029721 /mnt/hgfs/linux-share/CSReader/CSReader/api/Publics.h
+	<math.h>
+	<stdint.h>
+	<string.h>
+
+1389874671 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Download.cpp
+	"Download.h"
+	"QFile.h"
+	"Structs.h"
+	"CmdSort.h"
+	"ParamMgr.h"
+	"DataSecurity.h"
+	"Errors.h"
+	<string.h>
+	<sys/stat.h>
+
+1410251870 /mnt/hgfs/linux-share/CSReader/CSReader/api/ParamMgr.h
+	"Declares.h"
+	"ParamStructs.h"
+	"QFile.h"
+	<stdint.h>
+
+1429498918 /mnt/hgfs/linux-share/CSReader/CSReader/api/ParamStructs.h
+	<map>
+	<vector>
+	<stdint.h>
+	<string>
+
+1427181654 /mnt/hgfs/linux-share/CSReader/CSReader/api/Errors.h
+
+1399343266 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/InnerDebug.cpp
+	"InnerDebug.h"
+	"../link/linker.h"
+	<string.h>
+	"CmdSort.h"
+	"Api.h"
+	"Errors.h"
+	"Records.h"
+	<dirent.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<stdlib.h>
+	<stdarg.h>
+	<unistd.h>
+
+1389885576 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Publics.cpp
+	"Publics.h"
+	"Errors.h"
+
+1388764026 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/QFile.cpp
+	"QFile.h"
+	"Declares.h"
+	"CmdSort.h"
+	<stdarg.h>
+	<unistd.h>
+
+1442895080 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TicketUl.cpp
+	"TicketUl.h"
+	"TimesEx.h"
+	"Publics.h"
+	"DataSecurity.h"
+	"Errors.h"
+	"../link/linker.h"
+
+1442826229 /mnt/hgfs/linux-share/CSReader/CSReader/api/TicketUl.h
+	"ticketbase.h"
+
+1396498189 /mnt/hgfs/linux-share/CSReader/CSReader/api/TimesEx.h
+	<time.h>
+	<stdint.h>
+	<time.h>
+
+1398079184 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TimesEx.cpp
+	"TimesEx.h"
+	"Publics.h"
+
+1387786730 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/algorithm.cpp
+	<string.h>
+	"algorithm.h"
+
+1372418434 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/beep.cpp
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdlib.h>
+	<linux/ioctl.h>
+	<sys/ioctl.h>
+	<fcntl.h>
+	"beep.h"
+
+1442818658 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/iso14443.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"iso14443.h"
+	<sys/ioctl.h>
+	"../api/Records.h"
+
+1397909302 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/linker.cpp
+	"linker.h"
+	"../Api/Errors.h"
+	"../api/Publics.h"
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+
+1372425778 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/sam.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"sam.h"
+	<sys/ioctl.h>
+
+1442897781 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/ticket.cpp
+	<string.h>
+	<stdint.h>
+	"sam.h"
+	"algorithm.h"
+	"iso14443.h"
+	"ticket.h"
+	"octcard.h"
+	<time.h>
+	<unistd.h>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	"../api/Extra.h"
+	"../api/Records.h"
+	"../api/Api.h"
+	"../api/Errors.h"
+
+1436607485 source:/mnt/hgfs/linux-share/CSReader/CSReader/main.cpp
+	"link/linker.h"
+	"api/QFile.h"
+	"api/TicketUl.h"
+	"api/TicketSvt.h"
+	"api/TicketBus.h"
+	"api/TicketBM.h"
+	"api/Records.h"
+	"api/Extra.h"
+	<stdlib.h>
+
+1442897707 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Api.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"../link/linker.h"
+	"Errors.h"
+	"TicketUl.h"
+	"TicketSvt.h"
+	"Records.h"
+	<string.h>
+
+1410762328 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ApiAgm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Errors.h"
+	"Records.h"
+
+1442889381 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ApiBom.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"../link/linker.h"
+	"TimesEx.h"
+	"Errors.h"
+	"Records.h"
+
+1408499503 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ApiTcm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Records.h"
+
+1431917984 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ApiTvm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"../link/linker.h"
+	"Errors.h"
+	"Records.h"
+
+1442889381 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ParamMgr.cpp
+	"ParamMgr.h"
+	"Publics.h"
+	"Api.h"
+	"TimesEx.h"
+	"DataSecurity.h"
+	"CmdSort.h"
+	"Errors.h"
+	"QFile.h"
+	"PackageMgr.h"
+	<stdlib.h>
+	"../link/linker.h"
+	"Records.h"
+	<dirent.h>
+	<sys/types.h>
+
+1442820997 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBase.cpp
+	"TicketBase.h"
+	"TimesEx.h"
+	"Api.h"
+	"TicketUl.h"
+	"TicketSvt.h"
+	"TicketBus.h"
+	"TicketBM.h"
+	"Publics.h"
+	"Structs.h"
+	"CmdSort.h"
+	"Errors.h"
+	"../link/linker.h"
+	"DataSecurity.h"
+	<stdarg.h>
+
+1436607441 /mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBase.h
+	"ParamMgr.h"
+	<stdint.h>
+	"Structs.h"
+	"CmdSort.h"
+	"Declares.h"
+	"Records.h"
+
+1442826234 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TicketSvt.cpp
+	"TicketSvt.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+
+1435220829 /mnt/hgfs/linux-share/CSReader/CSReader/api/TicketSvt.h
+	"ticketbase.h"
+	"../link/linker.h"
+
+1427181654 /mnt/hgfs/linux-share/CSReader/CSReader/Api/Errors.h
+
+1435932084 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/PackageMgr.cpp
+	"PackageMgr.h"
+	"DataSecurity.h"
+	"QFile.h"
+	"Errors.h"
+	<string.h>
+	<sys/stat.h>
+	<unistd.h>
+	<stdlib.h>
+	"Records.h"
+
+1387366587 /mnt/hgfs/linux-share/CSReader/CSReader/api/PackageMgr.h
+	"QFile.h"
+	<vector>
+	<stdint.h>
+
+1401244897 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/ApiEs.cpp
+	"Api.h"
+	"Publics.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Errors.h"
+	<unistd.h>
+	<signal.h>
+	<stdlib.h>
+	<stdarg.h>
+	"CmdSort.h"
+	"../link/linker.h"
+	"../link/ticketes.h"
+	"../link/myprintf.h"
+
+1443076559 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Records.cpp
+	"Records.h"
+	"Api.h"
+	"QFile.h"
+	"Publics.h"
+	"CmdSort.h"
+	"Errors.h"
+	"TimesEx.h"
+	<unistd.h>
+	<dirent.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1421138941 /mnt/hgfs/linux-share/CSReader/CSReader/api/Records.h
+	<stdint.h>
+	<pthread.h>
+	<semaphore.h>
+	<sys/time.h>
+	<vector>
+
+1387249354 /mnt/hgfs/linux-share/CSReader/CSReader/api/Confirm.h
+	<stdint.h>
+	"Declares.h"
+
+1386666651 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Confirm.cpp
+	"Confirm.h"
+	"Publics.h"
+	"Structs.h"
+	"Errors.h"
+
+1410762540 /mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBus.h
+	"TicketBase.h"
+	"../link/linker.h"
+
+1441097375 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBus.cpp
+	"TicketBus.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+
+1387787474 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/Extra.cpp
+	"Extra.h"
+	"../link/sam.h"
+	"CmdSort.h"
+	<string.h>
+	<unistd.h>
+
+1387962144 /mnt/hgfs/linux-share/CSReader/CSReader/api/Extra.h
+	<stdint.h>
+	<pthread.h>
+	<semaphore.h>
+	"Declares.h"
+
+1396359275 /mnt/hgfs/linux-share/CSReader/CSReader/link/ticketes.h
+	<stdint.h>
+	<string.h>
+	"../api/Structs.h"
+
+1387786730 /mnt/hgfs/linux-share/CSReader/CSReader/link/myprintf.h
+
+1387786730 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/myprintf.cpp
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	"myprintf.h"
+
+1442818658 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/ticketes.cpp
+	<signal.h>
+	<stdlib.h>
+	<stdarg.h>
+	"../api/api.h"
+	"../api/structs.h"
+	"../api/TimesEx.h"
+	"../api/CmdSort.h"
+	"../api/publics.h"
+	"../api/errors.h"
+	"../api/DataSecurity.h"
+	"../api/TicketBase.h"
+	"../api/Records.h"
+	"myprintf.h"
+	"ticketes.h"
+	"algorithm.h"
+	"iso14443.h"
+	"linker.h"
+
+1410762540 /mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBM.h
+	"ticketbase.h"
+	"../link/linker.h"
+
+1399856288 /mnt/hgfs/linux-share/CSReader/CSReader/link/octcard.h
+
+1396506848 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/octcard.c
+	"string.h"
+	"stdio.h"
+	"sam.h"
+	"iso14443.h"
+
+1410762540 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/TicketBM.cpp
+	"TicketBM.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+	"DataSecurity.h"
+
+1408497850 source:/mnt/hgfs/linux-share/CSReader/CSReader/link/octcard.cpp
+	"string.h"
+	"stdio.h"
+	"sam.h"
+	"iso14443.h"
+	"octcard.h"
+	"../api/Errors.h"
+	"../api/Records.h"
+
+1399345486 /mnt/hgfs/linux-share/CSReader/CSReader/api/SysCmd.h
+	<stdint.h>
+
+1399345501 source:/mnt/hgfs/linux-share/CSReader/CSReader/api/SysCmd.cpp
+	"SysCmd.h"
+	"Api.h"
+	"CmdSort.h"
+
+1444613534 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Api.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"../link/linker.h"
+	"Errors.h"
+	"TicketUl.h"
+	"TicketSvt.h"
+	"Records.h"
+	<string.h>
+
+1442897706 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Api.h
+	<stdint.h>
+	<string.h>
+	"Structs.h"
+	"Declares.h"
+
+1435214170 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Structs.h
+	"Declares.h"
+
+1435213908 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Declares.h
+	<stdio.h>
+
+1397029721 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Publics.h
+	<math.h>
+	<stdint.h>
+	<string.h>
+
+1410251870 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ParamMgr.h
+	"Declares.h"
+	"ParamStructs.h"
+	"QFile.h"
+	<stdint.h>
+
+1429498918 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ParamStructs.h
+	<map>
+	<vector>
+	<stdint.h>
+	<string>
+
+1386558086 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/QFile.h
+	<stdint.h>
+	<stdio.h>
+
+1397909307 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/linker.h
+	"algorithm.h"
+	"beep.h"
+	"iso14443.h"
+	"sam.h"
+	"ticket.h"
+	"octcard.h"
+	<stdint.h>
+	"../api/Declares.h"
+
+1388460254 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/algorithm.h
+
+1365721401 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/beep.h
+
+1396507027 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/iso14443.h
+
+1448438801 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/sam.h
+
+1442893560 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/ticket.h
+	<stdint.h>
+
+1399856288 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/octcard.h
+
+1427181654 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Errors.h
+
+1442826229 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketUl.h
+	"ticketbase.h"
+
+1435220829 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketSvt.h
+	"ticketbase.h"
+	"../link/linker.h"
+
+1421138941 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Records.h
+	<stdint.h>
+	<pthread.h>
+	<semaphore.h>
+	<sys/time.h>
+	<vector>
+
+1401244897 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ApiEs.cpp
+	"Api.h"
+	"Publics.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Errors.h"
+	<unistd.h>
+	<signal.h>
+	<stdlib.h>
+	<stdarg.h>
+	"CmdSort.h"
+	"../link/linker.h"
+	"../link/ticketes.h"
+	"../link/myprintf.h"
+
+1399344077 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/CmdSort.h
+	<stdint.h>
+	"libserial.h"
+	"Structs.h"
+	"Api.h"
+
+1365720855 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/libserial.h
+
+1456376209 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/ticketes.h
+	<stdint.h>
+	<string.h>
+	"../api/Structs.h"
+
+1456376325 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/myprintf.h
+
+1408499503 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ApiTcm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Records.h"
+
+1431917984 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ApiTvm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"../link/linker.h"
+	"Errors.h"
+	"Records.h"
+
+1436606993 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/CmdSort.cpp
+	"CmdSort.h"
+	"Download.h"
+	"QFile.h"
+	"DataSecurity.h"
+	"InnerDebug.h"
+	"../link/linker.h"
+	"libserial.h"
+	"Records.h"
+	<sys/reboot.h>
+	<unistd.h>
+	"SysCmd.h"
+
+1366621790 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Download.h
+	"libserial.h"
+	<stdint.h>
+
+1386414627 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/DataSecurity.h
+	<stdint.h>
+
+1389874590 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/InnerDebug.h
+	<stdint.h>
+
+1399345486 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/SysCmd.h
+	<stdint.h>
+
+1397215930 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/DataSecurity.cpp
+	"DataSecurity.h"
+	"Publics.h"
+	"QFile.h"
+	"Publics.h"
+	<stdio.h>
+
+1389874671 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Download.cpp
+	"Download.h"
+	"QFile.h"
+	"Structs.h"
+	"CmdSort.h"
+	"ParamMgr.h"
+	"DataSecurity.h"
+	"Errors.h"
+	<string.h>
+	<sys/stat.h>
+
+1387787474 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Extra.cpp
+	"Extra.h"
+	"../link/sam.h"
+	"CmdSort.h"
+	<string.h>
+	<unistd.h>
+
+1387962144 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Extra.h
+	<stdint.h>
+	<pthread.h>
+	<semaphore.h>
+	"Declares.h"
+
+1456391544 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/InnerDebug.cpp
+	"InnerDebug.h"
+	"../link/linker.h"
+	<string.h>
+	"CmdSort.h"
+	"Api.h"
+	"Errors.h"
+	"Records.h"
+	<dirent.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<stdlib.h>
+	<stdarg.h>
+	<unistd.h>
+
+1435932084 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/PackageMgr.cpp
+	"PackageMgr.h"
+	"DataSecurity.h"
+	"QFile.h"
+	"Errors.h"
+	<string.h>
+	<sys/stat.h>
+	<unistd.h>
+	<stdlib.h>
+	"Records.h"
+
+1387366587 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/PackageMgr.h
+	"QFile.h"
+	<vector>
+	<stdint.h>
+
+1442889381 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ParamMgr.cpp
+	"ParamMgr.h"
+	"Publics.h"
+	"Api.h"
+	"TimesEx.h"
+	"DataSecurity.h"
+	"CmdSort.h"
+	"Errors.h"
+	"QFile.h"
+	"PackageMgr.h"
+	<stdlib.h>
+	"../link/linker.h"
+	"Records.h"
+	<dirent.h>
+	<sys/types.h>
+
+1396498189 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TimesEx.h
+	<time.h>
+	<stdint.h>
+	<time.h>
+
+1389885576 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Publics.cpp
+	"Publics.h"
+	"Errors.h"
+
+1388764026 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/QFile.cpp
+	"QFile.h"
+	"Declares.h"
+	"CmdSort.h"
+	<stdarg.h>
+	<unistd.h>
+
+1443076559 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/Records.cpp
+	"Records.h"
+	"Api.h"
+	"QFile.h"
+	"Publics.h"
+	"CmdSort.h"
+	"Errors.h"
+	"TimesEx.h"
+	<unistd.h>
+	<dirent.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1399345501 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/SysCmd.cpp
+	"SysCmd.h"
+	"Api.h"
+	"CmdSort.h"
+
+1447662498 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBase.cpp
+	"TicketBase.h"
+	"TimesEx.h"
+	"Api.h"
+	"TicketUl.h"
+	"TicketSvt.h"
+	"TicketBus.h"
+	"TicketBM.h"
+	"Publics.h"
+	"Structs.h"
+	"CmdSort.h"
+	"Errors.h"
+	"../link/linker.h"
+	"DataSecurity.h"
+	<stdarg.h>
+
+1436607441 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBase.h
+	"ParamMgr.h"
+	<stdint.h>
+	"Structs.h"
+	"CmdSort.h"
+	"Declares.h"
+	"Records.h"
+
+1410762540 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBus.h
+	"TicketBase.h"
+	"../link/linker.h"
+
+1410762540 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBM.h
+	"ticketbase.h"
+	"../link/linker.h"
+
+1410762540 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBM.cpp
+	"TicketBM.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+	"DataSecurity.h"
+
+1441097375 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketBus.cpp
+	"TicketBus.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+
+1448335017 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketSvt.cpp
+	"TicketSvt.h"
+	"Errors.h"
+	"Publics.h"
+	"TimesEx.h"
+
+1442895080 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TicketUl.cpp
+	"TicketUl.h"
+	"TimesEx.h"
+	"Publics.h"
+	"DataSecurity.h"
+	"Errors.h"
+	"../link/linker.h"
+
+1398079184 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/TimesEx.cpp
+	"TimesEx.h"
+	"Publics.h"
+
+1387786730 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/algorithm.cpp
+	<string.h>
+	"algorithm.h"
+
+1372418434 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/beep.cpp
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdlib.h>
+	<linux/ioctl.h>
+	<sys/ioctl.h>
+	<fcntl.h>
+	"beep.h"
+
+1448877084 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/iso14443.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"iso14443.h"
+	<sys/ioctl.h>
+	"../api/Records.h"
+
+1456391585 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/linker.cpp
+	"linker.h"
+	"../Api/Errors.h"
+	"../api/Publics.h"
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+
+1427181654 /mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/Api/Errors.h
+
+1387786730 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/myprintf.cpp
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	"myprintf.h"
+
+1408497850 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/octcard.cpp
+	"string.h"
+	"stdio.h"
+	"sam.h"
+	"iso14443.h"
+	"octcard.h"
+	"../api/Errors.h"
+	"../api/Records.h"
+
+1448599392 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/sam.cpp
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<sys/io.h>
+	<fcntl.h>
+	<linux/ioctl.h>
+	<stdarg.h>
+	"../api/Records.h"
+	"sam.h"
+	<sys/ioctl.h>
+
+1448955812 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/ticket.cpp
+	<string.h>
+	<stdint.h>
+	"sam.h"
+	"algorithm.h"
+	"iso14443.h"
+	"ticket.h"
+	"octcard.h"
+	<time.h>
+	<unistd.h>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	"../api/Extra.h"
+	"../api/Records.h"
+	"../api/Api.h"
+	"../api/Errors.h"
+
+1456389025 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/link/ticketes.cpp
+	<signal.h>
+	<stdlib.h>
+	<stdarg.h>
+	"../api/api.h"
+	"../api/structs.h"
+	"../api/TimesEx.h"
+	"../api/CmdSort.h"
+	"../api/publics.h"
+	"../api/errors.h"
+	"../api/DataSecurity.h"
+	"../api/TicketBase.h"
+	"../api/Records.h"
+	"myprintf.h"
+	"ticketes.h"
+	"algorithm.h"
+	"iso14443.h"
+	"linker.h"
+
+1436607485 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/main.cpp
+	"link/linker.h"
+	"api/QFile.h"
+	"api/TicketUl.h"
+	"api/TicketSvt.h"
+	"api/TicketBus.h"
+	"api/TicketBM.h"
+	"api/Records.h"
+	"api/Extra.h"
+	<stdlib.h>
+
+1449133325 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ApiAgm.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"Errors.h"
+	"Records.h"
+
+1453361403 source:/mnt/hgfs/linux-share/CSReader20151021/CSReader/CSReader/api/ApiBom.cpp
+	"Api.h"
+	"Publics.h"
+	"ParamMgr.h"
+	"TicketUl.h"
+	"Declares.h"
+	"../link/linker.h"
+	"TimesEx.h"
+	"Errors.h"
+	"Records.h"
+

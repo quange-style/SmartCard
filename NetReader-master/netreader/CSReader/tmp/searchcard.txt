@@ -1,0 +1,59 @@
+    if (CardNum>1)
+    {
+        nresult = 99;
+    }
+    else
+    {
+        memcpy(g_lstphysical,lpcardno, 8);
+        //0=无卡; 1=单程票; 2=M1 ; 3=地铁票; 4=公交; 5-8=预留; 9=不支持卡类
+        if (nresult == 3)
+        {
+            nresult = 0;
+            for (i=0; i<3; i++)
+            {
+                status=ISO14443A_Request( 0x52, tmp );
+                if (status == 0) break;
+            }
+
+            if (status == 0)
+            {
+                status=ISO14443A_Select(g_lstphysical, tmp);
+            }
+
+
+            status =  MifareProRst(0x40,ulen,sztmp);
+            dbg_dumpmemory("rst=",sztmp, status);
+            if (status)
+            {
+
+                ulen = 5;
+                memcpy(sztmp, "\x00\xB0\x85\x00\x02", ulen);
+                response_len = MifareProCom(ulen, sztmp, &response_sw);
+                dbg_dumpmemory("85==",sztmp, response_len);
+                if (response_sw==0x9000)
+                {
+                    if (memcmp(sztmp, "\x53\x20",2)==0)
+                    {
+                        //地铁
+                        nresult = 3;
+                    }
+                    else if (memcmp(sztmp, "\x59\x44",2)==0)
+                    {
+                        //公交
+                        nresult = 4;
+                    }
+                    else
+                    {
+                        nresult = 9;
+                    }
+                }
+                else
+                {
+                    nresult = 9;
+                }
+            }
+
+        }
+    }
+
+    return nresult;
