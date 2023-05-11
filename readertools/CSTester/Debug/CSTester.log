@@ -1,0 +1,44 @@
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  stdafx.cpp
+cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  TradeFileConvert.cpp
+  TestCounterRecord.cpp
+  Serial.cpp
+  PubFuncs.cpp
+  MpSocket.cpp
+  HexEdit.cpp
+  GSFile.cpp
+  DlgUpd.cpp
+  DlgTvm.cpp
+  DlgTcm.cpp
+  DlgSjtSale.cpp
+  DlgSamAct.cpp
+  DlgSaleTest.cpp
+  DlgSaleEx.cpp
+  DlgRoot.cpp
+  DlgRefund.cpp
+  DlgPrice.cpp
+  DlgParam.cpp
+  DlgOper.cpp
+  DlgNfs.cpp
+  正在生成代码...
+  正在编译...
+  DlgLogin.cpp
+  DlgInc.cpp
+  DlgHarder.cpp
+  DlgDescind.cpp
+  DlgDegrade.cpp
+  DlgDec.cpp
+  DlgDebug.cpp
+  DlgConfirm.cpp
+  DlgCmd.cpp
+  DlgBom.cpp
+  DlgAvm.cpp
+  DlgAgmOpen.cpp
+  DlgAgm.cpp
+  DataBar.cpp
+  CSTesterDlg.cpp
+  CSTester.cpp
+  正在生成代码...
+CSTester.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  CSTester.vcxproj -> I:\工作\29.读卡器\开发资料\读写器应用相关资料\地铁读写器\代码\readertools\Debug\CSTester.exe
