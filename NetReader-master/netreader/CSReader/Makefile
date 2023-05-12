@@ -12,17 +12,27 @@
 # VERSION:1.0.0
 #
 #list all the cross compile
-#CROSS			= /gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-CROSS			= /opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-
+#CROSS			=arm-poky-linux-gnueabi-gcc--sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi/usr/include-
+#CROSS			= /opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-
 
-CC				= $(CROSS)gcc
-CXX				= $(CROSS)g++
-AR				= $(CROSS)ar
-RANLIB			= $(CROSS)ranlib
-CXXFLAGS		= -O1 -s	-march=armv7ve -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a7 
-LDFLAGS			= api/libgsserial.a					#
+# CC				= $(CROSS)gcc
+# CXX				= $(CROSS)g++
+# AR				= $(CROSS)ar
+
+#CC  		   := $(CC)
+#LD  		   := $(LD)
+#AR  		   := $(AR)
+#CXX		   := $(CXX)
+#CPP		   := $(CPP)
+#AS		   := $(AS)
+
+#RANLIB			= $(CROSS)ranlib
+# CXXFLAGS		= -O1 -s --sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi/ -march=armv7ve -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a7 
+CXXFLAGS		= -O1 -s 
+LDFLAGS			= api/libgsserial.a	 #
 #target out put bin name
-APP_NAME			= CSReader
+APP_NAME		= CSReader
+SDK_DIR			= /opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include/
 #list incluce head files directory
 SDK_INC_DIR 	= -I so_h  -I software
 #list include libs directory

@@ -12,6 +12,7 @@
 #include "../link/linker.h"
 #include "DataSecurity.h"
 #include <stdarg.h>
+#include <unistd.h>
 
 CONFIRM_POINT TicketBase::cfm_point = {0};
 

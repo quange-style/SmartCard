@@ -4,12 +4,12 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include "../api/api.h"
-#include "../api/structs.h"
+#include "../api/Api.h"
+#include "../api/Structs.h"
 #include "../api/TimesEx.h"
 #include "../api/CmdSort.h"
-#include "../api/publics.h"
-#include "../api/errors.h"
+#include "../api/Publics.h"
+#include "../api/Errors.h"
 #include "../api/DataSecurity.h"
 #include "../api/TicketBase.h"
 #include "../api/Records.h"

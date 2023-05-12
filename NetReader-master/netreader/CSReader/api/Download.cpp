@@ -7,6 +7,7 @@
 #include "Errors.h"
 #include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 //Download::Download(Serial * p_ser)
 //{

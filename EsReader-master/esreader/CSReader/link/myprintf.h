@@ -15,3 +15,4 @@ extern void dbg_formatvar(char *fmt,...);
 
 #endif
 
+#include <unistd.h>

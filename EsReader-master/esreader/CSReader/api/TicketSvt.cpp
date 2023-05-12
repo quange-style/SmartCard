@@ -2,6 +2,7 @@
 #include "Errors.h"
 #include "Publics.h"
 #include "TimesEx.h"
+#include <unistd.h>
 
 
 TicketSvt::TicketSvt(void)

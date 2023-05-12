@@ -1,4 +1,8 @@
-﻿#define ENCRYPT 0  //加密 
+﻿#ifndef _DES_H
+#define _DES_H
+
+
+#define ENCRYPT 0  //加密 
 
 #define DECRYPT 1  //解密
 

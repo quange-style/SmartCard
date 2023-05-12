@@ -1,7 +1,7 @@
 // linker.cpp
 
 #include "linker.h"
-#include "../Api/Errors.h"
+#include "../api/Errors.h"
 #include "../api/Publics.h"
 #include <stdio.h>
 #include <string.h>

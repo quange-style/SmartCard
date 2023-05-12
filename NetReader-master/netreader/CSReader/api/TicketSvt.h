@@ -1,5 +1,5 @@
 #pragma once
-#include "ticketbase.h"
+#include "TicketBase.h"
 #include "../link/linker.h"
 
 // 地铁CPU卡相关结构
