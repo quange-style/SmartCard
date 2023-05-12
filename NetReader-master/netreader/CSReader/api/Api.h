@@ -40,11 +40,11 @@ public:
 	static int qr_readbuf_len;
 	static uint8_t clear_qr_readbuf[512];
 	static uint8_t last_qr_readbuf[512];
-	static uint8_t qr_elect_analy_readbuf[512];//µç×ÓÆ±É¨Âë·ÖÎöÊ±±£´æµ½±¾µØ£¬ÔÚµç×ÓÆ±¸üĞÂÊ±Ö±½Ó´Ó»º´æÖĞÈ¡
+	static uint8_t qr_elect_analy_readbuf[512];//ç”µå­ç¥¨æ‰«ç åˆ†ææ—¶ä¿å­˜åˆ°æœ¬åœ°ï¼Œåœ¨ç”µå­ç¥¨æ›´æ–°æ—¶ç›´æ¥ä»ç¼“å­˜ä¸­å–
 	static uint8_t qr_passcode[32+1];
 
-	static char	cCenterCode[32+1];// ±£´æ½ø³öÕ¢µÄÖĞĞÄÆ±ºÅ
-	static char	qr_headversion[2+1];//¶şÎ¬Âë½á¹¹°æ±¾ĞÅÏ¢
+	static char	cCenterCode[32+1];// ä¿å­˜è¿›å‡ºé—¸çš„ä¸­å¿ƒç¥¨å·
+	static char	qr_headversion[2+1];//äºŒç»´ç ç»“æ„ç‰ˆæœ¬ä¿¡æ¯
 	static ETICKETTRADELAST m_tdeticket;
 
 	static uint8_t	testTmpData[14+1];
@@ -62,9 +62,9 @@ public:
 	static uint8_t locked_entry_id[7];
 	static uint8_t locked_exit_id[7];
 
-	static long m_sam_seq_charge;		// SAMÁ÷Ë®£¬³äÖµÊ±Ê¹ÓÃ
-	static long m_trade_val;			// ½»Ò×½ğ¶î£¬³äÖµ»ò³äÖµ³·ÏúÊ±Ê¹ÓÃ
-	static int sysFlag;//ÆæÊıÊÇÆ»¹û,Å¼ÊıÊÇ°²×¿
+	static long m_sam_seq_charge;		// SAMæµæ°´ï¼Œå……å€¼æ—¶ä½¿ç”¨
+	static long m_trade_val;			// äº¤æ˜“é‡‘é¢ï¼Œå……å€¼æˆ–å……å€¼æ’¤é”€æ—¶ä½¿ç”¨
+	static int sysFlag;//å¥‡æ•°æ˜¯è‹¹æœ,å¶æ•°æ˜¯å®‰å“
 
 	static uint8_t	ble_conFlag[4];
 	static uint8_t	ble_conFlag2[4];
@@ -135,10 +135,10 @@ private:
 
 	static void Common_TimeSynchronization(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
-    //É¨È¡Èı·½ÊÚÈ¨Âë
+    //æ‰«å–ä¸‰æ–¹æˆæƒç 
 	static void Common_GetThirdPayCode(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
     //
-    // Õ¢»ú½Ó¿Ú
+    // é—¸æœºæ¥å£
     //
     static void Gate_AisleModel(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -148,11 +148,11 @@ private:
 
 	static void Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
-	//TVMÓëBOM¹«¹²½Ó¿Ú
-    //É¨µç×ÓÆ±»ñÈ¡µç×ÓÆ±ĞÅÏ¢
+	//TVMä¸BOMå…¬å…±æ¥å£
+    //æ‰«ç”µå­ç¥¨è·å–ç”µå­ç¥¨ä¿¡æ¯
     static void common_getElectQrMsg(uint8_t *param_stack, uint8_t *data_to_send, uint16_t &len_data);
     //
-    // TVM½Ó¿Ú
+    // TVMæ¥å£
     //
     static void Tvm_Ticket_Sale(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -187,7 +187,7 @@ private:
     static void Tvm_GetETicketInfo(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
     //
-    // BOM½Ó¿Ú
+    // BOMæ¥å£
     //
     static void Bom_Login (uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -235,12 +235,12 @@ private:
 	static void bom_elect_ticket_analyze(uint8_t *param_stack, uint8_t *data_to_send, uint16_t &len_data);
 
 	//
-    // TCM½Ó¿Ú
+    // TCMæ¥å£
     //
     static void Tcm_GetTicketInfo(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
 	//
-	// ES½Ó¿Ú
+	// ESæ¥å£
 	//
 	static void Es_Ticket_Analyse(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -257,7 +257,7 @@ private:
 	static void Es_Ticket_Clear(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
 	//
-	// ÁÙÊ±½Ó¿Ú
+	// ä¸´æ—¶æ¥å£
 	//
 	static void Temp_interface_1(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 

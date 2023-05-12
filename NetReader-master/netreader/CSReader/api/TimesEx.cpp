@@ -22,7 +22,7 @@ bool TimesEx::year_is_leapyear(uint8_t * p_bcd_year)
     return year_is_leapyear(val_year);
 }
 
-// BCDÊ±¼äÊÇ·ñºÏ·¨
+// BCDæ—¶é—´æ˜¯å¦åˆæ³•
 bool TimesEx::bcd_time_valid(uint8_t * p_bcd_time, uint8_t time_format)
 {
     if((time_format & T_YYYY) && memcmp(p_bcd_time, "\x00\x00", 2) == 0)
@@ -41,7 +41,7 @@ bool TimesEx::bcd_time_valid(uint8_t * p_bcd_time, uint8_t time_format)
     return true;
 }
 
-// BCDÄêÔÂÖĞÃ¿¸öÔÂµÄ×î´óÌìÊı
+// BCDå¹´æœˆä¸­æ¯ä¸ªæœˆçš„æœ€å¤§å¤©æ•°
 uint8_t TimesEx::month_max_day(uint8_t * p_bcd_yyyymm)
 {
     int year = Publics::bcds_to_val<uint16_t>(p_bcd_yyyymm, 2);
@@ -63,7 +63,7 @@ uint8_t TimesEx::month_max_day(uint16_t year, uint8_t month)
         return days1[month - 1];
 }
 
-// BCDÓëTM»¥×ª
+// BCDä¸TMäº’è½¬
 void TimesEx::tm2_bcd4_exchange(uint8_t * p_tm2, uint8_t * p_bcd4, bool exchage_direction)
 {
     uint16_t sub_month_2000_1;
@@ -139,7 +139,7 @@ void TimesEx::tm4_bcd7_exchange(uint8_t * p_tm4, uint8_t * p_bcd7, bool exchage_
     }
 }
 
-// BCDÊ±¼ä¼Ó¼õ
+// BCDæ—¶é—´åŠ å‡
 void TimesEx::bcd_time_calculate(uint8_t * p_bcd_time, uint8_t time_format, int days/* = 0*/, int hours/* = 0*/, int mins/* = 0*/, int secs/* = 0*/)
 {
     int newYear, newMonth, newDay, newHour, newMin, newSec;
@@ -227,7 +227,7 @@ void TimesEx::bcd_time_calculate(uint8_t * p_bcd_time, uint8_t time_format, int 
         p_bcd_time[6] = Publics::val_to_bcd((uint8_t)(newSec));
 }
 
-// ±È½ÏBCDÓĞĞ§ÆÚ
+// æ¯”è¾ƒBCDæœ‰æ•ˆæœŸ
 int TimesEx::CmpExpire(uint8_t * lpBcdNow, uint8_t * lpBcdExpire, uint8_t bFormat, short nDays, short nHours, short nMin, short nSec)
 {
     int i;
@@ -251,7 +251,7 @@ int TimesEx::CmpExpire(uint8_t * lpBcdNow, uint8_t * lpBcdExpire, uint8_t bForma
     return memcmp(lpBcdNow, bNewExpire, 7);
 }
 
-// ÅĞ¶ÏÊÇ·ñ³¬Ê±
+// åˆ¤æ–­æ˜¯å¦è¶…æ—¶
 bool TimesEx::timeout(uint8_t * p_bcd_time_target, uint8_t * p_bcd_time_src, int sub_in_minute)
 {
     uint8_t time_src[7] = {0};
@@ -265,7 +265,7 @@ bool TimesEx::timeout(uint8_t * p_bcd_time_target, uint8_t * p_bcd_time_src, int
     return false;
 }
 
-// »ñÈ¡Ä³¸öÊ±¼äµãËùÔÚµÄÔËÓªÈÕ
+// è·å–æŸä¸ªæ—¶é—´ç‚¹æ‰€åœ¨çš„è¿è¥æ—¥
 void TimesEx::TimeForWorkDay(uint8_t * pTimePoint, uint8_t * pSWorkDay/* = NULL*/, uint8_t * pEWorkDay/* = NULL*/)
 {
     //BYTE bSWorkDay[7] = {0};
@@ -277,7 +277,7 @@ void TimesEx::TimeForWorkDay(uint8_t * pTimePoint, uint8_t * pSWorkDay/* = NULL*
     //TimeBcdCac(bEWorkDay, T_DATE, 1);
     //memcpy(bEWorkDay + 4, EXPIRE_DELAY_POINT, 3);
 
-    //// Èç¹ûÄ³¸öÊ±¼äÊÇ0µãµ½5µã¼ä£¬Ó¦Í¬Ê±ÊôÓÚÁ½¸öÔËÓªÈÕ£¬·ñÔòÖ»ÊôÓÚÒ»¸ö
+    //// å¦‚æœæŸä¸ªæ—¶é—´æ˜¯0ç‚¹åˆ°5ç‚¹é—´ï¼Œåº”åŒæ—¶å±äºä¸¤ä¸ªè¿è¥æ—¥ï¼Œå¦åˆ™åªå±äºä¸€ä¸ª
     //if (memcmp(pTimePoint + 4, EXPIRE_DELAY_POINT, 3) <= 0)
     //{
     //	TimeBcdCac(bSWorkDay, T_DATE, -1);
@@ -289,7 +289,7 @@ void TimesEx::TimeForWorkDay(uint8_t * pTimePoint, uint8_t * pSWorkDay/* = NULL*
     //	memcpy(pEWorkDay, bEWorkDay, 7);
 }
 
-// Ê±¼äpTimeSrc¶ÔÓÚÊ±¼äpTimeTargµÄÔËÓªÈÕµÄÎ»ÖÃ£¬Ğ¡ÓÚ0:ÔËÓªÈÕÇ°£¬0:ÔËÓªÈÕÖĞ£¬´óÓÚ0:ÔËÓªÈÕºó
+// æ—¶é—´pTimeSrcå¯¹äºæ—¶é—´pTimeTargçš„è¿è¥æ—¥çš„ä½ç½®ï¼Œå°äº0:è¿è¥æ—¥å‰ï¼Œ0:è¿è¥æ—¥ä¸­ï¼Œå¤§äº0:è¿è¥æ—¥å
 int TimesEx::TimeWorkDayCmp(uint8_t * pTimeSrc, uint8_t * pTimeTarg)
 {
     int nRet			= 0;
@@ -307,7 +307,7 @@ int TimesEx::TimeWorkDayCmp(uint8_t * pTimeSrc, uint8_t * pTimeTarg)
     return nRet;
 }
 
-// ½«BCDÊ±¼ä×ª»»ÎªtmÊ±¼ä
+// å°†BCDæ—¶é—´è½¬æ¢ä¸ºtmæ—¶é—´
 void TimesEx::time_bcd_to_tm(uint8_t * p_time_bcd, uint8_t bFormat, PTMSTRUCT p_tm)
 {
 	memset(p_tm, 0, sizeof(TMSTRUCT));
@@ -331,7 +331,7 @@ void TimesEx::time_bcd_to_tm(uint8_t * p_time_bcd, uint8_t bFormat, PTMSTRUCT p_
 		p_tm->tm_sec = (p_time_bcd[6] / 0x10 * 0x0a) + (p_time_bcd[6] % 0x10);
 }
 
-// ÅĞ¶ÏÄ³¸öÈÕÆÚÊÇĞÇÆÚ¼¸
+// åˆ¤æ–­æŸä¸ªæ—¥æœŸæ˜¯æ˜ŸæœŸå‡ 
 uint8_t TimesEx::weekday_theday(uint8_t * p_date_bcd)
 {
 	TMSTRUCT tm;
@@ -339,9 +339,9 @@ uint8_t TimesEx::weekday_theday(uint8_t * p_date_bcd)
 	time_bcd_to_tm(p_date_bcd, T_DATE, &tm);
 	
 	int sum = sum_arr[tm.tm_mon - 1] + tm.tm_mday;
-	if(tm.tm_year % 400==0 || (tm.tm_year % 4 == 0 && tm.tm_year % 100 != 0)) /*ÅĞ¶ÏÊÇ²»ÊÇÈòÄê*/
+	if(tm.tm_year % 400==0 || (tm.tm_year % 4 == 0 && tm.tm_year % 100 != 0)) /*åˆ¤æ–­æ˜¯ä¸æ˜¯é—°å¹´*/
 	{
-		if(tm.tm_mon > 2) /*Èç¹ûÊÇÈòÄêÇÒÔÂ·İ´óÓÚ2,×ÜÌìÊıÓ¦¸Ã¼ÓÒ»Ìì*/
+		if(tm.tm_mon > 2) /*å¦‚æœæ˜¯é—°å¹´ä¸”æœˆä»½å¤§äº2,æ€»å¤©æ•°åº”è¯¥åŠ ä¸€å¤©*/
 			sum++;
 	}
 
@@ -351,7 +351,7 @@ uint8_t TimesEx::weekday_theday(uint8_t * p_date_bcd)
 	return (uint8_t)(sum % 7);
 }
 
-// ²¹×ãÄê·İÖĞµÄ¸ßÁ½Î»
+// è¡¥è¶³å¹´ä»½ä¸­çš„é«˜ä¸¤ä½
 void TimesEx::century_fill(uint8_t * p_time)
 {
 	if (bcd_time_valid(p_time, T_MM | T_DD))

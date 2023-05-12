@@ -15,34 +15,34 @@
 
 
 
-#define OCTM1SAM_SOCKET 0x02 //OCTSAM¿¨×ùĞòºÅ( ´Ó0 ¿ªÊ¼)
+#define OCTM1SAM_SOCKET 0x02 //OCTSAMå¡åº§åºå·( ä»0 å¼€å§‹)
 
 
-#define OCT_SECTOR_APP 0       //Ó¦ÓÃ±êÊ¶ÉÈÇøºÅ
-#define OCT_SECTOR_ISSUE 1     //·¢ĞĞÉÈÇøºÅ
-#define OCT_SECTOR_PURSE 2     //Ç®°üÉÈÇøºÅ
-#define OCT_SECTOR_PUBLIC 9    //¹«¹²ĞÅÏ¢ÉÈÇøºÅ
-#define OCT_SECTOR_METRO 11    //¹«¹²ĞÅÏ¢ÉÈÇøºÅ
+#define OCT_SECTOR_APP 0       //åº”ç”¨æ ‡è¯†æ‰‡åŒºå·
+#define OCT_SECTOR_ISSUE 1     //å‘è¡Œæ‰‡åŒºå·
+#define OCT_SECTOR_PURSE 2     //é’±åŒ…æ‰‡åŒºå·
+#define OCT_SECTOR_PUBLIC 9    //å…¬å…±ä¿¡æ¯æ‰‡åŒºå·
+#define OCT_SECTOR_METRO 11    //å…¬å…±ä¿¡æ¯æ‰‡åŒºå·
 
-#define OCT_BLK_ISSUESUE_IDX 1  //·¢ĞĞĞÅÏ¢¿é
-#define OCT_BLK_ADDTIONALISSUE_IDX 6  //Ó¦ÓÃË÷ÒıÊı¾İ¿é
+#define OCT_BLK_ISSUESUE_IDX 1  //å‘è¡Œä¿¡æ¯å—
+#define OCT_BLK_ADDTIONALISSUE_IDX 6  //åº”ç”¨ç´¢å¼•æ•°æ®å—
 
-#define OCT_BLK_PURSE_ORG_IDX 8  //¹«¹²Ç®°üÕı±¾
-#define OCT_BLK_PURSE_BAK_IDX 9  //¹«¹²Ç®°ü¸±±¾
+#define OCT_BLK_PURSE_ORG_IDX 8  //å…¬å…±é’±åŒ…æ­£æœ¬
+#define OCT_BLK_PURSE_BAK_IDX 9  //å…¬å…±é’±åŒ…å‰¯æœ¬
 
-#define OCT_BLK_PURSE_OTHER_ORG_IDX 16  //×¨ÓÃÇ®°üÕı±¾
-#define OCT_BLK_PURSE_OTHER_BAK_IDX 17  //×¨ÓÃÇ®°ü¸±±¾
+#define OCT_BLK_PURSE_OTHER_ORG_IDX 16  //ä¸“ç”¨é’±åŒ…æ­£æœ¬
+#define OCT_BLK_PURSE_OTHER_BAK_IDX 17  //ä¸“ç”¨é’±åŒ…å‰¯æœ¬
 
-#define OCT_BLK_PUBLIC_ORG_IDX 36  //¹«¹²ĞÅÏ¢ÇøÕı±¾
-#define OCT_BLK_PUBLIC_BAK_IDX 37  //¹«¹²ĞÅÏ¢Çø¸±±¾
-#define OCT_BLK_HISTORY_IDX 38     //¹«¹²ĞÅÏ¢Çø¹ı³Ì½»Ò×ÀúÊ·
+#define OCT_BLK_PUBLIC_ORG_IDX 36  //å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬
+#define OCT_BLK_PUBLIC_BAK_IDX 37  //å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬
+#define OCT_BLK_HISTORY_IDX 38     //å…¬å…±ä¿¡æ¯åŒºè¿‡ç¨‹äº¤æ˜“å†å²
 
-#define OCT_BLK_METRO_ORG_IDX 44   //µØÌúÊı¾İ¿éÕı±¾
-#define OCT_BLK_METRO_BAK_IDX 45   //µØÌúÊı¾İ¿é¸±±¾
+#define OCT_BLK_METRO_ORG_IDX 44   //åœ°é“æ•°æ®å—æ­£æœ¬
+#define OCT_BLK_METRO_BAK_IDX 45   //åœ°é“æ•°æ®å—å‰¯æœ¬
 
 
 
-//¶ÌÎÄ¼ş±êÊ¶
+//çŸ­æ–‡ä»¶æ ‡è¯†
 #define OCTSAM_FILE_MF 0x3F00
 #define OCTSAM_FILE_ADF1 0x1001
 #define OCTSAM_FILE_ADF2 0x1002
@@ -55,73 +55,73 @@
 
 // typedef struct
 // {
-//     unsigned char logic_id[8];//Âß¼­¿¨ºÅ
+//     unsigned char logic_id[8];//é€»è¾‘å¡å·
 //     unsigned char key_history[6];//key04
 //     unsigned char key_purse[6];//key20_1
 //     unsigned char key_public[6];//key20_3
-//     unsigned char public_blk[16];//Ëø¿¨Ê±Ê¹ÓÃ
+//     unsigned char public_blk[16];//é”å¡æ—¶ä½¿ç”¨
 // } TOCT_KEY, *PTOCT_KEY;
 typedef struct
 {
-    unsigned char key_avalid; //ÃÜÔ¿ÊÇ·ñÓÃĞ§¿ÉÓÃ, 00=ÎŞĞ§£¬>0ÓĞĞ§
+    unsigned char key_avalid; //å¯†é’¥æ˜¯å¦ç”¨æ•ˆå¯ç”¨, 00=æ— æ•ˆï¼Œ>0æœ‰æ•ˆ
     unsigned char keya[6];//key04
     unsigned char keyb[6];//key20_1
-    unsigned char public_blk[16];//Ëø¿¨Ê±Ê¹ÓÃ
+    unsigned char public_blk[16];//é”å¡æ—¶ä½¿ç”¨
 } TOCT_KEY, *PTOCT_KEY;
 
 
-// 0 ¿¨Æ¬Ö÷ÀàĞÍ HEX  50£ºÏû·ÑÓÃ¿¨£»
-// 1 Ó¦ÓÃ×ÓÀàĞÍ HEX  "01£ºÆÕÍ¨Ç®°ü¿¨ A3£º³ÉÈË¿¨ A4£ºÑ§Éú¿¨     A5£ºÀÏÄêÈËÆ±¿¨ A6£º²Ğ¼²ÈËÆ±¿¨ A7£º¹«ÎñÔ±Æ±¿¨ A8£º¼ÒÊôÑ§Éú¿¨"
-// 2¡«5  Ó¦ÓÃ¿¨±àºÅ BCD  ¼ÆËãTAC¹ı³ÌÖĞĞèÒªÓÃµ½
-// 6¡«8  ÊÛ¿¨ÈÕÆÚ  BCD  Äê¡¢ÔÂ¡¢ÈÕ£¨yymmdd£©
-// 9¡«10  ÊÛ¿¨Ê±¼ä  BCD  Ê±¡¢·Ö£¨hhmm£©
-// 11¡«12 ÊÛ¿¨µØµã  BCD  ÊÛ¿¨µØµã±àºÅ
-// 13 ÊÛ¿¨Ñº½ğ  HEX  Ôª£¨0.00£©
-// 14 ÆôÓÃ±êÖ¾  HEX  "AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»µ±CPU·ÂM1Ê±=02Î´ÆôÓÃĞèÒªµ½CPU¿¨Á÷³Ì"
-// 15 Ğ£ÑéÂë  HEX  CRC8
+// 0 å¡ç‰‡ä¸»ç±»å‹ HEX  50ï¼šæ¶ˆè´¹ç”¨å¡ï¼›
+// 1 åº”ç”¨å­ç±»å‹ HEX  "01ï¼šæ™®é€šé’±åŒ…å¡ A3ï¼šæˆäººå¡ A4ï¼šå­¦ç”Ÿå¡     A5ï¼šè€å¹´äººç¥¨å¡ A6ï¼šæ®‹ç–¾äººç¥¨å¡ A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡ A8ï¼šå®¶å±å­¦ç”Ÿå¡"
+// 2ï½5  åº”ç”¨å¡ç¼–å· BCD  è®¡ç®—TACè¿‡ç¨‹ä¸­éœ€è¦ç”¨åˆ°
+// 6ï½8  å”®å¡æ—¥æœŸ  BCD  å¹´ã€æœˆã€æ—¥ï¼ˆyymmddï¼‰
+// 9ï½10  å”®å¡æ—¶é—´  BCD  æ—¶ã€åˆ†ï¼ˆhhmmï¼‰
+// 11ï½12 å”®å¡åœ°ç‚¹  BCD  å”®å¡åœ°ç‚¹ç¼–å·
+// 13 å”®å¡æŠ¼é‡‘  HEX  å…ƒï¼ˆ0.00ï¼‰
+// 14 å¯ç”¨æ ‡å¿—  HEX  "AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›å½“CPUä»¿M1æ—¶=02æœªå¯ç”¨éœ€è¦åˆ°CPUå¡æµç¨‹"
+// 15 æ ¡éªŒç   HEX  CRC8
 
 typedef struct
 {
 //==================================================
     unsigned char szbalance[4];
 //==================================================
-    unsigned char type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-    unsigned char type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-    // 01£ºÆÕÍ¨Ç®°ü¿¨
-    // A3£º³ÉÈË¿¨
-    // A4£ºÑ§Éú¿¨
-    // A5£ºÀÏÄêÈËÆ±¿¨
-    // A6£º²Ğ¼²ÈËÆ±¿¨
-    // A7£º¹«ÎñÔ±Æ±¿¨
-    // A8£º¼ÒÊôÑ§Éú¿¨
-    unsigned char appserial[4]; //Ó¦ÓÃ¿¨±àºÅ bcd
-    unsigned char sale_dt[5];//·¢ÊÛÊ±¼ä bcd, yymmddhhnn
-    unsigned char sale_addr[2]; //·¢ÊÛµØµã±àºÅ bcd,
-    unsigned char deposit;//Ñº½ğ,Ôª
-    unsigned char appflag;//Ó¦ÓÃ±êÊ¶,AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»=02×ßCPU¿¨Á÷³Ì
+    unsigned char type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+    unsigned char type_minjor;//åº”ç”¨å­ç±»å‹
+    // 01ï¼šæ™®é€šé’±åŒ…å¡
+    // A3ï¼šæˆäººå¡
+    // A4ï¼šå­¦ç”Ÿå¡
+    // A5ï¼šè€å¹´äººç¥¨å¡
+    // A6ï¼šæ®‹ç–¾äººç¥¨å¡
+    // A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡
+    // A8ï¼šå®¶å±å­¦ç”Ÿå¡
+    unsigned char appserial[4]; //åº”ç”¨å¡ç¼–å· bcd
+    unsigned char sale_dt[5];//å‘å”®æ—¶é—´ bcd, yymmddhhnn
+    unsigned char sale_addr[2]; //å‘å”®åœ°ç‚¹ç¼–å· bcd,
+    unsigned char deposit;//æŠ¼é‡‘,å…ƒ
+    unsigned char appflag;//åº”ç”¨æ ‡è¯†,AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›=02èµ°CPUå¡æµç¨‹
 //===================
-    unsigned char verify_dt[3]; //ÉóºËÇé¿ö yymmdd
-    unsigned char pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-    //0x00£º¿¨ÄÚ×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÎ´ÆôÓÃ£»
-    //0x01£º×¨ÓÃÇ®°üÒÑÆôÓÃ£»
-    //0x02£º¹«¹²Ç®°üÒÑÆôÓÃ£»
-    //0x03£º×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÒÑÆôÓÃ
-    unsigned char city[2];  //³ÇÊĞ´úÂë
-    unsigned char industry[2]; //ĞĞÒµ´úÂë
+    unsigned char verify_dt[3]; //å®¡æ ¸æƒ…å†µ yymmdd
+    unsigned char pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+    //0x00ï¼šå¡å†…ä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡æœªå¯ç”¨ï¼›
+    //0x01ï¼šä¸“ç”¨é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x02ï¼šå…¬å…±é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x03ï¼šä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡å·²å¯ç”¨
+    unsigned char city[2];  //åŸå¸‚ä»£ç 
+    unsigned char industry[2]; //è¡Œä¸šä»£ç 
 //=================================================
-    unsigned char common_count[2]; //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char other_count[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char dt_trdate[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-    unsigned char lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+    unsigned char common_count[2]; //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char other_count[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char dt_trdate[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+    unsigned char lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 //=================================================
-    unsigned char tr_type;//½»Ò×ÀàĞÍ
-    unsigned char servicer_code[2];//·şÎñÉÌ´úÂë
-    unsigned char terminal_no[4];   //POS±àºÅ 4BYTE;
-    unsigned char dt_trdate2[3]; //¹ı³ÌÀúÊ·½»Ò×ÈÕÆÚyy-mm-dd
-    unsigned char banlance[3];  //½»Ò×Ç°Óà¶î
-    unsigned char tr_amount[2];    //½»Ò×½ğ¶î
+    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+    unsigned char servicer_code[2];//æœåŠ¡å•†ä»£ç 
+    unsigned char terminal_no[4];   //POSç¼–å· 4BYTE;
+    unsigned char dt_trdate2[3]; //è¿‡ç¨‹å†å²äº¤æ˜“æ—¥æœŸyy-mm-dd
+    unsigned char banlance[3];  //äº¤æ˜“å‰ä½™é¢
+    unsigned char tr_amount[2];    //äº¤æ˜“é‡‘é¢
 //==================================================
-    unsigned char metro_inf[14]; //²»ĞèÒªCRC16;
+    unsigned char metro_inf[14]; //ä¸éœ€è¦CRC16;
 
 
 
@@ -133,89 +133,89 @@ typedef struct
     unsigned char szbalance[4];
 	unsigned char szbalance2[4];
 //==================================================
-    unsigned char type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-    unsigned char type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-    // 01£ºÆÕÍ¨Ç®°ü¿¨
-    // A3£º³ÉÈË¿¨
-    // A4£ºÑ§Éú¿¨
-    // A5£ºÀÏÄêÈËÆ±¿¨
-    // A6£º²Ğ¼²ÈËÆ±¿¨
-    // A7£º¹«ÎñÔ±Æ±¿¨
-    // A8£º¼ÒÊôÑ§Éú¿¨
-    unsigned char appserial[4]; //Ó¦ÓÃ¿¨±àºÅ bcd
-    unsigned char sale_dt[5];//·¢ÊÛÊ±¼ä bcd, yymmddhhnn
-    unsigned char sale_addr[2]; //·¢ÊÛµØµã±àºÅ bcd,
-    unsigned char deposit;//Ñº½ğ,Ôª
-    unsigned char appflag;//Ó¦ÓÃ±êÊ¶,AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»=02×ßCPU¿¨Á÷³Ì
+    unsigned char type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+    unsigned char type_minjor;//åº”ç”¨å­ç±»å‹
+    // 01ï¼šæ™®é€šé’±åŒ…å¡
+    // A3ï¼šæˆäººå¡
+    // A4ï¼šå­¦ç”Ÿå¡
+    // A5ï¼šè€å¹´äººç¥¨å¡
+    // A6ï¼šæ®‹ç–¾äººç¥¨å¡
+    // A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡
+    // A8ï¼šå®¶å±å­¦ç”Ÿå¡
+    unsigned char appserial[4]; //åº”ç”¨å¡ç¼–å· bcd
+    unsigned char sale_dt[5];//å‘å”®æ—¶é—´ bcd, yymmddhhnn
+    unsigned char sale_addr[2]; //å‘å”®åœ°ç‚¹ç¼–å· bcd,
+    unsigned char deposit;//æŠ¼é‡‘,å…ƒ
+    unsigned char appflag;//åº”ç”¨æ ‡è¯†,AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›=02èµ°CPUå¡æµç¨‹
 //===================
-    unsigned char verify_dt[3]; //ÉóºËÇé¿ö yymmdd
-    unsigned char pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-    //0x00£º¿¨ÄÚ×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÎ´ÆôÓÃ£»
-    //0x01£º×¨ÓÃÇ®°üÒÑÆôÓÃ£»
-    //0x02£º¹«¹²Ç®°üÒÑÆôÓÃ£»
-    //0x03£º×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÒÑÆôÓÃ
-    unsigned char city[2];  //³ÇÊĞ´úÂë
-    unsigned char industry[2]; //ĞĞÒµ´úÂë
+    unsigned char verify_dt[3]; //å®¡æ ¸æƒ…å†µ yymmdd
+    unsigned char pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+    //0x00ï¼šå¡å†…ä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡æœªå¯ç”¨ï¼›
+    //0x01ï¼šä¸“ç”¨é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x02ï¼šå…¬å…±é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x03ï¼šä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡å·²å¯ç”¨
+    unsigned char city[2];  //åŸå¸‚ä»£ç 
+    unsigned char industry[2]; //è¡Œä¸šä»£ç 
 //=================================================
-    unsigned char common_count[2]; //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char other_count[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char dt_trdate[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-    unsigned char lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+    unsigned char common_count[2]; //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char other_count[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char dt_trdate[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+    unsigned char lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 //=================================================
-    unsigned char tr_type;//½»Ò×ÀàĞÍ
-    unsigned char servicer_code[2];//·şÎñÉÌ´úÂë
-    unsigned char terminal_no[4];   //POS±àºÅ 4BYTE;
-    unsigned char dt_trdate2[3]; //¹ı³ÌÀúÊ·½»Ò×ÈÕÆÚyy-mm-dd
-    unsigned char banlance[3];  //½»Ò×Ç°Óà¶î
-    unsigned char tr_amount[2];    //½»Ò×½ğ¶î
+    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+    unsigned char servicer_code[2];//æœåŠ¡å•†ä»£ç 
+    unsigned char terminal_no[4];   //POSç¼–å· 4BYTE;
+    unsigned char dt_trdate2[3]; //è¿‡ç¨‹å†å²äº¤æ˜“æ—¥æœŸyy-mm-dd
+    unsigned char banlance[3];  //äº¤æ˜“å‰ä½™é¢
+    unsigned char tr_amount[2];    //äº¤æ˜“é‡‘é¢
 //==================================================
-    unsigned char metro_inf[14]; //²»ĞèÒªCRC16;
+    unsigned char metro_inf[14]; //ä¸éœ€è¦CRC16;
 
 
 
 }TOUTPUT2, *LPTOUTPUT2;
 
 
-//Êı¾İ¿é½á¹¹¶¨Òå
-//·¢ĞĞÇø
+//æ•°æ®å—ç»“æ„å®šä¹‰
+//å‘è¡ŒåŒº
 typedef struct
 {
-    unsigned char type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-    unsigned char type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-    // 01£ºÆÕÍ¨Ç®°ü¿¨
-    // A3£º³ÉÈË¿¨
-    // A4£ºÑ§Éú¿¨
-    // A5£ºÀÏÄêÈËÆ±¿¨
-    // A6£º²Ğ¼²ÈËÆ±¿¨
-    // A7£º¹«ÎñÔ±Æ±¿¨
-    // A8£º¼ÒÊôÑ§Éú¿¨
-    unsigned char appserial[4]; //Ó¦ÓÃ¿¨±àºÅ bcd
-    unsigned char sale_dt[5];//·¢ÊÛÊ±¼ä bcd, yymmddhhnn
-    unsigned char sale_addr[2]; //·¢ÊÛµØµã±àºÅ bcd,
-    unsigned char deposit;//Ñº½ğ,Ôª
-    unsigned char appflag;//Ó¦ÓÃ±êÊ¶,AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»=02×ßCPU¿¨Á÷³Ì
+    unsigned char type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+    unsigned char type_minjor;//åº”ç”¨å­ç±»å‹
+    // 01ï¼šæ™®é€šé’±åŒ…å¡
+    // A3ï¼šæˆäººå¡
+    // A4ï¼šå­¦ç”Ÿå¡
+    // A5ï¼šè€å¹´äººç¥¨å¡
+    // A6ï¼šæ®‹ç–¾äººç¥¨å¡
+    // A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡
+    // A8ï¼šå®¶å±å­¦ç”Ÿå¡
+    unsigned char appserial[4]; //åº”ç”¨å¡ç¼–å· bcd
+    unsigned char sale_dt[5];//å‘å”®æ—¶é—´ bcd, yymmddhhnn
+    unsigned char sale_addr[2]; //å‘å”®åœ°ç‚¹ç¼–å· bcd,
+    unsigned char deposit;//æŠ¼é‡‘,å…ƒ
+    unsigned char appflag;//åº”ç”¨æ ‡è¯†,AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›=02èµ°CPUå¡æµç¨‹
     unsigned char crc8;
 } TOCT_BLK_ISSUE_DETAIL, *PTOCT_BLK_ISSUE_DETAIL;
 
-//Ó¦ÓÃË÷ÒıÇø
+//åº”ç”¨ç´¢å¼•åŒº
 typedef struct
 {
-    unsigned char verify_dt[3]; //ÉóºËÇé¿ö yymmdd
-    unsigned char pursemode;    //¿¨ÄÚ´¢ÖµÇé¿ö
-    //0x00£º¿¨ÄÚ×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÎ´ÆôÓÃ£»
-    //0x01£º×¨ÓÃÇ®°üÒÑÆôÓÃ£»
-    //0x02£º¹«¹²Ç®°üÒÑÆôÓÃ£»
-    //0x03£º×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÒÑÆôÓÃ
-    unsigned char city[2];      //³ÇÊĞ´úÂë
-    unsigned char industry[2];  //ĞĞÒµ´úÂë
-    unsigned char cardmac[4];//¿¨ÈÏÖ¤Âë
+    unsigned char verify_dt[3]; //å®¡æ ¸æƒ…å†µ yymmdd
+    unsigned char pursemode;    //å¡å†…å‚¨å€¼æƒ…å†µ
+    //0x00ï¼šå¡å†…ä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡æœªå¯ç”¨ï¼›
+    //0x01ï¼šä¸“ç”¨é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x02ï¼šå…¬å…±é’±åŒ…å·²å¯ç”¨ï¼›
+    //0x03ï¼šä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡å·²å¯ç”¨
+    unsigned char city[2];      //åŸå¸‚ä»£ç 
+    unsigned char industry[2];  //è¡Œä¸šä»£ç 
+    unsigned char cardmac[4];//å¡è®¤è¯ç 
     unsigned char rfu[3];
     unsigned char crc8;
 } TOCT_BLK_ADDTIONALISSUE_DETAIL, *PTOCT_BLK_ADDTIONALISSUE_DETAIL;
 
 
 
-//¹«¹²Ç®°ü
+//å…¬å…±é’±åŒ…
 typedef struct
 {
     unsigned char purse1[4];
@@ -224,56 +224,56 @@ typedef struct
     unsigned char addr[4];
 } TOCT_BLK_COMMON_PURSE_DETAIL, *PTOCT_BLK_COMMON_PURSE_DETAIL;
 
-//¹«¹²ĞÅÏ¢¿é
+//å…¬å…±ä¿¡æ¯å—
 typedef struct
 {
-    unsigned char proc_flag;//¹ı³Ì±êÊ¶
-    //0x11£º¹«¹²Ç®°ü½»Ò×¿ªÊ¼£»
-    //0x12£º×¨ÓÃÇ®°ü½»Ò×¿ªÊ¼£»
-    //0x13£º¹«¹²Ç®°ü½»Ò×½áÊø£»
-    //0x14£º×¨ÓÃÇ®°ü½»Ò×½áÊø£»
-    unsigned char tr_type;  //½»Ò×ÀàĞÍ
-    //0x01£º¹«¹²Ç®°ü³äÖµ½»Ò×£»
-    //0x02£º×¨ÓÃÇ®°ü³äÖµ½»Ò×£»
-    //0x03£º¹«¹²Ç®°üÏû·Ñ½»Ò×£»
-    //0x04£º×¨ÓÃÇ®°üÏû·Ñ½»Ò×£»
-    unsigned char tr_pt;    //½»Ò×Ö¸Õë
-    unsigned char common_count[2]; //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char other_count[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-    unsigned char dt_trdate[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-    unsigned char lock_flag;    //04Ëø¿¨£¬ÆäËüÕı³£
+    unsigned char proc_flag;//è¿‡ç¨‹æ ‡è¯†
+    //0x11ï¼šå…¬å…±é’±åŒ…äº¤æ˜“å¼€å§‹ï¼›
+    //0x12ï¼šä¸“ç”¨é’±åŒ…äº¤æ˜“å¼€å§‹ï¼›
+    //0x13ï¼šå…¬å…±é’±åŒ…äº¤æ˜“ç»“æŸï¼›
+    //0x14ï¼šä¸“ç”¨é’±åŒ…äº¤æ˜“ç»“æŸï¼›
+    unsigned char tr_type;  //äº¤æ˜“ç±»å‹
+    //0x01ï¼šå…¬å…±é’±åŒ…å……å€¼äº¤æ˜“ï¼›
+    //0x02ï¼šä¸“ç”¨é’±åŒ…å……å€¼äº¤æ˜“ï¼›
+    //0x03ï¼šå…¬å…±é’±åŒ…æ¶ˆè´¹äº¤æ˜“ï¼›
+    //0x04ï¼šä¸“ç”¨é’±åŒ…æ¶ˆè´¹äº¤æ˜“ï¼›
+    unsigned char tr_pt;    //äº¤æ˜“æŒ‡é’ˆ
+    unsigned char common_count[2]; //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char other_count[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+    unsigned char dt_trdate[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+    unsigned char lock_flag;    //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
     unsigned char rfu[3];
-    unsigned char crc8;         //Ğ£Ñé
+    unsigned char crc8;         //æ ¡éªŒ
 } TOCT_BLK_PUBLIC_DETAIL, *PTOCT_BLK_PUBLIC_DETAIL;
 
-//ÀúÊ·Êı¾İ¿é
+//å†å²æ•°æ®å—
 typedef struct
 {
-    unsigned char tr_type;//½»Ò×ÀàĞÍ
-    unsigned char servicer_code[2];//·şÎñÉÌ´úÂë
-    unsigned char terminal_no[4];     //POS±àºÅ 4BYTE;
-    unsigned char dt_trdate[3]; //½»Ò×ÈÕÆÚyy-mm-dd
-    unsigned char banlance[3];   //½»Ò×Ç°Óà¶î
-    unsigned char tr_amount[2];    //½»Ò×½ğ¶î
-    unsigned char crc8;         //Ğ£Ñé
+    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+    unsigned char servicer_code[2];//æœåŠ¡å•†ä»£ç 
+    unsigned char terminal_no[4];     //POSç¼–å· 4BYTE;
+    unsigned char dt_trdate[3]; //äº¤æ˜“æ—¥æœŸyy-mm-dd
+    unsigned char banlance[3];   //äº¤æ˜“å‰ä½™é¢
+    unsigned char tr_amount[2];    //äº¤æ˜“é‡‘é¢
+    unsigned char crc8;         //æ ¡éªŒ
 } TOCT_BLK_HISTORY_DETAIL, *PTOCT_BLK_HISTORY_DETAIL;
 
 
-//µØÌúÊı¾İ¿é
+//åœ°é“æ•°æ®å—
 typedef struct
 {
 unsigned char verison:
-    4;//¿¨°æ±¾
+    4;//å¡ç‰ˆæœ¬
 unsigned char device_type:
-    4;//Éè±¸ÀàĞÍ
+    4;//è®¾å¤‡ç±»å‹
 unsigned char status:
-    4; //¿¨×´Ì¬
+    4; //å¡çŠ¶æ€
 unsigned char device_code_hi:
-    4;//Éè±¸±àºÅ¸ßÎ»
-    unsigned char device_code_lo;  //Éè±¸±àºÅµÍÎ»
-    unsigned char lst_station[2];//×îºóÒ»´Î²Ù×÷ÏßÂ·Õ¾µã
-    unsigned char tm4[4];//×îºóÒ»´Î²Ù×÷Ê±¼ä
-    unsigned char lst_entry[2];//×îºóÒ»´Î½øÕ¾ÏßÂ·Õ¾µã
+    4;//è®¾å¤‡ç¼–å·é«˜ä½
+    unsigned char device_code_lo;  //è®¾å¤‡ç¼–å·ä½ä½
+    unsigned char lst_station[2];//æœ€åä¸€æ¬¡æ“ä½œçº¿è·¯ç«™ç‚¹
+    unsigned char tm4[4];//æœ€åä¸€æ¬¡æ“ä½œæ—¶é—´
+    unsigned char lst_entry[2];//æœ€åä¸€æ¬¡è¿›ç«™çº¿è·¯ç«™ç‚¹
     unsigned char rfu[3];
     unsigned char crc16[2];
 } TOCT_METRO_DETAIL, *PTOCT_METRO_DETAIL;
@@ -320,64 +320,64 @@ typedef union
 
 typedef struct
 {
-//  Ç®°üÓĞ¹«¹²Ç®°üºÍ×¨ÓÃÇ®°ü£¬±¾½á¹¹ÖĞ¶¨Òå2Îª×¨ÓÃÇ®°ü
-    unsigned long lpurse_common_org;//Ç®°üÕı±¾Öµ
-    unsigned long lpurse_common_bak;//Ç®°ü¸±±¾Öµ
+//  é’±åŒ…æœ‰å…¬å…±é’±åŒ…å’Œä¸“ç”¨é’±åŒ…ï¼Œæœ¬ç»“æ„ä¸­å®šä¹‰2ä¸ºä¸“ç”¨é’±åŒ…
+    unsigned long lpurse_common_org;//é’±åŒ…æ­£æœ¬å€¼
+    unsigned long lpurse_common_bak;//é’±åŒ…å‰¯æœ¬å€¼
 
-    unsigned long lpurse_other_org;//Ç®°üÕı±¾Öµ
-    unsigned long lpurse_other_bak;//Ç®°ü¸±±¾Öµ
+    unsigned long lpurse_other_org;//é’±åŒ…æ­£æœ¬å€¼
+    unsigned long lpurse_other_bak;//é’±åŒ…å‰¯æœ¬å€¼
 
 //
-//     unsigned short ntr_count_org;//¹«¹²ĞÅÏ¢Çø¹«¹²Ç®°üÕı±¾Æ±¿¨½»Ò×¼ÆÊıÖµ
-//     unsigned short ntr_count_bak;//¹«¹²ĞÅÏ¢Çø¹«¹²Ç®°ü¸±±¾Æ±¿¨½»Ò×¼ÆÊıÖµ
+//     unsigned short ntr_count_org;//å…¬å…±ä¿¡æ¯åŒºå…¬å…±é’±åŒ…æ­£æœ¬ç¥¨å¡äº¤æ˜“è®¡æ•°å€¼
+//     unsigned short ntr_count_bak;//å…¬å…±ä¿¡æ¯åŒºå…¬å…±é’±åŒ…å‰¯æœ¬ç¥¨å¡äº¤æ˜“è®¡æ•°å€¼
 //
 //
-//     unsigned short ntr_count_other_org;//¹«¹²ĞÅÏ¢Çø×¨ÓÃÇ®°üÕı±¾Æ±¿¨½»Ò×¼ÆÊıÖµ
-//     unsigned short ntr_count_other_bak;//¹«¹²ĞÅÏ¢Çø×¨ÓÃÇ®°ü¸±±¾Æ±¿¨½»Ò×¼ÆÊıÖµ
+//     unsigned short ntr_count_other_org;//å…¬å…±ä¿¡æ¯åŒºä¸“ç”¨é’±åŒ…æ­£æœ¬ç¥¨å¡äº¤æ˜“è®¡æ•°å€¼
+//     unsigned short ntr_count_other_bak;//å…¬å…±ä¿¡æ¯åŒºä¸“ç”¨é’±åŒ…å‰¯æœ¬ç¥¨å¡äº¤æ˜“è®¡æ•°å€¼
 
-    unsigned char lst_tr_type;//ÉÏ´Î½»Ò×ÀàĞÍ
+    unsigned char lst_tr_type;//ä¸Šæ¬¡äº¤æ˜“ç±»å‹
 
 
-//·¢ĞĞÇøÊı¾İÔÚ´¦Àí¹ı³ÌÖĞÖ»ĞèÒª²¿·ÖÊı¾İ£¬ÎªÁË½ÚÊ¡¿Õ¼ä£¬²»¶ÔÆä½øĞĞ¹Ì¶¨·ÖÅä
+//å‘è¡ŒåŒºæ•°æ®åœ¨å¤„ç†è¿‡ç¨‹ä¸­åªéœ€è¦éƒ¨åˆ†æ•°æ®ï¼Œä¸ºäº†èŠ‚çœç©ºé—´ï¼Œä¸å¯¹å…¶è¿›è¡Œå›ºå®šåˆ†é…
 
     OCT_BLK_ISSUESUE blk_issue;
     OCT_BLK_ADDTIONALISSUE blk_addtional;
 
-    OCT_BLK_PURSE blk_purse_common_org;  //¹«¹²Ç®°ü¿éÕı±¾
-    OCT_BLK_PURSE blk_purse_common_bak;  //¹«¹²Ç®°ü¿é¸±±¾
+    OCT_BLK_PURSE blk_purse_common_org;  //å…¬å…±é’±åŒ…å—æ­£æœ¬
+    OCT_BLK_PURSE blk_purse_common_bak;  //å…¬å…±é’±åŒ…å—å‰¯æœ¬
 
-    OCT_BLK_PURSE blk_purse_other_org;  //×¨ÓÃÇ®°ü¿éÕı±¾
-    OCT_BLK_PURSE blk_purse_other_bak;  //×¨ÓÃÇ®°ü¿é¸±±¾
+    OCT_BLK_PURSE blk_purse_other_org;  //ä¸“ç”¨é’±åŒ…å—æ­£æœ¬
+    OCT_BLK_PURSE blk_purse_other_bak;  //ä¸“ç”¨é’±åŒ…å—å‰¯æœ¬
 
 
-//¹«¹²Ç®°üºÍ×¨ÓÃÇ®°ü¹²ÓÃ¹«¹²ĞÅÏ¢ºÍÀúÊ·Çø
-    OCT_BLK_PUBLIC blk_public_org;    //¹«¹²ĞÅÏ¢Õı±¾
-    OCT_BLK_PUBLIC blk_public_bak;    //¹«¹²ĞÅÏ¢¸±±¾
-    OCT_BLK_HISTORY blk_history;      //ÀúÊ·Êı¾İ¿é
-    OCT_BLK_METRO blk_metro_org; //µØÌúĞÅÏ¢ÇøÕı±¾
-    OCT_BLK_METRO blk_metro_bak; //µØÌúĞÅÏ¢Çø¸±±¾
+//å…¬å…±é’±åŒ…å’Œä¸“ç”¨é’±åŒ…å…±ç”¨å…¬å…±ä¿¡æ¯å’Œå†å²åŒº
+    OCT_BLK_PUBLIC blk_public_org;    //å…¬å…±ä¿¡æ¯æ­£æœ¬
+    OCT_BLK_PUBLIC blk_public_bak;    //å…¬å…±ä¿¡æ¯å‰¯æœ¬
+    OCT_BLK_HISTORY blk_history;      //å†å²æ•°æ®å—
+    OCT_BLK_METRO blk_metro_org; //åœ°é“ä¿¡æ¯åŒºæ­£æœ¬
+    OCT_BLK_METRO blk_metro_bak; //åœ°é“ä¿¡æ¯åŒºå‰¯æœ¬
 
-//    OCT_BLK_HISTORY blk_newhistory;      //ĞÂÀúÊ·Êı¾İ¿é£¬½«ÒªĞ´ÈëµÄÊı¾İ
+//    OCT_BLK_HISTORY blk_newhistory;      //æ–°å†å²æ•°æ®å—ï¼Œå°†è¦å†™å…¥çš„æ•°æ®
 }  TOCT_INF, *PTOCT_INF;
 
 typedef struct
 {
-    unsigned char tr_type;//½»Ò×ÀàĞÍ
-    unsigned char tr_datetime[7];//½»Ò×Ê±¼ä
-    unsigned char before_balance[4];//½»Ò×Ç°Óà¶î
-    unsigned char tr_money[2];//½»Ò×½ğ¶î
-    unsigned char tr_count[2];//Æ±¿¨¼ÆÊı
-//    unsigned char padding[7];//¹Ì¶¨Îª80 00 00 00 00 00 00
-} TOCT_TAC, *PTOCT_TAC; //des³õÊ¼»¯¿¨ºÅÈ¡Õı³£Ë³ÁĞ
+    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+    unsigned char tr_datetime[7];//äº¤æ˜“æ—¶é—´
+    unsigned char before_balance[4];//äº¤æ˜“å‰ä½™é¢
+    unsigned char tr_money[2];//äº¤æ˜“é‡‘é¢
+    unsigned char tr_count[2];//ç¥¨å¡è®¡æ•°
+//    unsigned char padding[7];//å›ºå®šä¸º80 00 00 00 00 00 00
+} TOCT_TAC, *PTOCT_TAC; //desåˆå§‹åŒ–å¡å·å–æ­£å¸¸é¡ºåˆ—
 
 
 
 typedef struct
 {
-    unsigned char physicalnumber[4];//ÎïÀí¿¨ºÅ
+    unsigned char physicalnumber[4];//ç‰©ç†å¡å·
     unsigned char logiccardnumber[8];
 
-    unsigned char currsector;//µ±Ç°ÒÑÈÏÖ¤ÉÈÇøºÅ
+    unsigned char currsector;//å½“å‰å·²è®¤è¯æ‰‡åŒºå·
 } TOCT_CURRINF, *PTOCT_CURRINF;
 
 
@@ -388,19 +388,19 @@ struct Err_Info
 };
 
 
-//M1¿¨¶ÏµãĞÅÏ¢
+//M1å¡æ–­ç‚¹ä¿¡æ¯
 typedef struct
 {
-    unsigned char Logicno[8];//Âß¼­¿¨ºÅ
-    unsigned char npursetype;//Ç®°üÀàĞÍ0=¹«ÓÃÇ®°ü, 1=×¨ÓÃÇ®°ü
-    unsigned long balance_before;//Ïû·ÑÇ°Óà¶î
-    unsigned long balance_after;//Ïû·ÑºóÓà¶î
+    unsigned char Logicno[8];//é€»è¾‘å¡å·
+    unsigned char npursetype;//é’±åŒ…ç±»å‹0=å…¬ç”¨é’±åŒ…, 1=ä¸“ç”¨é’±åŒ…
+    unsigned long balance_before;//æ¶ˆè´¹å‰ä½™é¢
+    unsigned long balance_after;//æ¶ˆè´¹åä½™é¢
 } BREAKINF;
 
 
-TOCT_KEY g_octkeyinf; //µ±Ç°OCT  µÄkey ¼°Ïà¹ØĞÅÏ¢
+TOCT_KEY g_octkeyinf; //å½“å‰OCT  çš„key åŠç›¸å…³ä¿¡æ¯
 
-TOCT_CURRINF g_octcurrinf;//µ±Ç°²Ù×÷Æ±¿¨µÄ¶¯Ì¬ĞÅÏ¢
+TOCT_CURRINF g_octcurrinf;//å½“å‰æ“ä½œç¥¨å¡çš„åŠ¨æ€ä¿¡æ¯
 
 BREAKINF g_m1recover;
 
@@ -454,16 +454,16 @@ unsigned short crc16(unsigned char * lpData, unsigned short nLen)
 
 
 //========================================================================
-//º¯ Êı Ãû: crc_ck
-//¹¦    ÄÜ: Ğ£ÑéÊı¾İ¿éµÄcrc8µÄÖµÊÇ·ñÕıÈ·
-//ÊäÈë²ÎÊı:
-//          string_cu:ĞèÒª¼ÆËãµÄÊı¾İ¿éÖ¸Õë
-//             length:Êı¾İ×Ü³¤¶È£¬°üÀ¨ÒªÌî³äCRC8µÄÒ»¸ö×Ö½Ú
-//³ö¿Ú²ÎÊı:
-//   string_ck:´øÓĞcrc8ÖµµÄÊı×é
-//·µ »Ø Öµ:
-//          =0ÕıÈ·
-//         !=0´íÎó
+//å‡½ æ•° å: crc_ck
+//åŠŸ    èƒ½: æ ¡éªŒæ•°æ®å—çš„crc8çš„å€¼æ˜¯å¦æ­£ç¡®
+//è¾“å…¥å‚æ•°:
+//          string_cu:éœ€è¦è®¡ç®—çš„æ•°æ®å—æŒ‡é’ˆ
+//             length:æ•°æ®æ€»é•¿åº¦ï¼ŒåŒ…æ‹¬è¦å¡«å……CRC8çš„ä¸€ä¸ªå­—èŠ‚
+//å‡ºå£å‚æ•°:
+//   string_ck:å¸¦æœ‰crc8å€¼çš„æ•°ç»„
+//è¿” å› å€¼:
+//          =0æ­£ç¡®
+//         !=0é”™è¯¯
 //========================================================================
 unsigned char crc16_ck(unsigned char *string_ck,unsigned char nlength)
 {
@@ -489,15 +489,15 @@ unsigned char crc16_ck(unsigned char *string_ck,unsigned char nlength)
 }
 
 //========================================================================
-//º¯ Êı Ãû: crc_cu
-//¹¦    ÄÜ: ¼ÆËãÊı¾İ¿éµÄcrc8µÄÖµ²¢½øĞĞÌî³ä
-//ÊäÈë²ÎÊı:
-//          string_cu:ĞèÒª¼ÆËãµÄÊı¾İ¿éÖ¸Õë
-//             length:Êı¾İ×Ü³¤¶È£¬°üÀ¨ÒªÌî³äCRC8µÄÒ»¸ö×Ö½Ú
-//³ö¿Ú²ÎÊı:
-//   string_cu:Ìî³äÁËcrc8ÖµµÄÊı¾İÊı×é
-//·µ »Ø Öµ:
-//          ÎŞ
+//å‡½ æ•° å: crc_cu
+//åŠŸ    èƒ½: è®¡ç®—æ•°æ®å—çš„crc8çš„å€¼å¹¶è¿›è¡Œå¡«å……
+//è¾“å…¥å‚æ•°:
+//          string_cu:éœ€è¦è®¡ç®—çš„æ•°æ®å—æŒ‡é’ˆ
+//             length:æ•°æ®æ€»é•¿åº¦ï¼ŒåŒ…æ‹¬è¦å¡«å……CRC8çš„ä¸€ä¸ªå­—èŠ‚
+//å‡ºå£å‚æ•°:
+//   string_cu:å¡«å……äº†crc8å€¼çš„æ•°æ®æ•°ç»„
+//è¿” å› å€¼:
+//          æ— 
 //========================================================================
 void crc16_cu(unsigned char *string_cu,unsigned short nlength)
 {
@@ -517,15 +517,15 @@ void crc16_cu(unsigned char *string_cu,unsigned short nlength)
 
 
 //========================================================================
-//º¯ Êı Ãû: crc_c
-//¹¦    ÄÜ: crc8µÄ¼ÆËã
-//ÊäÈë²ÎÊı:
-//          x:ĞèÒª¼ÆËãcrc8µÄ×Ö½ÚÊı¾İ
-//       temp:¹«¹²Ô¤ÖÃÖµ
-//³ö¿Ú²ÎÊı:
-//   ÎŞ
-//·µ »Ø Öµ:
-//          ¼ÆËãµÄCRC8Öµ
+//å‡½ æ•° å: crc_c
+//åŠŸ    èƒ½: crc8çš„è®¡ç®—
+//è¾“å…¥å‚æ•°:
+//          x:éœ€è¦è®¡ç®—crc8çš„å­—èŠ‚æ•°æ®
+//       temp:å…¬å…±é¢„ç½®å€¼
+//å‡ºå£å‚æ•°:
+//   æ— 
+//è¿” å› å€¼:
+//          è®¡ç®—çš„CRC8å€¼
 //========================================================================
 
 unsigned char crc_c(unsigned char x,unsigned char temp)
@@ -543,16 +543,16 @@ unsigned char crc_c(unsigned char x,unsigned char temp)
 }
 
 //========================================================================
-//º¯ Êı Ãû: crc_ck
-//¹¦    ÄÜ: Ğ£ÑéÊı¾İ¿éµÄcrc8µÄÖµÊÇ·ñÕıÈ·
-//ÊäÈë²ÎÊı:
-//          string_cu:ĞèÒª¼ÆËãµÄÊı¾İ¿éÖ¸Õë
-//             length:Êı¾İ×Ü³¤¶È£¬°üÀ¨ÒªÌî³äCRC8µÄÒ»¸ö×Ö½Ú
-//³ö¿Ú²ÎÊı:
-//   string_ck:´øÓĞcrc8ÖµµÄÊı×é
-//·µ »Ø Öµ:
-//          =0ÕıÈ·
-//         !=0´íÎó
+//å‡½ æ•° å: crc_ck
+//åŠŸ    èƒ½: æ ¡éªŒæ•°æ®å—çš„crc8çš„å€¼æ˜¯å¦æ­£ç¡®
+//è¾“å…¥å‚æ•°:
+//          string_cu:éœ€è¦è®¡ç®—çš„æ•°æ®å—æŒ‡é’ˆ
+//             length:æ•°æ®æ€»é•¿åº¦ï¼ŒåŒ…æ‹¬è¦å¡«å……CRC8çš„ä¸€ä¸ªå­—èŠ‚
+//å‡ºå£å‚æ•°:
+//   string_ck:å¸¦æœ‰crc8å€¼çš„æ•°ç»„
+//è¿” å› å€¼:
+//          =0æ­£ç¡®
+//         !=0é”™è¯¯
 //========================================================================
 unsigned char crc_ck(unsigned char *string_ck,unsigned char length)
 {
@@ -566,15 +566,15 @@ unsigned char crc_ck(unsigned char *string_ck,unsigned char length)
 
 
 //========================================================================
-//º¯ Êı Ãû: crc_cu
-//¹¦    ÄÜ: ¼ÆËãÊı¾İ¿éµÄcrc8µÄÖµ²¢½øĞĞÌî³ä
-//ÊäÈë²ÎÊı:
-//          string_cu:ĞèÒª¼ÆËãµÄÊı¾İ¿éÖ¸Õë
-//             length:Êı¾İ×Ü³¤¶È£¬°üÀ¨ÒªÌî³äCRC8µÄÒ»¸ö×Ö½Ú
-//³ö¿Ú²ÎÊı:
-//   string_cu:Ìî³äÁËcrc8ÖµµÄÊı¾İÊı×é
-//·µ »Ø Öµ:
-//          ÎŞ
+//å‡½ æ•° å: crc_cu
+//åŠŸ    èƒ½: è®¡ç®—æ•°æ®å—çš„crc8çš„å€¼å¹¶è¿›è¡Œå¡«å……
+//è¾“å…¥å‚æ•°:
+//          string_cu:éœ€è¦è®¡ç®—çš„æ•°æ®å—æŒ‡é’ˆ
+//             length:æ•°æ®æ€»é•¿åº¦ï¼ŒåŒ…æ‹¬è¦å¡«å……CRC8çš„ä¸€ä¸ªå­—èŠ‚
+//å‡ºå£å‚æ•°:
+//   string_cu:å¡«å……äº†crc8å€¼çš„æ•°æ®æ•°ç»„
+//è¿” å› å€¼:
+//          æ— 
 //========================================================================
 void crc_cu(unsigned char *string_cu,unsigned char length)
 {
@@ -585,14 +585,14 @@ void crc_cu(unsigned char *string_cu,unsigned char length)
 }
 
 //==========================================================================================
-//º¯ Êı Ãû: octsam_chk
-//¹¦    ÄÜ: ¼ì²éSAM¿¨ÊÇ·ñ´æÔÚ£¬ÒÔ·ÅÕı³£³õÊ¼»ªºó±»°ÎµôÔì³ÉM1¿¨¿É¿Û·Ñµ«²»ÄÜ¼ÆËãTACµÄÇé¿ö
-//Èë¿Ú²ÎÊı:
-//          idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//³ö¿Ú²ÎÊı:
-//             ÎŞ
-//·µ »Ø Öµ:
-//          0=sam¿¨´æÔÚ
+//å‡½ æ•° å: octsam_chk
+//åŠŸ    èƒ½: æ£€æŸ¥SAMå¡æ˜¯å¦å­˜åœ¨ï¼Œä»¥æ”¾æ­£å¸¸åˆå§‹ååè¢«æ‹”æ‰é€ æˆM1å¡å¯æ‰£è´¹ä½†ä¸èƒ½è®¡ç®—TACçš„æƒ…å†µ
+//å…¥å£å‚æ•°:
+//          idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//å‡ºå£å‚æ•°:
+//             æ— 
+//è¿” å› å€¼:
+//          0=samå¡å­˜åœ¨
 //==========================================================================================
 unsigned char octsam_chk(unsigned char idx_sam)
 {
@@ -675,7 +675,7 @@ unsigned char octsam_exportkey(unsigned char idx_sam)
             //break;
         }
 
-        //¼ÆËãKEYA===============================
+        //è®¡ç®—KEYA===============================
         uclen = 13;
         memcpy(tmpbuf, cmd_initdes[0], uclen);
 
@@ -704,7 +704,7 @@ unsigned char octsam_exportkey(unsigned char idx_sam)
         }
         memcpy(g_octkeyinf.keya, tmpbuf+2, 6);
 
-        //¼ÆËãKEYB=========================================
+        //è®¡ç®—KEYB=========================================
         uclen = 13;
         memcpy(tmpbuf, cmd_initdes[1], uclen);
 
@@ -809,7 +809,7 @@ char octm1_writeblock(unsigned char blk_idx, unsigned char *szdata)
 
     if (ret==MI_OK)
     {
-        //Èç¹ûÇø¿éÒÑÈÏÖ¤£¬ÏÂ´ÎÖ±½Ó½øĞĞ¶ÁĞ´²Ù×÷
+        //å¦‚æœåŒºå—å·²è®¤è¯ï¼Œä¸‹æ¬¡ç›´æ¥è¿›è¡Œè¯»å†™æ“ä½œ
         g_octcurrinf.currsector = currsector;
     }
 
@@ -818,7 +818,7 @@ char octm1_writeblock(unsigned char blk_idx, unsigned char *szdata)
 
 }
 
-//ndestºÍnsrc±ØĞëÔÚÒ»¸öÉÈÇøºÅÄÚ
+//ndestå’Œnsrcå¿…é¡»åœ¨ä¸€ä¸ªæ‰‡åŒºå·å†…
 char octm1_copy_purse(unsigned char ndest, unsigned char nsrc)
 {
 
@@ -838,12 +838,12 @@ char octm1_copy_purse(unsigned char ndest, unsigned char nsrc)
     if (ret==MI_OK)
     {
 
-        ret = ISO14443A_Transfer(ndest); //Ç®°ü¸±±¾µ÷ÓÃ
+        ret = ISO14443A_Transfer(ndest); //é’±åŒ…å‰¯æœ¬è°ƒç”¨
     }
 
     if (ret==MI_OK)
     {
-        //Èç¹ûÇø¿éÒÑÈÏÖ¤£¬ÏÂ´ÎÖ±½Ó½øĞĞ¶ÁĞ´²Ù×÷
+        //å¦‚æœåŒºå—å·²è®¤è¯ï¼Œä¸‹æ¬¡ç›´æ¥è¿›è¡Œè¯»å†™æ“ä½œ
         g_octcurrinf.currsector = currsector;
     }
 
@@ -865,7 +865,7 @@ char octm1_write_purse(unsigned char blk_idx, unsigned char optmode, unsigned lo
 
     if (ret==MI_OK)
     {
-        ret = ISO14443A_Restore(blk_idx); //Ç®°üÕı±¾µ÷ÓÃ
+        ret = ISO14443A_Restore(blk_idx); //é’±åŒ…æ­£æœ¬è°ƒç”¨
     }
 
     if (ret==MI_OK)
@@ -885,12 +885,12 @@ char octm1_write_purse(unsigned char blk_idx, unsigned char optmode, unsigned lo
 
     if (ret==MI_OK)
     {
-        ret = ISO14443A_Transfer(blk_idx); //Ç®°üÕı±¾´«Öµ
+        ret = ISO14443A_Transfer(blk_idx); //é’±åŒ…æ­£æœ¬ä¼ å€¼
     }
 
     if (ret==MI_OK)
     {
-        //Èç¹ûÇø¿éÒÑÈÏÖ¤£¬ÏÂ´ÎÖ±½Ó½øĞĞ¶ÁĞ´²Ù×÷
+        //å¦‚æœåŒºå—å·²è®¤è¯ï¼Œä¸‹æ¬¡ç›´æ¥è¿›è¡Œè¯»å†™æ“ä½œ
         g_octcurrinf.currsector = currsector;
     }
 
@@ -899,15 +899,15 @@ char octm1_write_purse(unsigned char blk_idx, unsigned char optmode, unsigned lo
 }
 
 //===========================================
-//Êı¾İ¿éĞ£Ñé´¦Àí²¿·Ö
+//æ•°æ®å—æ ¡éªŒå¤„ç†éƒ¨åˆ†
 
-//ÅĞ¶ÏÊı¾İ¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤æ–­æ•°æ®å—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_block(unsigned char *lpdata)
 {
     unsigned char ret=1;
     if (crc_ck(lpdata,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
 
     return ret;
@@ -915,7 +915,7 @@ unsigned char octm1_verify_block(unsigned char *lpdata)
 
 
 
-//ÅĞ¶ÏÇ®°üÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤æ–­é’±åŒ…æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_purse(OCT_BLK_PURSE *pblk)
 {
     unsigned char i;
@@ -923,16 +923,16 @@ unsigned char octm1_verify_purse(OCT_BLK_PURSE *pblk)
 
     for (i=0; i<4; i++)
     {
-        // ÅĞ¶ÏÕı±¾Ç®°üºÏ·¨
+        // åˆ¤æ–­æ­£æœ¬é’±åŒ…åˆæ³•
         if (pblk->buf[i] != 0xff - pblk->buf[i+4])
         {
-            //·Ç·¨
+            //éæ³•
             ret = 1;
             //break;
         }
         if (pblk->buf[i] != pblk->buf[i+8])
         {
-            //·Ç·¨
+            //éæ³•
             ret = 1;
             //break;
         }
@@ -941,7 +941,7 @@ unsigned char octm1_verify_purse(OCT_BLK_PURSE *pblk)
     if ((pblk->buf[12]+pblk->buf[13])!=(pblk->buf[14]+pblk->buf[15]))
         //if (memcmp(pblk->buf+12, "\x00\xFF\x00\xFF", 4))
     {
-        //·Ç·¨
+        //éæ³•
         ret = 1;
     }
 
@@ -949,72 +949,72 @@ unsigned char octm1_verify_purse(OCT_BLK_PURSE *pblk)
 }
 
 
-//ÅĞ·¢ĞĞÇø¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤å‘è¡ŒåŒºå—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_issue(OCT_BLK_ISSUESUE *pblk)
 {
     unsigned char ret=1;
     if (crc_ck(pblk->buf,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
     return ret;
 }
 
-//ÅĞ·¢ĞĞÇø¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤å‘è¡ŒåŒºå—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_addtionalissue(OCT_BLK_ADDTIONALISSUE *pblk)
 {
     unsigned char ret=1;
     if (crc_ck(pblk->buf,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
     return ret;
 }
 
 
 
-//ÅĞ¹«¹²ĞÅÏ¢¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤å…¬å…±ä¿¡æ¯å—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_public(OCT_BLK_PUBLIC *pblk)
 {
     unsigned char ret=1;
     if (crc_ck(pblk->buf,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
     return ret;
 }
 
 
-//ÅĞ¹«¹²ĞÅÏ¢¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤å…¬å…±ä¿¡æ¯å—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_history(OCT_BLK_HISTORY *pblk)
 {
     unsigned char ret=1;
     if (crc_ck(pblk->buf,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
     return ret;
 }
 
-//ÅĞµØÌúĞÅÏ¢¿éÊÇ·ñÎŞĞ§£¬ÎŞĞ§·µ»Ø·Ç0Öµ
+//åˆ¤åœ°é“ä¿¡æ¯å—æ˜¯å¦æ— æ•ˆï¼Œæ— æ•ˆè¿”å›é0å€¼
 unsigned char octm1_verify_metro(OCT_BLK_METRO *pblk)
 {
     unsigned char ret=1;
     if (crc16_ck(pblk->buf,16)==0)
     {
-        ret = 0;//=0ÕıÈ·
+        ret = 0;//=0æ­£ç¡®
     }
     return ret;
 }
 
 
-//============Êı¾İĞ£Ñé²¿·Ö½áÊø==================
+//============æ•°æ®æ ¡éªŒéƒ¨åˆ†ç»“æŸ==================
 //===================================================
 
 
 
 //============================================================================
-//¶Ô¹«¹²ĞÅÏ¢ÇøÖĞ¶ÔÓ¦µÄÇ®°ü¼ÆÊı½øĞĞÀÛ¼Æ£¬=0Îª¹«¹²Ç®°ü£¬=1Îª×¨ÓÃÇ®°ü
+//å¯¹å…¬å…±ä¿¡æ¯åŒºä¸­å¯¹åº”çš„é’±åŒ…è®¡æ•°è¿›è¡Œç´¯è®¡ï¼Œ=0ä¸ºå…¬å…±é’±åŒ…ï¼Œ=1ä¸ºä¸“ç”¨é’±åŒ…
 //============================================================================
 
 void octm1_inc_public_tr_count(unsigned char purse_type, PTOCT_BLK_PUBLIC_DETAIL pblk)
@@ -1047,24 +1047,24 @@ void octm1_inc_public_tr_count(unsigned char purse_type, PTOCT_BLK_PUBLIC_DETAIL
 
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_metro_recover
-//¹¦    ÄÜ: µØÌúĞÅÏ¢Çø»Ö¸´Á÷³Ì£¬Ç¶Ì×ÔÚÇ®°ü»Ö¸´Á÷³ÌÖĞ
-//Èë¿Ú²ÎÊı:
-//          direction:»Ö¸´·½Ïò, Ö»ÓĞÔÚÕı¸±±¾²»µÈÇÒ¶¼ÓĞĞ§µÄÇé¿ö²Å»áÓÃµ½,Ò»¶ÔÒ»´íµÄÇé¿öÊÇÓÃ¶ÔµÄ¸²¸Ç´íµÄ
-//                    0=×Ô¶¯»Ö¸´·½Ïò
-//                    1=Ïòºó»Ö¸´, ÓÃÕı±¾¸²¸Ç¸±±¾
-//                    2=ÏòÇ°»Ö¸´, ÓÃ¸±±¾¸²¸ÇÕı±¾
-//            poctinf:°üº¬ÓĞµØÌúĞÅÏ¢¿éµÄÊı¾İ½á¹¹
-//³ö¿Ú²ÎÊı:
-//             ÎŞ
-//·µ »Ø Öµ:
-//          0=»Ö¸´³É¹¦
+//å‡½ æ•° å: octm1_metro_recover
+//åŠŸ    èƒ½: åœ°é“ä¿¡æ¯åŒºæ¢å¤æµç¨‹ï¼ŒåµŒå¥—åœ¨é’±åŒ…æ¢å¤æµç¨‹ä¸­
+//å…¥å£å‚æ•°:
+//          direction:æ¢å¤æ–¹å‘, åªæœ‰åœ¨æ­£å‰¯æœ¬ä¸ç­‰ä¸”éƒ½æœ‰æ•ˆçš„æƒ…å†µæ‰ä¼šç”¨åˆ°,ä¸€å¯¹ä¸€é”™çš„æƒ…å†µæ˜¯ç”¨å¯¹çš„è¦†ç›–é”™çš„
+//                    0=è‡ªåŠ¨æ¢å¤æ–¹å‘
+//                    1=å‘åæ¢å¤, ç”¨æ­£æœ¬è¦†ç›–å‰¯æœ¬
+//                    2=å‘å‰æ¢å¤, ç”¨å‰¯æœ¬è¦†ç›–æ­£æœ¬
+//            poctinf:åŒ…å«æœ‰åœ°é“ä¿¡æ¯å—çš„æ•°æ®ç»“æ„
+//å‡ºå£å‚æ•°:
+//             æ— 
+//è¿” å› å€¼:
+//          0=æ¢å¤æˆåŠŸ
 //==========================================================================================
 
 unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, char metro_recover_flag)
 {
-    unsigned char metro_org_invalid = 0; //Ç®°üÕı±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
-    unsigned char metro_bak_invalid = 0; //Ç®°ü¸±±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
+    unsigned char metro_org_invalid = 0; //é’±åŒ…æ­£æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char metro_bak_invalid = 0; //é’±åŒ…å‰¯æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
     unsigned char tmpbuf[16];
     unsigned char ret=0;
 
@@ -1086,7 +1086,7 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
 
         if ((metro_org_invalid)&&(metro_bak_invalid))
         {
-            //µØÌúĞÅÏ¢ÇøÕı¸±±¾¶¼´í£¬¸³³ÉÈ«0×´Ì¬
+            //åœ°é“ä¿¡æ¯åŒºæ­£å‰¯æœ¬éƒ½é”™ï¼Œèµ‹æˆå…¨0çŠ¶æ€
             memset(tmpbuf, 0x00, sizeof(tmpbuf));
             ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, tmpbuf);
 
@@ -1110,7 +1110,7 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
         }
         else if (metro_org_invalid)
         {
-            //Õı±¾ÎŞĞ§, ÓÃ¸±±¾¸²¸ÇÕı±¾
+            //æ­£æœ¬æ— æ•ˆ, ç”¨å‰¯æœ¬è¦†ç›–æ­£æœ¬
             memcpy(poctinf->blk_metro_org.buf, poctinf->blk_metro_bak.buf, 16);
             ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, poctinf->blk_metro_org.buf);
             if (ret)
@@ -1121,7 +1121,7 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
         }
         else if (metro_bak_invalid)
         {
-            //¸±±¾ÎŞĞ§, ÓÃÕı±¾¸²¸Ç¸±±¾
+            //å‰¯æœ¬æ— æ•ˆ, ç”¨æ­£æœ¬è¦†ç›–å‰¯æœ¬
             memcpy(poctinf->blk_metro_bak.buf, poctinf->blk_metro_org.buf, 16);
             ret = octm1_writeblock(OCT_BLK_METRO_BAK_IDX, poctinf->blk_metro_bak.buf);
             if (ret)
@@ -1133,12 +1133,12 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
         }
         else
         {
-            //Õı¸±±¾¶¼ÓĞĞ§,Ö»´¦ÀíÕı¸±±¾²»µÈµÄÇé¿ö
+            //æ­£å‰¯æœ¬éƒ½æœ‰æ•ˆ,åªå¤„ç†æ­£å‰¯æœ¬ä¸ç­‰çš„æƒ…å†µ
             if (memcmp(poctinf->blk_metro_bak.buf, poctinf->blk_metro_bak.buf, 16))
             {
                 if ((direction==0) || (direction==1))
                 {
-                    //Ïòºó»Ö¸´, Õı±¾¸²¸Ç¸±±¾
+                    //å‘åæ¢å¤, æ­£æœ¬è¦†ç›–å‰¯æœ¬
                     memcpy(poctinf->blk_metro_bak.buf, poctinf->blk_metro_org.buf, 16);
                     ret = octm1_writeblock(OCT_BLK_METRO_BAK_IDX, poctinf->blk_metro_bak.buf);
                     if (ret)
@@ -1149,7 +1149,7 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
                 }
                 else
                 {
-                    //ÏòÇ°»Ö¸´, ¸±±¾¸²¸ÇÕı±¾
+                    //å‘å‰æ¢å¤, å‰¯æœ¬è¦†ç›–æ­£æœ¬
                     memcpy(poctinf->blk_metro_org.buf, poctinf->blk_metro_bak.buf, 16);
                     ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, poctinf->blk_metro_org.buf);
                     if (ret)
@@ -1170,10 +1170,10 @@ unsigned char octm1_metro_recover(unsigned char direction, PTOCT_INF poctinf, ch
 }
 
 //==============================================================
-//×¨ÓÃÇ®°ü»Ö¸´
+//ä¸“ç”¨é’±åŒ…æ¢å¤
 unsigned char octm1_other_purse_recover_a0(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB0
+    //è¿‡ç¨‹B0
 // dbg_formatvar("PROCESS==B0\n");
     memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
     if (octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, poctinf->blk_public_bak.buf))
@@ -1189,7 +1189,7 @@ unsigned char octm1_other_purse_recover_a0(PTOCT_INF poctinf)
 
 unsigned char octm1_other_purse_recover_a1(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB1
+    //è¿‡ç¨‹B1
 // dbg_formatvar("PROCESS==B1\n");
     if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
     {
@@ -1214,16 +1214,16 @@ unsigned char octm1_other_purse_recover_a1(PTOCT_INF poctinf)
 
 unsigned char octm1_other_purse_recover_a2(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB2
+    //è¿‡ç¨‹B2
 // dbg_formatvar("PROCESS==B2\n");
 // dbg_formatvar("%ld, %ld\n",poctinf->lpurse_other_org,poctinf->lpurse_other_bak);
 
     if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
     {
 //  dbg_formatvar("PROCESS==B21\n");
-        //Ç®°üÕıÕı¸±±¾²»µÈ, ±íÊ¾¿Û·Ñ³É¹¦, Ïòºó»Ö¸´
-        //Ç®°ü±¾¸²¸Ç¸±±¾£¬¹«¹²ĞÅÏ¢ÇøÕı±¾¸²¸Ç¸±±¾
-        //Õı±¾Ö¸ÕëÒÑÀÛ¼Ó¹ı£¬ËùÒÔÖ»Ğè½«½ø³Ì±êÊ¶ÖÃÎª2  ¼´¿É
+        //é’±åŒ…æ­£æ­£å‰¯æœ¬ä¸ç­‰, è¡¨ç¤ºæ‰£è´¹æˆåŠŸ, å‘åæ¢å¤
+        //é’±åŒ…æœ¬è¦†ç›–å‰¯æœ¬ï¼Œå…¬å…±ä¿¡æ¯åŒºæ­£æœ¬è¦†ç›–å‰¯æœ¬
+        //æ­£æœ¬æŒ‡é’ˆå·²ç´¯åŠ è¿‡ï¼Œæ‰€ä»¥åªéœ€å°†è¿›ç¨‹æ ‡è¯†ç½®ä¸º2  å³å¯
         poctinf->blk_public_org.detail.proc_flag = 0x14;
         memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
 
@@ -1249,8 +1249,8 @@ unsigned char octm1_other_purse_recover_a2(PTOCT_INF poctinf)
     }
     else
     {
-        //Ç®°üÕıÕı¸±±¾ÏàµÈ, ±íÊ¾¿Û·ÑÊ§°Ü, ÏòÇ°»Ö¸´
-        //¹«¹²ĞÅÏ¢Çø¸±±¾¸²¸ÇÕı±¾
+        //é’±åŒ…æ­£æ­£å‰¯æœ¬ç›¸ç­‰, è¡¨ç¤ºæ‰£è´¹å¤±è´¥, å‘å‰æ¢å¤
+        //å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬è¦†ç›–æ­£æœ¬
         memcpy(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_org.buf))
         {
@@ -1266,12 +1266,12 @@ unsigned char octm1_other_purse_recover_a2(PTOCT_INF poctinf)
 
 unsigned char octm1_other_purse_recover_a3(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB3 , ´Ób0ÖĞ·ÖÀë³öÀ´
+    //è¿‡ç¨‹B3 , ä»b0ä¸­åˆ†ç¦»å‡ºæ¥
 // dbg_formatvar("PROCESS==B3\n");
 
     if ((poctinf->lst_tr_type==0x01) || (poctinf->lst_tr_type==0x03))
     {
-        //ÉÏ´ÎÎª¹«ÓÃÇ®°ü
+        //ä¸Šæ¬¡ä¸ºå…¬ç”¨é’±åŒ…
         if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
         {
             poctinf->blk_public_bak.detail.proc_flag = 0x13;
@@ -1307,7 +1307,7 @@ unsigned char octm1_other_purse_recover_a3(PTOCT_INF poctinf)
     }
     else
     {
-        //ÉÏ´ÎÎª×¨ÓÃÇ®°ü
+        //ä¸Šæ¬¡ä¸ºä¸“ç”¨é’±åŒ…
         if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
         {
             poctinf->blk_public_bak.detail.proc_flag = 0x14;
@@ -1350,7 +1350,7 @@ unsigned char octm1_other_purse_recover_a3(PTOCT_INF poctinf)
 
 unsigned char octm1_other_purse_recover_a4(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB4,×¨ÓÃÇ®°üÍê³ÉÏû·Ñ
+    //è¿‡ç¨‹B4,ä¸“ç”¨é’±åŒ…å®Œæˆæ¶ˆè´¹
 // dbg_formatvar("PROCESS==B4\n");
     if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
     {
@@ -1376,13 +1376,13 @@ unsigned char octm1_other_purse_recover_a4(PTOCT_INF poctinf)
 
 unsigned char octm1_other_purse_recover_a5(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB5
+    //è¿‡ç¨‹B5
 // dbg_formatvar("PROCESS==B5\n");
 // printf("%ld, %ld\n",poctinf->lpurse_other_org,poctinf->lpurse_other_bak);
     if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
     {
 //   dbg_formatvar("PROCESS==B51\n");
-        //Ç®°üÏû·ÑÍê³É,Ïòºó»Ö¸´
+        //é’±åŒ…æ¶ˆè´¹å®Œæˆ,å‘åæ¢å¤
         poctinf->blk_public_org.detail.proc_flag = 0x13;
         memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_org.buf))
@@ -1400,7 +1400,7 @@ unsigned char octm1_other_purse_recover_a5(PTOCT_INF poctinf)
     }
     else
     {
-        //¹«ÓÃÇ®°ü¿Û·ÑÎ´Íê³É,ÏòÇ°»Ö¸´
+        //å…¬ç”¨é’±åŒ…æ‰£è´¹æœªå®Œæˆ,å‘å‰æ¢å¤
 // dbg_formatvar("PROCESS==B52\n");
         memcpy(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_bak.buf))
@@ -1419,15 +1419,15 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 {
     unsigned char status;
 
-    unsigned char purse_org_invalid = 0; //Ç®°üÕı±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
-    unsigned char purse_bak_invalid = 0; //Ç®°ü¸±±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
+    unsigned char purse_org_invalid = 0; //é’±åŒ…æ­£æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char purse_bak_invalid = 0; //é’±åŒ…å‰¯æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
 
-    unsigned char purse_other_org_invalid = 0; //Ç®°üÕı±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
-    unsigned char purse_other_bak_invalid = 0; //Ç®°ü¸±±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
+    unsigned char purse_other_org_invalid = 0; //é’±åŒ…æ­£æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char purse_other_bak_invalid = 0; //é’±åŒ…å‰¯æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
 
 
-    unsigned char public_org_invalid = 0;//¹«¹²ĞÅÏ¢ÇøÊÇ·ñÎŞĞ§,·Ç0ÖµÎªÎŞĞ§
-    unsigned char public_bak_invalid = 0;//¹«¹²ĞÅÏ¢ÇøÊÇ·ñÎŞĞ§,·Ç0ÖµÎªÎŞĞ§
+    unsigned char public_org_invalid = 0;//å…¬å…±ä¿¡æ¯åŒºæ˜¯å¦æ— æ•ˆ,é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char public_bak_invalid = 0;//å…¬å…±ä¿¡æ¯åŒºæ˜¯å¦æ— æ•ˆ,é0å€¼ä¸ºæ— æ•ˆ
 
 
 
@@ -1523,24 +1523,24 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
         poctinf->lpurse_other_bak += poctinf->blk_purse_other_bak.buf[0];
     }
 
-    //Ç®°üÕı¸±±¾¶¼´í»ò¹«¹²ĞÅÏ¢Çø¶¼´íÔò±¨´í
+    //é’±åŒ…æ­£å‰¯æœ¬éƒ½é”™æˆ–å…¬å…±ä¿¡æ¯åŒºéƒ½é”™åˆ™æŠ¥é”™
     if ((purse_other_org_invalid && purse_other_bak_invalid))// || (public_org_invalid && public_bak_invalid))
     {
 //  dbg_formatvar("E5 = %02X %02X %02X %02X\n",purse_org_invalid,purse_bak_invalid,public_org_invalid,public_bak_invalid);
-        return 0xE5; //Æ±¿¨Êı¾İ´íÎó£¬²»ÄÜ»Ö¸´
+        return 0xE5; //ç¥¨å¡æ•°æ®é”™è¯¯ï¼Œä¸èƒ½æ¢å¤
     }
 
-    //Ç®°üÕı¸±±¾¶¼´í»ò¹«¹²ĞÅÏ¢Çø¶¼´íÔò±¨´í
+    //é’±åŒ…æ­£å‰¯æœ¬éƒ½é”™æˆ–å…¬å…±ä¿¡æ¯åŒºéƒ½é”™åˆ™æŠ¥é”™
     if (public_org_invalid && public_bak_invalid)
     {
-		// ²»ÂÛºÎÖÖÇé¿ö¶¼»Ö¸´£¬×¢ÊÍifÄ£¿é£¬20140820£­wxf
+		// ä¸è®ºä½•ç§æƒ…å†µéƒ½æ¢å¤ï¼Œæ³¨é‡Šifæ¨¡å—ï¼Œ20140820ï¼wxf
         //if (memcmp(poctinf->blk_public_org.buf, "\x00\x00\x00\x00", 4))
         //{
-        //    return 0xE5; //Æ±¿¨Êı¾İ´íÎó£¬²»ÄÜ»Ö¸´
+        //    return 0xE5; //ç¥¨å¡æ•°æ®é”™è¯¯ï¼Œä¸èƒ½æ¢å¤
         //}
         //else
         {
-            //ĞŞ¸´£¬ÒòÎª¹«¹²ĞÅÏ¢ÓĞ¿ÉÄÜ±»·¢³ÉÇ®°ü½á¹¹
+            //ä¿®å¤ï¼Œå› ä¸ºå…¬å…±ä¿¡æ¯æœ‰å¯èƒ½è¢«å‘æˆé’±åŒ…ç»“æ„
             public_org_invalid = 0;
             public_bak_invalid = 0;
             memset(poctinf->blk_public_org.buf, 0x00, 16);
@@ -1551,7 +1551,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
     }
 
 
-    //Èç¹û×¨ÓÃÇ®°üÊÇÒ»¶ÔÒ»´í£¬Ôò½«´íµÄ½øĞĞ»Ö¸´£¬ÕâÔÚºóĞø¿ÉÒÔÉÙÅĞ¶ÏÒ»ÖÖÌõ¼ş
+    //å¦‚æœä¸“ç”¨é’±åŒ…æ˜¯ä¸€å¯¹ä¸€é”™ï¼Œåˆ™å°†é”™çš„è¿›è¡Œæ¢å¤ï¼Œè¿™åœ¨åç»­å¯ä»¥å°‘åˆ¤æ–­ä¸€ç§æ¡ä»¶
     if (purse_other_org_invalid)
     {
 		if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -1559,7 +1559,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 			return 0xA8;
 		}
 
-        //Ç®°ü¸±±¾µ½Õı±¾
+        //é’±åŒ…å‰¯æœ¬åˆ°æ­£æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_ORG_IDX, OCT_BLK_PURSE_OTHER_BAK_IDX))
         {
             return 0xA8;
@@ -1575,7 +1575,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 		{
 			return 0xA8;
 		}
-        //Ç®°üÕı±¾µ½¸±±¾
+        //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_BAK_IDX, OCT_BLK_PURSE_OTHER_ORG_IDX))
         {
             return 0xA8;
@@ -1586,7 +1586,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
     }
     else
     {
-        //Ç®°üÕı¸±±¾¶¼ºÏ·¨µ«²»µÈµÄÇé¿öÖ»ĞèÒª´¦ÀíÉÁ¿¨Çé¿ö
+        //é’±åŒ…æ­£å‰¯æœ¬éƒ½åˆæ³•ä½†ä¸ç­‰çš„æƒ…å†µåªéœ€è¦å¤„ç†é—ªå¡æƒ…å†µ
         if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
         {
             if (memcmp(g_octcurrinf.logiccardnumber, g_m1recover.Logicno, 4)==0)
@@ -1595,7 +1595,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 
 				if (g_m1recover.npursetype)
 				{
-					//ÉÏ´ÎÊÇ¹«ÓÃÇ®°üÉÁ¿¨
+					//ä¸Šæ¬¡æ˜¯å…¬ç”¨é’±åŒ…é—ªå¡
 	                if (poctinf->lpurse_common_org == g_m1recover.balance_after)
 	                {
 						if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -1603,7 +1603,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 							return 0xA8;
 						}
 
-	                    //ÉÏ´Î·¢ÉúÉÁ¿¨£¬½ğ¶î¸Ä±ä£¬½«½ğ¶î»Ö¸´µ½Ô­Ê¼×´Ì¬
+	                    //ä¸Šæ¬¡å‘ç”Ÿé—ªå¡ï¼Œé‡‘é¢æ”¹å˜ï¼Œå°†é‡‘é¢æ¢å¤åˆ°åŸå§‹çŠ¶æ€
 	                    if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_ORG_IDX, OCT_BLK_PURSE_OTHER_BAK_IDX))
 	                    {
 	                        return 0xA8;
@@ -1622,11 +1622,11 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 
 
 
-    //Èç¹ûÇ®°üÊÇÒ»¶ÔÒ»´í£¬Ôò½«´íµÄ½øĞĞ»Ö¸´£¬ÕâÔÚºóĞø¿ÉÒÔÉÙÅĞ¶ÏÒ»ÖÖÌõ¼ş
+    //å¦‚æœé’±åŒ…æ˜¯ä¸€å¯¹ä¸€é”™ï¼Œåˆ™å°†é”™çš„è¿›è¡Œæ¢å¤ï¼Œè¿™åœ¨åç»­å¯ä»¥å°‘åˆ¤æ–­ä¸€ç§æ¡ä»¶
     if (purse_org_invalid)
     {
 
-        //Ç®°ü¸±±¾µ½Õı±¾
+        //é’±åŒ…å‰¯æœ¬åˆ°æ­£æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_ORG_IDX, OCT_BLK_PURSE_BAK_IDX))
         {
             return 0xA8;
@@ -1638,7 +1638,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
     else if (purse_bak_invalid)
     {
 
-        //Ç®°üÕı±¾µ½¸±±¾
+        //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_BAK_IDX, OCT_BLK_PURSE_ORG_IDX))
         {
             return 0xA8;
@@ -1649,7 +1649,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
     }
     else
     {
-        //Ç®°üÕı¸±±¾¶¼ºÏ·¨µ«²»µÈµÄÇé¿öÖ»ĞèÒª´¦ÀíÉÁ¿¨Çé¿ö
+        //é’±åŒ…æ­£å‰¯æœ¬éƒ½åˆæ³•ä½†ä¸ç­‰çš„æƒ…å†µåªéœ€è¦å¤„ç†é—ªå¡æƒ…å†µ
         if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
         {
             if (memcmp(g_octcurrinf.logiccardnumber, g_m1recover.Logicno, 4)==0)
@@ -1658,7 +1658,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 
 				if (g_m1recover.npursetype==0)
 				{
-					//ÉÏ´ÎÊÇ¹«ÓÃÇ®°üÉÁ¿¨
+					//ä¸Šæ¬¡æ˜¯å…¬ç”¨é’±åŒ…é—ªå¡
 	                if (poctinf->lpurse_common_org == g_m1recover.balance_after)
 	                {
 						if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -1666,7 +1666,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 							return 0xA8;
 						}
 
-	                    //ÉÏ´Î·¢ÉúÉÁ¿¨£¬½ğ¶î¸Ä±ä£¬½«½ğ¶î»Ö¸´µ½Ô­Ê¼×´Ì¬
+	                    //ä¸Šæ¬¡å‘ç”Ÿé—ªå¡ï¼Œé‡‘é¢æ”¹å˜ï¼Œå°†é‡‘é¢æ¢å¤åˆ°åŸå§‹çŠ¶æ€
 	                    if (octm1_copy_purse(OCT_BLK_PURSE_ORG_IDX, OCT_BLK_PURSE_BAK_IDX))
 	                    {
 	                        return 0xA8;
@@ -1686,36 +1686,36 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 
     if (public_org_invalid)
     {
-        //¹«¹²ĞÅÏ¢ÇøÕı±¾ÎŞĞ§
-        //ÓĞÁ½ÖÖ¿ÉÄÜ£¬
-        //1(ÏòÇ°»Ö¸´)ÊÇ»¹Ã»²Ù×÷Ç®°üÊ±Ğ´´í, ÕâÊ±Ç®°üÕı¸±±¾ÊÇÏàµÈµÄ,Ö»Ğè½«¹«¹²ĞÅÏ¢Çø¸±±¾¸´ÖÆµ½Õı±¾
-        //2(Ïòºó»Ö¸´)ÊÇ²Ù×÷ÍêÇ®°üÕı±¾ºóĞ´´í, ÕâÊ±Ç®°üÕı±¾ÒÑ¸ÄÍê, Ğè½«¹«¹²ĞÅÏ¢Çø¸±±¾ÀÛ¼Æºó¸´ÖÆµ½Õı±¾²¢Ğ´Èë
+        //å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬æ— æ•ˆ
+        //æœ‰ä¸¤ç§å¯èƒ½ï¼Œ
+        //1(å‘å‰æ¢å¤)æ˜¯è¿˜æ²¡æ“ä½œé’±åŒ…æ—¶å†™é”™, è¿™æ—¶é’±åŒ…æ­£å‰¯æœ¬æ˜¯ç›¸ç­‰çš„,åªéœ€å°†å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬å¤åˆ¶åˆ°æ­£æœ¬
+        //2(å‘åæ¢å¤)æ˜¯æ“ä½œå®Œé’±åŒ…æ­£æœ¬åå†™é”™, è¿™æ—¶é’±åŒ…æ­£æœ¬å·²æ”¹å®Œ, éœ€å°†å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬ç´¯è®¡åå¤åˆ¶åˆ°æ­£æœ¬å¹¶å†™å…¥
         status = octm1_other_purse_recover_a3(poctinf);
         if (status) return(status);
     }
     else if (public_bak_invalid)
     {
-        //¹ı³ÌA0
+        //è¿‡ç¨‹A0
         status = octm1_other_purse_recover_a0(poctinf);
         if (status) return(status);
     }
     else
     {
-        //¹«¹²ĞÅÏ¢Õı¸±±¾¶¼ÕıÈ·µÄÓĞÁ½ÖÖÇé¿ö
+        //å…¬å…±ä¿¡æ¯æ­£å‰¯æœ¬éƒ½æ­£ç¡®çš„æœ‰ä¸¤ç§æƒ…å†µ
         if (memcmp(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16))
         {
-            // 1¹«¹²ĞÅÏ¢Õı¸±²»µÈ
-            //ÅĞ¶Ï¹«¹²ĞÅÏ¢ÇøÕı±¾½ø³Ì±êÊ¶=1 »ò=2
+            // 1å…¬å…±ä¿¡æ¯æ­£å‰¯ä¸ç­‰
+            //åˆ¤æ–­å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬è¿›ç¨‹æ ‡è¯†=1 æˆ–=2
             if (poctinf->blk_public_org.detail.proc_flag == 0x11)
             {
-                //¹ı³ÌB2
+                //è¿‡ç¨‹B2
                 //dbg_formatvar("B2\n");
                 status = octm1_other_purse_recover_a5(poctinf);
                 if (status) return(status);
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x13)
             {
-                //¹ı³ÌB1
+                //è¿‡ç¨‹B1
                 //dbg_formatvar("B1\n");
                 status = octm1_other_purse_recover_a4(poctinf);
                 if (status) return(status);
@@ -1723,7 +1723,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x14)
             {
-                //¹ı³ÌB4
+                //è¿‡ç¨‹B4
                 //dbg_formatvar("B4\n");
                 status = octm1_other_purse_recover_a1(poctinf);
                 if (status) return(status);
@@ -1731,7 +1731,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x12)
             {
-                //¹ı³ÌB5
+                //è¿‡ç¨‹B5
                 //dbg_formatvar("B5\n");
                 status = octm1_other_purse_recover_a2(poctinf);
                 if (status) return(status);
@@ -1741,7 +1741,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
         }
         else
         {
-            // 2¹«¹²ĞÅÏ¢Õı¸±±¾ÏàµÈ
+            // 2å…¬å…±ä¿¡æ¯æ­£å‰¯æœ¬ç›¸ç­‰
             if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
             {
                 if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_BAK_IDX, OCT_BLK_PURSE_OTHER_ORG_IDX))
@@ -1781,7 +1781,7 @@ unsigned char octm1_other_purse_recover(PTOCT_INF poctinf, char metro_recover_fl
 //==============================================================
 unsigned char octm1_common_purse_recover_b0(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB0
+    //è¿‡ç¨‹B0
 // dbg_formatvar("PROCESS==B0\n");
     memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
     if (octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, poctinf->blk_public_bak.buf))
@@ -1797,7 +1797,7 @@ unsigned char octm1_common_purse_recover_b0(PTOCT_INF poctinf)
 
 unsigned char octm1_common_purse_recover_b1(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB1
+    //è¿‡ç¨‹B1
 // dbg_formatvar("PROCESS==B1\n");
     if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
     {
@@ -1822,16 +1822,16 @@ unsigned char octm1_common_purse_recover_b1(PTOCT_INF poctinf)
 
 unsigned char octm1_common_purse_recover_b2(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB2
+    //è¿‡ç¨‹B2
 // dbg_formatvar("PROCESS==B2\n");
 // dbg_formatvar("%ld, %ld\n",poctinf->lpurse_other_org,poctinf->lpurse_other_bak);
 
     if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
     {
 //  dbg_formatvar("PROCESS==B21\n");
-        //Ç®°üÕıÕı¸±±¾²»µÈ, ±íÊ¾¿Û·Ñ³É¹¦, Ïòºó»Ö¸´
-        //Ç®°ü±¾¸²¸Ç¸±±¾£¬¹«¹²ĞÅÏ¢ÇøÕı±¾¸²¸Ç¸±±¾
-        //Õı±¾Ö¸ÕëÒÑÀÛ¼Ó¹ı£¬ËùÒÔÖ»Ğè½«½ø³Ì±êÊ¶ÖÃÎª2  ¼´¿É
+        //é’±åŒ…æ­£æ­£å‰¯æœ¬ä¸ç­‰, è¡¨ç¤ºæ‰£è´¹æˆåŠŸ, å‘åæ¢å¤
+        //é’±åŒ…æœ¬è¦†ç›–å‰¯æœ¬ï¼Œå…¬å…±ä¿¡æ¯åŒºæ­£æœ¬è¦†ç›–å‰¯æœ¬
+        //æ­£æœ¬æŒ‡é’ˆå·²ç´¯åŠ è¿‡ï¼Œæ‰€ä»¥åªéœ€å°†è¿›ç¨‹æ ‡è¯†ç½®ä¸º2  å³å¯
         poctinf->blk_public_org.detail.proc_flag = 0x13;
         memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
 
@@ -1857,8 +1857,8 @@ unsigned char octm1_common_purse_recover_b2(PTOCT_INF poctinf)
     }
     else
     {
-        //Ç®°üÕıÕı¸±±¾ÏàµÈ, ±íÊ¾¿Û·ÑÊ§°Ü, ÏòÇ°»Ö¸´
-        //¹«¹²ĞÅÏ¢Çø¸±±¾¸²¸ÇÕı±¾
+        //é’±åŒ…æ­£æ­£å‰¯æœ¬ç›¸ç­‰, è¡¨ç¤ºæ‰£è´¹å¤±è´¥, å‘å‰æ¢å¤
+        //å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬è¦†ç›–æ­£æœ¬
         memcpy(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_org.buf))
         {
@@ -1874,12 +1874,12 @@ unsigned char octm1_common_purse_recover_b2(PTOCT_INF poctinf)
 
 unsigned char octm1_common_purse_recover_b3(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB3 , ´Ób0ÖĞ·ÖÀë³öÀ´
+    //è¿‡ç¨‹B3 , ä»b0ä¸­åˆ†ç¦»å‡ºæ¥
 // dbg_formatvar("PROCESS==B3\n");
 
     if ((poctinf->lst_tr_type==0x01) || (poctinf->lst_tr_type==0x03))
     {
-        //ÉÏ´ÎÎª¹«ÓÃÇ®°ü
+        //ä¸Šæ¬¡ä¸ºå…¬ç”¨é’±åŒ…
         if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
         {
             poctinf->blk_public_bak.detail.proc_flag = 0x13;
@@ -1915,7 +1915,7 @@ unsigned char octm1_common_purse_recover_b3(PTOCT_INF poctinf)
     }
     else
     {
-        //ÉÏ´ÎÎª×¨ÓÃÇ®°ü
+        //ä¸Šæ¬¡ä¸ºä¸“ç”¨é’±åŒ…
         if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
         {
             poctinf->blk_public_bak.detail.proc_flag = 0x14;
@@ -1958,7 +1958,7 @@ unsigned char octm1_common_purse_recover_b3(PTOCT_INF poctinf)
 
 unsigned char octm1_common_purse_recover_b4(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB4,×¨ÓÃÇ®°üÍê³ÉÏû·Ñ
+    //è¿‡ç¨‹B4,ä¸“ç”¨é’±åŒ…å®Œæˆæ¶ˆè´¹
 // dbg_formatvar("PROCESS==B4\n");
     if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
     {
@@ -1984,13 +1984,13 @@ unsigned char octm1_common_purse_recover_b4(PTOCT_INF poctinf)
 
 unsigned char octm1_common_purse_recover_b5(PTOCT_INF poctinf)
 {
-    //¹ı³ÌB5
+    //è¿‡ç¨‹B5
 // dbg_formatvar("PROCESS==B5\n");
 // printf("%ld, %ld\n",poctinf->lpurse_other_org,poctinf->lpurse_other_bak);
     if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
     {
 //   dbg_formatvar("PROCESS==B51\n");
-        //Ç®°üÏû·ÑÍê³É,Ïòºó»Ö¸´
+        //é’±åŒ…æ¶ˆè´¹å®Œæˆ,å‘åæ¢å¤
         poctinf->blk_public_org.detail.proc_flag = 0x14;
         memcpy(poctinf->blk_public_bak.buf, poctinf->blk_public_org.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_org.buf))
@@ -2008,7 +2008,7 @@ unsigned char octm1_common_purse_recover_b5(PTOCT_INF poctinf)
     }
     else
     {
-        //×¨ÓÃÇ®°ü¿Û·ÑÎ´Íê³É,ÏòÇ°»Ö¸´
+        //ä¸“ç”¨é’±åŒ…æ‰£è´¹æœªå®Œæˆ,å‘å‰æ¢å¤
 // dbg_formatvar("PROCESS==B52\n");
         memcpy(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16);
         if (octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX , poctinf->blk_public_bak.buf))
@@ -2029,15 +2029,15 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 {
     unsigned char status;
 
-    unsigned char purse_org_invalid = 0; //Ç®°üÕı±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
-    unsigned char purse_bak_invalid = 0; //Ç®°ü¸±±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
+    unsigned char purse_org_invalid = 0; //é’±åŒ…æ­£æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char purse_bak_invalid = 0; //é’±åŒ…å‰¯æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
 
-    unsigned char purse_other_org_invalid = 0; //Ç®°üÕı±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
-    unsigned char purse_other_bak_invalid = 0; //Ç®°ü¸±±¾ÊÇ·ñÎŞĞ§, ·Ç0ÖµÎªÎŞĞ§
+    unsigned char purse_other_org_invalid = 0; //é’±åŒ…æ­£æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char purse_other_bak_invalid = 0; //é’±åŒ…å‰¯æœ¬æ˜¯å¦æ— æ•ˆ, é0å€¼ä¸ºæ— æ•ˆ
 
 
-    unsigned char public_org_invalid = 0;//¹«¹²ĞÅÏ¢ÇøÊÇ·ñÎŞĞ§,·Ç0ÖµÎªÎŞĞ§
-    unsigned char public_bak_invalid = 0;//¹«¹²ĞÅÏ¢ÇøÊÇ·ñÎŞĞ§,·Ç0ÖµÎªÎŞĞ§
+    unsigned char public_org_invalid = 0;//å…¬å…±ä¿¡æ¯åŒºæ˜¯å¦æ— æ•ˆ,é0å€¼ä¸ºæ— æ•ˆ
+    unsigned char public_bak_invalid = 0;//å…¬å…±ä¿¡æ¯åŒºæ˜¯å¦æ— æ•ˆ,é0å€¼ä¸ºæ— æ•ˆ
 
 
 
@@ -2133,24 +2133,24 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
         poctinf->lpurse_other_bak += poctinf->blk_purse_other_bak.buf[0];
     }
 
-    //Ç®°üÕı¸±±¾¶¼´í»ò¹«¹²ĞÅÏ¢Çø¶¼´íÔò±¨´í
+    //é’±åŒ…æ­£å‰¯æœ¬éƒ½é”™æˆ–å…¬å…±ä¿¡æ¯åŒºéƒ½é”™åˆ™æŠ¥é”™
     if ((purse_org_invalid && purse_bak_invalid))// || (public_org_invalid && public_bak_invalid))
     {
 //  dbg_formatvar("E5 = %02X %02X %02X %02X\n",purse_org_invalid,purse_bak_invalid,public_org_invalid,public_bak_invalid);
-        return 0xE5; //Æ±¿¨Êı¾İ´íÎó£¬²»ÄÜ»Ö¸´
+        return 0xE5; //ç¥¨å¡æ•°æ®é”™è¯¯ï¼Œä¸èƒ½æ¢å¤
     }
 
-    //Ç®°üÕı¸±±¾¶¼´í»ò¹«¹²ĞÅÏ¢Çø¶¼´íÔò±¨´í
+    //é’±åŒ…æ­£å‰¯æœ¬éƒ½é”™æˆ–å…¬å…±ä¿¡æ¯åŒºéƒ½é”™åˆ™æŠ¥é”™
     if (public_org_invalid && public_bak_invalid)
     {
-		// ²»ÂÛºÎÖÖÇé¿ö¶¼»Ö¸´£¬×¢ÊÍifÄ£¿é£¬20140820£­wxf
+		// ä¸è®ºä½•ç§æƒ…å†µéƒ½æ¢å¤ï¼Œæ³¨é‡Šifæ¨¡å—ï¼Œ20140820ï¼wxf
         //if (memcmp(poctinf->blk_public_org.buf, "\x00\x00\x00\x00", 4))
         //{
-        //    return 0xE5; //Æ±¿¨Êı¾İ´íÎó£¬²»ÄÜ»Ö¸´
+        //    return 0xE5; //ç¥¨å¡æ•°æ®é”™è¯¯ï¼Œä¸èƒ½æ¢å¤
         //}
         //else
         {
-            //ĞŞ¸´£¬ÒòÎª¹«¹²ĞÅÏ¢ÓĞ¿ÉÄÜ±»·¢³ÉÇ®°ü½á¹¹
+            //ä¿®å¤ï¼Œå› ä¸ºå…¬å…±ä¿¡æ¯æœ‰å¯èƒ½è¢«å‘æˆé’±åŒ…ç»“æ„
             public_org_invalid = 0;
             public_bak_invalid = 0;
             memset(poctinf->blk_public_org.buf, 0x00, 16);
@@ -2161,7 +2161,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
     }
 
 
-    //Èç¹ûÇ®°üÊÇÒ»¶ÔÒ»´í£¬Ôò½«´íµÄ½øĞĞ»Ö¸´£¬ÕâÔÚºóĞø¿ÉÒÔÉÙÅĞ¶ÏÒ»ÖÖÌõ¼ş
+    //å¦‚æœé’±åŒ…æ˜¯ä¸€å¯¹ä¸€é”™ï¼Œåˆ™å°†é”™çš„è¿›è¡Œæ¢å¤ï¼Œè¿™åœ¨åç»­å¯ä»¥å°‘åˆ¤æ–­ä¸€ç§æ¡ä»¶
     if (purse_org_invalid)
     {
 		if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -2169,7 +2169,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 			return 0xA8;
 		}
 
-        //Ç®°ü¸±±¾µ½Õı±¾
+        //é’±åŒ…å‰¯æœ¬åˆ°æ­£æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_ORG_IDX, OCT_BLK_PURSE_BAK_IDX))
         {
             return 0xA8;
@@ -2186,7 +2186,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 		}
 
 
-        //Ç®°üÕı±¾µ½¸±±¾
+        //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_BAK_IDX, OCT_BLK_PURSE_ORG_IDX))
         {
             return 0xA8;
@@ -2197,7 +2197,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
     }
     else
     {
-        //Ç®°üÕı¸±±¾¶¼ºÏ·¨µ«²»µÈµÄÇé¿öÖ»ĞèÒª´¦ÀíÉÁ¿¨Çé¿ö
+        //é’±åŒ…æ­£å‰¯æœ¬éƒ½åˆæ³•ä½†ä¸ç­‰çš„æƒ…å†µåªéœ€è¦å¤„ç†é—ªå¡æƒ…å†µ
         if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
         {
             if (memcmp(g_octcurrinf.logiccardnumber, g_m1recover.Logicno, 4)==0)
@@ -2206,7 +2206,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 
 				if (g_m1recover.npursetype==0)
 				{
-					//ÉÏ´ÎÊÇ¹«ÓÃÇ®°üÉÁ¿¨
+					//ä¸Šæ¬¡æ˜¯å…¬ç”¨é’±åŒ…é—ªå¡
 	                if (poctinf->lpurse_common_org == g_m1recover.balance_after)
 	                {
 						if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -2214,7 +2214,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 							return 0xA8;
 						}
 
-	                    //ÉÏ´Î·¢ÉúÉÁ¿¨£¬½ğ¶î¸Ä±ä£¬½«½ğ¶î»Ö¸´µ½Ô­Ê¼×´Ì¬
+	                    //ä¸Šæ¬¡å‘ç”Ÿé—ªå¡ï¼Œé‡‘é¢æ”¹å˜ï¼Œå°†é‡‘é¢æ¢å¤åˆ°åŸå§‹çŠ¶æ€
 	                    if (octm1_copy_purse(OCT_BLK_PURSE_ORG_IDX, OCT_BLK_PURSE_BAK_IDX))
 	                    {
 	                        return 0xA8;
@@ -2232,10 +2232,10 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
     }
 
 
-    //Èç¹û×¨ÓÃÇ®°üÊÇÒ»¶ÔÒ»´í£¬Ôò½«´íµÄ½øĞĞ»Ö¸´£¬ÕâÔÚºóĞø¿ÉÒÔÉÙÅĞ¶ÏÒ»ÖÖÌõ¼ş
+    //å¦‚æœä¸“ç”¨é’±åŒ…æ˜¯ä¸€å¯¹ä¸€é”™ï¼Œåˆ™å°†é”™çš„è¿›è¡Œæ¢å¤ï¼Œè¿™åœ¨åç»­å¯ä»¥å°‘åˆ¤æ–­ä¸€ç§æ¡ä»¶
     if (purse_other_org_invalid)
     {
-        //Ç®°ü¸±±¾µ½Õı±¾
+        //é’±åŒ…å‰¯æœ¬åˆ°æ­£æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_ORG_IDX, OCT_BLK_PURSE_OTHER_BAK_IDX))
         {
             return 0xA8;
@@ -2247,7 +2247,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
     else if (purse_other_bak_invalid)
     {
 
-        //Ç®°üÕı±¾µ½¸±±¾
+        //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
         if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_BAK_IDX, OCT_BLK_PURSE_OTHER_ORG_IDX))
         {
             return 0xA8;
@@ -2258,7 +2258,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
     }
     else
     {
-        //Ç®°üÕı¸±±¾¶¼ºÏ·¨µ«²»µÈµÄÇé¿öÖ»ĞèÒª´¦ÀíÉÁ¿¨Çé¿ö
+        //é’±åŒ…æ­£å‰¯æœ¬éƒ½åˆæ³•ä½†ä¸ç­‰çš„æƒ…å†µåªéœ€è¦å¤„ç†é—ªå¡æƒ…å†µ
         if (poctinf->lpurse_other_org != poctinf->lpurse_other_bak)
         {
             if (memcmp(g_octcurrinf.logiccardnumber, g_m1recover.Logicno, 4)==0)
@@ -2267,7 +2267,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 
 				if (g_m1recover.npursetype)
 				{
-					//ÉÏ´ÎÊÇ¹«ÓÃÇ®°üÉÁ¿¨
+					//ä¸Šæ¬¡æ˜¯å…¬ç”¨é’±åŒ…é—ªå¡
 	                if (poctinf->lpurse_other_org == g_m1recover.balance_after)
 	                {
 						if (octm1_metro_recover(2, poctinf, metro_recover_flag))
@@ -2275,7 +2275,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 							return 0xA8;
 						}
 
-	                    //ÉÏ´Î·¢ÉúÉÁ¿¨£¬½ğ¶î¸Ä±ä£¬½«½ğ¶î»Ö¸´µ½Ô­Ê¼×´Ì¬
+	                    //ä¸Šæ¬¡å‘ç”Ÿé—ªå¡ï¼Œé‡‘é¢æ”¹å˜ï¼Œå°†é‡‘é¢æ¢å¤åˆ°åŸå§‹çŠ¶æ€
 	                    if (octm1_copy_purse(OCT_BLK_PURSE_OTHER_ORG_IDX, OCT_BLK_PURSE_OTHER_BAK_IDX))
 	                    {
 	                        return 0xA8;
@@ -2296,36 +2296,36 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
 
     if (public_org_invalid)
     {
-        //¹«¹²ĞÅÏ¢ÇøÕı±¾ÎŞĞ§
-        //ÓĞÁ½ÖÖ¿ÉÄÜ£¬
-        //1(ÏòÇ°»Ö¸´)ÊÇ»¹Ã»²Ù×÷Ç®°üÊ±Ğ´´í, ÕâÊ±Ç®°üÕı¸±±¾ÊÇÏàµÈµÄ,Ö»Ğè½«¹«¹²ĞÅÏ¢Çø¸±±¾¸´ÖÆµ½Õı±¾
-        //2(Ïòºó»Ö¸´)ÊÇ²Ù×÷ÍêÇ®°üÕı±¾ºóĞ´´í, ÕâÊ±Ç®°üÕı±¾ÒÑ¸ÄÍê, Ğè½«¹«¹²ĞÅÏ¢Çø¸±±¾ÀÛ¼Æºó¸´ÖÆµ½Õı±¾²¢Ğ´Èë
+        //å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬æ— æ•ˆ
+        //æœ‰ä¸¤ç§å¯èƒ½ï¼Œ
+        //1(å‘å‰æ¢å¤)æ˜¯è¿˜æ²¡æ“ä½œé’±åŒ…æ—¶å†™é”™, è¿™æ—¶é’±åŒ…æ­£å‰¯æœ¬æ˜¯ç›¸ç­‰çš„,åªéœ€å°†å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬å¤åˆ¶åˆ°æ­£æœ¬
+        //2(å‘åæ¢å¤)æ˜¯æ“ä½œå®Œé’±åŒ…æ­£æœ¬åå†™é”™, è¿™æ—¶é’±åŒ…æ­£æœ¬å·²æ”¹å®Œ, éœ€å°†å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬ç´¯è®¡åå¤åˆ¶åˆ°æ­£æœ¬å¹¶å†™å…¥
         status = octm1_common_purse_recover_b3(poctinf);
         if (status) return(status);
     }
     else if (public_bak_invalid)
     {
-        //¹ı³ÌB0
+        //è¿‡ç¨‹B0
         status = octm1_common_purse_recover_b0(poctinf);
         if (status) return(status);
     }
     else
     {
-        //¹«¹²ĞÅÏ¢Õı¸±±¾¶¼ÕıÈ·µÄÓĞÁ½ÖÖÇé¿ö
+        //å…¬å…±ä¿¡æ¯æ­£å‰¯æœ¬éƒ½æ­£ç¡®çš„æœ‰ä¸¤ç§æƒ…å†µ
         if (memcmp(poctinf->blk_public_org.buf, poctinf->blk_public_bak.buf, 16))
         {
-            // 1¹«¹²ĞÅÏ¢Õı¸±²»µÈ
-            //ÅĞ¶Ï¹«¹²ĞÅÏ¢ÇøÕı±¾½ø³Ì±êÊ¶=1 »ò=2
+            // 1å…¬å…±ä¿¡æ¯æ­£å‰¯ä¸ç­‰
+            //åˆ¤æ–­å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬è¿›ç¨‹æ ‡è¯†=1 æˆ–=2
             if (poctinf->blk_public_org.detail.proc_flag == 0x11)
             {
-                //¹ı³ÌB2
+                //è¿‡ç¨‹B2
                 //dbg_formatvar("B2\n");
                 status = octm1_common_purse_recover_b2(poctinf);
                 if (status) return(status);
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x13)
             {
-                //¹ı³ÌB1
+                //è¿‡ç¨‹B1
                 //dbg_formatvar("B1\n");
                 status = octm1_common_purse_recover_b1(poctinf);
                 if (status) return(status);
@@ -2333,7 +2333,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x14)
             {
-                //¹ı³ÌB4
+                //è¿‡ç¨‹B4
                 //dbg_formatvar("B4\n");
                 status = octm1_common_purse_recover_b4(poctinf);
                 if (status) return(status);
@@ -2341,7 +2341,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
             }
             else if (poctinf->blk_public_org.detail.proc_flag == 0x12)
             {
-                //¹ı³ÌB5
+                //è¿‡ç¨‹B5
                 //dbg_formatvar("B5\n");
                 status = octm1_common_purse_recover_b5(poctinf);
                 if (status) return(status);
@@ -2351,7 +2351,7 @@ unsigned char octm1_common_purse_recover(PTOCT_INF poctinf, char metro_recover_f
         }
         else
         {
-            // 2¹«¹²ĞÅÏ¢Õı¸±±¾ÏàµÈ
+            // 2å…¬å…±ä¿¡æ¯æ­£å‰¯æœ¬ç›¸ç­‰
             if (poctinf->lpurse_common_org != poctinf->lpurse_common_bak)
             {
                 if (octm1_copy_purse(OCT_BLK_PURSE_BAK_IDX, OCT_BLK_PURSE_ORG_IDX))
@@ -2429,64 +2429,64 @@ unsigned char octm1_saminit(unsigned char idx_sam, unsigned char *lpsamcode)
 }
 
 
-//ÔÚ¶Á¿¨ĞÅÏ¢Ê±¶ÔÒÔÏÂÈı¸ö±äÁ¿½øĞĞÌî³ä
-unsigned char g_public_inf[16];//Ğ´¿¨ÓÃµ½
-//unsigned char g_history_inf[16];//Ğ´¿¨ÓÃµ½
-unsigned long g_nbalance;//Ïû·ÑÇ°¹«ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
-unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
+//åœ¨è¯»å¡ä¿¡æ¯æ—¶å¯¹ä»¥ä¸‹ä¸‰ä¸ªå˜é‡è¿›è¡Œå¡«å……
+unsigned char g_public_inf[16];//å†™å¡ç”¨åˆ°
+//unsigned char g_history_inf[16];//å†™å¡ç”¨åˆ°
+unsigned long g_nbalance;//æ¶ˆè´¹å‰å…¬ç”¨é’±åŒ…ä½™é¢ï¼Œå†™å¡ç”¨åˆ°
+unsigned long g_nbalance2;//æ¶ˆè´¹å‰ä¸“ç”¨é’±åŒ…ä½™é¢ï¼Œå†™å¡ç”¨åˆ°
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_getdata
-//¹¦    ÄÜ: »ñÈ¡m1¿¨¹Ø¼üÊı¾İ
-//Èë¿Ú²ÎÊı:
-//          idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//     lpcardnumber:Ñ°¿¨¹ı³ÌÖĞ»ñÈ¡µÄ4×Ö½ÚµÄÎïÀí¿¨ºÅ
-//³ö¿Ú²ÎÊı:
-//          lprev:È¡µÃµÄÊı¾İÄÚÈİ,ÄÚÈİÈçÏÂ
+//å‡½ æ•° å: octm1_getdata
+//åŠŸ    èƒ½: è·å–m1å¡å…³é”®æ•°æ®
+//å…¥å£å‚æ•°:
+//          idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//     lpcardnumber:å¯»å¡è¿‡ç¨‹ä¸­è·å–çš„4å­—èŠ‚çš„ç‰©ç†å¡å·
+//å‡ºå£å‚æ•°:
+//          lprev:å–å¾—çš„æ•°æ®å†…å®¹,å†…å®¹å¦‚ä¸‹
 //					//==================================================
 //					    unsigned char szbalance[4];
 //					//==================================================
-//					    unsigned char type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-//					    unsigned char type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-//					                              // 01£ºÆÕÍ¨Ç®°ü¿¨
-//					                              // A3£º³ÉÈË¿¨
-//					                              // A4£ºÑ§Éú¿¨
-//					                              // A5£ºÀÏÄêÈËÆ±¿¨
-//					                              // A6£º²Ğ¼²ÈËÆ±¿¨
-//					                              // A7£º¹«ÎñÔ±Æ±¿¨
-//					                              // A8£º¼ÒÊôÑ§Éú¿¨
-//					    unsigned char appserial[4]; //Ó¦ÓÃ¿¨±àºÅ bcd
-//					    unsigned char sale_dt[5];//·¢ÊÛÊ±¼ä bcd, yymmddhhnn
-//					    unsigned char sale_addr[2]; //·¢ÊÛµØµã±àºÅ bcd,
-//					    unsigned char deposit;//Ñº½ğ,Ôª
-//					    unsigned char appflag;//Ó¦ÓÃ±êÊ¶,AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»=02×ßCPU¿¨Á÷³Ì
+//					    unsigned char type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+//					    unsigned char type_minjor;//åº”ç”¨å­ç±»å‹
+//					                              // 01ï¼šæ™®é€šé’±åŒ…å¡
+//					                              // A3ï¼šæˆäººå¡
+//					                              // A4ï¼šå­¦ç”Ÿå¡
+//					                              // A5ï¼šè€å¹´äººç¥¨å¡
+//					                              // A6ï¼šæ®‹ç–¾äººç¥¨å¡
+//					                              // A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡
+//					                              // A8ï¼šå®¶å±å­¦ç”Ÿå¡
+//					    unsigned char appserial[4]; //åº”ç”¨å¡ç¼–å· bcd
+//					    unsigned char sale_dt[5];//å‘å”®æ—¶é—´ bcd, yymmddhhnn
+//					    unsigned char sale_addr[2]; //å‘å”®åœ°ç‚¹ç¼–å· bcd,
+//					    unsigned char deposit;//æŠ¼é‡‘,å…ƒ
+//					    unsigned char appflag;//åº”ç”¨æ ‡è¯†,AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›=02èµ°CPUå¡æµç¨‹
 //					//===================
-//					    unsigned char verify_dt[3]; //ÉóºËÇé¿ö yymmdd
-//					    unsigned char pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-//					                             //0x00£º¿¨ÄÚ×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÎ´ÆôÓÃ£»
-//					                             //0x01£º×¨ÓÃÇ®°üÒÑÆôÓÃ£»
-//					                             //0x02£º¹«¹²Ç®°üÒÑÆôÓÃ£»
-//					                             //0x03£º×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÒÑÆôÓÃ
-//					    unsigned char city[2];  //³ÇÊĞ´úÂë
-//					    unsigned char industry[2]; //ĞĞÒµ´úÂë
+//					    unsigned char verify_dt[3]; //å®¡æ ¸æƒ…å†µ yymmdd
+//					    unsigned char pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+//					                             //0x00ï¼šå¡å†…ä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡æœªå¯ç”¨ï¼›
+//					                             //0x01ï¼šä¸“ç”¨é’±åŒ…å·²å¯ç”¨ï¼›
+//					                             //0x02ï¼šå…¬å…±é’±åŒ…å·²å¯ç”¨ï¼›
+//					                             //0x03ï¼šä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡å·²å¯ç”¨
+//					    unsigned char city[2];  //åŸå¸‚ä»£ç 
+//					    unsigned char industry[2]; //è¡Œä¸šä»£ç 
 //					//=================================================
-//					    unsigned char common_count[2]; //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//					    unsigned char other_count[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//					    unsigned char dt_trdate[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-//					    unsigned char lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+//					    unsigned char common_count[2]; //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//					    unsigned char other_count[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//					    unsigned char dt_trdate[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+//					    unsigned char lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 //					//=================================================
-//					    unsigned char tr_type;//½»Ò×ÀàĞÍ
-//					    unsigned char servicer_code[2];//·şÎñÉÌ´úÂë
-//					    unsigned char terminal_no[4];   //POS±àºÅ 4BYTE;
-//					    unsigned char dt_trdate2[3]; //¹ı³ÌÀúÊ·½»Ò×ÈÕÆÚyy-mm-dd
-//					    unsigned char banlance[3];  //½»Ò×Ç°Óà¶î
-//					    unsigned char tr_amount[2];    //½»Ò×½ğ¶î
+//					    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+//					    unsigned char servicer_code[2];//æœåŠ¡å•†ä»£ç 
+//					    unsigned char terminal_no[4];   //POSç¼–å· 4BYTE;
+//					    unsigned char dt_trdate2[3]; //è¿‡ç¨‹å†å²äº¤æ˜“æ—¥æœŸyy-mm-dd
+//					    unsigned char banlance[3];  //äº¤æ˜“å‰ä½™é¢
+//					    unsigned char tr_amount[2];    //äº¤æ˜“é‡‘é¢
 //					//==================================================
-//						unsigned char metro_inf[14]; //²»ĞèÒªCRC16;
+//						unsigned char metro_inf[14]; //ä¸éœ€è¦CRC16;
 
 
-//·µ »Ø Öµ:
-//          0=³É¹¦
+//è¿” å› å€¼:
+//          0=æˆåŠŸ
 //==========================================================================================
 //unsigned char octm1_getdata(unsigned char idx_sam, unsigned char *lpcardnumber, unsigned char *lprev)
 //{
@@ -2510,8 +2510,8 @@ unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
 //        memcpy(g_octcurrinf.physicalnumber, lpcardnumber, 4);
 //
 //        g_octcurrinf.currsector = -1;
-//        //µ¼³öÃÜÔ¿
-//        //ÃÜÔ¿ÔÚ³õÊ¼»¯SAM¿¨Ê±ÒÑµ¼³ö
+//        //å¯¼å‡ºå¯†é’¥
+//        //å¯†é’¥åœ¨åˆå§‹åŒ–SAMå¡æ—¶å·²å¯¼å‡º
 ////        ret = octsam_exportkey(OCTM1SAM_SOCKET);
 ////        if (ret) break;
 //		if (octsam_chk(idx_sam))
@@ -2520,59 +2520,59 @@ unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
 //			break;
 //		}
 //
-//        //·¢ĞĞÊı¾İ¿é
+//        //å‘è¡Œæ•°æ®å—
 //        ret = octm1_readblock(OCT_BLK_ISSUESUE_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_issue.buf, tmpbuf, 16);
 //
 //
-//        //Ó¦ÓÃË÷ÒıÊı¾İ¿é
+//        //åº”ç”¨ç´¢å¼•æ•°æ®å—
 //        ret = octm1_readblock(OCT_BLK_ADDTIONALISSUE_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_addtional.buf, tmpbuf, 16);
 //
-//        //¹«¹²Ç®°üÕı±¾
+//        //å…¬å…±é’±åŒ…æ­£æœ¬
 //        ret = octm1_readblock(OCT_BLK_PURSE_ORG_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_purse_common_org.buf, tmpbuf, 16);
 //
 //
-//        //¹«¹²Ç®°ü¸±±¾
+//        //å…¬å…±é’±åŒ…å‰¯æœ¬
 //        ret = octm1_readblock(OCT_BLK_PURSE_BAK_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_purse_common_bak.buf, tmpbuf, 16);
 //
-//        //×¨ÓÃÇ®°üÕı±¾
+//        //ä¸“ç”¨é’±åŒ…æ­£æœ¬
 //        ret = octm1_readblock(OCT_BLK_PURSE_OTHER_ORG_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_purse_other_org.buf, tmpbuf, 16);
 //
-//        //×¨ÓÃÇ®°ü¸±±¾
+//        //ä¸“ç”¨é’±åŒ…å‰¯æœ¬
 //        ret = octm1_readblock(OCT_BLK_PURSE_OTHER_BAK_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_purse_other_bak.buf, tmpbuf, 16);
 //
-//        //¹«¹²ĞÅÏ¢ÇøÕı±¾
+//        //å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬
 //        ret = octm1_readblock(OCT_BLK_PUBLIC_ORG_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_public_org.buf, tmpbuf, 16);
 //
-//        //¹«¹²ĞÅÏ¢Çø¸±±¾
+//        //å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬
 //        ret = octm1_readblock(OCT_BLK_PUBLIC_BAK_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_public_bak.buf, tmpbuf, 16);
 //
-//        //Ïû·Ñ¹ı³ÌÀúÊ·
+//        //æ¶ˆè´¹è¿‡ç¨‹å†å²
 //        ret = octm1_readblock(OCT_BLK_HISTORY_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_history.buf, tmpbuf, 16);
 //
-//        //µØÌúĞÅÏ¢ÇøÕı±¾
+//        //åœ°é“ä¿¡æ¯åŒºæ­£æœ¬
 //        ret = octm1_readblock(OCT_BLK_METRO_ORG_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_metro_org.buf, tmpbuf, 16);
 //
-//        //µØÌúĞÅÏ¢Çø¸±±¾
+//        //åœ°é“ä¿¡æ¯åŒºå‰¯æœ¬
 //        ret = octm1_readblock(OCT_BLK_METRO_BAK_IDX, tmpbuf);
 //        if (ret) break;
 //        memcpy(octinf.blk_metro_org.buf, tmpbuf, 16);
@@ -2587,7 +2587,7 @@ unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
 ////	        dbg_dumpmemory("blk_metro_org=",octinf.blk_metro_org.buf,16);
 ////	        dbg_dumpmemory("blk_metro_bak=",octinf.blk_metro_bak.buf,16);
 //
-//        //½øĞĞ»Ö¸´Á÷³Ì²Ù×÷£¬ÒÔ±£Ö¤Ç®°üÇø¡¢¹«¹²ĞÅÏ¢ÇøµÄÊı¾İÊÇÕıÈ·µÄ
+//        //è¿›è¡Œæ¢å¤æµç¨‹æ“ä½œï¼Œä»¥ä¿è¯é’±åŒ…åŒºã€å…¬å…±ä¿¡æ¯åŒºçš„æ•°æ®æ˜¯æ­£ç¡®çš„
 //        ret = octm1_common_purse_recover(&octinf);
 //        if (ret) break;
 //
@@ -2616,48 +2616,48 @@ unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
 //        g_nbalance += octinf.blk_purse_common_org.buf[0];
 //
 //
-//        //Êä³ö¸³Öµ
-//        //Ç®°üÖµ
+//        //è¾“å‡ºèµ‹å€¼
+//        //é’±åŒ…å€¼
 //        lpdata->szbalance[0] = octinf.blk_purse_common_org.buf[3];
 //        lpdata->szbalance[1] = octinf.blk_purse_common_org.buf[2];
 //        lpdata->szbalance[2] = octinf.blk_purse_common_org.buf[1];
 //        lpdata->szbalance[3] = octinf.blk_purse_common_org.buf[0];
 ////=============================================================================
-//        //·¢ĞĞĞÅÏ¢ÇøÊı¾İÏî
-//        lpdata->type_major = octinf.blk_issue.detail.type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-//        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-//        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-//        memcpy(lpdata->appserial, octinf.blk_issue.detail.appserial, 4); //¿¨Ó¦ÓÃ±àºÅ
-//        memcpy(lpdata->sale_dt, octinf.blk_issue.detail.sale_dt, 5);//ÊÛ¿¨Ê±¼ä yymmddhhnn
-//        memcpy(lpdata->sale_addr, octinf.blk_issue.detail.sale_addr, 2);//ÊÛ¿¨µØµã±àºÅ bcd
-//        lpdata->deposit = octinf.blk_issue.detail.deposit;//Ñº½ğ,Ôª
-//        lpdata->appflag = octinf.blk_issue.detail.appflag;//Ó¦ÓÃ±êÊ¶
+//        //å‘è¡Œä¿¡æ¯åŒºæ•°æ®é¡¹
+//        lpdata->type_major = octinf.blk_issue.detail.type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+//        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//åº”ç”¨å­ç±»å‹
+//        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//åº”ç”¨å­ç±»å‹
+//        memcpy(lpdata->appserial, octinf.blk_issue.detail.appserial, 4); //å¡åº”ç”¨ç¼–å·
+//        memcpy(lpdata->sale_dt, octinf.blk_issue.detail.sale_dt, 5);//å”®å¡æ—¶é—´ yymmddhhnn
+//        memcpy(lpdata->sale_addr, octinf.blk_issue.detail.sale_addr, 2);//å”®å¡åœ°ç‚¹ç¼–å· bcd
+//        lpdata->deposit = octinf.blk_issue.detail.deposit;//æŠ¼é‡‘,å…ƒ
+//        lpdata->appflag = octinf.blk_issue.detail.appflag;//åº”ç”¨æ ‡è¯†
 //
 //		memcpy(g_octcurrinf.logiccardnumber, lpdata->appserial, 4);
 //
 //
 ////==========================================================================================
-//        //Ó¦ÓÃË÷ÒıÇøÊı¾İÏî
-//        memcpy(lpdata->verify_dt, octinf.blk_addtional.detail.verify_dt, 3); //ÉóºËÇé¿ö yymmdd
-//        lpdata->pursemode = octinf.blk_addtional.detail.pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-//        memcpy(lpdata->city, octinf.blk_addtional.detail.city, 2);  //³ÇÊĞ´úÂë
-//        memcpy(lpdata->industry, octinf.blk_addtional.detail.industry,2); //ĞĞÒµ´úÂë
+//        //åº”ç”¨ç´¢å¼•åŒºæ•°æ®é¡¹
+//        memcpy(lpdata->verify_dt, octinf.blk_addtional.detail.verify_dt, 3); //å®¡æ ¸æƒ…å†µ yymmdd
+//        lpdata->pursemode = octinf.blk_addtional.detail.pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+//        memcpy(lpdata->city, octinf.blk_addtional.detail.city, 2);  //åŸå¸‚ä»£ç 
+//        memcpy(lpdata->industry, octinf.blk_addtional.detail.industry,2); //è¡Œä¸šä»£ç 
 ////=================================================
-//        //¹«¹²ĞÅÏ¢ÇøÊı¾İÏî
-//        memcpy(lpdata->common_count, octinf.blk_public_org.detail.common_count, 2); //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//        memcpy(lpdata->other_count, octinf.blk_public_org.detail.other_count, 2);//[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//        memcpy(lpdata->dt_trdate, octinf.blk_public_org.detail.dt_trdate, 4); //[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-//        lpdata->lock_flag = octinf.blk_public_org.detail.lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+//        //å…¬å…±ä¿¡æ¯åŒºæ•°æ®é¡¹
+//        memcpy(lpdata->common_count, octinf.blk_public_org.detail.common_count, 2); //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//        memcpy(lpdata->other_count, octinf.blk_public_org.detail.other_count, 2);//[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//        memcpy(lpdata->dt_trdate, octinf.blk_public_org.detail.dt_trdate, 4); //[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+//        lpdata->lock_flag = octinf.blk_public_org.detail.lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 ////=================================================
-//        //¹«¹²ĞÅÏ¢ÀúÊ·¿éÊı¾İÏî
-//        lpdata->tr_type = octinf.blk_history.detail.tr_type;//½»Ò×ÀàĞÍ
-//        memcpy(lpdata->servicer_code, octinf.blk_history.detail.servicer_code, 2);//·şÎñÉÌ´úÂë
-//        memcpy(lpdata->terminal_no, octinf.blk_history.detail.terminal_no, 4);//[4];   //POS±àºÅ 4BYTE;
-//        memcpy(lpdata->dt_trdate2, octinf.blk_history.detail.dt_trdate, 3);//[3]; //½»Ò×ÈÕÆÚyy-mm-dd
-//        memcpy(lpdata->banlance, octinf.blk_history.detail.banlance, 3);  //½»Ò×Ç°Óà¶î
-//        memcpy(lpdata->tr_amount, octinf.blk_history.detail.tr_amount, 2);    //½»Ò×½ğ¶î
+//        //å…¬å…±ä¿¡æ¯å†å²å—æ•°æ®é¡¹
+//        lpdata->tr_type = octinf.blk_history.detail.tr_type;//äº¤æ˜“ç±»å‹
+//        memcpy(lpdata->servicer_code, octinf.blk_history.detail.servicer_code, 2);//æœåŠ¡å•†ä»£ç 
+//        memcpy(lpdata->terminal_no, octinf.blk_history.detail.terminal_no, 4);//[4];   //POSç¼–å· 4BYTE;
+//        memcpy(lpdata->dt_trdate2, octinf.blk_history.detail.dt_trdate, 3);//[3]; //äº¤æ˜“æ—¥æœŸyy-mm-dd
+//        memcpy(lpdata->banlance, octinf.blk_history.detail.banlance, 3);  //äº¤æ˜“å‰ä½™é¢
+//        memcpy(lpdata->tr_amount, octinf.blk_history.detail.tr_amount, 2);    //äº¤æ˜“é‡‘é¢
 ////==================================================
-//        //µØÌúĞÅÏ¢ÇøÊı¾İÏî
+//        //åœ°é“ä¿¡æ¯åŒºæ•°æ®é¡¹
 //        memcpy(lpdata->metro_inf, octinf.blk_metro_org.buf, 14);
 //        return(0);
 //    }
@@ -2668,58 +2668,58 @@ unsigned long g_nbalance2;//Ïû·ÑÇ°×¨ÓÃÇ®°üÓà¶î£¬Ğ´¿¨ÓÃµ½
 //}
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_getdata2
-//¹¦    ÄÜ: »ñÈ¡m1¿¨¹Ø¼üÊı¾İ
-//Èë¿Ú²ÎÊı:
-//          idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//     lpcardnumber:Ñ°¿¨¹ı³ÌÖĞ»ñÈ¡µÄ4×Ö½ÚµÄÎïÀí¿¨ºÅ
-//³ö¿Ú²ÎÊı:
-//          lprev:È¡µÃµÄÊı¾İÄÚÈİ,ÄÚÈİÈçÏÂ
+//å‡½ æ•° å: octm1_getdata2
+//åŠŸ    èƒ½: è·å–m1å¡å…³é”®æ•°æ®
+//å…¥å£å‚æ•°:
+//          idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//     lpcardnumber:å¯»å¡è¿‡ç¨‹ä¸­è·å–çš„4å­—èŠ‚çš„ç‰©ç†å¡å·
+//å‡ºå£å‚æ•°:
+//          lprev:å–å¾—çš„æ•°æ®å†…å®¹,å†…å®¹å¦‚ä¸‹
 //					//==================================================
-//					    unsigned char szbalance[4];   // ¹«¹²Ç®°ü
-//					    unsigned char szbalance2[4]; // ×¨ÓÃÇ®°ü
+//					    unsigned char szbalance[4];   // å…¬å…±é’±åŒ…
+//					    unsigned char szbalance2[4]; // ä¸“ç”¨é’±åŒ…
 //					//==================================================
-//					    unsigned char type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-//					    unsigned char type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-//					                              // 01£ºÆÕÍ¨Ç®°ü¿¨
-//					                              // A3£º³ÉÈË¿¨
-//					                              // A4£ºÑ§Éú¿¨
-//					                              // A5£ºÀÏÄêÈËÆ±¿¨
-//					                              // A6£º²Ğ¼²ÈËÆ±¿¨
-//					                              // A7£º¹«ÎñÔ±Æ±¿¨
-//					                              // A8£º¼ÒÊôÑ§Éú¿¨
-//					    unsigned char appserial[4]; //Ó¦ÓÃ¿¨±àºÅ bcd
-//					    unsigned char sale_dt[5];//·¢ÊÛÊ±¼ä bcd, yymmddhhnn
-//					    unsigned char sale_addr[2]; //·¢ÊÛµØµã±àºÅ bcd,
-//					    unsigned char deposit;//Ñº½ğ,Ôª
-//					    unsigned char appflag;//Ó¦ÓÃ±êÊ¶,AA£ºÎ´ÆôÓÃ£»BB£ºÆôÓÃ£»=02×ßCPU¿¨Á÷³Ì
+//					    unsigned char type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+//					    unsigned char type_minjor;//åº”ç”¨å­ç±»å‹
+//					                              // 01ï¼šæ™®é€šé’±åŒ…å¡
+//					                              // A3ï¼šæˆäººå¡
+//					                              // A4ï¼šå­¦ç”Ÿå¡
+//					                              // A5ï¼šè€å¹´äººç¥¨å¡
+//					                              // A6ï¼šæ®‹ç–¾äººç¥¨å¡
+//					                              // A7ï¼šå…¬åŠ¡å‘˜ç¥¨å¡
+//					                              // A8ï¼šå®¶å±å­¦ç”Ÿå¡
+//					    unsigned char appserial[4]; //åº”ç”¨å¡ç¼–å· bcd
+//					    unsigned char sale_dt[5];//å‘å”®æ—¶é—´ bcd, yymmddhhnn
+//					    unsigned char sale_addr[2]; //å‘å”®åœ°ç‚¹ç¼–å· bcd,
+//					    unsigned char deposit;//æŠ¼é‡‘,å…ƒ
+//					    unsigned char appflag;//åº”ç”¨æ ‡è¯†,AAï¼šæœªå¯ç”¨ï¼›BBï¼šå¯ç”¨ï¼›=02èµ°CPUå¡æµç¨‹
 //					//===================
-//					    unsigned char verify_dt[3]; //ÉóºËÇé¿ö yymmdd
-//					    unsigned char pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-//					                             //0x00£º¿¨ÄÚ×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÎ´ÆôÓÃ£»
-//					                             //0x01£º×¨ÓÃÇ®°üÒÑÆôÓÃ£»
-//					                             //0x02£º¹«¹²Ç®°üÒÑÆôÓÃ£»
-//					                             //0x03£º×¨ÓÃÇ®°ü¡¢¹«¹²Ç®°ü¾ùÒÑÆôÓÃ
-//					    unsigned char city[2];  //³ÇÊĞ´úÂë
-//					    unsigned char industry[2]; //ĞĞÒµ´úÂë
+//					    unsigned char verify_dt[3]; //å®¡æ ¸æƒ…å†µ yymmdd
+//					    unsigned char pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+//					                             //0x00ï¼šå¡å†…ä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡æœªå¯ç”¨ï¼›
+//					                             //0x01ï¼šä¸“ç”¨é’±åŒ…å·²å¯ç”¨ï¼›
+//					                             //0x02ï¼šå…¬å…±é’±åŒ…å·²å¯ç”¨ï¼›
+//					                             //0x03ï¼šä¸“ç”¨é’±åŒ…ã€å…¬å…±é’±åŒ…å‡å·²å¯ç”¨
+//					    unsigned char city[2];  //åŸå¸‚ä»£ç 
+//					    unsigned char industry[2]; //è¡Œä¸šä»£ç 
 //					//=================================================
-//					    unsigned char common_count[2]; //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//					    unsigned char other_count[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-//					    unsigned char dt_trdate[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-//					    unsigned char lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+//					    unsigned char common_count[2]; //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//					    unsigned char other_count[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+//					    unsigned char dt_trdate[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+//					    unsigned char lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 //					//=================================================
-//					    unsigned char tr_type;//½»Ò×ÀàĞÍ
-//					    unsigned char servicer_code[2];//·şÎñÉÌ´úÂë
-//					    unsigned char terminal_no[4];   //POS±àºÅ 4BYTE;
-//					    unsigned char dt_trdate2[3]; //¹ı³ÌÀúÊ·½»Ò×ÈÕÆÚyy-mm-dd
-//					    unsigned char banlance[3];  //½»Ò×Ç°Óà¶î
-//					    unsigned char tr_amount[2];    //½»Ò×½ğ¶î
+//					    unsigned char tr_type;//äº¤æ˜“ç±»å‹
+//					    unsigned char servicer_code[2];//æœåŠ¡å•†ä»£ç 
+//					    unsigned char terminal_no[4];   //POSç¼–å· 4BYTE;
+//					    unsigned char dt_trdate2[3]; //è¿‡ç¨‹å†å²äº¤æ˜“æ—¥æœŸyy-mm-dd
+//					    unsigned char banlance[3];  //äº¤æ˜“å‰ä½™é¢
+//					    unsigned char tr_amount[2];    //äº¤æ˜“é‡‘é¢
 //					//==================================================
-//						unsigned char metro_inf[14]; //²»ĞèÒªCRC16;
+//						unsigned char metro_inf[14]; //ä¸éœ€è¦CRC16;
 
 
-//·µ »Ø Öµ:
-//          0=³É¹¦
+//è¿” å› å€¼:
+//          0=æˆåŠŸ
 //==========================================================================================
 unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber, unsigned char *lprev)
 {
@@ -2743,8 +2743,8 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
         memcpy(g_octcurrinf.physicalnumber, lpcardnumber, 4);
 
         g_octcurrinf.currsector = -1;
-        //µ¼³öÃÜÔ¿
-        //ÃÜÔ¿ÔÚ³õÊ¼»¯SAM¿¨Ê±ÒÑµ¼³ö
+        //å¯¼å‡ºå¯†é’¥
+        //å¯†é’¥åœ¨åˆå§‹åŒ–SAMå¡æ—¶å·²å¯¼å‡º
 //        ret = octsam_exportkey(OCTM1SAM_SOCKET);
 //        if (ret) break;
 		if (octsam_chk(idx_sam))
@@ -2753,59 +2753,59 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 			break;
 		}
 
-        //·¢ĞĞÊı¾İ¿é
+        //å‘è¡Œæ•°æ®å—
         ret = octm1_readblock(OCT_BLK_ISSUESUE_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_issue.buf, tmpbuf, 16);
 
 
-        //Ó¦ÓÃË÷ÒıÊı¾İ¿é
+        //åº”ç”¨ç´¢å¼•æ•°æ®å—
         ret = octm1_readblock(OCT_BLK_ADDTIONALISSUE_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_addtional.buf, tmpbuf, 16);
 
-        //¹«¹²Ç®°üÕı±¾
+        //å…¬å…±é’±åŒ…æ­£æœ¬
         ret = octm1_readblock(OCT_BLK_PURSE_ORG_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_purse_common_org.buf, tmpbuf, 16);
 
 
-        //¹«¹²Ç®°ü¸±±¾
+        //å…¬å…±é’±åŒ…å‰¯æœ¬
         ret = octm1_readblock(OCT_BLK_PURSE_BAK_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_purse_common_bak.buf, tmpbuf, 16);
 
-        //×¨ÓÃÇ®°üÕı±¾
+        //ä¸“ç”¨é’±åŒ…æ­£æœ¬
         ret = octm1_readblock(OCT_BLK_PURSE_OTHER_ORG_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_purse_other_org.buf, tmpbuf, 16);
 
-        //×¨ÓÃÇ®°ü¸±±¾
+        //ä¸“ç”¨é’±åŒ…å‰¯æœ¬
         ret = octm1_readblock(OCT_BLK_PURSE_OTHER_BAK_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_purse_other_bak.buf, tmpbuf, 16);
 
-        //¹«¹²ĞÅÏ¢ÇøÕı±¾
+        //å…¬å…±ä¿¡æ¯åŒºæ­£æœ¬
         ret = octm1_readblock(OCT_BLK_PUBLIC_ORG_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_public_org.buf, tmpbuf, 16);
 
-        //¹«¹²ĞÅÏ¢Çø¸±±¾
+        //å…¬å…±ä¿¡æ¯åŒºå‰¯æœ¬
         ret = octm1_readblock(OCT_BLK_PUBLIC_BAK_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_public_bak.buf, tmpbuf, 16);
 
-        //Ïû·Ñ¹ı³ÌÀúÊ·
+        //æ¶ˆè´¹è¿‡ç¨‹å†å²
         ret = octm1_readblock(OCT_BLK_HISTORY_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_history.buf, tmpbuf, 16);
 
-        //µØÌúĞÅÏ¢ÇøÕı±¾
+        //åœ°é“ä¿¡æ¯åŒºæ­£æœ¬
         ret = octm1_readblock(OCT_BLK_METRO_ORG_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_metro_org.buf, tmpbuf, 16);
 
-        //µØÌúĞÅÏ¢Çø¸±±¾
+        //åœ°é“ä¿¡æ¯åŒºå‰¯æœ¬
         ret = octm1_readblock(OCT_BLK_METRO_BAK_IDX, tmpbuf);
         if (ret) break;
         memcpy(octinf.blk_metro_bak.buf, tmpbuf, 16);
@@ -2820,17 +2820,17 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //	        dbg_dumpmemory("blk_metro_org=",octinf.blk_metro_org.buf,16);
 //	        dbg_dumpmemory("blk_metro_bak=",octinf.blk_metro_bak.buf,16);
 
-        //½øĞĞ»Ö¸´Á÷³Ì²Ù×÷£¬ÒÔ±£Ö¤Ç®°üÇø¡¢¹«¹²ĞÅÏ¢ÇøµÄÊı¾İÊÇÕıÈ·µÄ
+        //è¿›è¡Œæ¢å¤æµç¨‹æ“ä½œï¼Œä»¥ä¿è¯é’±åŒ…åŒºã€å…¬å…±ä¿¡æ¯åŒºçš„æ•°æ®æ˜¯æ­£ç¡®çš„
         if (octinf.blk_issue.detail.type_minjor==0xA4 || octinf.blk_issue.detail.type_minjor==0xB4 || octinf.blk_issue.detail.type_minjor==0xA7)
         {
-			//Ñ§Éú¿¨ÒÔ×¨ÓÃÇ®°ü»Ö¸´ÎªÖ÷£¬¹«ÓÃÇ®°ü»Ö¸´²»ĞèÅĞ¶ÏÖ´ĞĞ×´Ì¬
+			//å­¦ç”Ÿå¡ä»¥ä¸“ç”¨é’±åŒ…æ¢å¤ä¸ºä¸»ï¼Œå…¬ç”¨é’±åŒ…æ¢å¤ä¸éœ€åˆ¤æ–­æ‰§è¡ŒçŠ¶æ€
 			ret = octm1_other_purse_recover(&octinf, 1);
 			if (ret) break;
 			octm1_common_purse_recover(&octinf, 0);
         }
         else
         {
-			//·ÇÑ§Éú¿¨ÒÔ¹«ÓÃÇ®°ü»Ö¸´ÎªÖ÷£¬×¨ÓÃÇ®°ü»Ö¸´²»ĞèÅĞ¶ÏÖ´ĞĞ×´Ì¬
+			//éå­¦ç”Ÿå¡ä»¥å…¬ç”¨é’±åŒ…æ¢å¤ä¸ºä¸»ï¼Œä¸“ç”¨é’±åŒ…æ¢å¤ä¸éœ€åˆ¤æ–­æ‰§è¡ŒçŠ¶æ€
 			ret = octm1_common_purse_recover(&octinf, 1);
 			if (ret) break;
 			octm1_other_purse_recover(&octinf, 0);
@@ -2870,8 +2870,8 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
         g_nbalance2 += octinf.blk_purse_other_org.buf[0];
 
 
-        //Êä³ö¸³Öµ
-        //Ç®°üÖµ
+        //è¾“å‡ºèµ‹å€¼
+        //é’±åŒ…å€¼
         lpdata->szbalance[0] = octinf.blk_purse_common_org.buf[3];
         lpdata->szbalance[1] = octinf.blk_purse_common_org.buf[2];
         lpdata->szbalance[2] = octinf.blk_purse_common_org.buf[1];
@@ -2883,41 +2883,41 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 		lpdata->szbalance2[3] = octinf.blk_purse_other_org.buf[0];
 
 //=============================================================================
-        //·¢ĞĞĞÅÏ¢ÇøÊı¾İÏî
-        lpdata->type_major = octinf.blk_issue.detail.type_major;//¿¨Æ¬Ö÷ÀàĞÍ 50Ïû·ÑÓÃ¿¨
-        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//Ó¦ÓÃ×ÓÀàĞÍ
-        memcpy(lpdata->appserial, octinf.blk_issue.detail.appserial, 4); //¿¨Ó¦ÓÃ±àºÅ
-        memcpy(lpdata->sale_dt, octinf.blk_issue.detail.sale_dt, 5);//ÊÛ¿¨Ê±¼ä yymmddhhnn
-        memcpy(lpdata->sale_addr, octinf.blk_issue.detail.sale_addr, 2);//ÊÛ¿¨µØµã±àºÅ bcd
-        lpdata->deposit = octinf.blk_issue.detail.deposit;//Ñº½ğ,Ôª
-        lpdata->appflag = octinf.blk_issue.detail.appflag;//Ó¦ÓÃ±êÊ¶
+        //å‘è¡Œä¿¡æ¯åŒºæ•°æ®é¡¹
+        lpdata->type_major = octinf.blk_issue.detail.type_major;//å¡ç‰‡ä¸»ç±»å‹ 50æ¶ˆè´¹ç”¨å¡
+        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//åº”ç”¨å­ç±»å‹
+        lpdata->type_minjor = octinf.blk_issue.detail.type_minjor;//åº”ç”¨å­ç±»å‹
+        memcpy(lpdata->appserial, octinf.blk_issue.detail.appserial, 4); //å¡åº”ç”¨ç¼–å·
+        memcpy(lpdata->sale_dt, octinf.blk_issue.detail.sale_dt, 5);//å”®å¡æ—¶é—´ yymmddhhnn
+        memcpy(lpdata->sale_addr, octinf.blk_issue.detail.sale_addr, 2);//å”®å¡åœ°ç‚¹ç¼–å· bcd
+        lpdata->deposit = octinf.blk_issue.detail.deposit;//æŠ¼é‡‘,å…ƒ
+        lpdata->appflag = octinf.blk_issue.detail.appflag;//åº”ç”¨æ ‡è¯†
 
 		memcpy(g_octcurrinf.logiccardnumber, lpdata->appserial, 4);
 
 
 //==========================================================================================
-        //Ó¦ÓÃË÷ÒıÇøÊı¾İÏî
-        memcpy(lpdata->verify_dt, octinf.blk_addtional.detail.verify_dt, 3); //ÉóºËÇé¿ö yymmdd
-        lpdata->pursemode = octinf.blk_addtional.detail.pursemode; //¿¨ÄÚ´¢ÖµÇé¿ö
-        memcpy(lpdata->city, octinf.blk_addtional.detail.city, 2);  //³ÇÊĞ´úÂë
-        memcpy(lpdata->industry, octinf.blk_addtional.detail.industry,2); //ĞĞÒµ´úÂë
+        //åº”ç”¨ç´¢å¼•åŒºæ•°æ®é¡¹
+        memcpy(lpdata->verify_dt, octinf.blk_addtional.detail.verify_dt, 3); //å®¡æ ¸æƒ…å†µ yymmdd
+        lpdata->pursemode = octinf.blk_addtional.detail.pursemode; //å¡å†…å‚¨å€¼æƒ…å†µ
+        memcpy(lpdata->city, octinf.blk_addtional.detail.city, 2);  //åŸå¸‚ä»£ç 
+        memcpy(lpdata->industry, octinf.blk_addtional.detail.industry,2); //è¡Œä¸šä»£ç 
 //=================================================
-        //¹«¹²ĞÅÏ¢ÇøÊı¾İÏî
-        memcpy(lpdata->common_count, octinf.blk_public_org.detail.common_count, 2); //¹«¹²Ç®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-        memcpy(lpdata->other_count, octinf.blk_public_org.detail.other_count, 2);//[2];  //×¨ÓÃÇ®°ü½»Ò×´ÎÊı,¸ßÎ»ÔÚÇ°
-        memcpy(lpdata->dt_trdate, octinf.blk_public_org.detail.dt_trdate, 4); //[4]; //½»Ò×ÈÕÆÚyyyy-mm-dd
-        lpdata->lock_flag = octinf.blk_public_org.detail.lock_flag; //04Ëø¿¨£¬ÆäËüÕı³£
+        //å…¬å…±ä¿¡æ¯åŒºæ•°æ®é¡¹
+        memcpy(lpdata->common_count, octinf.blk_public_org.detail.common_count, 2); //å…¬å…±é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+        memcpy(lpdata->other_count, octinf.blk_public_org.detail.other_count, 2);//[2];  //ä¸“ç”¨é’±åŒ…äº¤æ˜“æ¬¡æ•°,é«˜ä½åœ¨å‰
+        memcpy(lpdata->dt_trdate, octinf.blk_public_org.detail.dt_trdate, 4); //[4]; //äº¤æ˜“æ—¥æœŸyyyy-mm-dd
+        lpdata->lock_flag = octinf.blk_public_org.detail.lock_flag; //04é”å¡ï¼Œå…¶å®ƒæ­£å¸¸
 //=================================================
-        //¹«¹²ĞÅÏ¢ÀúÊ·¿éÊı¾İÏî
-        lpdata->tr_type = octinf.blk_history.detail.tr_type;//½»Ò×ÀàĞÍ
-        memcpy(lpdata->servicer_code, octinf.blk_history.detail.servicer_code, 2);//·şÎñÉÌ´úÂë
-        memcpy(lpdata->terminal_no, octinf.blk_history.detail.terminal_no, 4);//[4];   //POS±àºÅ 4BYTE;
-        memcpy(lpdata->dt_trdate2, octinf.blk_history.detail.dt_trdate, 3);//[3]; //½»Ò×ÈÕÆÚyy-mm-dd
-        memcpy(lpdata->banlance, octinf.blk_history.detail.banlance, 3);  //½»Ò×Ç°Óà¶î
-        memcpy(lpdata->tr_amount, octinf.blk_history.detail.tr_amount, 2);    //½»Ò×½ğ¶î
+        //å…¬å…±ä¿¡æ¯å†å²å—æ•°æ®é¡¹
+        lpdata->tr_type = octinf.blk_history.detail.tr_type;//äº¤æ˜“ç±»å‹
+        memcpy(lpdata->servicer_code, octinf.blk_history.detail.servicer_code, 2);//æœåŠ¡å•†ä»£ç 
+        memcpy(lpdata->terminal_no, octinf.blk_history.detail.terminal_no, 4);//[4];   //POSç¼–å· 4BYTE;
+        memcpy(lpdata->dt_trdate2, octinf.blk_history.detail.dt_trdate, 3);//[3]; //äº¤æ˜“æ—¥æœŸyy-mm-dd
+        memcpy(lpdata->banlance, octinf.blk_history.detail.banlance, 3);  //äº¤æ˜“å‰ä½™é¢
+        memcpy(lpdata->tr_amount, octinf.blk_history.detail.tr_amount, 2);    //äº¤æ˜“é‡‘é¢
 //==================================================
-        //µØÌúĞÅÏ¢ÇøÊı¾İÏî
+        //åœ°é“ä¿¡æ¯åŒºæ•°æ®é¡¹
         memcpy(lpdata->metro_inf, octinf.blk_metro_org.buf, 14);
         return(0);
     }
@@ -2929,28 +2929,28 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_writedata
-//¹¦    ÄÜ: ¶ÔM1¿¨½øĞĞĞ´²Ù×÷
-//Èë¿Ú²ÎÊı:
-//            idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//          nopertion:²Ù×÷·½Ê½, 0=ºÚÃûµ¥½âËø,1=ºÚÃûµ¥Ëø¿¨(²»Ğ´µØÌúĞÅÏ¢ÇøÒ²²»¿Û·Ñ£¬Ö»Ğ´ºÚÃûµ¥±ê¼Ç), 2=Ö»¸üĞÂµØÌúĞÅÏ¢Çø£¬=3Ö»¿Û·Ñ²»²Ù×÷µØÌúĞÅÏ¢Çø, =4¿Û·ÑµÄÍ¬Ê±Ğ´µØÌúĞÅÏ¢Çø,
-//          tr_dttime:Ïû·ÑÊ±¼ä£¬Ö»ÓĞÔÚÒª¿ÛÖµÊ±²ÅÊ¹ÓÃ, bcdÂë, yyyymmddhhnnss
-//             lvalue:ÒªÏû·ÑµÄÖµ
-//          metro_inf:µØÌúĞÅÏ¢¿é 16byte
+//å‡½ æ•° å: octm1_writedata
+//åŠŸ    èƒ½: å¯¹M1å¡è¿›è¡Œå†™æ“ä½œ
+//å…¥å£å‚æ•°:
+//            idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//          nopertion:æ“ä½œæ–¹å¼, 0=é»‘åå•è§£é”,1=é»‘åå•é”å¡(ä¸å†™åœ°é“ä¿¡æ¯åŒºä¹Ÿä¸æ‰£è´¹ï¼Œåªå†™é»‘åå•æ ‡è®°), 2=åªæ›´æ–°åœ°é“ä¿¡æ¯åŒºï¼Œ=3åªæ‰£è´¹ä¸æ“ä½œåœ°é“ä¿¡æ¯åŒº, =4æ‰£è´¹çš„åŒæ—¶å†™åœ°é“ä¿¡æ¯åŒº,
+//          tr_dttime:æ¶ˆè´¹æ—¶é—´ï¼Œåªæœ‰åœ¨è¦æ‰£å€¼æ—¶æ‰ä½¿ç”¨, bcdç , yyyymmddhhnnss
+//             lvalue:è¦æ¶ˆè´¹çš„å€¼
+//          metro_inf:åœ°é“ä¿¡æ¯å— 16byte
 //
-//³ö¿Ú²ÎÊı:
-//          ÎŞ
-//·µ »Ø Öµ:
-//          0=³É¹¦
-//       0xEE=Ğ´¿¨Ê§°Ü£¬ĞèÒªÊ±ĞĞ½»Ò×È·ÈÏ
-//       ÆäËü=Ğ´¿¨Ê§°Ü£¬ÎŞĞè´¦Àí
+//å‡ºå£å‚æ•°:
+//          æ— 
+//è¿” å› å€¼:
+//          0=æˆåŠŸ
+//       0xEE=å†™å¡å¤±è´¥ï¼Œéœ€è¦æ—¶è¡Œäº¤æ˜“ç¡®è®¤
+//       å…¶å®ƒ=å†™å¡å¤±è´¥ï¼Œæ— éœ€å¤„ç†
 //==========================================================================================
 //unsigned char octm1_writedata(unsigned char idx_sam, unsigned char nopertion, unsigned char *tr_dttime, unsigned long lvalue, unsigned char *metro_inf)
 //{
 //
-//    const unsigned char tr_type=0x03;//¹Ì¶¨Îª0x03±íÊ¾¹«¹²Ç®°üÏû·Ñ
-//    const unsigned char service_code[2]={0x00,0x00};//¹«½»Î´¶¨Òå£¬ÏÈÇ¿ÖÆ0x00
-//    const unsigned char pos_code[4]={0x00,0x00};//¹«½»Î´¸ø³ö¶¨Òå£¬ÏÈÇ¿ÖÆ0x00
+//    const unsigned char tr_type=0x03;//å›ºå®šä¸º0x03è¡¨ç¤ºå…¬å…±é’±åŒ…æ¶ˆè´¹
+//    const unsigned char service_code[2]={0x00,0x00};//å…¬äº¤æœªå®šä¹‰ï¼Œå…ˆå¼ºåˆ¶0x00
+//    const unsigned char pos_code[4]={0x00,0x00};//å…¬äº¤æœªç»™å‡ºå®šä¹‰ï¼Œå…ˆå¼ºåˆ¶0x00
 //
 //    unsigned char tmpbuf[16];
 //    unsigned char ret = -1;
@@ -2967,7 +2967,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //        if ((nopertion==0)||(nopertion==1))
 //        {
 //            //=================================================
-//            //ºÚÃûµ¥Ëø¿¨(²»Ğ´µØÌúĞÅÏ¢ÇøÒ²²»¿Û·Ñ£¬Ö»Ğ´ºÚÃûµ¥±ê¼Ç)
+//            //é»‘åå•é”å¡(ä¸å†™åœ°é“ä¿¡æ¯åŒºä¹Ÿä¸æ‰£è´¹ï¼Œåªå†™é»‘åå•æ ‡è®°)
 //            if (nopertion==1)
 //            {
 //                lppublic->lock_flag = 0x04;
@@ -2976,42 +2976,42 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //            {
 //                lppublic->lock_flag = 0x00;
 //            }
-//            crc_cu(g_public_inf, 16);//¼ÆËãCRC8
+//            crc_cu(g_public_inf, 16);//è®¡ç®—CRC8
 //            ret = octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX, g_public_inf);
 //            if (ret)
 //            {
 //                ret = 0xEE;
 //            };
 //
-//            //Õı±¾Ğ´³É¹¦ºó£¬¸±±¾¼´Ê¹²Ù×÷Ê§°ÜÒ²µ±×ö³É¹¦
+//            //æ­£æœ¬å†™æˆåŠŸåï¼Œå‰¯æœ¬å³ä½¿æ“ä½œå¤±è´¥ä¹Ÿå½“åšæˆåŠŸ
 //            octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, g_public_inf);
 //        }
 //        else if (nopertion==2)
 //        {
 //            //========================================================
-//            //Ö»¸üĞÂµØÌúĞÅÏ¢Çø
+//            //åªæ›´æ–°åœ°é“ä¿¡æ¯åŒº
 //            ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, metro_inf);
 //            if (ret)
 //            {
 //                ret = 0xEE;
 //            };
 //
-//            //Õı±¾Ğ´³É¹¦ºó£¬¸±±¾¼´Ê¹²Ù×÷Ê§°ÜÒ²µ±×ö³É¹¦
+//            //æ­£æœ¬å†™æˆåŠŸåï¼Œå‰¯æœ¬å³ä½¿æ“ä½œå¤±è´¥ä¹Ÿå½“åšæˆåŠŸ
 //            octm1_writeblock(OCT_BLK_METRO_BAK_IDX, metro_inf);
 //
 //        }
 //        else if ((nopertion==3) ||(nopertion==4))
 //        {
 //            //============================================================
-//            //3=Ö»¿Û·Ñ²»²Ù×÷µØÌúĞÅÏ¢Çø
-//            //4=//¿Û·ÑµÄÍ¬Ê±Ğ´µØÌúĞÅÏ¢Çø
+//            //3=åªæ‰£è´¹ä¸æ“ä½œåœ°é“ä¿¡æ¯åŒº
+//            //4=//æ‰£è´¹çš„åŒæ—¶å†™åœ°é“ä¿¡æ¯åŒº
 //            if (lvalue > g_nbalance)
 //            {
 //                return 0x25;
 //            }
 //
 //
-//            //Ğ´½»Ò×¹ı³ÌÀúÊ·
+//            //å†™äº¤æ˜“è¿‡ç¨‹å†å²
 //            lphistory->tr_type = tr_type;
 //            memcpy(lphistory->servicer_code, service_code, 2);
 //            memcpy(lphistory->terminal_no, pos_code, 4);
@@ -3032,7 +3032,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //            }
 //
 //
-//            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x11,¹«¹²¼ÆÊı+1, ½»Ò×ÀàĞÍ=0x03
+//            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x11,å…¬å…±è®¡æ•°+1, äº¤æ˜“ç±»å‹=0x03
 //            octm1_inc_public_tr_count(0, lppublic);
 //            lppublic->proc_flag = 0x11;
 //            lppublic->tr_type = tr_type;
@@ -3048,7 +3048,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //
 //            if (nopertion==4)
 //            {
-//                //ĞèĞ´ÈëµØÌúĞÅÏ¢Çø
+//                //éœ€å†™å…¥åœ°é“ä¿¡æ¯åŒº
 //                ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, metro_inf);
 //                if (ret)
 //                {
@@ -3058,8 +3058,8 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //
 //            }
 //
-//            //Ç®°üÕı±¾¿Û¿î
-//            //0xC0=Ïû·Ñ£¬
+//            //é’±åŒ…æ­£æœ¬æ‰£æ¬¾
+//            //0xC0=æ¶ˆè´¹ï¼Œ
 //            ret = octm1_write_purse(OCT_BLK_PURSE_ORG_IDX, 0xC0,lvalue);
 //            if (ret)
 //            {
@@ -3075,8 +3075,8 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //				memset(&g_m1recover, 0x00, sizeof(g_m1recover));
 //			}
 //
-//            //Ç®°üÕı±¾¿Û¿î³É¹¦ºóµÄ²Ù×÷Ê§°Ü¶¼µ±×ö½»Ò×³É¹¦
-//            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x13
+//            //é’±åŒ…æ­£æœ¬æ‰£æ¬¾æˆåŠŸåçš„æ“ä½œå¤±è´¥éƒ½å½“åšäº¤æ˜“æˆåŠŸ
+//            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x13
 //            lppublic->proc_flag = 0x13;
 //            crc_cu(g_public_inf, 16);
 //            ret = octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX, g_public_inf);
@@ -3086,7 +3086,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //                break;
 //            }
 //
-//            //Ç®°üÕı±¾µ½¸±±¾
+//            //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
 //            ret = octm1_copy_purse(OCT_BLK_PURSE_BAK_IDX, OCT_BLK_PURSE_ORG_IDX);
 //            if (ret)
 //            {
@@ -3095,7 +3095,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //            }
 //
 //
-//            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x13
+//            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x13
 //            ret = octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, g_public_inf);
 //            if (ret)
 //            {
@@ -3112,7 +3112,7 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //        }
 //        else
 //        {
-//            //²Ù×÷·½Ê½²ÎÊı´íÎó£¬²»¿ÉÊ¶±ğ
+//            //æ“ä½œæ–¹å¼å‚æ•°é”™è¯¯ï¼Œä¸å¯è¯†åˆ«
 //            ret = 0xE1;
 //
 //        }
@@ -3127,29 +3127,29 @@ unsigned char octm1_getdata2(unsigned char idx_sam, unsigned char *lpcardnumber,
 //}
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_writedata2
-//¹¦    ÄÜ: ¶ÔM1¿¨½øĞĞĞ´²Ù×÷
-//Èë¿Ú²ÎÊı:
-//            idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//          nopertion:²Ù×÷·½Ê½, 0=ºÚÃûµ¥½âËø,1=ºÚÃûµ¥Ëø¿¨(²»Ğ´µØÌúĞÅÏ¢ÇøÒ²²»¿Û·Ñ£¬Ö»Ğ´ºÚÃûµ¥±ê¼Ç), 2=Ö»¸üĞÂµØÌúĞÅÏ¢Çø£¬=3Ö»¿Û·Ñ²»²Ù×÷µØÌúĞÅÏ¢Çø, =4¿Û·ÑµÄÍ¬Ê±Ğ´µØÌúĞÅÏ¢Çø,
-//          tr_dttime:Ïû·ÑÊ±¼ä£¬Ö»ÓĞÔÚÒª¿ÛÖµÊ±²ÅÊ¹ÓÃ, bcdÂë, yyyymmddhhnnss
-//       npursetype:Òª´¦ÀíµÄÇ®°üÀà±ğ, 0=¹«ÓÃÇ®°ü, 1»ò·Ç0Öµ=×¨ÓÃÇ®°ü
-//             lvalue:ÒªÏû·ÑµÄÖµ
-//          metro_inf:µØÌúĞÅÏ¢¿é 16byte
+//å‡½ æ•° å: octm1_writedata2
+//åŠŸ    èƒ½: å¯¹M1å¡è¿›è¡Œå†™æ“ä½œ
+//å…¥å£å‚æ•°:
+//            idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//          nopertion:æ“ä½œæ–¹å¼, 0=é»‘åå•è§£é”,1=é»‘åå•é”å¡(ä¸å†™åœ°é“ä¿¡æ¯åŒºä¹Ÿä¸æ‰£è´¹ï¼Œåªå†™é»‘åå•æ ‡è®°), 2=åªæ›´æ–°åœ°é“ä¿¡æ¯åŒºï¼Œ=3åªæ‰£è´¹ä¸æ“ä½œåœ°é“ä¿¡æ¯åŒº, =4æ‰£è´¹çš„åŒæ—¶å†™åœ°é“ä¿¡æ¯åŒº,
+//          tr_dttime:æ¶ˆè´¹æ—¶é—´ï¼Œåªæœ‰åœ¨è¦æ‰£å€¼æ—¶æ‰ä½¿ç”¨, bcdç , yyyymmddhhnnss
+//       npursetype:è¦å¤„ç†çš„é’±åŒ…ç±»åˆ«, 0=å…¬ç”¨é’±åŒ…, 1æˆ–é0å€¼=ä¸“ç”¨é’±åŒ…
+//             lvalue:è¦æ¶ˆè´¹çš„å€¼
+//          metro_inf:åœ°é“ä¿¡æ¯å— 16byte
 //
-//³ö¿Ú²ÎÊı:
-//          ÎŞ
-//·µ »Ø Öµ:
-//          0=³É¹¦
-//       0xEE=Ğ´¿¨Ê§°Ü£¬ĞèÒªÊ±ĞĞ½»Ò×È·ÈÏ
-//       ÆäËü=Ğ´¿¨Ê§°Ü£¬ÎŞĞè´¦Àí
+//å‡ºå£å‚æ•°:
+//          æ— 
+//è¿” å› å€¼:
+//          0=æˆåŠŸ
+//       0xEE=å†™å¡å¤±è´¥ï¼Œéœ€è¦æ—¶è¡Œäº¤æ˜“ç¡®è®¤
+//       å…¶å®ƒ=å†™å¡å¤±è´¥ï¼Œæ— éœ€å¤„ç†
 //==========================================================================================
 unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, unsigned char *tr_dttime, unsigned char npursetype, unsigned long lvalue, unsigned char *metro_inf)
 {
 
-    unsigned char tr_type=0x03;//¹Ì¶¨Îª0x03±íÊ¾¹«¹²Ç®°üÏû·Ñ
-    const unsigned char service_code[2]={0x00,0x00};//¹«½»Î´¶¨Òå£¬ÏÈÇ¿ÖÆ0x00
-    const unsigned char pos_code[4]={0x00,0x00};//¹«½»Î´¸ø³ö¶¨Òå£¬ÏÈÇ¿ÖÆ0x00
+    unsigned char tr_type=0x03;//å›ºå®šä¸º0x03è¡¨ç¤ºå…¬å…±é’±åŒ…æ¶ˆè´¹
+    const unsigned char service_code[2]={0x00,0x00};//å…¬äº¤æœªå®šä¹‰ï¼Œå…ˆå¼ºåˆ¶0x00
+    const unsigned char pos_code[4]={0x00,0x00};//å…¬äº¤æœªç»™å‡ºå®šä¹‰ï¼Œå…ˆå¼ºåˆ¶0x00
 
     unsigned char tmpbuf[16];
     unsigned char ret = -1;
@@ -3166,7 +3166,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
         if ((nopertion==0)||(nopertion==1))
         {
             //=================================================
-            //ºÚÃûµ¥Ëø¿¨(²»Ğ´µØÌúĞÅÏ¢ÇøÒ²²»¿Û·Ñ£¬Ö»Ğ´ºÚÃûµ¥±ê¼Ç)
+            //é»‘åå•é”å¡(ä¸å†™åœ°é“ä¿¡æ¯åŒºä¹Ÿä¸æ‰£è´¹ï¼Œåªå†™é»‘åå•æ ‡è®°)
             if (nopertion==1)
             {
                 lppublic->lock_flag = 0x04;
@@ -3175,37 +3175,37 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
             {
                 lppublic->lock_flag = 0x00;
             }
-            crc_cu(g_public_inf, 16);//¼ÆËãCRC8
+            crc_cu(g_public_inf, 16);//è®¡ç®—CRC8
             ret = octm1_writeblock(OCT_BLK_PUBLIC_ORG_IDX, g_public_inf);
             if (ret)
             {
                 ret = 0xEE;
             };
 
-            //Õı±¾Ğ´³É¹¦ºó£¬¸±±¾¼´Ê¹²Ù×÷Ê§°ÜÒ²µ±×ö³É¹¦
+            //æ­£æœ¬å†™æˆåŠŸåï¼Œå‰¯æœ¬å³ä½¿æ“ä½œå¤±è´¥ä¹Ÿå½“åšæˆåŠŸ
             octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, g_public_inf);
         }
         else if (nopertion==2)
         {
             //========================================================
-            //Ö»¸üĞÂµØÌúĞÅÏ¢Çø
+            //åªæ›´æ–°åœ°é“ä¿¡æ¯åŒº
             ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, metro_inf);
             if (ret)
             {
                 ret = 0xEE;
             };
 
-            //Õı±¾Ğ´³É¹¦ºó£¬¸±±¾¼´Ê¹²Ù×÷Ê§°ÜÒ²µ±×ö³É¹¦
+            //æ­£æœ¬å†™æˆåŠŸåï¼Œå‰¯æœ¬å³ä½¿æ“ä½œå¤±è´¥ä¹Ÿå½“åšæˆåŠŸ
             octm1_writeblock(OCT_BLK_METRO_BAK_IDX, metro_inf);
         }
         else if ((nopertion==3) ||(nopertion==4))
         {
             //============================================================
-            //3=Ö»¿Û·Ñ²»²Ù×÷µØÌúĞÅÏ¢Çø
-            //4=//¿Û·ÑµÄÍ¬Ê±Ğ´µØÌúĞÅÏ¢Çø
+            //3=åªæ‰£è´¹ä¸æ“ä½œåœ°é“ä¿¡æ¯åŒº
+            //4=//æ‰£è´¹çš„åŒæ—¶å†™åœ°é“ä¿¡æ¯åŒº
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°üÓà¶îÅĞ¶Ï
+				//å…¬ç”¨é’±åŒ…ä½™é¢åˆ¤æ–­
 	            if (lvalue > g_nbalance)
 	            {
 	                return 0x25;
@@ -3214,7 +3214,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
             }
             else
             {
-				//×¨ÓÃÇ®°üÓà¶îÅĞ¶Ï
+				//ä¸“ç”¨é’±åŒ…ä½™é¢åˆ¤æ–­
 	            if (lvalue > g_nbalance2)
 	            {
 	                return 0x25;
@@ -3223,14 +3223,14 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
             }
 
 
-            //Ğ´½»Ò×¹ı³ÌÀúÊ·
+            //å†™äº¤æ˜“è¿‡ç¨‹å†å²
             lphistory->tr_type = tr_type;
             memcpy(lphistory->servicer_code, service_code, 2);
             memcpy(lphistory->terminal_no, pos_code, 4);
             memcpy(lphistory->dt_trdate, tr_dttime+1, 3);//yymmdd
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°ü²Ù×÷
+				//å…¬ç”¨é’±åŒ…æ“ä½œ
 	            lphistory->banlance[0] = ((g_nbalance & 0x00FF0000) >> 16);
 	            lphistory->banlance[1] = ((g_nbalance & 0x0000FF00) >> 8);
 	            lphistory->banlance[2] = (g_nbalance & 0x000000FF);
@@ -3239,7 +3239,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
 			}
 			else
 			{
-				//×¨ÓÃÇ®°ü²Ù×÷
+				//ä¸“ç”¨é’±åŒ…æ“ä½œ
 				lphistory->banlance[0] = ((g_nbalance2 & 0x00FF0000) >> 16);
 				lphistory->banlance[1] = ((g_nbalance2 & 0x0000FF00) >> 8);
 				lphistory->banlance[2] = (g_nbalance2 & 0x000000FF);
@@ -3257,16 +3257,16 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
             }
 
 
-            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x11,¹«¹²¼ÆÊı+1, ½»Ò×ÀàĞÍ=0x03
+            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x11,å…¬å…±è®¡æ•°+1, äº¤æ˜“ç±»å‹=0x03
             octm1_inc_public_tr_count(0, lppublic);
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°ü²Ù×÷
+				//å…¬ç”¨é’±åŒ…æ“ä½œ
             	lppublic->proc_flag = 0x11;
 			}
 			else
 			{
-				//×¨ÓÃÇ®°ü²Ù×÷
+				//ä¸“ç”¨é’±åŒ…æ“ä½œ
             	lppublic->proc_flag = 0x12;
 			}
             lppublic->tr_type = tr_type;
@@ -3282,7 +3282,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
 
             if (nopertion==4)
             {
-                //ĞèĞ´ÈëµØÌúĞÅÏ¢Çø
+                //éœ€å†™å…¥åœ°é“ä¿¡æ¯åŒº
                 ret = octm1_writeblock(OCT_BLK_METRO_ORG_IDX, metro_inf);
                 if (ret)
                 {
@@ -3292,16 +3292,16 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
 
             }
 
-            //Ç®°üÕı±¾¿Û¿î
-            //0xC0=Ïû·Ñ£¬
+            //é’±åŒ…æ­£æœ¬æ‰£æ¬¾
+            //0xC0=æ¶ˆè´¹ï¼Œ
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°ü²Ù×÷
+				//å…¬ç”¨é’±åŒ…æ“ä½œ
 	            ret = octm1_write_purse(OCT_BLK_PURSE_ORG_IDX, 0xC0,lvalue);
 			}
 			else
 			{
-				//×¨ÓÃÇ®°ü²Ù×÷
+				//ä¸“ç”¨é’±åŒ…æ“ä½œ
 				ret = octm1_write_purse(OCT_BLK_PURSE_OTHER_ORG_IDX, 0xC0,lvalue);
 			}
 
@@ -3327,16 +3327,16 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
 				memset(&g_m1recover, 0x00, sizeof(g_m1recover));
 			}
 
-            //Ç®°üÕı±¾¿Û¿î³É¹¦ºóµÄ²Ù×÷Ê§°Ü¶¼µ±×ö½»Ò×³É¹¦
-            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x13
+            //é’±åŒ…æ­£æœ¬æ‰£æ¬¾æˆåŠŸåçš„æ“ä½œå¤±è´¥éƒ½å½“åšäº¤æ˜“æˆåŠŸ
+            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x13
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°ü²Ù×÷
+				//å…¬ç”¨é’±åŒ…æ“ä½œ
             	lppublic->proc_flag = 0x13;
 			}
 			else
 			{
-				//×¨ÓÃÇ®°ü²Ù×÷
+				//ä¸“ç”¨é’±åŒ…æ“ä½œ
 				lppublic->proc_flag = 0x14;
 			}
             crc_cu(g_public_inf, 16);
@@ -3347,15 +3347,15 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
                 break;
             }
 
-            //Ç®°üÕı±¾µ½¸±±¾
+            //é’±åŒ…æ­£æœ¬åˆ°å‰¯æœ¬
 			if (npursetype == 0)
 			{
-				//¹«ÓÃÇ®°ü²Ù×÷
+				//å…¬ç”¨é’±åŒ…æ“ä½œ
             	ret = octm1_copy_purse(OCT_BLK_PURSE_BAK_IDX, OCT_BLK_PURSE_ORG_IDX);
 			}
 			else
 			{
-				//×¨ÓÃÇ®°ü²Ù×÷
+				//ä¸“ç”¨é’±åŒ…æ“ä½œ
             	ret = octm1_copy_purse(OCT_BLK_PURSE_OTHER_BAK_IDX, OCT_BLK_PURSE_OTHER_ORG_IDX);
 			}
 
@@ -3366,7 +3366,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
             }
 
 
-            //Ğ´¹«¹²ĞÅÏ¢Çø, ½ø³Ì±êÊ¶=0x13
+            //å†™å…¬å…±ä¿¡æ¯åŒº, è¿›ç¨‹æ ‡è¯†=0x13
             ret = octm1_writeblock(OCT_BLK_PUBLIC_BAK_IDX, g_public_inf);
             if (ret)
             {
@@ -3385,7 +3385,7 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
         }
         else
         {
-            //²Ù×÷·½Ê½²ÎÊı´íÎó£¬²»¿ÉÊ¶±ğ
+            //æ“ä½œæ–¹å¼å‚æ•°é”™è¯¯ï¼Œä¸å¯è¯†åˆ«
             ret = 0xE1;
         }
     }
@@ -3397,17 +3397,17 @@ unsigned char octm1_writedata2(unsigned char idx_sam, unsigned char nopertion, u
 
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_gettac
-//¹¦    ÄÜ: Éú³ÉTACÂë
-//Èë¿Ú²ÎÊı:
-//          idx_sam:µ±Ç°Ó¦ÓÃSAM¿¨¶ÔÓ¦µÄ¿¨²ÛĞòÁĞºÅ(´Ó0¿ªÊ¼)
-//      lpappnumber:µ±Ç°¿¨Æ¬µÄÓ¦ÓÃ¿¨±àºÅ, ÔÚoctm1_getdataº¯ÊıÖĞÒÑ»ñÈ¡
-//           lpdata:Òª²ÎÓëTAC¼ÆËãµÄÊı¾İÄÚÈİ 16byte
+//å‡½ æ•° å: octm1_gettac
+//åŠŸ    èƒ½: ç”ŸæˆTACç 
+//å…¥å£å‚æ•°:
+//          idx_sam:å½“å‰åº”ç”¨SAMå¡å¯¹åº”çš„å¡æ§½åºåˆ—å·(ä»0å¼€å§‹)
+//      lpappnumber:å½“å‰å¡ç‰‡çš„åº”ç”¨å¡ç¼–å·, åœ¨octm1_getdataå‡½æ•°ä¸­å·²è·å–
+//           lpdata:è¦å‚ä¸TACè®¡ç®—çš„æ•°æ®å†…å®¹ 16byte
 //
-//³ö¿Ú²ÎÊı:
-//             lptac:ÒªĞ´ÈëµÄµØÌúĞÅÏ¢¿é 4byte
-//·µ »Ø Öµ:
-//          0=³É¹¦
+//å‡ºå£å‚æ•°:
+//             lptac:è¦å†™å…¥çš„åœ°é“ä¿¡æ¯å— 4byte
+//è¿” å› å€¼:
+//          0=æˆåŠŸ
 //==========================================================================================
 unsigned char octm1_gettac(unsigned char idx_sam, unsigned char *lpappnumber, unsigned char *lpdata, unsigned char *lptac)
 {
@@ -3446,21 +3446,21 @@ unsigned char octm1_gettac(unsigned char idx_sam, unsigned char *lpappnumber, un
 
 
 //==========================================================================================
-//º¯ Êı Ãû: octm1_judge
-//¹¦    ÄÜ: ³¤É³¹«½»¿¨ÅĞ¶Ï,µ±m1¿¨µÄÑ¡¿¨select·µ»ØÖµsakÎªCPU¿¨Ê±£¬Òª¶Ô´Ë¿¨ÅĞ¶ÏÊÇ·ñ³¤É³µÄCPU·ÂM1¿¨,
-//          Èç¹ûÄÜ²»¶ÁÈ¡M1Êı¾İ¿éÔòÈÏÎªÊÇ´¿CPU¿¨£¬º¯Êı·µ»Ø£¬²¢ÔÚº¯Êıµ÷ÓÃºó¼ÌĞøÅĞ¶ÏÊÇÊ²Ã´ĞĞÒµµÄCPU¿¨;
-//          Èç¹ûÄÜ¶ÁÈ¡M1Êı¾İ¿éÔòÎª¹«½»cpu·Âm1,ÔÙ¶Ôm1¿¨µÄ·¢ĞĞÇøÆôÓÃ±êÖ¾½øĞĞÅĞ¶Ï,=0x01/0xBB£¬ÔòÒÔ¹«½»M1¿¨µÄ
-//          Á÷³Ì½øĞĞ´¦Àí,Èç¹û=2ÔòÖ±½Ó×ß¹«½»CPU¿¨Á÷³Ì£¬ÈçÎªÆäËü±êÖ¾Ôòº¯Êı·µ»Ø£¬²¢ÔÚº¯Êıµ÷ÓÃºó¼ÌĞøÅĞ¶ÏÊÇÊ²Ã´ĞĞÒµµÄCPU¿¨;
-//Èë¿Ú²ÎÊı:
-//      lpcardnumber:Æ±¿¨µÄÎïÀí¿¨ºÅ, ÔÚsearchcardº¯ÊıÖĞÒÑ»ñÈ¡
+//å‡½ æ•° å: octm1_judge
+//åŠŸ    èƒ½: é•¿æ²™å…¬äº¤å¡åˆ¤æ–­,å½“m1å¡çš„é€‰å¡selectè¿”å›å€¼sakä¸ºCPUå¡æ—¶ï¼Œè¦å¯¹æ­¤å¡åˆ¤æ–­æ˜¯å¦é•¿æ²™çš„CPUä»¿M1å¡,
+//          å¦‚æœèƒ½ä¸è¯»å–M1æ•°æ®å—åˆ™è®¤ä¸ºæ˜¯çº¯CPUå¡ï¼Œå‡½æ•°è¿”å›ï¼Œå¹¶åœ¨å‡½æ•°è°ƒç”¨åç»§ç»­åˆ¤æ–­æ˜¯ä»€ä¹ˆè¡Œä¸šçš„CPUå¡;
+//          å¦‚æœèƒ½è¯»å–M1æ•°æ®å—åˆ™ä¸ºå…¬äº¤cpuä»¿m1,å†å¯¹m1å¡çš„å‘è¡ŒåŒºå¯ç”¨æ ‡å¿—è¿›è¡Œåˆ¤æ–­,=0x01/0xBBï¼Œåˆ™ä»¥å…¬äº¤M1å¡çš„
+//          æµç¨‹è¿›è¡Œå¤„ç†,å¦‚æœ=2åˆ™ç›´æ¥èµ°å…¬äº¤CPUå¡æµç¨‹ï¼Œå¦‚ä¸ºå…¶å®ƒæ ‡å¿—åˆ™å‡½æ•°è¿”å›ï¼Œå¹¶åœ¨å‡½æ•°è°ƒç”¨åç»§ç»­åˆ¤æ–­æ˜¯ä»€ä¹ˆè¡Œä¸šçš„CPUå¡;
+//å…¥å£å‚æ•°:
+//      lpcardnumber:ç¥¨å¡çš„ç‰©ç†å¡å·, åœ¨searchcardå‡½æ•°ä¸­å·²è·å–
 //
-//³ö¿Ú²ÎÊı:
-//             ÎŞ
-//·µ »Ø Öµ:
-//          0=ÎŞ¿¨
-//		    2=ºóĞø°´¹«½»m1Á÷³Ì´¦Àí
-//          4=ºóĞø°´¹«½»cpu¿¨Á÷³Ì´¦Àí
-//          3=ºóĞøĞèÒª¼ÌĞøÅĞ¶ÏÊÇÄÄ¸öĞĞÒµµÄCPU¿¨
+//å‡ºå£å‚æ•°:
+//             æ— 
+//è¿” å› å€¼:
+//          0=æ— å¡
+//		    2=åç»­æŒ‰å…¬äº¤m1æµç¨‹å¤„ç†
+//          4=åç»­æŒ‰å…¬äº¤cpuå¡æµç¨‹å¤„ç†
+//          3=åç»­éœ€è¦ç»§ç»­åˆ¤æ–­æ˜¯å“ªä¸ªè¡Œä¸šçš„CPUå¡
 //===========================================================================
 unsigned char octm1_judge(unsigned char *lpcardnumber)
 {
@@ -3473,7 +3473,7 @@ unsigned char octm1_judge(unsigned char *lpcardnumber)
 
 	if (octm1_readblock(OCT_BLK_ISSUESUE_IDX, tmpbuf))
 	{
-		//²»ÊÇ¹«½»cpu·ÂM1¿¨ , º¯Êıºó¼ÌĞøÅĞ¶ÏCPUÀàĞÍ
+		//ä¸æ˜¯å…¬äº¤cpuä»¿M1å¡ , å‡½æ•°åç»§ç»­åˆ¤æ–­CPUç±»å‹
 		ret=ISO14443A_Request( 0x52, tmpbuf );
 		if (ret)
 		{
@@ -3481,52 +3481,52 @@ unsigned char octm1_judge(unsigned char *lpcardnumber)
 		}
 		if (ret)
 		{
-			//Ñ°²»µ½¿¨Ôò·µ»ØÎŞ¿¨
+			//å¯»ä¸åˆ°å¡åˆ™è¿”å›æ— å¡
 			return 0x00;
 		}
 		ret=ISO14443A_Select(lpcardnumber, tmpbuf);
 		if (ret)
 		{
-			//ÕÒ²»µ½¸Õ²ÅÅĞ¶ÏµÄ¿¨ÔòÅĞ¶ÏÎªÎŞ¿¨;
+			//æ‰¾ä¸åˆ°åˆšæ‰åˆ¤æ–­çš„å¡åˆ™åˆ¤æ–­ä¸ºæ— å¡;
 			return 0x00;
 		}
 
-		//ÆäËüCPU¿¨£¬º¯Êıµ÷ÓÃºóĞèÒª¼ÌĞøÅĞ¶ÏÊÇÄÄ¸öĞĞÒµµÄCPU¿¨
+		//å…¶å®ƒCPUå¡ï¼Œå‡½æ•°è°ƒç”¨åéœ€è¦ç»§ç»­åˆ¤æ–­æ˜¯å“ªä¸ªè¡Œä¸šçš„CPUå¡
 		return 0x03;
 	}
 
-	//Èç¹ûÄÜ¶Ôcpu¿¨½øĞĞ¶ÁÈ¡m1Êı¾İ¿é£¬ËµÃ÷ÊÇ¹«½»·Âcpu¿¨·Âm1
+	//å¦‚æœèƒ½å¯¹cpuå¡è¿›è¡Œè¯»å–m1æ•°æ®å—ï¼Œè¯´æ˜æ˜¯å…¬äº¤ä»¿cpuå¡ä»¿m1
 
 	//if ((lpissue->appflag == 0x01)||(lpissue->appflag == 0xBB))
 	//{
-	//	//¹«½»M1¿¨ , ºóĞø×ß¹«½»m1Ïû·ÑÁ÷³Ì
+	//	//å…¬äº¤M1å¡ , åç»­èµ°å…¬äº¤m1æ¶ˆè´¹æµç¨‹
 	//	return 0x02;
 	//}
 	//else if (lpissue->appflag  == 0x02)
 	//{
-	//	//¹«½»cpu¿¨ , ºóĞø×ß¹«½»CPUÏû·ÑÁ÷³Ì
+	//	//å…¬äº¤cpuå¡ , åç»­èµ°å…¬äº¤CPUæ¶ˆè´¹æµç¨‹
 	//	return 0x04;
 
 	//}
 	//else if (lpissue->appflag == 0xaa)
 	//{
-	//	return 98;	// ³µÆ±Î´ÆôÓÃ
+	//	return 98;	// è½¦ç¥¨æœªå¯ç”¨
 	//}
 	//else
 	//{
 
- //       //ÆäËüCPU¿¨£¬º¯Êıµ÷ÓÃºóĞèÒª¼ÌĞøÅĞ¶ÏÊÇÄÄ¸öĞĞÒµµÄCPU¿¨
+ //       //å…¶å®ƒCPUå¡ï¼Œå‡½æ•°è°ƒç”¨åéœ€è¦ç»§ç»­åˆ¤æ–­æ˜¯å“ªä¸ªè¡Œä¸šçš„CPUå¡
 	//	return 0x03;
 	//}
 
 	if (lpissue->appflag  == 0x02)
 	{
-		//¹«½»cpu¿¨ , ºóĞø×ß¹«½»CPUÏû·ÑÁ÷³Ì
+		//å…¬äº¤cpuå¡ , åç»­èµ°å…¬äº¤CPUæ¶ˆè´¹æµç¨‹
 		return 0x04;
 	}
 	else
 	{
-		return 0x02;	// ²»×ªÈëCPUÁ÷³ÌµÄÈ«²¿µ±×÷M1,½øÈëM1Á÷³ÌÔÙÅĞ¶ÏÆôÓÃ±êÊ¶
+		return 0x02;	// ä¸è½¬å…¥CPUæµç¨‹çš„å…¨éƒ¨å½“ä½œM1,è¿›å…¥M1æµç¨‹å†åˆ¤æ–­å¯ç”¨æ ‡è¯†
 	}
 }
 
@@ -3543,36 +3543,36 @@ unsigned short octm1_judge_ex(unsigned char *lpcardnumber, unsigned char& type)
 
 		if (octm1_readblock(OCT_BLK_ISSUESUE_IDX, tmpbuf))
 		{
-			//²»ÊÇ¹«½»cpu·ÂM1¿¨ , º¯Êıºó¼ÌĞøÅĞ¶ÏCPUÀàĞÍ
+			//ä¸æ˜¯å…¬äº¤cpuä»¿M1å¡ , å‡½æ•°åç»§ç»­åˆ¤æ–­CPUç±»å‹
 			if (ISO14443A_Request( 0x52, tmpbuf ) != 0)
 			{
-				//Ñ°²»µ½¿¨Ôò·µ»ØÎŞ¿¨
+				//å¯»ä¸åˆ°å¡åˆ™è¿”å›æ— å¡
 				ret = ERR_CARD_NONE;
 				break;
 			}
 
 			if (ISO14443A_Select(lpcardnumber, tmpbuf) != 0)
 			{
-				//ÕÒ²»µ½¸Õ²ÅÅĞ¶ÏµÄ¿¨ÔòÅĞ¶ÏÎªÎŞ¿¨;
+				//æ‰¾ä¸åˆ°åˆšæ‰åˆ¤æ–­çš„å¡åˆ™åˆ¤æ–­ä¸ºæ— å¡;
 				ret = ERR_CARD_NONE;
 				break;
 			}
 
-			//ÆäËüCPU¿¨£¬º¯Êıµ÷ÓÃºóĞèÒª¼ÌĞøÅĞ¶ÏÊÇÄÄ¸öĞĞÒµµÄCPU¿¨
+			//å…¶å®ƒCPUå¡ï¼Œå‡½æ•°è°ƒç”¨åéœ€è¦ç»§ç»­åˆ¤æ–­æ˜¯å“ªä¸ªè¡Œä¸šçš„CPUå¡
 			type = 0x03;
 			break;
 		}
 
-		//Èç¹ûÄÜ¶Ôcpu¿¨½øĞĞ¶ÁÈ¡m1Êı¾İ¿é£¬ËµÃ÷ÊÇ¹«½»·Âcpu¿¨·Âm1
+		//å¦‚æœèƒ½å¯¹cpuå¡è¿›è¡Œè¯»å–m1æ•°æ®å—ï¼Œè¯´æ˜æ˜¯å…¬äº¤ä»¿cpuå¡ä»¿m1
 
 		if (lpissue->appflag  == 0x02)
 		{
-			//¹«½»cpu¿¨ , ºóĞø×ß¹«½»CPUÏû·ÑÁ÷³Ì
+			//å…¬äº¤cpuå¡ , åç»­èµ°å…¬äº¤CPUæ¶ˆè´¹æµç¨‹
 			type = 0x04;
 		}
 		else
 		{
-			type = 0x02;	// ²»×ªÈëCPUÁ÷³ÌµÄÈ«²¿µ±×÷M1,½øÈëM1Á÷³ÌÔÙÅĞ¶ÏÆôÓÃ±êÊ¶
+			type = 0x02;	// ä¸è½¬å…¥CPUæµç¨‹çš„å…¨éƒ¨å½“ä½œM1,è¿›å…¥M1æµç¨‹å†åˆ¤æ–­å¯ç”¨æ ‡è¯†
 		}
 
 	} while (0);

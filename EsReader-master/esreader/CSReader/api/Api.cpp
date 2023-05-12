@@ -16,8 +16,8 @@ uint8_t Api::door_type				= 3;
 uint8_t Api::locked_entry_id[7]		= {0};
 uint8_t Api::locked_exit_id[7]		= {0};
 TRADELAST Api::m_tdLast				= {{0}, {0}, 0, {0}, 0};
-long Api::m_sam_seq_charge			= 0;			// SAM流水，充值时使用
-long Api::m_trade_val				= 0;			// 充值金额，充值时使用
+long Api::m_sam_seq_charge			= 0;			// SAM娴佹按锛屽厖鍊兼椂浣跨敤
+long Api::m_trade_val				= 0;			// 鍏呭�奸噾棰濓紝鍏呭�兼椂浣跨敤
 
 char Api::m_sam[8][17] = {{0}};
 char Api::m_tml[8][13] = {{0}};
@@ -158,7 +158,7 @@ void Api::api_calling(uint8_t api_addr, uint8_t * param_stack, uint8_t * data_to
         }
     }
 
-	// 不存在的
+	// 涓嶅瓨鍦ㄧ殑
 	valid_app_addr = false;
 }
 
@@ -293,7 +293,7 @@ void Api::Common_GetVersion(uint8_t * param_stack, uint8_t * data_to_send, uint1
 	memset(&ver, 0, sizeof(ver));
 
 	memcpy(ver.verApi, API_VERSION, 2);
-	memcpy(ver.verApiFile, "\x20\x18\x07\x06\x01", 5);//新疆ES发卡
+	memcpy(ver.verApiFile, "\x20\x18\x07\x06\x01", 5);//鏂扮枂ES鍙戝崱
 
 	if (rf_version((unsigned char *)(&ver.verRfDev)) == 0)
 		memcpy(ver.verRfFile, "\x20\x14\x04\x19\x01", 5);

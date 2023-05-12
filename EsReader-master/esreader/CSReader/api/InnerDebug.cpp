@@ -610,7 +610,7 @@ void InnerDebug::debug_put_reader_data(uint8_t * param_stack, uint8_t * data_to_
 		memcpy(sz_share_name, param_stack, 16);
 		memcpy(sz_save_name, param_stack + 16, 16);
 
-		// ¼ì²é¹²ÏíÄ¿Â¼ÏÂµÄ¹ÒÔØÄ¿Â¼ÊÇ·ñ´æÔÚ£¬Èç¹û²»´æÔÚ¾Í¹ÒÔØ
+		// æ£€æŸ¥å…±äº«ç›®å½•ä¸‹çš„æŒ‚è½½ç›®å½•æ˜¯å¦å­˜åœ¨ï¼Œå¦‚æœä¸å­˜åœ¨å°±æŒ‚è½½
 		sprintf(sz_mount, "/mnt/share");
 		if (access(sz_mount, 0) != 0 && mkdir(sz_mount, 0755) != 0)
 		{
@@ -619,7 +619,7 @@ void InnerDebug::debug_put_reader_data(uint8_t * param_stack, uint8_t * data_to_
 			break;
 		}
 
-		// Èç¹ûÄ¿Â¼²»Îª¿Õ£¬ËµÃ÷ÒÑ¾­mountÁË£¬·ñÔòĞèÒªÖØĞÂmount
+		// å¦‚æœç›®å½•ä¸ä¸ºç©ºï¼Œè¯´æ˜å·²ç»mountäº†ï¼Œå¦åˆ™éœ€è¦é‡æ–°mount
 		if (Records::folder_null(sz_mount))
 		{
 			sprintf(sz_cmd, "mount 192.168.1.101:/%s %s", sz_share_name, sz_mount);
@@ -631,7 +631,7 @@ void InnerDebug::debug_put_reader_data(uint8_t * param_stack, uint8_t * data_to_
 			}
 		}
 
-		// Ä¿±êÄ¿Â¼²»´æÔÚÔò´´½¨
+		// ç›®æ ‡ç›®å½•ä¸å­˜åœ¨åˆ™åˆ›å»º
 		sprintf(sz_save, "%s/%s", sz_mount, sz_save_name);
 		if (access(sz_save, 0) != 0 && mkdir(sz_save, 0755) != 0)
 		{
@@ -640,7 +640,7 @@ void InnerDebug::debug_put_reader_data(uint8_t * param_stack, uint8_t * data_to_
 			break;
 		}
 
-		// ¸´ÖÆÎÄ¼şµ½nfsÎÄ¼ş¼ĞÏÂÃæ
+		// å¤åˆ¶æ–‡ä»¶åˆ°nfsæ–‡ä»¶å¤¹ä¸‹é¢
 		sprintf(sz_cmd, "cp -a -r -f /data/* %s", sz_save);
 		if (system(sz_cmd) != 0)
 		{

@@ -7,527 +7,527 @@
 
 #pragma pack(push, 1)
 
-// 2.21	´íÎóÌáÊ¾ĞÅÏ¢½á¹¹
+// 2.21	é”™è¯¯æç¤ºä¿¡æ¯ç»“æ„
 typedef struct {
-	uint16_t	wErrCode;						// ´íÎóÂë
-	uint8_t		bNoticeCode;					// ¹ØÁªÌáÊ¾Âë
-	uint8_t		bRfu[2];						// À©³ä±£Áô×Ö¶Î
+	uint16_t	wErrCode;						// é”™è¯¯ç 
+	uint8_t		bNoticeCode;					// å…³è”æç¤ºç 
+	uint8_t		bRfu[2];						// æ‰©å……ä¿ç•™å­—æ®µ
 }RETINFO, * PRETINFO;
 
-// 2.3	SAM¿¨ĞÅÏ¢²éÑ¯
+// 2.3	SAMå¡ä¿¡æ¯æŸ¥è¯¢
 typedef struct {
-	uint8_t		bSAMStatus;						// SAM¿¨×´Ì¬¨C(0x00±íÊ¾Õı³££¬ÆäËû-ºóĞø×Ö¶ÎÎŞĞ§)
-	char		cSAMID[16];						// SAM¿¨IDºÅ
+	uint8_t		bSAMStatus;						// SAMå¡çŠ¶æ€â€“(0x00è¡¨ç¤ºæ­£å¸¸ï¼Œå…¶ä»–-åç»­å­—æ®µæ— æ•ˆ)
+	char		cSAMID[16];						// SAMå¡IDå·
 }SAMSTATUS, * PSAMSTATUS;
 
-// 2.1	¶ÁĞ´Æ÷³õÊ¼»¯ĞÅÏ¢
+// 2.1	è¯»å†™å™¨åˆå§‹åŒ–ä¿¡æ¯
 typedef struct {
-	uint8_t		bReaderReadyStatus;				// ¶ÁĞ´Æ÷¾ÍĞ÷×´Ì¬
-	SAMSTATUS  SamStatus[4];					// ¸÷SAM¿¨×´Ì¬ĞÅÏ¢£¬Ôİ¶¨4¿¨²Û£¬²Î¼û// 2.3
+	uint8_t		bReaderReadyStatus;				// è¯»å†™å™¨å°±ç»ªçŠ¶æ€
+	SAMSTATUS  SamStatus[4];					// å„SAMå¡çŠ¶æ€ä¿¡æ¯ï¼Œæš‚å®š4å¡æ§½ï¼Œå‚è§// 2.3
 }READERSTATUS, * PREADERSTATUS;
 
-// 2.4	ÈëÕ¢½»Ò×
+// 2.4	å…¥é—¸äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		dtDate[7];						// ½øÕ¾ÈÕÆÚÊ±¼äÈç;20060211160903
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	long		lBalance;						// Óà¶î
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cEntryMode;						// ½øÕ¢¹¤×÷Ä£Ê½
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		dtDate[7];						// è¿›ç«™æ—¥æœŸæ—¶é—´å¦‚;20060211160903
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	long		lBalance;						// ä½™é¢
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cEntryMode;						// è¿›é—¸å·¥ä½œæ¨¡å¼
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }ENTRYGATE, * PENTRYGATE;
 
-// 2.5	Ç®°ü½»Ò×
+// 2.5	é’±åŒ…äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// ±¾´Î½»Ò×SAMÂß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// ±¾´Î½»Ò×SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		dtDate[7];						// ÈÕÆÚÊ±¼ä(BCD)
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ(BCD)
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë	(BCD)
-	long		lTradeAmount;					// ½»Ò×½ğ¶î, µ¥Î»Îª·Ö
-	long		lBalance;						// Óà¶î, µ¥Î»Îª·Ö
-	long		lChargeCount;					// Æ±¿¨³äÖµ¼ÆÊı
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	char		cPaymentType[2];				// Ö§¸¶ÀàĞÍ
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cMACorTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	uint8_t		bEntryStationID[2];				// Èë¿ÚÕ¾µã´úÂë(BCD)
-	char		cEntrySAMID[16];				// Èë¿ÚSAMÂß¼­¿¨ºÅ
-	uint8_t		dtEntryDate[7];					// ½øÕ¾ÈÕÆÚÊ±¼ä(BCD)
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShiftID;					// BOM°à´ÎĞòºÅ
-	char		cSamLast[16];					// ÉÏ´Î½»Ò×µÄSAM¿¨ºÅ
-	uint8_t		dtLast[7];						// ÉÏ´Î½»Ò×ÈÕÆÚÊ±¼ä
-	long		lTradeWallet;					// Ç®°ü½»Ò×¶î£¬¿¨Æ¬Êµ¼ÊĞèÒª±ä¶¯µÄÇ®°üÖµ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cExitMode;						// ³öÕ¢¹¤×÷Ä£Ê½
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cIndustryCode[4];				// ĞĞÒµ´úÂë
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// æœ¬æ¬¡äº¤æ˜“SAMé€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// æœ¬æ¬¡äº¤æ˜“SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		dtDate[7];						// æ—¥æœŸæ—¶é—´(BCD)
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹(BCD)
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 	(BCD)
+	long		lTradeAmount;					// äº¤æ˜“é‡‘é¢, å•ä½ä¸ºåˆ†
+	long		lBalance;						// ä½™é¢, å•ä½ä¸ºåˆ†
+	long		lChargeCount;					// ç¥¨å¡å……å€¼è®¡æ•°
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	char		cPaymentType[2];				// æ”¯ä»˜ç±»å‹
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cMACorTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	uint8_t		bEntryStationID[2];				// å…¥å£ç«™ç‚¹ä»£ç (BCD)
+	char		cEntrySAMID[16];				// å…¥å£SAMé€»è¾‘å¡å·
+	uint8_t		dtEntryDate[7];					// è¿›ç«™æ—¥æœŸæ—¶é—´(BCD)
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShiftID;					// BOMç­æ¬¡åºå·
+	char		cSamLast[16];					// ä¸Šæ¬¡äº¤æ˜“çš„SAMå¡å·
+	uint8_t		dtLast[7];						// ä¸Šæ¬¡äº¤æ˜“æ—¥æœŸæ—¶é—´
+	long		lTradeWallet;					// é’±åŒ…äº¤æ˜“é¢ï¼Œå¡ç‰‡å®é™…éœ€è¦å˜åŠ¨çš„é’±åŒ…å€¼
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cExitMode;						// å‡ºé—¸å·¥ä½œæ¨¡å¼
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cIndustryCode[4];				// è¡Œä¸šä»£ç 
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }PURSETRADE, * PPURSETRADE;
 
-// 2.6	·Çµ¥³ÌÆ±·¢ÊÛ¼ÇÂ¼
+// 2.6	éå•ç¨‹ç¥¨å‘å”®è®°å½•
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cBusinessseqno[12];				// ÍÑ»úÒµÎñÁ÷Ë®ºÅ
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ£¨µ¥³ÌÆ±£©
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ£¨µ¥³ÌÆ±£©
-	uint8_t		bAmountType;					// ½ğ¶îÀàĞÍ
-	short		nAmount;						// Ñº½ğ
-	uint8_t		dtDate[7];						// ÏúÊÛÊ±¼äBCD
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	(BCD)
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cBusinessseqno[12];				// è„±æœºä¸šåŠ¡æµæ°´å·
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	uint8_t		bAmountType;					// é‡‘é¢ç±»å‹
+	short		nAmount;						// æŠ¼é‡‘
+	uint8_t		dtDate[7];						// é”€å”®æ—¶é—´BCD
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	(BCD)
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
 }OTHERSALE, * POTHERSALE;
 
-// 2.7	µ¥³ÌÆ±·¢ÊÛ¼ÇÂ¼
+// 2.7	å•ç¨‹ç¥¨å‘å”®è®°å½•
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ£¨µ¥³ÌÆ±£©
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ£¨µ¥³ÌÆ±£©
-	uint8_t		dtDate[7];						// Ê±¼ä
-	uint8_t		bPaymentMeans;					// Ö§¸¶·½Ê½
-	char		cPaymentTKLogicalID[20];		// Ö§¸¶Æ±¿¨Âß¼­¿¨ºÅ
-	long		lTradeCount;					// µ¥³ÌÆ±¿Û¿î¼ÆÊı
-	char		cLogicalID[20];					// TOKEN Âß¼­ID
-	char		cPhysicalID[20];				// TOKEN ÎïÀíID
-	uint8_t		bStatus;						// TOKEN×´Ì¬
-	short		nChargeValue;					// ³äÖµ½ğ¶î
-	uint8_t		bTicketType[2];					// µ¥³ÌÆ±¿¨ÀàĞÍ
-	uint8_t		bZoneID;						// Çø¶Î´úÂë
-	char		cMACorTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	uint8_t		bDepositorCost;					// ³É±¾Ñº½ğ(BCD)
-	short		nAmountCost;					// ³É±¾Ñº½ğ½ğ¶î
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShiftID;					// BOM°à´ÎĞòºÅ, Ã¿¸öBOMÃ¿ÌìÖØÖÃ
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	uint8_t		dtDate[7];						// æ—¶é—´
+	uint8_t		bPaymentMeans;					// æ”¯ä»˜æ–¹å¼
+	char		cPaymentTKLogicalID[20];		// æ”¯ä»˜ç¥¨å¡é€»è¾‘å¡å·
+	long		lTradeCount;					// å•ç¨‹ç¥¨æ‰£æ¬¾è®¡æ•°
+	char		cLogicalID[20];					// TOKEN é€»è¾‘ID
+	char		cPhysicalID[20];				// TOKEN ç‰©ç†ID
+	uint8_t		bStatus;						// TOKENçŠ¶æ€
+	short		nChargeValue;					// å……å€¼é‡‘é¢
+	uint8_t		bTicketType[2];					// å•ç¨‹ç¥¨å¡ç±»å‹
+	uint8_t		bZoneID;						// åŒºæ®µä»£ç 
+	char		cMACorTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	uint8_t		bDepositorCost;					// æˆæœ¬æŠ¼é‡‘(BCD)
+	short		nAmountCost;					// æˆæœ¬æŠ¼é‡‘é‡‘é¢
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShiftID;					// BOMç­æ¬¡åºå·, æ¯ä¸ªBOMæ¯å¤©é‡ç½®
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
 }SJTSALE, * PSJTSALE;
 
-// 2.8	½»Ò×È·ÈÏĞÅÏ¢½á¹¹
+// 2.8	äº¤æ˜“ç¡®è®¤ä¿¡æ¯ç»“æ„
 typedef struct {
-	uint8_t	bTradeType;							// ½»Ò×ÀàĞÍ
-	uint8_t	bData[512];							// ÉÏ´ÎµÄ½»Ò×¼ÇÂ¼½á¹¹µÄ¿½±´
+	uint8_t	bTradeType;							// äº¤æ˜“ç±»å‹
+	uint8_t	bData[512];							// ä¸Šæ¬¡çš„äº¤æ˜“è®°å½•ç»“æ„çš„æ‹·è´
 }TRANSACTCONFIRM, * PTRANSACTCONFIRM;
 
-// 2.9	¸üĞÂ½»Ò×
+// 2.9	æ›´æ–°äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// ¸üĞÂÉè±¸SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cUpdateZone;					// ¸üĞÂÇøÓò
-	uint8_t		bUpdateReasonCode;				// ¸üĞÂÔ­Òò
-												// ¸üĞÂÔ­Òò´úÂë±í
-												// Ô­Òò´úÂë	ÃèÊö£¨Description£©
-												// ¸¶·ÑÇø£º01£­³öÕ¾³¬Ê±£¬02-³¬³Ë£¬03-ÎŞ½øÕ¾Âë
-												// ·Ç¸¶·ÑÇø£º10£­ÓĞ½øÕ¾Âë£¬12£­½øÕ¾³¬Ê±
-	uint8_t		dtUpdateDate[7];				// ¸üĞÂÈÕÆÚÊ±¼äYYYYMMDDHHMMSS
-	uint8_t		bPaymentMode;					// ·£½ğÖ§¸¶·½Ê½
-												// 	1-ÏÖ½ğ£¬2-´¢Öµ¿¨£¬ Ä¬ÈÏÖµ-0
-	short		nForfeiture;					// ·£½ğ, Ğè½ÉÄÉµÄ·£¿î½ğ¶î£¨ÏÖ½ğÖ§¸¶£©£¬µ¥Î»·Ö
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bEntryStationID[2];				// ½øÕ¾ÏßÂ·Õ¾µã´úÂë
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// æ›´æ–°è®¾å¤‡SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cUpdateZone;					// æ›´æ–°åŒºåŸŸ
+	uint8_t		bUpdateReasonCode;				// æ›´æ–°åŸå› 
+												// æ›´æ–°åŸå› ä»£ç è¡¨
+												// åŸå› ä»£ç 	æè¿°ï¼ˆDescriptionï¼‰
+												// ä»˜è´¹åŒºï¼š01ï¼å‡ºç«™è¶…æ—¶ï¼Œ02-è¶…ä¹˜ï¼Œ03-æ— è¿›ç«™ç 
+												// éä»˜è´¹åŒºï¼š10ï¼æœ‰è¿›ç«™ç ï¼Œ12ï¼è¿›ç«™è¶…æ—¶
+	uint8_t		dtUpdateDate[7];				// æ›´æ–°æ—¥æœŸæ—¶é—´YYYYMMDDHHMMSS
+	uint8_t		bPaymentMode;					// ç½šé‡‘æ”¯ä»˜æ–¹å¼
+												// 	1-ç°é‡‘ï¼Œ2-å‚¨å€¼å¡ï¼Œ é»˜è®¤å€¼-0
+	short		nForfeiture;					// ç½šé‡‘, éœ€ç¼´çº³çš„ç½šæ¬¾é‡‘é¢ï¼ˆç°é‡‘æ”¯ä»˜ï¼‰ï¼Œå•ä½åˆ†
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bEntryStationID[2];				// è¿›ç«™çº¿è·¯ç«™ç‚¹ä»£ç 
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }TICKETUPDATE, * PTICKETUPDATE;
 
-// 2.10	Æ±¿¨ÑÓÆÚ½»Ò×
+// 2.10	ç¥¨å¡å»¶æœŸäº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	uint8_t		dtOldExpiryDate[7];				// Ô­ÓĞĞ§Ê±¼ä
-	uint8_t		dtNewExpiryDate[7];				// ÏÖÓĞĞ§Ê±¼ä
-	uint8_t		dtOperateDate[7];				// ²Ù×÷Ê±¼ä
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	uint8_t		dtOldExpiryDate[7];				// åŸæœ‰æ•ˆæ—¶é—´
+	uint8_t		dtNewExpiryDate[7];				// ç°æœ‰æ•ˆæ—¶é—´
+	uint8_t		dtOperateDate[7];				// æ“ä½œæ—¶é—´
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
 }TICKETDEFER, * PTICKETDEFER;
 
-// 2.11	Æ±¿¨¼Ó½âËø½»Ò×
+// 2.11	ç¥¨å¡åŠ è§£é”äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cLockFlag;						// ¼Ó½âËø±êÖ¾
-	uint8_t		dtDate[7];						// Ê±¼äYYYYMMDDHHMMSS
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	(BCD)
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cLockFlag;						// åŠ è§£é”æ ‡å¿—
+	uint8_t		dtDate[7];						// æ—¶é—´YYYYMMDDHHMMSS
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	(BCD)
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }TICKETLOCK, * PTICKETLOCK;
 
-// 2.12	ÍË¿î½»Ò×
+// 2.12	é€€æ¬¾äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	long		lBalanceReturned;				// ÍË»¹Ç®°ü½ğ¶î, µ¥Î»Îª·Ö
-	short		nDepositReturned;				// ÍË»¹Ñº½ğ, µ¥Î»Îª·Ö
-	short		nForfeiture;					// ·£¿î, µ¥Î»Îª·Ö
-	uint8_t		bForfeitReason;					// ·£¿îÔ­Òò
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	uint8_t		bReturnTypeCode;				// ÍË¿îÀàĞÍ, 0£­¼´Ê±ÍË¿î£»£­·Ç¼´Ê±ÍË¿î
-	uint8_t		dtDate[7];						// Ê±¼äYYYYMMDDHHMMSS
-	char		cReceiptID[4];					// Æ¾Ö¤ID
-	uint8_t		dtApplyDate[7];					// ÉêÇëÈÕÆÚÊ±¼ä, YYYYMMDDHHMMSS
-	char		cMACOrTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	long		lBalanceReturned;				// é€€è¿˜é’±åŒ…é‡‘é¢, å•ä½ä¸ºåˆ†
+	short		nDepositReturned;				// é€€è¿˜æŠ¼é‡‘, å•ä½ä¸ºåˆ†
+	short		nForfeiture;					// ç½šæ¬¾, å•ä½ä¸ºåˆ†
+	uint8_t		bForfeitReason;					// ç½šæ¬¾åŸå› 
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	uint8_t		bReturnTypeCode;				// é€€æ¬¾ç±»å‹, 0ï¼å³æ—¶é€€æ¬¾ï¼›ï¼éå³æ—¶é€€æ¬¾
+	uint8_t		dtDate[7];						// æ—¶é—´YYYYMMDDHHMMSS
+	char		cReceiptID[4];					// å‡­è¯ID
+	uint8_t		dtApplyDate[7];					// ç”³è¯·æ—¥æœŸæ—¶é—´, YYYYMMDDHHMMSS
+	char		cMACOrTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
 }DIRECTREFUND, * PDIRECTREFUND;
 
-// 2.13	Æ±¿¨·ÖÎö·µ»Ø½á¹¹
+// 2.13	ç¥¨å¡åˆ†æè¿”å›ç»“æ„
 typedef struct {
-	char		cPhysicalID[20];				// ÎïÀí¿¨ºÅ,
-	char		cLogicalID[20];					// Âß¼­¿¨ºÅ
-	uint8_t		bTicketType[2];					// ³µÆ±ÀàĞÍ(Ö÷ÀàĞÍ+×ÓÀàĞÍ)
-	long		lBalance;						// ÓàÖµ
-	long 		lDepositorCost;					// Ñº½ğ
-	long		lLimitedBalance;				// ³µÆ±×î¸ßÉÏÏŞÖµ
+	char		cPhysicalID[20];				// ç‰©ç†å¡å·,
+	char		cLogicalID[20];					// é€»è¾‘å¡å·
+	uint8_t		bTicketType[2];					// è½¦ç¥¨ç±»å‹(ä¸»ç±»å‹+å­ç±»å‹)
+	long		lBalance;						// ä½™å€¼
+	long 		lDepositorCost;					// æŠ¼é‡‘
+	long		lLimitedBalance;				// è½¦ç¥¨æœ€é«˜ä¸Šé™å€¼
 
-	long		lPenalty;						// ¸üĞÂ·£½ğ
+	long		lPenalty;						// æ›´æ–°ç½šé‡‘
 
-	uint8_t		bIssueData[4];					// ·¢ĞĞÊ±¼ä
-	uint8_t		bExpiry[7];						// ÎïÀíÓĞĞ§ÆÚ½ØÖ¹Ê±¼ä(BCD)
-	uint8_t		bStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-	uint8_t		bEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-	uint8_t		bStatus;						// ½»Ò××´Ì¬
-	uint8_t		bLastStationID[2];				// ÉÏ´Î½»Ò×ÏßÂ·Õ¾µã(BCD)
-	uint8_t		bLastDeviceID[2];				// ÉÏ´Î½»Ò×Éè±¸±àºÅ(BCD),µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t 	bLastDeviceType; 				// ÉÏ´Î½»Ò×Éè±¸ÀàĞÍ
-	uint8_t		dtLastDate[7];					// ÉÏ´Î½»Ò×Ê±¼ä
-	uint8_t		bEntrySationID[2];				// ÉÏ´Î½øÕ¾Õ¾µã
-	uint8_t		dtEntryDate[7];					// ÉÏ´Î½øÕ¾Ê±¼ä
-	uint32_t	dwOperationStauts;				// ¿É²Ù×÷×´Ì¬ÓëErrInfoµÄ´íÎó¶ÔÓ¦
-												// °´Î»¶ÔÓ¦ÒÔÏÂ¼¸ÖÖ£¬1±íÊ¾¿É²Ù×÷
-												// 	bit0:ÊÇ·ñ¿É³ä(Öµ/³Ë´Î)
-												// 	bit1:ÊÇ·ñ¿É¸üĞÂ
-												// 	bit2:ÊÇ·ñ¿É·¢ÊÛ
-												// 	bit3:ÊÇ·ñ¿É¼¤»î
-												// 	bit4:ÊÇ·ñ¿ÉÑÓÆÚ
-												// 	bit5:ÊÇ·ñ¿ÉÍË¿î
-												// 	bit6:ÊÇ·ñ¿É½âËø
-												//  bit7:ÊÇ·ñ¿ÉÍËÑº½ğ
-	uint8_t		bLimitMode;						// ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ½øÕ¾Õ¾µãÏŞÖÆ£¨BCDÂë£©
-	uint8_t		bLimitExitID[2];				// ³öÕ¾Õ¾µãÏŞÖÆ(BCDÂë)
-	uint8_t		bActiveStatus;					// ¼¤»î×´Ì¬»ò¼¤»î±ê¼Ç
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cSellerCode[4];					// ·¢ĞĞÉÌ´úÂë
-	long		lChargeCount;					// ³äÖµ¼ÆÊı
-	long		lTradeCount;					// Ïû·Ñ¼ÆÊı
-	uint8_t		bCertificateType;				// Ö¤¼şÀàĞÍ
-	char		cCertificateCode[32];			// Ö¤¼ş´úÂë
-	char		cCertificateName[20];			// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	long		lChargeUpper;					// ³äÖµÉÏÏŞ£¬¿É³äÖµ±êÖ¾Î»·Ç0Ê±ÓĞĞ§
-	long 		lDepositeSale;					// ·¢ÊÛÑº½ğ£¬¿É·¢ÊÛ±êÖ¾Î»·Ç0ÊÇÓĞĞ§
-	long		lBrokerage;						// ÊÖĞø·Ñ£¬ºóĞø²Ù×÷ĞèÒªÊÕ·ÑÊ±ÓĞĞ§£¬Èç·Çµ¥³ÌÆ±·¢ÊÛ¡¢ÍË¿î
+	uint8_t		bIssueData[4];					// å‘è¡Œæ—¶é—´
+	uint8_t		bExpiry[7];						// ç‰©ç†æœ‰æ•ˆæœŸæˆªæ­¢æ—¶é—´(BCD)
+	uint8_t		bStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+	uint8_t		bEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€
+	uint8_t		bLastStationID[2];				// ä¸Šæ¬¡äº¤æ˜“çº¿è·¯ç«™ç‚¹(BCD)
+	uint8_t		bLastDeviceID[2];				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç¼–å·(BCD),ç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t 	bLastDeviceType; 				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç±»å‹
+	uint8_t		dtLastDate[7];					// ä¸Šæ¬¡äº¤æ˜“æ—¶é—´
+	uint8_t		bEntrySationID[2];				// ä¸Šæ¬¡è¿›ç«™ç«™ç‚¹
+	uint8_t		dtEntryDate[7];					// ä¸Šæ¬¡è¿›ç«™æ—¶é—´
+	uint32_t	dwOperationStauts;				// å¯æ“ä½œçŠ¶æ€ä¸ErrInfoçš„é”™è¯¯å¯¹åº”
+												// æŒ‰ä½å¯¹åº”ä»¥ä¸‹å‡ ç§ï¼Œ1è¡¨ç¤ºå¯æ“ä½œ
+												// 	bit0:æ˜¯å¦å¯å……(å€¼/ä¹˜æ¬¡)
+												// 	bit1:æ˜¯å¦å¯æ›´æ–°
+												// 	bit2:æ˜¯å¦å¯å‘å”®
+												// 	bit3:æ˜¯å¦å¯æ¿€æ´»
+												// 	bit4:æ˜¯å¦å¯å»¶æœŸ
+												// 	bit5:æ˜¯å¦å¯é€€æ¬¾
+												// 	bit6:æ˜¯å¦å¯è§£é”
+												//  bit7:æ˜¯å¦å¯é€€æŠ¼é‡‘
+	uint8_t		bLimitMode;						// é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// è¿›ç«™ç«™ç‚¹é™åˆ¶ï¼ˆBCDç ï¼‰
+	uint8_t		bLimitExitID[2];				// å‡ºç«™ç«™ç‚¹é™åˆ¶(BCDç )
+	uint8_t		bActiveStatus;					// æ¿€æ´»çŠ¶æ€æˆ–æ¿€æ´»æ ‡è®°
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cSellerCode[4];					// å‘è¡Œå•†ä»£ç 
+	long		lChargeCount;					// å……å€¼è®¡æ•°
+	long		lTradeCount;					// æ¶ˆè´¹è®¡æ•°
+	uint8_t		bCertificateType;				// è¯ä»¶ç±»å‹
+	char		cCertificateCode[32];			// è¯ä»¶ä»£ç 
+	char		cCertificateName[20];			// è¯ä»¶æŒæœ‰äººå§“å
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	long		lChargeUpper;					// å……å€¼ä¸Šé™ï¼Œå¯å……å€¼æ ‡å¿—ä½é0æ—¶æœ‰æ•ˆ
+	long 		lDepositeSale;					// å‘å”®æŠ¼é‡‘ï¼Œå¯å‘å”®æ ‡å¿—ä½é0æ˜¯æœ‰æ•ˆ
+	long		lBrokerage;						// æ‰‹ç»­è´¹ï¼Œåç»­æ“ä½œéœ€è¦æ”¶è´¹æ—¶æœ‰æ•ˆï¼Œå¦‚éå•ç¨‹ç¥¨å‘å”®ã€é€€æ¬¾
 
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
-	uint8_t		bCertExpire[4];					// Ö¤¼şÓĞĞ§ÆÚ£¬Ä¿Ç°Ö÷ÒªÓÃÓÚ¹«½»Ñ§ÉúÆ±£¬µ±¸ÃÓĞĞ§ÆÚ¹ıÆÚÊ±£¬Ñ§ÉúÆ±°´ÆÕÍ¨Æ±¿Û·Ñ
-	uint16_t	wError;							// ´íÎóÂë£¬¶ÔÓ¦¸üĞÂ·£½ğlPenalty
-	long		lPenalty1;						// ¸üĞÂ·£½ğlPenalty1
-	uint16_t	wError1;						// ´íÎóÂë1£¬¶ÔÓ¦¸üĞÂ·£½ğ1
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
+	uint8_t		bCertExpire[4];					// è¯ä»¶æœ‰æ•ˆæœŸï¼Œç›®å‰ä¸»è¦ç”¨äºå…¬äº¤å­¦ç”Ÿç¥¨ï¼Œå½“è¯¥æœ‰æ•ˆæœŸè¿‡æœŸæ—¶ï¼Œå­¦ç”Ÿç¥¨æŒ‰æ™®é€šç¥¨æ‰£è´¹
+	uint16_t	wError;							// é”™è¯¯ç ï¼Œå¯¹åº”æ›´æ–°ç½šé‡‘lPenalty
+	long		lPenalty1;						// æ›´æ–°ç½šé‡‘lPenalty1
+	uint16_t	wError1;						// é”™è¯¯ç 1ï¼Œå¯¹åº”æ›´æ–°ç½šé‡‘1
 
 	uint8_t		bRfu[19];
 
 }BOMANALYZE, * PBOMANALYZE;
 
-// 2.14	´¢ÖµÆ±µ¥ÌõÀúÊ·½á¹¹
+// 2.14	å‚¨å€¼ç¥¨å•æ¡å†å²ç»“æ„
 typedef struct {
-	uint8_t		dtDate[7];						// ½»Ò×Ê±¼ä£¨BCDÂë£©
-	uint8_t		bStationID[2];					// ½»Ò×³µÕ¾IDºÅ£¨BCDÂë£©
-	uint8_t		bStatus;						// Æ±¿¨ÉúÃüÖÜÆÚË÷Òı,¾ßÌå¶¨Òå¼û¸½Â¼Îå
-	long		lTradeAmount;					// ½»Ò×½ğ¶î,µ¥Î»·Ö
-	uint8_t		bDeviceID[2];					// Éè±¸±àÂë£¨BCD£©
-	uint8_t		bDeviceType;					// Éè±¸ÀàĞÍ
+	uint8_t		dtDate[7];						// äº¤æ˜“æ—¶é—´ï¼ˆBCDç ï¼‰
+	uint8_t		bStationID[2];					// äº¤æ˜“è½¦ç«™IDå·ï¼ˆBCDç ï¼‰
+	uint8_t		bStatus;						// ç¥¨å¡ç”Ÿå‘½å‘¨æœŸç´¢å¼•,å…·ä½“å®šä¹‰è§é™„å½•äº”
+	long		lTradeAmount;					// äº¤æ˜“é‡‘é¢,å•ä½åˆ†
+	uint8_t		bDeviceID[2];					// è®¾å¤‡ç¼–ç ï¼ˆBCDï¼‰
+	uint8_t		bDeviceType;					// è®¾å¤‡ç±»å‹
 	char		cSAMID[16];						// sam id
 }HSSVT, * PHSSVT;
 
-// 2.16	TCM¶ÁÆ±¿¨ĞÅÏ¢·µ»ØĞÅÏ¢
+// 2.16	TCMè¯»ç¥¨å¡ä¿¡æ¯è¿”å›ä¿¡æ¯
 typedef struct {
-	char		cPhysicalID[20];				// ÎïÀí¿¨ºÅ,
-	char		cLogicalID[20];					// Âß¼­¿¨ºÅ
-	uint8_t		bTicketType[2];					// ³µÆ±ÀàĞÍ(Ö÷ÀàĞÍ+×ÓÀàĞÍ)
-	long		lBalance;						// ÓàÖµ
-	long 		lDepositorCost;					// Ñº½ğ
-	long		lLimitedBalance;				// ³µÆ±×î¸ßÉÏÏŞÖµ
-	uint8_t		bIssueData[4];					// ·¢ĞĞÊ±¼ä
-	uint8_t		bExpiry[7];						// ÎïÀíÓĞĞ§ÆÚ½ØÖ¹Ê±¼ä(BCD)
-	uint8_t		bStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-	uint8_t		bEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-	uint8_t		bStatus;						// ½»Ò××´Ì¬
-	uint8_t		bLastStationID[2];				// ÉÏ´Î½»Ò×ÏßÂ·Õ¾µã(BCD)
-	uint8_t		bLastDeviceID[2];				// ÉÏ´Î½»Ò×Éè±¸±àºÅ(BCD),µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t 	bLastDeviceType; 				// ÉÏ´Î½»Ò×Éè±¸ÀàĞÍ
-	uint8_t		dtLastDate[7];					// ÉÏ´Î½»Ò×Ê±¼ä
-	uint8_t		bEntrySationID[2];				// ÉÏ´Î½øÕ¾Õ¾µã
-	uint8_t		dtEntryDate[7];					// ÉÏ´Î½øÕ¾Ê±¼ä
-	uint8_t		bLimitMode;						// ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ½øÕ¾Õ¾µãÏŞÖÆ£¨BCDÂë£©
-	uint8_t		bLimitExitID[2];				// ³öÕ¾Õ¾µãÏŞÖÆ(BCDÂë)
-	uint8_t		bActiveStatus;					// ¼¤»î×´Ì¬»ò¼¤»î±ê¼Ç
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cSellerCode[4];					// ·¢ĞĞÉÌ´úÂë
-	long		lChargeCount;					// ³äÖµ¼ÆÊı
-	long		lTradeCount;					// Ïû·Ñ¼ÆÊı
-	uint8_t		bCertificateType;				// Ö¤¼şÀàĞÍ
-	char		cCertificateCode[32];			// Ö¤¼ş´úÂë
-	char		cCertificateName[20];			// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	uint8_t		bUsefulCount;					// ÓĞÓÃµÄÊı¾İÌõÊı
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
-	uint8_t		bCertExpire[4];					// Ö¤¼şÓĞĞ§ÆÚ£¬Ä¿Ç°Ö÷ÒªÓÃÓÚ¹«½»Ñ§ÉúÆ±£¬µ±¸ÃÓĞĞ§ÆÚ¹ıÆÚÊ±£¬Ñ§ÉúÆ±°´ÆÕÍ¨Æ±¿Û·Ñ
-	HSSVT		bhs[17];						// ÀúÊ·¼ÇÂ¼£¬²Î¼û// 2.16
+	char		cPhysicalID[20];				// ç‰©ç†å¡å·,
+	char		cLogicalID[20];					// é€»è¾‘å¡å·
+	uint8_t		bTicketType[2];					// è½¦ç¥¨ç±»å‹(ä¸»ç±»å‹+å­ç±»å‹)
+	long		lBalance;						// ä½™å€¼
+	long 		lDepositorCost;					// æŠ¼é‡‘
+	long		lLimitedBalance;				// è½¦ç¥¨æœ€é«˜ä¸Šé™å€¼
+	uint8_t		bIssueData[4];					// å‘è¡Œæ—¶é—´
+	uint8_t		bExpiry[7];						// ç‰©ç†æœ‰æ•ˆæœŸæˆªæ­¢æ—¶é—´(BCD)
+	uint8_t		bStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+	uint8_t		bEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€
+	uint8_t		bLastStationID[2];				// ä¸Šæ¬¡äº¤æ˜“çº¿è·¯ç«™ç‚¹(BCD)
+	uint8_t		bLastDeviceID[2];				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç¼–å·(BCD),ç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t 	bLastDeviceType; 				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç±»å‹
+	uint8_t		dtLastDate[7];					// ä¸Šæ¬¡äº¤æ˜“æ—¶é—´
+	uint8_t		bEntrySationID[2];				// ä¸Šæ¬¡è¿›ç«™ç«™ç‚¹
+	uint8_t		dtEntryDate[7];					// ä¸Šæ¬¡è¿›ç«™æ—¶é—´
+	uint8_t		bLimitMode;						// é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// è¿›ç«™ç«™ç‚¹é™åˆ¶ï¼ˆBCDç ï¼‰
+	uint8_t		bLimitExitID[2];				// å‡ºç«™ç«™ç‚¹é™åˆ¶(BCDç )
+	uint8_t		bActiveStatus;					// æ¿€æ´»çŠ¶æ€æˆ–æ¿€æ´»æ ‡è®°
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cSellerCode[4];					// å‘è¡Œå•†ä»£ç 
+	long		lChargeCount;					// å……å€¼è®¡æ•°
+	long		lTradeCount;					// æ¶ˆè´¹è®¡æ•°
+	uint8_t		bCertificateType;				// è¯ä»¶ç±»å‹
+	char		cCertificateCode[32];			// è¯ä»¶ä»£ç 
+	char		cCertificateName[20];			// è¯ä»¶æŒæœ‰äººå§“å
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	uint8_t		bUsefulCount;					// æœ‰ç”¨çš„æ•°æ®æ¡æ•°
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
+	uint8_t		bCertExpire[4];					// è¯ä»¶æœ‰æ•ˆæœŸï¼Œç›®å‰ä¸»è¦ç”¨äºå…¬äº¤å­¦ç”Ÿç¥¨ï¼Œå½“è¯¥æœ‰æ•ˆæœŸè¿‡æœŸæ—¶ï¼Œå­¦ç”Ÿç¥¨æŒ‰æ™®é€šç¥¨æ‰£è´¹
+	HSSVT		bhs[17];						// å†å²è®°å½•ï¼Œå‚è§// 2.16
 }TICKETINFO, * PTICKETINFO;
 
-//// 2.17	ES¶©µ¥ÊäÈëĞÅÏ¢½á¹¹
+//// 2.17	ESè®¢å•è¾“å…¥ä¿¡æ¯ç»“æ„
 //typedef struct {
-//	char		cOrderNo[14];  					// ¶©µ¥ºÅ
-//	char		cApplicationNO[10];				// ¼ÇÃû¿¨ÉêÇëÂë
-//	uint16_t	wTicketType;					// ³µÆ±ÀàĞÍ
-//	uint32_t	dwSysFlow;   					// ÏµÍ³Á÷Ë®£¨Ö»¶Ôµ¥³ÌÆ±ÓĞĞ§£¬´¢ÖµÆ±ÎŞĞ§£©
-//	long		lDeposite;						// Ñº½ğ
-//	long		lValue;           				// ³µÆ±Ç®°üÔ¤¸³½ğ¶î
-//	uint8_t		dtStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-//	uint8_t		dtEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-//	uint8_t		dtExpire[7];					// ³µÆ±ÎïÀíÓĞĞ§ÆÚ½ØÖ¹Ê±¼ä(BCD)
+//	char		cOrderNo[14];  					// è®¢å•å·
+//	char		cApplicationNO[10];				// è®°åå¡ç”³è¯·ç 
+//	uint16_t	wTicketType;					// è½¦ç¥¨ç±»å‹
+//	uint32_t	dwSysFlow;   					// ç³»ç»Ÿæµæ°´ï¼ˆåªå¯¹å•ç¨‹ç¥¨æœ‰æ•ˆï¼Œå‚¨å€¼ç¥¨æ— æ•ˆï¼‰
+//	long		lDeposite;						// æŠ¼é‡‘
+//	long		lValue;           				// è½¦ç¥¨é’±åŒ…é¢„èµ‹é‡‘é¢
+//	uint8_t		dtStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+//	uint8_t		dtEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+//	uint8_t		dtExpire[7];					// è½¦ç¥¨ç‰©ç†æœ‰æ•ˆæœŸæˆªæ­¢æ—¶é—´(BCD)
 //}ORDERSIN, * PORDERSIN;
 //
-//// 2.18	ES¶©µ¥Êä³öĞÅÏ¢½á¹¹
+//// 2.18	ESè®¢å•è¾“å‡ºä¿¡æ¯ç»“æ„
 //typedef struct {
-//	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-//	char		cOrderNo[14];				 	// ¶©µ¥±àºÅ
-//	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-//	char		cApplicationNO[10];				//¼ÇÃû¿¨ÉêÇëÂë
-//	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-//	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-//	uint8_t		dtDate[14];						// ÖÆÆ±ÈÕÆÚÊ±¼ä
-//	long		lBalance;						// Æ±¿¨Óà¶î, µ¥Î»Îª·Ö(Ä¬ÈÏÎª)
-//	uint8_t		bStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-//	uint8_t		bEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-//	char		cSAMID[16];						// E/S SAMÂß¼­¿¨ºÅ, Ä¬ÈÏÖµ:¡¯¡¯
+//	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+//	char		cOrderNo[14];				 	// è®¢å•ç¼–å·
+//	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+//	char		cApplicationNO[10];				//è®°åå¡ç”³è¯·ç 
+//	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+//	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+//	uint8_t		dtDate[14];						// åˆ¶ç¥¨æ—¥æœŸæ—¶é—´
+//	long		lBalance;						// ç¥¨å¡ä½™é¢, å•ä½ä¸ºåˆ†(é»˜è®¤ä¸º)
+//	uint8_t		bStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+//	uint8_t		bEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+//	char		cSAMID[16];						// E/S SAMé€»è¾‘å¡å·, é»˜è®¤å€¼:â€™â€™
 //}ORDERSOUT, * PORDERSOUT;
 //
-//// 2.19	ESÆ±¿¨·ÖÎö·µ»Ø½á¹¹
+//// 2.19	ESç¥¨å¡åˆ†æè¿”å›ç»“æ„
 //typedef struct {
-//	uint8_t		bStatus;						// ½»Ò××´Ì¬£­²Î¼û¸½Â¼ËÄ
-//	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-//	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-//	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-//	uint8_t		bCharacter;						// Æ±¿¨ÎïÀíÀàĞÍOCT,UL,FM,F:ÆäËû
-//	uint8_t		bIssueStatus;					// ·¢ĞĞ×´Ì¬0 ¨CÎ´·¢ĞĞ;1 ¨CÒÑ·¢ĞĞ;2 ¨C×¢Ïú
-//	char		dtIssueDate[7];					// ÖÆÆ±ÈÕÆÚÊ±¼äÈÕÆÚÊ±¼ä
-//	char		dtExpire[7];					// ÎïÀíÓĞĞ§ÆÚ, YYYYMMDDHHMMSS£¬
-//	long		lBalance;						// Óà¶î, µ¥Î»Îª·Ö/´Î(Ä¬ÈÏÎª)
-//	long 		lDeposite;						// Ñº½ğ
+//	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ï¼å‚è§é™„å½•å››
+//	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+//	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+//	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+//	uint8_t		bCharacter;						// ç¥¨å¡ç‰©ç†ç±»å‹OCT,UL,FM,F:å…¶ä»–
+//	uint8_t		bIssueStatus;					// å‘è¡ŒçŠ¶æ€0 â€“æœªå‘è¡Œ;1 â€“å·²å‘è¡Œ;2 â€“æ³¨é”€
+//	char		dtIssueDate[7];					// åˆ¶ç¥¨æ—¥æœŸæ—¶é—´æ—¥æœŸæ—¶é—´
+//	char		dtExpire[7];					// ç‰©ç†æœ‰æ•ˆæœŸ, YYYYMMDDHHMMSSï¼Œ
+//	long		lBalance;						// ä½™é¢, å•ä½ä¸ºåˆ†/æ¬¡(é»˜è®¤ä¸º)
+//	long 		lDeposite;						// æŠ¼é‡‘
 //}ESANALYZE, * PESANALYZE;
 
-// 2.20	½µ¼¶Ä£Ê½ÏûÏ¢
+// 2.20	é™çº§æ¨¡å¼æ¶ˆæ¯
 typedef struct {
-	uint8_t		bDegradeType;					// ½µ¼¶Ä£Ê½µÄÀàĞÍ
-	uint8_t		bTime[7];						// ½µ¼¶Ä£Ê½¿ªÊ¼/½áÊøÊ±¼ä
-	uint16_t	wStationID;						// ½µ¼¶ÆôÓÃ/½áÊøµÄÕ¾µã
-	uint8_t		bFlag;							// 0x01-ÆôÓÃ/0x02-½áÊø½µ¼¶µÄ±êÖ¾
+	uint8_t		bDegradeType;					// é™çº§æ¨¡å¼çš„ç±»å‹
+	uint8_t		bTime[7];						// é™çº§æ¨¡å¼å¼€å§‹/ç»“æŸæ—¶é—´
+	uint16_t	wStationID;						// é™çº§å¯ç”¨/ç»“æŸçš„ç«™ç‚¹
+	uint8_t		bFlag;							// 0x01-å¯ç”¨/0x02-ç»“æŸé™çº§çš„æ ‡å¿—
 }DEGRADECMD, * PDEGRADECMD;
 
-// ¼Ä´æÆ÷Êı¾İ½á¹¹¶¨Òå
+// å¯„å­˜å™¨æ•°æ®ç»“æ„å®šä¹‰
 typedef struct {
 	uint16_t	wIndex;
 	uint32_t	dwRegister;
 }REGISTER, * PREGISTER;
 
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°55¡±
-	uint8_t		dtTime[7];						// Ê±¼ä
-	char		cStation[4];					// ÏßÂ·Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	char		cFreedom[16];					// Ëæ»úÊı
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ55â€
+	uint8_t		dtTime[7];						// æ—¶é—´
+	char		cStation[4];					// çº¿è·¯ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	char		cFreedom[16];					// éšæœºæ•°
 }SAM_ACTIVE, * P_SAM_ACTIVE;
 
-// ³äÖµ³õÊ¼»¯
+// å……å€¼åˆå§‹åŒ–
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°51¡±
-	uint8_t		dtMsgTime[7];					// ÏûÏ¢Éú³ÉÊ±¼ä
-	char		cStation [4];					// Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	long		lPosSeq;						// ÖÕ¶Ë½»Ò×ĞòÁĞºÅ
-	char		cNetPoint[16];					// Íøµã±àÂë
-	char		cIssueCodeMain[4];				// ·¢ĞĞÉÌÖ÷±àÂë
-	char 		cIssueCodeSub[4];				// ·¢ĞĞÉÌ×Ó±àÂë
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalId[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char 		cPhysicalId[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	char		cTestFlag;						// Æ±¿¨ÒıÓÃ±êÊ¶
-	long		lChargeCount;					// Áª»ú½»Ò×Á÷Ë®
-	long		lTradeCount;					// ÍÑ»ú½»Ò×Á÷Ë®
-	char		cBusinessType[2];				// ÒµÎñÀàĞÍ¡°14¡±
-	char		cWalletType;					// ÖµÀàĞÍ
-	long		lAmount;						// ³äÖµ½ğ¶î
-	long		lBalcance;						// Óà¶î
-	char		cMac[8];						// ³äÖµÈÏÖ¤Âë
-	char		cFreedom[8];					// Ëæ»úÊı
-	char		cLastPosID[16];					// ÉÏ´Î½»Ò×ÖÕ¶Ë±àÂë£¨Õ¾µã £« Éè±¸ÀàĞÍ £« Éè±¸±àÂë£©
-	uint8_t		dtTimeLast[7];					// ÉÏ´ÎÊ±¼ä
-	char		cOperatorId[6];					// ²Ù×÷Ô±±àÂë
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ51â€
+	uint8_t		dtMsgTime[7];					// æ¶ˆæ¯ç”Ÿæˆæ—¶é—´
+	char		cStation [4];					// ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	long		lPosSeq;						// ç»ˆç«¯äº¤æ˜“åºåˆ—å·
+	char		cNetPoint[16];					// ç½‘ç‚¹ç¼–ç 
+	char		cIssueCodeMain[4];				// å‘è¡Œå•†ä¸»ç¼–ç 
+	char 		cIssueCodeSub[4];				// å‘è¡Œå•†å­ç¼–ç 
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalId[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char 		cPhysicalId[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	char		cTestFlag;						// ç¥¨å¡å¼•ç”¨æ ‡è¯†
+	long		lChargeCount;					// è”æœºäº¤æ˜“æµæ°´
+	long		lTradeCount;					// è„±æœºäº¤æ˜“æµæ°´
+	char		cBusinessType[2];				// ä¸šåŠ¡ç±»å‹â€œ14â€
+	char		cWalletType;					// å€¼ç±»å‹
+	long		lAmount;						// å……å€¼é‡‘é¢
+	long		lBalcance;						// ä½™é¢
+	char		cMac[8];						// å……å€¼è®¤è¯ç 
+	char		cFreedom[8];					// éšæœºæ•°
+	char		cLastPosID[16];					// ä¸Šæ¬¡äº¤æ˜“ç»ˆç«¯ç¼–ç ï¼ˆç«™ç‚¹ ï¼‹ è®¾å¤‡ç±»å‹ ï¼‹ è®¾å¤‡ç¼–ç ï¼‰
+	uint8_t		dtTimeLast[7];					// ä¸Šæ¬¡æ—¶é—´
+	char		cOperatorId[6];					// æ“ä½œå‘˜ç¼–ç 
 }CHARGE_INIT, * P_CHARGE_INIT;
 
-// ³·Ïú³õÊ¼»¯
+// æ’¤é”€åˆå§‹åŒ–
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°53¡±
-	uint8_t		dtMsgTime[7];					// ÏûÏ¢Éú³ÉÊ±¼ä
-	char		cStation [4];					// Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	long		lPosSeq;						// ÖÕ¶Ë½»Ò×ĞòÁĞºÅ
-	char		cNetPoint[16];					// Íøµã±àÂë
-	char		cIssueCodeMain[4];				// ·¢ĞĞÉÌÖ÷±àÂë
-	char 		cIssueCodeSub[4];				// ·¢ĞĞÉÌ×Ó±àÂë
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalId[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char 		cPhysicalId[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	char		cTestFlag;						// Æ±¿¨ÒıÓÃ±êÊ¶
-	long		lChargeCount;					// Áª»ú½»Ò×Á÷Ë®
-	long		lTradeCount;					// ÍÑ»ú½»Ò×Á÷Ë®
-	char		cBusinessType[2];				// ÒµÎñÀàĞÍ¡°18¡±
-	char		cWalletType;					// ÖµÀàĞÍ
-	long		lAmount;						// ³·Ïú½ğ¶î
-	long		lBalcance;						// Óà¶î
-	char		cLastPosID[16];					// ÉÏ´Î½»Ò×ÖÕ¶Ë±àÂë£¨Õ¾µã £« Éè±¸ÀàĞÍ £« Éè±¸±àÂë£©
-	uint8_t		dtTimeLast[7];					// ÉÏ´ÎÊ±¼ä
-	char		cOperatorId[6];					// ²Ù×÷Ô±±àÂë
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ53â€
+	uint8_t		dtMsgTime[7];					// æ¶ˆæ¯ç”Ÿæˆæ—¶é—´
+	char		cStation [4];					// ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	long		lPosSeq;						// ç»ˆç«¯äº¤æ˜“åºåˆ—å·
+	char		cNetPoint[16];					// ç½‘ç‚¹ç¼–ç 
+	char		cIssueCodeMain[4];				// å‘è¡Œå•†ä¸»ç¼–ç 
+	char 		cIssueCodeSub[4];				// å‘è¡Œå•†å­ç¼–ç 
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalId[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char 		cPhysicalId[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	char		cTestFlag;						// ç¥¨å¡å¼•ç”¨æ ‡è¯†
+	long		lChargeCount;					// è”æœºäº¤æ˜“æµæ°´
+	long		lTradeCount;					// è„±æœºäº¤æ˜“æµæ°´
+	char		cBusinessType[2];				// ä¸šåŠ¡ç±»å‹â€œ18â€
+	char		cWalletType;					// å€¼ç±»å‹
+	long		lAmount;						// æ’¤é”€é‡‘é¢
+	long		lBalcance;						// ä½™é¢
+	char		cLastPosID[16];					// ä¸Šæ¬¡äº¤æ˜“ç»ˆç«¯ç¼–ç ï¼ˆç«™ç‚¹ ï¼‹ è®¾å¤‡ç±»å‹ ï¼‹ è®¾å¤‡ç¼–ç ï¼‰
+	uint8_t		dtTimeLast[7];					// ä¸Šæ¬¡æ—¶é—´
+	char		cOperatorId[6];					// æ“ä½œå‘˜ç¼–ç 
 }DESCIND_INIT, * P_DESCIND_INIT;
 
-// ¶ÁĞ´Æ÷°æ±¾ĞÅÏ¢
+// è¯»å†™å™¨ç‰ˆæœ¬ä¿¡æ¯
 typedef struct {
-	uint8_t		verApi[2];						// APIÊ¶±ğ°æ±¾
-	uint8_t		verApiFile[5];					// APIÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
-	uint8_t		verRfDev;						// RfÇı¶¯Ê¶±ğ°æ±¾
-	uint8_t		verRfFile[5];					// RfÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
-	uint8_t		verSamDev;						// SamÇı¶¯Ê¶±ğ°æ±¾
-	uint8_t		verSamFile[5];					// SamÇı¶¯ÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
+	uint8_t		verApi[2];						// APIè¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verApiFile[5];					// APIæ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
+	uint8_t		verRfDev;						// Rfé©±åŠ¨è¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verRfFile[5];					// Rfæ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
+	uint8_t		verSamDev;						// Samé©±åŠ¨è¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verSamFile[5];					// Samé©±åŠ¨æ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
 }READERVERSION, * PREADERVERSION;
 
 
 
 
 //
-///////////// ESÏà¹Ø½á¹¹ /////////////
+///////////// ESç›¸å…³ç»“æ„ /////////////
 //
-//ES·ÖÎö
+//ESåˆ†æ
 //typedef struct {
-//	uint8_t		bIssueStatus;				// ·¢ĞĞ×´Ì¬ 0 ¨CÎ´·¢ĞĞ;1 ¨CÒÑ·¢ĞĞ;2 ¨C ×¢Ïú
-//	uint8_t		bStatus;					// Æ±¿¨×´Ì¬ £­ ÒÔ¸½Â¼5¡°³µÆ±×´Ì¬¡±Îª×¼
-//	char		cTicketType[4];				// Æ±¿¨ÀàĞÍ
-//	char		cLogicalID[20];				// Æ±¿¨Âß¼­¿¨ºÅ
-//	char		cPhysicalID[20];			// Æ±¿¨ÎïÀí¿¨ºÅ
-//	uint8_t		bCharacter;					// Æ±¿¨ÎïÀíÀàĞÍ 1£ºOCT£»2£º020£»3£º080£»4£ºUL£»5£ºFM£»F:ÆäËû
-//	char		cIssueDate[14];				// ÖÆÆ±ÈÕÆÚÊ±¼äÈÕÆÚÊ±¼ä
-//	char		cExpire[8];					// ÎïÀíÓĞĞ§ÆÚ, YYYYMMDDHHMMSS£¬
-//	char		RFU[16];					// E/S SAMÂß¼­¿¨ºÅ, Ä¬ÈÏÖµ:¡¯0000000000¡¯
-//	long		lBalance;					// Óà¶î, µ¥Î»Îª·Ö/´Î(Ä¬ÈÏÎª0)
-//	long 		lDeposite;					// Ñº½ğ
+//	uint8_t		bIssueStatus;				// å‘è¡ŒçŠ¶æ€ 0 â€“æœªå‘è¡Œ;1 â€“å·²å‘è¡Œ;2 â€“ æ³¨é”€
+//	uint8_t		bStatus;					// ç¥¨å¡çŠ¶æ€ ï¼ ä»¥é™„å½•5â€œè½¦ç¥¨çŠ¶æ€â€ä¸ºå‡†
+//	char		cTicketType[4];				// ç¥¨å¡ç±»å‹
+//	char		cLogicalID[20];				// ç¥¨å¡é€»è¾‘å¡å·
+//	char		cPhysicalID[20];			// ç¥¨å¡ç‰©ç†å¡å·
+//	uint8_t		bCharacter;					// ç¥¨å¡ç‰©ç†ç±»å‹ 1ï¼šOCTï¼›2ï¼š020ï¼›3ï¼š080ï¼›4ï¼šULï¼›5ï¼šFMï¼›F:å…¶ä»–
+//	char		cIssueDate[14];				// åˆ¶ç¥¨æ—¥æœŸæ—¶é—´æ—¥æœŸæ—¶é—´
+//	char		cExpire[8];					// ç‰©ç†æœ‰æ•ˆæœŸ, YYYYMMDDHHMMSSï¼Œ
+//	char		RFU[16];					// E/S SAMé€»è¾‘å¡å·, é»˜è®¤å€¼:â€™0000000000â€™
+//	long		lBalance;					// ä½™é¢, å•ä½ä¸ºåˆ†/æ¬¡(é»˜è®¤ä¸º0)
+//	long 		lDeposite;					// æŠ¼é‡‘
 //	char		cLine[2];
 //	char		cStationNo[2];
-//	char		cDateStart[8];				// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä
-//	char		cDateEnd[8];				// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä
-//	uint8_t		dtDaliyActive[7];			// ¶àÈÕÆ±¼¤»îÊ±¼ä
-//	uint8_t		bEffectDay;					// ¶àÈÕÆ±ÓĞĞ§ÌìÊı
-//	char		cLimitEntryLine[2];			// ÏŞÖÆ½øÕ¾ÏßÂ·
-//	char		cLimitEntryStation[2];		// ÏŞÖÆ½øÕ¾Õ¾µã
-//	char		cLimitExitLine[2];			// ÏŞÖÆ³öÕ¾ÏßÂ·
-//	char		cLimitExitStation[2];		// ÏŞÖÆ³öÕ¾Õ¾µã
-//	char		cLimitMode[3];			    // ÏŞÖÆÄ£Ê½
+//	char		cDateStart[8];				// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´
+//	char		cDateEnd[8];				// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´
+//	uint8_t		dtDaliyActive[7];			// å¤šæ—¥ç¥¨æ¿€æ´»æ—¶é—´
+//	uint8_t		bEffectDay;					// å¤šæ—¥ç¥¨æœ‰æ•ˆå¤©æ•°
+//	char		cLimitEntryLine[2];			// é™åˆ¶è¿›ç«™çº¿è·¯
+//	char		cLimitEntryStation[2];		// é™åˆ¶è¿›ç«™ç«™ç‚¹
+//	char		cLimitExitLine[2];			// é™åˆ¶å‡ºç«™çº¿è·¯
+//	char		cLimitExitStation[2];		// é™åˆ¶å‡ºç«™ç«™ç‚¹
+//	char		cLimitMode[3];			    // é™åˆ¶æ¨¡å¼
 //
 //}ESANALYZE, * PESANALYZE;
 
-//ES¶©µ¥
+//ESè®¢å•
 //typedef struct {
 //
 //}ESORDERFORM, * PESORDERFORM;
 
-// ±¾µØÎÄ¼ş±£´æÉèÖÃ
+// æœ¬åœ°æ–‡ä»¶ä¿å­˜è®¾ç½®
 typedef struct
 {
 	uint16_t	trade_save_days;
@@ -536,30 +536,30 @@ typedef struct
 }LOCCONFIG, * PLOCCONFIG;
 
 
-// ½»Ò×È·ÈÏĞèÒª±£´æµÄĞÅÏ¢½á¹¹
+// äº¤æ˜“ç¡®è®¤éœ€è¦ä¿å­˜çš„ä¿¡æ¯ç»“æ„
 typedef struct
 {
-	int					operType;				// ½»Ò×ÀàĞÍ
-	long				balance;				// ½»Ò×ºóµÄÓà¶î
-	long				charge_counter;			// CPU¿¨Ê¹ÓÃ
-	long				consume_counter;		// CPU¿¨Ê¹ÓÃ
-	union										// ½»Ò×
+	int					operType;				// äº¤æ˜“ç±»å‹
+	long				balance;				// äº¤æ˜“åçš„ä½™é¢
+	long				charge_counter;			// CPUå¡ä½¿ç”¨
+	long				consume_counter;		// CPUå¡ä½¿ç”¨
+	union										// äº¤æ˜“
 	{
-		SJTSALE			sjtSale;				// µ¥³ÌÆ±·¢ÊÛ
-		OTHERSALE		svtSale;				// ´¢ÖµÆ±·¢ÊÛ
-		ENTRYGATE		entry;					// ½øÕ¢
-		PURSETRADE		purse;					// Ç®°ü½»Ò×
-		TICKETDEFER		deffer;					// ÑÓÆÚ
-		TICKETUPDATE	update;					// ¸üĞÂ
-		DIRECTREFUND	refund;					// ÍË¿î
+		SJTSALE			sjtSale;				// å•ç¨‹ç¥¨å‘å”®
+		OTHERSALE		svtSale;				// å‚¨å€¼ç¥¨å‘å”®
+		ENTRYGATE		entry;					// è¿›é—¸
+		PURSETRADE		purse;					// é’±åŒ…äº¤æ˜“
+		TICKETDEFER		deffer;					// å»¶æœŸ
+		TICKETUPDATE	update;					// æ›´æ–°
+		DIRECTREFUND	refund;					// é€€æ¬¾
 	}trade;
-	uint32_t			size_trade;				// ½»Ò×´óĞ¡
-	uint8_t				dataWritten[512];		// ÉÏ´ÎĞ´¿¨Êı¾İ
-	uint32_t			sizeWritten;			// Ğ´Êı¾İµÄ´óĞ¡
+	uint32_t			size_trade;				// äº¤æ˜“å¤§å°
+	uint8_t				dataWritten[512];		// ä¸Šæ¬¡å†™å¡æ•°æ®
+	uint32_t			sizeWritten;			// å†™æ•°æ®çš„å¤§å°
 
 }CONFIRM_POINT;
 
-// ½»Ò×È·ÈÏÒò×Ó£¬´Ó±£´æµÄÉÏ´Î½»Ò×½á¹¹ÖĞ»ñÈ¡
+// äº¤æ˜“ç¡®è®¤å› å­ï¼Œä»ä¿å­˜çš„ä¸Šæ¬¡äº¤æ˜“ç»“æ„ä¸­è·å–
 typedef struct
 {
 	char		logic_id[21];
@@ -570,25 +570,25 @@ typedef struct
 	uint8_t		tac_type;
 }CONFIRM_FACTOR;
 
-// µØÌúCPU¿¨Ïà¹Ø½á¹¹£¬½»Ò×È·ÈÏÊ¹ÓÃ
+// åœ°é“CPUå¡ç›¸å…³ç»“æ„ï¼Œäº¤æ˜“ç¡®è®¤ä½¿ç”¨
 typedef struct
 {
 	uint8_t flag_trade_assist;
-	uint8_t w_trade_assist[LENM_TRADE_ASSIST];			// ½»Ò×¸¨Öú£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_trade_assist[LENM_TRADE_ASSIST];			// äº¤æ˜“è¾…åŠ©ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_metro;
-	uint8_t w_metro[LENM_METRO];						// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_metro[LENM_METRO];						// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_ctrl_record;
-	uint8_t w_ctrl_record[LENM_CTRL_RECORD];			// Ó¦ÓÃ¸¨Öú£¬¼´Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_ctrl_record[LENM_CTRL_RECORD];			// åº”ç”¨è¾…åŠ©ï¼Œå³åº”ç”¨æ§åˆ¶è®°å½•ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_app_ctrl;
-	uint8_t w_app_ctrl[LENM_APP_CTRL];					// Ó¦ÓÃ¿ØÖÆÎÄ¼ş
+	uint8_t w_app_ctrl[LENM_APP_CTRL];					// åº”ç”¨æ§åˆ¶æ–‡ä»¶
 
 }METRO_CPU_INF_W, * P_METRO_CPU_INF_W;
 
-// ¹«½»CPU¿¨Ïà¹Ø½á¹¹£¬½»Ò×È·ÈÏÊ¹ÓÃ
+// å…¬äº¤CPUå¡ç›¸å…³ç»“æ„ï¼Œäº¤æ˜“ç¡®è®¤ä½¿ç”¨
 typedef struct
 {
 	uint8_t flag_metro;
-	uint8_t w_metro[LENB_METRO];						// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_metro[LENB_METRO];						// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 
 }BUS_CPU_INF_W, * P_BUS_CPU_INF_W;
 

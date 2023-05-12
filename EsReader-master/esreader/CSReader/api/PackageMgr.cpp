@@ -188,7 +188,7 @@ bool PackageMgr::WatermarkValid(const char * pszPackagePath)
 			file_size -= readOnce;
 		}
 
-		// ¶Á³öĞ£ÑéÂë
+		// è¯»å‡ºæ ¡éªŒç 
 		actualRead = (uint32_t)fread(bRead, 1, MAX_READ, fp);
 		memcpy(&dwCrcFile, bRead, 4);
 		dwCrcFile = ~dwCrcFile;

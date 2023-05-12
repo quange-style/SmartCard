@@ -7,12 +7,12 @@ Publics::Publics(void)
 {
 }
 
-// ascll×Ö·û×ª»»ÎªHEX×Ö½Ú
+// ascllå­—ç¬¦è½¬æ¢ä¸ºHEXå­—èŠ‚
 uint8_t Publics::char_to_half_hex(char ch)
 {
-#define SUB_CAPITAL			(uint8_t)('A' - 0x0A)			// ´óĞ´×ÖÄ¸×Ö·ûÓë¶ÔÓ¦HEXµÄ²îÖµ
-#define SUB_SMALL			(uint8_t)('a' - 0x0A)			// Ğ¡Ğ´×ÖÄ¸×Ö·ûÓë¶ÔÓ¦HEXµÄ²îÖµ
-#define SUB_NUMERIC			(uint8_t)0x30					// Êı×Ö×Ö·ûÓë¶ÔÓ¦µÄHEXÖµµÄ²î
+#define SUB_CAPITAL			(uint8_t)('A' - 0x0A)			// å¤§å†™å­—æ¯å­—ç¬¦ä¸å¯¹åº”HEXçš„å·®å€¼
+#define SUB_SMALL			(uint8_t)('a' - 0x0A)			// å°å†™å­—æ¯å­—ç¬¦ä¸å¯¹åº”HEXçš„å·®å€¼
+#define SUB_NUMERIC			(uint8_t)0x30					// æ•°å­—å­—ç¬¦ä¸å¯¹åº”çš„HEXå€¼çš„å·®
 
     uint8_t half_byte_hex = 0;
     if (ch >= '0' && ch <= '9')
@@ -25,13 +25,13 @@ uint8_t Publics::char_to_half_hex(char ch)
     return half_byte_hex;
 }
 
-// ½«2×Ö½Úchar×ª»»ÎªÒ»¸öBYTEµÄHEX
+// å°†2å­—èŠ‚charè½¬æ¢ä¸ºä¸€ä¸ªBYTEçš„HEX
 uint8_t Publics::two_char_to_hex(char * p_two_char)
 {
     return ((char_to_half_hex(p_two_char[0]) << 4) + char_to_half_hex(p_two_char[1]));
 }
 
-// °ë×Ö½ÚHex×ª1×Ö½Úascll
+// åŠå­—èŠ‚Hexè½¬1å­—èŠ‚ascll
 char Publics::half_hex_to_char(uint8_t half_hex)
 {
     if (half_hex >= 0 && half_hex <= 9)
@@ -42,14 +42,14 @@ char Publics::half_hex_to_char(uint8_t half_hex)
         return (char)(half_hex);
 }
 
-// 1×Ö½ÚHex×ª2×Ö½Úascll
+// 1å­—èŠ‚Hexè½¬2å­—èŠ‚ascll
 void Publics::hex_to_two_char(uint8_t byte_hex, char * p_two_char)
 {
     p_two_char[0] = half_hex_to_char((byte_hex >> 4) & 0x0F);
     p_two_char[1] = half_hex_to_char(byte_hex & 0x0F);
 }
 
-// ×Ö·û´®ÊÇ·ñÊÇ¿ÉÔ¤¼ûµÄ×Ö·û´®
+// å­—ç¬¦ä¸²æ˜¯å¦æ˜¯å¯é¢„è§çš„å­—ç¬¦ä¸²
 bool Publics::string_is_expected(char * p_string, int len_string, STRING_TYPE type, char expective_1/* = 0*/, char expective_2/* = 0*/)
 {
 	bool ret	= false;
@@ -95,7 +95,7 @@ bool Publics::string_is_expected(char * p_string, int len_string, STRING_TYPE ty
 	return ret;
 }
 
-// ×Ö·û´®×ª»»ÎªHEXĞòÁĞ
+// å­—ç¬¦ä¸²è½¬æ¢ä¸ºHEXåºåˆ—
 void Publics::string_to_hexs(char * p_string, size_t len_string, uint8_t * p_hexs, size_t size_hexs)
 {
     size_t pos_string, pos_hexs;
@@ -120,7 +120,7 @@ void Publics::string_to_bcds(char * p_string, size_t len_string, uint8_t * p_bcd
     string_to_hexs(p_string, len_string, p_bcds, size_bcds);
 }
 
-// HEX´®×ª»»Îª×Ö·û´®
+// HEXä¸²è½¬æ¢ä¸ºå­—ç¬¦ä¸²
 void Publics::hexs_to_string(uint8_t * p_hexs, size_t len_hexs, char * p_string, size_t size_string)
 {
     size_t len;
@@ -140,13 +140,13 @@ void Publics::bcds_to_string(uint8_t * p_bcds, size_t len_bcds, char * p_string,
     hexs_to_string(p_bcds, len_bcds, p_string, size_string);
 }
 
-// ÅĞ¶ÏÒ»¸öBYTEÖµÊÇ·ñBCDĞÎÊ½£¬¼´hexĞÎÊ½ÖĞÊÇ·ñÓĞa£¬b£¬c£¬d£¬e£¬f
+// åˆ¤æ–­ä¸€ä¸ªBYTEå€¼æ˜¯å¦BCDå½¢å¼ï¼Œå³hexå½¢å¼ä¸­æ˜¯å¦æœ‰aï¼Œbï¼Œcï¼Œdï¼Œeï¼Œf
 bool Publics::byte_bcd_valid(uint8_t bcd_byte)
 {
     return ((bcd_byte & 0xF0) < 0xA0 && (bcd_byte & 0x0F) < 0x0A);
 }
 
-// °Ñ×Ö·û´®µ¹Ğò£¬Ö÷ÒªÓÃÓÚĞ­ÒéÖĞ½ğ¶îµÍ×Ö½ÚÔÚÇ°¸ß×Ö½ÚÔÚºóµÄÇé¿ö
+// æŠŠå­—ç¬¦ä¸²å€’åºï¼Œä¸»è¦ç”¨äºåè®®ä¸­é‡‘é¢ä½å­—èŠ‚åœ¨å‰é«˜å­—èŠ‚åœ¨åçš„æƒ…å†µ
 int memory_reverse_order(char * p_memory, int len_memory, int len_reverse_unit/* = 2*/)
 {
     char sz_temp[256]	= {0};
@@ -164,7 +164,7 @@ int memory_reverse_order(char * p_memory, int len_memory, int len_reverse_unit/*
     return 0;
 }
 
-// Ìæ»»×Ö·û´®ÖĞµÄÖ¸¶¨×Ö·û£¬²¢¿½±´µ½Ä¿±ê×Ö·û´®
+// æ›¿æ¢å­—ç¬¦ä¸²ä¸­çš„æŒ‡å®šå­—ç¬¦ï¼Œå¹¶æ‹·è´åˆ°ç›®æ ‡å­—ç¬¦ä¸²
 void Publics::truncat_char(char * p_src_string, size_t len_src, char ch_need_truncat, char ch_truncat_to, char * p_target_string)
 {
     for (size_t i=0; i<len_src; i++)

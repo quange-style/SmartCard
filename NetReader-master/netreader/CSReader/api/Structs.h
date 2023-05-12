@@ -5,555 +5,555 @@
 #include "Declares.h"
 #pragma pack(push, 1)
 
-// 2.21	´íÎóÌáÊ¾ĞÅÏ¢½á¹¹
+// 2.21	é”™è¯¯æç¤ºä¿¡æ¯ç»“æ„
 typedef struct {
-	uint16_t	wErrCode;						// ´íÎóÂë
-	uint8_t		bNoticeCode;					// ¹ØÁªÌáÊ¾Âë
-	uint8_t		bRfu[2];						// À©³ä±£Áô×Ö¶Î
+	uint16_t	wErrCode;						// é”™è¯¯ç 
+	uint8_t		bNoticeCode;					// å…³è”æç¤ºç 
+	uint8_t		bRfu[2];						// æ‰©å……ä¿ç•™å­—æ®µ
 }RETINFO, * PRETINFO;
 
-// 2.3	SAM¿¨ĞÅÏ¢²éÑ¯
+// 2.3	SAMå¡ä¿¡æ¯æŸ¥è¯¢
 typedef struct {
-	uint8_t		bSAMStatus;						// SAM¿¨×´Ì¬¨C(0x00±íÊ¾Õı³££¬ÆäËû-ºóĞø×Ö¶ÎÎŞĞ§)
-	char		cSAMID[16];						// SAM¿¨IDºÅ
+	uint8_t		bSAMStatus;						// SAMå¡çŠ¶æ€â€“(0x00è¡¨ç¤ºæ­£å¸¸ï¼Œå…¶ä»–-åç»­å­—æ®µæ— æ•ˆ)
+	char		cSAMID[16];						// SAMå¡IDå·
 }SAMSTATUS, * PSAMSTATUS;
 
-// 4.1	¶ÁĞ´Æ÷³õÊ¼»¯ĞÅÏ¢
+// 4.1	è¯»å†™å™¨åˆå§‹åŒ–ä¿¡æ¯
 typedef struct {
-	uint8_t		bReaderReadyStatus;				// ¶ÁĞ´Æ÷¾ÍĞ÷×´Ì¬
-	SAMSTATUS  SamStatus[4];					// ¸÷SAM¿¨×´Ì¬ĞÅÏ¢£¬Ôİ¶¨4¿¨²Û£¬²Î¼û// 2.3
+	uint8_t		bReaderReadyStatus;				// è¯»å†™å™¨å°±ç»ªçŠ¶æ€
+	SAMSTATUS  SamStatus[4];					// å„SAMå¡çŠ¶æ€ä¿¡æ¯ï¼Œæš‚å®š4å¡æ§½ï¼Œå‚è§// 2.3
 }READERSTATUS, * PREADERSTATUS;
 
-// 4.4	ÈëÕ¢½»Ò×
+// 4.4	å…¥é—¸äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		dtDate[7];						// ½øÕ¾ÈÕÆÚÊ±¼äÈç;20060211160903
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	long		lBalance;						// Óà¶î
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cEntryMode;						// ½øÕ¢¹¤×÷Ä£Ê½
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		dtDate[7];						// è¿›ç«™æ—¥æœŸæ—¶é—´å¦‚;20060211160903
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	long		lBalance;						// ä½™é¢
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cEntryMode;						// è¿›é—¸å·¥ä½œæ¨¡å¼
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }ENTRYGATE, * PENTRYGATE;
 
-// 4.5	Ç®°ü½»Ò×
+// 4.5	é’±åŒ…äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// ±¾´Î½»Ò×SAMÂß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// ±¾´Î½»Ò×SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		dtDate[7];						// ÈÕÆÚÊ±¼ä(BCD)
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ(BCD)
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë	(BCD)
-	long		lTradeAmount;					// ½»Ò×½ğ¶î, µ¥Î»Îª·Ö
-	long		lBalance;						// Óà¶î, µ¥Î»Îª·Ö
-	long		lChargeCount;					// Æ±¿¨³äÖµ¼ÆÊı
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	char		cPaymentType[2];				// Ö§¸¶ÀàĞÍ
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cMACorTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	uint8_t		bEntryStationID[2];				// Èë¿ÚÕ¾µã´úÂë(BCD)
-	char		cEntrySAMID[16];				// Èë¿ÚSAMÂß¼­¿¨ºÅ
-	uint8_t		dtEntryDate[7];					// ½øÕ¾ÈÕÆÚÊ±¼ä(BCD)
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShiftID;					// BOM°à´ÎĞòºÅ
-	char		cSamLast[16];					// ÉÏ´Î½»Ò×µÄSAM¿¨ºÅ
-	uint8_t		dtLast[7];						// ÉÏ´Î½»Ò×ÈÕÆÚÊ±¼ä
-	long		lTradeWallet;					// Ç®°ü½»Ò×¶î£¬¿¨Æ¬Êµ¼ÊĞèÒª±ä¶¯µÄÇ®°üÖµ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cExitMode;						// ³öÕ¢¹¤×÷Ä£Ê½
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cIndustryCode[4];				// ĞĞÒµ´úÂë
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
-	char        cRecordVer[2];                  // ¼ÇÂ¼°æ±¾£¬ÔİÊ±Ä¬ÈÏÎª11
-	char		cIssueCardCode[16];             // ·¢¿¨»ú¹¹´úÂë
-	char		cKeyVer[2];                     // ÃÜÔ¿°æ±¾ºÅ
-	char		cKeyIndex[2];                   // ÃÜÔ¿Ë÷Òı
-	char		cRandom[8];                     // Î±Ëæ»úÊı
-	char		cAlgFlag[2];                    // Ëã·¨±êÊ¶
-	char		cCardHolderName[40];			// ³Ö¿¨ÈËĞÕÃû
-	char		cCertificateType[2];			// Ö¤¼şÀàĞÍ
-	char		cCertificateCode[30];			// Ö¤¼şºÅÂë
-	char		cOriginalCardType[8];			// Ô­À´Æ±¿¨ÀàĞÍ
-	char		cCardLocation[4];               // ¿¨ÊôµØ
-	uint8_t     cPayType;				        // Ö§¸¶·½Ê½£¬ÈçÏÖ½ğ¡¢Î¢ĞÅÖ§¸¶±¦µÈ
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// æœ¬æ¬¡äº¤æ˜“SAMé€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// æœ¬æ¬¡äº¤æ˜“SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		dtDate[7];						// æ—¥æœŸæ—¶é—´(BCD)
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹(BCD)
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 	(BCD)
+	long		lTradeAmount;					// äº¤æ˜“é‡‘é¢, å•ä½ä¸ºåˆ†
+	long		lBalance;						// ä½™é¢, å•ä½ä¸ºåˆ†
+	long		lChargeCount;					// ç¥¨å¡å……å€¼è®¡æ•°
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	char		cPaymentType[2];				// æ”¯ä»˜ç±»å‹
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cMACorTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	uint8_t		bEntryStationID[2];				// å…¥å£ç«™ç‚¹ä»£ç (BCD)
+	char		cEntrySAMID[16];				// å…¥å£SAMé€»è¾‘å¡å·
+	uint8_t		dtEntryDate[7];					// è¿›ç«™æ—¥æœŸæ—¶é—´(BCD)
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShiftID;					// BOMç­æ¬¡åºå·
+	char		cSamLast[16];					// ä¸Šæ¬¡äº¤æ˜“çš„SAMå¡å·
+	uint8_t		dtLast[7];						// ä¸Šæ¬¡äº¤æ˜“æ—¥æœŸæ—¶é—´
+	long		lTradeWallet;					// é’±åŒ…äº¤æ˜“é¢ï¼Œå¡ç‰‡å®é™…éœ€è¦å˜åŠ¨çš„é’±åŒ…å€¼
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cExitMode;						// å‡ºé—¸å·¥ä½œæ¨¡å¼
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cIndustryCode[4];				// è¡Œä¸šä»£ç 
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
+	char        cRecordVer[2];                  // è®°å½•ç‰ˆæœ¬ï¼Œæš‚æ—¶é»˜è®¤ä¸º11
+	char		cIssueCardCode[16];             // å‘å¡æœºæ„ä»£ç 
+	char		cKeyVer[2];                     // å¯†é’¥ç‰ˆæœ¬å·
+	char		cKeyIndex[2];                   // å¯†é’¥ç´¢å¼•
+	char		cRandom[8];                     // ä¼ªéšæœºæ•°
+	char		cAlgFlag[2];                    // ç®—æ³•æ ‡è¯†
+	char		cCardHolderName[40];			// æŒå¡äººå§“å
+	char		cCertificateType[2];			// è¯ä»¶ç±»å‹
+	char		cCertificateCode[30];			// è¯ä»¶å·ç 
+	char		cOriginalCardType[8];			// åŸæ¥ç¥¨å¡ç±»å‹
+	char		cCardLocation[4];               // å¡å±åœ°
+	uint8_t     cPayType;				        // æ”¯ä»˜æ–¹å¼ï¼Œå¦‚ç°é‡‘ã€å¾®ä¿¡æ”¯ä»˜å®ç­‰
 
 }PURSETRADE, * PPURSETRADE;
 
-//4.6	·Çµ¥³ÌÆ±·¢ÊÛ¼ÇÂ¼
+//4.6	éå•ç¨‹ç¥¨å‘å”®è®°å½•
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cBusinessseqno[12];				// ÍÑ»úÒµÎñÁ÷Ë®ºÅ
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ£¨µ¥³ÌÆ±£©
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ£¨µ¥³ÌÆ±£©
-	uint8_t		bAmountType;					// ½ğ¶îÀàĞÍ
-	short		nAmount;						// Ñº½ğ
-	uint8_t		dtDate[7];						// ÏúÊÛÊ±¼äBCD
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	(BCD)
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cBusinessseqno[12];				// è„±æœºä¸šåŠ¡æµæ°´å·
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	uint8_t		bAmountType;					// é‡‘é¢ç±»å‹
+	short		nAmount;						// æŠ¼é‡‘
+	uint8_t		dtDate[7];						// é”€å”®æ—¶é—´BCD
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	(BCD)
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
 }OTHERSALE, * POTHERSALE;
 
-// 4.7	µ¥³ÌÆ±·¢ÊÛ¼ÇÂ¼
+// 4.7	å•ç¨‹ç¥¨å‘å”®è®°å½•
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ£¨µ¥³ÌÆ±£©
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ£¨µ¥³ÌÆ±£©
-	uint8_t		dtDate[7];						// Ê±¼ä
-	uint8_t		bPaymentMeans;					// Ö§¸¶·½Ê½
-	char		cPaymentTKLogicalID[20];		// Ö§¸¶Æ±¿¨Âß¼­¿¨ºÅ
-	long		lTradeCount;					// µ¥³ÌÆ±¿Û¿î¼ÆÊı
-	char		cLogicalID[20];					// TOKEN Âß¼­ID
-	char		cPhysicalID[20];				// TOKEN ÎïÀíID
-	uint8_t		bStatus;						// TOKEN×´Ì¬
-	short		nChargeValue;					// ³äÖµ½ğ¶î
-	uint8_t		bTicketType[2];					// µ¥³ÌÆ±¿¨ÀàĞÍ
-	uint8_t		bZoneID;						// Çø¶Î´úÂë
-	char		cMACorTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	uint8_t		bDepositorCost;					// ³É±¾Ñº½ğ(BCD)
-	short		nAmountCost;					// ³É±¾Ñº½ğ½ğ¶î
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShiftID;					// BOM°à´ÎĞòºÅ, Ã¿¸öBOMÃ¿ÌìÖØÖÃ
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·ï¼ˆå•ç¨‹ç¥¨ï¼‰
+	uint8_t		dtDate[7];						// æ—¶é—´
+	uint8_t		bPaymentMeans;					// æ”¯ä»˜æ–¹å¼
+	char		cPaymentTKLogicalID[20];		// æ”¯ä»˜ç¥¨å¡é€»è¾‘å¡å·
+	long		lTradeCount;					// å•ç¨‹ç¥¨æ‰£æ¬¾è®¡æ•°
+	char		cLogicalID[20];					// TOKEN é€»è¾‘ID
+	char		cPhysicalID[20];				// TOKEN ç‰©ç†ID
+	uint8_t		bStatus;						// TOKENçŠ¶æ€
+	short		nChargeValue;					// å……å€¼é‡‘é¢
+	uint8_t		bTicketType[2];					// å•ç¨‹ç¥¨å¡ç±»å‹
+	uint8_t		bZoneID;						// åŒºæ®µä»£ç 
+	char		cMACorTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	uint8_t		bDepositorCost;					// æˆæœ¬æŠ¼é‡‘(BCD)
+	short		nAmountCost;					// æˆæœ¬æŠ¼é‡‘é‡‘é¢
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShiftID;					// BOMç­æ¬¡åºå·, æ¯ä¸ªBOMæ¯å¤©é‡ç½®
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
 }SJTSALE, * PSJTSALE;
 
-// 4.8	½»Ò×È·ÈÏĞÅÏ¢½á¹¹
+// 4.8	äº¤æ˜“ç¡®è®¤ä¿¡æ¯ç»“æ„
 typedef struct {
-	uint8_t	bTradeType;							// ½»Ò×ÀàĞÍ
-	uint8_t	bData[512];							// ÉÏ´ÎµÄ½»Ò×¼ÇÂ¼½á¹¹µÄ¿½±´
+	uint8_t	bTradeType;							// äº¤æ˜“ç±»å‹
+	uint8_t	bData[512];							// ä¸Šæ¬¡çš„äº¤æ˜“è®°å½•ç»“æ„çš„æ‹·è´
 }TRANSACTCONFIRM, * PTRANSACTCONFIRM;
 
-// 4.9	¸üĞÂ½»Ò×
+// 4.9	æ›´æ–°äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// ¸üĞÂÉè±¸SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cUpdateZone;					// ¸üĞÂÇøÓò
-	uint8_t		bUpdateReasonCode;				// ¸üĞÂÔ­Òò
-												// ¸üĞÂÔ­Òò´úÂë±í
-												// Ô­Òò´úÂë	ÃèÊö£¨Description£©
-												// ¸¶·ÑÇø£º01£­³öÕ¾³¬Ê±£¬02-³¬³Ë£¬03-ÎŞ½øÕ¾Âë
-												// ·Ç¸¶·ÑÇø£º10£­ÓĞ½øÕ¾Âë£¬12£­½øÕ¾³¬Ê±
-	uint8_t		dtUpdateDate[7];				// ¸üĞÂÈÕÆÚÊ±¼äYYYYMMDDHHMMSS
-	uint8_t		bPaymentMode;					// ·£½ğÖ§¸¶·½Ê½
-												// 	1-ÏÖ½ğ£¬2-´¢Öµ¿¨£¬ Ä¬ÈÏÖµ-0
-	short		nForfeiture;					// ·£½ğ, Ğè½ÉÄÉµÄ·£¿î½ğ¶î£¨ÏÖ½ğÖ§¸¶£©£¬µ¥Î»·Ö
-	char		cReceiptID[4];					// Ö§¸¶Æ¾Ö¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bEntryStationID[2];				// ½øÕ¾ÏßÂ·Õ¾µã´úÂë
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cLimitMode[3];					// ³Ë´ÎÆ±ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t		bLimitExitID[2];				// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// æ›´æ–°è®¾å¤‡SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cUpdateZone;					// æ›´æ–°åŒºåŸŸ
+	uint8_t		bUpdateReasonCode;				// æ›´æ–°åŸå› 
+												// æ›´æ–°åŸå› ä»£ç è¡¨
+												// åŸå› ä»£ç 	æè¿°ï¼ˆDescriptionï¼‰
+												// ä»˜è´¹åŒºï¼š01ï¼å‡ºç«™è¶…æ—¶ï¼Œ02-è¶…ä¹˜ï¼Œ03-æ— è¿›ç«™ç 
+												// éä»˜è´¹åŒºï¼š10ï¼æœ‰è¿›ç«™ç ï¼Œ12ï¼è¿›ç«™è¶…æ—¶
+	uint8_t		dtUpdateDate[7];				// æ›´æ–°æ—¥æœŸæ—¶é—´YYYYMMDDHHMMSS
+	uint8_t		bPaymentMode;					// ç½šé‡‘æ”¯ä»˜æ–¹å¼
+												// 	1-ç°é‡‘ï¼Œ2-å‚¨å€¼å¡ï¼Œ é»˜è®¤å€¼-0
+	short		nForfeiture;					// ç½šé‡‘, éœ€ç¼´çº³çš„ç½šæ¬¾é‡‘é¢ï¼ˆç°é‡‘æ”¯ä»˜ï¼‰ï¼Œå•ä½åˆ†
+	char		cReceiptID[4];					// æ”¯ä»˜å‡­è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bEntryStationID[2];				// è¿›ç«™çº¿è·¯ç«™ç‚¹ä»£ç 
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cLimitMode[3];					// ä¹˜æ¬¡ç¥¨é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t		bLimitExitID[2];				// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }TICKETUPDATE, * PTICKETUPDATE;
 
-// 4.10	Æ±¿¨ÑÓÆÚ½»Ò×
+// 4.10	ç¥¨å¡å»¶æœŸäº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	uint8_t		dtOldExpiryDate[7];				// Ô­ÓĞĞ§Ê±¼ä
-	uint8_t		dtNewExpiryDate[7];				// ÏÖÓĞĞ§Ê±¼ä
-	uint8_t		dtOperateDate[7];				// ²Ù×÷Ê±¼ä
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	uint8_t		dtOldExpiryDate[7];				// åŸæœ‰æ•ˆæ—¶é—´
+	uint8_t		dtNewExpiryDate[7];				// ç°æœ‰æ•ˆæ—¶é—´
+	uint8_t		dtOperateDate[7];				// æ“ä½œæ—¶é—´
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
 }TICKETDEFER, * PTICKETDEFER;
 
-// 4.11	Æ±¿¨¼Ó½âËø½»Ò×
+// 4.11	ç¥¨å¡åŠ è§£é”äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	char		cLockFlag;						// ¼Ó½âËø±êÖ¾
-	uint8_t		dtDate[7];						// Ê±¼äYYYYMMDDHHMMSS
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	(BCD)
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cTkAppMode;						//¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	char		cLockFlag;						// åŠ è§£é”æ ‡å¿—
+	uint8_t		dtDate[7];						// æ—¶é—´YYYYMMDDHHMMSS
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	(BCD)
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cTkAppMode;						//å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
 }TICKETLOCK, * PTICKETLOCK;
 
-// 4.12	ÍË¿î½»Ò×
+// 4.12	é€€æ¬¾äº¤æ˜“
 typedef struct {
-	char		cTradeType[2];					// ½»Ò×ÀàĞÍ
-	char		cStationID[4];					// ÏßÂ·Õ¾µã´úÂë
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bStatus;						// ½»Ò××´Ì¬´úÂë
-	long		lBalanceReturned;				// ÍË»¹Ç®°ü½ğ¶î, µ¥Î»Îª·Ö
-	short		nDepositReturned;				// ÍË»¹Ñº½ğ, µ¥Î»Îª·Ö
-	short		nForfeiture;					// ·£¿î, µ¥Î»Îª·Ö
-	uint8_t		bForfeitReason;					// ·£¿îÔ­Òò
-	long		lTradeCount;					// Æ±¿¨¿Û¿î½»Ò×¼ÆÊı
-	uint8_t		bReturnTypeCode;				// ÍË¿îÀàĞÍ, 0£­¼´Ê±ÍË¿î£»£­·Ç¼´Ê±ÍË¿î
-	uint8_t		dtDate[7];						// Ê±¼äYYYYMMDDHHMMSS
-	char		cReceiptID[4];					// Æ¾Ö¤ID
-	uint8_t		dtApplyDate[7];					// ÉêÇëÈÕÆÚÊ±¼ä, YYYYMMDDHHMMSS
-	char		cMACOrTAC[10];					// ½»Ò×ÈÏÖ¤Âë
-	char		cOperatorID[6];					// ²Ù×÷Ô±´úÂë(Login)
-	uint8_t		bBOMShfitID;					// BOM°à´ÎĞòºÅÃ¿¸öBOMÃ¿ÌìÖØÖÃ	£¨BCD£©
-	long		lBrokerage;						// ÊÖĞø·Ñ
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	char		cClassicType[2];				// ½»Ò×·ÖÀà
-	char		cSamPosId[12];					// SAM¿¨ÖÕ¶Ë±àÂë
+	char		cTradeType[2];					// äº¤æ˜“ç±»å‹
+	char		cStationID[4];					// çº¿è·¯ç«™ç‚¹ä»£ç 
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€ä»£ç 
+	long		lBalanceReturned;				// é€€è¿˜é’±åŒ…é‡‘é¢, å•ä½ä¸ºåˆ†
+	short		nDepositReturned;				// é€€è¿˜æŠ¼é‡‘, å•ä½ä¸ºåˆ†
+	short		nForfeiture;					// ç½šæ¬¾, å•ä½ä¸ºåˆ†
+	uint8_t		bForfeitReason;					// ç½šæ¬¾åŸå› 
+	long		lTradeCount;					// ç¥¨å¡æ‰£æ¬¾äº¤æ˜“è®¡æ•°
+	uint8_t		bReturnTypeCode;				// é€€æ¬¾ç±»å‹, 0ï¼å³æ—¶é€€æ¬¾ï¼›ï¼éå³æ—¶é€€æ¬¾
+	uint8_t		dtDate[7];						// æ—¶é—´YYYYMMDDHHMMSS
+	char		cReceiptID[4];					// å‡­è¯ID
+	uint8_t		dtApplyDate[7];					// ç”³è¯·æ—¥æœŸæ—¶é—´, YYYYMMDDHHMMSS
+	char		cMACOrTAC[10];					// äº¤æ˜“è®¤è¯ç 
+	char		cOperatorID[6];					// æ“ä½œå‘˜ä»£ç (Login)
+	uint8_t		bBOMShfitID;					// BOMç­æ¬¡åºå·æ¯ä¸ªBOMæ¯å¤©é‡ç½®	ï¼ˆBCDï¼‰
+	long		lBrokerage;						// æ‰‹ç»­è´¹
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	char		cClassicType[2];				// äº¤æ˜“åˆ†ç±»
+	char		cSamPosId[12];					// SAMå¡ç»ˆç«¯ç¼–ç 
 }DIRECTREFUND, * PDIRECTREFUND;
 
-// 4.13	Æ±¿¨·ÖÎö·µ»Ø½á¹¹
+// 4.13	ç¥¨å¡åˆ†æè¿”å›ç»“æ„
 typedef struct {
-	char		cPhysicalID[20];				// ÎïÀí¿¨ºÅ,
-	char		cLogicalID[20];					// Âß¼­¿¨ºÅ
-	uint8_t		bTicketType[2];					// ³µÆ±ÀàĞÍ(Ö÷ÀàĞÍ+×ÓÀàĞÍ)
-	long		lBalance;						// ÓàÖµ
-	long 		lDepositorCost;					// Ñº½ğ
-	long		lLimitedBalance;				// ³µÆ±×î¸ßÉÏÏŞÖµ
+	char		cPhysicalID[20];				// ç‰©ç†å¡å·,
+	char		cLogicalID[20];					// é€»è¾‘å¡å·
+	uint8_t		bTicketType[2];					// è½¦ç¥¨ç±»å‹(ä¸»ç±»å‹+å­ç±»å‹)
+	long		lBalance;						// ä½™å€¼
+	long 		lDepositorCost;					// æŠ¼é‡‘
+	long		lLimitedBalance;				// è½¦ç¥¨æœ€é«˜ä¸Šé™å€¼
 
-	long		lPenalty;						// ¸üĞÂ·£½ğ
+	long		lPenalty;						// æ›´æ–°ç½šé‡‘
 
-	uint8_t		bIssueData[4];					// ·¢ĞĞÊ±¼ä
-	uint8_t		bExpiry[7];						// ÎïÀíÓĞĞ§ÆÚ½ØÖ¹Ê±¼ä(BCD)
-	uint8_t		bStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-	uint8_t		bEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-	uint8_t		bStatus;						// ½»Ò××´Ì¬
-	uint8_t		bLastStationID[2];				// ÉÏ´Î½»Ò×ÏßÂ·Õ¾µã(BCD)
-	uint8_t		bLastDeviceID[2];				// ÉÏ´Î½»Ò×Éè±¸±àºÅ(BCD),µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t 	bLastDeviceType; 				// ÉÏ´Î½»Ò×Éè±¸ÀàĞÍ
-	uint8_t		dtLastDate[7];					// ÉÏ´Î½»Ò×Ê±¼ä
-	uint8_t		bEntrySationID[2];				// ÉÏ´Î½øÕ¾Õ¾µã
-	uint8_t		dtEntryDate[7];					// ÉÏ´Î½øÕ¾Ê±¼ä
-	uint32_t	dwOperationStauts;				// ¿É²Ù×÷×´Ì¬ÓëErrInfoµÄ´íÎó¶ÔÓ¦
-												// °´Î»¶ÔÓ¦ÒÔÏÂ¼¸ÖÖ£¬1±íÊ¾¿É²Ù×÷
-												// 	bit0:ÊÇ·ñ¿É³ä(Öµ/³Ë´Î)
-												// 	bit1:ÊÇ·ñ¿É¸üĞÂ
-												// 	bit2:ÊÇ·ñ¿É·¢ÊÛ
-												// 	bit3:ÊÇ·ñ¿É¼¤»î
-												// 	bit4:ÊÇ·ñ¿ÉÑÓÆÚ
-												// 	bit5:ÊÇ·ñ¿ÉÍË¿î
-												// 	bit6:ÊÇ·ñ¿É½âËø
-												//  bit7:ÊÇ·ñ¿ÉÍËÑº½ğ
-	uint8_t		bLimitMode;						// ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ½øÕ¾Õ¾µãÏŞÖÆ£¨BCDÂë£©
-	uint8_t		bLimitExitID[2];				// ³öÕ¾Õ¾µãÏŞÖÆ(BCDÂë)
-	uint8_t		bActiveStatus;					// ¼¤»î×´Ì¬»ò¼¤»î±ê¼Ç
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cSellerCode[4];					// ·¢ĞĞÉÌ´úÂë
-	long		lChargeCount;					// ³äÖµ¼ÆÊı
-	long		lTradeCount;					// Ïû·Ñ¼ÆÊı
-	uint8_t		bCertificateType;				// Ö¤¼şÀàĞÍ
-	char		cCertificateCode[32];			// Ö¤¼ş´úÂë
-	char		cCertificateName[20];			// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	long		lChargeUpper;					// ³äÖµÉÏÏŞ£¬¿É³äÖµ±êÖ¾Î»·Ç0Ê±ÓĞĞ§
-	long 		lDepositeSale;					// ·¢ÊÛÑº½ğ£¬¿É·¢ÊÛ±êÖ¾Î»·Ç0ÊÇÓĞĞ§
-	long		lBrokerage;						// ÊÖĞø·Ñ£¬ºóĞø²Ù×÷ĞèÒªÊÕ·ÑÊ±ÓĞĞ§£¬Èç·Çµ¥³ÌÆ±·¢ÊÛ¡¢ÍË¿î
+	uint8_t		bIssueData[4];					// å‘è¡Œæ—¶é—´
+	uint8_t		bExpiry[7];						// ç‰©ç†æœ‰æ•ˆæœŸæˆªæ­¢æ—¶é—´(BCD)
+	uint8_t		bStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+	uint8_t		bEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€
+	uint8_t		bLastStationID[2];				// ä¸Šæ¬¡äº¤æ˜“çº¿è·¯ç«™ç‚¹(BCD)
+	uint8_t		bLastDeviceID[2];				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç¼–å·(BCD),ç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t 	bLastDeviceType; 				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç±»å‹
+	uint8_t		dtLastDate[7];					// ä¸Šæ¬¡äº¤æ˜“æ—¶é—´
+	uint8_t		bEntrySationID[2];				// ä¸Šæ¬¡è¿›ç«™ç«™ç‚¹
+	uint8_t		dtEntryDate[7];					// ä¸Šæ¬¡è¿›ç«™æ—¶é—´
+	uint32_t	dwOperationStauts;				// å¯æ“ä½œçŠ¶æ€ä¸ErrInfoçš„é”™è¯¯å¯¹åº”
+												// æŒ‰ä½å¯¹åº”ä»¥ä¸‹å‡ ç§ï¼Œ1è¡¨ç¤ºå¯æ“ä½œ
+												// 	bit0:æ˜¯å¦å¯å……(å€¼/ä¹˜æ¬¡)
+												// 	bit1:æ˜¯å¦å¯æ›´æ–°
+												// 	bit2:æ˜¯å¦å¯å‘å”®
+												// 	bit3:æ˜¯å¦å¯æ¿€æ´»
+												// 	bit4:æ˜¯å¦å¯å»¶æœŸ
+												// 	bit5:æ˜¯å¦å¯é€€æ¬¾
+												// 	bit6:æ˜¯å¦å¯è§£é”
+												//  bit7:æ˜¯å¦å¯é€€æŠ¼é‡‘
+	uint8_t		bLimitMode;						// é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// è¿›ç«™ç«™ç‚¹é™åˆ¶ï¼ˆBCDç ï¼‰
+	uint8_t		bLimitExitID[2];				// å‡ºç«™ç«™ç‚¹é™åˆ¶(BCDç )
+	uint8_t		bActiveStatus;					// æ¿€æ´»çŠ¶æ€æˆ–æ¿€æ´»æ ‡è®°
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cSellerCode[4];					// å‘è¡Œå•†ä»£ç 
+	long		lChargeCount;					// å……å€¼è®¡æ•°
+	long		lTradeCount;					// æ¶ˆè´¹è®¡æ•°
+	uint8_t		bCertificateType;				// è¯ä»¶ç±»å‹
+	char		cCertificateCode[32];			// è¯ä»¶ä»£ç 
+	char		cCertificateName[20];			// è¯ä»¶æŒæœ‰äººå§“å
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	long		lChargeUpper;					// å……å€¼ä¸Šé™ï¼Œå¯å……å€¼æ ‡å¿—ä½é0æ—¶æœ‰æ•ˆ
+	long 		lDepositeSale;					// å‘å”®æŠ¼é‡‘ï¼Œå¯å‘å”®æ ‡å¿—ä½é0æ˜¯æœ‰æ•ˆ
+	long		lBrokerage;						// æ‰‹ç»­è´¹ï¼Œåç»­æ“ä½œéœ€è¦æ”¶è´¹æ—¶æœ‰æ•ˆï¼Œå¦‚éå•ç¨‹ç¥¨å‘å”®ã€é€€æ¬¾
 
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
-	uint8_t		bCertExpire[4];					// Ö¤¼şÓĞĞ§ÆÚ£¬Ä¿Ç°Ö÷ÒªÓÃÓÚ¹«½»Ñ§ÉúÆ±£¬µ±¸ÃÓĞĞ§ÆÚ¹ıÆÚÊ±£¬Ñ§ÉúÆ±°´ÆÕÍ¨Æ±¿Û·Ñ
-	uint16_t	wError;							// ´íÎóÂë£¬¶ÔÓ¦¸üĞÂ·£½ğlPenalty
-	long		lPenalty1;						// ¸üĞÂ·£½ğlPenalty1
-	uint16_t	wError1;						// ´íÎóÂë1£¬¶ÔÓ¦¸üĞÂ·£½ğ1
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
+	uint8_t		bCertExpire[4];					// è¯ä»¶æœ‰æ•ˆæœŸï¼Œç›®å‰ä¸»è¦ç”¨äºå…¬äº¤å­¦ç”Ÿç¥¨ï¼Œå½“è¯¥æœ‰æ•ˆæœŸè¿‡æœŸæ—¶ï¼Œå­¦ç”Ÿç¥¨æŒ‰æ™®é€šç¥¨æ‰£è´¹
+	uint16_t	wError;							// é”™è¯¯ç ï¼Œå¯¹åº”æ›´æ–°ç½šé‡‘lPenalty
+	long		lPenalty1;						// æ›´æ–°ç½šé‡‘lPenalty1
+	uint16_t	wError1;						// é”™è¯¯ç 1ï¼Œå¯¹åº”æ›´æ–°ç½šé‡‘1
 
 	uint8_t		bRfu[19];
 
 }BOMANALYZE, * PBOMANALYZE;
 
-// 4.21	µç×Ó³µÆ±·ÖÎö·µ»Ø½á¹¹
+// 4.21	ç”µå­è½¦ç¥¨åˆ†æè¿”å›ç»“æ„
 typedef struct {
-	char		cIssueCode[4];					// ·¢Âë·½±êÊ¶
-	char		cVersion[2];					// °æ±¾ºÅ£¬´Ë°æ±¾ºÅÎª½á¹¹°æ±¾ºÅ£¬Ò²Îª·¢ĞĞ°æ±¾ºÅ
-	char		cCardStatus;					// µç×ÓÆ±¿¨×´Ì¬
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	long		lBalance;						// ÓàÖµ
-	long		lTicketCount;					// ¼ÆÊıÆ÷
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
+	char		cIssueCode[4];					// å‘ç æ–¹æ ‡è¯†
+	char		cVersion[2];					// ç‰ˆæœ¬å·ï¼Œæ­¤ç‰ˆæœ¬å·ä¸ºç»“æ„ç‰ˆæœ¬å·ï¼Œä¹Ÿä¸ºå‘è¡Œç‰ˆæœ¬å·
+	char		cCardStatus;					// ç”µå­ç¥¨å¡çŠ¶æ€
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	long		lBalance;						// ä½™å€¼
+	long		lTicketCount;					// è®¡æ•°å™¨
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
 
-	char 		cSaleDate[14];					// ÊÛÆ±Ê±¼ä
-	char		cValidDate[8];					// ÓĞĞ§ÆÚ
+	char 		cSaleDate[14];					// å”®ç¥¨æ—¶é—´
+	char		cValidDate[8];					// æœ‰æ•ˆæœŸ
 
-	char		cStartStationId[4];				// ÆğÊ¼Õ¾±àÂë
-	char		cEndStationId[4];				// ÖÕµãÕ¾±àÂë
-	char		cTicketNum[2];					// ÕÅÊı
-	char		cEntryDate[14];					// ½øÕ¾Ê±¼ä
-	char        cEntryStationId[4];				// ½øÕ¾Õ¾µã
-	char		cExitDate[14];					// ³öÕ¾Ê±¼ä
-	char        cExitStationId[4];				// ³öÕ¾Õ¾µã
+	char		cStartStationId[4];				// èµ·å§‹ç«™ç¼–ç 
+	char		cEndStationId[4];				// ç»ˆç‚¹ç«™ç¼–ç 
+	char		cTicketNum[2];					// å¼ æ•°
+	char		cEntryDate[14];					// è¿›ç«™æ—¶é—´
+	char        cEntryStationId[4];				// è¿›ç«™ç«™ç‚¹
+	char		cExitDate[14];					// å‡ºç«™æ—¶é—´
+	char        cExitStationId[4];				// å‡ºç«™ç«™ç‚¹
 
-	char        cValidExitDate[14];				// ÓĞĞ§³öÕ¾Ê±¼ä
-	char		cLastDealType[2];				// Ä©´Î½»Ò×ÀàĞÍ
-	char		cLastDealDate[14];				// Ä©´Î½»Ò×Ê±¼ä
+	char        cValidExitDate[14];				// æœ‰æ•ˆå‡ºç«™æ—¶é—´
+	char		cLastDealType[2];				// æœ«æ¬¡äº¤æ˜“ç±»å‹
+	char		cLastDealDate[14];				// æœ«æ¬¡äº¤æ˜“æ—¶é—´
 
-	char		cPenaltyType[2];				// ·£¿îÀàĞÍ
-	long		lPenalty1;						// ·£¿î½ğ¶î  ³¬Ê±·£½ğ
-	long		lPenalty2;						// ¸üĞÂ·£½ğ  ³¬³Ë¸üĞÂ²¹Æ±
+	char		cPenaltyType[2];				// ç½šæ¬¾ç±»å‹
+	long		lPenalty1;						// ç½šæ¬¾é‡‘é¢  è¶…æ—¶ç½šé‡‘
+	long		lPenalty2;						// æ›´æ–°ç½šé‡‘  è¶…ä¹˜æ›´æ–°è¡¥ç¥¨
 
 
 }BOMETICANALYZE, * PBOMETICANALYZE;
 
-// 4.14	´¢ÖµÆ±µ¥ÌõÀúÊ·½á¹¹
+// 4.14	å‚¨å€¼ç¥¨å•æ¡å†å²ç»“æ„
 typedef struct {
-	uint8_t		dtDate[7];						// ½»Ò×Ê±¼ä£¨BCDÂë£©
-	uint8_t		bStationID[2];					// ½»Ò×³µÕ¾IDºÅ£¨BCDÂë£©
-	uint8_t		bStatus;						// Æ±¿¨ÉúÃüÖÜÆÚË÷Òı,¾ßÌå¶¨Òå¼û¸½Â¼Îå
-	long		lTradeAmount;					// ½»Ò×½ğ¶î,µ¥Î»·Ö
-	uint8_t		bDeviceID[2];					// Éè±¸±àÂë£¨BCD£©
-	uint8_t		bDeviceType;					// Éè±¸ÀàĞÍ
+	uint8_t		dtDate[7];						// äº¤æ˜“æ—¶é—´ï¼ˆBCDç ï¼‰
+	uint8_t		bStationID[2];					// äº¤æ˜“è½¦ç«™IDå·ï¼ˆBCDç ï¼‰
+	uint8_t		bStatus;						// ç¥¨å¡ç”Ÿå‘½å‘¨æœŸç´¢å¼•,å…·ä½“å®šä¹‰è§é™„å½•äº”
+	long		lTradeAmount;					// äº¤æ˜“é‡‘é¢,å•ä½åˆ†
+	uint8_t		bDeviceID[2];					// è®¾å¤‡ç¼–ç ï¼ˆBCDï¼‰
+	uint8_t		bDeviceType;					// è®¾å¤‡ç±»å‹
 	char		cSAMID[16];						// sam id
 }HSSVT, * PHSSVT;
 
-// 4.16	TCM¶ÁÆ±¿¨ĞÅÏ¢·µ»ØĞÅÏ¢
+// 4.16	TCMè¯»ç¥¨å¡ä¿¡æ¯è¿”å›ä¿¡æ¯
 typedef struct {
-	char		cPhysicalID[20];				// ÎïÀí¿¨ºÅ,
-	char		cLogicalID[20];					// Âß¼­¿¨ºÅ
-	uint8_t		bTicketType[2];					// ³µÆ±ÀàĞÍ(Ö÷ÀàĞÍ+×ÓÀàĞÍ)
-	long		lBalance;						// ÓàÖµ
-	long 		lDepositorCost;					// Ñº½ğ
-	long		lLimitedBalance;				// ³µÆ±×î¸ßÉÏÏŞÖµ
-	uint8_t		bIssueData[4];					// ·¢ĞĞÊ±¼ä
-	uint8_t		bExpiry[7];						// ÎïÀíÓĞĞ§ÆÚ½ØÖ¹Ê±¼ä(BCD)
-	uint8_t		bStartDate[7];					// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä(BCD)
-	uint8_t		bEndDate[7];					// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä(BCD)
-	uint8_t		bStatus;						// ½»Ò××´Ì¬
-	uint8_t		bLastStationID[2];				// ÉÏ´Î½»Ò×ÏßÂ·Õ¾µã(BCD)
-	uint8_t		bLastDeviceID[2];				// ÉÏ´Î½»Ò×Éè±¸±àºÅ(BCD),µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	uint8_t 	bLastDeviceType; 				// ÉÏ´Î½»Ò×Éè±¸ÀàĞÍ
-	uint8_t		dtLastDate[7];					// ÉÏ´Î½»Ò×Ê±¼ä
-	uint8_t		bEntrySationID[2];				// ÉÏ´Î½øÕ¾Õ¾µã
-	uint8_t		dtEntryDate[7];					// ÉÏ´Î½øÕ¾Ê±¼ä
-	uint8_t		bLimitMode;						// ÏŞÖÆÄ£Ê½
-	uint8_t		bLimitEntryID[2];				// ½øÕ¾Õ¾µãÏŞÖÆ£¨BCDÂë£©
-	uint8_t		bLimitExitID[2];				// ³öÕ¾Õ¾µãÏŞÖÆ(BCDÂë)
-	uint8_t		bActiveStatus;					// ¼¤»î×´Ì¬»ò¼¤»î±ê¼Ç
-	char		cCityCode[4];					// ³ÇÊĞ´úÂë
-	char		cSellerCode[4];					// ·¢ĞĞÉÌ´úÂë
-	long		lChargeCount;					// ³äÖµ¼ÆÊı
-	long		lTradeCount;					// Ïû·Ñ¼ÆÊı
-	uint8_t		bCertificateType;				// Ö¤¼şÀàĞÍ
-	char		cCertificateCode[32];			// Ö¤¼ş´úÂë
-	char		cCertificateName[20];			// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char		cTestFlag;						// ¿¨Ó¦ÓÃ±êÊ¶
-	uint8_t		bUsefulCount;					// ÓĞÓÃµÄÊı¾İÌõÊı
-	char		cTkAppMode;						// ¿¨Ó¦ÓÃÄ£Ê½ £¬ '1'£ºCPU£¬ '2'£ºM1/UL, '3'£º·ÂM1
-	uint8_t		bCertExpire[4];					// Ö¤¼şÓĞĞ§ÆÚ£¬Ä¿Ç°Ö÷ÒªÓÃÓÚ¹«½»Ñ§ÉúÆ±£¬µ±¸ÃÓĞĞ§ÆÚ¹ıÆÚÊ±£¬Ñ§ÉúÆ±°´ÆÕÍ¨Æ±¿Û·Ñ
-	HSSVT		bhs[17];						// ÀúÊ·¼ÇÂ¼£¬²Î¼û// 2.16
+	char		cPhysicalID[20];				// ç‰©ç†å¡å·,
+	char		cLogicalID[20];					// é€»è¾‘å¡å·
+	uint8_t		bTicketType[2];					// è½¦ç¥¨ç±»å‹(ä¸»ç±»å‹+å­ç±»å‹)
+	long		lBalance;						// ä½™å€¼
+	long 		lDepositorCost;					// æŠ¼é‡‘
+	long		lLimitedBalance;				// è½¦ç¥¨æœ€é«˜ä¸Šé™å€¼
+	uint8_t		bIssueData[4];					// å‘è¡Œæ—¶é—´
+	uint8_t		bExpiry[7];						// ç‰©ç†æœ‰æ•ˆæœŸæˆªæ­¢æ—¶é—´(BCD)
+	uint8_t		bStartDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´(BCD)
+	uint8_t		bEndDate[7];					// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´(BCD)
+	uint8_t		bStatus;						// äº¤æ˜“çŠ¶æ€
+	uint8_t		bLastStationID[2];				// ä¸Šæ¬¡äº¤æ˜“çº¿è·¯ç«™ç‚¹(BCD)
+	uint8_t		bLastDeviceID[2];				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç¼–å·(BCD),ç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	uint8_t 	bLastDeviceType; 				// ä¸Šæ¬¡äº¤æ˜“è®¾å¤‡ç±»å‹
+	uint8_t		dtLastDate[7];					// ä¸Šæ¬¡äº¤æ˜“æ—¶é—´
+	uint8_t		bEntrySationID[2];				// ä¸Šæ¬¡è¿›ç«™ç«™ç‚¹
+	uint8_t		dtEntryDate[7];					// ä¸Šæ¬¡è¿›ç«™æ—¶é—´
+	uint8_t		bLimitMode;						// é™åˆ¶æ¨¡å¼
+	uint8_t		bLimitEntryID[2];				// è¿›ç«™ç«™ç‚¹é™åˆ¶ï¼ˆBCDç ï¼‰
+	uint8_t		bLimitExitID[2];				// å‡ºç«™ç«™ç‚¹é™åˆ¶(BCDç )
+	uint8_t		bActiveStatus;					// æ¿€æ´»çŠ¶æ€æˆ–æ¿€æ´»æ ‡è®°
+	char		cCityCode[4];					// åŸå¸‚ä»£ç 
+	char		cSellerCode[4];					// å‘è¡Œå•†ä»£ç 
+	long		lChargeCount;					// å……å€¼è®¡æ•°
+	long		lTradeCount;					// æ¶ˆè´¹è®¡æ•°
+	uint8_t		bCertificateType;				// è¯ä»¶ç±»å‹
+	char		cCertificateCode[32];			// è¯ä»¶ä»£ç 
+	char		cCertificateName[20];			// è¯ä»¶æŒæœ‰äººå§“å
+	char		cTestFlag;						// å¡åº”ç”¨æ ‡è¯†
+	uint8_t		bUsefulCount;					// æœ‰ç”¨çš„æ•°æ®æ¡æ•°
+	char		cTkAppMode;						// å¡åº”ç”¨æ¨¡å¼ ï¼Œ '1'ï¼šCPUï¼Œ '2'ï¼šM1/UL, '3'ï¼šä»¿M1
+	uint8_t		bCertExpire[4];					// è¯ä»¶æœ‰æ•ˆæœŸï¼Œç›®å‰ä¸»è¦ç”¨äºå…¬äº¤å­¦ç”Ÿç¥¨ï¼Œå½“è¯¥æœ‰æ•ˆæœŸè¿‡æœŸæ—¶ï¼Œå­¦ç”Ÿç¥¨æŒ‰æ™®é€šç¥¨æ‰£è´¹
+	HSSVT		bhs[17];						// å†å²è®°å½•ï¼Œå‚è§// 2.16
 }TICKETINFO, * PTICKETINFO;
 
 
-// 4.18	»¥ÁªÍøÈ¡Æ±·µ»ØĞÅÏ¢»ú¹¹
+// 4.18	äº’è”ç½‘å–ç¥¨è¿”å›ä¿¡æ¯æœºæ„
 typedef struct {
-	char		cAmount[2];						// µ¥³ÌÆ±ÕÅÊı
-	char		cSum[8];						// ×Ü½ğ¶î
-	char		cCenterCode[32];				// Æ±ºÅ
-	char		cTicketLogicalNo[20];			// Æ±¿¨Âß¼­ºÅ
-	char        cStartStation[4];				// ÆğÊ¼Õ¾µã±àÂë
-	char        cTerminalStation[4];			// ÖÕµãÕ¾±àÂë
+	char		cAmount[2];						// å•ç¨‹ç¥¨å¼ æ•°
+	char		cSum[8];						// æ€»é‡‘é¢
+	char		cCenterCode[32];				// ç¥¨å·
+	char		cTicketLogicalNo[20];			// ç¥¨å¡é€»è¾‘å·
+	char        cStartStation[4];				// èµ·å§‹ç«™ç‚¹ç¼–ç 
+	char        cTerminalStation[4];			// ç»ˆç‚¹ç«™ç¼–ç 
 
 }GETETICKETRESPINFO, * PGETETICKETRESPINFO;
 
 
-// 4.19	µç×Ó³µÆ±½»Ò×ĞÅÏ¢½á¹¹
+// 4.19	ç”µå­è½¦ç¥¨äº¤æ˜“ä¿¡æ¯ç»“æ„
 typedef struct {
-	char		cTxnDate[8];					// ÔËÓªÈÕÆÚ
-	char		cTransCode[2];					// ½»Ò××´Ì¬
-	char		cTicketMainType[2];				// ³µÆ±Ö÷ÀàĞÍ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	char		cChipType[2];					// Æ±¿¨Ğ¾Æ¬ÀàĞÍ
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
-	char		cCenterMac[8];					// ÖĞĞÄĞ£ÑéÂë
-	char		cRealTicketNo[16];				// ÊµÌå¿¨ºÅ
-	char		cMark[2];						// ×´Ì¬Âë
-	char		cTicketCSN[16];					// Æ±¿¨CSN
-	char		cTicketCount[10];				// Æ±¼ÆÊıÆ÷
-	char		cPsamNo[16];					// PSAM¿¨ºÅ
-	char		cPsamSeq[10];					// PSAM¿¨Á÷Ë®ºÅ
-	char		cTxnTms[14];					// ½»Ò×ÈÕÆÚÊ±¼ä
-	char		cValidOutTms[14];				// ÓĞĞ§³öÕ¾Ê±¼ä
-	char		cPayType[2];					// Ö§¸¶·½Ê½
-	char		cBeforeTxnBalance[10];			// ½»Ò×Ç°Æ±Öµ
-	char		cTxnAmountNo[6];				// ½»Ò×´ÎÊı
-	char		cTxnAmount[6];					// ½»Ò×½ğ¶î
-	char		cDiscountAmt[6];				// ÓÅ»İ½ğ¶î
-	char		cTxnStation[4];					// µ±Ç°³µÕ¾
-	char		cLastStation[4];				// ÉÏ´ÎÊ¹ÓÃ³µÕ¾
-	char		cLastTxnTms[14];				// ÉÏ´ÎÊ¹ÓÃÊ±¼ä
-	char		cDevNodeId[9];					// ÖÕ¶ËÉè±¸±êÊ¶
-	char		cDevSeqNo[10];					// ÖÕ¶ËÉè±¸Á÷Ë®ºÅ
-	char		cTestMark[2];					// ²âÊÔ½»Ò×±êÖ¾
-	char		cQRSerialNo[8];					// ¶şÎ¬Âë³µÆ±ODĞòÁĞºÅ
-	char		cOverAmount[6];					// Õ¢»ú³¬Ê±¿Û¿î½ğ¶î
+	char		cTxnDate[8];					// è¿è¥æ—¥æœŸ
+	char		cTransCode[2];					// äº¤æ˜“çŠ¶æ€
+	char		cTicketMainType[2];				// è½¦ç¥¨ä¸»ç±»å‹
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	char		cChipType[2];					// ç¥¨å¡èŠ¯ç‰‡ç±»å‹
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
+	char		cCenterMac[8];					// ä¸­å¿ƒæ ¡éªŒç 
+	char		cRealTicketNo[16];				// å®ä½“å¡å·
+	char		cMark[2];						// çŠ¶æ€ç 
+	char		cTicketCSN[16];					// ç¥¨å¡CSN
+	char		cTicketCount[10];				// ç¥¨è®¡æ•°å™¨
+	char		cPsamNo[16];					// PSAMå¡å·
+	char		cPsamSeq[10];					// PSAMå¡æµæ°´å·
+	char		cTxnTms[14];					// äº¤æ˜“æ—¥æœŸæ—¶é—´
+	char		cValidOutTms[14];				// æœ‰æ•ˆå‡ºç«™æ—¶é—´
+	char		cPayType[2];					// æ”¯ä»˜æ–¹å¼
+	char		cBeforeTxnBalance[10];			// äº¤æ˜“å‰ç¥¨å€¼
+	char		cTxnAmountNo[6];				// äº¤æ˜“æ¬¡æ•°
+	char		cTxnAmount[6];					// äº¤æ˜“é‡‘é¢
+	char		cDiscountAmt[6];				// ä¼˜æƒ é‡‘é¢
+	char		cTxnStation[4];					// å½“å‰è½¦ç«™
+	char		cLastStation[4];				// ä¸Šæ¬¡ä½¿ç”¨è½¦ç«™
+	char		cLastTxnTms[14];				// ä¸Šæ¬¡ä½¿ç”¨æ—¶é—´
+	char		cDevNodeId[9];					// ç»ˆç«¯è®¾å¤‡æ ‡è¯†
+	char		cDevSeqNo[10];					// ç»ˆç«¯è®¾å¤‡æµæ°´å·
+	char		cTestMark[2];					// æµ‹è¯•äº¤æ˜“æ ‡å¿—
+	char		cQRSerialNo[8];					// äºŒç»´ç è½¦ç¥¨ODåºåˆ—å·
+	char		cOverAmount[6];					// é—¸æœºè¶…æ—¶æ‰£æ¬¾é‡‘é¢
 	char		cTac[8];					    // TAC
-	char		cNetTranNumber[64];				// »¥ÁªÍø¶©µ¥ºÅ
-	char		cReserve[32];					// ±£ÁôÓò
+	char		cNetTranNumber[64];				// äº’è”ç½‘è®¢å•å·
+	char		cReserve[32];					// ä¿ç•™åŸŸ
 
 }ETICKETDEALINFO, * PETICKETDEALINFO;
 
-// 4.20	µç×Ó³µÆ±Áª»úÑéÖ¤ĞÅÏ¢½á¹¹
+// 4.20	ç”µå­è½¦ç¥¨è”æœºéªŒè¯ä¿¡æ¯ç»“æ„
 typedef struct {
-    char		cTransCode[2];					// ½»Ò××´Ì¬
-    char		cTicketMainType[2];				// ³µÆ±Ö÷ÀàĞÍ
-    char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-    char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-    char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
-    char		cCenterMac[8];					// ÖĞĞÄĞ£ÑéÂë
-    char		cQrNetStatus;				    // µç×ÓÆ±µ±Ç°ÍøÂç×´Ì¬±êÊ¶  1.ÍøÂçÕı³£ 2.ÍøÂçÖĞ¶Ï
+    char		cTransCode[2];					// äº¤æ˜“çŠ¶æ€
+    char		cTicketMainType[2];				// è½¦ç¥¨ä¸»ç±»å‹
+    char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+    char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+    char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
+    char		cCenterMac[8];					// ä¸­å¿ƒæ ¡éªŒç 
+    char		cQrNetStatus;				    // ç”µå­ç¥¨å½“å‰ç½‘ç»œçŠ¶æ€æ ‡è¯†  1.ç½‘ç»œæ­£å¸¸ 2.ç½‘ç»œä¸­æ–­
 }ETICKETAUTHINFO, * PETICKETAUTHINFO;
 
-// 4.20	½µ¼¶Ä£Ê½ÏûÏ¢
+// 4.20	é™çº§æ¨¡å¼æ¶ˆæ¯
 typedef struct {
-	uint8_t		bDegradeType;					// ½µ¼¶Ä£Ê½µÄÀàĞÍ
-	uint8_t		bTime[7];						// ½µ¼¶Ä£Ê½¿ªÊ¼/½áÊøÊ±¼ä
-	uint16_t	wStationID;						// ½µ¼¶ÆôÓÃ/½áÊøµÄÕ¾µã
-	uint8_t		bFlag;							// 0x01-ÆôÓÃ/0x02-½áÊø½µ¼¶µÄ±êÖ¾
+	uint8_t		bDegradeType;					// é™çº§æ¨¡å¼çš„ç±»å‹
+	uint8_t		bTime[7];						// é™çº§æ¨¡å¼å¼€å§‹/ç»“æŸæ—¶é—´
+	uint16_t	wStationID;						// é™çº§å¯ç”¨/ç»“æŸçš„ç«™ç‚¹
+	uint8_t		bFlag;							// 0x01-å¯ç”¨/0x02-ç»“æŸé™çº§çš„æ ‡å¿—
 }DEGRADECMD, * PDEGRADECMD;
 
-// ¼Ä´æÆ÷Êı¾İ½á¹¹¶¨Òå
+// å¯„å­˜å™¨æ•°æ®ç»“æ„å®šä¹‰
 typedef struct {
 	uint16_t	wIndex;
 	uint32_t	dwRegister;
 }REGISTER, * PREGISTER;
 
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°55¡±
-	uint8_t		dtTime[7];						// Ê±¼ä
-	char		cStation[4];					// ÏßÂ·Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	char		cFreedom[16];					// Ëæ»úÊı
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ55â€
+	uint8_t		dtTime[7];						// æ—¶é—´
+	char		cStation[4];					// çº¿è·¯ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	char		cFreedom[16];					// éšæœºæ•°
 }SAM_ACTIVE, * P_SAM_ACTIVE;
 
-// ³äÖµ³õÊ¼»¯
+// å……å€¼åˆå§‹åŒ–
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°51¡±
-	uint8_t		dtMsgTime[7];					// ÏûÏ¢Éú³ÉÊ±¼ä
-	char		cStation [4];					// Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	long		lPosSeq;						// ÖÕ¶Ë½»Ò×ĞòÁĞºÅ
-	char		cNetPoint[16];					// Íøµã±àÂë
-	char		cIssueCodeMain[4];				// ·¢ĞĞÉÌÖ÷±àÂë
-	char 		cIssueCodeSub[4];				// ·¢ĞĞÉÌ×Ó±àÂë
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalId[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char 		cPhysicalId[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	char		cTestFlag;						// Æ±¿¨ÒıÓÃ±êÊ¶
-	long		lChargeCount;					// Áª»ú½»Ò×Á÷Ë®
-	long		lTradeCount;					// ÍÑ»ú½»Ò×Á÷Ë®
-	char		cBusinessType[2];				// ÒµÎñÀàĞÍ¡°14¡±
-	char		cWalletType;					// ÖµÀàĞÍ
-	long		lAmount;						// ³äÖµ½ğ¶î
-	long		lBalcance;						// Óà¶î
-	char		cMac[8];						// ³äÖµÈÏÖ¤Âë
-	char		cFreedom[8];					// Ëæ»úÊı
-	char		cLastPosID[16];					// ÉÏ´Î½»Ò×ÖÕ¶Ë±àÂë£¨Õ¾µã £« Éè±¸ÀàĞÍ £« Éè±¸±àÂë£©
-	uint8_t		dtTimeLast[7];					// ÉÏ´ÎÊ±¼ä
-	char		cOperatorId[6];					// ²Ù×÷Ô±±àÂë
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ51â€
+	uint8_t		dtMsgTime[7];					// æ¶ˆæ¯ç”Ÿæˆæ—¶é—´
+	char		cStation [4];					// ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	long		lPosSeq;						// ç»ˆç«¯äº¤æ˜“åºåˆ—å·
+	char		cNetPoint[16];					// ç½‘ç‚¹ç¼–ç 
+	char		cIssueCodeMain[4];				// å‘è¡Œå•†ä¸»ç¼–ç 
+	char 		cIssueCodeSub[4];				// å‘è¡Œå•†å­ç¼–ç 
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalId[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char 		cPhysicalId[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	char		cTestFlag;						// ç¥¨å¡å¼•ç”¨æ ‡è¯†
+	long		lChargeCount;					// è”æœºäº¤æ˜“æµæ°´
+	long		lTradeCount;					// è„±æœºäº¤æ˜“æµæ°´
+	char		cBusinessType[2];				// ä¸šåŠ¡ç±»å‹â€œ14â€
+	char		cWalletType;					// å€¼ç±»å‹
+	long		lAmount;						// å……å€¼é‡‘é¢
+	long		lBalcance;						// ä½™é¢
+	char		cMac[8];						// å……å€¼è®¤è¯ç 
+	char		cFreedom[8];					// éšæœºæ•°
+	char		cLastPosID[16];					// ä¸Šæ¬¡äº¤æ˜“ç»ˆç«¯ç¼–ç ï¼ˆç«™ç‚¹ ï¼‹ è®¾å¤‡ç±»å‹ ï¼‹ è®¾å¤‡ç¼–ç ï¼‰
+	uint8_t		dtTimeLast[7];					// ä¸Šæ¬¡æ—¶é—´
+	char		cOperatorId[6];					// æ“ä½œå‘˜ç¼–ç 
 }CHARGE_INIT, * P_CHARGE_INIT;
 
-// ³·Ïú³õÊ¼»¯
+// æ’¤é”€åˆå§‹åŒ–
 typedef struct{
-	char 		cMsgType[2];					// ÏûÏ¢ÀàĞÍ¡°53¡±
-	uint8_t		dtMsgTime[7];					// ÏûÏ¢Éú³ÉÊ±¼ä
-	char		cStation [4];					// Õ¾µã
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDevId[3];						// Éè±¸±àÂë
-	char		cSamId[16];						// SAM¿¨ºÅ
-	long		lPosSeq;						// ÖÕ¶Ë½»Ò×ĞòÁĞºÅ
-	char		cNetPoint[16];					// Íøµã±àÂë
-	char		cIssueCodeMain[4];				// ·¢ĞĞÉÌÖ÷±àÂë
-	char 		cIssueCodeSub[4];				// ·¢ĞĞÉÌ×Ó±àÂë
-	uint8_t		bTicketType[2];					// Æ±¿¨ÀàĞÍ
-	char		cLogicalId[20];					// Æ±¿¨Âß¼­¿¨ºÅ
-	char 		cPhysicalId[20];				// Æ±¿¨ÎïÀí¿¨ºÅ
-	char		cTestFlag;						// Æ±¿¨ÒıÓÃ±êÊ¶
-	long		lChargeCount;					// Áª»ú½»Ò×Á÷Ë®
-	long		lTradeCount;					// ÍÑ»ú½»Ò×Á÷Ë®
-	char		cBusinessType[2];				// ÒµÎñÀàĞÍ¡°18¡±
-	char		cWalletType;					// ÖµÀàĞÍ
-	long		lAmount;						// ³·Ïú½ğ¶î
-	long		lBalcance;						// Óà¶î
-	char		cLastPosID[16];					// ÉÏ´Î½»Ò×ÖÕ¶Ë±àÂë£¨Õ¾µã £« Éè±¸ÀàĞÍ £« Éè±¸±àÂë£©
-	uint8_t		dtTimeLast[7];					// ÉÏ´ÎÊ±¼ä
-	char		cOperatorId[6];					// ²Ù×÷Ô±±àÂë
+	char 		cMsgType[2];					// æ¶ˆæ¯ç±»å‹â€œ53â€
+	uint8_t		dtMsgTime[7];					// æ¶ˆæ¯ç”Ÿæˆæ—¶é—´
+	char		cStation [4];					// ç«™ç‚¹
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDevId[3];						// è®¾å¤‡ç¼–ç 
+	char		cSamId[16];						// SAMå¡å·
+	long		lPosSeq;						// ç»ˆç«¯äº¤æ˜“åºåˆ—å·
+	char		cNetPoint[16];					// ç½‘ç‚¹ç¼–ç 
+	char		cIssueCodeMain[4];				// å‘è¡Œå•†ä¸»ç¼–ç 
+	char 		cIssueCodeSub[4];				// å‘è¡Œå•†å­ç¼–ç 
+	uint8_t		bTicketType[2];					// ç¥¨å¡ç±»å‹
+	char		cLogicalId[20];					// ç¥¨å¡é€»è¾‘å¡å·
+	char 		cPhysicalId[20];				// ç¥¨å¡ç‰©ç†å¡å·
+	char		cTestFlag;						// ç¥¨å¡å¼•ç”¨æ ‡è¯†
+	long		lChargeCount;					// è”æœºäº¤æ˜“æµæ°´
+	long		lTradeCount;					// è„±æœºäº¤æ˜“æµæ°´
+	char		cBusinessType[2];				// ä¸šåŠ¡ç±»å‹â€œ18â€
+	char		cWalletType;					// å€¼ç±»å‹
+	long		lAmount;						// æ’¤é”€é‡‘é¢
+	long		lBalcance;						// ä½™é¢
+	char		cLastPosID[16];					// ä¸Šæ¬¡äº¤æ˜“ç»ˆç«¯ç¼–ç ï¼ˆç«™ç‚¹ ï¼‹ è®¾å¤‡ç±»å‹ ï¼‹ è®¾å¤‡ç¼–ç ï¼‰
+	uint8_t		dtTimeLast[7];					// ä¸Šæ¬¡æ—¶é—´
+	char		cOperatorId[6];					// æ“ä½œå‘˜ç¼–ç 
 }DESCIND_INIT, * P_DESCIND_INIT;
 
-// ¶ÁĞ´Æ÷°æ±¾ĞÅÏ¢
+// è¯»å†™å™¨ç‰ˆæœ¬ä¿¡æ¯
 typedef struct {
-	uint8_t		verApi[2];						// APIÊ¶±ğ°æ±¾
-	uint8_t		verApiFile[5];					// APIÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
-	uint8_t		verRfDev;						// RfÇı¶¯Ê¶±ğ°æ±¾
-	uint8_t		verRfFile[5];					// RfÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
-	uint8_t		verSamDev;						// SamÇı¶¯Ê¶±ğ°æ±¾
-	uint8_t		verSamFile[5];					// SamÇı¶¯ÎÄ¼ş°æ±¾£¬ÈÕÆÚ£«ĞòºÅ
+	uint8_t		verApi[2];						// APIè¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verApiFile[5];					// APIæ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
+	uint8_t		verRfDev;						// Rfé©±åŠ¨è¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verRfFile[5];					// Rfæ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
+	uint8_t		verSamDev;						// Samé©±åŠ¨è¯†åˆ«ç‰ˆæœ¬
+	uint8_t		verSamFile[5];					// Samé©±åŠ¨æ–‡ä»¶ç‰ˆæœ¬ï¼Œæ—¥æœŸï¼‹åºå·
 }READERVERSION, * PREADERVERSION;
 
 
-// ±¾µØÎÄ¼ş±£´æÉèÖÃ
+// æœ¬åœ°æ–‡ä»¶ä¿å­˜è®¾ç½®
 typedef struct
 {
 	uint16_t	trade_save_days;
@@ -562,30 +562,30 @@ typedef struct
 }LOCCONFIG, * PLOCCONFIG;
 
 
-// ½»Ò×È·ÈÏĞèÒª±£´æµÄĞÅÏ¢½á¹¹
+// äº¤æ˜“ç¡®è®¤éœ€è¦ä¿å­˜çš„ä¿¡æ¯ç»“æ„
 typedef struct
 {
-	int					operType;				// ½»Ò×ÀàĞÍ
-	long				balance;				// ½»Ò×ºóµÄÓà¶î
-	long				charge_counter;			// CPU¿¨Ê¹ÓÃ
-	long				consume_counter;		// CPU¿¨Ê¹ÓÃ
-	union										// ½»Ò×
+	int					operType;				// äº¤æ˜“ç±»å‹
+	long				balance;				// äº¤æ˜“åçš„ä½™é¢
+	long				charge_counter;			// CPUå¡ä½¿ç”¨
+	long				consume_counter;		// CPUå¡ä½¿ç”¨
+	union										// äº¤æ˜“
 	{
-		SJTSALE			sjtSale;				// µ¥³ÌÆ±·¢ÊÛ
-		OTHERSALE		svtSale;				// ´¢ÖµÆ±·¢ÊÛ
-		ENTRYGATE		entry;					// ½øÕ¢
-		PURSETRADE		purse;					// Ç®°ü½»Ò×
-		TICKETDEFER		deffer;					// ÑÓÆÚ
-		TICKETUPDATE	update;					// ¸üĞÂ
-		DIRECTREFUND	refund;					// ÍË¿î
+		SJTSALE			sjtSale;				// å•ç¨‹ç¥¨å‘å”®
+		OTHERSALE		svtSale;				// å‚¨å€¼ç¥¨å‘å”®
+		ENTRYGATE		entry;					// è¿›é—¸
+		PURSETRADE		purse;					// é’±åŒ…äº¤æ˜“
+		TICKETDEFER		deffer;					// å»¶æœŸ
+		TICKETUPDATE	update;					// æ›´æ–°
+		DIRECTREFUND	refund;					// é€€æ¬¾
 	}trade;
-	uint32_t			size_trade;				// ½»Ò×´óĞ¡
-	uint8_t				dataWritten[512];		// ÉÏ´ÎĞ´¿¨Êı¾İ
-	uint32_t			sizeWritten;			// Ğ´Êı¾İµÄ´óĞ¡
+	uint32_t			size_trade;				// äº¤æ˜“å¤§å°
+	uint8_t				dataWritten[512];		// ä¸Šæ¬¡å†™å¡æ•°æ®
+	uint32_t			sizeWritten;			// å†™æ•°æ®çš„å¤§å°
 
 }CONFIRM_POINT;
 
-// ½»Ò×È·ÈÏÒò×Ó£¬´Ó±£´æµÄÉÏ´Î½»Ò×½á¹¹ÖĞ»ñÈ¡
+// äº¤æ˜“ç¡®è®¤å› å­ï¼Œä»ä¿å­˜çš„ä¸Šæ¬¡äº¤æ˜“ç»“æ„ä¸­è·å–
 typedef struct
 {
 	char		logic_id[21];
@@ -596,57 +596,57 @@ typedef struct
 	uint8_t		tac_type;
 }CONFIRM_FACTOR;
 
-// µØÌúCPU¿¨Ïà¹Ø½á¹¹£¬½»Ò×È·ÈÏÊ¹ÓÃ
+// åœ°é“CPUå¡ç›¸å…³ç»“æ„ï¼Œäº¤æ˜“ç¡®è®¤ä½¿ç”¨
 typedef struct
 {
 	uint8_t flag_trade_assist;
-	uint8_t w_trade_assist[LENM_TRADE_ASSIST];			// ½»Ò×¸¨Öú£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_trade_assist[LENM_TRADE_ASSIST];			// äº¤æ˜“è¾…åŠ©ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_metro;
-	uint8_t w_metro[LENM_METRO];						// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_metro[LENM_METRO];						// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_ctrl_record;
-	uint8_t w_ctrl_record[LENM_CTRL_RECORD];			// Ó¦ÓÃ¸¨Öú£¬¼´Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_ctrl_record[LENM_CTRL_RECORD];			// åº”ç”¨è¾…åŠ©ï¼Œå³åº”ç”¨æ§åˆ¶è®°å½•ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 	uint8_t flag_app_ctrl;
-	uint8_t w_app_ctrl[LENM_APP_CTRL];					// Ó¦ÓÃ¿ØÖÆÎÄ¼ş
+	uint8_t w_app_ctrl[LENM_APP_CTRL];					// åº”ç”¨æ§åˆ¶æ–‡ä»¶
 
 }METRO_CPU_INF_W, * P_METRO_CPU_INF_W;
 
-// ¹«½»CPU¿¨Ïà¹Ø½á¹¹£¬½»Ò×È·ÈÏÊ¹ÓÃ
+// å…¬äº¤CPUå¡ç›¸å…³ç»“æ„ï¼Œäº¤æ˜“ç¡®è®¤ä½¿ç”¨
 typedef struct
 {
 	uint8_t flag_metro;
-	uint8_t w_metro[LENB_METRO];						// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
+	uint8_t w_metro[LENB_METRO];						// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
 
 }BUS_CPU_INF_W, * P_BUS_CPU_INF_W;
 
 
-// µç×ÓÆ±½»Ò×È·ÈÏĞèÒª±£´æµÄĞÅÏ¢½á¹¹
+// ç”µå­ç¥¨äº¤æ˜“ç¡®è®¤éœ€è¦ä¿å­˜çš„ä¿¡æ¯ç»“æ„
 typedef struct
 {
-	int			operType;						// ½»Ò×ÀàĞÍ
-	char		cTxnTms[14+1];					// ½»Ò×ÈÕÆÚÊ±¼ä
-	char		cTxnAmount[6+1];				// ½»Ò×½ğ¶î
-	char		cCenterCode[32+1];				// ÖĞĞÄÆ±ºÅ
-	char		cVervifyCode[8];				// ÖĞĞÄĞ£¼ìÂë
+	int			operType;						// äº¤æ˜“ç±»å‹
+	char		cTxnTms[14+1];					// äº¤æ˜“æ—¥æœŸæ—¶é—´
+	char		cTxnAmount[6+1];				// äº¤æ˜“é‡‘é¢
+	char		cCenterCode[32+1];				// ä¸­å¿ƒç¥¨å·
+	char		cVervifyCode[8];				// ä¸­å¿ƒæ ¡æ£€ç 
 	ETICKETDEALINFO eticketdealinfo;
 
 }CONFIRM_POINT_E;
 
-// ½»Ò×ĞÅÏ¢½á¹¹£¬¿ÉÒÔÊÇ½øÕ¾£¬³öÕ¾¡¢¸üĞÂµÈ
+// äº¤æ˜“ä¿¡æ¯ç»“æ„ï¼Œå¯ä»¥æ˜¯è¿›ç«™ï¼Œå‡ºç«™ã€æ›´æ–°ç­‰
 typedef struct
 {
-    uint16_t		station_id;				// Õ¾µã
-    ETPDVC			dvc_type;				// Éè±¸ÀàĞÍ
-    uint16_t		dvc_id;					// Éè±¸±àÂë
-    uint8_t			time[7];				// ½»Ò×Ê±¼ä
-    char			sam[17];				// SAM¿¨ºÅ
+    uint16_t		station_id;				// ç«™ç‚¹
+    ETPDVC			dvc_type;				// è®¾å¤‡ç±»å‹
+    uint16_t		dvc_id;					// è®¾å¤‡ç¼–ç 
+    uint8_t			time[7];				// äº¤æ˜“æ—¶é—´
+    char			sam[17];				// SAMå¡å·
 } TradeInfo, * PTradeInfo;
 
 
 typedef struct
 {
-    long	balance;			//Óà¶î
-    char	cardNo[20+1];		//Âß¼­¿¨ºÅ
-    char    centerCode[32+1];   //Æ±ºÅ
+    long	balance;			//ä½™é¢
+    char	cardNo[20+1];		//é€»è¾‘å¡å·
+    char    centerCode[32+1];   //ç¥¨å·
     long    counter;
     //char	mac1[8]
     //char	mac2[]
@@ -669,274 +669,274 @@ typedef struct
 
 typedef struct
 {
-    char	ticketVersion[2+1];			//°æ±¾ºÅ
-    char	subType[2+1];				//×ÓÀàĞÍ
-    char    cardNo[20+1];				//¿¨ºÅ
-    long    balance;					//Óà¶î
-    long    counter;					//¼ÆÊıÆ÷
-    char	centerCode[32+1];			//Æ±ºÅ
-    char	mac[8+1];                   //ÖĞĞÄĞ£ÑéÂë
-    char	saleTime[14+1];				//ÊÛÆ±Ê±¼ä
-    char	validDate[8+1];				//ÓĞĞ§ÆÚ
-    char	startStation[4+1];			//ÆğÊ¼Õ¾±àÂë,»ò½øÕ¾Õ¾µã
-    char    entryTime[14+1];            //½øÕ¾Ê±¼ä
-    char	terminalStation[4+1];		//ÖÕµãÕ¾±àÂë
-    long    price;						//µ¥¼Û
-    char    amount[2+1];				//ÕÅÊı
-    long	sum;						//×Ü¼Û
-    char	vervifyCode[8+1];			//ÑéÖ¤Âë
-    char    applyTime[14+1];            //µ±Ç°¶şÎ¬ÂëÉú³ÉÊ±¼ä
-    char	entryDeviceType[2+1];       //Êµ¼Ê½øÕ¾Éè±¸ÀàĞÍ
-    char	entryDeviceCode[2+1];       //Êµ¼Ê½øÕ¾Éè±¸ĞòºÅ
-    char    validOutTime[14+1];         //ÓĞĞ§³öÕ¾Ê±¼ä
-    char    NetTranNumber[64+1];        //»¥ÁªÍø¶©µ¥ºÅ
-    long	TxnAmount;                  //½»Ò×½ğ¶î
-    char    exitTime[14+1];				//³öÕ¾Ê±¼ä
-    char    exitStation[4+1];			//³öÕ¾±àÂë
-    char	exitDeviceType[2+1];        //Êµ¼Ê³öÕ¾Éè±¸ÀàĞÍ
-    char	exitDeviceCode[2+1];        //Êµ¼Ê³öÕ¾Éè±¸ĞòºÅ
-    char	cPenaltyType[2];			//·£¿îÀàĞÍ
-    long	lPenalty1;					//·£¿î½ğ¶î³¬Ê±
-    long	lPenalty2;					//¸üĞÂ·£½ğ³¬³Ì
-	char    lastTradeTime[14];			//ÉÏ´Î½»Ò×Ê±¼ä
-	char	lasttredeType[2];			//ÉÏ´Î½»Ò×ÀàĞÍ
-	char 	centerCodeProductTime[14+1];//µ±Ç°Æ±ºÅÉú³ÉÊ±¼ä
-	char 	retainField[10+1];			//½µ¼¶¶şÎ¬Âë±£ÁôÓò
+    char	ticketVersion[2+1];			//ç‰ˆæœ¬å·
+    char	subType[2+1];				//å­ç±»å‹
+    char    cardNo[20+1];				//å¡å·
+    long    balance;					//ä½™é¢
+    long    counter;					//è®¡æ•°å™¨
+    char	centerCode[32+1];			//ç¥¨å·
+    char	mac[8+1];                   //ä¸­å¿ƒæ ¡éªŒç 
+    char	saleTime[14+1];				//å”®ç¥¨æ—¶é—´
+    char	validDate[8+1];				//æœ‰æ•ˆæœŸ
+    char	startStation[4+1];			//èµ·å§‹ç«™ç¼–ç ,æˆ–è¿›ç«™ç«™ç‚¹
+    char    entryTime[14+1];            //è¿›ç«™æ—¶é—´
+    char	terminalStation[4+1];		//ç»ˆç‚¹ç«™ç¼–ç 
+    long    price;						//å•ä»·
+    char    amount[2+1];				//å¼ æ•°
+    long	sum;						//æ€»ä»·
+    char	vervifyCode[8+1];			//éªŒè¯ç 
+    char    applyTime[14+1];            //å½“å‰äºŒç»´ç ç”Ÿæˆæ—¶é—´
+    char	entryDeviceType[2+1];       //å®é™…è¿›ç«™è®¾å¤‡ç±»å‹
+    char	entryDeviceCode[2+1];       //å®é™…è¿›ç«™è®¾å¤‡åºå·
+    char    validOutTime[14+1];         //æœ‰æ•ˆå‡ºç«™æ—¶é—´
+    char    NetTranNumber[64+1];        //äº’è”ç½‘è®¢å•å·
+    long	TxnAmount;                  //äº¤æ˜“é‡‘é¢
+    char    exitTime[14+1];				//å‡ºç«™æ—¶é—´
+    char    exitStation[4+1];			//å‡ºç«™ç¼–ç 
+    char	exitDeviceType[2+1];        //å®é™…å‡ºç«™è®¾å¤‡ç±»å‹
+    char	exitDeviceCode[2+1];        //å®é™…å‡ºç«™è®¾å¤‡åºå·
+    char	cPenaltyType[2];			//ç½šæ¬¾ç±»å‹
+    long	lPenalty1;					//ç½šæ¬¾é‡‘é¢è¶…æ—¶
+    long	lPenalty2;					//æ›´æ–°ç½šé‡‘è¶…ç¨‹
+	char    lastTradeTime[14];			//ä¸Šæ¬¡äº¤æ˜“æ—¶é—´
+	char	lasttredeType[2];			//ä¸Šæ¬¡äº¤æ˜“ç±»å‹
+	char 	centerCodeProductTime[14+1];//å½“å‰ç¥¨å·ç”Ÿæˆæ—¶é—´
+	char 	retainField[10+1];			//é™çº§äºŒç»´ç ä¿ç•™åŸŸ
 }QRTicketData,* PQRTicketData;
 
-// ½»Í¨²¿½»Ò×ĞÅÏ¢½á¹¹£¬¿ÉÒÔÊÇ½øÕ¾£¬³öÕ¾¡¢¸üĞÂµÈ
+// äº¤é€šéƒ¨äº¤æ˜“ä¿¡æ¯ç»“æ„ï¼Œå¯ä»¥æ˜¯è¿›ç«™ï¼Œå‡ºç«™ã€æ›´æ–°ç­‰
 typedef struct
 {
-    char            city_code[4];           // ³ÇÊĞ´úÂë
-    uint8_t         institutionCode[8];		// »ú¹¹±êÊ¶
-    uint16_t		station_id;				// Õ¾µã
-    uint8_t			time[7];				// ½»Ò×Ê±¼ä
-    char			sam[17];				// SAM¿¨ºÅ-ÖÕ¶Ë±àÂë
-    uint8_t         line_id;                // ÏßÂ·ºÅ
-    long            deal_fee;               // ½»Ò×½ğ¶î
-    long            balance;                // ½øÕ¾Ç®°üÓà¶î
+    char            city_code[4];           // åŸå¸‚ä»£ç 
+    uint8_t         institutionCode[8];		// æœºæ„æ ‡è¯†
+    uint16_t		station_id;				// ç«™ç‚¹
+    uint8_t			time[7];				// äº¤æ˜“æ—¶é—´
+    char			sam[17];				// SAMå¡å·-ç»ˆç«¯ç¼–ç 
+    uint8_t         line_id;                // çº¿è·¯å·
+    long            deal_fee;               // äº¤æ˜“é‡‘é¢
+    long            balance;                // è¿›ç«™é’±åŒ…ä½™é¢
 } JTBTradeInfo, * PJTBTradeInfo;
 
-// ¿¨Êı¾İ½á¹¹
+// å¡æ•°æ®ç»“æ„
 typedef struct
 {
-    ETPMDM			physical_type;			// ÎïÀíÀàĞÍ
-    char			issue_code[4];			// ·¢ĞĞ·½Ö÷´úÂë
-    char			city_code[4];			// ³ÇÊĞ´úÂë
-    char			industry_code[4];		// ĞĞÒµ´úÂë
-    char			physical_id[21];		// ÎïÀí¿¨ºÅ
-    char			logical_id[21];			// Âß¼­¿¨ºÅ
-    uint8_t			key_flag;				// Ó¦ÓÃ±êÊ¶£¨ÕıÊ½Æ±£¬²âÊÔÆ±£©
+    ETPMDM			physical_type;			// ç‰©ç†ç±»å‹
+    char			issue_code[4];			// å‘è¡Œæ–¹ä¸»ä»£ç 
+    char			city_code[4];			// åŸå¸‚ä»£ç 
+    char			industry_code[4];		// è¡Œä¸šä»£ç 
+    char			physical_id[21];		// ç‰©ç†å¡å·
+    char			logical_id[21];			// é€»è¾‘å¡å·
+    uint8_t			key_flag;				// åº”ç”¨æ ‡è¯†ï¼ˆæ­£å¼ç¥¨ï¼Œæµ‹è¯•ç¥¨ï¼‰
 
-    uint8_t			date_issue[4];			// ·¢ĞĞÊ±¼ä
-    uint8_t			phy_peroidE[4];			// ÎïÀíÓĞĞ§ÆÚ
-    uint8_t			logical_peroidS[7];		// Âß¼­ÓĞĞ§ÆÚ
+    uint8_t			date_issue[4];			// å‘è¡Œæ—¶é—´
+    uint8_t			phy_peroidE[4];			// ç‰©ç†æœ‰æ•ˆæœŸ
+    uint8_t			logical_peroidS[7];		// é€»è¾‘æœ‰æ•ˆæœŸ
     uint8_t			logical_peroidE[7];
-    int				effect_mins;			// ÓĞĞ§·ÖÖÓÊı£¨·¢ÊÛÊ±Ğ´Èë·¢ÊÛºóµÄÓĞĞ§ÆÚÊ±¼ä£¬ÑÓÆÚÊ±¼ÓÉÏ¿ÉÑÓÆÚÊ±¼ä£©
+    int				effect_mins;			// æœ‰æ•ˆåˆ†é’Ÿæ•°ï¼ˆå‘å”®æ—¶å†™å…¥å‘å”®åçš„æœ‰æ•ˆæœŸæ—¶é—´ï¼Œå»¶æœŸæ—¶åŠ ä¸Šå¯å»¶æœŸæ—¶é—´ï¼‰
 
-    char			certificate_name[20];	// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-    char			certificate_code[32];	// Ö¤¼ş´úÂë
-    uint8_t			certificate_type;		// Ö¤¼şÀàĞÍ
+    char			certificate_name[20];	// è¯ä»¶æŒæœ‰äººå§“å
+    char			certificate_code[32];	// è¯ä»¶ä»£ç 
+    uint8_t			certificate_type;		// è¯ä»¶ç±»å‹
 
-    uint8_t			cert_peroidE[4];		// Ö¤¼şÓĞĞ§ÆÚ
-    uint8_t			charge_peroidS[4];		// ³äÖµÓĞĞ§ÆÚ
+    uint8_t			cert_peroidE[4];		// è¯ä»¶æœ‰æ•ˆæœŸ
+    uint8_t			charge_peroidS[4];		// å……å€¼æœ‰æ•ˆæœŸ
     uint8_t			charge_peroidE[4];
-    uint8_t			active_peroidS[7];		// ¼¤»îÓĞĞ§ÆÚ
+    uint8_t			active_peroidS[7];		// æ¿€æ´»æœ‰æ•ˆæœŸ
     uint8_t			active_peroidE[7];
 
-    uint8_t			logical_type[2];		// Âß¼­Æ±¿¨ÀàĞÍ
-    uint8_t			fare_type[2];			// Æ±¼ÛÀàĞÍ
-    long			wallet_value;			// Ç®°üÓàÖµ
-    long			deposit;				// Ñº½ğ
-    long			wallet_value_max;		// Ç®°üÉÏÏŞ
-    uint8_t			list_falg;				// Ãûµ¥±êÊ¶
-    uint16_t		charge_counter;			// ³äÖµÀÛ¼Æ
-    long			daliy_trade_counter;	// ÈÕ½»Ò×´ÎÊı
-    long			total_trade_counter;	// ×Ü½»Ò×´ÎÊı
-    long			daliy_update_counter;	// ÈÕ¸üĞÂ´ÎÊı
-    long			total_update_counter;	// ×Ü¸üĞÂ´ÎÊı
-    uint8_t			app_lock_flag;			// Ó¦ÓÃËø¶¨±ê¼Ç£¨·¢ÊÛ»ò¶àÈÕÆ±¼¤»îÊ±Ê¹ÓÃ£©
-    uint8_t			globle_status;			// È«¾Ö×´Ì¬(³õÊ¼»¯£¬¿ÉÊ¹ÓÃ£¬ÍË¿î£¬)
-    uint8_t			init_status;			// Ô­Ê¼×´Ì¬
-    SimpleStatus	simple_status;			// ×ª»»Îª±ê×¼µÄÆ±¿¨×´Ì¬
+    uint8_t			logical_type[2];		// é€»è¾‘ç¥¨å¡ç±»å‹
+    uint8_t			fare_type[2];			// ç¥¨ä»·ç±»å‹
+    long			wallet_value;			// é’±åŒ…ä½™å€¼
+    long			deposit;				// æŠ¼é‡‘
+    long			wallet_value_max;		// é’±åŒ…ä¸Šé™
+    uint8_t			list_falg;				// åå•æ ‡è¯†
+    uint16_t		charge_counter;			// å……å€¼ç´¯è®¡
+    long			daliy_trade_counter;	// æ—¥äº¤æ˜“æ¬¡æ•°
+    long			total_trade_counter;	// æ€»äº¤æ˜“æ¬¡æ•°
+    long			daliy_update_counter;	// æ—¥æ›´æ–°æ¬¡æ•°
+    long			total_update_counter;	// æ€»æ›´æ–°æ¬¡æ•°
+    uint8_t			app_lock_flag;			// åº”ç”¨é”å®šæ ‡è®°ï¼ˆå‘å”®æˆ–å¤šæ—¥ç¥¨æ¿€æ´»æ—¶ä½¿ç”¨ï¼‰
+    uint8_t			globle_status;			// å…¨å±€çŠ¶æ€(åˆå§‹åŒ–ï¼Œå¯ä½¿ç”¨ï¼Œé€€æ¬¾ï¼Œ)
+    uint8_t			init_status;			// åŸå§‹çŠ¶æ€
+    SimpleStatus	simple_status;			// è½¬æ¢ä¸ºæ ‡å‡†çš„ç¥¨å¡çŠ¶æ€
 
-    uint8_t			limit_mode;				// ÏŞÖÆ½ø³öÄ£Ê½
-    uint8_t			limit_entry_station[2];	// ÏŞÖÆ½øÕ¾Õ¾µã
-    uint8_t			limit_exit_station[2];	// ÏŞÖÆ³öÕ¾Õ¾µã
+    uint8_t			limit_mode;				// é™åˆ¶è¿›å‡ºæ¨¡å¼
+    uint8_t			limit_entry_station[2];	// é™åˆ¶è¿›ç«™ç«™ç‚¹
+    uint8_t			limit_exit_station[2];	// é™åˆ¶å‡ºç«™ç«™ç‚¹
 
-    PTradeInfo		p_entry_info;			// ½øÕ¾ĞÅÏ¢
-    PTradeInfo		p_update_info;			// ¸üĞÂĞÅÏ¢
-    PTradeInfo		p_exit_info;			// ³öÕ¾ĞÅÏ¢
-    TradeInfo		read_last_info;			// ÉÏ´Î½»Ò×ĞÅÏ¢£¬¸³ÖµÓÃread_last_info£¬Ğ´¿¨ÓÃwrite_last_info
+    PTradeInfo		p_entry_info;			// è¿›ç«™ä¿¡æ¯
+    PTradeInfo		p_update_info;			// æ›´æ–°ä¿¡æ¯
+    PTradeInfo		p_exit_info;			// å‡ºç«™ä¿¡æ¯
+    TradeInfo		read_last_info;			// ä¸Šæ¬¡äº¤æ˜“ä¿¡æ¯ï¼Œèµ‹å€¼ç”¨read_last_infoï¼Œå†™å¡ç”¨write_last_info
     TradeInfo		write_last_info;
 
-    PJTBTradeInfo		p_jtb_entry_info;	// ½»Í¨²¿Æ±¿¨½øÕ¾ĞÅÏ¢
-    PJTBTradeInfo		p_jtb_update_info;	// ½»Í¨²¿Æ±¿¨¸üĞÂĞÅÏ¢
-    PJTBTradeInfo		p_jtb_exit_info;	// ½»Í¨²¿Æ±¿¨³öÕ¾ĞÅÏ¢
-    JTBTradeInfo		jtb_read_last_info;	// ÉÏ´Î½»Ò×ĞÅÏ¢£¬¸³ÖµÓÃread_last_info£¬Ğ´¿¨ÓÃwrite_last_info
+    PJTBTradeInfo		p_jtb_entry_info;	// äº¤é€šéƒ¨ç¥¨å¡è¿›ç«™ä¿¡æ¯
+    PJTBTradeInfo		p_jtb_update_info;	// äº¤é€šéƒ¨ç¥¨å¡æ›´æ–°ä¿¡æ¯
+    PJTBTradeInfo		p_jtb_exit_info;	// äº¤é€šéƒ¨ç¥¨å¡å‡ºç«™ä¿¡æ¯
+    JTBTradeInfo		jtb_read_last_info;	// ä¸Šæ¬¡äº¤æ˜“ä¿¡æ¯ï¼Œèµ‹å€¼ç”¨read_last_infoï¼Œå†™å¡ç”¨write_last_info
     JTBTradeInfo		jtb_write_last_info;
 
-    char			ticket_app_mode;		// ¿¨Ó¦ÓÃÄ£Ê½
+    char			ticket_app_mode;		// å¡åº”ç”¨æ¨¡å¼
 
-    //17¹ÜÀíĞÅÏ¢ÎÄ¼ş
-    char			international_code[8+1];	// ¹ú¼Ê´úÂë
-    char			province_code[4+1];		    // Ê¡¼¶´úÂë
-    uint8_t			city_code_17[2];		    // ³ÇÊĞ´úÂë
-    uint8_t			interCardFlag[2];		    // »¥Í¨¿¨ÖÖ
-    uint8_t			jtbCardType;		        // ¿¨ÖÖÀàĞÍ
+    //17ç®¡ç†ä¿¡æ¯æ–‡ä»¶
+    char			international_code[8+1];	// å›½é™…ä»£ç 
+    char			province_code[4+1];		    // çœçº§ä»£ç 
+    uint8_t			city_code_17[2];		    // åŸå¸‚ä»£ç 
+    uint8_t			interCardFlag[2];		    // äº’é€šå¡ç§
+    uint8_t			jtbCardType;		        // å¡ç§ç±»å‹
 
-    // ¶àÈÕÆ±Ïà¹ØĞÅÏ¢
-    //short			limit_days;				// ³Ë´ÎÆ±Ê¹ÓÃÌìÊı
+    // å¤šæ—¥ç¥¨ç›¸å…³ä¿¡æ¯
+    //short			limit_days;				// ä¹˜æ¬¡ç¥¨ä½¿ç”¨å¤©æ•°
 
     uint8_t qr_flag;
 
-    //¶şÎ¬Âë½á¹¹¶ÁÈ¡
-    char			qr_issueFlag[32+1];		    //·¢Âë·½±êÊ¶
-    char			qr_version[2+1];			//°æ±¾ºÅ  ´Ë°æ±¾ºÅÎª½á¹¹°æ±¾ºÅ£¬Ò²Îª·¢ĞĞ°æ±¾ºÅ
-    char			qr_encMode[2+1];			//¼ÓÃÜ·½Ê½
+    //äºŒç»´ç ç»“æ„è¯»å–
+    char			qr_issueFlag[32+1];		    //å‘ç æ–¹æ ‡è¯†
+    char			qr_version[2+1];			//ç‰ˆæœ¬å·  æ­¤ç‰ˆæœ¬å·ä¸ºç»“æ„ç‰ˆæœ¬å·ï¼Œä¹Ÿä¸ºå‘è¡Œç‰ˆæœ¬å·
+    char			qr_encMode[2+1];			//åŠ å¯†æ–¹å¼
     uint8_t			qr_passcode[32+1];		    //PASSCODE
-    char			qr_timestamp[14+1];		    //Ê±¼ä´Á
-    char			qr_bleMac[12+1];			//ÊÖ»úÀ¶ÑÀÊ¶±ğÂë
-    char			qr_rfu[20+1];			    //Ô¤Áô
-    char            qr_ticket_status;           //Æ±¿¨×´Ì¬
-    char			qr_ticker_isTest;		    //1Éú²ú 2²âÊÔ
-	char			qr_Intnet_ststus;			//ÍøÂç×´Ì¬±êÊ¶1.ÍøÂçÕı³£ 2.ÍøÂçÖĞ¶Ï
-    //À¶ÑÀÊı¾İ½á¹¹¶ÁÈ¡
+    char			qr_timestamp[14+1];		    //æ—¶é—´æˆ³
+    char			qr_bleMac[12+1];			//æ‰‹æœºè“ç‰™è¯†åˆ«ç 
+    char			qr_rfu[20+1];			    //é¢„ç•™
+    char            qr_ticket_status;           //ç¥¨å¡çŠ¶æ€
+    char			qr_ticker_isTest;		    //1ç”Ÿäº§ 2æµ‹è¯•
+	char			qr_Intnet_ststus;			//ç½‘ç»œçŠ¶æ€æ ‡è¯†1.ç½‘ç»œæ­£å¸¸ 2.ç½‘ç»œä¸­æ–­
+    //è“ç‰™æ•°æ®ç»“æ„è¯»å–
     BleTicketData	ble_ticketdata;
 
     QRTicketData	qr_ticketdata;
 
-    uint8_t			ble_macAddress[6];		//À¶ÑÀµØÖ·
+    uint8_t			ble_macAddress[6];		//è“ç‰™åœ°å€
 
     uint8_t      	qr_info[256];
 
-    char      		third_qr_info[64];    //µÚÈı·½Ö§¸¶¶şÎ¬Âë
+    char      		third_qr_info[64];    //ç¬¬ä¸‰æ–¹æ”¯ä»˜äºŒç»´ç 
 
-    uint8_t      	timeAndcenterCode[46+1];    //Ê±¼ä´ÁºÍÖĞĞÄÆ±ºÅ ÓÃÀ´·½Ê½ÖØ¸´½øÕ¢
+    uint8_t      	timeAndcenterCode[46+1];    //æ—¶é—´æˆ³å’Œä¸­å¿ƒç¥¨å· ç”¨æ¥æ–¹å¼é‡å¤è¿›é—¸
 
 } TICKET_DATA, * P_TICKET_DATA;
-//µç×ÓÆ±Òì³£´¦Àí½»Ò×
+//ç”µå­ç¥¨å¼‚å¸¸å¤„ç†äº¤æ˜“
 typedef struct{
-    char    trad_type[2];       //½»Ò×ÀàĞÍ
-    char    center_code[32];    //ÖĞĞÄÆ±ºÅ
-    long    amount_timeout;     //³¬Ê±·£½ğ
-    long    amount_over_take;   //³¬³Ë²¹Æ±½ğ¶î
-    char    station_code[4];    //´ı²¹³µÕ¾´úÂë
-	char	net_result[1];		//BOMÁª»ú¸üĞÂ½á¹û£¬0Îª¸üĞÂ³É¹¦£¬¿ÉÏÈ×é½»Ò×ÉÏÈ¥£¬·Ç0ÎªµÈ´ıÀ¶ÑÀ½á¹û¸üĞÂ
+    char    trad_type[2];       //äº¤æ˜“ç±»å‹
+    char    center_code[32];    //ä¸­å¿ƒç¥¨å·
+    long    amount_timeout;     //è¶…æ—¶ç½šé‡‘
+    long    amount_over_take;   //è¶…ä¹˜è¡¥ç¥¨é‡‘é¢
+    char    station_code[4];    //å¾…è¡¥è½¦ç«™ä»£ç 
+	char	net_result[1];		//BOMè”æœºæ›´æ–°ç»“æœï¼Œ0ä¸ºæ›´æ–°æˆåŠŸï¼Œå¯å…ˆç»„äº¤æ˜“ä¸Šå»ï¼Œé0ä¸ºç­‰å¾…è“ç‰™ç»“æœæ›´æ–°
 } ETICKET_ABNORML_HANDLE, * PETICKET_ABNORML_HANDLE;
 
 
-// 4.19	µç×Ó³µÆ±Ö§¸¶½»Ò×ĞÅÏ¢½á¹¹
+// 4.19	ç”µå­è½¦ç¥¨æ”¯ä»˜äº¤æ˜“ä¿¡æ¯ç»“æ„
 typedef struct {
-	char		cTxnDate[8];					// ÔËÓªÈÕÆÚ
-	char		cTransCode[2];					// ½»Ò×ÀàĞÍ
-	char		cTicketMainType[2];				// ³µÆ±Ö÷ÀàĞÍ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	char		cChipType[2];					// Æ±¿¨Ğ¾Æ¬ÀàĞÍ
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
-	char		cCenterMac[8];					// ÖĞĞÄĞ£ÑéÂë
-	char		cRealTicketNo[16];				// ÊµÌå¿¨ºÅ
-	char		cMark[2];						// È¡Æ±×´Ì¬Âë
-	char		cTicketCSN[16];					// Æ±¿¨CSN
-	char		cTicketCount[10];				// Æ±¼ÆÊıÆ÷
-	char		cPsamNo[16];					// PSAM¿¨ºÅ
-	char		cPsamSeq[10];					// PSAM¿¨Á÷Ë®ºÅ
-	char		cTxnTms[14];					// ½»Ò×ÈÕÆÚÊ±¼ä
-	char		cValidOutTms[14];				// ÓĞĞ§³öÕ¾Ê±¼ä
-	char		cPayType[2];					// Ö§¸¶·½Ê½
-	char		cBeforeTxnBalance[10];			// ½»Ò×Ç°Æ±Öµ
-	char		cTxnAmountNo[6];				// ½»Ò×´ÎÊı
-	char		cTxnAmount[6];					// ½»Ò×½ğ¶î
-	char		cDiscountAmt[6];				// ÓÅ»İ½ğ¶î
-	char		cTxnStation[4];					// µ±Ç°³µÕ¾
-	char		cLastStation[4];				// ÉÏ´ÎÊ¹ÓÃ³µÕ¾
-	char		cLastTxnTms[14];				// ÉÏ´ÎÊ¹ÓÃÊ±¼ä
-	char		cDevNodeId[9];					// ÖÕ¶ËÉè±¸±êÊ¶
-	char		cDevSeqNo[10];					// ÖÕ¶ËÉè±¸Á÷Ë®ºÅ
-	char		cTestMark[2];					// ²âÊÔ½»Ò×±êÖ¾
-	char		cQRSerialNo[8];					// ¶şÎ¬Âë³µÆ±ODĞòÁĞºÅ
-	char		cOverAmount[6];					// Õ¢»ú³¬Ê±¿Û¿î½ğ¶î
+	char		cTxnDate[8];					// è¿è¥æ—¥æœŸ
+	char		cTransCode[2];					// äº¤æ˜“ç±»å‹
+	char		cTicketMainType[2];				// è½¦ç¥¨ä¸»ç±»å‹
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	char		cChipType[2];					// ç¥¨å¡èŠ¯ç‰‡ç±»å‹
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
+	char		cCenterMac[8];					// ä¸­å¿ƒæ ¡éªŒç 
+	char		cRealTicketNo[16];				// å®ä½“å¡å·
+	char		cMark[2];						// å–ç¥¨çŠ¶æ€ç 
+	char		cTicketCSN[16];					// ç¥¨å¡CSN
+	char		cTicketCount[10];				// ç¥¨è®¡æ•°å™¨
+	char		cPsamNo[16];					// PSAMå¡å·
+	char		cPsamSeq[10];					// PSAMå¡æµæ°´å·
+	char		cTxnTms[14];					// äº¤æ˜“æ—¥æœŸæ—¶é—´
+	char		cValidOutTms[14];				// æœ‰æ•ˆå‡ºç«™æ—¶é—´
+	char		cPayType[2];					// æ”¯ä»˜æ–¹å¼
+	char		cBeforeTxnBalance[10];			// äº¤æ˜“å‰ç¥¨å€¼
+	char		cTxnAmountNo[6];				// äº¤æ˜“æ¬¡æ•°
+	char		cTxnAmount[6];					// äº¤æ˜“é‡‘é¢
+	char		cDiscountAmt[6];				// ä¼˜æƒ é‡‘é¢
+	char		cTxnStation[4];					// å½“å‰è½¦ç«™
+	char		cLastStation[4];				// ä¸Šæ¬¡ä½¿ç”¨è½¦ç«™
+	char		cLastTxnTms[14];				// ä¸Šæ¬¡ä½¿ç”¨æ—¶é—´
+	char		cDevNodeId[9];					// ç»ˆç«¯è®¾å¤‡æ ‡è¯†
+	char		cDevSeqNo[10];					// ç»ˆç«¯è®¾å¤‡æµæ°´å·
+	char		cTestMark[2];					// æµ‹è¯•äº¤æ˜“æ ‡å¿—
+	char		cQRSerialNo[8];					// äºŒç»´ç è½¦ç¥¨ODåºåˆ—å·
+	char		cOverAmount[6];					// é—¸æœºè¶…æ—¶æ‰£æ¬¾é‡‘é¢
 	char		cTac[8];					    // TAC
-	char		cNetTranNumber[64];				// »¥ÁªÍø¶©µ¥ºÅ
-	char		cReserve[32];					// ±£ÁôÓò32
+	char		cNetTranNumber[64];				// äº’è”ç½‘è®¢å•å·
+	char		cReserve[32];					// ä¿ç•™åŸŸ32
 
 }ETICKETPAYDEALINFO, * PETICKETPAYDEALINFO;
 
-// 4.22	µç×Óµ¥³ÌÆ±¿¨·µ»Ø½á¹¹
+// 4.22	ç”µå­å•ç¨‹ç¥¨å¡è¿”å›ç»“æ„
 typedef struct {
-	char		cIssueCode[4];					// ·¢Âë·½±êÊ¶
-	char		cVersion[2];					// °æ±¾ºÅ
-	char		qr_Intnet_ststus;				// ÍøÂç×´Ì¬±êÊ¶1.ÍøÂçÕı³£ 2.ÍøÂçÖĞ¶Ï
-	char		cCardStatus;					// µç×ÓÆ±¿¨×´Ì¬
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	long		lBalance;						// ÓàÖµ
-	long		lTicketCount;					// ¼ÆÊıÆ÷
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
+	char		cIssueCode[4];					// å‘ç æ–¹æ ‡è¯†
+	char		cVersion[2];					// ç‰ˆæœ¬å·
+	char		qr_Intnet_ststus;				// ç½‘ç»œçŠ¶æ€æ ‡è¯†1.ç½‘ç»œæ­£å¸¸ 2.ç½‘ç»œä¸­æ–­
+	char		cCardStatus;					// ç”µå­ç¥¨å¡çŠ¶æ€
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	long		lBalance;						// ä½™å€¼
+	long		lTicketCount;					// è®¡æ•°å™¨
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
 
-	char 		cSaleDate[14];					// ÊÛÆ±Ê±¼ä
-	char		cValidDate[8];					// ÓĞĞ§ÆÚ
+	char 		cSaleDate[14];					// å”®ç¥¨æ—¶é—´
+	char		cValidDate[8];					// æœ‰æ•ˆæœŸ
 
-	char		cStartStationId[4];				// ÆğÊ¼Õ¾±àÂë
-	char		cEndStationId[4];				// ÖÕµãÕ¾±àÂë
-	long		cPrice;							// µ¥¼Û
-	char		cTicketNum[2];					// ÕÅÊı
-	char		cEntryDate[14];					// ½øÕ¾Ê±¼ä
-	char        cEntryStationId[4];				// ½øÕ¾Õ¾µã
-	char		cExitDate[14];					// ³öÕ¾Ê±¼ä
-	char        cExitStationId[4];				// ³öÕ¾Õ¾µã
+	char		cStartStationId[4];				// èµ·å§‹ç«™ç¼–ç 
+	char		cEndStationId[4];				// ç»ˆç‚¹ç«™ç¼–ç 
+	long		cPrice;							// å•ä»·
+	char		cTicketNum[2];					// å¼ æ•°
+	char		cEntryDate[14];					// è¿›ç«™æ—¶é—´
+	char        cEntryStationId[4];				// è¿›ç«™ç«™ç‚¹
+	char		cExitDate[14];					// å‡ºç«™æ—¶é—´
+	char        cExitStationId[4];				// å‡ºç«™ç«™ç‚¹
 
-	char        cValidExitDate[14];				// ÓĞĞ§³öÕ¾Ê±¼ä
-	char		cMacCode[8];				    // ÖĞĞÄÑéÖ¤Âë
-    char		cPsamNo[16];					// PSAM¿¨ºÅ
-    char		cPsamSeq[10];					// PSAM¿¨Á÷Ë®ºÅ
-	char        cVervifyCode[8];                //ÑéÖ¤Âë
+	char        cValidExitDate[14];				// æœ‰æ•ˆå‡ºç«™æ—¶é—´
+	char		cMacCode[8];				    // ä¸­å¿ƒéªŒè¯ç 
+    char		cPsamNo[16];					// PSAMå¡å·
+    char		cPsamSeq[10];					// PSAMå¡æµæ°´å·
+	char        cVervifyCode[8];                //éªŒè¯ç 
 }BOMESJTRETURN, * PBOMESJTRETURN;
 
-// 4.23	µç×Ó´¢ÖµÆ±¿¨·µ»Ø½á¹¹
+// 4.23	ç”µå­å‚¨å€¼ç¥¨å¡è¿”å›ç»“æ„
 typedef struct {
-	char		cIssueCode[4];					// ·¢Âë·½±êÊ¶
-	char		cVersion[2];					// °æ±¾ºÅ
-	char		qr_Intnet_ststus;				// ÍøÂç×´Ì¬±êÊ¶1.ÍøÂçÕı³£ 2.ÍøÂçÖĞ¶Ï
-	char		cCardStatus;					// µç×ÓÆ±¿¨×´Ì¬
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	long		lBalance;						// ÓàÖµ
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
-	char		cEntryDate[14];					// ½øÕ¾Ê±¼ä
-	char        cEntryStationId[4];				// ½øÕ¾Õ¾µã
-	char		cExitDate[14];					// ³öÕ¾Ê±¼ä
-	char        cExitStationId[4];				// ³öÕ¾Õ¾µã
+	char		cIssueCode[4];					// å‘ç æ–¹æ ‡è¯†
+	char		cVersion[2];					// ç‰ˆæœ¬å·
+	char		qr_Intnet_ststus;				// ç½‘ç»œçŠ¶æ€æ ‡è¯†1.ç½‘ç»œæ­£å¸¸ 2.ç½‘ç»œä¸­æ–­
+	char		cCardStatus;					// ç”µå­ç¥¨å¡çŠ¶æ€
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	long		lBalance;						// ä½™å€¼
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
+	char		cEntryDate[14];					// è¿›ç«™æ—¶é—´
+	char        cEntryStationId[4];				// è¿›ç«™ç«™ç‚¹
+	char		cExitDate[14];					// å‡ºç«™æ—¶é—´
+	char        cExitStationId[4];				// å‡ºç«™ç«™ç‚¹
 
-	char        cValidExitDate[14];				// ÓĞĞ§³öÕ¾Ê±¼ä
-	char		cLastDealType[2];				// Ä©´Î½»Ò×ÀàĞÍ
-	char		cLastDealDate[14];				// Ä©´Î½»Ò×Ê±¼ä
-	char		cMacCode[8];				    // ÖĞĞÄÑéÖ¤Âë
-	char		cBornTime[14];					// Éú³ÉÊ±¼ä ºó¸¶·Ñ´¢ÖµÆ±ÉúĞ§
-	char        cVervifyCode[8];                 //ÑéÖ¤Âë
-    char		cPsamNo[16];					// PSAM¿¨ºÅ
-    char		cPsamSeq[10];					// PSAM¿¨Á÷Ë®ºÅ
-    char        cEntryDevice[5];                // ½øÕ¾Éè±¸±àÂë  Éè±¸ÀàĞÍ(2)+Éè±¸±àºÅ(3)
-    char        cExitDevice[5];                 // ³öÕ¾Éè±¸±àÂë  Éè±¸ÀàĞÍ(2)+Éè±¸±àºÅ(3)
+	char        cValidExitDate[14];				// æœ‰æ•ˆå‡ºç«™æ—¶é—´
+	char		cLastDealType[2];				// æœ«æ¬¡äº¤æ˜“ç±»å‹
+	char		cLastDealDate[14];				// æœ«æ¬¡äº¤æ˜“æ—¶é—´
+	char		cMacCode[8];				    // ä¸­å¿ƒéªŒè¯ç 
+	char		cBornTime[14];					// ç”Ÿæˆæ—¶é—´ åä»˜è´¹å‚¨å€¼ç¥¨ç”Ÿæ•ˆ
+	char        cVervifyCode[8];                 //éªŒè¯ç 
+    char		cPsamNo[16];					// PSAMå¡å·
+    char		cPsamSeq[10];					// PSAMå¡æµæ°´å·
+    char        cEntryDevice[5];                // è¿›ç«™è®¾å¤‡ç¼–ç   è®¾å¤‡ç±»å‹(2)+è®¾å¤‡ç¼–å·(3)
+    char        cExitDevice[5];                 // å‡ºç«™è®¾å¤‡ç¼–ç   è®¾å¤‡ç±»å‹(2)+è®¾å¤‡ç¼–å·(3)
 
 }BOMESVTRETURN, * PBOMESVTRETURN;
 
-// 4.24	½µ¼¶µç×ÓÆ±¿¨·µ»Ø½á¹¹
+// 4.24	é™çº§ç”µå­ç¥¨å¡è¿”å›ç»“æ„
 typedef struct {
-	char		cIssueCode[4];					// ·¢Âë·½±êÊ¶
-	char		cVersion[2];					// °æ±¾ºÅ
-	char		qr_Intnet_ststus;				// ÍøÂç×´Ì¬±êÊ¶1.ÍøÂçÕı³£ 2.ÍøÂçÖĞ¶Ï
-	char		cCardStatus;					// µç×ÓÆ±¿¨×´Ì¬
-	char		cTicketLogicalNo[20];			// Âß¼­¿¨ºÅ
-	char		cTicketSubType[2];				// ³µÆ±×ÓÀàĞÍ
-	long		lBalance;						// Óà¶î
-	char		cCenterCode[32];				// ÖĞĞÄÆ±ºÅ
+	char		cIssueCode[4];					// å‘ç æ–¹æ ‡è¯†
+	char		cVersion[2];					// ç‰ˆæœ¬å·
+	char		qr_Intnet_ststus;				// ç½‘ç»œçŠ¶æ€æ ‡è¯†1.ç½‘ç»œæ­£å¸¸ 2.ç½‘ç»œä¸­æ–­
+	char		cCardStatus;					// ç”µå­ç¥¨å¡çŠ¶æ€
+	char		cTicketLogicalNo[20];			// é€»è¾‘å¡å·
+	char		cTicketSubType[2];				// è½¦ç¥¨å­ç±»å‹
+	long		lBalance;						// ä½™é¢
+	char		cCenterCode[32];				// ä¸­å¿ƒç¥¨å·
 
-	char		cGenerateDate[14];				// ½µ¼¶¶şÎ¬ÂëÉú³ÉÊ±¼ä
-	char        cCenterCodeGenDate[14];	        // ÖĞĞÄÆ±ºÅÉú³ÉÊ±¼ä
-	char        cRetain[10];				    // ±£ÁôÓò
-	char		cMacCode[8];				    // ÖĞĞÄÑéÖ¤Âë
+	char		cGenerateDate[14];				// é™çº§äºŒç»´ç ç”Ÿæˆæ—¶é—´
+	char        cCenterCodeGenDate[14];	        // ä¸­å¿ƒç¥¨å·ç”Ÿæˆæ—¶é—´
+	char        cRetain[10];				    // ä¿ç•™åŸŸ
+	char		cMacCode[8];				    // ä¸­å¿ƒéªŒè¯ç 
 
 }BOMEOFFLINERETURN, * PBOMEOFFLINERETURN;
 

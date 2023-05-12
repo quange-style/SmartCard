@@ -14,12 +14,12 @@ public:
     QFile(void);
     ~QFile(void);
 
-#define mode_read				"r"			// Ö»¶Á
-#define mode_read_text			"rt"		// ÎÄ±¾Ö»¶Á
-#define mode_read_binary		"rb"		// ¶ş½øÖÆÖ»¶Á
-#define mode_write				"w"			// Ö»Ğ´£¬Èç¹ûÎÄ¼ş´æÔÚ½«±»¸²¸Ç
-#define mode_read_and_write		"r+"		// ¶ÁĞ´
-#define mode_add_by_create		"a+"		// ×·¼Ó
+#define mode_read				"r"			// åªè¯»
+#define mode_read_text			"rt"		// æ–‡æœ¬åªè¯»
+#define mode_read_binary		"rb"		// äºŒè¿›åˆ¶åªè¯»
+#define mode_write				"w"			// åªå†™ï¼Œå¦‚æœæ–‡ä»¶å­˜åœ¨å°†è¢«è¦†ç›–
+#define mode_read_and_write		"r+"		// è¯»å†™
+#define mode_add_by_create		"a+"		// è¿½åŠ 
 
     QFile(const char * p_file_path, const char * p_open_mode);
 
@@ -66,6 +66,6 @@ private:
 #define SIZE_FILE_BUFFER 1024
     uint8_t m_buffer[SIZE_FILE_BUFFER];
 
-    // »ñÈ¡»º³åÖĞµÄÒ»ĞĞÊı¾İ£¬ÒÔ»»ĞĞ·ûÎª×¼
+    // è·å–ç¼“å†²ä¸­çš„ä¸€è¡Œæ•°æ®ï¼Œä»¥æ¢è¡Œç¬¦ä¸ºå‡†
 	bool get_line_from_buffer(uint8_t * p_buffer, size_t size_buffer, size_t line_odd, uint8_t * p_line, size_t& len_line);
 };

@@ -75,7 +75,7 @@ RETINFO TicketThirdPay::read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, 
 
 		dbg_formatvar("TicketThirdPay::get_qrInfo");
 
-		//·ÖÎö¶şÎ¬ÂëÊı¾İºÏ·¨ĞÔ
+		//åˆ†æäºŒç»´ç æ•°æ®åˆæ³•æ€§
 		get_qrInfo(Api::qr_readbuf);
 
 
@@ -174,14 +174,14 @@ RETINFO TicketThirdPay::analyse_work_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, T
 	char temp = 0;
 
 	///////////////////////////////////////////////////////
-	/////Ìø³ö´«Í³Æ±¿¨µÄÂß¼­£¬Ö»ÓÃÀ´ÅĞ¶Ïµç×ÓÆ±¿¨µÄÂß¼­//////
+	/////è·³å‡ºä¼ ç»Ÿç¥¨å¡çš„é€»è¾‘ï¼Œåªç”¨æ¥åˆ¤æ–­ç”µå­ç¥¨å¡çš„é€»è¾‘//////
 	///////////////////////////////////////////////////////
 
 	memcpy(m_ticket_data.fare_type, "\x02\x00", 2);
 
 	do
 	{
-		// Èç¹û·¢ÉúÁĞ³µ¹ÊÕÏ£¬Ö±½Ó·µ»ØÕı³£
+		// å¦‚æœå‘ç”Ÿåˆ—è½¦æ•…éšœï¼Œç›´æ¥è¿”å›æ­£å¸¸
 		if (p_degrade_falgs->train_trouble)
 		{
 			exit_mode = (char)(degrade_Trouble + 0x30);
@@ -192,11 +192,11 @@ RETINFO TicketThirdPay::analyse_work_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, T
 		if (m_ticket_data.simple_status == SStatus_Entry)
 		{
 
-			// ³¬Ê±(ÏÈ¼ì²é³¬Ê±£¬ÔÙ¼ì²é³¬³Ì£¬±ãÓÚ¼È³¬Ê±£¬ÓÖ³¬³ÌµÄÅĞ¶Ï)
+			// è¶…æ—¶(å…ˆæ£€æŸ¥è¶…æ—¶ï¼Œå†æ£€æŸ¥è¶…ç¨‹ï¼Œä¾¿äºæ—¢è¶…æ—¶ï¼Œåˆè¶…ç¨‹çš„åˆ¤æ–­)
 			dbg_formatvar("uncheck_datetime");
 		}
 
-		// ²éÆ±¼Û
+		// æŸ¥ç¥¨ä»·
 		result_prm = g_Parameter.query_fare(CmdSort::m_time_now, m_ticket_data.fare_type,
 				m_ticket_data.p_entry_info->station_id, m_ticket_data.p_entry_info->time, &trade_val);
 		dbg_formatvar("result_prm:%04x",result_prm);
@@ -237,7 +237,7 @@ RETINFO TicketThirdPay::analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, T
 	uint8_t timenow[7]	= {0};
 	uint8_t btimenow[7]	= {0};
 	///////////////////////////////////////////////////////
-	/////Ìø³ö´«Í³Æ±¿¨µÄÂß¼­£¬Ö»ÓÃÀ´ÅĞ¶Ïµç×ÓÆ±¿¨µÄÂß¼­//////
+	/////è·³å‡ºä¼ ç»Ÿç¥¨å¡çš„é€»è¾‘ï¼Œåªç”¨æ¥åˆ¤æ–­ç”µå­ç¥¨å¡çš„é€»è¾‘//////
 	///////////////////////////////////////////////////////
 	do
 	{
@@ -292,20 +292,20 @@ void getDealDataThird(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,l
 			memcpy(dealData + length, "20181111000000", 14);
 			length += 14;
 			//dbg_dumpmemory("dealData2:",dealData,length);
-			memcpy(dealData + length, StationCode, 2);//ÏßÂ·±àÂë
+			memcpy(dealData + length, StationCode, 2);//çº¿è·¯ç¼–ç 
 			length += 2;
 			//dbg_dumpmemory("dealData3:",dealData,length);
-			memcpy(dealData + length, LineCode, 2);//Õ¾µã±àÂë
+			memcpy(dealData + length, LineCode, 2);//ç«™ç‚¹ç¼–ç 
 			length += 2;
 			//dbg_dumpmemory("dealData4:",dealData,length);
-			memcpy(dealData + length, DeviceType, 2);//Éè±¸ÀàĞÍ
+			memcpy(dealData + length, DeviceType, 2);//è®¾å¤‡ç±»å‹
 			length += 2;
 			//dbg_dumpmemory("dealData5:",dealData,length);
-			memcpy(dealData + length, DeviceCode, 3);//Éè±¸±àºÅ
+			memcpy(dealData + length, DeviceCode, 3);//è®¾å¤‡ç¼–å·
 			length += 3;
 			//dbg_dumpmemory("dealData6:",dealData,length);
 			//memcpy(dealData + length, g_saminf[0].sam_terminal_id, 12);
-			memcpy(dealData + length, "112233445566", 12);//ÔİÊ±²»Ğ´
+			memcpy(dealData + length, "112233445566", 12);//æš‚æ—¶ä¸å†™
 			length += 12;
 			//dbg_dumpmemory("dealData8:",dealData,length);
 			memcpy(dealData + length, "00", 2);
@@ -326,16 +326,16 @@ void getDealDataThird(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,l
 			memcpy(dealData + length, time, 14);
 			length += 14;
 			//dbg_dumpmemory("dealData2:",dealData,length);
-			memcpy(dealData + length, StationCode, 2);//ÏßÂ·±àÂë
+			memcpy(dealData + length, StationCode, 2);//çº¿è·¯ç¼–ç 
 			length += 2;
 			//dbg_dumpmemory("dealData3:",dealData,length);
-			memcpy(dealData + length, LineCode, 2);//Õ¾µã±àÂë
+			memcpy(dealData + length, LineCode, 2);//ç«™ç‚¹ç¼–ç 
 			length += 2;
 			//dbg_dumpmemory("dealData4:",dealData,length);
-			memcpy(dealData + length, DeviceType, 2);//Éè±¸ÀàĞÍ
+			memcpy(dealData + length, DeviceType, 2);//è®¾å¤‡ç±»å‹
 			length += 2;
 			//dbg_dumpmemory("dealData5:",dealData,length);
-			memcpy(dealData + length, DeviceCode, 3);//Éè±¸±àºÅ
+			memcpy(dealData + length, DeviceCode, 3);//è®¾å¤‡ç¼–å·
 			length += 3;
 			//dbg_dumpmemory("dealData6:",dealData,length);
 			memcpy(dealData + length, "112233445566", 12);
@@ -389,7 +389,7 @@ RETINFO TicketThirdPay::entry_gate(PENTRYGATE p_entry,PETICKETDEALINFO p_eticket
 	transfer_edata_for_out(operEntry, p_eticketdealinfo);
 
 	/*
-	//±àÊı¾İ
+	//ç¼–æ•°æ®
 	memcpy(p_eticketdealinfo->bBussinessDate,CmdSort::m_time_now,4);
 	p_eticketdealinfo->bStatus = 0x07;
 	p_eticketdealinfo->bMainType = 0x11;
@@ -444,13 +444,13 @@ RETINFO TicketThirdPay::exit_gate(PPURSETRADE p_exit,PETICKETDEALINFO p_eticketd
 	m_ticket_data.p_exit_info = &m_ticket_data.write_last_info;
 
 	current_trade_info(*m_ticket_data.p_exit_info);
-	//p_exit->lTradeAmount = 1;//²âÊÔÓÃ
+	//p_exit->lTradeAmount = 1;//æµ‹è¯•ç”¨
 
 	ret = write_card(operExit, write_inf.p_eTicket_exit_info, length,tacType, p_exit->lTradeAmount, lSamSeq, p_exit->cMACorTAC);
 
 	transfer_edata_for_out(operExit, p_eticketdealinfo);
 	/*
-		//±àÊı¾İ
+		//ç¼–æ•°æ®
 	memcpy(p_eticketdealinfo->bBussinessDate,CmdSort::m_time_now,4);
 	p_eticketdealinfo->bStatus = 0x08;
 	p_eticketdealinfo->bMainType = 0x11;
@@ -515,18 +515,18 @@ RETINFO TicketThirdPay::sale(PSJTSALE p_sjt_sale, uint16_t& len_sjt, POTHERSALE 
 	m_ticket_data.init_status = MS_Sale;
 	current_trade_info(m_ticket_data.write_last_info);
 
-	// Ëø¶¨Ó¦ÓÃ
+	// é”å®šåº”ç”¨
 	m_ticket_data.app_lock_flag = 0x01;
-	// ÓĞĞ§ÆÚÆäÊµÊ±¼ä
+	// æœ‰æ•ˆæœŸå…¶å®æ—¶é—´
 	memcpy(m_ticket_data.logical_peroidS, CmdSort::m_time_now, sizeof(m_ticket_data.logical_peroidS));
 
-	// ·¢ÊÛ
+	// å‘å”®
 	m_ticket_data.globle_status = EXTERN_STATUS_SALE;
-	// ÓĞĞ§ÆÚÊ±¼ä
+	// æœ‰æ•ˆæœŸæ—¶é—´
 	m_ticket_data.effect_mins = ticket_prm.effect_time_from_sale;
-	// Ñº½ğ
+	// æŠ¼é‡‘
 	m_ticket_data.deposit = p_svt_sale->nAmount;
-	// Óà¶îÉÏÏŞ
+	// ä½™é¢ä¸Šé™
 	m_ticket_data.wallet_value_max = ticket_prm.balance_max;
 
 	//ret = write_card(operSvtSale, write_inf, 0x09, 0, lSamSeq, NULL);
@@ -583,19 +583,19 @@ RETINFO TicketThirdPay::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_sta
 
 	switch (p_update->bUpdateReasonCode)
 	{
-	case 0x01:		// ¸¶·ÑÇø³¬Ê±
+	case 0x01:		// ä»˜è´¹åŒºè¶…æ—¶
 		m_ticket_data.init_status = MS_Upd_Wzone_Time;
 		p_update->bStatus = LIFE_UPD_TM_OUT;
 		dbg_formatvar("MS_Upd_Wzone_Time");
 		//g_Record.log_out(0, level_disaster, "1 MS_Upd_Wzone_Time");
 		break;
-	case 0x02:		// ¸¶·ÑÇø³¬³Ë
+	case 0x02:		// ä»˜è´¹åŒºè¶…ä¹˜
 		m_ticket_data.init_status = MS_Upd_Wzone_Trip;
 		p_update->bStatus = LIFE_UPD_TP_OUT;
 		dbg_formatvar("MS_Upd_Wzone_Trip");
 		//g_Record.log_out(0, level_disaster, "2 MS_Upd_Wzone_Trip");
 		break;
-	case 0x03:		// ¸¶·ÑÇøÎŞ½øÕ¾Âë
+	case 0x03:		// ä»˜è´¹åŒºæ— è¿›ç«™ç 
 		m_ticket_data.p_entry_info->station_id = (p_entry_station[0] << 8) + p_entry_station[1];
 		m_ticket_data.init_status = MS_Upd_Wzone_Entry;
 		p_update->bStatus = LIFE_UPD_WO_STA;
@@ -610,14 +610,14 @@ RETINFO TicketThirdPay::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_sta
 		}
 
 		break;
-	case 0x10:		// ·Ç¸¶·ÑÃâ·Ñ¸üĞÂ
+	case 0x10:		// éä»˜è´¹å…è´¹æ›´æ–°
 		m_ticket_data.init_status = MS_Upd_FZone_Free;
 		p_update->bStatus = LIFE_UPD_OUT_FREE;
 		dbg_formatvar("MS_Upd_FZone_Free");
 		//g_Record.log_out(0, level_disaster, "4 MS_Upd_FZone_Free");
 		break;
 	case 0x11:
-	case 0x12:		// ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ
+	case 0x12:		// éä»˜è´¹åŒºä»˜è´¹æ›´æ–°
 		m_ticket_data.init_status = MS_Upd_FZone_Fare;
 		p_update->bStatus = LIFE_UPD_OUT_FARE;
 		dbg_formatvar("MS_Upd_FZone_Fare");
@@ -639,7 +639,7 @@ RETINFO TicketThirdPay::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_sta
 		//ret = write_card(operUpdate, write_inf, 0x09, 0, lSamSeq, NULL);
 		p_update->lSAMTrSeqNo = lSamSeq;
 
-		// ½»Ò×¼ÇÂ¼¸³Öµ
+		// äº¤æ˜“è®°å½•èµ‹å€¼
 		transfer_jtb_data_for_out(operUpdate, p_update);
 
 		if (ret.bNoticeCode == NTC_MUST_CONFIRM)
@@ -774,39 +774,39 @@ void TicketThirdPay::get_issue_base(uint8_t * p_issue_base)
 {
 	if (p_issue_base != NULL)
 	{
-		// ·¢¿¨·½´úÂë
+		// å‘å¡æ–¹ä»£ç 
 		Publics::bcds_to_string(p_issue_base, 2, m_ticket_data.issue_code, 4);
 
 		//dbg_formatvar("issue_code = %s",m_ticket_data.issue_code);
 
-		// ³ÇÊĞ´úÂë¡¢ĞĞÒµ´úÂë
+		// åŸå¸‚ä»£ç ã€è¡Œä¸šä»£ç 
 		Publics::bcds_to_string(p_issue_base + 2, 2, m_ticket_data.city_code, 4);
 		Publics::bcds_to_string(p_issue_base + 4, 2, m_ticket_data.industry_code, 4);
 
-		// Ó¦ÓÃ±êÊ¶
+		// åº”ç”¨æ ‡è¯†
 		m_ticket_data.key_flag = p_issue_base[8];
 
 		//dbg_formatvar("key_flag = %02x",m_ticket_data.key_flag);
 
-		// Âß¼­¿¨ºÅ
+		// é€»è¾‘å¡å·
 		sprintf(m_ticket_data.logical_id, "%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
 			p_issue_base[10], p_issue_base[11],p_issue_base[12], p_issue_base[13],p_issue_base[14],
 			p_issue_base[15], p_issue_base[16], p_issue_base[17], p_issue_base[18], p_issue_base[19]);
 
 		//dbg_formatvar("logical_id = %s",m_ticket_data.logical_id);
 
-		// ¿¨ÀàĞÍ
+		// å¡ç±»å‹
 		memcpy(m_ticket_data.logical_type, p_issue_base + 28, 2);
 		memcpy(m_ticket_data.fare_type, m_ticket_data.logical_type, 2);
 
 		//dbg_formatvar("logical_type = %02x%02x",m_ticket_data.logical_type[0],m_ticket_data.logical_type[1]);
 
-		// ·¢ĞĞÈÕÆÚ
+		// å‘è¡Œæ—¥æœŸ
 		memcpy(m_ticket_data.date_issue, p_issue_base + 20, 4);
 
 		//dbg_dumpmemory("date_issue = ",m_ticket_data.date_issue,4);
 
-		// ÎïÀíÓĞĞ§ÆÚ
+		// ç‰©ç†æœ‰æ•ˆæœŸ
 		memcpy(m_ticket_data.phy_peroidE, p_issue_base + 24, 4);
 		//dbg_dumpmemory("phy_peroidE = ",m_ticket_data.phy_peroidE,4);
 	}
@@ -818,42 +818,42 @@ void TicketThirdPay::get_public_base(uint8_t * p_public_base)
 	{
 		memcpy(p_public_base,"\x00\x01\x00\x01\xFF\xFF\xFF\xFF\x02\x01\x00\x11\x22\x33\x44\x55\x66\x77\x88\x99\x20\x18\x06\x15\x20\x20\x06\x15\x11\x00",30);
 
-		// ·¢¿¨·½´úÂë
+		// å‘å¡æ–¹ä»£ç 
 		Publics::bcds_to_string(p_public_base, 2, m_ticket_data.issue_code, 4);
 
 		//dbg_formatvar("issue_code = %s",m_ticket_data.issue_code);
 
-		// ³ÇÊĞ´úÂë¡¢ĞĞÒµ´úÂë
+		// åŸå¸‚ä»£ç ã€è¡Œä¸šä»£ç 
 		Publics::bcds_to_string(p_public_base + 2, 2, m_ticket_data.city_code, 4);
 		Publics::bcds_to_string(p_public_base + 4, 2, m_ticket_data.industry_code, 4);
 
-		// Ó¦ÓÃ±êÊ¶
+		// åº”ç”¨æ ‡è¯†
 		m_ticket_data.key_flag = p_public_base[8];
 
 		//dbg_formatvar("key_flag = %02x",m_ticket_data.key_flag);
 
-		// Âß¼­¿¨ºÅ
+		// é€»è¾‘å¡å·
 		sprintf(m_ticket_data.logical_id, "%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
 			p_public_base[10], p_public_base[11],p_public_base[12], p_public_base[13],p_public_base[14],
 			p_public_base[15], p_public_base[16], p_public_base[17], p_public_base[18], p_public_base[19]);
 
 		//dbg_formatvar("logical_id = %s",m_ticket_data.logical_id);
 
-		// ¿¨ÀàĞÍ
+		// å¡ç±»å‹
 		memcpy(m_ticket_data.logical_type, p_public_base + 28, 2);
-		memcpy(m_ticket_data.logical_type, "\x10\x00", 2);//ÕıÊ½µÄÊ±ºòĞèÒª¸Ä³É1000
+		memcpy(m_ticket_data.logical_type, "\x10\x00", 2);//æ­£å¼çš„æ—¶å€™éœ€è¦æ”¹æˆ1000
 		memcpy(m_ticket_data.fare_type, m_ticket_data.logical_type, 2);
 
 		//dbg_formatvar("logical_type = %02x%02x",m_ticket_data.logical_type[0],m_ticket_data.logical_type[1]);
 
-		// ·¢ĞĞÈÕÆÚ
+		// å‘è¡Œæ—¥æœŸ
 		memcpy(m_ticket_data.date_issue, p_public_base + 20, 4);
 
 		//dbg_dumpmemory("date_issue = ",m_ticket_data.date_issue,4);
 
 		m_ticket_data.globle_status = EXTERN_STATUS_SALE;
 
-		// ÎïÀíÓĞĞ§ÆÚ
+		// ç‰©ç†æœ‰æ•ˆæœŸ
 		memcpy(m_ticket_data.phy_peroidE, p_public_base + 24, 4);
 		//dbg_dumpmemory("phy_peroidE = ",m_ticket_data.phy_peroidE,4);
 
@@ -938,7 +938,7 @@ void TicketThirdPay::get_ctrl_record(uint8_t * p_ctrl_record)
 
 void TicketThirdPay::get_app_ctrl(uint8_t * p_app_ctrl)
 {
-	// ÓÉÓÚÉæ¼°ÓĞĞ§ÆÚ£¬µ÷ÓÃ±¾º¯Êı±ØĞëÔÚµ÷ÓÃget_ctrl_recordºóÃæ
+	// ç”±äºæ¶‰åŠæœ‰æ•ˆæœŸï¼Œè°ƒç”¨æœ¬å‡½æ•°å¿…é¡»åœ¨è°ƒç”¨get_ctrl_recordåé¢
 	if (p_app_ctrl != NULL)
 	{
 	}
@@ -1101,7 +1101,7 @@ void TicketThirdPay::get_bleInfo(uint8_t * p_bleInfo)
 
 	dbg_formatvar("create json");
 
-	if (!reader.parse((char *)p_bleInfo, json_object))//×Ö·û´®inbuf£¬json¸ñÊ½»¯
+	if (!reader.parse((char *)p_bleInfo, json_object))//å­—ç¬¦ä¸²inbufï¼Œjsonæ ¼å¼åŒ–
 	{
 		dbg_formatvar("json_object error!");
 	}
@@ -1147,7 +1147,7 @@ void TicketThirdPay::get_bleInfo(uint8_t * p_bleInfo)
 		memcpy(&m_ticket_data.ble_ticketdata.startStation, json_object1["startStation"].asString().c_str(), 4);
 		dbg_formatvar("startStation=%s",m_ticket_data.ble_ticketdata.startStation);
 
-		memcpy(m_ticket_data.logical_type, "\x10\x00", 2);//ÏÈµ±³É1000µÄÆ±¿¨»ñÈ¡Æ±¿¨²ÎÊı
+		memcpy(m_ticket_data.logical_type, "\x10\x00", 2);//å…ˆå½“æˆ1000çš„ç¥¨å¡è·å–ç¥¨å¡å‚æ•°
 		memcpy(m_ticket_data.fare_type, m_ticket_data.logical_type, 2);
 
     }
@@ -1159,7 +1159,7 @@ void TicketThirdPay::get_bleInfo(uint8_t * p_bleInfo)
 
 }
 
-// ½«×´Ì¬¸ñÊ½»¯Îª¼ò»¯×´Ì¬
+// å°†çŠ¶æ€æ ¼å¼åŒ–ä¸ºç®€åŒ–çŠ¶æ€
 SimpleStatus TicketThirdPay::get_simple_status(uint8_t init_status)
 {
 	SimpleStatus ret = SStatus_Invalid;
@@ -1257,10 +1257,10 @@ bool TicketThirdPay::format_history(uint8_t * p_his_buffer, HSSVT& his)
 	char szSam[32]		= {0};
 	char szTerminal[32] = {0};
 
-	// ½»Ò×Ê±¼ä£¨BCDÂë)
+	// äº¤æ˜“æ—¶é—´ï¼ˆBCDç )
 	memcpy(his.dtDate, p_his_buffer + 16, sizeof(his.dtDate));
 
-	// Æ±¿¨ÉúÃüÖÜÆÚË÷Òı,¾ßÌå¶¨Òå¼û¸½Â¼Îå
+	// ç¥¨å¡ç”Ÿå‘½å‘¨æœŸç´¢å¼•,å…·ä½“å®šä¹‰è§é™„å½•äº”
 	if (p_his_buffer[9] == 0x02)
 		his.bStatus = LIFE_CHARGE;
 	else if (p_his_buffer[9] == 0x06)
@@ -1268,15 +1268,15 @@ bool TicketThirdPay::format_history(uint8_t * p_his_buffer, HSSVT& his)
 	else
 		his.bStatus = LIFE_CONSUME_COMPOUND;
 
-	// ½»Ò×½ğ¶î,µ¥Î»·Ö
+	// äº¤æ˜“é‡‘é¢,å•ä½åˆ†
 	his.lTradeAmount = (p_his_buffer[5] << 24) + (p_his_buffer[6] << 16) + (p_his_buffer[7] << 8) + p_his_buffer[8];
 
-	// samÖÕ¶Ëid
+	// samç»ˆç«¯id
 	sprintf(szTerminal, "0000%02X%02X%02X%02X%02X%02X",
 		p_his_buffer[10], p_his_buffer[11], p_his_buffer[12], p_his_buffer[13], p_his_buffer[14], p_his_buffer[15]);
 	memcpy(his.cSAMID, szTerminal, sizeof(his.cSAMID));
 
-	// sam¿¨ºÅ
+	// samå¡å·
 	sprintf(szSam, "%02X%02X0003%02X%02X%02X%02X",
 		p_his_buffer[10], p_his_buffer[11], p_his_buffer[12], p_his_buffer[13], p_his_buffer[14], p_his_buffer[15]);
 
@@ -1365,17 +1365,17 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 				{
 					if((m_ticket_data.init_status == MS_Upd_Wzone_Time)||(m_ticket_data.init_status == MS_Upd_Wzone_Trip))
 					{
-						p_metro[14] = 0x04;//½»Ò××´Ì¬Îª³öÕ¾¸üĞÂ;
+						p_metro[14] = 0x04;//äº¤æ˜“çŠ¶æ€ä¸ºå‡ºç«™æ›´æ–°;
 						p_metro[43] = (uint8_t)(Api::current_station_id >> 8);
 						p_metro[44] = (uint8_t)(Api::current_station_id & 0xFF);
 					}
 					else if((m_ticket_data.init_status == MS_Upd_FZone_Free)||(m_ticket_data.init_status == MS_Upd_FZone_Fare))
 					{
-						p_metro[14] = 0x03;//½»Ò××´Ì¬Îª½øÕ¾¸üĞÂ;
+						p_metro[14] = 0x03;//äº¤æ˜“çŠ¶æ€ä¸ºè¿›ç«™æ›´æ–°;
 					}
 					else if((m_ticket_data.init_status == MS_Upd_Wzone_Entry))
 					{
-						p_metro[14] = 0x04;//½»Ò××´Ì¬Îª³öÕ¾¸üĞÂ;
+						p_metro[14] = 0x04;//äº¤æ˜“çŠ¶æ€ä¸ºå‡ºç«™æ›´æ–°;
 						p_metro[35] = (uint8_t)(m_ticket_data.p_entry_info->station_id >> 8);
 						p_metro[36] = (uint8_t)(m_ticket_data.p_entry_info->station_id & 0xFF);
 					}
@@ -1387,7 +1387,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 				break;
 			case operEntry:
 				{
-					p_metro[14] = 0x01;//½»Ò××´Ì¬Îª½øÕ¢;
+					p_metro[14] = 0x01;//äº¤æ˜“çŠ¶æ€ä¸ºè¿›é—¸;
 					Publics::string_to_bcds(m_ticket_data.p_jtb_entry_info->city_code, 4, &p_metro[15], 2);
 					memcpy(p_metro + 19, m_ticket_data.p_jtb_entry_info->institutionCode, 8);
 					p_metro[35] = (uint8_t)(m_ticket_data.p_jtb_entry_info->station_id >> 8);
@@ -1396,7 +1396,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 					//Publics::string_to_bcds(m_ticket_data.p_jtb_entry_info->sam, 16, &p_metro[51], 8);
 					memcpy(p_metro + 67, m_ticket_data.p_jtb_entry_info->time, sizeof(m_ticket_data.p_jtb_entry_info->time));
 
-					//»ñÈ¡±¾µØ×îµÍÆ±¼Û
+					//è·å–æœ¬åœ°æœ€ä½ç¥¨ä»·
 					g_Parameter.query_lowest_fare(CmdSort::m_time_now, m_ticket_data.logical_type, label_val);
 					//dbg_formatvar("label_val |= %d",label_val);
 					p_metro[81] = ((label_val >> 24) & 0xFF);
@@ -1417,7 +1417,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 				break;
 			case operExit:
 				{
-					p_metro[14] = 0x02;//½»Ò××´Ì¬Îª³öÕ¢;
+					p_metro[14] = 0x02;//äº¤æ˜“çŠ¶æ€ä¸ºå‡ºé—¸;
 					Publics::string_to_bcds(m_ticket_data.p_jtb_exit_info->city_code, 4, &p_metro[17], 2);
 					memcpy(p_metro + 27, m_ticket_data.p_jtb_exit_info->institutionCode, 8);
 					p_metro[43] = (uint8_t)(m_ticket_data.p_jtb_exit_info->station_id >> 8);
@@ -1442,7 +1442,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 		}
 		/*if (lAmount == 0)
 		{
-			p_metro[14] = 0x01;//½»Ò××´Ì¬Îª½øÕ¢;
+			p_metro[14] = 0x01;//äº¤æ˜“çŠ¶æ€ä¸ºè¿›é—¸;
 			Publics::string_to_bcds(m_ticket_data.p_jtb_entry_info->city_code, 4, &p_metro[15], 2);
 			memcpy(p_metro + 19, m_ticket_data.p_jtb_entry_info->institutionCode, 8);
 			p_metro[35] = (uint8_t)(m_ticket_data.p_jtb_entry_info->station_id >> 8);
@@ -1451,7 +1451,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 			//Publics::string_to_bcds(m_ticket_data.p_jtb_entry_info->sam, 16, &p_metro[51], 8);
 			memcpy(p_metro + 67, m_ticket_data.p_jtb_entry_info->time, sizeof(m_ticket_data.p_jtb_entry_info->time));
 
-			//»ñÈ¡±¾µØ×îµÍÆ±¼Û
+			//è·å–æœ¬åœ°æœ€ä½ç¥¨ä»·
 			g_Parameter.query_lowest_fare(CmdSort::m_time_now, m_ticket_data.logical_type, Api::current_station_id, label_val);
 			dbg_formatvar("label_val |= %d",label_val);
 			p_metro[81] = ((label_val >> 24) & 0xFF);
@@ -1469,7 +1469,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 			p_metro[93] = ((m_ticket_data.wallet_value >> 8) & 0xFF);
 			p_metro[94] = (m_ticket_data.wallet_value & 0xFF);
 		}else{
-			p_metro[14] = 0x02;//½»Ò××´Ì¬Îª³öÕ¢;
+			p_metro[14] = 0x02;//äº¤æ˜“çŠ¶æ€ä¸ºå‡ºé—¸;
 			Publics::string_to_bcds(m_ticket_data.p_jtb_exit_info->city_code, 4, &p_metro[17], 2);
 			memcpy(p_metro + 27, m_ticket_data.p_jtb_exit_info->institutionCode, 8);
 			p_metro[43] = (uint8_t)(m_ticket_data.p_jtb_exit_info->station_id >> 8);
@@ -1503,7 +1503,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 		{
 			his_record[0] = 0x03;
 			Publics::string_to_bcds(m_ticket_data.p_jtb_entry_info->sam, 16, &his_record[1], 8);
-			his_record[9] = 0x01;//ĞĞÒµ´úÂë£¬01-µØÌú
+			his_record[9] = 0x01;//è¡Œä¸šä»£ç ï¼Œ01-åœ°é“
 			his_record[10] = (uint8_t)(m_ticket_data.p_jtb_entry_info->station_id >> 8);
 			his_record[12] = (uint8_t)(m_ticket_data.p_jtb_entry_info->station_id & 0xFF);
 
@@ -1524,7 +1524,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 		}else{
 			his_record[0] = 0x04;
 			Publics::string_to_bcds(m_ticket_data.p_jtb_exit_info->sam, 16, &his_record[1], 8);
-			his_record[9] = 0x01;//ĞĞÒµ´úÂë£¬01-µØÌú
+			his_record[9] = 0x01;//è¡Œä¸šä»£ç ï¼Œ01-åœ°é“
 			his_record[10] = (uint8_t)(m_ticket_data.p_jtb_exit_info->station_id >> 8);
 			his_record[12] = (uint8_t)(m_ticket_data.p_jtb_exit_info->station_id & 0xFF);
 
@@ -1552,7 +1552,7 @@ RETINFO TicketThirdPay::set_complex_file(ETYTKOPER operType,uint8_t tac_type, lo
 		SAM_SOCK_4, m_ReadInf.p_public_base, p_metro,his_record, lAmount, 0,(unsigned char *)p_recv);
 	if (ret.wErrCode != 0)
 	{
-		if (ret.wErrCode == 4)	// Ïû·Ñ²¢²úÉúTACÊ±³ö´í
+		if (ret.wErrCode == 4)	// æ¶ˆè´¹å¹¶äº§ç”ŸTACæ—¶å‡ºé”™
 			ret.bNoticeCode = NTC_MUST_CONFIRM;
 		ret.wErrCode = ERR_CARD_WRITE;
 	}
@@ -1612,7 +1612,7 @@ bool TicketThirdPay::last_trade_need_continue(uint8_t status_targ, uint16_t err_
 		if (!check_confirm(status_targ, m_ticket_data.init_status, err_targ, err_src))
 			break;
 
-		// Ö±½ÓÅĞ¶Ï¸´ºÏÏû·ÑÊÇ·ñ³É¹¦£¬Èç¹û³É¹¦ÔòĞèÒª¼ÌĞøÈ¥Á÷Ë®ºÍTAC£¬·ñÔòÈÏÎªÊ§°Ü
+		// ç›´æ¥åˆ¤æ–­å¤åˆæ¶ˆè´¹æ˜¯å¦æˆåŠŸï¼Œå¦‚æœæˆåŠŸåˆ™éœ€è¦ç»§ç»­å»æµæ°´å’ŒTACï¼Œå¦åˆ™è®¤ä¸ºå¤±è´¥
 		if (p_old_write->flag_trade_assist > 0)
 		{
 			if (memcmp(p_old_write->w_trade_assist, m_ReadInf.p_trade_assist, LENM_TRADE_ASSIST) != 0)
@@ -1676,7 +1676,7 @@ RETINFO TicketThirdPay::continue_last_trade(void * p_trade)
 			counter = (uint16_t)(m_ticket_data.total_trade_counter);
 		}
 
-		// ÒªÓÃ±¾´ÎµÄ½»Ò×¼ÆÊı
+		// è¦ç”¨æœ¬æ¬¡çš„äº¤æ˜“è®¡æ•°
 		if (get_cpu_last_tac(counter, factor.tac_type, u_recv) != 0)
 		{
 			ret.wErrCode = ERR_CARD_WRITE;
@@ -1696,30 +1696,30 @@ RETINFO TicketThirdPay::continue_last_trade(void * p_trade)
 	return ret;
 }
 
-// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 //void TicketSvt::set_confirm_factor(uint8_t status, long sam_seq, char * p_tac)
 //{
 //	uint8_t trade_type = Publics::string_to_hex<uint8_t>((char *)(&cfm_point.trade), 2);
 //	switch(trade_type)
 //	{
-//	//case 0x50:	// µ¥³ÌÆ±·¢ÊÛ
+//	//case 0x50:	// å•ç¨‹ç¥¨å‘å”®
 //	//	cfm_point.trade.sjtSale.bStatus		= status;
 //	//	memcpy(cfm_point.trade.sjtSale.cMACorTAC, p_tac, 10);
 //	//	break;
-//	case 0x51:	// ´¢ÖµÆ±·¢ÊÛ
+//	case 0x51:	// å‚¨å€¼ç¥¨å‘å”®
 //		cfm_point.trade.svtSale.bStatus		= status;
 //		break;
-//	case 0x53:	// ½øÕ¢
+//	case 0x53:	// è¿›é—¸
 //		cfm_point.trade.entry.bStatus		= status;
 //		break;
-//	case 0x54:	// Ç®°ü½»Ò×
+//	case 0x54:	// é’±åŒ…äº¤æ˜“
 //		cfm_point.trade.purse.bStatus		= status;
 //		memcpy(cfm_point.trade.purse.cMACorTAC, p_tac, 10);
 //		break;
-//	case 0x56:	// ¸üĞÂ
+//	case 0x56:	// æ›´æ–°
 //		cfm_point.trade.update.bStatus		= status;
 //		break;
-//	case 0x57:	// ÍË¿î
+//	case 0x57:	// é€€æ¬¾
 //		cfm_point.trade.refund.bStatus		= status;
 //		memcpy(cfm_point.trade.refund.cMACOrTAC, p_tac, 10);
 //		break;
@@ -1765,21 +1765,21 @@ uint16_t TicketThirdPay::read_wallet(long * p_wallet)
 			break;
 		}
 
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3F00) < 0)
 		{
 			ret = ERR_CARD_READ;
 			break;
 		}
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		if (svt_readbinary(0x05, 0, LENM_ISSUE_BASE, tmp) < 0)
 		{
 			ret = ERR_CARD_READ;
 			break;
 		}
 
-		// Ñ¡ÔñADF1
+		// é€‰æ‹©ADF1
 		if (svt_selectfile(0x1001) < 0)
 		{
 			if (svt_selecfileaid(9, (unsigned char *)"\xA0\x00\x00\x00\x03\x86\x98\x07\x01") < 0)

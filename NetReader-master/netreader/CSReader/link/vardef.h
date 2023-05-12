@@ -64,11 +64,11 @@ extern Arguments args;
 #endif
 
 //=================================
-//ÉÏÎ»»úÏÂ·¢Êı¾İ°ü½âÎö½á¹¹
-//fm340ctrlºÍlistenprocessÎÄ¼ş»áÓÃµ½
+//ä¸Šä½æœºä¸‹å‘æ•°æ®åŒ…è§£æç»“æ„
+//fm340ctrlå’Œlistenprocessæ–‡ä»¶ä¼šç”¨åˆ°
 //=================================
 typedef struct _RFUBIT{
-	UINT8 other:7;//ÌìÏß£¬0=Ö÷£¬1=¸±
+	UINT8 other:7;//å¤©çº¿ï¼Œ0=ä¸»ï¼Œ1=å‰¯
 	UINT8 rf:1;
 } RFBIT;
 	

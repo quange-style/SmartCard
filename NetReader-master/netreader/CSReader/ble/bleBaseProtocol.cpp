@@ -22,9 +22,9 @@ int bleBaseProtocol::baseProtocol(uint8_t * passcode, uint8_t *  p_eTicket_info,
 	len += 1;
 	len += 1;
 	if(Api::sysFlag == 0)
-		data_to_send[2] = 0x14;//04Æ»¹û£¬14°²×¿
+		data_to_send[2] = 0x14;//04è‹¹æœï¼Œ14å®‰å“
 	else
-		data_to_send[2] = 0x04;//04Æ»¹û£¬14°²×¿
+		data_to_send[2] = 0x04;//04è‹¹æœï¼Œ14å®‰å“
 	len += 1;
 
 	Publics::string_to_bcds((char *)(passcode + 16), 16, data_to_send + len, 8);

@@ -78,7 +78,7 @@ bool QFile::read_line(void * p_read_buffer, size_t size_read_buffer, size_t& rea
 {
 	bool result		= false;
 
-	// ±¾´ÎÈ¡µÃµÄĞĞÊı¾İµÄ³¤¶È£¬Èç¹û±¾´Î»º³åÖĞÃ»ÓĞÈ¡µÃ'\n'½áÎ²µÄÊı¾İ¾Í¼ÌĞø
+	// æœ¬æ¬¡å–å¾—çš„è¡Œæ•°æ®çš„é•¿åº¦ï¼Œå¦‚æœæœ¬æ¬¡ç¼“å†²ä¸­æ²¡æœ‰å–å¾—'\n'ç»“å°¾çš„æ•°æ®å°±ç»§ç»­
 	size_t once		= 0;
 
 	uint8_t* p_buf	= (uint8_t*)p_read_buffer;
@@ -86,7 +86,7 @@ bool QFile::read_line(void * p_read_buffer, size_t size_read_buffer, size_t& rea
 
 	memset(p_buf, 0, size_read_buffer);
 
-	// Ôİ²»¿¼ÂÇĞĞÊı¾İ³¬Ô½_rBuffer´óĞ¡µÄÎÊÌâ
+	// æš‚ä¸è€ƒè™‘è¡Œæ•°æ®è¶…è¶Š_rBufferå¤§å°çš„é—®é¢˜
 	while(!result)
 	{
 		result = get_line_from_buffer(m_buffer + m_ptr_of_buffer, m_len_once_read - m_ptr_of_buffer, size_read_buffer - read_cnt, p_buf + read_cnt, once);

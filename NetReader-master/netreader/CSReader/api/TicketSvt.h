@@ -2,40 +2,40 @@
 #include "TicketBase.h"
 #include "../link/linker.h"
 
-// µØÌúCPU¿¨Ïà¹Ø½á¹¹
+// åœ°é“CPUå¡ç›¸å…³ç»“æ„
 typedef struct
 {
-	uint8_t * p_issue_base;			// ·¢ĞĞ»ù±¾Ó¦ÓÃ
-	uint8_t * p_public_base;		// ¹«¹²Ó¦ÓÃ»ù±¾Êı¾İÎÄ¼ş
-	uint8_t * p_owner_base;			// ³Ö¿¨ÈË»ù±¾Êı¾İÎÄ¼ş
-	uint8_t * p_wallet;				// Ç®°ü×¨ÓÃ
-	uint8_t * p_his_all;			// ËùÓĞÀúÊ·¼ÇÂ¼
-	uint8_t * p_trade_assist;		// ½»Ò×¸¨Öú£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©	
-	uint8_t * p_metro;				// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©	
-	uint8_t * p_ctrl_record;		// Ó¦ÓÃ¸¨Öú£¬¼´Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©	
-	uint8_t * p_app_ctrl;			// Ó¦ÓÃ¿ØÖÆÎÄ¼ş
-	uint8_t * p_charge_count;		// Áª»ú½»Ò×¼ÆÊı
-	uint8_t * p_consume_count;		// ÍÑ»ú½»Ò×¼ÆÊı
+	uint8_t * p_issue_base;			// å‘è¡ŒåŸºæœ¬åº”ç”¨
+	uint8_t * p_public_base;		// å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®æ–‡ä»¶
+	uint8_t * p_owner_base;			// æŒå¡äººåŸºæœ¬æ•°æ®æ–‡ä»¶
+	uint8_t * p_wallet;				// é’±åŒ…ä¸“ç”¨
+	uint8_t * p_his_all;			// æ‰€æœ‰å†å²è®°å½•
+	uint8_t * p_trade_assist;		// äº¤æ˜“è¾…åŠ©ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰	
+	uint8_t * p_metro;				// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰	
+	uint8_t * p_ctrl_record;		// åº”ç”¨è¾…åŠ©ï¼Œå³åº”ç”¨æ§åˆ¶è®°å½•ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰	
+	uint8_t * p_app_ctrl;			// åº”ç”¨æ§åˆ¶æ–‡ä»¶
+	uint8_t * p_charge_count;		// è”æœºäº¤æ˜“è®¡æ•°
+	uint8_t * p_consume_count;		// è„±æœºäº¤æ˜“è®¡æ•°
 
 }METRO_CPU_INF, * P_METRO_CPU_INF;
 
 class TicketSvt : public TicketBase
 {
-#define EXTERN_STATUS_INIT		0		// ³õÊ¼»¯
-#define EXTERN_STATUS_SALE		1		// ES»ò·¢ÊÛ
-#define EXTERN_STATUS_RFND		2		// ÍË¿î
-#define EXTERN_STATUS_DSTY		3		// ×¢Ïú
+#define EXTERN_STATUS_INIT		0		// åˆå§‹åŒ–
+#define EXTERN_STATUS_SALE		1		// ESæˆ–å‘å”®
+#define EXTERN_STATUS_RFND		2		// é€€æ¬¾
+#define EXTERN_STATUS_DSTY		3		// æ³¨é”€
 
 public:
 	TicketSvt(void);
 	TicketSvt(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 	~TicketSvt(void);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -118,7 +118,7 @@ protected:
 
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 	
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
 private:

@@ -91,23 +91,23 @@ uint16_t sam_init(int sock_id, char * p_sam_id, char * p_tml_id)
 }
 
 //=================================================================================
-//º¯ Êý Ãû: metro_svt_read
-//¹¦    ÄÜ: ¶ÁÈ¡µØÌúÆ±µÄÊý¾ÝÄÚÈÝ
-//³ö¿Ú²ÎÊý:
-// p_base°üÀ¨
-//            ·¢ÐÐ»ù±¾ÐÅÏ¢:40Byte
-//            ¹«¹²ÐÅÏ¢:30Byte
-//            ½»Ò×¸¨ÖúÐÅÏ¢:48Byte
-//            µØÌúÐÅÏ¢:48Byte
-//            Ó¦ÓÃ¿ØÖÆÐÅÏ¢:32Byte
-//            Ç®°üÖµ:4Byte
-//p_owner     ³Ö¿¨ÈË¸öÈËÐÅÏ¢:23Byte
+//å‡½ æ•° å: metro_svt_read
+//åŠŸ    èƒ½: è¯»å–åœ°é“ç¥¨çš„æ•°æ®å†…å®¹
+//å‡ºå£å‚æ•°:
+// p_baseåŒ…æ‹¬
+//            å‘è¡ŒåŸºæœ¬ä¿¡æ¯:40Byte
+//            å…¬å…±ä¿¡æ¯:30Byte
+//            äº¤æ˜“è¾…åŠ©ä¿¡æ¯:48Byte
+//            åœ°é“ä¿¡æ¯:48Byte
+//            åº”ç”¨æŽ§åˆ¶ä¿¡æ¯:32Byte
+//            é’±åŒ…å€¼:4Byte
+//p_owner     æŒå¡äººä¸ªäººä¿¡æ¯:23Byte
 //p_history_last
-//			  ×î½üÒ»´ÎÀúÊ·¼ÇÂ¼:23Byte
-//            10ÌõÀúÊ·¼ÇÂ¼:230Byte
-//·µ »Ø Öµ:
-//        >0: ·µ»ØµÄÊý¾Ý³¤¶È
-//        <0: ²Ù×÷³ö´í
+//			  æœ€è¿‘ä¸€æ¬¡åŽ†å²è®°å½•:23Byte
+//            10æ¡åŽ†å²è®°å½•:230Byte
+//è¿” å›ž å€¼:
+//        >0: è¿”å›žçš„æ•°æ®é•¿åº¦
+//        <0: æ“ä½œå‡ºé”™
 //=================================================================================
 uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history_last)
 {
@@ -173,7 +173,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		data_len = 0;
 
 		//
-		//·¢ÐÐÇøÐÅÏ¢
+		//å‘è¡ŒåŒºä¿¡æ¯
 		//
 		ulen = 5;
 		memcpy(sztmp, "\x00\xB0\x85\x00\x28", ulen);
@@ -190,7 +190,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		data_len += 40;
 
 		//
-		//¹«¹²ÐÅÏ¢Çø
+		//å…¬å…±ä¿¡æ¯åŒº
 		//
 		ulen = 14;
 		memcpy(sztmp, "\x00\xA4\x04\x00\x09\xF0\x00\x00\x41\x00\x53\x20\xAD\xF1", ulen);
@@ -213,7 +213,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		data_len += 30;
 
 		//
-		//½»Ò×¸¨ÖúÐÅÏ¢
+		//äº¤æ˜“è¾…åŠ©ä¿¡æ¯
 		//
 		ulen = 5;
 		memcpy(sztmp, "\x00\xB2\x01\xBC\x00", ulen);
@@ -226,7 +226,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		memcpy(p_base + data_len, sztmp, 48);
 		data_len += 48;
 
-		//µØÌúÐÅÏ¢Çø
+		//åœ°é“ä¿¡æ¯åŒº
 		ulen = 5;
 		memcpy(sztmp, "\x00\xB2\x02\xBC\x00", ulen);
 		status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -240,7 +240,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		data_len += 48;
 
 
-		//Ó¦ÓÃ¿ØÖÆÐÅÏ¢Çø
+		//åº”ç”¨æŽ§åˆ¶ä¿¡æ¯åŒº
 		ulen = 5;
 		memcpy(sztmp, "\x00\xB0\x91\x00\x1E", ulen);
 		status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -253,7 +253,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		data_len += 32;
 
 		//805C000204;
-		//Ç®°ü
+		//é’±åŒ…
 		ulen = 5;
 		memcpy(sztmp, "\x80\x5C\x00\x02\x04", ulen);
 		status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -265,7 +265,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 		memcpy(p_base + data_len, sztmp, 4);
 		data_len += 4;
 
-		//³Ö¿¨ÈËÐÅÏ¢
+		//æŒå¡äººä¿¡æ¯
 		if (p_owner != NULL)
 		{
 			ulen = 5;
@@ -282,7 +282,7 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 
 		if (p_history_last != NULL)
 		{
-			//×îºóÒ»´ÎÀúÊ·
+			//æœ€åŽä¸€æ¬¡åŽ†å²
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB2\x01\xC4\x00", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -300,13 +300,13 @@ uint16_t metro_svt_read(uint8_t * p_base, uint8_t * p_owner, uint8_t * p_history
 }
 
 //=================================================================================
-//º¯ Êý Ãû: metro_svt_read
-//¹¦    ÄÜ: ¶ÁÈ¡µØÌúÆ±µÄÊý¾ÝÄÚÈÝ
-//³ö¿Ú²ÎÊý:
-//p_history   10ÌõÀúÊ·¼ÇÂ¼:230Byte
-//·µ »Ø Öµ:
-//        >0: ·µ»ØµÄÊý¾Ý³¤¶È
-//        <0: ²Ù×÷³ö´í
+//å‡½ æ•° å: metro_svt_read
+//åŠŸ    èƒ½: è¯»å–åœ°é“ç¥¨çš„æ•°æ®å†…å®¹
+//å‡ºå£å‚æ•°:
+//p_history   10æ¡åŽ†å²è®°å½•:230Byte
+//è¿” å›ž å€¼:
+//        >0: è¿”å›žçš„æ•°æ®é•¿åº¦
+//        <0: æ“ä½œå‡ºé”™
 //=================================================================================
 uint16_t metro_svt_history(uint8_t * p_history)
 {
@@ -322,7 +322,7 @@ uint16_t metro_svt_history(uint8_t * p_history)
 	int nresult = 0;
 
 
-	//¶ÁÀúÊ·10Ìõ
+	//è¯»åŽ†å²10æ¡
 	for (i=1;i<11;i++)
 	{
 		ulen = 5;
@@ -408,20 +408,20 @@ uint16_t rf_modify(uint8_t dev_type, uint8_t ant_mode, ETYTKOPER oper_type, int 
 		switch(dev_type)
 		{
 		case 3:		// BOM
-		case 4:		// ½øÕ¢»ú
+		case 4:		// è¿›é—¸æœº
 		case 7:		// TCM
 			g_ant_type = 0;
 			break;
 		case 2:		// TVM
 			g_ant_type = 1;
 			break;
-		case 5:		// ³öÕ¢»ú
+		case 5:		// å‡ºé—¸æœº
 			if (ant_mode == 0)
 				g_ant_type = 0;
 			else
 				g_ant_type = 1;
 			break;
-		case 6:		// Ë«ÏòÕ¢»ú
+		case 6:		// åŒå‘é—¸æœº
 			if (oper_type == operEntry)
 			{
 				g_ant_type = 0;
@@ -475,7 +475,7 @@ bool Check_Issued()
 
 	if ((respone_len==0) || (0x9000!=sam_sw))
 	{
-		//Î´·¢ÐÐ
+		//æœªå‘è¡Œ
 		return false;
 	}
 

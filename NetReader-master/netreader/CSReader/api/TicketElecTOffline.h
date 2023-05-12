@@ -12,7 +12,7 @@ public:
 	~TicketElecTOffline(void);
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -26,16 +26,16 @@ public:
 	//RETINFO getETicket(PETICKETDEALINFO p_eticketdealinfo);
 	RETINFO getETicket(PGETETICKETRESPINFO p_geteticketrespinfo);
 	RETINFO bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station);
-	//ÓÉÓÚÍÑ»úÆ±ÌØÊâ£¬½»Ò×Êı¾İ×é°üµ¥¶ÀÖØĞ´£¬
+	//ç”±äºè„±æœºç¥¨ç‰¹æ®Šï¼Œäº¤æ˜“æ•°æ®ç»„åŒ…å•ç‹¬é‡å†™ï¼Œ
 	void transfer_edata_for_out(ETYTKOPER operType, void * pTradeStruct);
 
 protected:
 
 	void get_qrInfo(uint8_t * p_grInfo);
 
-    //ÉèÖÃµ±Ç°µç×ÓÆ±ÀàĞÍ
+    //è®¾ç½®å½“å‰ç”µå­ç¥¨ç±»å‹
     ElectTicketType getCurrentTicketType();
-    //µç×ÓÆ±Òì³£½»Ò×£¬À¶ÑÀ»ØĞ´
+    //ç”µå­ç¥¨å¼‚å¸¸äº¤æ˜“ï¼Œè“ç‰™å›å†™
     void getDealData(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,long amount);
 
 };

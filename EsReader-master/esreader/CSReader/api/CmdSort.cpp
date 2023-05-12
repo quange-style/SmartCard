@@ -48,7 +48,7 @@ int CmdSort::Serial_Listening()
 
 		if (received > 0)
 		{
-			// Èç¹ûÉè±¸Ã¿Ìì¶¼Ã»ÓĞÖØĞÂ³õÊ¼»¯¶ÁĞ´Æ÷,ÄÇÃ´¶ÁĞ´Æ÷±ØĞë×ÔĞĞÇåÀí¹ıÆÚÊı¾İ
+			// å¦‚æœè®¾å¤‡æ¯å¤©éƒ½æ²¡æœ‰é‡æ–°åˆå§‹åŒ–è¯»å†™å™¨,é‚£ä¹ˆè¯»å†™å™¨å¿…é¡»è‡ªè¡Œæ¸…ç†è¿‡æœŸæ•°æ®
 			if (memcmp(m_time_now, readbuf + 7, 4) != 0)
 			{
 				memcpy(m_time_now, readbuf + 7, 7);
@@ -69,7 +69,7 @@ int CmdSort::Serial_Listening()
 
 			if (m_sys_reboot)
 			{
-				sync(); // Í¬²½´ÅÅÌÊı¾İ,½«»º´æÊı¾İ»ØĞ´µ½Ó²ÅÌ,ÒÔ·ÀÊı¾İ¶ªÊ§[luther.gliethttp]
+				sync(); // åŒæ­¥ç£ç›˜æ•°æ®,å°†ç¼“å­˜æ•°æ®å›å†™åˆ°ç¡¬ç›˜,ä»¥é˜²æ•°æ®ä¸¢å¤±[luther.gliethttp]
 				reboot(RB_AUTOBOOT);
 			}
 		}
@@ -101,7 +101,7 @@ void CmdSort::cmd_classic(uint8_t * p_cmd_recved, uint8_t * p_data_to_send, uint
 			dl.file_mgr(p_cmd_recved, p_data_to_send, lentosend);
 		}
 		break;
-	case COMMAND_C:			// COMMAND_CµÄ´¦Àí°üº¬ÔÚdownload_file()ÖĞ,´Ë´¦µ÷ÓÃÓ¦»Ø¸´ÖØµş
+	case COMMAND_C:			// COMMAND_Cçš„å¤„ç†åŒ…å«åœ¨download_file()ä¸­,æ­¤å¤„è°ƒç”¨åº”å›å¤é‡å 
 		{
 			SysCmd::sys_calling(p_cmd_recved[4], p_cmd_recved + 16, p_data_to_send, lentosend, app_valid);
 		}

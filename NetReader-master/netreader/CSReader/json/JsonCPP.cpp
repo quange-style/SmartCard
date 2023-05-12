@@ -79,31 +79,31 @@ int Build()
 	return 0;
 }*/
 
-//1010¡ª½øÕ¾ÑéÆ± 2010¡ª³öÕ¾ÑéÆ± 3010¡ªPITM ÑéÆ± 4010¡ªÈ¡Æ±ÑéÆ±
+//1010â€”è¿›ç«™éªŒç¥¨ 2010â€”å‡ºç«™éªŒç¥¨ 3010â€”PITM éªŒç¥¨ 4010â€”å–ç¥¨éªŒç¥¨
 string JsonCPP::GetRespJson(Value json_ticket,Value json_ticket_add)
 {
-	Json::Value json_temp;      // ÁÙÊ±¶ÔÏó£¬¹©ÈçÏÂ´úÂëÊ¹ÓÃ
-	json_temp["version"] = Json::Value("01");//±¨ÎÄÍ·-°æ±¾ºÅ
-	json_temp["encMode"] = Json::Value("00");//±¨ÎÄÍ·-¼ÓÃÜ·½Ê½ 0¡ªÃ÷ÎÄ£¬1¡ª3DES ¼ÓÃÜ£¬2¡ª¹úÃÜ
+	Json::Value json_temp;      // ä¸´æ—¶å¯¹è±¡ï¼Œä¾›å¦‚ä¸‹ä»£ç ä½¿ç”¨
+	json_temp["version"] = Json::Value("01");//æŠ¥æ–‡å¤´-ç‰ˆæœ¬å·
+	json_temp["encMode"] = Json::Value("00");//æŠ¥æ–‡å¤´-åŠ å¯†æ–¹å¼ 0â€”æ˜æ–‡ï¼Œ1â€”3DES åŠ å¯†ï¼Œ2â€”å›½å¯†
 	json_temp["length"] = Json::Value("00");
 	json_temp["result"] = Json::Value("00");
 	json_temp["type"] = Json::Value("1011");
-	Json::Value root; // ±íÊ¾Õû¸ö json ¶ÔÏó
-	root["key_string"] = Json::Value("value_string"); // ĞÂ½¨Ò»¸ö Key(ÃûÎª£ºkey_string),
-	//¸³Óè×Ö·û´®Öµ:"value_string"
-	root["key_number"] = Json::Value(12345); // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_number),
-	//¸³ÓèÊıÖµ:12345¡£
-	root["key_boolean"] = Json::Value(false);  // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_boolean),
-	//¸³ÓèboolÖµ:false¡£
-	root["key_double"] = Json::Value(12.345); // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_double),
-	//¸³Óè double Öµ:12.345
-	root["key_object"] = json_temp; // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_object)£¬
-	//¸³Óè json::Value ¶ÔÏóÖµ¡£
-	//root["key_array"].append("array_string");// ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_array),
-	//ÀàĞÍÎªÊı×é,¶ÔµÚÒ»¸öÔªËØ¸³ÖµÎª×Ö·û´®:"array_string"
-	//root["key_array"].append(1234);  // ÎªÊı×é key_array ¸³Öµ,¶ÔµÚ¶ş¸öÔªËØ¸³ÖµÎª:1234¡£
+	Json::Value root; // è¡¨ç¤ºæ•´ä¸ª json å¯¹è±¡
+	root["key_string"] = Json::Value("value_string"); // æ–°å»ºä¸€ä¸ª Key(åä¸ºï¼škey_string),
+	//èµ‹äºˆå­—ç¬¦ä¸²å€¼:"value_string"
+	root["key_number"] = Json::Value(12345); // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_number),
+	//èµ‹äºˆæ•°å€¼:12345ã€‚
+	root["key_boolean"] = Json::Value(false);  // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_boolean),
+	//èµ‹äºˆboolå€¼:falseã€‚
+	root["key_double"] = Json::Value(12.345); // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_double),
+	//èµ‹äºˆ double å€¼:12.345
+	root["key_object"] = json_temp; // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_object)ï¼Œ
+	//èµ‹äºˆ json::Value å¯¹è±¡å€¼ã€‚
+	//root["key_array"].append("array_string");// æ–°å»ºä¸€ä¸ª Key(åä¸º:key_array),
+	//ç±»å‹ä¸ºæ•°ç»„,å¯¹ç¬¬ä¸€ä¸ªå…ƒç´ èµ‹å€¼ä¸ºå­—ç¬¦ä¸²:"array_string"
+	//root["key_array"].append(1234);  // ä¸ºæ•°ç»„ key_array èµ‹å€¼,å¯¹ç¬¬äºŒä¸ªå…ƒç´ èµ‹å€¼ä¸º:1234ã€‚
 	
-	//Json::ValueType type = root.type();// »ñµÃ root µÄÀàĞÍ£¬´Ë´¦Îª objectValue ÀàĞÍ¡£
+	//Json::ValueType type = root.type();// è·å¾— root çš„ç±»å‹ï¼Œæ­¤å¤„ä¸º objectValue ç±»å‹ã€‚
 
 	Json::FastWriter fast_writer;
 	string jsonRoot = fast_writer.write(root);
@@ -125,8 +125,8 @@ int ReadJson()
 	if (!reader.parse(json_document, json_object))
 		return 0;
 	
-	std::cout << "Ãû×Ö£º" << json_object["name"] << std::endl;
-	std::cout << "ÄêÁä£º" << json_object["age"] << std::endl;
+	std::cout << "åå­—ï¼š" << json_object["name"] << std::endl;
+	std::cout << "å¹´é¾„ï¼š" << json_object["age"] << std::endl;
 	string sst;
 	sst=json_object["name"].asString();
 	cout<<"dddd   "<<sst<<endl;

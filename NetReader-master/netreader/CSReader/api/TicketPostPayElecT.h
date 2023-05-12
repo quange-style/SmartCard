@@ -6,21 +6,21 @@
 
 class TicketPostPayElecT : public TicketElectDepositBase
 {
-#define EXTERN_STATUS_INIT		0		// ³õÊ¼»¯
-#define EXTERN_STATUS_SALE		1		// ES»ò·¢ÊÛ
-#define EXTERN_STATUS_RFND		2		// ÍË¿î
-#define EXTERN_STATUS_DSTY		3		// ×¢Ïú
+#define EXTERN_STATUS_INIT		0		// åˆå§‹åŒ–
+#define EXTERN_STATUS_SALE		1		// ESæˆ–å‘å”®
+#define EXTERN_STATUS_RFND		2		// é€€æ¬¾
+#define EXTERN_STATUS_DSTY		3		// æ³¨é”€
 
 public:
 	TicketPostPayElecT(void);
 	TicketPostPayElecT(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 	~TicketPostPayElecT(void);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -48,11 +48,11 @@ public:
 
 	RETINFO bom_refund(PDIRECTREFUND p_refund);
 
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª02 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º02 ç°é‡‘
 	RETINFO svt_increase(PPURSETRADE p_purse, uint8_t* p_time, uint8_t* p_mac2, uint8_t paytype=1);
 	//RETINFO svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t * p_mac2);
 	//RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t paytype=1);
 	RETINFO format_history(uint8_t&	his_count, PHSSVT p_his_array, int his_max);
 
@@ -109,7 +109,7 @@ protected:
 
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
     ElectTicketType getCurrentTicketType();
 

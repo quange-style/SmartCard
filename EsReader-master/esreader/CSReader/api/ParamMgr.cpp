@@ -17,25 +17,25 @@
 
 ParamMgr g_Parameter;
 
-// ²ÎÊıÀàĞÍ
-#define PRM_0101_DEVICE_CTRL		(uint16_t)0x0101				// Éè±¸¿ØÖÆ²ÎÊı
-#define PRM_0202_STATION_CFG		(uint16_t)0x0202				// ³µÕ¾±í
-#define PRM_0203_SAM_CMP			(uint16_t)0x0203				// SAM¿¨¶ÔÕÕ±í
-#define PRM_0204_STATION_EX			(uint16_t)0x0204				// »»³Ë³µÕ¾´úÂë±í
-#define PRM_0301_TICKET				(uint16_t)0x0301				// Æ±¿¨²ÎÊı
-#define PRM_0302_ALLEY_WAY			(uint16_t)0x0302				// Õ¢»ú×¨ÓÃÍ¨µÀ²ÎÊı
-#define PRM_0303_TCT				(uint16_t)0x0303				// ³Ë´ÎÆ±×¨ÓÃ²ÎÊı
-#define PRM_0400_FARE				(uint16_t)0x0400				// Æ±¼ÛÎÄ¼ş
-#define PRM_0501_DEGRADE			(uint16_t)0x0501				// ½µ¼¶Ä£Ê½Ê¹ÓÃ¼ÇÂ¼
-#define PRM_0601_SINGLE_BLACK_M		(uint16_t)0x0601				// µØÌúµ¥¸öºÚÃûµ¥
-#define PRM_0602_SECTION_BLACK_M	(uint16_t)0x0602				// µØÌúºÚÃûµ¥¶Î
-#define PRM_0603_SINGLE_BLACK_O		(uint16_t)0x0603				// Ò»¿¨Í¨µ¥¸öºÚÃûµ¥
-#define PRM_0604_SECTION_BLACK_O	(uint16_t)0x0604				// Ò»¿¨Í¨ºÚÃûµ¥¶Î
-#define PRM_0801_POLICE_FINE		(uint16_t)0x0801				// ĞĞÕş·£½ğ²ÎÊı
-#define PRM_9120_READER				(uint16_t)0x9120				// ¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
-#define PRM_9220_READER				(uint16_t)0x9220				// ¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
-#define PRM_9320_READER				(uint16_t)0x9320				// ¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
-#define PRM_9420_READER				(uint16_t)0x9420				// ¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
+// å‚æ•°ç±»å‹
+#define PRM_0101_DEVICE_CTRL		(uint16_t)0x0101				// è®¾å¤‡æ§åˆ¶å‚æ•°
+#define PRM_0202_STATION_CFG		(uint16_t)0x0202				// è½¦ç«™è¡¨
+#define PRM_0203_SAM_CMP			(uint16_t)0x0203				// SAMå¡å¯¹ç…§è¡¨
+#define PRM_0204_STATION_EX			(uint16_t)0x0204				// æ¢ä¹˜è½¦ç«™ä»£ç è¡¨
+#define PRM_0301_TICKET				(uint16_t)0x0301				// ç¥¨å¡å‚æ•°
+#define PRM_0302_ALLEY_WAY			(uint16_t)0x0302				// é—¸æœºä¸“ç”¨é€šé“å‚æ•°
+#define PRM_0303_TCT				(uint16_t)0x0303				// ä¹˜æ¬¡ç¥¨ä¸“ç”¨å‚æ•°
+#define PRM_0400_FARE				(uint16_t)0x0400				// ç¥¨ä»·æ–‡ä»¶
+#define PRM_0501_DEGRADE			(uint16_t)0x0501				// é™çº§æ¨¡å¼ä½¿ç”¨è®°å½•
+#define PRM_0601_SINGLE_BLACK_M		(uint16_t)0x0601				// åœ°é“å•ä¸ªé»‘åå•
+#define PRM_0602_SECTION_BLACK_M	(uint16_t)0x0602				// åœ°é“é»‘åå•æ®µ
+#define PRM_0603_SINGLE_BLACK_O		(uint16_t)0x0603				// ä¸€å¡é€šå•ä¸ªé»‘åå•
+#define PRM_0604_SECTION_BLACK_O	(uint16_t)0x0604				// ä¸€å¡é€šé»‘åå•æ®µ
+#define PRM_0801_POLICE_FINE		(uint16_t)0x0801				// è¡Œæ”¿ç½šé‡‘å‚æ•°
+#define PRM_9120_READER				(uint16_t)0x9120				// è¯»å†™å™¨åº”ç”¨å‚æ•°
+#define PRM_9220_READER				(uint16_t)0x9220				// è¯»å†™å™¨åº”ç”¨å‚æ•°
+#define PRM_9320_READER				(uint16_t)0x9320				// è¯»å†™å™¨åº”ç”¨å‚æ•°
+#define PRM_9420_READER				(uint16_t)0x9420				// è¯»å†™å™¨åº”ç”¨å‚æ•°
 
 ParamMgr::PRM_FUNC_LIST ParamMgr::m_prm_for_reader[] =
 {
@@ -131,7 +131,7 @@ bool ParamMgr::load_dat_config()
 
 }
 
-// ²ÎÊıÀàĞÍÊÇ·ñ¶ÁĞ´Æ÷±ØĞë
+// å‚æ•°ç±»å‹æ˜¯å¦è¯»å†™å™¨å¿…é¡»
 bool ParamMgr::prm_for_reader(uint16_t prm_type)
 {
     for (uint8_t i=0; i<sizeof(m_prm_for_reader)/sizeof(m_prm_for_reader[0]); i++)
@@ -142,7 +142,7 @@ bool ParamMgr::prm_for_reader(uint16_t prm_type)
     return false;
 }
 
-// ²ÎÊıÊÇ·ñÔòÅäÖÃÎÄ¼şÖĞ
+// å‚æ•°æ˜¯å¦åˆ™é…ç½®æ–‡ä»¶ä¸­
 bool ParamMgr::name_in_config(char * p_file_name)
 {
 	bool ret = false;
@@ -160,7 +160,7 @@ bool ParamMgr::name_in_config(char * p_file_name)
 	return ret;
 }
 
-// ¸ü¸Ä²ÎÊıÅäÖÃ
+// æ›´æ”¹å‚æ•°é…ç½®
 bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
 {
     char sz_to_write[_POSIX_PATH_MAX + 8]	= {0};
@@ -216,7 +216,7 @@ bool ParamMgr::save_prm_config(uint16_t prm_type, const string& strPath)
     return ret;
 }
 
-// ²éÑ¯²ÎÊı°æ±¾
+// æŸ¥è¯¢å‚æ•°ç‰ˆæœ¬
 bool ParamMgr::query_prm_version(uint16_t prm_type, char * p_prm_name)
 {
     map<uint16_t, string>::iterator itor = m_prm_config.find(prm_type);
@@ -229,7 +229,7 @@ bool ParamMgr::query_prm_version(uint16_t prm_type, char * p_prm_name)
     return false;
 }
 
-// ¼ÓÔØËùÓĞ²ÎÊı
+// åŠ è½½æ‰€æœ‰å‚æ•°
 int ParamMgr::load_all_prms()
 {
     int ret							= 0;
@@ -254,13 +254,13 @@ int ParamMgr::load_all_prms()
     return ret;
 }
 
-// ÔØÈë¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
+// è½½å…¥è¯»å†™å™¨åº”ç”¨å‚æ•°
 int ParamMgr::load_reader_app(const char * p_prm_path, bool only_check/* = false*/)
 {
 	return 0;
 }
 
-// ¶ş·Ö·¨²éÕÒÒ»Î¬×Ö·ûÊı×é
+// äºŒåˆ†æ³•æŸ¥æ‰¾ä¸€ç»´å­—ç¬¦æ•°ç»„
 char * ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char * p_array_1d, int foruint16_t_step, int record_count)
 {
     int start_ptr, mid_ptr, end_ptr;
@@ -280,9 +280,9 @@ char * ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char *
 
             result_cmp = memcmp(p_target_str, p_src_str, len_to_cmp);
 
-            if (result_cmp > 0)				// ½øÈëÏÂ°ëÇø
+            if (result_cmp > 0)				// è¿›å…¥ä¸‹åŠåŒº
                 start_ptr = mid_ptr + 1;
-            else if (result_cmp < 0)		// ½øÈëÉÏ°ëÇø
+            else if (result_cmp < 0)		// è¿›å…¥ä¸ŠåŠåŒº
                 end_ptr = mid_ptr - 1;
             else
                 return p_src_str;
@@ -294,7 +294,7 @@ char * ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char *
     return NULL;
 }
 
-// ¶ş·Ö·¨²éÕÒ¶şÎ¬×Ö·ûÊı×é
+// äºŒåˆ†æ³•æŸ¥æ‰¾äºŒç»´å­—ç¬¦æ•°ç»„
 bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char ** p_array_2d, int size_1d)
 {
     int start_ptr, mid_ptr, end_ptr;
@@ -311,9 +311,9 @@ bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char ** 
 
             result_cmp = memcmp(p_target_str, p_array_2d[mid_ptr], len_to_cmp);
 
-            if (result_cmp > 0)				// ½øÈëÏÂ°ëÇø
+            if (result_cmp > 0)				// è¿›å…¥ä¸‹åŠåŒº
                 start_ptr = mid_ptr + 1;
-            else if (result_cmp < 0)		// ½øÈëÉÏ°ëÇø
+            else if (result_cmp < 0)		// è¿›å…¥ä¸ŠåŠåŒº
                 end_ptr = mid_ptr - 1;
             else
 				return true;
@@ -323,7 +323,7 @@ bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, char ** 
 
     return false;
 }
-// ¶ş·Ö·¨²éÕÒ¶şÎ¬×Ö·ûÊı×é
+// äºŒåˆ†æ³•æŸ¥æ‰¾äºŒç»´å­—ç¬¦æ•°ç»„
 bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, int len_record, char ** p_array_2d, int record_count, char ** pp_find)
 {
 	int start_ptr, mid_ptr, end_ptr;
@@ -340,9 +340,9 @@ bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, int len_
 
 			result_cmp = memcmp(p_target_str, p_array_2d[mid_ptr], len_to_cmp);
 
-			if (result_cmp > 0)				// ½øÈëÏÂ°ëÇø
+			if (result_cmp > 0)				// è¿›å…¥ä¸‹åŠåŒº
 				start_ptr = mid_ptr + 1;
-			else if (result_cmp < 0)		// ½øÈëÉÏ°ëÇø
+			else if (result_cmp < 0)		// è¿›å…¥ä¸ŠåŠåŒº
 				end_ptr = mid_ptr - 1;
 			else
 			{
@@ -358,10 +358,10 @@ bool ParamMgr::method_of_bisection(char * p_target_str, int len_to_cmp, int len_
 }
 
 
-// ¼ì²é²ÎÊıÅäÖÃÖĞµÄ²ÎÊıÊÇ·ñ×ã¹»
+// æ£€æŸ¥å‚æ•°é…ç½®ä¸­çš„å‚æ•°æ˜¯å¦è¶³å¤Ÿ
 bool ParamMgr::prm_config_unison()
 {
-    // Ò»´Î¼ì²éÍêËùÓĞµÄÅäÖÃ
+    // ä¸€æ¬¡æ£€æŸ¥å®Œæ‰€æœ‰çš„é…ç½®
 
     bool ret = true;
     for (size_t i=0; i<sizeof(m_prm_for_reader)/sizeof(m_prm_for_reader[0]); i++)
@@ -376,7 +376,7 @@ bool ParamMgr::prm_config_unison()
     return ret;
 }
 
-// ²ÎÊı¶ÎÊ×ÊÇ·ñÆ¥Åä
+// å‚æ•°æ®µé¦–æ˜¯å¦åŒ¹é…
 bool ParamMgr::prm_section_match(char * p_prm_section_header, uint16_t section_type)
 {
     char sz_section_type[5] = {0};
@@ -387,7 +387,7 @@ bool ParamMgr::prm_section_match(char * p_prm_section_header, uint16_t section_t
 	return false;
 }
 
-// Éè±¸ÊÇ·ñÍê³É³õÊ¼»¯£¬¼´¼ÓÔØ²ÎÊı£¨¶ÁĞ´Æ÷Òì³£ÖØÆôºó£¬Éè±¸³ÌĞòÎŞ·¨ÖªÏş£¬µ¼ÖÂÃ»ÓĞµ÷ÓÃÉè±¸³õÊ¼»¯£©
+// è®¾å¤‡æ˜¯å¦å®Œæˆåˆå§‹åŒ–ï¼Œå³åŠ è½½å‚æ•°ï¼ˆè¯»å†™å™¨å¼‚å¸¸é‡å¯åï¼Œè®¾å¤‡ç¨‹åºæ— æ³•çŸ¥æ™“ï¼Œå¯¼è‡´æ²¡æœ‰è°ƒç”¨è®¾å¤‡åˆå§‹åŒ–ï¼‰
 void ParamMgr::device_initialize()
 {
 	device_init_flag = true;
@@ -401,14 +401,14 @@ uint16_t ParamMgr::device_initialized()
 	return ERR_DEVICE_UNINIT;
 }
 
-// ¼ÓÔØµ¥¸ö²ÎÊı
+// åŠ è½½å•ä¸ªå‚æ•°
 uint16_t ParamMgr::load_prm(const uint16_t prm_type, const char * p_prm_path, bool cmd_reset/* = false*/, bool only_check/* = false*/)
 {
 	uint16_t ret = 0;
 
 	do
 	{
-		// Ö±½ÓÒÆ¶¯µ½ÏÂÔØÎÄ¼şÆôÓÃÏûÏ¢
+		// ç›´æ¥ç§»åŠ¨åˆ°ä¸‹è½½æ–‡ä»¶å¯ç”¨æ¶ˆæ¯
 		if ((uint16_t)(prm_type & 0xF0F0) == 0x9020)
 		{
 			if (cmd_reset)
@@ -444,7 +444,7 @@ uint16_t ParamMgr::load_prm(const uint16_t prm_type, const char * p_prm_path, bo
 	return ret;
 }
 
-// ÔØÈëÉè±¸¿ØÖÆ²ÎÊı
+// è½½å…¥è®¾å¤‡æ§åˆ¶å‚æ•°
 int ParamMgr::load_device_control(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]	= {0};
@@ -507,7 +507,7 @@ void ParamMgr::query_device_ctrl(DEVICE_CTRL& ctrl)
     memcpy(&ctrl, &m_prm_device_ctrl, sizeof(DEVICE_CTRL));
 }
 
-// ÔØÈë³µÕ¾±í
+// è½½å…¥è½¦ç«™è¡¨
 int ParamMgr::load_station_config(const char * p_prm_path, bool only_check/* = false*/)
 {
 #define LEN_STATION_LINE	(5 + 4 + 3 + 2 + 1 + 3 + 3 + 15 + 30 + 2)
@@ -587,7 +587,7 @@ int ParamMgr::device_registed(uint16_t station_id, uint8_t device_type, uint16_t
     return ERR_DEVICE_INVALID;
 }
 
-// ÔØÈëSAM¿¨¶ÔÕÕ±í
+// è½½å…¥SAMå¡å¯¹ç…§è¡¨
 int ParamMgr::load_sam_compare(const char * p_prm_path, bool only_check/* = false*/)
 {
 #define LEN_SAMCMP_LINE		(5 + 16 + 1 + 4 + 3 + 2 + 2)
@@ -791,7 +791,7 @@ bool ParamMgr::sam_counterpart(uint8_t sam_sock, char * p_sam_id, uint8_t * p_st
 	return ret;
 }
 
-// ÔØÈë»»³Ë³µÕ¾±í
+// è½½å…¥æ¢ä¹˜è½¦ç«™è¡¨
 int ParamMgr::load_change_station(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]	= {0};
@@ -843,7 +843,7 @@ void ParamMgr::unload_change_station()
     m_prm_changing_station.clear();
 }
 
-// ÔØÈëÆ±¿¨²ÎÊı
+// è½½å…¥ç¥¨å¡å‚æ•°
 int ParamMgr::load_ticket_prm(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[256]	= {0};
@@ -1025,7 +1025,7 @@ uint16_t ParamMgr::device_support_sale(ETPDVC target_device_type, char * p_ticke
 
 	return ERR_DEVICE_SUPPROT;
 }
-// ÊÇ·ñ¿É·¢ÊÛ£¬·¢ÊÛÉè±¸È«²¿Îª0Ê±²»ÔÊĞí·¢ÊÛ
+// æ˜¯å¦å¯å‘å”®ï¼Œå‘å”®è®¾å¤‡å…¨éƒ¨ä¸º0æ—¶ä¸å…è®¸å‘å”®
 bool ParamMgr::permit_sale(char * p_ticket_sell_device)
 {
 	char sz_temp[16];
@@ -1035,13 +1035,13 @@ bool ParamMgr::permit_sale(char * p_ticket_sell_device)
 	return (memcmp(sz_temp, p_ticket_sell_device, 16) != 0);
 }
 
-// ÔØÈëÆ±¼Û²ÎÊı
+// è½½å…¥ç¥¨ä»·å‚æ•°
 int ParamMgr::load_fare_prm(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]	= {0};
 	int ret				= 0;
 	size_t read_cnt		= 0;
-    uint16_t exit_station;	// ÎªBCDĞÎÊ½
+    uint16_t exit_station;	// ä¸ºBCDå½¢å¼
     FARE_ZONE frZone;
 	CF_FARE_ZONE cffrZone;
     FARE_CONFIG_TABLE frConfig;
@@ -1090,7 +1090,7 @@ int ParamMgr::load_fare_prm(const char * p_prm_path, bool only_check/* = false*/
 					}
 
 					////////////////////////
-					//¼ÓÔØ´Å¸¡Æ±¼ÛÇø¶Î//////
+					//åŠ è½½ç£æµ®ç¥¨ä»·åŒºæ®µ//////
 					////////////////////////
 					if((sz_read[5] == '6') &&(sz_read[9] == '6') )
 					{
@@ -1193,7 +1193,7 @@ void ParamMgr::unload_fare_prm()
     m_prm_fare.vec_idle_time.clear();
 }
 
-// ÔØÈë½µ¼¶Ä£Ê½²ÎÊı
+// è½½å…¥é™çº§æ¨¡å¼å‚æ•°
 int ParamMgr::load_degrade_mode(const char * p_prm_path, bool only_check/* = false*/)
 {
 #define DEGRADE_END_DEFAULT		"\x20\x99\x12\x31\x23\x59\x59"
@@ -1263,7 +1263,7 @@ void ParamMgr::unload_degrade_mode()
     m_prm_degrade.clear();
 }
 
-// ÔØÈë³Ë´ËÆ±×¨ÓÃ²ÎÊı
+// è½½å…¥ä¹˜æ­¤ç¥¨ä¸“ç”¨å‚æ•°
 int ParamMgr::load_tct_config(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]	= {0};
@@ -1337,7 +1337,7 @@ int ParamMgr::query_tct_prm(uint8_t * p_ticket_type, TCT_PARAM& prm)
     return ERR_CARD_TYPE;
 }
 
-// ÔØÈë×¨ÓÃÍ¨µÀ²ÎÊı
+// è½½å…¥ä¸“ç”¨é€šé“å‚æ•°
 int ParamMgr::load_special_passageway(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]	= {0};
@@ -1389,7 +1389,7 @@ void ParamMgr::unload_special_passageway()
 {
     m_prm_passageway.clear();
 }
-// ²éÑ¯Õ¢»úÍ¨µÀ²ÎÊı
+// æŸ¥è¯¢é—¸æœºé€šé“å‚æ•°
 uint16_t ParamMgr::passageway_allow_pass(uint8_t * p_ticket_type, uint8_t cur_door_type)
 {
 	uint16_t ticket_type = (p_ticket_type[0] << 8) | p_ticket_type[1];
@@ -1407,7 +1407,7 @@ uint16_t ParamMgr::passageway_allow_pass(uint8_t * p_ticket_type, uint8_t cur_do
 	return 0;
 }
 
-// µØÌúºÚÃûµ¥²ÎÊı
+// åœ°é“é»‘åå•å‚æ•°
 int ParamMgr::load_mtr_single_black(const char * p_prm_path, bool only_check/* = false*/)
 {
 #define LEN_OBLACK_LINE	(5 + 20 + 3 + 2)
@@ -1560,7 +1560,7 @@ bool ParamMgr::query_black_mtr(char * p_mtr_card_logical_id)
     return false;
 }
 
-// OCTºÚÃûµ¥²ÎÊı
+// OCTé»‘åå•å‚æ•°
 int ParamMgr::load_oct_single_black(const char * p_prm_path, bool only_check/* = false*/)
 {
 #define LEN_OBLACK_LINE	(5 + 20 + 3 + 2)
@@ -1713,7 +1713,7 @@ bool ParamMgr::query_black_oct(char * p_oct_card_logical_id)
     return false;
 }
 
-// ĞĞÕş·£½ğ²ÎÊı
+// è¡Œæ”¿ç½šé‡‘å‚æ•°
 int ParamMgr::load_policy_penalty(const char * p_prm_path, bool only_check/* = false*/)
 {
     char sz_read[128]			= {0};
@@ -1747,7 +1747,7 @@ int ParamMgr::load_policy_penalty(const char * p_prm_path, bool only_check/* = f
 
 				if (!only_check)
 				{
-					// Ö»¼ÓÔØ±¾Õ¾,±¾ÏßÂ·ºÍÈ«ÏßÍøµÄ
+					// åªåŠ è½½æœ¬ç«™,æœ¬çº¿è·¯å’Œå…¨çº¿ç½‘çš„
 					policy_penalty.line_station = Publics::string_to_bcd<uint16_t>(sz_read + 11, 4);
 
 					if (policy_penalty.line_station == Api::current_station_id || policy_penalty.line_station == 0x0000 ||
@@ -1773,7 +1773,7 @@ void ParamMgr::unload_policy_penalty()
     m_prm_policy_penaty.clear();
 }
 
-// ÊÇ·ñ³öÕ¾³¬Ê±
+// æ˜¯å¦å‡ºç«™è¶…æ—¶
 bool ParamMgr::exit_timeout(uint16_t entry_station, uint8_t *  p_time_entry, uint8_t *  p_time_exit, long * p_penalty/* = NULL*/)
 {
     uint16_t timeout_in_minutes;
@@ -1794,42 +1794,42 @@ bool ParamMgr::exit_timeout(uint16_t entry_station, uint8_t *  p_time_entry, uin
     return false;
 }
 
-// ²éÑ¯Æ±¼Û,lTradeÎª½»Ò×µÄÊµ¼Ê½ğ¶î£¬lFareÎªÔ­Æ±¼Û£¨µ¥³ÌÆ±Æ±¼Û£©
+// æŸ¥è¯¢ç¥¨ä»·,lTradeä¸ºäº¤æ˜“çš„å®é™…é‡‘é¢ï¼ŒlFareä¸ºåŸç¥¨ä»·ï¼ˆå•ç¨‹ç¥¨ç¥¨ä»·ï¼‰
 uint16_t ParamMgr::query_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,
 			   uint16_t entry_station, uint8_t * p_time_entry, long * p_fare_actual, long * p_fare_init/* = NULL*/)
 {
     uint16_t ret			= 0;
-    uint8_t fare_zone		= 0;		// Çø¶Î´úÂë
-    uint8_t time_code		= 0;		// Ê±¼ä´úÂë
-    uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+    uint8_t fare_zone		= 0;		// åŒºæ®µä»£ç 
+    uint8_t time_code		= 0;		// æ—¶é—´ä»£ç 
+    uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
     uint16_t ticket_type	= 0;
 
 	do
     {
         ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-        // ²éÕÒÊÕ·ÑÇø¶Î
+        // æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
         ret = query_fare_zone(entry_station, fare_zone);
         if (ret != 0)	break;
 
-        // »ñÈ¡Ê±¼ä´úÂë
+        // è·å–æ—¶é—´ä»£ç 
         time_code = query_time_code(p_time_now, ticket_type, p_time_entry);
 
-        // ²éÕÒÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, ticket_type, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒÆ±¼Û±í
+        // æŸ¥æ‰¾ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_actual);
         if (ret != 0)	break;
 
         if (p_fare_init == NULL)	break;
 
-        // ²éÕÒµ¥³ÌÆ±ÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, 0x0100, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒµ¥³ÌÆ±Æ±¼Û±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_init);
 
     }
@@ -1838,13 +1838,13 @@ uint16_t ParamMgr::query_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,
     return ret;
 }
 
-// ²é×îµÍÆ±¼Û
+// æŸ¥æœ€ä½ç¥¨ä»·
 int ParamMgr::query_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,long& fare_lowest_actual, long * p_fare_lowest_ini)
 {
     int ret					= 0;
-    uint8_t fare_zone		= 0;		// Çø¶Î´úÂë
-    uint8_t time_code		= 0;		// Ê±¼ä´úÂë
-    uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+    uint8_t fare_zone		= 0;		// åŒºæ®µä»£ç 
+    uint8_t time_code		= 0;		// æ—¶é—´ä»£ç 
+    uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
     uint16_t ticket_type	= 0;
 
     do
@@ -1853,30 +1853,30 @@ int ParamMgr::query_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,lo
 
         ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-        // Ö±½Ó¸³Öµ×îĞ¡Çø¶Î
+        // ç›´æ¥èµ‹å€¼æœ€å°åŒºæ®µ
         fare_zone = 1;
-		// ²éÕÒÊÕ·ÑÇø¶Î
+		// æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
         //ret = query_min_fare_zone(entry_station, fare_zone);
         //if (ret != 0)	break;
 
-        // »ñÈ¡Ê±¼ä´úÂë
+        // è·å–æ—¶é—´ä»£ç 
         time_code = 1;
 
-        // ²éÕÒÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, ticket_type, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒÆ±¼Û±í
+        // æŸ¥æ‰¾ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, &fare_lowest_actual);
         if (ret != 0)	break;
 
         if (p_fare_lowest_ini == NULL)	break;
 
-        // ²éÕÒµ¥³ÌÆ±ÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, 0x0100, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒµ¥³ÌÆ±Æ±¼Û±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_lowest_ini);
 
     } while (0);
@@ -1884,13 +1884,13 @@ int ParamMgr::query_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,lo
     return ret;
 }
 
-// ²é´Å¸¡×îµÍÆ±¼Û
+// æŸ¥ç£æµ®æœ€ä½ç¥¨ä»·
 int ParamMgr::query_cf_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,uint16_t entry_station,long& fare_lowest_actual, long * p_fare_lowest_ini)
 {
     int ret					= 0;
-    uint8_t fare_zone		= 0;		// Çø¶Î´úÂë
-    uint8_t time_code		= 0;		// Ê±¼ä´úÂë
-    uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+    uint8_t fare_zone		= 0;		// åŒºæ®µä»£ç 
+    uint8_t time_code		= 0;		// æ—¶é—´ä»£ç 
+    uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
     uint16_t ticket_type	= 0;
 
     do
@@ -1899,30 +1899,30 @@ int ParamMgr::query_cf_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type
 
         ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-        // Ö±½Ó¸³Öµ×îĞ¡Çø¶Î
+        // ç›´æ¥èµ‹å€¼æœ€å°åŒºæ®µ
         //fare_zone = 1;
-		// ²éÕÒÊÕ·ÑÇø¶Î
+		// æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
         ret = query_min_fare_zone(entry_station, fare_zone);
         //if (ret != 0)	break;
 
-        // »ñÈ¡Ê±¼ä´úÂë
+        // è·å–æ—¶é—´ä»£ç 
         time_code = 1;
 
-        // ²éÕÒÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, ticket_type, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒÆ±¼Û±í
+        // æŸ¥æ‰¾ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, &fare_lowest_actual);
         if (ret != 0)	break;
 
         if (p_fare_lowest_ini == NULL)	break;
 
-        // ²éÕÒµ¥³ÌÆ±ÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, 0x0100, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒµ¥³ÌÆ±Æ±¼Û±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_lowest_ini);
 
     } while (0);
@@ -1931,13 +1931,13 @@ int ParamMgr::query_cf_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type
 }
 
 
-// ²éÑ¯ÏßÂ·×îµÍÆ±¼Û
+// æŸ¥è¯¢çº¿è·¯æœ€ä½ç¥¨ä»·
 int ParamMgr::query_line_lowest_fare(uint8_t * p_time_now, uint16_t entry_station,uint8_t * p_ticket_type, long& fare_lowest_actual, long * p_fare_lowest_ini)
 {
     int ret					= 0;
-    uint8_t fare_zone		= 0;		// Çø¶Î´úÂë
-    uint8_t time_code		= 0;		// Ê±¼ä´úÂë
-    uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+    uint8_t fare_zone		= 0;		// åŒºæ®µä»£ç 
+    uint8_t time_code		= 0;		// æ—¶é—´ä»£ç 
+    uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
     uint16_t ticket_type	= 0;
 
     do
@@ -1946,27 +1946,27 @@ int ParamMgr::query_line_lowest_fare(uint8_t * p_time_now, uint16_t entry_statio
 
         ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-        // Ö±½Ó¸³Öµ×îĞ¡Çø¶Î
+        // ç›´æ¥èµ‹å€¼æœ€å°åŒºæ®µ
         fare_zone = 1;
 
-        // »ñÈ¡Ê±¼ä´úÂë
+        // è·å–æ—¶é—´ä»£ç 
         time_code = 1;
 
-        // ²éÕÒÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, ticket_type, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒÆ±¼Û±í
+        // æŸ¥æ‰¾ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, &fare_lowest_actual);
         if (ret != 0)	break;
 
         if (p_fare_lowest_ini == NULL)	break;
 
-        // ²éÕÒµ¥³ÌÆ±ÊÕ·ÑÅäÖÃ±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨æ”¶è´¹é…ç½®è¡¨
         ret = query_fare_config(p_time_now, 0x0100, time_code, fare_table_id);
         if (ret != 0)	break;
 
-        // ²éÕÒµ¥³ÌÆ±Æ±¼Û±í
+        // æŸ¥æ‰¾å•ç¨‹ç¥¨ç¥¨ä»·è¡¨
         ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_lowest_ini);
 
     } while (0);
@@ -1975,7 +1975,7 @@ int ParamMgr::query_line_lowest_fare(uint8_t * p_time_now, uint16_t entry_statio
 }
 
 
-//²éÑ¯µ½±¾Õ¾×î¸ßÆ±¼Û
+//æŸ¥è¯¢åˆ°æœ¬ç«™æœ€é«˜ç¥¨ä»·
 int ParamMgr::query_highest_fare(uint8_t * p_time_now, long * p_fare_highest_ini)
 {
 	for (uint16_t i=0; i<m_prm_fare.vec_zone.size(); i++)
@@ -1996,9 +1996,9 @@ int ParamMgr::query_highest_fare(uint8_t * p_time_now, long * p_fare_highest_ini
 	return 0;
 	/*
 	int ret					= 0;
-	uint8_t fare_zone		= 0;		// Çø¶Î´úÂë
-	uint8_t time_code		= 0;		// Ê±¼ä´úÂë
-	uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+	uint8_t fare_zone		= 0;		// åŒºæ®µä»£ç 
+	uint8_t time_code		= 0;		// æ—¶é—´ä»£ç 
+	uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
 	uint16_t ticket_type	= 0;
 
 	do
@@ -2009,22 +2009,22 @@ int ParamMgr::query_highest_fare(uint8_t * p_time_now, long * p_fare_highest_ini
 
 		//ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-		// »ñÈ¡µ½±¾Õ¾Õ¾µãµ½ÆäËûÕ¾µãµÄ×î´óÇø¶Î´úÂë
+		// è·å–åˆ°æœ¬ç«™ç«™ç‚¹åˆ°å…¶ä»–ç«™ç‚¹çš„æœ€å¤§åŒºæ®µä»£ç 
 		ret = query_max_fare_zone(Api::current_station_id,fare_zone);
 		dbg_formatvar("fare_zone=%d",fare_zone);
 		//g_Record.log_out(0, level_error, "fare_zone(%d)", fare_zone);
 		if (ret != 0)	break;
 
-		// »ñÈ¡Ê±¼ä´úÂë
+		// è·å–æ—¶é—´ä»£ç 
 		time_code = 1;
 
-		// ²éÕÒµ¥³ÌÆ±ÊÕ·ÑÅäÖÃ±í
+		// æŸ¥æ‰¾å•ç¨‹ç¥¨æ”¶è´¹é…ç½®è¡¨
 		ret = query_fare_config(p_time_now, 0x0100, time_code, fare_table_id);
 		dbg_formatvar("fare_table_id=%d",fare_table_id);
 		//g_Record.log_out(0, level_error, "fare_table_id(%d)", fare_table_id);
 		if (ret != 0)	break;
 
-		// ²éÕÒµ¥³ÌÆ±Æ±¼Û±í
+		// æŸ¥æ‰¾å•ç¨‹ç¥¨ç¥¨ä»·è¡¨
 		ret = query_fare(p_time_now, fare_zone, fare_table_id, p_fare_highest_ini);
 		dbg_formatvar("p_fare_highest_ini=%ld",&p_fare_highest_ini);
 		//g_Record.log_out(0, level_error, "p_fare_highest_ini(%ld)", p_fare_highest_ini);
@@ -2034,11 +2034,11 @@ int ParamMgr::query_highest_fare(uint8_t * p_time_now, long * p_fare_highest_ini
 	*/
 }
 
-// ¸ù¾İÆ±¼Û²éÕÒÊÕ·ÑÇø¶Î
+// æ ¹æ®ç¥¨ä»·æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
 uint16_t ParamMgr::fare_zone_by_sjt_fare(uint8_t * p_ticket_type, long fare, uint8_t& fare_zone)
 {
 	uint16_t ret			= ERR_INPUT_PARAM;
-	uint16_t fare_table_id	= 0;		// Æ±¼Û±íID
+	uint16_t fare_table_id	= 0;		// ç¥¨ä»·è¡¨ID
 	uint16_t ticket_type	= 0;
 	FARE_TABLE fare_table;
 
@@ -2046,11 +2046,11 @@ uint16_t ParamMgr::fare_zone_by_sjt_fare(uint8_t * p_ticket_type, long fare, uin
 	{
 		ticket_type = (p_ticket_type[0] << 8) + p_ticket_type[1];
 
-		// Í¨¹ıÆ±¿¨ÀàĞÍºÍ³Ë³µÊ±¼ä´úÂë²éÕÒÆ±¼Û±íID£¬Ê±¼ä´úÂëÄ¬ÈÏÎª¹¤×÷ÈÕ
+		// é€šè¿‡ç¥¨å¡ç±»å‹å’Œä¹˜è½¦æ—¶é—´ä»£ç æŸ¥æ‰¾ç¥¨ä»·è¡¨IDï¼Œæ—¶é—´ä»£ç é»˜è®¤ä¸ºå·¥ä½œæ—¥
 		ret = query_fare_config(NULL, ticket_type, 0, fare_table_id);
 		if (ret != 0)	break;
 
-		// ¸ù¾İÊÕ·ÑºÍÆ±¼Û±íID·´²éÇø¶Î
+		// æ ¹æ®æ”¶è´¹å’Œç¥¨ä»·è¡¨IDåæŸ¥åŒºæ®µ
 		for (uint32_t i=0; i<m_prm_fare.vec_fare_table.size(); i++)
 		{
 			fare_table = m_prm_fare.vec_fare_table.at(i);
@@ -2067,7 +2067,7 @@ uint16_t ParamMgr::fare_zone_by_sjt_fare(uint8_t * p_ticket_type, long fare, uin
 	return ret;
 }
 
-// ÊÇ·ñÏàÍ¬³µÕ¾
+// æ˜¯å¦ç›¸åŒè½¦ç«™
 bool ParamMgr::same_station(uint16_t station_id0, uint16_t station_id1)
 {
     for (uint32_t i=0; i<m_prm_changing_station.size(); i++)
@@ -2080,7 +2080,7 @@ bool ParamMgr::same_station(uint16_t station_id0, uint16_t station_id1)
     return (station_id0 == station_id1);
 }
 
-// ²éÕÒÊÕ·ÑÇø¶Î
+// æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
 uint16_t ParamMgr::query_fare_zone(uint16_t entry_station_id, uint8_t& fare_zone)
 {
     for (uint32_t i=0; i<m_prm_fare.vec_zone.size(); i++)
@@ -2096,7 +2096,7 @@ uint16_t ParamMgr::query_fare_zone(uint16_t entry_station_id, uint8_t& fare_zone
 }
 
 
-// ²éÕÒÊÕ·ÑÇø¶Î ½öÍ¨¹ı½øÕ¾Õ¾µã²éÑ¯×îµÍµÄÊÕ·ÑÇø¶Î
+// æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ ä»…é€šè¿‡è¿›ç«™ç«™ç‚¹æŸ¥è¯¢æœ€ä½çš„æ”¶è´¹åŒºæ®µ
 uint16_t ParamMgr::query_min_fare_zone(uint16_t entry_station_id, uint8_t& fare_zone)
 {
 	uint32_t i=0;
@@ -2112,7 +2112,7 @@ uint16_t ParamMgr::query_min_fare_zone(uint16_t entry_station_id, uint8_t& fare_
 }
 
 
-// ²éÕÒ×î´óÊÕ·ÑÇø¶Î
+// æŸ¥æ‰¾æœ€å¤§æ”¶è´¹åŒºæ®µ
 uint16_t ParamMgr::query_max_fare_zone(uint16_t entry_station_id,uint8_t& fare_zone)
 {
 	fare_zone = m_prm_fare.vec_zone[0].fare_zone;
@@ -2148,7 +2148,7 @@ uint8_t ParamMgr::query_holiday_type(uint8_t * p_time_now, uint16_t ticket_type,
 			(memcmp(p_time_now, hly_tab.start_date, 4) >= 0 && memcmp(p_time_now, hly_tab.end_date, 4) <= 0))
 		{
 			holiday_type = hly_tab.holiday_code;
-			if (holiday_type == 1)				// ÓÉÓÚ¹«¹²¼ÙÆÚÓÅÏÈ¼¶¸ß£¬ËùÒÔËÑµ½¹«¹²¼ÙÆÚ¾ÍÖ±½ÓÍË³ö£¬Èç¹ûÊÇÑ§Ğ£¼ÙÆÚ»¹Òª¿´ÊÇ·ñ¹«¹²¼ÙÆÚ
+			if (holiday_type == 1)				// ç”±äºå…¬å…±å‡æœŸä¼˜å…ˆçº§é«˜ï¼Œæ‰€ä»¥æœåˆ°å…¬å…±å‡æœŸå°±ç›´æ¥é€€å‡ºï¼Œå¦‚æœæ˜¯å­¦æ ¡å‡æœŸè¿˜è¦çœ‹æ˜¯å¦å…¬å…±å‡æœŸ
 				break;
 		}
 	}
@@ -2190,15 +2190,15 @@ uint8_t ParamMgr::query_time_code(uint8_t * p_time_now, uint16_t ticket_type, ui
 
 	do
 	{
-		// ÔÚºÎÖÖ¼ÙÆÚ
+		// åœ¨ä½•ç§å‡æœŸ
 		holiday_type = query_holiday_type(p_time_now, ticket_type, p_time_entry);
 
-		if (holiday_type == 1)	// ¹«¹²¼ÙÆÚ
+		if (holiday_type == 1)	// å…¬å…±å‡æœŸ
 		{
 			time_code = 4;
 			break;
 		}
-		if (holiday_type == 2 && student_ticket(ticket_type))	// Ñ§Ğ£¼ÙÆÚ
+		if (holiday_type == 2 && student_ticket(ticket_type))	// å­¦æ ¡å‡æœŸ
 		{
 			time_code = 5;
 			break;
@@ -2207,14 +2207,14 @@ uint8_t ParamMgr::query_time_code(uint8_t * p_time_now, uint16_t ticket_type, ui
 		weekday_s = TimesEx::weekday_theday(p_time_entry);
 		weekday_e = TimesEx::weekday_theday(p_time_now);
 
-		// ÔÚ·Ç·±Ã¦Ê±¼ä
+		// åœ¨éç¹å¿™æ—¶é—´
 		if (time_in_idle(weekday_e, p_time_now) || time_in_idle(weekday_s, p_time_entry))
 		{
 			time_code = 1;
 			break;
 		}
 
-		// ÊÇ·ñÔÚÖÜÄ©
+		// æ˜¯å¦åœ¨å‘¨æœ«
 		if (weekday_e == 6)
 		{
 			time_code = 2;
@@ -2245,7 +2245,7 @@ uint8_t ParamMgr::query_time_code(uint8_t * p_time_now, uint16_t ticket_type, ui
 }
 uint16_t ParamMgr::query_fare_config(uint8_t * p_time_now, uint16_t ticket_type, uint8_t time_code, uint16_t& fare_table_id)
 {
-    // ²éÕÒÊÕ·ÑÅäÖÃ±í
+    // æŸ¥æ‰¾æ”¶è´¹é…ç½®è¡¨
     for (uint32_t i=0; i<m_prm_fare.vec_fare_config.size(); i++)
     {
         if (m_prm_fare.vec_fare_config[i].ride_time_code == time_code && m_prm_fare.vec_fare_config[i].ticket_type == ticket_type)
@@ -2258,7 +2258,7 @@ uint16_t ParamMgr::query_fare_config(uint8_t * p_time_now, uint16_t ticket_type,
     return ERR_CARD_TYPE;
 }
 
-// ¸ù¾İÇø¶ÎºÍÆ±¼Û±íIDµÃµ½Æ±¼Û
+// æ ¹æ®åŒºæ®µå’Œç¥¨ä»·è¡¨IDå¾—åˆ°ç¥¨ä»·
 uint16_t ParamMgr::query_fare(uint8_t * p_time_now, uint8_t fare_zone, uint16_t fare_table_id, long * p_fare)
 {
     FARE_TABLE fare_table;
@@ -2275,7 +2275,7 @@ uint16_t ParamMgr::query_fare(uint8_t * p_time_now, uint8_t fare_zone, uint16_t 
     return ERR_CARD_TYPE;
 }
 
-// ¼ì²é²ÎÊıºÏ·¨ĞÔ
+// æ£€æŸ¥å‚æ•°åˆæ³•æ€§
 uint16_t ParamMgr::valid_prm(const char * p_prm_pathname)
 {
     uint16_t ret = 0;
@@ -2301,13 +2301,13 @@ uint16_t ParamMgr::valid_prm(const char * p_prm_pathname)
     return ret;
 }
 
-// ¸ü¸Ä½µ¼¶Ä£Ê½£¬ÓÃÓÚ½ÓÊÕ½µ¼¶ÏûÏ¢
+// æ›´æ”¹é™çº§æ¨¡å¼ï¼Œç”¨äºæ¥æ”¶é™çº§æ¶ˆæ¯
 void ParamMgr::modify_degrade(uint8_t type, uint8_t * p_time, uint8_t * p_station, uint8_t flag)
 {
 	P_DEGRADE_MODE pTmpMode	= NULL;
 	uint16_t mode_station	= (uint16_t)((p_station[0] << 8) + p_station[1]);
 
-	if (flag == 0x01)		// ÉèÖÃ½µ¼¶
+	if (flag == 0x01)		// è®¾ç½®é™çº§
 	{
 		DEGRADE_MODE newDgMode	= {0};
 
@@ -2319,7 +2319,7 @@ void ParamMgr::modify_degrade(uint8_t type, uint8_t * p_time, uint8_t * p_statio
 		m_prm_degrade.push_back(newDgMode);
 		pTmpMode = &m_prm_degrade[m_prm_degrade.size() - 1];
 	}
-	else if (flag == 0x02)	// È¡Ïû½µ¼¶
+	else if (flag == 0x02)	// å–æ¶ˆé™çº§
 	{
 		for (size_t i=0;i<m_prm_degrade.size();i++)
 		{
@@ -2347,7 +2347,7 @@ void ParamMgr::modify_degrade(uint8_t type, uint8_t * p_time, uint8_t * p_statio
 }
 
 
-// ²éÑ¯µ±Ç°½µ¼¶Ä£Ê½
+// æŸ¥è¯¢å½“å‰é™çº§æ¨¡å¼
 void ParamMgr::query_degrade_mode(MODE_EFFECT_FLAGS& mdEffect)
 {
 	for (size_t i=0;i<m_prm_degrade.size();i++)
@@ -2374,29 +2374,29 @@ void ParamMgr::query_degrade_mode(MODE_EFFECT_FLAGS& mdEffect)
 	}
 }
 
-// ½µ¼¶Ä£Ê½ÀúÊ·¼ÇÂ¼ÊÇ·ñ¶Ôµ±Ç°Æ±¿¨ÓĞÓ°Ïì
-// prepared_period£ºÊÇ·ñÓĞÔ¤ÉúĞ§ÆÚ£¬ p_time_now£ºÏÖÔÚÊ±¼ä£¬p_time_last£ºÉÏ´Î¶ÔÓ¦µÄ²Ù×÷Ê±¼ä£¬station_last£ºÉÏ´Î¶ÔÓ¦µÄ²Ù×÷Õ¾µã
+// é™çº§æ¨¡å¼å†å²è®°å½•æ˜¯å¦å¯¹å½“å‰ç¥¨å¡æœ‰å½±å“
+// prepared_periodï¼šæ˜¯å¦æœ‰é¢„ç”Ÿæ•ˆæœŸï¼Œ p_time_nowï¼šç°åœ¨æ—¶é—´ï¼Œp_time_lastï¼šä¸Šæ¬¡å¯¹åº”çš„æ“ä½œæ—¶é—´ï¼Œstation_lastï¼šä¸Šæ¬¡å¯¹åº”çš„æ“ä½œç«™ç‚¹
 bool ParamMgr::tk_in_mode(DGTYPE mode, bool prepared_period, uint8_t * p_time_now, uint8_t * p_time_last, uint16_t station_last)
 {
 	for (size_t i=0;i<m_prm_degrade.size();i++)
 	{
-		// Ö¸¶¨µÄÄ£Ê½
+		// æŒ‡å®šçš„æ¨¡å¼
 		if (mode != degrade_null && m_prm_degrade[i].degrade_type != mode)
 			continue;
 
-		// Õ¾µãÏàÍ¬
+		// ç«™ç‚¹ç›¸åŒ
 		if (station_last != 0 && !same_station(station_last, m_prm_degrade[i].degrade_station))
 			continue;
 
-		// ÉÏ´ÎÊ±¼äÔÚÄ£Ê½½áÊøÖ®Ç°
+		// ä¸Šæ¬¡æ—¶é—´åœ¨æ¨¡å¼ç»“æŸä¹‹å‰
 		if (memcmp(p_time_last, m_prm_degrade[i].degrade_end_time, 7) >= 0)
 			continue;
 
-		// ÉÏ´ÎÊ±¼äÔÚÄ£Ê½¿ªÊ¼µÄµ±ÈÕ
+		// ä¸Šæ¬¡æ—¶é—´åœ¨æ¨¡å¼å¼€å§‹çš„å½“æ—¥
 		if (prepared_period && memcmp(p_time_last, m_prm_degrade[i].degrade_start_time , 4) != 0)
 			continue;
 
-		// µ±Ç°Ê±¼äÔÚÃô¸ĞÆÚÄÚ
+		// å½“å‰æ—¶é—´åœ¨æ•æ„ŸæœŸå†…
 		if (memcmp(p_time_now, m_prm_degrade[i].degrade_susceptive, 7) <= 0)
 			return true;
 	}
@@ -2404,24 +2404,24 @@ bool ParamMgr::tk_in_mode(DGTYPE mode, bool prepared_period, uint8_t * p_time_no
 	return false;
 }
 
-// ESµÄµ¥³ÌÆ±Æ±¿¨ÊÇ·ñÊÜÖ¸¶¨Ä£Ê½Ãô¸ĞÆÚµÄÓ°Ïì(ESµÄÓĞĞ§ÆÚÔÚÄ£Ê½¿ªÊ¼»ò¿ªÊ¼Ö®ºó)
+// ESçš„å•ç¨‹ç¥¨ç¥¨å¡æ˜¯å¦å—æŒ‡å®šæ¨¡å¼æ•æ„ŸæœŸçš„å½±å“(ESçš„æœ‰æ•ˆæœŸåœ¨æ¨¡å¼å¼€å§‹æˆ–å¼€å§‹ä¹‹å)
 bool ParamMgr::EsEffectByAppointedMode(DGTYPE dgAppointed, uint8_t * pCurTime, uint8_t * pLExpireE, uint16_t UseStation/* = 0*/)
 {
 	for (size_t i=0;i<m_prm_degrade.size();i++)
 	{
-		// Ö¸¶¨µÄÄ£Ê½
+		// æŒ‡å®šçš„æ¨¡å¼
 		if (m_prm_degrade[i].degrade_type != dgAppointed)
 			continue;
 
-		// ·¢ÉúÄ£Ê½µÄÕ¾µãÓëÔ¤ÖÃÆ±Ê¹ÓÃÕ¾µãÏàÍ¬
+		// å‘ç”Ÿæ¨¡å¼çš„ç«™ç‚¹ä¸é¢„ç½®ç¥¨ä½¿ç”¨ç«™ç‚¹ç›¸åŒ
 		if (UseStation != 0 && !same_station(UseStation, m_prm_degrade[i].degrade_station))
 			continue;
 
-		// Ô¤ÖÃÆ±ÓĞĞ§ÆÚÔÚÄ£Ê½·¢ÉúÖ®ºó
+		// é¢„ç½®ç¥¨æœ‰æ•ˆæœŸåœ¨æ¨¡å¼å‘ç”Ÿä¹‹å
 		if (memcmp(pLExpireE, m_prm_degrade[i].degrade_start_time, 7) <= 0)
 			continue;
 
-		// µ±Ç°Ê±¼äÔÚÃô¸ĞÆÚÄÚ
+		// å½“å‰æ—¶é—´åœ¨æ•æ„ŸæœŸå†…
 		if (memcmp(pCurTime, m_prm_degrade[i].degrade_susceptive, 7) <= 0)
 			return true;
 	}
@@ -2429,7 +2429,7 @@ bool ParamMgr::EsEffectByAppointedMode(DGTYPE dgAppointed, uint8_t * pCurTime, u
 	return false;
 }
 
-// ²éÕÒĞĞÕş·£½ğ²ÎÊı
+// æŸ¥æ‰¾è¡Œæ”¿ç½šé‡‘å‚æ•°
 int ParamMgr::query_policy_penalty(uint8_t * p_ticket_type, int policy_code, short& penalty)
 {
     //POLICY_PENALTY policy_penalty;
@@ -2444,19 +2444,19 @@ int ParamMgr::query_policy_penalty(uint8_t * p_ticket_type, int policy_code, sho
     {
         if (m_prm_policy_penaty[i].policy_code == policy_code && m_prm_policy_penaty[i].ticket_type == ticket_type)
         {
-			if ((m_prm_policy_penaty[i].line_station & 0xFF00) == (Api::current_station_id & 0xFF00))		// ÏßÂ·Îªµ±Ç°ÏßÂ·
+			if ((m_prm_policy_penaty[i].line_station & 0xFF00) == (Api::current_station_id & 0xFF00))		// çº¿è·¯ä¸ºå½“å‰çº¿è·¯
 			{
-				if ((m_prm_policy_penaty[i].line_station & 0xFF) == (Api::current_station_id & 0xFF))		// ÏßÂ·Õ¾µãÎªµ±Ç°ÏßÂ·Õ¾µã
+				if ((m_prm_policy_penaty[i].line_station & 0xFF) == (Api::current_station_id & 0xFF))		// çº¿è·¯ç«™ç‚¹ä¸ºå½“å‰çº¿è·¯ç«™ç‚¹
 				{
 					val_station = m_prm_policy_penaty[i].penalty;
 					break;
 				}
-				else if ((m_prm_policy_penaty[i].line_station & 0xFF) == 0x00)	// Ö»ÓĞÏßÂ·Îªµ±Ç°ÏßÂ·
+				else if ((m_prm_policy_penaty[i].line_station & 0xFF) == 0x00)	// åªæœ‰çº¿è·¯ä¸ºå½“å‰çº¿è·¯
 				{
 					val_line_cur = m_prm_policy_penaty[i].penalty;
 				}
 			}
-			else if(m_prm_policy_penaty[i].line_station == 0x0000)		// È«ÏßÍø
+			else if(m_prm_policy_penaty[i].line_station == 0x0000)		// å…¨çº¿ç½‘
 			{
 				val_line_net = m_prm_policy_penaty[i].penalty;
 			}
@@ -2508,7 +2508,7 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 
 		if ((prm_type & 0xF0F0) == 0x9020)
 		{
-			// ´æÔÚĞèÒª¸üĞÂÇı¶¯µÄÇé¿ö£¬ÏÈĞ¶ÔØÇı¶¯
+			// å­˜åœ¨éœ€è¦æ›´æ–°é©±åŠ¨çš„æƒ…å†µï¼Œå…ˆå¸è½½é©±åŠ¨
 			samdev_destory();
 			rfdev_destory();
 
@@ -2527,7 +2527,7 @@ uint16_t ParamMgr::config_param(char * p_name_prm)
 		}
 		else
 		{
-			// ÆäËûÀàĞÍ²ÎÊı
+			// å…¶ä»–ç±»å‹å‚æ•°
 			ret = valid_prm(source_path);
 			if (ret != 0)	break;
 
@@ -2608,7 +2608,7 @@ void ParamMgr::delete_prm_outof_config()
 	}
 }
 
-// ²éÕÒÀë±¾Õ¾×î½üµÄ·¢Éú½ø³ö´ÎĞòÃâ¼ìµÄ³µÕ¾,
+// æŸ¥æ‰¾ç¦»æœ¬ç«™æœ€è¿‘çš„å‘ç”Ÿè¿›å‡ºæ¬¡åºå…æ£€çš„è½¦ç«™,
 uint16_t ParamMgr::nearest_uncheckorder_station()
 {
 	uint8_t u_sensitive_time[7]	= {0};
@@ -2617,7 +2617,7 @@ uint16_t ParamMgr::nearest_uncheckorder_station()
 	uint16_t u_mins				= 0;
 	uint16_t u_station			= 0;
 
-	// Ñ°ÕÒÇøÔÚÃô¸ĞÆÚÄÚÇø¶Î×îĞ¡µÄ³µÕ¾
+	// å¯»æ‰¾åŒºåœ¨æ•æ„ŸæœŸå†…åŒºæ®µæœ€å°çš„è½¦ç«™
 	for (uint32_t i=0;i<m_prm_degrade.size();i++)
 	{
 		if (m_prm_degrade[i].degrade_type == degrade_Uncheck_Order)
@@ -2627,7 +2627,7 @@ uint16_t ParamMgr::nearest_uncheckorder_station()
 				memcpy(u_sensitive_time, m_prm_degrade[i].degrade_end_time, 7);
 				TimesEx::bcd_time_calculate(u_sensitive_time, T_TIME, 0, 0, u_mins);
 
-				// Ê±¼äÊ×ÏÈÓ¦¸ÃÔÚ·¢ÉúÕ¾µãµÄÃô¸ĞÆÚÄÚ
+				// æ—¶é—´é¦–å…ˆåº”è¯¥åœ¨å‘ç”Ÿç«™ç‚¹çš„æ•æ„ŸæœŸå†…
 				if (memcmp(CmdSort::m_time_now, m_prm_degrade[i].degrade_start_time, 7) >= 0 && memcmp(CmdSort::m_time_now, u_sensitive_time, 7) <= 0)
 				{
 					if (query_fare_zone(m_prm_degrade[i].degrade_station, fare_zone) == 0)
@@ -2646,7 +2646,7 @@ uint16_t ParamMgr::nearest_uncheckorder_station()
 	return u_station;
 }
 
-// ÊÇ·ñ³öÕ¾³¬Ê±
+// æ˜¯å¦å‡ºç«™è¶…æ—¶
 uint16_t ParamMgr::query_overtime_min(uint16_t entry_station, uint16_t& timeout_in_minutes)
 {
 	//uint16_t ret = ERR_STATION_INVALID;

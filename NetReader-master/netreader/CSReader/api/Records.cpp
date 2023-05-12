@@ -23,52 +23,52 @@ uint16_t Records::current_log_save_days		= 30;
 ERROR_LEVEL_TABLE Records::error_level_cmp[] =
 {
 	{ERR_SUCCEED,			level_normal},
-	{ERR_UNDEFINED,			level_error},				// Î´¶¨Òå´íÎó
-	{ERR_CARD_NONE,			level_invalid},				// ÎŞ¿¨
-	{ERR_CARD_MORE,			level_invalid},				// ¶à¿¨
-	{ERR_CARD_READ,			level_error},				// ¶Á¿¨Ê§°Ü
-	{ERR_CARD_WRITE,		level_error},				// Ğ´¿¨Ê§°Ü
-	{ERR_WITHOUT_SELL,		level_warning},				// Î´·¢ÊÛ£¨ESÔ¤¸³Öµ£©µÄ³µÆ±
-	{ERR_CARD_STATUS,		level_error},				// Æ±¿¨×´Ì¬´íÎó
-	{ERR_CARD_REFUND,		level_warning},				// Æ±¿¨ÒÑÍË¿î£¨×¢Ïú£©
-	{ERR_CARD_LOCKED,		level_warning},				// ºÚÃûµ¥¿¨
-	{ERR_CARD_INVALID,		level_error},				// ÎŞĞ§Æ±
-	{ERR_OVER_PERIOD_P,		level_warning},				// Æ±¿¨ÎïÀíÓĞĞ§ÆÚ¹ıÆÚ
-	{ERR_OVER_PERIOD_L,		level_warning},				// Æ±¿¨Âß¼­ÓĞĞ§ÆÚ¹ıÆÚ
-	{ERR_OVER_PERIOD_A,		level_warning},				// Æ±¿¨¼¤»îÓĞĞ§ÆÚ¹ıÆÚ
-	{ERR_CARD_TYPE,			level_error},				// Æ±¿¨ÀàĞÍÎ´¶¨Òå
-	{ERR_STATION_INVALID,	level_warning},				// ·Ç·¨µÄ³µÕ¾´úÂë
-	{ERR_CARD_USE,			level_warning},				// ·Ç±¾Õ¾Ê¹ÓÃµÄ³µÆ±
-	{ERR_LACK_WALLET,		level_warning},				// Æ±¿¨Óà¶î²»×ã
-	{ERR_OVER_WALLET,		level_warning},				// Æ±¿¨Óà¶î³¬³öÉÏÏŞ
-	{ERR_ENTRY_STATION,		level_warning},				// ·Ç¸¶·ÑÇø·Ç±¾Õ¾½øÕ¾
-	{ERR_ENTRY_TIMEOUT,		level_warning},				// ·Ç¸¶·ÑÇø½øÕ¾³¬Ê±
-	{ERR_ENTRY_EVER,		level_warning},				// ·Ç¸¶·ÑÇøÓĞ½øÕ¾Âë
-	{ERR_WITHOUT_ENTRY,		level_warning},				// ¸¶·ÑÇøÎŞ½øÕ¾Âë
-	{ERR_OVER_MILEAGE,		level_warning},				// ¸¶·ÑÇø³¬³Ë
-	{ERR_EXIT_TIMEOUT,		level_warning},				// ¸¶·ÑÇø³öÕ¾³¬Ê±
-	{ERR_UPDATE_STATION,	level_warning},				// ·Ç±¾Õ¾¸üĞÂµÄ³µÆ±
-	{ERR_UPDATE_DAY,		level_warning},				// ·Ç±¾ÈÕ¸üĞÂµÄ³µÆ±
-	{ERR_PASSAGEWAY_1,		level_warning},				// ÆÕÍ¨Æ±Í¨µÀ£¬²»Ö§³ÖÓÅ»İÆ±
-	{ERR_PASSAGEWAY_2,		level_warning},				// ÓÅ»İÆ±Í¨µÀ£¬²»Ö§³ÖÆÕÍ¨Æ±
-	{ERR_LAST_EXIT_NEAR,	level_warning},				// ÒÑÓÚX·ÖÖÓÄÚÔÚ±¾Õ¾³öÕ¾
-	{ERR_CALL_INVALID,		level_warning},				// ·Ç·¨µÄ½Ó¿Úµ÷ÓÃ
-	{ERR_DEVICE_SUPPROT,	level_warning},				// Éè±¸²»Ö§³ÖµÄÆ±¿¨ÀàĞÍ
-	{ERR_DIFFRENT_CARD,		level_warning},				// ·ÇÍ¬Ò»ÕÅÆ±¿¨
-	{ERR_CALLING_INVALID,	level_warning},				// Æ±¿¨µ±Ç°µ÷ÓÃ·Ç·¨
-	{ERR_INPUT_PARAM,		level_warning},				// ·Ç·¨µÄ´«Èë²ÎÊı
-	{ERR_DEVICE_UNINIT,		level_error},				// Éè±¸Î´³õÊ¼»¯
-	{ERR_PARAM_NOT_EXIST,	level_disaster},			// ²ÎÊıÎÄ¼ş²»´æÔÚ
-	{ERR_PARAM_INVALID,		level_disaster},			// ²ÎÊıÎÄ¼ş²»ºÏ·¨
-	{ERR_FILE_ACCESS,		level_disaster},			// ÎÄ¼ş´íÎó
-	{ERR_INPUT_INVALID,		level_warning},				// ÎŞĞ§µÄÊäÈë²ÎÊı
-	{ERR_HANDLER_OPEN,		level_disaster},			// Í¨Ñ¶¾ä±ú´ò¿ª´íÎó
-	{ERR_SEND_DATA,			level_disaster},			// Í¨Ñ¶·¢ËÍÊı¾İÊ§°Ü
-	{ERR_RECIVE_DATA,		level_disaster},			// Í¨Ñ¶½ÓÊÕÊı¾İÊ§°Ü
-	{ERR_DATA_INVALID,		level_disaster},			// Í¨Ñ¶Êı¾İ·Ç·¨
-	{ERR_SAM_RESPOND,		level_disaster},			// SAM¿¨ÏìÓ¦´íÎó
-	{ERR_OVERLAPPED,		level_error},				// ²Ù×÷ÖØµş£¬ÉÏÎ»»ú´®¿ÚÔÚ¶ÁĞ´Æ÷Ò»¸öÍêÕûÁ÷³ÌÎ´Ö´ĞĞÍê±ÏµÄÇé¿öÏÂ·¢ËÍĞÂµÄÖ¸Áî
-	{ERR_RF_NONE,			level_disaster}				// RfÄ£¿é´íÎó
+	{ERR_UNDEFINED,			level_error},				// æœªå®šä¹‰é”™è¯¯
+	{ERR_CARD_NONE,			level_invalid},				// æ— å¡
+	{ERR_CARD_MORE,			level_invalid},				// å¤šå¡
+	{ERR_CARD_READ,			level_error},				// è¯»å¡å¤±è´¥
+	{ERR_CARD_WRITE,		level_error},				// å†™å¡å¤±è´¥
+	{ERR_WITHOUT_SELL,		level_warning},				// æœªå‘å”®ï¼ˆESé¢„èµ‹å€¼ï¼‰çš„è½¦ç¥¨
+	{ERR_CARD_STATUS,		level_error},				// ç¥¨å¡çŠ¶æ€é”™è¯¯
+	{ERR_CARD_REFUND,		level_warning},				// ç¥¨å¡å·²é€€æ¬¾ï¼ˆæ³¨é”€ï¼‰
+	{ERR_CARD_LOCKED,		level_warning},				// é»‘åå•å¡
+	{ERR_CARD_INVALID,		level_error},				// æ— æ•ˆç¥¨
+	{ERR_OVER_PERIOD_P,		level_warning},				// ç¥¨å¡ç‰©ç†æœ‰æ•ˆæœŸè¿‡æœŸ
+	{ERR_OVER_PERIOD_L,		level_warning},				// ç¥¨å¡é€»è¾‘æœ‰æ•ˆæœŸè¿‡æœŸ
+	{ERR_OVER_PERIOD_A,		level_warning},				// ç¥¨å¡æ¿€æ´»æœ‰æ•ˆæœŸè¿‡æœŸ
+	{ERR_CARD_TYPE,			level_error},				// ç¥¨å¡ç±»å‹æœªå®šä¹‰
+	{ERR_STATION_INVALID,	level_warning},				// éæ³•çš„è½¦ç«™ä»£ç 
+	{ERR_CARD_USE,			level_warning},				// éæœ¬ç«™ä½¿ç”¨çš„è½¦ç¥¨
+	{ERR_LACK_WALLET,		level_warning},				// ç¥¨å¡ä½™é¢ä¸è¶³
+	{ERR_OVER_WALLET,		level_warning},				// ç¥¨å¡ä½™é¢è¶…å‡ºä¸Šé™
+	{ERR_ENTRY_STATION,		level_warning},				// éä»˜è´¹åŒºéæœ¬ç«™è¿›ç«™
+	{ERR_ENTRY_TIMEOUT,		level_warning},				// éä»˜è´¹åŒºè¿›ç«™è¶…æ—¶
+	{ERR_ENTRY_EVER,		level_warning},				// éä»˜è´¹åŒºæœ‰è¿›ç«™ç 
+	{ERR_WITHOUT_ENTRY,		level_warning},				// ä»˜è´¹åŒºæ— è¿›ç«™ç 
+	{ERR_OVER_MILEAGE,		level_warning},				// ä»˜è´¹åŒºè¶…ä¹˜
+	{ERR_EXIT_TIMEOUT,		level_warning},				// ä»˜è´¹åŒºå‡ºç«™è¶…æ—¶
+	{ERR_UPDATE_STATION,	level_warning},				// éæœ¬ç«™æ›´æ–°çš„è½¦ç¥¨
+	{ERR_UPDATE_DAY,		level_warning},				// éæœ¬æ—¥æ›´æ–°çš„è½¦ç¥¨
+	{ERR_PASSAGEWAY_1,		level_warning},				// æ™®é€šç¥¨é€šé“ï¼Œä¸æ”¯æŒä¼˜æƒ ç¥¨
+	{ERR_PASSAGEWAY_2,		level_warning},				// ä¼˜æƒ ç¥¨é€šé“ï¼Œä¸æ”¯æŒæ™®é€šç¥¨
+	{ERR_LAST_EXIT_NEAR,	level_warning},				// å·²äºXåˆ†é’Ÿå†…åœ¨æœ¬ç«™å‡ºç«™
+	{ERR_CALL_INVALID,		level_warning},				// éæ³•çš„æ¥å£è°ƒç”¨
+	{ERR_DEVICE_SUPPROT,	level_warning},				// è®¾å¤‡ä¸æ”¯æŒçš„ç¥¨å¡ç±»å‹
+	{ERR_DIFFRENT_CARD,		level_warning},				// éåŒä¸€å¼ ç¥¨å¡
+	{ERR_CALLING_INVALID,	level_warning},				// ç¥¨å¡å½“å‰è°ƒç”¨éæ³•
+	{ERR_INPUT_PARAM,		level_warning},				// éæ³•çš„ä¼ å…¥å‚æ•°
+	{ERR_DEVICE_UNINIT,		level_error},				// è®¾å¤‡æœªåˆå§‹åŒ–
+	{ERR_PARAM_NOT_EXIST,	level_disaster},			// å‚æ•°æ–‡ä»¶ä¸å­˜åœ¨
+	{ERR_PARAM_INVALID,		level_disaster},			// å‚æ•°æ–‡ä»¶ä¸åˆæ³•
+	{ERR_FILE_ACCESS,		level_disaster},			// æ–‡ä»¶é”™è¯¯
+	{ERR_INPUT_INVALID,		level_warning},				// æ— æ•ˆçš„è¾“å…¥å‚æ•°
+	{ERR_HANDLER_OPEN,		level_disaster},			// é€šè®¯å¥æŸ„æ‰“å¼€é”™è¯¯
+	{ERR_SEND_DATA,			level_disaster},			// é€šè®¯å‘é€æ•°æ®å¤±è´¥
+	{ERR_RECIVE_DATA,		level_disaster},			// é€šè®¯æ¥æ”¶æ•°æ®å¤±è´¥
+	{ERR_DATA_INVALID,		level_disaster},			// é€šè®¯æ•°æ®éæ³•
+	{ERR_SAM_RESPOND,		level_disaster},			// SAMå¡å“åº”é”™è¯¯
+	{ERR_OVERLAPPED,		level_error},				// æ“ä½œé‡å ï¼Œä¸Šä½æœºä¸²å£åœ¨è¯»å†™å™¨ä¸€ä¸ªå®Œæ•´æµç¨‹æœªæ‰§è¡Œå®Œæ¯•çš„æƒ…å†µä¸‹å‘é€æ–°çš„æŒ‡ä»¤
+	{ERR_RF_NONE,			level_disaster}				// Rfæ¨¡å—é”™è¯¯
 };
 
 Records::Records(void)
@@ -88,7 +88,7 @@ void Records::log_out_debug(uint16_t err_code, LOG_LEVEL lvl_appoint, const char
 
 	if (reach_log_level(err_code, lvl_appoint))
 	{
-		// È·¶¨ÖØ¸´ÈÕÖ¾
+		// ç¡®å®šé‡å¤æ—¥å¿—
 		if (err_code == err_last && (err_code == ERR_DEVICE_UNINIT || err_code == ERR_PARAM_NOT_EXIST ||
 			err_code == ERR_PARAM_INVALID || err_code == ERR_STATION_INVALID || err_code == ERR_CARD_NONE))
 		{
@@ -154,7 +154,7 @@ void Records::log_out(uint16_t err_code, LOG_LEVEL lvl_appoint, const char * fmt
 
 	if (reach_log_level(err_code, lvl_appoint))
 	{
-		// È·¶¨ÖØ¸´ÈÕÖ¾
+		// ç¡®å®šé‡å¤æ—¥å¿—
 		if (err_code == err_last && (err_code == ERR_DEVICE_UNINIT || err_code == ERR_PARAM_NOT_EXIST ||
 			err_code == ERR_PARAM_INVALID || err_code == ERR_STATION_INVALID || err_code == ERR_CARD_NONE))
 		{
@@ -199,7 +199,7 @@ void Records::log_out(uint16_t err_code, LOG_LEVEL lvl_appoint, const char * fmt
 void Records::log_buffer(const char * p_discription, uint8_t * p_buffer, int size_buffer, LOG_LEVEL lvl_appoint/**/)
 {
 	char szTemp[8] = {0};
-	//2020Äê12ÔÂ31ÈÕÓÅ»¯Æ´½ÓcharÉêÇëÄÚ´æ
+	//2020å¹´12æœˆ31æ—¥ä¼˜åŒ–æ‹¼æ¥charç”³è¯·å†…å­˜
 	char szLog[4098] = {0};
 
 	strcat(szLog, p_discription);
@@ -241,11 +241,11 @@ bool Records::reach_log_level(uint16_t err_code, LOG_LEVEL lvl_appoint)
 	{
 		mid_ptr = (start_ptr + end_ptr) / 2;
 
-		if (err_code > error_level_cmp[mid_ptr].err_code)				// ½øÈëÏÂ°ëÇø
+		if (err_code > error_level_cmp[mid_ptr].err_code)				// è¿›å…¥ä¸‹åŠåŒº
 		{
 			start_ptr = mid_ptr + 1;
 		}
-		else if (err_code < error_level_cmp[mid_ptr].err_code)		// ½øÈëÉÏ°ëÇø
+		else if (err_code < error_level_cmp[mid_ptr].err_code)		// è¿›å…¥ä¸ŠåŠåŒº
 		{
 			end_ptr = mid_ptr - 1;
 		}
@@ -263,7 +263,7 @@ bool Records::reach_log_level(uint16_t err_code, LOG_LEVEL lvl_appoint)
 	return false;
 }
 
-// ½»Ò×¼ÇÂ¼
+// äº¤æ˜“è®°å½•
 void Records::get_record_param(uint16_t& trade_save_days, uint16_t& log_save_days, int& lvl)
 {
 	trade_save_days = current_trade_save_days;
@@ -352,15 +352,15 @@ void Records::get_file_suffix(uint8_t trade_type, char * p_suffix)
 {
 	static TRADESUFFIX suffix_array[] =
 	{
-		{0x50, "sjt"},	// µ¥³ÌÆ±·¢ÊÛ
-		{0x51, "ots"},	// ´¢ÖµÆ±·¢ÊÛ
-		{0x53, "eng"},	// ½øÕ¢
-		{0x54, "pur"},	// Ç®°ü½»Ò×
-		{0x55, "dfr"},	// ÑÓÆÚ
-		{0x56, "upd"},	// ¸üĞÂ
-		{0x57, "ref"},	// ÍË¿î
-		{0x59, "loc"},	// ¼Ó½âËø
-		{0x60, "eti"}   // µç×ÓÆ±¿¨
+		{0x50, "sjt"},	// å•ç¨‹ç¥¨å‘å”®
+		{0x51, "ots"},	// å‚¨å€¼ç¥¨å‘å”®
+		{0x53, "eng"},	// è¿›é—¸
+		{0x54, "pur"},	// é’±åŒ…äº¤æ˜“
+		{0x55, "dfr"},	// å»¶æœŸ
+		{0x56, "upd"},	// æ›´æ–°
+		{0x57, "ref"},	// é€€æ¬¾
+		{0x59, "loc"},	// åŠ è§£é”
+		{0x60, "eti"}   // ç”µå­ç¥¨å¡
 	};
 
 	for (size_t i=0;i<sizeof(suffix_array)/sizeof(suffix_array[0]);i++)
@@ -459,7 +459,7 @@ void Records::ergodic_dir_delete_target(char * p_path_dir, uint8_t * p_today, in
 		{
 			if(ent->d_type & DT_REG)
 			{
-				//28ÌìÒÔÍâµÄÈÕÖ¾»ò½»Ò×¶¼É¾³ı
+				//28å¤©ä»¥å¤–çš„æ—¥å¿—æˆ–äº¤æ˜“éƒ½åˆ é™¤
 				if (memcmp(ent->d_name + date_offset_filename, date_start, 8) < 0 ||
 					memcmp(ent->d_name + date_offset_filename, date_end, 8) > 0)
 				{
@@ -470,7 +470,7 @@ void Records::ergodic_dir_delete_target(char * p_path_dir, uint8_t * p_today, in
 
 			if(memcmp(p_path_dir,NAME_LOG_FOLDER,strlen(p_path_dir)) == 0)
 			{
-				unsigned long lsize = 1024 * 1024 * 50;//ÔİÊ±¸øµ½50M  ÎÄ¼ş¼Ğ´óĞ¡³¬¹ı50MÔò»á±»É¾³ı
+				unsigned long lsize = 1024 * 1024 * 50;//æš‚æ—¶ç»™åˆ°50M  æ–‡ä»¶å¤¹å¤§å°è¶…è¿‡50Måˆ™ä¼šè¢«åˆ é™¤
 				if (GetLogDirSize(NAME_LOG_FOLDER) >= lsize)
 				{
 					for (int n = -28;n<0;n++)
@@ -565,7 +565,7 @@ unsigned long Records::GetLogDirSize(char * path)
 }
 
 
-// ÅĞ¶ÏÒ»¸öÎÄ¼ş¼ĞÊÇ·ñÎª¿Õ
+// åˆ¤æ–­ä¸€ä¸ªæ–‡ä»¶å¤¹æ˜¯å¦ä¸ºç©º
 bool Records::folder_null(char * p_folder)
 {
 	int num	= 0;

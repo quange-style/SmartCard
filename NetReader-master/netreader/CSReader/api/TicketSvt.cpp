@@ -43,7 +43,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 
 	do
 	{
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3F00) < 0)
 		{
 			u_ret = ERR_CARD_READ;
@@ -53,7 +53,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 
 		if (p_mtr_inf->p_issue_base != NULL)
 		{
-			// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+			// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 			if (svt_readbinary(0x05, 0, LENM_ISSUE_BASE, p_mtr_inf->p_issue_base) < 0)
 			{
 				u_ret = ERR_CARD_READ;
@@ -62,7 +62,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// Ñ¡ÔñADF1
+		// é€‰æ‹©ADF1
 		if (svt_selectfile(0x1001) < 0)
 		{
 			if (svt_selecfileaid(9, (unsigned char *)"\xA0\x00\x00\x00\x03\x86\x98\x07\x01") < 0)
@@ -73,7 +73,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ¶Á¹«¹²Ó¦ÓÃÎÄ¼ş
+		// è¯»å…¬å…±åº”ç”¨æ–‡ä»¶
 		if (p_mtr_inf->p_public_base != NULL)
 		{
 			if (svt_readbinary(0x15, 0, LENM_PUBLIC_BASE, p_mtr_inf->p_public_base) < 0)
@@ -84,7 +84,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ¶Á³Ö¿¨ÈËĞÅÏ¢
+		// è¯»æŒå¡äººä¿¡æ¯
 		if (p_mtr_inf->p_owner_base != NULL)
 		{
 			if (svt_readbinary(0x16, 0, LENM_OWNER_BASE, p_mtr_inf->p_owner_base) < 0)
@@ -95,7 +95,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// Ç®°ü
+		// é’±åŒ…
 		if (p_mtr_inf->p_wallet != NULL)
 		{
 			if (svt_getbalance(p_mtr_inf->p_wallet,0x00) < 0)
@@ -106,22 +106,22 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ËùÓĞÀúÊ·
+		// æ‰€æœ‰å†å²
 		if (p_mtr_inf->p_his_all != NULL)
 		{
-			if (svt_readhistory(0x18, 1, 10, p_mtr_inf->p_his_all) < 0)		// ±¾µØ
+			if (svt_readhistory(0x18, 1, 10, p_mtr_inf->p_his_all) < 0)		// æœ¬åœ°
 			{
 				u_ret = ERR_CARD_READ;
 				g_Record.log_out(u_ret, level_error, "read history 18 failed");
 				break;
 			}
-			if (svt_readhistory(0x10, 1, 10, p_mtr_inf->p_his_all + 0x17 * 10) < 0)		// ÒìµØ
+			if (svt_readhistory(0x10, 1, 10, p_mtr_inf->p_his_all + 0x17 * 10) < 0)		// å¼‚åœ°
 			{
 				u_ret = ERR_CARD_READ;
 				g_Record.log_out(u_ret, level_error, "read history 18 failed");
 				break;
 			}
-			if (svt_readhistory(0x1A, 1, 10, p_mtr_inf->p_his_all + 0x17 * 20) < 0)		// ³äÖµ
+			if (svt_readhistory(0x1A, 1, 10, p_mtr_inf->p_his_all + 0x17 * 20) < 0)		// å……å€¼
 			{
 				u_ret = ERR_CARD_READ;
 				g_Record.log_out(u_ret, level_error, "read history 18 failed");
@@ -129,7 +129,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ½»Ò×¸¨Öú
+		// äº¤æ˜“è¾…åŠ©
 		if (p_mtr_inf->p_trade_assist != NULL)
 		{
 			if (svt_readrecord(0x17, 1, LENM_TRADE_ASSIST, p_mtr_inf->p_trade_assist) < 0)
@@ -140,7 +140,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ¹ìµÀ½»Í¨
+		// è½¨é“äº¤é€š
 		if (p_mtr_inf->p_metro != NULL)
 		{
 			if (svt_readrecord(0x17, 2, LENM_METRO, p_mtr_inf->p_metro) < 0)
@@ -151,7 +151,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼
+		// åº”ç”¨æ§åˆ¶è®°å½•
 		if (p_mtr_inf->p_ctrl_record != NULL)
 		{
 			if (svt_readrecord(0x17, 0x11, LENM_CTRL_RECORD, p_mtr_inf->p_ctrl_record) < 0)
@@ -162,7 +162,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ¶ÁÓ¦ÓÃ¿ØÖÆÎÄ¼ş
+		// è¯»åº”ç”¨æ§åˆ¶æ–‡ä»¶
 		if (p_mtr_inf->p_app_ctrl != NULL)
 		{
 			if (svt_readbinary(0x11, 0, LENM_APP_CTRL, p_mtr_inf->p_app_ctrl) < 0)
@@ -173,7 +173,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ³äÖµ¼ÆÊı
+		// å……å€¼è®¡æ•°
 		if (p_mtr_inf->p_charge_count != NULL)
 		{
 			if (svt_getonlineserial(SAM_SOCK_1, p_mtr_inf->p_charge_count) < 0)
@@ -184,7 +184,7 @@ uint16_t TicketSvt::metro_svt_read(P_METRO_CPU_INF p_mtr_inf)
 			}
 		}
 
-		// ½»Ò×¼ÆÊı
+		// äº¤æ˜“è®¡æ•°
 		if (p_mtr_inf->p_consume_count != NULL)
 		{
 			if (svt_getofflineserial(SAM_SOCK_1, p_mtr_inf->p_consume_count) < 0)
@@ -213,51 +213,51 @@ RETINFO TicketSvt::read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8
 		if (ret.wErrCode != 0)	break;
 
 		//
-		// ·¢ĞĞ»ù±¾ĞÅÏ¢
+		// å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		//
 		get_issue_base(m_ReadInf.p_issue_base);
 		//
-		// ¹«¹²ĞÅÏ¢
+		// å…¬å…±ä¿¡æ¯
 		//
 		get_public_base(m_ReadInf.p_public_base);
 		//
-		// ³Ö¿¨ÈËĞÅÏ¢
+		// æŒå¡äººä¿¡æ¯
 		//
 		get_owner_base(m_ReadInf.p_owner_base);
 		//
-		// Ç®°ü
+		// é’±åŒ…
 		//
 		get_wallet(m_ReadInf.p_wallet);
 		//
-		// ³äÖµ¼ÆÊı
+		// å……å€¼è®¡æ•°
 		//
 		get_change_count(m_ReadInf.p_charge_count);
 		//
-		// ½»Ò×¼ÆÊı
+		// äº¤æ˜“è®¡æ•°
 		//
 		get_consume_count(m_ReadInf.p_consume_count);
 		//
-		// ËùÓĞÀúÊ·
+		// æ‰€æœ‰å†å²
 		//
 		get_his_all(m_ReadInf.p_his_all);
 		//
-		// ½»Ò×¸¨ÖúĞÅÏ¢
+		// äº¤æ˜“è¾…åŠ©ä¿¡æ¯
 		//
 		get_trade_assist(m_ReadInf.p_trade_assist);
 		//
-		// µØÌúĞÅÏ¢
+		// åœ°é“ä¿¡æ¯
 		//
 		get_metro(m_ReadInf.p_metro);
 		//
-		// Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼
+		// åº”ç”¨æ§åˆ¶è®°å½•
 		//
 		get_ctrl_record(m_ReadInf.p_ctrl_record);
 		//
-		// Ó¦ÓÃ¿ØÖÆĞÅÏ¢
+		// åº”ç”¨æ§åˆ¶ä¿¡æ¯
 		//
 		get_app_ctrl(m_ReadInf.p_app_ctrl);
 
-		// µ±Ó¦ÓÃ¿ØÖÆ¼ÍÂ¼Î´Ëø¶¨£¬ÇÒ²»ÊÇ¶àÈÕÆ±£¬×´Ì¬¸ñÊ½»¯Îª³õÊ¼»¯
+		// å½“åº”ç”¨æ§åˆ¶çºªå½•æœªé”å®šï¼Œä¸”ä¸æ˜¯å¤šæ—¥ç¥¨ï¼ŒçŠ¶æ€æ ¼å¼åŒ–ä¸ºåˆå§‹åŒ–
 		if (m_ticket_data.app_lock_flag == 0)
 		{
 			m_ticket_data.init_status = MS_Init;
@@ -332,7 +332,7 @@ RETINFO TicketSvt::analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade
 
 	do
 	{
-		// ÎïÀíÓĞĞ§ÆÚ
+		// ç‰©ç†æœ‰æ•ˆæœŸ
 		if (p_ticket_prm->check_phy_expire && need_check_period(wk_area, m_ticket_data.simple_status))
 		{
 			if (memcmp(CmdSort::m_time_now, m_ticket_data.phy_peroidE, 4) > 0)
@@ -353,7 +353,7 @@ RETINFO TicketSvt::analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade
 			}
 		}
 
-		// ºÚÃûµ¥
+		// é»‘åå•
 		bool in_prm = g_Parameter.query_black_mtr(m_ticket_data.logical_id);
 		if (m_ticket_data.list_falg > 0)
 		{
@@ -392,7 +392,7 @@ RETINFO TicketSvt::analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade
 			}
 		}
 
-		// ³µÆ±×´Ì¬¼ì²é
+		// è½¦ç¥¨çŠ¶æ€æ£€æŸ¥
 		if (m_ticket_data.simple_status == SStatus_Invalid)
 		{
 			ret.wErrCode = ERR_CARD_STATUS;
@@ -417,7 +417,7 @@ RETINFO TicketSvt::analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade
 			}
 		}
 
-		// ¼ì²éÓà¶î
+		// æ£€æŸ¥ä½™é¢
 		if (m_ticket_data.wallet_value > p_ticket_prm->balance_max)
 		{
 			if (p_degrade_falgs->train_trouble)
@@ -529,7 +529,7 @@ RETINFO TicketSvt::exit_gate(PPURSETRADE p_exit,PETICKETDEALINFO p_eticketdealin
 
 	current_trade_info(*m_ticket_data.p_exit_info);
 
-	//p_exit->lTradeAmount = 1;//²âÊÔÓÃ
+	//p_exit->lTradeAmount = 1;//æµ‹è¯•ç”¨
 
 	ret = write_card(operExit, write_inf, tacType, p_exit->lTradeAmount, lSamSeq, p_exit->cMACorTAC);
 	p_exit->lSAMTrSeqNo = lSamSeq;
@@ -581,18 +581,18 @@ RETINFO TicketSvt::sale(PSJTSALE p_sjt_sale, uint16_t& len_sjt, POTHERSALE p_svt
 	m_ticket_data.init_status = MS_Sale;
 	current_trade_info(m_ticket_data.write_last_info);
 
-	// Ëø¶¨Ó¦ÓÃ
+	// é”å®šåº”ç”¨
 	m_ticket_data.app_lock_flag = 0x01;
-	// ÓĞĞ§ÆÚÆäÊµÊ±¼ä
+	// æœ‰æ•ˆæœŸå…¶å®æ—¶é—´
 	memcpy(m_ticket_data.logical_peroidS, CmdSort::m_time_now, sizeof(m_ticket_data.logical_peroidS));
 
-	// ·¢ÊÛ
+	// å‘å”®
 	m_ticket_data.globle_status = EXTERN_STATUS_SALE;
-	// ÓĞĞ§ÆÚÊ±¼ä
+	// æœ‰æ•ˆæœŸæ—¶é—´
 	m_ticket_data.effect_mins = ticket_prm.effect_time_from_sale;
-	// Ñº½ğ
+	// æŠ¼é‡‘
 	m_ticket_data.deposit = p_svt_sale->nAmount;
-	// Óà¶îÉÏÏŞ
+	// ä½™é¢ä¸Šé™
 	m_ticket_data.wallet_value_max = ticket_prm.balance_max;
 
 	ret = write_card(operSvtSale, write_inf, 0x09, 0, lSamSeq, NULL);
@@ -621,15 +621,15 @@ RETINFO TicketSvt::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station)
 
 	switch (p_update->bUpdateReasonCode)
 	{
-	case 0x01:		// ¸¶·ÑÇø³¬Ê±
+	case 0x01:		// ä»˜è´¹åŒºè¶…æ—¶
 		m_ticket_data.init_status = MS_Upd_Wzone_Time;
 		p_update->bStatus = LIFE_UPD_TM_OUT;
 		break;
-	case 0x02:		// ¸¶·ÑÇø³¬³Ë
+	case 0x02:		// ä»˜è´¹åŒºè¶…ä¹˜
 		m_ticket_data.init_status = MS_Upd_Wzone_Trip;
 		p_update->bStatus = LIFE_UPD_TP_OUT;
 		break;
-	case 0x03:		// ¸¶·ÑÇøÎŞ½øÕ¾Âë
+	case 0x03:		// ä»˜è´¹åŒºæ— è¿›ç«™ç 
 		m_ticket_data.p_entry_info->station_id = (p_entry_station[0] << 8) + p_entry_station[1];
 		m_ticket_data.init_status = MS_Upd_Wzone_Entry;
 		p_update->bStatus = LIFE_UPD_WO_STA;
@@ -642,12 +642,12 @@ RETINFO TicketSvt::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station)
 		}
 
 		break;
-	case 0x10:		// ·Ç¸¶·ÑÃâ·Ñ¸üĞÂ
+	case 0x10:		// éä»˜è´¹å…è´¹æ›´æ–°
 		m_ticket_data.init_status = MS_Upd_FZone_Free;
 		p_update->bStatus = LIFE_UPD_OUT_FREE;
 		break;
 	case 0x11:
-	case 0x12:		// ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ
+	case 0x12:		// éä»˜è´¹åŒºä»˜è´¹æ›´æ–°
 		m_ticket_data.init_status = MS_Upd_FZone_Fare;
 		p_update->bStatus = LIFE_UPD_OUT_FARE;
 		break;
@@ -664,7 +664,7 @@ RETINFO TicketSvt::bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station)
 		ret = write_card(operUpdate, write_inf, 0x09, 0, lSamSeq, NULL);
 		p_update->lSAMTrSeqNo = lSamSeq;
 
-		// ½»Ò×¼ÇÂ¼¸³Öµ
+		// äº¤æ˜“è®°å½•èµ‹å€¼
 		transfer_data_for_out(operUpdate, p_update);
 
 		if (ret.bNoticeCode == NTC_MUST_CONFIRM)
@@ -689,7 +689,7 @@ RETINFO TicketSvt::bom_refund(PDIRECTREFUND p_refund)
 	m_ticket_data.deposit -= p_refund->nDepositReturned;
 	current_trade_info(m_ticket_data.write_last_info);
 
-	m_ticket_data.globle_status = EXTERN_STATUS_RFND;	//ÒÑÍË¿î
+	m_ticket_data.globle_status = EXTERN_STATUS_RFND;	//å·²é€€æ¬¾
 
 	ret = write_card(operRefund, write_inf, tacType, p_refund->lBalanceReturned, lSamSeq, p_refund->cMACOrTAC);
 	p_refund->lSAMTrSeqNo = lSamSeq;
@@ -716,7 +716,7 @@ RETINFO TicketSvt::svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t *
 	uint8_t u_recv[32]	= {0};
 	uint16_t counter	= 0;
 	uint16_t read_ret = 0;
-	uint8_t pay_type = 0;//Ö§¸¶·½Ê½
+	uint8_t pay_type = 0;//æ”¯ä»˜æ–¹å¼
 
 	do
 	{
@@ -753,16 +753,16 @@ RETINFO TicketSvt::svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t *
 			if (read_ret == 0)
 				break;
 
-			usleep(500 * 1000);//ÕıÊ½»·¾³
+			usleep(500 * 1000);//æ­£å¼ç¯å¢ƒ
 			//usleep(5000 * 1000);
 		}
 
-		if (read_ret == 0)	// »Ø¶ÁÓà¶îÕıÈ·µÄÊ±ºòĞèÒª±È½ÏÓà¶î
+		if (read_ret == 0)	// å›è¯»ä½™é¢æ­£ç¡®çš„æ—¶å€™éœ€è¦æ¯”è¾ƒä½™é¢
 		{
 			dbg_formatvar( "wallet_value = %ld  wallet_after = %ld ", m_ticket_data.wallet_value,wallet_after);
 			//g_Record.log_out(0, level_error, "wallet_value = %ld  wallet_after = %ld ", m_ticket_data.wallet_value,wallet_after);
 
-			if (m_ticket_data.wallet_value != wallet_after)		// ÔÂ²»ÏàµÈ·µ»ØÊ§°Ü
+			if (m_ticket_data.wallet_value != wallet_after)		// æœˆä¸ç›¸ç­‰è¿”å›å¤±è´¥
 			{
 				dbg_formatvar("ERR_CARD_WRITE");
 				g_Record.log_out(0, level_error, "ERR_CARD_WRITE");
@@ -774,7 +774,7 @@ RETINFO TicketSvt::svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t *
 				char sz_mac[11] = {0};
 				if(ret.wErrCode!=0)
 				{
-					//»Ø¶ÁÓà¶îÓëÔ¤ÆÚ³äÖµºóÓà¶îÏàÍ¬£¬ÈÏÎª³äÖµ³É¹¦£¬ÖØÈ¡Ò»´ÎTAC
+					//å›è¯»ä½™é¢ä¸é¢„æœŸå……å€¼åä½™é¢ç›¸åŒï¼Œè®¤ä¸ºå……å€¼æˆåŠŸï¼Œé‡å–ä¸€æ¬¡TAC
 					counter = (uint16_t)(m_ticket_data.charge_counter) + 1;//   total_trade_counter
 					if (get_cpu_last_tac(counter, tacType, u_recv)==0)
 					{
@@ -805,7 +805,7 @@ RETINFO TicketSvt::svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t *
 				memcpy(p_purse->cMACorTAC, sz_mac, 10);
 			}
 		}
-		else	// »Ø¶ÁÓà¶î´íÎó¾ÍĞèÒªÍâ²¿ÈËÎª¸ÉÉæ£¬Ó¦·µ»Ø½»Ò×È·ÈÏ
+		else	// å›è¯»ä½™é¢é”™è¯¯å°±éœ€è¦å¤–éƒ¨äººä¸ºå¹²æ¶‰ï¼Œåº”è¿”å›äº¤æ˜“ç¡®è®¤
 		{
 			g_Record.log_out(ret.wErrCode, level_error, "after charge, svt_getbalance failed");
 			dbg_formatvar("after charge, svt_getbalance failed");
@@ -829,7 +829,7 @@ RETINFO TicketSvt::svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t
 	RETINFO ret				= {0};
 	long lSamSeq			= 0;
 	uint8_t tacType			= 0x06;
-    uint8_t pay_type[1]	= {0};//Ö§¸¶·½Ê½
+    uint8_t pay_type[1]	= {0};//æ”¯ä»˜æ–¹å¼
 
 	if (p_purse->lTradeAmount > m_ticket_data.wallet_value)
 	{
@@ -975,31 +975,31 @@ void TicketSvt::get_issue_base(uint8_t * p_issue_base)
 {
 	if (p_issue_base != NULL)
 	{
-		// ·¢¿¨·½´úÂë
+		// å‘å¡æ–¹ä»£ç 
 		Publics::bcds_to_string(p_issue_base, 2, m_ticket_data.issue_code, 4);
 
-		// ³ÇÊĞ´úÂë¡¢ĞĞÒµ´úÂë
+		// åŸå¸‚ä»£ç ã€è¡Œä¸šä»£ç 
 		Publics::bcds_to_string(p_issue_base + 2, 2, m_ticket_data.city_code, 4);
 		Publics::bcds_to_string(p_issue_base + 4, 2, m_ticket_data.industry_code, 4);
 
-		// Ó¦ÓÃ±êÊ¶
+		// åº”ç”¨æ ‡è¯†
 		m_ticket_data.key_flag = p_issue_base[6];
 
-		// Âß¼­¿¨ºÅ
+		// é€»è¾‘å¡å·
 		sprintf(m_ticket_data.logical_id, "0000%02X%02X%02X%02X%02X%02X%02X%02X",
 			p_issue_base[8], p_issue_base[9], p_issue_base[10], p_issue_base[11],
 			p_issue_base[12], p_issue_base[13], p_issue_base[14], p_issue_base[15]);
 
 		//g_Record.log_out(0, level_error, "logical_id(=%s)", m_ticket_data.logical_id);
 
-		// ¿¨ÀàĞÍ
+		// å¡ç±»å‹
 		memcpy(m_ticket_data.logical_type, p_issue_base + 16, 2);
 		memcpy(m_ticket_data.fare_type, m_ticket_data.logical_type, 2);
 
-		// ·¢ĞĞÈÕÆÚ
+		// å‘è¡Œæ—¥æœŸ
 		memcpy(m_ticket_data.date_issue, p_issue_base + 18, 4);
 
-		// ÎïÀíÓĞĞ§ÆÚ
+		// ç‰©ç†æœ‰æ•ˆæœŸ
 		memcpy(m_ticket_data.phy_peroidE, p_issue_base + 34, 4);
 	}
 }
@@ -1068,7 +1068,7 @@ void TicketSvt::get_metro(uint8_t * p_metro)
 	{
 		if (!metro_area_crc_valid(p_metro, LENM_METRO))
 		{
-			memset(p_metro + 3, 0, LENM_METRO - 3);		// Ç°3×Ö½Ú²»ÄÜ±ä¶¯
+			memset(p_metro + 3, 0, LENM_METRO - 3);		// å‰3å­—èŠ‚ä¸èƒ½å˜åŠ¨
 			p_metro[4] = (uint8_t)(MS_Sale << 3);
 		}
 
@@ -1121,7 +1121,7 @@ void TicketSvt::get_ctrl_record(uint8_t * p_ctrl_record)
 
 void TicketSvt::get_app_ctrl(uint8_t * p_app_ctrl)
 {
-	// ÓÉÓÚÉæ¼°ÓĞĞ§ÆÚ£¬µ÷ÓÃ±¾º¯Êı±ØĞëÔÚµ÷ÓÃget_ctrl_recordºóÃæ
+	// ç”±äºæ¶‰åŠæœ‰æ•ˆæœŸï¼Œè°ƒç”¨æœ¬å‡½æ•°å¿…é¡»åœ¨è°ƒç”¨get_ctrl_recordåé¢
 	if (p_app_ctrl != NULL)
 	{
 		m_ticket_data.globle_status = p_app_ctrl[0];
@@ -1137,7 +1137,7 @@ void TicketSvt::get_app_ctrl(uint8_t * p_app_ctrl)
 		memcpy(m_ticket_data.limit_entry_station, p_app_ctrl + 15, 2);
 		memcpy(m_ticket_data.limit_exit_station, p_app_ctrl + 17, 2);
 
-		// Î´Ëø¶¨±íÊ¾Î´·¢ÊÛ»òÕß¶àÈÕÆ±Î´¼¤»î£¬ÓĞĞ§ÆÚÉĞÎ´¿ªÊ¼
+		// æœªé”å®šè¡¨ç¤ºæœªå‘å”®æˆ–è€…å¤šæ—¥ç¥¨æœªæ¿€æ´»ï¼Œæœ‰æ•ˆæœŸå°šæœªå¼€å§‹
 		if (m_ticket_data.app_lock_flag == 0)
 		{
 			memset(m_ticket_data.logical_peroidS, 0x00, 7);
@@ -1173,7 +1173,7 @@ RETINFO TicketSvt::write_card(ETYTKOPER operType, METRO_CPU_INF write_inf, uint8
 	{
 		ret.wErrCode = ERR_CARD_WRITE;
 
-		// PINĞ£Ñé£¬Ìæ»»Ñ¡ÔñADF1
+		// PINæ ¡éªŒï¼Œæ›¿æ¢é€‰æ‹©ADF1
 		if (mtr_cpu_pin_check() != 0)
 		{
 			ret.wErrCode = ERR_CARD_READ;
@@ -1335,7 +1335,7 @@ uint16_t TicketSvt::set_app_ctrl(uint8_t * p_app_ctrl)
 	return 0;
 }
 
-// ½«×´Ì¬¸ñÊ½»¯Îª¼ò»¯×´Ì¬
+// å°†çŠ¶æ€æ ¼å¼åŒ–ä¸ºç®€åŒ–çŠ¶æ€
 SimpleStatus TicketSvt::get_simple_status(uint8_t init_status)
 {
 	SimpleStatus ret = SStatus_Invalid;
@@ -1433,10 +1433,10 @@ bool TicketSvt::format_history(uint8_t * p_his_buffer, HSSVT& his)
 	char szSam[32]		= {0};
 	char szTerminal[32] = {0};
 
-	// ½»Ò×Ê±¼ä£¨BCDÂë)
+	// äº¤æ˜“æ—¶é—´ï¼ˆBCDç )
 	memcpy(his.dtDate, p_his_buffer + 16, sizeof(his.dtDate));
 
-	// Æ±¿¨ÉúÃüÖÜÆÚË÷Òı,¾ßÌå¶¨Òå¼û¸½Â¼Îå
+	// ç¥¨å¡ç”Ÿå‘½å‘¨æœŸç´¢å¼•,å…·ä½“å®šä¹‰è§é™„å½•äº”
 	if (p_his_buffer[9] == 0x02)
 		his.bStatus = LIFE_CHARGE;
 	else if (p_his_buffer[9] == 0x06)
@@ -1444,15 +1444,15 @@ bool TicketSvt::format_history(uint8_t * p_his_buffer, HSSVT& his)
 	else
 		his.bStatus = LIFE_CONSUME_COMPOUND;
 
-	// ½»Ò×½ğ¶î,µ¥Î»·Ö
+	// äº¤æ˜“é‡‘é¢,å•ä½åˆ†
 	his.lTradeAmount = (p_his_buffer[5] << 24) + (p_his_buffer[6] << 16) + (p_his_buffer[7] << 8) + p_his_buffer[8];
 
-	// samÖÕ¶Ëid
+	// samç»ˆç«¯id
 	sprintf(szTerminal, "0000%02X%02X%02X%02X%02X%02X",
 		p_his_buffer[10], p_his_buffer[11], p_his_buffer[12], p_his_buffer[13], p_his_buffer[14], p_his_buffer[15]);
 	memcpy(his.cSAMID, szTerminal, sizeof(his.cSAMID));
 
-	// sam¿¨ºÅ
+	// samå¡å·
 	sprintf(szSam, "%02X%02X0003%02X%02X%02X%02X",
 		p_his_buffer[10], p_his_buffer[11], p_his_buffer[12], p_his_buffer[13], p_his_buffer[14], p_his_buffer[15]);
 
@@ -1586,7 +1586,7 @@ RETINFO TicketSvt::set_complex_file(uint8_t tac_type, long lAmount, uint8_t * p_
 		SAM_SOCK_1, m_ReadInf.p_issue_base + 8, lAmount, u_count, u_rid, u_lock, u_send, (unsigned char *)p_recv);
 	if (ret.wErrCode != 0)
 	{
-		if (ret.wErrCode == 4)	// Ïû·Ñ²¢²úÉúTACÊ±³ö´í
+		if (ret.wErrCode == 4)	// æ¶ˆè´¹å¹¶äº§ç”ŸTACæ—¶å‡ºé”™
 			ret.bNoticeCode = NTC_MUST_CONFIRM;
 		ret.wErrCode = ERR_CARD_WRITE;
 	}
@@ -1636,7 +1636,7 @@ void TicketSvt::save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_
 		TicketBase::save_last_stack(operType, p_trade, size_trade, &written_info, sizeof(written_info), save_to_file);
 	}
 }
-//Ä¬ÈÏfalse²»ĞèÒª trueĞèÒª½»Ò×È·ÈÏ
+//é»˜è®¤falseä¸éœ€è¦ trueéœ€è¦äº¤æ˜“ç¡®è®¤
 bool TicketSvt::last_trade_need_continue(uint8_t status_targ, uint16_t err_targ, uint16_t err_src)
 {
 	bool ret = false;
@@ -1658,19 +1658,19 @@ bool TicketSvt::last_trade_need_continue(uint8_t status_targ, uint16_t err_targ,
 		p_old_write->flag_metro,
 		p_old_write->flag_ctrl_record);
 
-		// ½»Ò×¸¨Öú±ê¼ÇÎª£¬´óÓÚ0£¬¸´ÖÆ
+		// äº¤æ˜“è¾…åŠ©æ ‡è®°ä¸ºï¼Œå¤§äº0ï¼Œå¤åˆ¶
 		if (p_old_write->flag_trade_assist > 0)
 		{
 			if (memcmp(p_old_write->w_trade_assist, m_ReadInf.p_trade_assist, LENM_TRADE_ASSIST) != 0)
 				break;
 		}
-		//µØÌú½»Ò×Êı¾İ±êÖ¾Î»´óÓÚ0£¬¸´ÖÆ
+		//åœ°é“äº¤æ˜“æ•°æ®æ ‡å¿—ä½å¤§äº0ï¼Œå¤åˆ¶
 		if (p_old_write->flag_metro > 0)
 		{
 			if (memcmp(p_old_write->w_metro, m_ReadInf.p_metro, LENM_METRO) != 0)
 				break;
 		}
-		//ÅĞ¶ÏÓ¦ÓÃ¸¨Öú±êÖ¾Î»´óÓÚ0  ¸´ÖÆ
+		//åˆ¤æ–­åº”ç”¨è¾…åŠ©æ ‡å¿—ä½å¤§äº0  å¤åˆ¶
 		if (p_old_write->flag_ctrl_record > 0)
 		{
 			if (memcmp(p_old_write->w_ctrl_record, m_ReadInf.p_ctrl_record, LENM_CTRL_RECORD) != 0)
@@ -1681,7 +1681,7 @@ bool TicketSvt::last_trade_need_continue(uint8_t status_targ, uint16_t err_targ,
 		"cfm_point.balance:%x | m_ticket_data.wallet_value=%x",
 		cfm_point.balance,
 		m_ticket_data.wallet_value);
-		//ÅĞ¶ÏÇ®°üÓà¶î
+		//åˆ¤æ–­é’±åŒ…ä½™é¢
 		if (cfm_point.balance != m_ticket_data.wallet_value)
 			break;
 
@@ -1692,7 +1692,7 @@ bool TicketSvt::last_trade_need_continue(uint8_t status_targ, uint16_t err_targ,
 		m_ticket_data.total_trade_counter,
 		cfm_point.consume_counter);
 
-		//ÅĞ¶Ï³äÖµ¼ÆÊı ÒÔ¼°×Ü½»Ò×¼ÆÊıºÍÏû·Ñ¼ÆÊı
+		//åˆ¤æ–­å……å€¼è®¡æ•° ä»¥åŠæ€»äº¤æ˜“è®¡æ•°å’Œæ¶ˆè´¹è®¡æ•°
 		if (cfm_point.operType == operIncr)
 		{
 			if (m_ticket_data.charge_counter != cfm_point.charge_counter + 1 ||	cfm_point.consume_counter != m_ticket_data.total_trade_counter)
@@ -1736,7 +1736,7 @@ RETINFO TicketSvt::continue_last_trade(void * p_trade)
 			counter = (uint16_t)(m_ticket_data.total_trade_counter);
 		}
 
-		// ÒªÓÃ±¾´ÎµÄ½»Ò×¼ÆÊı
+		// è¦ç”¨æœ¬æ¬¡çš„äº¤æ˜“è®¡æ•°
 		if (get_cpu_last_tac(counter, factor.tac_type, u_recv) != 0)
 		{
 			ret.wErrCode = ERR_CARD_WRITE;
@@ -1801,7 +1801,7 @@ uint16_t TicketSvt::read_wallet(long * p_wallet)
 			break;
 		}
 
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3F00) < 0)
 		{
 			//dbg_formatvar("svt_selectfile_error");
@@ -1810,7 +1810,7 @@ uint16_t TicketSvt::read_wallet(long * p_wallet)
 			break;
 		}
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		if (svt_readbinary(0x05, 0, LENM_ISSUE_BASE, tmp) < 0)
 		{
 			//dbg_formatvar("svt_readbinary_error");
@@ -1819,7 +1819,7 @@ uint16_t TicketSvt::read_wallet(long * p_wallet)
 			break;
 		}
 
-		// Ñ¡ÔñADF1
+		// é€‰æ‹©ADF1
 		if (svt_selectfile(0x1001) < 0)
 		{
 			if (svt_selecfileaid(9, (unsigned char *)"\xA0\x00\x00\x00\x03\x86\x98\x07\x01") < 0)

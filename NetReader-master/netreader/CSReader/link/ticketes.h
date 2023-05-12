@@ -7,43 +7,43 @@
 #pragma pack(push, 1)
 
 //
-///////////// ESÏà¹Ø½á¹¹ /////////////
+///////////// ESç›¸å…³ç»“æ„ /////////////
 //
-//ES·ÖÎö
+//ESåˆ†æ
 typedef struct ES_ANALYZE {
-	uint8_t		bIssueStatus;				// ·¢ĞĞ×´Ì¬ 0 ¨CÎ´·¢ĞĞ;1 ¨CÒÑ·¢ĞĞ;2 ¨C ×¢Ïú
-	uint8_t		bStatus;					// Æ±¿¨×´Ì¬ £­ ÒÔ¸½Â¼5¡°³µÆ±×´Ì¬¡±Îª×¼
-	char		cTicketType[4];				// Æ±¿¨ÀàĞÍ
-	char		cLogicalID[20];				// Æ±¿¨Âß¼­¿¨ºÅ
-	char		cPhysicalID[20];			// Æ±¿¨ÎïÀí¿¨ºÅ
-	uint8_t		bCharacter;					// Æ±¿¨ÎïÀíÀàĞÍ 1£ºOCT£»2£º020£»3£º080£»4£ºUL£»5£ºFM£»F:ÆäËû
-	char		cIssueDate[14];				// ÖÆÆ±ÈÕÆÚÊ±¼äÈÕÆÚÊ±¼ä
-	//char		cStartExpire[8];			// ÎïÀí¿ªÊ¼ÓĞĞ§ÆÚ, YYYYMMDDHHMMSS£¬
-	//char		cEndExpire[8];			    // ÎïÀí½áÊøÓĞĞ§ÆÚ, YYYYMMDDHHMMSS£¬ 
-	char		cExpire[8];					// ÎïÀíÓĞĞ§ÆÚ, YYYYMMDDHHMMSS£¬
-	char		RFU[16];					// E/S SAMÂß¼­¿¨ºÅ, Ä¬ÈÏÖµ:¡¯0000000000¡¯
-	long		lBalance;					// Óà¶î, µ¥Î»Îª·Ö/´Î(Ä¬ÈÏÎª0)
-	long 		lDeposite;					// Ñº½ğ
+	uint8_t		bIssueStatus;				// å‘è¡ŒçŠ¶æ€ 0 â€“æœªå‘è¡Œ;1 â€“å·²å‘è¡Œ;2 â€“ æ³¨é”€
+	uint8_t		bStatus;					// ç¥¨å¡çŠ¶æ€ ï¼ ä»¥é™„å½•5â€œè½¦ç¥¨çŠ¶æ€â€ä¸ºå‡†
+	char		cTicketType[4];				// ç¥¨å¡ç±»å‹
+	char		cLogicalID[20];				// ç¥¨å¡é€»è¾‘å¡å·
+	char		cPhysicalID[20];			// ç¥¨å¡ç‰©ç†å¡å·
+	uint8_t		bCharacter;					// ç¥¨å¡ç‰©ç†ç±»å‹ 1ï¼šOCTï¼›2ï¼š020ï¼›3ï¼š080ï¼›4ï¼šULï¼›5ï¼šFMï¼›F:å…¶ä»–
+	char		cIssueDate[14];				// åˆ¶ç¥¨æ—¥æœŸæ—¶é—´æ—¥æœŸæ—¶é—´
+	//char		cStartExpire[8];			// ç‰©ç†å¼€å§‹æœ‰æ•ˆæœŸ, YYYYMMDDHHMMSSï¼Œ
+	//char		cEndExpire[8];			    // ç‰©ç†ç»“æŸæœ‰æ•ˆæœŸ, YYYYMMDDHHMMSSï¼Œ 
+	char		cExpire[8];					// ç‰©ç†æœ‰æ•ˆæœŸ, YYYYMMDDHHMMSSï¼Œ
+	char		RFU[16];					// E/S SAMé€»è¾‘å¡å·, é»˜è®¤å€¼:â€™0000000000â€™
+	long		lBalance;					// ä½™é¢, å•ä½ä¸ºåˆ†/æ¬¡(é»˜è®¤ä¸º0)
+	long 		lDeposite;					// æŠ¼é‡‘
 	char		cLine[2];
 	char		cStationNo[2];
-	char		cDateStart[8];				// Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä
-	char		cDateEnd[8];				// Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä
-	uint8_t		dtDaliyActive[7];			// ¶àÈÕÆ±¼¤»îÊ±¼ä
-	uint16_t		bEffectDay;					// ¶àÈÕÆ±ÓĞĞ§ÌìÊı
-	char		cLimitEntryLine[2];			// ÏŞÖÆ½øÕ¾ÏßÂ·
-	char		cLimitEntryStation[2];		// ÏŞÖÆ½øÕ¾Õ¾µã
-	char		cLimitExitLine[2];			// ÏŞÖÆ³öÕ¾ÏßÂ·
-	char		cLimitExitStation[2];		// ÏŞÖÆ³öÕ¾Õ¾µã
-	char		cLimitMode[3];			    // ÏŞÖÆÄ£Ê½
+	char		cDateStart[8];				// é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´
+	char		cDateEnd[8];				// é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´
+	uint8_t		dtDaliyActive[7];			// å¤šæ—¥ç¥¨æ¿€æ´»æ—¶é—´
+	uint16_t		bEffectDay;					// å¤šæ—¥ç¥¨æœ‰æ•ˆå¤©æ•°
+	char		cLimitEntryLine[2];			// é™åˆ¶è¿›ç«™çº¿è·¯
+	char		cLimitEntryStation[2];		// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	char		cLimitExitLine[2];			// é™åˆ¶å‡ºç«™çº¿è·¯
+	char		cLimitExitStation[2];		// é™åˆ¶å‡ºç«™ç«™ç‚¹
+	char		cLimitMode[3];			    // é™åˆ¶æ¨¡å¼
 
-	uint8_t			certificate_iscompany;  //00-¸öÈË¿¨, 01-µ¥Î»¿¨
-	uint8_t			certificate_ismetro;  //µØÌúµ¥Î»¿¨
-	char			certificate_name[20];	// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char			certificate_code[32];	// Ö¤¼ş´úÂë
-	uint8_t			certificate_type;		// Ö¤¼şÀàĞÍ
-	uint8_t			certificate_sex;		// Ö¤¼şÀàĞÍ
+	uint8_t			certificate_iscompany;  //00-ä¸ªäººå¡, 01-å•ä½å¡
+	uint8_t			certificate_ismetro;  //åœ°é“å•ä½å¡
+	char			certificate_name[20];	// è¯ä»¶æŒæœ‰äººå§“å
+	char			certificate_code[32];	// è¯ä»¶ä»£ç 
+	uint8_t			certificate_type;		// è¯ä»¶ç±»å‹
+	uint8_t			certificate_sex;		// è¯ä»¶ç±»å‹
 
-	uint16_t		trade_count;		// ½»Ò×¼ÆÊı£¬add by shiyulong in 2013-10-14
+	uint16_t		trade_count;		// äº¤æ˜“è®¡æ•°ï¼Œadd by shiyulong in 2013-10-14
 
 	// add by shiyulong on 2016-02-19
 

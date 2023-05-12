@@ -8,41 +8,41 @@ public:
     DataSecurity(void);
 
 
-    // ¼ÆËãCrc
+    // è®¡ç®—Crc
     static uint16_t Crc16(uint8_t * lpData, uint16_t nLen);
 
-    // ¼ÆËãCRC32
+    // è®¡ç®—CRC32
     static uint32_t Crc32(uint8_t * pSrcData, uint32_t nLenData);
 
-    // ¼ÆËãCRC32µÄ·´£¬Ö÷ÒªÓÃÓÚĞ£ÑéÎÄ¼ş£¬±ß¶ÁÎÄ¼ş±ß¼ÆËã
+    // è®¡ç®—CRC32çš„åï¼Œä¸»è¦ç”¨äºæ ¡éªŒæ–‡ä»¶ï¼Œè¾¹è¯»æ–‡ä»¶è¾¹è®¡ç®—
     static uint32_t Crc32Reverse(uint32_t dwInitCrc, uint8_t * pSrcData, uint32_t nLenData);
 
-    // Ğ£ÑéCRC32
+    // æ ¡éªŒCRC32
     static bool CheckCrc32(uint8_t * pSrcData, uint32_t nLenData, uint8_t * pCrcTarg);
 
-	// Ğ£ÑéCRC32
+	// æ ¡éªŒCRC32
 	static bool CheckCrc16(uint8_t * pSrcData, uint16_t nLenData, uint8_t * pCrcTarg);
 
-    // ¼ÆËãÕû¸öÎÄ¼şÄÚÈİµÄCRC32Ğ£Ñé
+    // è®¡ç®—æ•´ä¸ªæ–‡ä»¶å†…å®¹çš„CRC32æ ¡éªŒ
     static uint32_t crc32_of_file(char * p_path_file);
 
-    // ÎÄ¼şÄ©Î²
+    // æ–‡ä»¶æœ«å°¾
     static bool crc32_in_file_end_valid(const char * p_path_file);
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    // 3DESËã·¨Ïà¹Øº¯Êı
-    // 64bitÊı¾İµ½64uint8_tÊı¾İ
+    // 3DESç®—æ³•ç›¸å…³å‡½æ•°
+    // 64bitæ•°æ®åˆ°64uint8_tæ•°æ®
     static void _64_Bit2Bytes(uint8_t * pBits64, uint8_t * puint8_t64);
 
-    // Êı¾İ·ÖÉ¢±ä»¯£¬²»±£ÁôÔ­Ê¼Êı¾İ
+    // æ•°æ®åˆ†æ•£å˜åŒ–ï¼Œä¸ä¿ç•™åŸå§‹æ•°æ®
     static void _Disperse(uint8_t * pBuffer, const uint8_t pRule[], int nLen);
 
-    // Êı¾İ·ÖÉ¢±ä»¯£¬±£ÁôÔ­Ê¼Êı¾İ
+    // æ•°æ®åˆ†æ•£å˜åŒ–ï¼Œä¿ç•™åŸå§‹æ•°æ®
     static void _Disperse(uint8_t * pTarg, uint8_t * pSrc, const uint8_t pRule[], int nLen);
 
     // 3DES
     static void _TripleDes(uint8_t * pDataSrc, uint8_t * pInitKey, bool flag);
 
-    // ¶Ô³¤¶ÈÊÇ8±¶ÊıµÄÊı¾İ½øĞĞ¶à´Î3DES
+    // å¯¹é•¿åº¦æ˜¯8å€æ•°çš„æ•°æ®è¿›è¡Œå¤šæ¬¡3DES
     static void _TripleDesEx(uint8_t * pData, int nLenData, uint8_t * pKey, uint8_t * pFactor, uint8_t * pMac);
 
 	static void _TripleDesMore(uint8_t * pDataSrc, uint8_t * pInitKey, bool flag, int len, uint8_t * pOutSrc);

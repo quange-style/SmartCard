@@ -16,10 +16,10 @@ RETINFO TicketElectBase::bom_elect_update(PETICKET_ABNORML_HANDLE p_update, uint
     long sam_seq=0;
 
     int type=p_update->trad_type[1];
-    type -= 48;//×ªbcd
+    type -= 48;//è½¬bcd
 
     operType = convertType(type);
-    //Èç¹ûÊÇµ¥³ÌÆ±£¬½«·£¿îÀàĞÍ¹éÀàµ½²¹Æ±ÀàĞÍÖĞ
+    //å¦‚æœæ˜¯å•ç¨‹ç¥¨ï¼Œå°†ç½šæ¬¾ç±»å‹å½’ç±»åˆ°è¡¥ç¥¨ç±»å‹ä¸­
     if(getCurrentTicketType()==ELECT_TICKET_SJ&&operType==operPenaltyRes){
         operType=operAddTicketResult;
     }
@@ -36,21 +36,21 @@ RETINFO TicketElectBase::bom_elect_update(PETICKET_ABNORML_HANDLE p_update, uint
     }
 
     g_Record.log_out(0, level_disaster, "operType=%d", operType);
-    //Ìí¼Ó¸üĞÂ½»Ò×ÖĞµÄ¸üĞÂ½»Ò×
+    //æ·»åŠ æ›´æ–°äº¤æ˜“ä¸­çš„æ›´æ–°äº¤æ˜“
     m_ticket_data.qr_ticketdata.TxnAmount= p_update->amount_over_take+p_update->amount_timeout;
-    //´Ó²»Í¬µÄÀàĞÍÖĞÅĞ¶ÏÖĞ»ñÈ¡p_eTicket_info Öµ
+    //ä»ä¸åŒçš„ç±»å‹ä¸­åˆ¤æ–­ä¸­è·å–p_eTicket_info å€¼
     m_ticket_data.qr_ticketdata.lPenalty2 = p_update->amount_over_take;
     getDealData(operType, len_data, dataBack,p_update->amount_timeout);
     if(p_update->net_result[0]!='0'){
         ret = write_card(operType, dataBack, len_data, 0x09, 0, sam_seq, NULL);
-        //TODO:Á½´Î»ØĞ´À¶ÑÀ£¬¿ÉÄÜ³¬¹ıÉÏÎ»»ú¶¨µÄ£¬Ö»ÔÚBOMÖĞ»ØĞ´2´Î
-        //FIXME:ÊÇ·ñÌØ¶¨Òì³£²ÅĞèÒª»ØĞ´Á½´Î
+        //TODO:ä¸¤æ¬¡å›å†™è“ç‰™ï¼Œå¯èƒ½è¶…è¿‡ä¸Šä½æœºå®šçš„ï¼Œåªåœ¨BOMä¸­å›å†™2æ¬¡
+        //FIXME:æ˜¯å¦ç‰¹å®šå¼‚å¸¸æ‰éœ€è¦å›å†™ä¸¤æ¬¡
         if(ret.wErrCode !=ERR_SUCCEED){
             ret = write_card(operType, dataBack, len_data, 0x09, 0, sam_seq, NULL);
         }
         g_Record.log_out(0, level_disaster, "ret=%d", ret);
     }else{
-        //TODO:¶ªµ½Ïß³ÌÖĞÈ¥»ØĞ´£¿
+        //TODO:ä¸¢åˆ°çº¿ç¨‹ä¸­å»å›å†™ï¼Ÿ
         Extra::ble_seq_add(operType,m_ticket_data.qr_passcode, dataBack, len_data);
     }
     return ret;
@@ -68,8 +68,8 @@ RETINFO TicketElectBase::write_card(ETYTKOPER operType, uint8_t * p_eTicket_info
     do
     {
         result = ble::ble_all_oper(operType,m_ticket_data.qr_passcode, p_eTicket_info, length);
-        //TODO:Á½´Î»ØĞ´À¶ÑÀ£¬¿ÉÄÜ³¬¹ıÉÏÎ»»ú¶¨µÄ3s£¬
-        //FIXME:ÊÇ·ñÌØ¶¨Òì³£²ÅĞèÒª»ØĞ´Á½´Î
+        //TODO:ä¸¤æ¬¡å›å†™è“ç‰™ï¼Œå¯èƒ½è¶…è¿‡ä¸Šä½æœºå®šçš„3sï¼Œ
+        //FIXME:æ˜¯å¦ç‰¹å®šå¼‚å¸¸æ‰éœ€è¦å›å†™ä¸¤æ¬¡
         //if(result!=0){
           //  result = ble::ble_all_oper(operType,m_ticket_data.qr_passcode, p_eTicket_info, length);
         //}
@@ -161,7 +161,7 @@ void TicketElectBase::getQRHeadInfo(uint8_t *p_grInfo){
     uint8_t ttemp = 0x00;
 
     ttemp = p_grInfo[0];
-    int flag = (int)(ttemp);//Æ»¹ûÎª1  °²×¿Îª2
+    int flag = (int)(ttemp);//è‹¹æœä¸º1  å®‰å“ä¸º2
 
     Api::sysFlag = flag%2;
 
@@ -172,7 +172,7 @@ void TicketElectBase::getQRHeadInfo(uint8_t *p_grInfo){
         g_Record.log_out(0, level_disaster, "ios");
     }
     m_ticket_data.qr_ticker_isTest = p_grInfo[3];
-    m_ticket_data.qr_Intnet_ststus = p_grInfo[13];//ÒÆ¶¯ÍøÂç×´Ì¬±êÊ¶
+    m_ticket_data.qr_Intnet_ststus = p_grInfo[13];//ç§»åŠ¨ç½‘ç»œçŠ¶æ€æ ‡è¯†
     m_ticket_data.qr_ticket_status = p_grInfo[14];
     g_Record.log_out(0, level_error,"get_qrInfo(qr_ticket_status=%c)", m_ticket_data.qr_ticket_status);
     g_Record.log_out(0, level_disaster,"qr_net = %c", m_ticket_data.qr_Intnet_ststus);
@@ -217,18 +217,18 @@ RETINFO TicketElectBase::analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, 
                 }
             }
             break;
-        //ÒÑ¾­½øÕ¾£ºÒÑ¾­ÓĞ½øÕ¾ÂëÁË
-        case SStatus_Entry://1£¬¼ì²é½ô¼±Ä£Ê½
+        //å·²ç»è¿›ç«™ï¼šå·²ç»æœ‰è¿›ç«™ç äº†
+        case SStatus_Entry://1ï¼Œæ£€æŸ¥ç´§æ€¥æ¨¡å¼
             if (p_degrade_falgs->entry_by_emergency)
             {
                 ret.wErrCode = 0;
                 entry_mode = (char)(0x30 + degrade_Green_Light);
                 break;
             }
-            //2£¬²éÑ¯×îµÍÆ±¼Û
+            //2ï¼ŒæŸ¥è¯¢æœ€ä½ç¥¨ä»·
             ret.wErrCode = g_Parameter.query_lowest_fare(CmdSort::m_time_now, m_ticket_data.fare_type,lowest_val);
             if (ret.wErrCode)	break;
-            //3£¬ÅĞ¶Ï½øÕ¾Õ¾µãÒÔ¼°½øÕ¾Ê±¼ä
+            //3ï¼Œåˆ¤æ–­è¿›ç«™ç«™ç‚¹ä»¥åŠè¿›ç«™æ—¶é—´
             Publics::string_to_bcds(m_ticket_data.qr_ticketdata.validOutTime, 14, validOutTime, 7);
             Publics::string_to_bcds(m_ticket_data.qr_ticketdata.entryTime, 14, EntryTime, 7);
             for (int i = 0; i < 4; i++)
@@ -237,18 +237,18 @@ RETINFO TicketElectBase::analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, 
             }
             g_Record.log_out(0, level_disaster, "analyse_free_zone:[EntryTime = %02x%02x%02x%02x%02x%02x%02x StartStation = %x]", EntryTime[0], EntryTime[1], EntryTime[2], EntryTime[3], EntryTime[4], EntryTime[5], EntryTime[6], StartStation);
 
-            if (!station_is_current(StartStation))// ·Ç±¾Õ¾½øÕ¾
+            if (!station_is_current(StartStation))// éæœ¬ç«™è¿›ç«™
             {
                 ret.wErrCode = ERR_ENTRY_STATION;
                 if(getCurrentTicketType()!=ELECT_TICKET_SJ){
                     penalty_val_need = lowest_val;
                 }
-            }else if(TimesEx::timeout(CmdSort::m_time_now, EntryTime, 20)){//½øÕ¾³¬Ê±20·ÖÖÓ
+            }else if(TimesEx::timeout(CmdSort::m_time_now, EntryTime, 20)){//è¿›ç«™è¶…æ—¶20åˆ†é’Ÿ
                 ret.wErrCode = ERR_ENTRY_TIMEOUT;
                 if(getCurrentTicketType()!=ELECT_TICKET_SJ){
                     penalty_val_need = lowest_val;
                 }
-            }else// ÓĞ½øÕ¾Âë
+            }else// æœ‰è¿›ç«™ç 
             {
                 ret.wErrCode = ERR_ENTRY_EVER;
             }
@@ -260,19 +260,19 @@ RETINFO TicketElectBase::analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, 
                     break;
                 }
             }
-            //4,¸³Öµ·£¿î½ğ¶î
+            //4,èµ‹å€¼ç½šæ¬¾é‡‘é¢
             if (p_eticanalyse != NULL)
             {
-                memcpy(p_eticanalyse->cPenaltyType,"01",2);//todo ·Ç±¾Õ¾½øÕ¾·£¿î×´Ì¬Âë·µ»ØÎ´Öª
+                memcpy(p_eticanalyse->cPenaltyType,"01",2);//todo éæœ¬ç«™è¿›ç«™ç½šæ¬¾çŠ¶æ€ç è¿”å›æœªçŸ¥
                 p_eticanalyse->lPenalty1=penalty_val_need;
             }
             break;
-        case SStatus_Exit://Ã»ÓĞ½øÕ¾£¬»òÕßÒÑ¾­³öÕ¾  Õı³££¬²»ĞèÒª¸üĞÂ
-            // if (station_is_current(m_ticket_data.p_exit_info->station_id))//ÒÑ¾­³öÕ¾£¬ÅĞ¶Ï³öÕ¾Õ¾µã
+        case SStatus_Exit://æ²¡æœ‰è¿›ç«™ï¼Œæˆ–è€…å·²ç»å‡ºç«™  æ­£å¸¸ï¼Œä¸éœ€è¦æ›´æ–°
+            // if (station_is_current(m_ticket_data.p_exit_info->station_id))//å·²ç»å‡ºç«™ï¼Œåˆ¤æ–­å‡ºç«™ç«™ç‚¹
             // {
-            //     ret.wErrCode = ERR_EXIT_ALREADY;//±¾Õ¾³öÕ¾
+            //     ret.wErrCode = ERR_EXIT_ALREADY;//æœ¬ç«™å‡ºç«™
             // }else{
-            //     ret.wErrCode = ERR_EXIT_OTHER;//ÆäËûÕ¾³öÕ¾
+            //     ret.wErrCode = ERR_EXIT_OTHER;//å…¶ä»–ç«™å‡ºç«™
             // }
             //
             if(Api::current_device_type==4||Api::current_device_type==6){
@@ -280,7 +280,7 @@ RETINFO TicketElectBase::analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, 
             }
             break;
         case SStatus_Invalid:
-        default://¶ÔÓÚ½ûÖ¹Ê¹ÓÃÒÔ¼°È¡Æ±³É¹¦µÄ×´Ì¬£¬·ÖÎöÊ±±¨Æ±¿¨×´Ì¬Òì³£
+        default://å¯¹äºç¦æ­¢ä½¿ç”¨ä»¥åŠå–ç¥¨æˆåŠŸçš„çŠ¶æ€ï¼Œåˆ†ææ—¶æŠ¥ç¥¨å¡çŠ¶æ€å¼‚å¸¸
         ret.wErrCode = ERR_ETICKET_UNKNOEWN_STATUS;
             break;
     }
@@ -318,12 +318,12 @@ void TicketElectBase::getDealData(ETYTKOPER operType,uint16_t& len_data,uint8_t 
 
 RETINFO TicketElectBase::check_online(ETYTKOPER operType,PETICKETAUTHINFO p_eticketauthinfo){
     RETINFO ret				= {0};
-    //Ë«Áª»ú·½°¸£¬½øÕ¢½Ó¿Ú²»Ö´ĞĞÀ¶ÑÀ²Ù×÷
-    memcpy(Api::cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ÖĞĞÄÆ±ºÅ
-    memcpy(Api::m_tdeticket.centerCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ÖĞĞÄÆ±ºÅ
-    memcpy(Api::m_tdeticket.cardLogicNo, m_ticket_data.qr_ticketdata.cardNo, 20);//Âß¼­¿¨ºÅ
-    memcpy(Api::m_tdeticket.subType, m_ticket_data.qr_ticketdata.subType, 2);//×ÓÀàĞÍ
-    memcpy(Api::m_tdeticket.qr_readbuf, Api::qr_readbuf, 512);//ÉÏ´Î½»Ò×µÄÊı¾İ
+    //åŒè”æœºæ–¹æ¡ˆï¼Œè¿›é—¸æ¥å£ä¸æ‰§è¡Œè“ç‰™æ“ä½œ
+    memcpy(Api::cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ä¸­å¿ƒç¥¨å·
+    memcpy(Api::m_tdeticket.centerCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ä¸­å¿ƒç¥¨å·
+    memcpy(Api::m_tdeticket.cardLogicNo, m_ticket_data.qr_ticketdata.cardNo, 20);//é€»è¾‘å¡å·
+    memcpy(Api::m_tdeticket.subType, m_ticket_data.qr_ticketdata.subType, 2);//å­ç±»å‹
+    memcpy(Api::m_tdeticket.qr_readbuf, Api::qr_readbuf, 512);//ä¸Šæ¬¡äº¤æ˜“çš„æ•°æ®
 
     if(operType == operEntry)
     {
@@ -348,11 +348,11 @@ RETINFO TicketElectBase::EPayData(PETICKETPAYDEALINFO p_purse, uint8_t* p_time, 
     RETINFO ret = { 0 };
     char logical_type[4] = { 0 };
 
-    memcpy(p_purse->cPayType, paytype, 2);                   //½»Ò×ÀàĞÍ
-    Publics::bcds_to_string(p_time, 7, p_purse->cTxnTms, 14);//½»Ò×Ê±¼ä
+    memcpy(p_purse->cPayType, paytype, 2);                   //äº¤æ˜“ç±»å‹
+    Publics::bcds_to_string(p_time, 7, p_purse->cTxnTms, 14);//äº¤æ˜“æ—¶é—´
     Publics::bcds_to_string(m_ticket_data.logical_type, 2, logical_type, 4);
-    memcpy(p_purse->cTicketMainType, logical_type, 2);//Ö÷ÀàĞÍ
-    memcpy(p_purse->cTicketSubType, logical_type + 2, 2);//×ÓÀàĞÍ
+    memcpy(p_purse->cTicketMainType, logical_type, 2);//ä¸»ç±»å‹
+    memcpy(p_purse->cTicketSubType, logical_type + 2, 2);//å­ç±»å‹
     if (paytype[1] != 0)
     {
         transfer_edata_for_out(operEIncr, p_purse);

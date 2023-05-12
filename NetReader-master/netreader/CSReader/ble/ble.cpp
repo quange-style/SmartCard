@@ -21,10 +21,10 @@ ble::ble(void)
 }
 
 
-//½øÕ¾/³öÕ¾
+//è¿›ç«™/å‡ºç«™
 string ble::ble_getDealJson(ETYTKOPER operType,uint16_t& len_data)
 {
-	Json::Value json_temp;      // ÁÙÊ±¶ÔÏó£¬¹©ÈçÏÂ´úÂëÊ¹ÓÃ
+	Json::Value json_temp;      // ä¸´æ—¶å¯¹è±¡ï¼Œä¾›å¦‚ä¸‹ä»£ç ä½¿ç”¨
 	char StationCode[2] = {0};
 	char LineCode[2] = {0};
 	char DeviceType[2] = {0};
@@ -44,49 +44,49 @@ string ble::ble_getDealJson(ETYTKOPER operType,uint16_t& len_data)
 	sprintf(DeviceCode, "%03x", Api::current_device_id);
 	sprintf(time, "%02x%02x%02x%02x%02x%02x%02x", CmdSort::m_time_now[0], CmdSort::m_time_now[1], CmdSort::m_time_now[2], CmdSort::m_time_now[3], CmdSort::m_time_now[4], CmdSort::m_time_now[5], CmdSort::m_time_now[6]);
 
-	json_temp["LineCode"] = Json::Value(LineCode);//ÏßÂ·±àºÅ
-	json_temp["StationCode"] = Json::Value(StationCode);//Õ¾µã±àºÅ
-	json_temp["DeviceType"] = Json::Value(DeviceType);//Éè±¸ÀàĞÍ
-	json_temp["DeviceCode"] = Json::Value(DeviceCode);//Éè±¸±àºÅ
-	json_temp["PsamCode"] = Json::Value("112233445566");//ÖÕ¶ËºÅ
-	json_temp["DeviceSequence"] = Json::Value(20180702);//PSAM¿¨Á÷Ë®ºÅ
-	json_temp["Status"] = Json::Value("00");//×´Ì¬Âë
-	json_temp["VerifyCode"] = Json::Value("00000000");//ÑéÖ¤Âë
+	json_temp["LineCode"] = Json::Value(LineCode);//çº¿è·¯ç¼–å·
+	json_temp["StationCode"] = Json::Value(StationCode);//ç«™ç‚¹ç¼–å·
+	json_temp["DeviceType"] = Json::Value(DeviceType);//è®¾å¤‡ç±»å‹
+	json_temp["DeviceCode"] = Json::Value(DeviceCode);//è®¾å¤‡ç¼–å·
+	json_temp["PsamCode"] = Json::Value("112233445566");//ç»ˆç«¯å·
+	json_temp["DeviceSequence"] = Json::Value(20180702);//PSAMå¡æµæ°´å·
+	json_temp["Status"] = Json::Value("00");//çŠ¶æ€ç 
+	json_temp["VerifyCode"] = Json::Value("00000000");//éªŒè¯ç 
 
 	if(operType == operEntry)
 	{
-		json_temp["TxnCode"] = Json::Value("07");//½»Ò×Âë
-		json_temp["InTime"] = Json::Value(time);//½øÕ¾Ê±¼ä
+		json_temp["TxnCode"] = Json::Value("07");//äº¤æ˜“ç 
+		json_temp["InTime"] = Json::Value(time);//è¿›ç«™æ—¶é—´
 	}
 	if(operType == operExit)
 	{
-		json_temp["TxnCode"] = Json::Value("08");//½»Ò×Âë
-		json_temp["OutTime"] = Json::Value(time);//³öÕ¾Ê±¼ä
-		json_temp["DebitAmount"] = Json::Value(200);//Êµ¿Û½ğ¶î
+		json_temp["TxnCode"] = Json::Value("08");//äº¤æ˜“ç 
+		json_temp["OutTime"] = Json::Value(time);//å‡ºç«™æ—¶é—´
+		json_temp["DebitAmount"] = Json::Value(200);//å®æ‰£é‡‘é¢
 	}
 	if(operType == operGetETicket)
 	{
-		json_temp["TxnCode"] = Json::Value("10");//½»Ò×Âë
-		json_temp["ExchargeTime"] = Json::Value(time);//³öÆ±Ê±¼ä
+		json_temp["TxnCode"] = Json::Value("10");//äº¤æ˜“ç 
+		json_temp["ExchargeTime"] = Json::Value(time);//å‡ºç¥¨æ—¶é—´
 	}
 
 /*
-	Json::Value root; // ±íÊ¾Õû¸ö json ¶ÔÏó
-	root["key_string"] = Json::Value("value_string"); // ĞÂ½¨Ò»¸ö Key(ÃûÎª£ºkey_string),
-	//¸³Óè×Ö·û´®Öµ:"value_string"
-	root["key_number"] = Json::Value(12345); // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_number),
-	//¸³ÓèÊıÖµ:12345¡£
-	root["key_boolean"] = Json::Value(false);  // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_boolean),
-	//¸³ÓèboolÖµ:false¡£
-	root["key_double"] = Json::Value(12.345); // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_double),
-	//¸³Óè double Öµ:12.345
-	root["key_object"] = json_temp; // ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_object)£¬
-	//¸³Óè json::Value ¶ÔÏóÖµ¡£
-	//root["key_array"].append("array_string");// ĞÂ½¨Ò»¸ö Key(ÃûÎª:key_array),
-	//ÀàĞÍÎªÊı×é,¶ÔµÚÒ»¸öÔªËØ¸³ÖµÎª×Ö·û´®:"array_string"
-	//root["key_array"].append(1234);  // ÎªÊı×é key_array ¸³Öµ,¶ÔµÚ¶ş¸öÔªËØ¸³ÖµÎª:1234¡£
+	Json::Value root; // è¡¨ç¤ºæ•´ä¸ª json å¯¹è±¡
+	root["key_string"] = Json::Value("value_string"); // æ–°å»ºä¸€ä¸ª Key(åä¸ºï¼škey_string),
+	//èµ‹äºˆå­—ç¬¦ä¸²å€¼:"value_string"
+	root["key_number"] = Json::Value(12345); // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_number),
+	//èµ‹äºˆæ•°å€¼:12345ã€‚
+	root["key_boolean"] = Json::Value(false);  // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_boolean),
+	//èµ‹äºˆboolå€¼:falseã€‚
+	root["key_double"] = Json::Value(12.345); // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_double),
+	//èµ‹äºˆ double å€¼:12.345
+	root["key_object"] = json_temp; // æ–°å»ºä¸€ä¸ª Key(åä¸º:key_object)ï¼Œ
+	//èµ‹äºˆ json::Value å¯¹è±¡å€¼ã€‚
+	//root["key_array"].append("array_string");// æ–°å»ºä¸€ä¸ª Key(åä¸º:key_array),
+	//ç±»å‹ä¸ºæ•°ç»„,å¯¹ç¬¬ä¸€ä¸ªå…ƒç´ èµ‹å€¼ä¸ºå­—ç¬¦ä¸²:"array_string"
+	//root["key_array"].append(1234);  // ä¸ºæ•°ç»„ key_array èµ‹å€¼,å¯¹ç¬¬äºŒä¸ªå…ƒç´ èµ‹å€¼ä¸º:1234ã€‚
 
-	//Json::ValueType type = root.type();// »ñµÃ root µÄÀàĞÍ£¬´Ë´¦Îª objectValue ÀàĞÍ¡£
+	//Json::ValueType type = root.type();// è·å¾— root çš„ç±»å‹ï¼Œæ­¤å¤„ä¸º objectValue ç±»å‹ã€‚
 	*/
 
 	Json::FastWriter fast_writer;
@@ -104,12 +104,12 @@ string ble::ble_getDealJson(ETYTKOPER operType,uint16_t& len_data)
 }
 
 
-//1010¡ª½øÕ¾ÑéÆ± 2010¡ª³öÕ¾ÑéÆ± 3010¡ªÈ¡Æ±ÑéÆ±
+//1010â€”è¿›ç«™éªŒç¥¨ 2010â€”å‡ºç«™éªŒç¥¨ 3010â€”å–ç¥¨éªŒç¥¨
 string ble::ble_checkTicket(ETYTKOPER operType)
 {
-	Json::Value json_temp;      // ÁÙÊ±¶ÔÏó£¬¹©ÈçÏÂ´úÂëÊ¹ÓÃ
-	//json_temp["version"] = Json::Value("01");//±¨ÎÄÍ·-°æ±¾ºÅ
-	//json_temp["encMode"] = Json::Value("00");//±¨ÎÄÍ·-¼ÓÃÜ·½Ê½ 0¡ªÃ÷ÎÄ£¬1¡ª3DES ¼ÓÃÜ£¬2¡ª¹úÃÜ
+	Json::Value json_temp;      // ä¸´æ—¶å¯¹è±¡ï¼Œä¾›å¦‚ä¸‹ä»£ç ä½¿ç”¨
+	//json_temp["version"] = Json::Value("01");//æŠ¥æ–‡å¤´-ç‰ˆæœ¬å·
+	//json_temp["encMode"] = Json::Value("00");//æŠ¥æ–‡å¤´-åŠ å¯†æ–¹å¼ 0â€”æ˜æ–‡ï¼Œ1â€”3DES åŠ å¯†ï¼Œ2â€”å›½å¯†
 	//json_temp["length"] = Json::Value("0024");
 
 	switch (operType)
@@ -177,17 +177,17 @@ void ble::ble_close()
 }
 
 
-//1010¡ª½øÕ¾ÑéÆ± 2010¡ª³öÕ¾ÑéÆ± 3010¡ªÈ¡Æ±ÑéÆ±
+//1010â€”è¿›ç«™éªŒç¥¨ 2010â€”å‡ºç«™éªŒç¥¨ 3010â€”å–ç¥¨éªŒç¥¨
 int ble::ble_getWriteBackData(ETYTKOPER operType,uint8_t *  p_base_add_info,uint16_t lengthData,uint8_t * revData)
 {
 	int length = 0;
 	char type[5] = {0};
 	int len_type = 4;
 
-	memcpy(revData, "01", 2);//±¨ÎÄÍ·
+	memcpy(revData, "01", 2);//æŠ¥æ–‡å¤´
 	length += 2;
 
-	memcpy(revData + length, "00", 2);//¼ÓÃÜ·½Ê½
+	memcpy(revData + length, "00", 2);//åŠ å¯†æ–¹å¼
 	length += 2;
 
 	sprintf((char *)(revData + length),"%04d",lengthData + 6);
@@ -195,44 +195,44 @@ int ble::ble_getWriteBackData(ETYTKOPER operType,uint8_t *  p_base_add_info,uint
     //g_Record.log_out(0, level_error,"opertype:%1d ,  lengthData =%d",operType,lengthData);
 	switch (operType){
 	    case operEntry:
-            memcpy(type, "1010", len_type);//½øÕ¾½»Ò×
+            memcpy(type, "1010", len_type);//è¿›ç«™äº¤æ˜“
             break;
         case operExit:
-            memcpy(type, "2010", len_type);//³öÕ¾½»Ò×
+            memcpy(type, "2010", len_type);//å‡ºç«™äº¤æ˜“
             break;
         case operGetETicket:
-            memcpy(type, "3000", len_type);//È¡Æ±ÊÜÀí
+            memcpy(type, "3000", len_type);//å–ç¥¨å—ç†
             break;
         case operUnloadTicketInfo:
-            memcpy(type, "3010", len_type);//È¡Æ±½á¹û
+            memcpy(type, "3010", len_type);//å–ç¥¨ç»“æœ
             break;
 	    case operClearEntry:
-            memcpy(type, "4010", len_type);//Çå½øÕ¾
+            memcpy(type, "4010", len_type);//æ¸…è¿›ç«™
             break;
         case operClearExit:
-            memcpy(type, "4020", len_type);//Çå³öÕ¾
+            memcpy(type, "4020", len_type);//æ¸…å‡ºç«™
             break;
         case operAddTicketResult:
-            memcpy(type, "6020", len_type);//²¹Æ±
+            memcpy(type, "6020", len_type);//è¡¥ç¥¨
             break;
         case operAddEntry:
-            memcpy(type, "7010", len_type);//²¹½øÕ¾
+            memcpy(type, "7010", len_type);//è¡¥è¿›ç«™
             break;
         case operAddExit:
-            memcpy(type, "7020", len_type);//²¹³öÕ¾
+            memcpy(type, "7020", len_type);//è¡¥å‡ºç«™
             break;
         case operPenaltyRes:
-            memcpy(type, "8020", len_type);//·£¿î
+            memcpy(type, "8020", len_type);//ç½šæ¬¾
             break;
         default:
             len_type=0;
             break;
 	}
 
-    memcpy(revData + length, type, len_type);//ÉèÖÃ½»Ò×ÀàĞÍ
+    memcpy(revData + length, type, len_type);//è®¾ç½®äº¤æ˜“ç±»å‹
     length+=len_type;
 
-	memcpy(revData + length, "00", 2);//ÑéÆ±Í¨¹ı
+	memcpy(revData + length, "00", 2);//éªŒç¥¨é€šè¿‡
 	length += 2;
     //g_Record.log_buffer("blue data ",revData,length,level_error);
 
@@ -296,7 +296,7 @@ int ble::ble_writeBack(ETYTKOPER operType, uint8_t *  p_eTicket_entry_info,uint8
 		{
 			if(remainder != 0)
 			{
-				length = remainder + 1;//º¬0xFF
+				length = remainder + 1;//å«0xFF
 				temp_recved[7] = (uint8_t)(length + 11);
 				temp_recved[15] = (uint8_t)length;
 				temp_recved[19] = 0xFF;
@@ -564,7 +564,7 @@ int ble::format_bleInfo(uint8_t * p_cmd_recved/*,P_SCAN_SINGLE_BLE_INF p_ssbi*/,
 
 	ssbi_count = 1;
 
-	//Èç¹ûMACµØÖ·²»ºÏ·¨£¬Ö±½ÓÌø¹ı
+	//å¦‚æœMACåœ°å€ä¸åˆæ³•ï¼Œç›´æ¥è·³è¿‡
 	if((memcmp(ssbi_all[0].mac_address,"\x00\x00\x00\x00\x00\x00",6) ==0))
 		return 0;
 
@@ -621,18 +621,18 @@ void ble::format_bleInfo(uint8_t * p_ssbi_buffer, SCAN_SINGLE_BLE_INF& ssbi)
 	memcpy(ssbi.head,p_ssbi_buffer,12);
 	dbg_dumpmemory("head:",ssbi.head,12);
 
-	// macµØÖ·
+	// macåœ°å€
 	memcpy(ssbi.mac_address,p_ssbi_buffer+12,6);
 	dbg_dumpmemory("mac_address:",ssbi.mac_address,6);
 
-	// Î´ÖªĞÅÏ¢1
+	// æœªçŸ¥ä¿¡æ¯1
 	memcpy(ssbi.unknowInfo,p_ssbi_buffer+18,6);
 	dbg_dumpmemory("unknowInfo:",ssbi.unknowInfo,6);
 	// ble_name
 	memcpy(ssbi.ble_name,p_ssbi_buffer+24,16);
 	dbg_formatvar("ble_name:%s",ssbi.ble_name);
 	dbg_dumpmemory("ble_name16:",ssbi.ble_name,16);
-	// ½áÊøĞÅÏ¢
+	// ç»“æŸä¿¡æ¯
 	memcpy(ssbi.endInfo,p_ssbi_buffer+40,11);
 	dbg_dumpmemory("endInfo:",ssbi.endInfo,11);
 
@@ -663,7 +663,7 @@ int ble::format_bleInfo37(uint8_t * p_cmd_recved/*,P_SCAN_SINGLE_BLE_INF p_ssbi*
 
 	ssbi_count = 1;
 
-	//Èç¹ûMACµØÖ·²»ºÏ·¨£¬Ö±½ÓÌø¹ı
+	//å¦‚æœMACåœ°å€ä¸åˆæ³•ï¼Œç›´æ¥è·³è¿‡
 	if((memcmp(ssbi_all[0].mac_address,"\x00\x00\x00\x00\x00\x00",6) ==0))
 		return 0;
 
@@ -714,18 +714,18 @@ void ble::format_bleInfo37(uint8_t * p_ssbi_buffer, SCAN_SINGLE_BLE_INF& ssbi)
 	memcpy(ssbi.head,p_ssbi_buffer,12);
 	//dbg_dumpmemory("head:",ssbi.head,12);
 
-	// macµØÖ·
+	// macåœ°å€
 	memcpy(ssbi.mac_address,p_ssbi_buffer+14,6);
 	//dbg_dumpmemory("mac_address:",ssbi.mac_address,6);
 
-	// Î´ÖªĞÅÏ¢1
+	// æœªçŸ¥ä¿¡æ¯1
 	memcpy(ssbi.unknowInfo,p_ssbi_buffer+20,6);
 	//dbg_dumpmemory("unknowInfo:",ssbi.unknowInfo,6);
 	// ble_name
 	memcpy(ssbi.ble_name,p_ssbi_buffer+26,16);
 	//dbg_formatvar("ble_name:%s",ssbi.ble_name);
 	//dbg_dumpmemory("ble_name16:",ssbi.ble_name,16);
-	// ½áÊøĞÅÏ¢
+	// ç»“æŸä¿¡æ¯
 	memcpy(ssbi.endInfo,p_ssbi_buffer+42,11);
 	//dbg_dumpmemory("endInfo:",ssbi.endInfo,11);
 
@@ -750,7 +750,7 @@ bool ble::getMacAddress(SCAN_ALL_BLE_INF sabi,uint8_t * revData,uint8_t * qr_pas
 			//dbg_dumpmemory("ble_name|",sabi.ssbi[i].ble_name,16);
 
 			if (memcmp(sabi.ssbi[i].ble_name,qr_passcode+16,16)==0)
-			//if (memcmp(sabi.ssbi[i].ble_name,qr_passcode+24,8)==0)//Æ¥ÅäĞ¡»Æ
+			//if (memcmp(sabi.ssbi[i].ble_name,qr_passcode+24,8)==0)//åŒ¹é…å°é»„
 			{
 				dbg_formatvar("getMacAddress-succ");
 				dbg_dumpmemory("mac_address = ",sabi.ssbi[i].mac_address,6);
@@ -822,19 +822,19 @@ void ble::format_ble_DataExchange(uint8_t * p_eps_buffer, BLE_PACKAGE_SINGLE& ep
 	memcpy(eps.head,p_eps_buffer,12);
 	//dbg_dumpmemory("head:",eps.head,12);
 
-	//³¤¶È
+	//é•¿åº¦
 	memcpy(eps.data_len,p_eps_buffer+12,2);
 	//dbg_dumpmemory("data_len:",eps.data_len,2);
 
-	// °ü±ê¼Ç
+	// åŒ…æ ‡è®°
 	eps.flag = p_eps_buffer[14];
 	//dbg_formatvar("flag:%02x",eps.flag);
 
-	// Êı¾İÓò
+	// æ•°æ®åŸŸ
 	memcpy(eps.data,p_eps_buffer+15,19);
 	//dbg_dumpmemory("data:",eps.data,19);
 
-	// ½áÊøĞÅÏ¢
+	// ç»“æŸä¿¡æ¯
 	memcpy(eps.endInfo,p_eps_buffer+34,5);
 	//dbg_dumpmemory("endInfo:",eps.endInfo,5);
 
@@ -862,7 +862,7 @@ bool ble::is_LastPackege(uint8_t * p_buffer,int sumlen)
 	//dbg_formatvar("length:%d",length);
 
 	if((temp[14] == 0xFF) && (temp[13+length] == 0x7D) && (temp[13+length+1] == 0x00))
-		//if((temp[13+length-2] == 0x7D) && (temp[13+length-1] == 0x0D)&& (temp[13+length] == 0x0A))//Ğ¡»Æ
+		//if((temp[13+length-2] == 0x7D) && (temp[13+length-1] == 0x0D)&& (temp[13+length] == 0x0A))//å°é»„
 		flag = true;
 	return flag;
 
@@ -924,7 +924,7 @@ int ble::ble_all_oper(ETYTKOPER operType,uint8_t * passcode, uint8_t * p_eTicket
 
 	for(i = 0;i<count;i++)
 	{
-		if(i == (count-1))//×îºóÒ»°ü
+		if(i == (count-1))//æœ€åä¸€åŒ…
 		{
 			if(remainder != 0)
 			{
@@ -942,7 +942,7 @@ int ble::ble_all_oper(ETYTKOPER operType,uint8_t * passcode, uint8_t * p_eTicket
 			}
 
 		}
-		else//·Ç×îºóÒ»°ü
+		else//éæœ€åä¸€åŒ…
 		{
 
 			length = 20;
@@ -992,7 +992,7 @@ int ble::ble_all_oper(ETYTKOPER operType,uint8_t * passcode, uint8_t * p_eTicket
 			ble_reset(0);
 			usleep(500 * 1000);
 			break;
-		}else if(length == 74){//Åöµ½74Ö±½ÓÍË³ö£¬·ñÔòÊÇ·ñ¹ıÕ¢ÅĞ¶Ï²»×¼
+		}else if(length == 74){//ç¢°åˆ°74ç›´æ¥é€€å‡ºï¼Œå¦åˆ™æ˜¯å¦è¿‡é—¸åˆ¤æ–­ä¸å‡†
 			break;
 		}else{
 			ble_reset(0);
@@ -1002,7 +1002,7 @@ int ble::ble_all_oper(ETYTKOPER operType,uint8_t * passcode, uint8_t * p_eTicket
 		if(msec <= 10)*/
 			ble_reset(0);
 	}
-	//FIXME: ÆäËûÏß³Ì´òÓ¡ÈÕÖ¾
+	//FIXME: å…¶ä»–çº¿ç¨‹æ‰“å°æ—¥å¿—
 	//if(length == 0)		g_Record.log_out(0, level_error,"ble succ use counts:%d",(i + 1));
 	//g_Record.log_out(0, level_error,"ble back result : %d",length);
 	return length;
@@ -1043,7 +1043,7 @@ void ble::ble_reset(int flag)
 	//g_Record.log_buffer("ble_reset p_data_send() = ", p_data_send, 6);
 	length = cmd_ble.cmd_send_ble(operType,p_cmd_recved,p_data_send,length,&msec);
 	if(flag == 0)
-		usleep(100 * 1000);//¸ø100ms
+		usleep(100 * 1000);//ç»™100ms
 	//g_Record.log_out(0, level_error,"ble_reset use time = [%ld]", msec);
 }
 

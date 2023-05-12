@@ -44,13 +44,13 @@ RETINFO TicketElecTOffline::analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * 
     RETINFO ret				= {0};
 	uint8_t qrTimeTemp[7]		= {0};
 
-	//Ìõ¼ş£ºÓë»ªÌÚÉÌÒé£¬¶şÎ¬ÂëÉú³ÉÊ±¼ä»áÃ¿3sË¢ĞÂÒ»´Î£¬¶şÎ¬ÂëÊ±Ğ§ĞÔÎª1·ÖÖÓ
-	//Æ±Îñ¹æÔòÀïµÄÔËÓªÈÕÄÚÊ¹ÓÃÓĞĞ§£¬¶ÁĞ´Æ÷ÎŞ·¨×ö£¬ÓÉ»ªÌÚappÊµÊ±¸üĞÂÉúÂëÊ±¼ä£¬Óë¶ÁĞ´Æ÷Ïà²îÒ»·ÖÖÓÎªÎŞĞ§¶şÎ¬Âë
+	//æ¡ä»¶ï¼šä¸åè…¾å•†è®®ï¼ŒäºŒç»´ç ç”Ÿæˆæ—¶é—´ä¼šæ¯3såˆ·æ–°ä¸€æ¬¡ï¼ŒäºŒç»´ç æ—¶æ•ˆæ€§ä¸º1åˆ†é’Ÿ
+	//ç¥¨åŠ¡è§„åˆ™é‡Œçš„è¿è¥æ—¥å†…ä½¿ç”¨æœ‰æ•ˆï¼Œè¯»å†™å™¨æ— æ³•åšï¼Œç”±åè…¾appå®æ—¶æ›´æ–°ç”Ÿç æ—¶é—´ï¼Œä¸è¯»å†™å™¨ç›¸å·®ä¸€åˆ†é’Ÿä¸ºæ— æ•ˆäºŒç»´ç 
 	g_Record.log_out(0, level_error,"analyse_common(cur date=%02x%02x%02x%02x%02x%02x%02x)", CmdSort::m_time_now[0],CmdSort::m_time_now[1],CmdSort::m_time_now[2],CmdSort::m_time_now[3],CmdSort::m_time_now[4],CmdSort::m_time_now[5],CmdSort::m_time_now[6]);
 	Publics::string_to_bcds(m_ticket_data.qr_ticketdata.applyTime,14,qrTimeTemp,7);
 	g_Record.log_out(0, level_error,"analyse_common(qr  date=%02x%02x%02x%02x%02x%02x%02x)", qrTimeTemp[0], qrTimeTemp[1], qrTimeTemp[2], qrTimeTemp[3], qrTimeTemp[4], qrTimeTemp[5], qrTimeTemp[6]);
-	TimesEx::bcd_time_calculate(qrTimeTemp, T_TIME, 0, 0, 0, 60);//·¶Î§Æ±¿¨Ê±¼ä¼Ó60Ãë
-	if(memcmp(CmdSort::m_time_now, qrTimeTemp, 7)>0){//µ±Ç°Ê±¼ä±ÈÌí¼Ó60sÖ®ºóµÄÊ±¼ä»¹Òª¿¿Ç°£¬±ãÅĞ¶ÏÎªÎŞĞ§
+	TimesEx::bcd_time_calculate(qrTimeTemp, T_TIME, 0, 0, 0, 60);//èŒƒå›´ç¥¨å¡æ—¶é—´åŠ 60ç§’
+	if(memcmp(CmdSort::m_time_now, qrTimeTemp, 7)>0){//å½“å‰æ—¶é—´æ¯”æ·»åŠ 60sä¹‹åçš„æ—¶é—´è¿˜è¦é å‰ï¼Œä¾¿åˆ¤æ–­ä¸ºæ— æ•ˆ
 		g_Record.log_out(0, level_error,"analyse_common not today qr");
 		ret.wErrCode=ERR_ETICKET_QR_INVALID;
 	}
@@ -89,7 +89,7 @@ RETINFO TicketElecTOffline::entry_gate(PENTRYGATE p_entry,PETICKETDEALINFO p_eti
 	RETINFO ret				= {0};
 	ret.bRfu[0] = 0x11;
 	ret.bRfu[1] = 0x00;
-	//ÍÑ»úµç×ÓÆ±£¬ÓÉºóÌ¨½øĞĞODÆ¥Åä
+	//è„±æœºç”µå­ç¥¨ï¼Œç”±åå°è¿›è¡ŒODåŒ¹é…
 	transfer_edata_for_out(operEntry, p_eticketdealinfo);
 	return ret;
 }
@@ -99,7 +99,7 @@ RETINFO TicketElecTOffline::exit_gate(PPURSETRADE p_exit,PETICKETDEALINFO p_etic
 	RETINFO ret				= {0};
 	ret.bRfu[0] = 0x11;
 	ret.bRfu[1] = 0x00;
-	//ÍÑ»úµç×ÓÆ±£¬ÓÉºóÌ¨½øĞĞODÆ¥Åä
+	//è„±æœºç”µå­ç¥¨ï¼Œç”±åå°è¿›è¡ŒODåŒ¹é…
 	transfer_edata_for_out(operExit, p_eticketdealinfo);
 	return ret;
 }
@@ -127,10 +127,10 @@ RETINFO TicketElecTOffline::read_card(ETYTKOPER operType, TICKET_PARAM& ticket_p
 
 	memcpy(eticket_info, Api::clear_qr_readbuf/* + 42*/, 512);
 	get_qrInfo(eticket_info);
-	//×ª»»Êı¾İ
-	// Âß¼­¿¨ºÅ
+	//è½¬æ¢æ•°æ®
+	// é€»è¾‘å¡å·
 	memcpy(m_ticket_data.logical_id, m_ticket_data.qr_ticketdata.cardNo, 20);
-	// Ç®°üÓà¶î
+	// é’±åŒ…ä½™é¢
 	m_ticket_data.wallet_value = m_ticket_data.qr_ticketdata.balance;
     return ret;
 }
@@ -139,20 +139,20 @@ void TicketElecTOffline::get_qrInfo(uint8_t * p_grInfo)
 {
 	uint8_t temp[4]		= {0};
 	uint8_t temp_entry[4]		= {0};
-	int len_getData=0;  //ÓÃÓÚ¼ÇÂ¼½âÎö¶şÎ¬ÂëµÄµ±Ç°Î»ÖÃ
+	int len_getData=0;  //ç”¨äºè®°å½•è§£æäºŒç»´ç çš„å½“å‰ä½ç½®
     getQRHeadInfo(p_grInfo);
     getQRDataComInfo(p_grInfo);
 	len_getData+=29;
 
-    //1,Æ±ºÅ
+    //1,ç¥¨å·
 	memcpy(m_ticket_data.qr_ticketdata.centerCode, p_grInfo + len_getData, 32);
 	len_getData+=32;
 	g_Record.log_out(0, level_error,"get_qrInfo(centerCode=%s)", m_ticket_data.qr_ticketdata.centerCode);
-	//Õ¢»úÖ»ÓÃÇ°7Î»µ±Ç°Ê±¼ä+¼ÓÉÏ¿¨ºÅ
+	//é—¸æœºåªç”¨å‰7ä½å½“å‰æ—¶é—´+åŠ ä¸Šå¡å·
 	memcpy(m_ticket_data.timeAndcenterCode, CmdSort::m_time_now, 7);
 	memcpy(m_ticket_data.timeAndcenterCode + 7, m_ticket_data.qr_ticketdata.cardNo, 20);
 	g_Record.log_buffer("timeAndcenterCode=", m_ticket_data.timeAndcenterCode,27);
-    //2,Óà¶î
+    //2,ä½™é¢
 	Publics::string_to_hexs((char *)(p_grInfo + len_getData), 8, temp, 4);
 	len_getData+=8;
 	m_ticket_data.qr_ticketdata.balance = temp[0];
@@ -164,28 +164,28 @@ void TicketElecTOffline::get_qrInfo(uint8_t * p_grInfo)
 	m_ticket_data.qr_ticketdata.balance += temp[3];
 	g_Record.log_out(0, level_error,"get_qrInfo(balance=%ld)", m_ticket_data.qr_ticketdata.balance);
 
-	//ÍÑ»úÆ±Éú³É¶şÎ¬ÂëÊ±¼ä
+	//è„±æœºç¥¨ç”ŸæˆäºŒç»´ç æ—¶é—´
 	memcpy(m_ticket_data.qr_ticketdata.applyTime, p_grInfo + len_getData, 14);
 	len_getData+=14;
 	g_Record.log_out(0, level_error,"get_qrInfo(applyTime=%s)", m_ticket_data.qr_ticketdata.applyTime);
-	//µ±Ç°Æ±ºÅÉú³ÉÊ±¼ä
+	//å½“å‰ç¥¨å·ç”Ÿæˆæ—¶é—´
 	memcpy(m_ticket_data.qr_ticketdata.centerCodeProductTime, p_grInfo + len_getData, 14);
 	g_Record.log_out(0, level_error,"get_qrInfo(centerCodeProductTime=%s)", m_ticket_data.qr_ticketdata.centerCodeProductTime);
 	len_getData+=14;
-	//±£Áô×Ö¶Î
+	//ä¿ç•™å­—æ®µ
 	memcpy(m_ticket_data.qr_ticketdata.retainField, p_grInfo + len_getData, 10);
 	len_getData+=10;
-	//ÖĞĞÄÑéÖ¤Âë
+	//ä¸­å¿ƒéªŒè¯ç 
 	memcpy(m_ticket_data.qr_ticketdata.mac, p_grInfo + len_getData, 8);
 	len_getData+=8;
 
-	memcpy(m_ticket_data.logical_type, "\x02\x00", 2);//ÌØÊâ´¢ÖµÆ±
+	memcpy(m_ticket_data.logical_type, "\x02\x00", 2);//ç‰¹æ®Šå‚¨å€¼ç¥¨
 	memcpy(m_ticket_data.fare_type, m_ticket_data.logical_type, 2);
 }
 
 
 ElectTicketType TicketElecTOffline::getCurrentTicketType(){
-    return ELECT_TICKET_OFFLINE;//ÍÑ»úµç×ÓÆ±
+    return ELECT_TICKET_OFFLINE;//è„±æœºç”µå­ç¥¨
 }
 
 void TicketElecTOffline::getDealData(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,long amount){
@@ -210,22 +210,22 @@ void TicketElecTOffline::transfer_edata_for_out(ETYTKOPER operType, void * pTrad
 		sprintf(szTemp, "%02x%02x%02x%02x", CmdSort::m_time_now[0], CmdSort::m_time_now[1], CmdSort::m_time_now[2], CmdSort::m_time_now[3]);
 		memcpy(pGetETicket->cTxnDate, szTemp, 8);
 
-		memcpy(pGetETicket->cTicketMainType, "11", 2);//Ö÷ÀàĞÍ
-		memcpy(pGetETicket->cTicketSubType, m_ticket_data.qr_ticketdata.subType, 2);//×ÓÀàĞÍ
+		memcpy(pGetETicket->cTicketMainType, "11", 2);//ä¸»ç±»å‹
+		memcpy(pGetETicket->cTicketSubType, m_ticket_data.qr_ticketdata.subType, 2);//å­ç±»å‹
 
-		memcpy(pGetETicket->cChipType, "07", 2);//Ğ¾Æ¬ÀàĞÍ
+		memcpy(pGetETicket->cChipType, "07", 2);//èŠ¯ç‰‡ç±»å‹
 
-		memcpy(pGetETicket->cTicketLogicalNo, m_ticket_data.qr_ticketdata.cardNo, 20);//Âß¼­¿¨ºÅ
+		memcpy(pGetETicket->cTicketLogicalNo, m_ticket_data.qr_ticketdata.cardNo, 20);//é€»è¾‘å¡å·
 
-		memcpy(pGetETicket->cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ÖĞĞÄÆ±ºÅ
+		memcpy(pGetETicket->cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ä¸­å¿ƒç¥¨å·
 
 		memcpy(pGetETicket->cCenterMac, m_ticket_data.qr_ticketdata.mac, 8);//mac
 
-		memcpy(pGetETicket->cRealTicketNo, "0000000000000000", 16);//ÊµÌå¿¨ºÅ
+		memcpy(pGetETicket->cRealTicketNo, "0000000000000000", 16);//å®ä½“å¡å·
 
-		memcpy(pGetETicket->cMark, "00", 2);//È¡Æ±½»Ò×
+		memcpy(pGetETicket->cMark, "00", 2);//å–ç¥¨äº¤æ˜“
 
-		memcpy(pGetETicket->cTicketCSN, "0000000000000000", 16);//ÎïÀí¿¨ºÅ
+		memcpy(pGetETicket->cTicketCSN, "0000000000000000", 16);//ç‰©ç†å¡å·
 
 		sprintf(pGetETicket->cTicketCount,"%010ld",m_ticket_data.qr_ticketdata.counter);
 
@@ -235,7 +235,7 @@ void TicketElecTOffline::transfer_edata_for_out(ETYTKOPER operType, void * pTrad
 
 		sprintf(szTemp, "%02x%02x%02x%02x%02x%02x%02x", CmdSort::m_time_now[0], CmdSort::m_time_now[1], CmdSort::m_time_now[2], CmdSort::m_time_now[3], CmdSort::m_time_now[4], CmdSort::m_time_now[5], CmdSort::m_time_now[6]);
 		memcpy(pGetETicket->cTxnTms, szTemp, 14);
-		//ÓÉÓÚÔİÊ±Ã»ÓĞÓĞĞ§³öÕ¾Ê±¼ä£¬´Ë×Ö¶ÎÈ«²¿Ä¬ÈÏĞ´0
+		//ç”±äºæš‚æ—¶æ²¡æœ‰æœ‰æ•ˆå‡ºç«™æ—¶é—´ï¼Œæ­¤å­—æ®µå…¨éƒ¨é»˜è®¤å†™0
 		memcpy(pGetETicket->cValidOutTms, "00000000000000", 14);
 
 		memcpy(pGetETicket->cPayType, "01", 2);
@@ -267,8 +267,8 @@ void TicketElecTOffline::transfer_edata_for_out(ETYTKOPER operType, void * pTrad
 		memcpy(pGetETicket->cTac, "00000000", 8);
 
 		memcpy(pGetETicket->cNetTranNumber, "0000000000000000000000000000000000000000000000000000000000000000", 64);
-		//±£ÁôÓò
-		memcpy(pGetETicket->cReserve, "01", 2);//½µ¼¶¶şÎ¬Âë¹Ì¶¨Îª01  ¸ù¾İ×îĞÂµÄITPÓëSLE½Ó¿ÚÎÄµµ
+		//ä¿ç•™åŸŸ
+		memcpy(pGetETicket->cReserve, "01", 2);//é™çº§äºŒç»´ç å›ºå®šä¸º01  æ ¹æ®æœ€æ–°çš„ITPä¸SLEæ¥å£æ–‡æ¡£
 		memcpy(pGetETicket->cReserve+2, "000000000000000000000000000000", 30);
 
 	}
@@ -283,17 +283,17 @@ void TicketElecTOffline::transfer_edata_for_out(ETYTKOPER operType, void * pTrad
 			memcpy(pGetETicket->cTransCode, "08", 2);
 		}
 
-		memcpy(pGetETicket->cTicketMainType, "11", 2);//Ö÷ÀàĞÍ
+		memcpy(pGetETicket->cTicketMainType, "11", 2);//ä¸»ç±»å‹
 
-		memcpy(pGetETicket->cTicketSubType, m_ticket_data.qr_ticketdata.subType, 2);//×ÓÀàĞÍ
+		memcpy(pGetETicket->cTicketSubType, m_ticket_data.qr_ticketdata.subType, 2);//å­ç±»å‹
 
-		memcpy(pGetETicket->cTicketLogicalNo, m_ticket_data.qr_ticketdata.cardNo, 20);//Âß¼­¿¨ºÅ
+		memcpy(pGetETicket->cTicketLogicalNo, m_ticket_data.qr_ticketdata.cardNo, 20);//é€»è¾‘å¡å·
 
-		memcpy(pGetETicket->cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ÖĞĞÄÆ±ºÅ
+		memcpy(pGetETicket->cCenterCode, m_ticket_data.qr_ticketdata.centerCode, 32);//ä¸­å¿ƒç¥¨å·
 
 		memcpy(pGetETicket->cCenterMac, m_ticket_data.qr_ticketdata.mac, 8);//mac
 
-		pGetETicket->cQrNetStatus = m_ticket_data.qr_Intnet_ststus;//µç×ÓÆ±Æ±¿¨ ÍøÂç×´Ì¬±êÖ¾
+		pGetETicket->cQrNetStatus = m_ticket_data.qr_Intnet_ststus;//ç”µå­ç¥¨ç¥¨å¡ ç½‘ç»œçŠ¶æ€æ ‡å¿—
 	}
 		break;
 	default:

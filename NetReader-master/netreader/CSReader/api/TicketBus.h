@@ -2,18 +2,18 @@
 #include "TicketBase.h"
 #include "../link/linker.h"
 
-// ¹«½»CPU¿¨Ïà¹Ø½á¹¹
+// å…¬äº¤CPUå¡ç›¸å…³ç»“æ„
 typedef struct
 {
-	uint8_t * p_issue_base;			// ·¢ĞĞ»ù±¾Ó¦ÓÃ
-	uint8_t * p_app_index;			// ¿¨Ó¦ÓÃË÷ÒıÎÄ¼ş
-	uint8_t * p_public_base;		// ¹«¹²»ù±¾Ó¦ÓÃ
-	uint8_t * p_owner;				// ³Ö¿¨ÈË»ù±¾Êı¾İÎÄ¼ş
-	uint8_t * p_wallet;				// Ç®°ü×¨ÓÃ
-	uint8_t * p_metro;				// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
-	uint8_t * p_his_all;			// ËùÓĞÀúÊ·¼ÇÂ¼
-	uint8_t * p_charge_count;		// Áª»ú½»Ò×¼ÆÊı
-	uint8_t * p_consume_count;		// ÍÑ»ú½»Ò×¼ÆÊı
+	uint8_t * p_issue_base;			// å‘è¡ŒåŸºæœ¬åº”ç”¨
+	uint8_t * p_app_index;			// å¡åº”ç”¨ç´¢å¼•æ–‡ä»¶
+	uint8_t * p_public_base;		// å…¬å…±åŸºæœ¬åº”ç”¨
+	uint8_t * p_owner;				// æŒå¡äººåŸºæœ¬æ•°æ®æ–‡ä»¶
+	uint8_t * p_wallet;				// é’±åŒ…ä¸“ç”¨
+	uint8_t * p_metro;				// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
+	uint8_t * p_his_all;			// æ‰€æœ‰å†å²è®°å½•
+	uint8_t * p_charge_count;		// è”æœºäº¤æ˜“è®¡æ•°
+	uint8_t * p_consume_count;		// è„±æœºäº¤æ˜“è®¡æ•°
 
 }BUS_CPU_INF, * P_BUS_CPU_INF;
 
@@ -24,11 +24,11 @@ public:
 	TicketBus(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 	~TicketBus(void);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -47,7 +47,7 @@ public:
 	RETINFO bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station);
 
 	//RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag);
-		//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+		//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t paytype=1);
 
 	RETINFO format_history(uint8_t&	his_count, PHSSVT p_his_array, int his_max);
@@ -84,7 +84,7 @@ protected:
 
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
 private:
@@ -102,7 +102,7 @@ private:
 
 	bool use_wallet_special(uint8_t * p_logic_type);
 
-	// ÊÇ·ñ¼ì²éÆôÓÃ±êÊ¶
+	// æ˜¯å¦æ£€æŸ¥å¯ç”¨æ ‡è¯†
 	bool need_check_use_flag(uint8_t * p_logic_type);
 
 };

@@ -1,4 +1,4 @@
-// µç×ÓÆ±»ù´¡Àà
+// ç”µå­ç¥¨åŸºç¡€ç±»
 // Created by flpkp on 2020/3/17.
 //
 #pragma once
@@ -17,19 +17,19 @@ protected:
     RETINFO write_card(ETYTKOPER operType, uint8_t * e_ticketInfo, uint16_t length, uint8_t tac_type, long trade_amount, long& sam_seq, char * p_trade_tac);
     uint16_t write_card(uint8_t tac_type, uint8_t * p_app_ctrl, int record_id, uint8_t lock_flag, uint8_t * p_file_data, long& sam_seq);
     virtual void get_elect_update_info(ETYTKOPER operType, uint8_t * p_eTicket_info,uint16_t len_eTicket_info);
-    //»ñÈ¡µç×ÓÆ±ÀàĞÍ
+    //è·å–ç”µå­ç¥¨ç±»å‹
     virtual ElectTicketType getCurrentTicketType()=0;
-    //½âÎö¶şÎ¬ÂëÍ·²¿ĞÅÏ¢ Ïê¼û¡¶³¤É³ÊĞ¹ìµÀ½»Í¨»¥ÁªÍøÊÛ¼ìÆ±Æ½Ì¨SLEÓë³ËAPPÒµÎñ´¦Àí¹æ·¶¡·
+    //è§£æäºŒç»´ç å¤´éƒ¨ä¿¡æ¯ è¯¦è§ã€Šé•¿æ²™å¸‚è½¨é“äº¤é€šäº’è”ç½‘å”®æ£€ç¥¨å¹³å°SLEä¸ä¹˜APPä¸šåŠ¡å¤„ç†è§„èŒƒã€‹
     void getQRHeadInfo(uint8_t *p_grInfo);
-    //½âÎö¶şÎ¬ÂëÊı¾İÖĞ¹«¹²ĞÅÏ¢ Ïê¼û¡¶³¤É³ÊĞ¹ìµÀ½»Í¨»¥ÁªÍøÊÛ¼ìÆ±Æ½Ì¨SLEÓë³Ë¿ÍAPPÒµÎñ´¦Àí¹æ·¶¡·
+    //è§£æäºŒç»´ç æ•°æ®ä¸­å…¬å…±ä¿¡æ¯ è¯¦è§ã€Šé•¿æ²™å¸‚è½¨é“äº¤é€šäº’è”ç½‘å”®æ£€ç¥¨å¹³å°SLEä¸ä¹˜å®¢APPä¸šåŠ¡å¤„ç†è§„èŒƒã€‹
     void getQRDataComInfo(uint8_t *p_grInfo);
 
     virtual RETINFO analyse_free_zone(MODE_EFFECT_FLAGS * p_degrade_falgs, TICKET_PARAM * p_ticket_prm, PBOMANALYZE p_analyse, PBOMETICANALYZE p_eticanalyse);
 
-    //todo: ·Åµ½×ÓÀàÉèÖÃÎªprotected
-    //µç×ÓÆ±Òì³£´¦Àí  ×é°üÈ¥¸øÀ¶ÑÀ»ØĞ´
+    //todo: æ”¾åˆ°å­ç±»è®¾ç½®ä¸ºprotected
+    //ç”µå­ç¥¨å¼‚å¸¸å¤„ç†  ç»„åŒ…å»ç»™è“ç‰™å›å†™
     virtual void getDealData(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,long amount);
-    //µç×ÓÆ±Õ¢»úË«Áª»úÑéÖ¤£¬ÓÅ»¯À¶ÑÀ±¨´í
+    //ç”µå­ç¥¨é—¸æœºåŒè”æœºéªŒè¯ï¼Œä¼˜åŒ–è“ç‰™æŠ¥é”™
     RETINFO check_online(ETYTKOPER operType,PETICKETAUTHINFO p_eticketauthinfo);
 
 private:

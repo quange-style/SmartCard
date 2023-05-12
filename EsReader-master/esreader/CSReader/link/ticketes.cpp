@@ -35,434 +35,434 @@
 #define LEN_CHANGE_CNT			0x02
 #define LEN_CONSUME_CNT			0x02
 
-#define _NEWTICKET_   //²Ù×÷µÄÊÇ·ñÊÇĞÂÆ±¿¨£¬Á½ÖÖ´¢Öµ¿¨´´½¨·½Ê½²»Ò»Ñù
-//#define _ENABLE_FIXKEY_     //ÊÇ·ñ²ÉÓÃ¹Ì¶¨ÃÜÔ¿£¬²ÉÓÃ¹Ì¶¨ÃÜÔ¿Ê±Âß¼­¿¨ºÅºÍÃÜÔ¿Ç¿ÖÆÊ¹ÓÃ³ÌĞòÄÚ²¿µÄ£¬ÆäËüÖµÈ¡Íâ²¿ ´«Èë
-#define _ENABLE_CLEAR_      //ÊÇ·ñÔÊĞíÇå³ıÆ±¿¨½Ó¿Ú
+#define _NEWTICKET_   //æ“ä½œçš„æ˜¯å¦æ˜¯æ–°ç¥¨å¡ï¼Œä¸¤ç§å‚¨å€¼å¡åˆ›å»ºæ–¹å¼ä¸ä¸€æ ·
+//#define _ENABLE_FIXKEY_     //æ˜¯å¦é‡‡ç”¨å›ºå®šå¯†é’¥ï¼Œé‡‡ç”¨å›ºå®šå¯†é’¥æ—¶é€»è¾‘å¡å·å’Œå¯†é’¥å¼ºåˆ¶ä½¿ç”¨ç¨‹åºå†…éƒ¨çš„ï¼Œå…¶å®ƒå€¼å–å¤–éƒ¨ ä¼ å…¥
+#define _ENABLE_CLEAR_      //æ˜¯å¦å…è®¸æ¸…é™¤ç¥¨å¡æ¥å£
 
 
 
 typedef unsigned char bcd;
 #pragma pack(push, 1)
 
-//³õÊ¼»¯ÊäÈë½Ó¿Ú
+//åˆå§‹åŒ–è¾“å…¥æ¥å£
 typedef struct
 {
-	char szorderno[14]; // ¶©µ¥ºÅ 14 0 char
-	char szapplyno[10]; // ÉêÇë±àºÅ 10 14 char
-	uint8_t bcardtype[2];  // ³µÆ±ÀàĞÍ 2 24 Byte[2]
-	uint8_t logicalid[8];  //Ó¦ÓÃĞòÁĞºÅ 8 26 Byte[2]
-	uint8_t bdeposite;  //Ñº½ğ 1 34 Byte
-	long lbalance;   //Ç®°ü³õÊ¼Öµ 4 35 Dword
-	uint16_t caps;   //¿É³äÖµÉÏÏŞ 2 39 Word
-	uint8_t bactive;  //·¢ÊÛ¼¤»î±êÖ¾ 1 41 Byte
-	uint8_t issuecode[2]; //·¢¿¨·½´úÂë 2 42 Bcd[2]
-	uint8_t citycode[2]; //³ÇÊĞ´úÂë 2 44 Bcd[2]
-	uint8_t industrycode[2];//ĞĞÒµ´úÂë 2 46 Bcd[2]
-	uint8_t testflag;  //²âÊÔ±ê¼Ç 1 48 Byte
-	uint8_t issuedate[4]; //·¢ĞĞÈÕÆÚ 4 49 Bcd[4]
-	uint8_t cardversion[2]; //¿¨°æ±¾ºÅ 2 53 Byte[2]
-	uint8_t effectivefrom[4];//¿¨Æô¶¯ÈÕÆÚ 4 55 Bcd[4]
-	uint8_t effectiveto[4]; //¿¨½ØÖÁÈÕÆÚ 4 59 Bcd[4]
+	char szorderno[14]; // è®¢å•å· 14 0 char
+	char szapplyno[10]; // ç”³è¯·ç¼–å· 10 14 char
+	uint8_t bcardtype[2];  // è½¦ç¥¨ç±»å‹ 2 24 Byte[2]
+	uint8_t logicalid[8];  //åº”ç”¨åºåˆ—å· 8 26 Byte[2]
+	uint8_t bdeposite;  //æŠ¼é‡‘ 1 34 Byte
+	long lbalance;   //é’±åŒ…åˆå§‹å€¼ 4 35 Dword
+	uint16_t caps;   //å¯å……å€¼ä¸Šé™ 2 39 Word
+	uint8_t bactive;  //å‘å”®æ¿€æ´»æ ‡å¿— 1 41 Byte
+	uint8_t issuecode[2]; //å‘å¡æ–¹ä»£ç  2 42 Bcd[2]
+	uint8_t citycode[2]; //åŸå¸‚ä»£ç  2 44 Bcd[2]
+	uint8_t industrycode[2];//è¡Œä¸šä»£ç  2 46 Bcd[2]
+	uint8_t testflag;  //æµ‹è¯•æ ‡è®° 1 48 Byte
+	uint8_t issuedate[4]; //å‘è¡Œæ—¥æœŸ 4 49 Bcd[4]
+	uint8_t cardversion[2]; //å¡ç‰ˆæœ¬å· 2 53 Byte[2]
+	uint8_t effectivefrom[4];//å¡å¯åŠ¨æ—¥æœŸ 4 55 Bcd[4]
+	uint8_t effectiveto[4]; //å¡æˆªè‡³æ—¥æœŸ 4 59 Bcd[4]
 	//=================================================
-	uint8_t logiceffectivefrom[7]; //Âß¼­ÆğÊ¼Ê±¼ä
-	uint16_t logicectivetime; //Âß¼­ÓĞĞ§ÌìÊı
+	uint8_t logiceffectivefrom[7]; //é€»è¾‘èµ·å§‹æ—¶é—´
+	uint16_t logicectivetime; //é€»è¾‘æœ‰æ•ˆå¤©æ•°
 	//=================================================
 
-	uint8_t appversion;  //Ó¦ÓÃ°æ±¾ºÅ 1 63 Byte
-	uint8_t passmode;  //³öÈëÄ£Ê½ 1 64 Byte
-	uint8_t entryline[2]; //¿ÉÈëÏßÂ·Õ¾µã 2 65 Bcd[2]
-	uint8_t exitline[2]; //¿É³öÏßÂ·Õ¾µã 2 67 Bcd[2]
+	uint8_t appversion;  //åº”ç”¨ç‰ˆæœ¬å· 1 63 Byte
+	uint8_t passmode;  //å‡ºå…¥æ¨¡å¼ 1 64 Byte
+	uint8_t entryline[2]; //å¯å…¥çº¿è·¯ç«™ç‚¹ 2 65 Bcd[2]
+	uint8_t exitline[2]; //å¯å‡ºçº¿è·¯ç«™ç‚¹ 2 67 Bcd[2]
 
-	uint8_t mf_tkey[16]; //MF´«ÊäÃÜÔ¿ 16 69 Byte[16]
-	uint8_t mf_mkey[16]; //MFÖ÷¿ØÃÜÔ¿ 16 85 Byte[16]
-	uint8_t mf_mamk[16]; //MFÎ¬»¤ÃÜÔ¿ 16 101 Byte[16]
-	uint8_t mf_eak[16];     //MFÍâ²¿ÈÏÖ¤ÃÜÔ¿
+	uint8_t mf_tkey[16]; //MFä¼ è¾“å¯†é’¥ 16 69 Byte[16]
+	uint8_t mf_mkey[16]; //MFä¸»æ§å¯†é’¥ 16 85 Byte[16]
+	uint8_t mf_mamk[16]; //MFç»´æŠ¤å¯†é’¥ 16 101 Byte[16]
+	uint8_t mf_eak[16];     //MFå¤–éƒ¨è®¤è¯å¯†é’¥
 
-	uint8_t adf1_tkey[16]; //ADF1´«ÊäÃÜÔ¿ 16 117 Byte[16]
-	uint8_t adf1_mkey[16]; //ADF1Ö÷¿ØÃÜÔ¿ 16 133 Byte[16]
-	uint8_t adf1_mamk_00[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿00 16 229 Byte[16]
-	uint8_t adf1_mpuk[16]; //ADF1½âËøPINÃÜÔ¿ 16 197 Byte[16]
-	uint8_t adf1_mprk[16]; //ADF1ÖØ×°PINÃÜÔ¿ 16 213 Byte[16]
-	uint8_t adf1_mpk_0101[16]; //ADF1Ïû·ÑÃÜÔ¿01 16 165 Byte[16]
-	uint8_t adf1_mlk_0201[16]; //ADF1È¦´æÃÜÔ¿ 16 149 Byte[16]
-	//   uint8_t adf1_mulk_0201[16]; //ADF1È¦ÌáÃÜÔ¿ 16 149 Byte[16]
-	//   uint8_t adf1_muk_0201[16]; //ADF1 ĞŞ¸ÄÍ¸Ö§ÏŞ¶îÃÜÔ¿16 149 Byte[16]
-	uint8_t adf1_mtk[16]; //ADF1µÄTACÃÜÔ¿ 16 181 Byte[16]
-	uint8_t adf1_mulk[16];//ADF1È¦ÌáÃÜÔ¿ 16 293 Byte[16]
-	uint8_t adf1_muk[16];//ADF1ĞŞ¸ÄÍ¸Ö§¶îÃÜÔ¿03 16 277 Byte[16]
-	uint8_t adf1_eak[16];//ADF1Íâ²¿ÈÏÖ¤ÃÜÔ¿ 16 309 Byte[16]
-	uint8_t adf1_mabk[16]; //ADF1Ó¦ÓÃËø¶¨ÃÜÔ¿ 16 197 Byte[16]
-	uint8_t adf1_mauk[16]; //ADF1Ó¦ÓÃ½âËøÃÜÔ¿ 16 197 Byte[16]
+	uint8_t adf1_tkey[16]; //ADF1ä¼ è¾“å¯†é’¥ 16 117 Byte[16]
+	uint8_t adf1_mkey[16]; //ADF1ä¸»æ§å¯†é’¥ 16 133 Byte[16]
+	uint8_t adf1_mamk_00[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥00 16 229 Byte[16]
+	uint8_t adf1_mpuk[16]; //ADF1è§£é”PINå¯†é’¥ 16 197 Byte[16]
+	uint8_t adf1_mprk[16]; //ADF1é‡è£…PINå¯†é’¥ 16 213 Byte[16]
+	uint8_t adf1_mpk_0101[16]; //ADF1æ¶ˆè´¹å¯†é’¥01 16 165 Byte[16]
+	uint8_t adf1_mlk_0201[16]; //ADF1åœˆå­˜å¯†é’¥ 16 149 Byte[16]
+	//   uint8_t adf1_mulk_0201[16]; //ADF1åœˆæå¯†é’¥ 16 149 Byte[16]
+	//   uint8_t adf1_muk_0201[16]; //ADF1 ä¿®æ”¹é€æ”¯é™é¢å¯†é’¥16 149 Byte[16]
+	uint8_t adf1_mtk[16]; //ADF1çš„TACå¯†é’¥ 16 181 Byte[16]
+	uint8_t adf1_mulk[16];//ADF1åœˆæå¯†é’¥ 16 293 Byte[16]
+	uint8_t adf1_muk[16];//ADF1ä¿®æ”¹é€æ”¯é¢å¯†é’¥03 16 277 Byte[16]
+	uint8_t adf1_eak[16];//ADF1å¤–éƒ¨è®¤è¯å¯†é’¥ 16 309 Byte[16]
+	uint8_t adf1_mabk[16]; //ADF1åº”ç”¨é”å®šå¯†é’¥ 16 197 Byte[16]
+	uint8_t adf1_mauk[16]; //ADF1åº”ç”¨è§£é”å¯†é’¥ 16 197 Byte[16]
 
-	uint8_t adf1_mamk_01[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 16 245 Byte[16]
-	uint8_t adf1_mamk_02[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 16 261 Byte[16]
-	uint8_t adf1_mamk_03[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿03 16 261 Byte[16]
+	uint8_t adf1_mamk_01[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥01 16 245 Byte[16]
+	uint8_t adf1_mamk_02[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥02 16 261 Byte[16]
+	uint8_t adf1_mamk_03[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥03 16 261 Byte[16]
 
 	uint8_t adf1_pin[16];//ADF116 325 Byte[16]
 } TISSUE_INPUT, *LPTISSUE_INPUT;
 
-//Ô¤¸³ÖµÊäÈë½Ó¿Ú
+//é¢„èµ‹å€¼è¾“å…¥æ¥å£
 typedef struct
 {
-	char szorderno[14]; // ¶©µ¥ºÅ 14 0 char
-	char szapplyno[10]; // ÉêÇë±àºÅ 10 14 char
-	uint8_t bcardtype[2];  // ³µÆ±ÀàĞÍ 2 24 Byte[2]
-	uint8_t logicalid[8];  //Ó¦ÓÃĞòÁĞºÅ 8 26 Byte[2]
-	uint8_t bdeposite;  //Ñº½ğ 1 34 Byte
-	long lbalance;   //Ç®°ü³õÊ¼Öµ 4 35 Dword
-	uint16_t caps;   //¿É³äÖµÉÏÏŞ 2 39 Word
+	char szorderno[14]; // è®¢å•å· 14 0 char
+	char szapplyno[10]; // ç”³è¯·ç¼–å· 10 14 char
+	uint8_t bcardtype[2];  // è½¦ç¥¨ç±»å‹ 2 24 Byte[2]
+	uint8_t logicalid[8];  //åº”ç”¨åºåˆ—å· 8 26 Byte[2]
+	uint8_t bdeposite;  //æŠ¼é‡‘ 1 34 Byte
+	long lbalance;   //é’±åŒ…åˆå§‹å€¼ 4 35 Dword
+	uint16_t caps;   //å¯å……å€¼ä¸Šé™ 2 39 Word
 	//=================================================
-	uint8_t bactive;  //·¢ÊÛ¼¤»î±êÖ¾ 1 41 Byte
-	uint8_t logiceffectivefrom[7]; //Âß¼­ÆğÊ¼Ê±¼ä
-	uint16_t logicectivetime; //Âß¼­ÓĞĞ§ÌìÊı
+	uint8_t bactive;  //å‘å”®æ¿€æ´»æ ‡å¿— 1 41 Byte
+	uint8_t logiceffectivefrom[7]; //é€»è¾‘èµ·å§‹æ—¶é—´
+	uint16_t logicectivetime; //é€»è¾‘æœ‰æ•ˆå¤©æ•°
 	//=================================================
 
-	uint8_t passmode;  //³öÈëÄ£Ê½ 1 64 Byte
-	uint8_t entryline[2]; //¿ÉÈëÏßÂ·Õ¾µã 2 65 Bcd[2]
-	uint8_t exitline[2]; //¿É³öÏßÂ·Õ¾µã 2 67 Bcd[2]
+	uint8_t passmode;  //å‡ºå…¥æ¨¡å¼ 1 64 Byte
+	uint8_t entryline[2]; //å¯å…¥çº¿è·¯ç«™ç‚¹ 2 65 Bcd[2]
+	uint8_t exitline[2]; //å¯å‡ºçº¿è·¯ç«™ç‚¹ 2 67 Bcd[2]
 
-	uint8_t adf1_mlk_0201[16]; //ADF1È¦´æÃÜÔ¿ 16 149 Byte[16]
-	uint8_t adf1_mpk_0101[16]; //ADF1Ïû·ÑÃÜÔ¿01 16 165 Byte[16]
-	uint8_t adf1_mtk[16]; //ADF1µÄTACÃÜÔ¿ 16 181 Byte[16]
-	//    uint8_t adf1_mpuk[16]; //ADF1½âËøPINÃÜÔ¿ 16 197 Byte[16]
-	//    uint8_t adf1_mprk[16]; //ADF1ÖØ×°PINÃÜÔ¿ 16 213 Byte[16]
-	uint8_t adf1_mamk_00[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿00 16 229 Byte[16]
-	uint8_t adf1_mamk_01[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 16 245 Byte[16]
-	uint8_t adf1_mamk_02[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 16 261 Byte[16]
-    uint8_t adf1_mamk_03[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿03 16 277 Byte[16]
-	uint8_t adf1_pin[16];//ADF1µÄPINÂë 16 293 Byte[16]
+	uint8_t adf1_mlk_0201[16]; //ADF1åœˆå­˜å¯†é’¥ 16 149 Byte[16]
+	uint8_t adf1_mpk_0101[16]; //ADF1æ¶ˆè´¹å¯†é’¥01 16 165 Byte[16]
+	uint8_t adf1_mtk[16]; //ADF1çš„TACå¯†é’¥ 16 181 Byte[16]
+	//    uint8_t adf1_mpuk[16]; //ADF1è§£é”PINå¯†é’¥ 16 197 Byte[16]
+	//    uint8_t adf1_mprk[16]; //ADF1é‡è£…PINå¯†é’¥ 16 213 Byte[16]
+	uint8_t adf1_mamk_00[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥00 16 229 Byte[16]
+	uint8_t adf1_mamk_01[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥01 16 245 Byte[16]
+	uint8_t adf1_mamk_02[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥02 16 261 Byte[16]
+    uint8_t adf1_mamk_03[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥03 16 277 Byte[16]
+	uint8_t adf1_pin[16];//ADF1çš„PINç  16 293 Byte[16]
 
 }TEVALUATE_INPUT, *LPTEVALUATE_INPUT;
 
-// //Ô¤¸¶ÖµÊäÈë½Ó¿Ú
+// //é¢„ä»˜å€¼è¾“å…¥æ¥å£
 // typedef struct
 // {
-//     char szorderno[14]; // ¶©µ¥ºÅ 14 0 char
-//     char szapplyno[14]; // ÉêÇë±àºÅ 10 14 char
-//     uint8_t bcardtype[2];  // ³µÆ±ÀàĞÍ 2 24 Byte[2]
-//     uint8_t logicalid[8];  //Ó¦ÓÃĞòÁĞºÅ 8 26 Byte[2]
-//     uint8_t bdeposite;  //Ñº½ğ 1 34 Byte
-//     long lbalance;   //Ç®°ü³õÊ¼Öµ 4 35 Dword
-//     uint16_t caps;   //¿É³äÖµÉÏÏŞ 2 39 Word
+//     char szorderno[14]; // è®¢å•å· 14 0 char
+//     char szapplyno[14]; // ç”³è¯·ç¼–å· 10 14 char
+//     uint8_t bcardtype[2];  // è½¦ç¥¨ç±»å‹ 2 24 Byte[2]
+//     uint8_t logicalid[8];  //åº”ç”¨åºåˆ—å· 8 26 Byte[2]
+//     uint8_t bdeposite;  //æŠ¼é‡‘ 1 34 Byte
+//     long lbalance;   //é’±åŒ…åˆå§‹å€¼ 4 35 Dword
+//     uint16_t caps;   //å¯å……å€¼ä¸Šé™ 2 39 Word
 //
-//     uint8_t passmode;  //³öÈëÄ£Ê½ 1 64 Byte
-//     uint8_t entryline[2]; //¿ÉÈëÏßÂ·Õ¾µã 2 65 Bcd[2]
-//     uint8_t exitline[2]; //¿É³öÏßÂ·Õ¾µã 2 67 Bcd[2]
+//     uint8_t passmode;  //å‡ºå…¥æ¨¡å¼ 1 64 Byte
+//     uint8_t entryline[2]; //å¯å…¥çº¿è·¯ç«™ç‚¹ 2 65 Bcd[2]
+//     uint8_t exitline[2]; //å¯å‡ºçº¿è·¯ç«™ç‚¹ 2 67 Bcd[2]
 //
-//     uint8_t adf1_mlk_0201[16]; //ADF1È¦´æÃÜÔ¿ 16 149 Byte[16]
-//     uint8_t adf1_mpk_0101[16]; //ADF1Ïû·ÑÃÜÔ¿01 16 165 Byte[16]
-//     uint8_t adf1_mtk[16]; //ADF1µÄTACÃÜÔ¿ 16 181 Byte[16]
-// //    uint8_t adf1_mpuk[16]; //ADF1½âËøPINÃÜÔ¿ 16 197 Byte[16]
-// //    uint8_t adf1_mprk[16]; //ADF1ÖØ×°PINÃÜÔ¿ 16 213 Byte[16]
-//     uint8_t adf1_mamk_00[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿00 16 229 Byte[16]
-//     uint8_t adf1_mamk_01[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 16 245 Byte[16]
-//     uint8_t adf1_mamk_02[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 16 261 Byte[16]
-// //    uint8_t adf1_mamk_03[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿03 16 277 Byte[16]
-//     uint8_t adf1_pin[16];//ADF1µÄPINÂë 16 293 Byte[16]
+//     uint8_t adf1_mlk_0201[16]; //ADF1åœˆå­˜å¯†é’¥ 16 149 Byte[16]
+//     uint8_t adf1_mpk_0101[16]; //ADF1æ¶ˆè´¹å¯†é’¥01 16 165 Byte[16]
+//     uint8_t adf1_mtk[16]; //ADF1çš„TACå¯†é’¥ 16 181 Byte[16]
+// //    uint8_t adf1_mpuk[16]; //ADF1è§£é”PINå¯†é’¥ 16 197 Byte[16]
+// //    uint8_t adf1_mprk[16]; //ADF1é‡è£…PINå¯†é’¥ 16 213 Byte[16]
+//     uint8_t adf1_mamk_00[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥00 16 229 Byte[16]
+//     uint8_t adf1_mamk_01[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥01 16 245 Byte[16]
+//     uint8_t adf1_mamk_02[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥02 16 261 Byte[16]
+// //    uint8_t adf1_mamk_03[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥03 16 277 Byte[16]
+//     uint8_t adf1_pin[16];//ADF1çš„PINç  16 293 Byte[16]
 //
 // }TEVALUATE_INPUT, *LPTEVALUATE_INPUT;
 
-//×¢ÏúÊäÈë½Ó¿Ú
+//æ³¨é”€è¾“å…¥æ¥å£
 typedef struct
 {
-	char szorderno[14]; // ¶©µ¥ºÅ 14 0 char
-	char szapplyno[10]; // ÉêÇë±àºÅ 10 14 char
-	uint8_t bcardtype[2];  // ³µÆ±ÀàĞÍ 2 24 Byte[2]
-	uint8_t logicalid[8];  //Ó¦ÓÃĞòÁĞºÅ 8 26 Byte[2]
-	uint8_t bdeposite;  //Ñº½ğ 1 34 Byte
-	long lbalance;   //Ç®°ü³õÊ¼Öµ 4 35 Dword
-	uint8_t adf1_mpk_0101[16]; //ADF1Ïû·ÑÃÜÔ¿01 16 165 Byte[16]
-	uint8_t adf1_mtk[16]; //ADF1µÄTACÃÜÔ¿ 16 181 Byte[16]
-	//    uint8_t adf1_mpuk[16]; //ADF1½âËøPINÃÜÔ¿ 16 197 Byte[16]
-	//    uint8_t adf1_mprk[16]; //ADF1ÖØ×°PINÃÜÔ¿ 16 213 Byte[16]
-	uint8_t adf1_mamk_00[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿00 16 229 Byte[16]
-	uint8_t adf1_mamk_01[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 16 245 Byte[16]
-	uint8_t adf1_mamk_02[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 16 261 Byte[16]
-	//    uint8_t adf1_mamk_03[16];//ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿03 16 277 Byte[16]
+	char szorderno[14]; // è®¢å•å· 14 0 char
+	char szapplyno[10]; // ç”³è¯·ç¼–å· 10 14 char
+	uint8_t bcardtype[2];  // è½¦ç¥¨ç±»å‹ 2 24 Byte[2]
+	uint8_t logicalid[8];  //åº”ç”¨åºåˆ—å· 8 26 Byte[2]
+	uint8_t bdeposite;  //æŠ¼é‡‘ 1 34 Byte
+	long lbalance;   //é’±åŒ…åˆå§‹å€¼ 4 35 Dword
+	uint8_t adf1_mpk_0101[16]; //ADF1æ¶ˆè´¹å¯†é’¥01 16 165 Byte[16]
+	uint8_t adf1_mtk[16]; //ADF1çš„TACå¯†é’¥ 16 181 Byte[16]
+	//    uint8_t adf1_mpuk[16]; //ADF1è§£é”PINå¯†é’¥ 16 197 Byte[16]
+	//    uint8_t adf1_mprk[16]; //ADF1é‡è£…PINå¯†é’¥ 16 213 Byte[16]
+	uint8_t adf1_mamk_00[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥00 16 229 Byte[16]
+	uint8_t adf1_mamk_01[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥01 16 245 Byte[16]
+	uint8_t adf1_mamk_02[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥02 16 261 Byte[16]
+	//    uint8_t adf1_mamk_03[16];//ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥03 16 277 Byte[16]
 
 }TDESTROY_INPUT, *LPTDESTROY_INPUT;
 
 
 
 //========================================
-//³äÖµ³õÊ¼»¯½á·µ»Ø½á¹¹
+//å……å€¼åˆå§‹åŒ–ç»“è¿”å›ç»“æ„
 //========================================
 typedef struct InitforLoadStr
 {
-	unsigned char        Balance[4];                 // Óà¶î
-	unsigned char        OnlineDealSerial[2]; /** Áª»ú½»Ò×ĞòºÅ **/
-	unsigned char        EncryVer;                   // ÃÜÔ¿°æ±¾ºÅ
-	unsigned char        CalcMarker;                 // Ëã·¨±êÊ¶
-	unsigned char        Random[4];                  // Î±Ëæ»úÊı
+	unsigned char        Balance[4];                 // ä½™é¢
+	unsigned char        OnlineDealSerial[2]; /** è”æœºäº¤æ˜“åºå· **/
+	unsigned char        EncryVer;                   // å¯†é’¥ç‰ˆæœ¬å·
+	unsigned char        CalcMarker;                 // ç®—æ³•æ ‡è¯†
+	unsigned char        Random[4];                  // ä¼ªéšæœºæ•°
 	unsigned char        MAC1[4];                      // mac1
 } InitforLoadStr_t;
 
 
 //=====================================
-//ÎÄ¼şĞÅÏ¢
-//·¢ĞĞ»ù±¾ĞÅÏ¢-- Ö÷ÎÄ¼şÏÂ
+//æ–‡ä»¶ä¿¡æ¯
+//å‘è¡ŒåŸºæœ¬ä¿¡æ¯-- ä¸»æ–‡ä»¶ä¸‹
 typedef struct
 {
-	bcd issuecode[2];               //³ÇÊĞ´úÂë
-	bcd citycode[2];                //³ÇÊĞ´úÂë
-	bcd industrycode[2];            //ĞĞÒµ´úÂë
-	unsigned char testflag;         //²âÊÔ±ê¼Ç
-	unsigned char rfu;              //±£ÁôÊı¾İ
-	unsigned char logicnumber[8];   //Ó¦ÓÃĞòÁĞºÅ
-	unsigned char cardtype[2];      //¿¨ÀàĞÍ
-	bcd issuedate[4];//yyyymmdd         //·¢ĞĞÈÕÆÚ
-	unsigned char issuedevice[6];   //·¢ĞĞÉè±¸ĞÅÏ¢
-	unsigned char  cardversion[2];  //¿¨°æ±¾ºÅ
-	unsigned char effectivefrom[4]; //¿¨ÆôÓÃÈÕÆÚyyyymmdd
-	unsigned char effectiveto[4];   //¿¨½ØÖÁÈÕÆÚyyyymmdd
-	unsigned char rfu2[2];          //±£Áô
+	bcd issuecode[2];               //åŸå¸‚ä»£ç 
+	bcd citycode[2];                //åŸå¸‚ä»£ç 
+	bcd industrycode[2];            //è¡Œä¸šä»£ç 
+	unsigned char testflag;         //æµ‹è¯•æ ‡è®°
+	unsigned char rfu;              //ä¿ç•™æ•°æ®
+	unsigned char logicnumber[8];   //åº”ç”¨åºåˆ—å·
+	unsigned char cardtype[2];      //å¡ç±»å‹
+	bcd issuedate[4];//yyyymmdd         //å‘è¡Œæ—¥æœŸ
+	unsigned char issuedevice[6];   //å‘è¡Œè®¾å¤‡ä¿¡æ¯
+	unsigned char  cardversion[2];  //å¡ç‰ˆæœ¬å·
+	unsigned char effectivefrom[4]; //å¡å¯ç”¨æ—¥æœŸyyyymmdd
+	unsigned char effectiveto[4];   //å¡æˆªè‡³æ—¥æœŸyyyymmdd
+	unsigned char rfu2[2];          //ä¿ç•™
 }TMF_ISSUE,*LPTMF_ISSUE;//40Byte
 
-//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İÎÄ¼ş-- ADF1Ä¿Â¼ÏÂ
+//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®æ–‡ä»¶-- ADF1ç›®å½•ä¸‹
 typedef struct
 {
-	bcd issuecode[2];               //·¢¿¨·½´úÂë
-	bcd citycode[2];                //³ÇÊĞ´úÂë
-	bcd industrycode[2];            //ĞĞÒµ´úÂë
-	unsigned char rfu[2];           //±£ÁôÊı¾İ
-	bcd appstatus;                  //ÆôÓÃ±êÊ¶
-	bcd appversion;                 //Ó¦ÓÃ°æ±¾
-	//unsigned char testflag;         //²âÊÔ±ê¼Ç
+	bcd issuecode[2];               //å‘å¡æ–¹ä»£ç 
+	bcd citycode[2];                //åŸå¸‚ä»£ç 
+	bcd industrycode[2];            //è¡Œä¸šä»£ç 
+	unsigned char rfu[2];           //ä¿ç•™æ•°æ®
+	bcd appstatus;                  //å¯ç”¨æ ‡è¯†
+	bcd appversion;                 //åº”ç”¨ç‰ˆæœ¬
+	//unsigned char testflag;         //æµ‹è¯•æ ‡è®°
 	unsigned char rfu2[2];             //
-	unsigned char logicnumber[8];   //Ó¦ÓÃĞòÁĞºÅ
-	unsigned char effectivefrom[4]; //Ó¦ÓÃÆôÓÃÈÕÆÚyyyymmdd
-	unsigned char effectiveto[4];   //Ó¦ÓÃ½ØÖÁÈÕÆÚyyyymmdd
-	unsigned char rfu3[2];          //±£Áô
-}TPUBLICINF,*LPTPUBLICINF; //×Ü³¤30 BYTE
+	unsigned char logicnumber[8];   //åº”ç”¨åºåˆ—å·
+	unsigned char effectivefrom[4]; //åº”ç”¨å¯ç”¨æ—¥æœŸyyyymmdd
+	unsigned char effectiveto[4];   //åº”ç”¨æˆªè‡³æ—¥æœŸyyyymmdd
+	unsigned char rfu3[2];          //ä¿ç•™
+}TPUBLICINF,*LPTPUBLICINF; //æ€»é•¿30 BYTE
 
 
-//³Ö¿¨ÈË»ù±¾Êı¾İÎÄ¼ş
+//æŒå¡äººåŸºæœ¬æ•°æ®æ–‡ä»¶
 typedef struct
 {
 
 }TPERSONALIZED,*LPPERSONALIZED;
 
-//Ó¦ÓÃ¿ØÖÆÎÄ¼ş
+//åº”ç”¨æ§åˆ¶æ–‡ä»¶
 typedef struct
 {
-	unsigned char saleflag;     //·¢ÊÛ¼¤»î±ê¼Ç
-	unsigned char deposit;      //·¢ÊÛÑº½ğ
-	unsigned char saledevice[6];   //·¢ÊÛÉè±¸ĞÅÏ¢
-	unsigned char passmode;     //³öÈëÄ£Ê½ÅĞ¶Ï
-	unsigned char entryline;    //¿ÉÈëÏßÂ·
-	unsigned char entrystation; //¿ÉÈëÕ¾µã
-	unsigned char exitline;     //¿É³öÏßÂ·
-	unsigned char exitstation;  //¿É³öÕ¾µã
-	unsigned char pursecaps[2];    //Ç®°üÉÏÏŞ
-	unsigned char rfu[17];      //Ô¤Áô
+	unsigned char saleflag;     //å‘å”®æ¿€æ´»æ ‡è®°
+	unsigned char deposit;      //å‘å”®æŠ¼é‡‘
+	unsigned char saledevice[6];   //å‘å”®è®¾å¤‡ä¿¡æ¯
+	unsigned char passmode;     //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	unsigned char entryline;    //å¯å…¥çº¿è·¯
+	unsigned char entrystation; //å¯å…¥ç«™ç‚¹
+	unsigned char exitline;     //å¯å‡ºçº¿è·¯
+	unsigned char exitstation;  //å¯å‡ºç«™ç‚¹
+	unsigned char pursecaps[2];    //é’±åŒ…ä¸Šé™
+	unsigned char rfu[17];      //é¢„ç•™
 }TAPPCTRL,*LPTAPPCTRL;
-//ÎÄ¼şĞÅÏ¢½á¹¹
+//æ–‡ä»¶ä¿¡æ¯ç»“æ„
 //==========================================
 // typedef struct
 // {
 //  // 4BYTE
-//  uint32_t tm4:32; // ×îºóÒ»´Î´¦ÀíÊ±¼ä
+//  uint32_t tm4:32; // æœ€åä¸€æ¬¡å¤„ç†æ—¶é—´
 //  // 2BYTE
-//  uint16_t line:6; // ×îºóÒ»´Î´¦ÀíÕ¾µã
-//  uint16_t station:6; // ×îºóÒ»´Î´¦ÀíÕ¾µã
-//  uint16_t devicetype:4; // Éè±¸ÀàĞÍ
+//  uint16_t line:6; // æœ€åä¸€æ¬¡å¤„ç†ç«™ç‚¹
+//  uint16_t station:6; // æœ€åä¸€æ¬¡å¤„ç†ç«™ç‚¹
+//  uint16_t devicetype:4; // è®¾å¤‡ç±»å‹
 //  // 4BYTE
-//  uint32_t deviceid:10; // Éè±¸ºÅ
-//  uint32_t balance:14; // Ê£Óà½ğ¶î(·Ö)
-//  uint32_t status:5; // ¿¨×´Ì¬
-//  uint32_t mark:3; // ÌØÊâ±ê¼Ç
+//  uint32_t deviceid:10; // è®¾å¤‡å·
+//  uint32_t balance:14; // å‰©ä½™é‡‘é¢(åˆ†)
+//  uint32_t status:5; // å¡çŠ¶æ€
+//  uint32_t mark:3; // ç‰¹æ®Šæ ‡è®°
 //  // 2BYTE
-//  uint16_t entry_line:6;  //Èë¿ÚÏßÂ·
-//  uint16_t entry_station:6; // Èë¿ÚÕ¾µã
-//  uint16_t rfu1:4; // Ô¤Áô
+//  uint16_t entry_line:6;  //å…¥å£çº¿è·¯
+//  uint16_t entry_station:6; // å…¥å£ç«™ç‚¹
+//  uint16_t rfu1:4; // é¢„ç•™
 //  // 1BYTE
-//  uint8_t rfu2:8; // Ô¤Áô
+//  uint8_t rfu2:8; // é¢„ç•™
 //  // 2BYTE
-//  uint16_t tradecount:16; //½»Ò×ÀÛ¼Æ
+//  uint16_t tradecount:16; //äº¤æ˜“ç´¯è®¡
 //  // 1BYTE
-//  uint8_t check:8; // Ğ£Ñé
+//  uint8_t check:8; // æ ¡éªŒ
 // }TSJTDATAREA, *LPTSJTDATAREA;
 
 // typedef struct
 // {
 //     // 4BYTE
-// uint32_t tm4:32; // ×îºóÒ»´Î´¦ÀíÊ±¼ä
+// uint32_t tm4:32; // æœ€åä¸€æ¬¡å¤„ç†æ—¶é—´
 //     // 2BYTE
-// uint16_t line:6; // ×îºóÒ»´Î´¦ÀíÕ¾µã
-// uint16_t station:6; // ×îºóÒ»´Î´¦ÀíÕ¾µã
-// uint16_t devicetype:4; // Éè±¸ÀàĞÍ
+// uint16_t line:6; // æœ€åä¸€æ¬¡å¤„ç†ç«™ç‚¹
+// uint16_t station:6; // æœ€åä¸€æ¬¡å¤„ç†ç«™ç‚¹
+// uint16_t devicetype:4; // è®¾å¤‡ç±»å‹
 //     // 4BYTE
-// uint32_t deviceid:10; // Éè±¸ºÅ
-// uint32_t balance:14; // Ê£Óà½ğ¶î(·Ö)
-// uint32_t status:5; // ¿¨×´Ì¬
-// uint32_t mark:3; // ÌØÊâ±ê¼Ç
+// uint32_t deviceid:10; // è®¾å¤‡å·
+// uint32_t balance:14; // å‰©ä½™é‡‘é¢(åˆ†)
+// uint32_t status:5; // å¡çŠ¶æ€
+// uint32_t mark:3; // ç‰¹æ®Šæ ‡è®°
 //     // 2BYTE
-// uint16_t entry_line:6;  //Èë¿ÚÏßÂ·
-// uint16_t entry_station:6; // Èë¿ÚÕ¾µã
-// uint16_t rfu1:4; // Ô¤Áô
+// uint16_t entry_line:6;  //å…¥å£çº¿è·¯
+// uint16_t entry_station:6; // å…¥å£ç«™ç‚¹
+// uint16_t rfu1:4; // é¢„ç•™
 //     // 1BYTE
-// uint8_t rfu2:8; // Ô¤Áô
+// uint8_t rfu2:8; // é¢„ç•™
 //     // 2BYTE
-// uint16_t tradecount:16; //½»Ò×ÀÛ¼Æ
+// uint16_t tradecount:16; //äº¤æ˜“ç´¯è®¡
 //     // 1BYTE
-// uint8_t check:8; // Ğ£Ñé
+// uint8_t check:8; // æ ¡éªŒ
 // }TSJTDATAREA, *LPTSJTDATAREA;
 
 
 
 //=====================================================
-//CPU¿¨ÃÜÔ¿
+//CPUå¡å¯†é’¥
 // typedef struct{
-//  //MFÃÜÔ¿
-//  unsigned char TK_MF[17];  //´«ÊäÃÜÔ¿
-//  unsigned char mf_mkey[17];//Ö÷¿ØÃÜÔ¿
-//  unsigned char mf_mamk[17];//Î¬»¤ÃÜÔ¿
-//  //ADF1ÃÜÔ¿
-//  unsigned char adf1_tkey[17];      //´«ÊäÃÜÔ¿
-//  unsigned char adf1_mkey[17];      //Ö÷¿ØÃÜÔ¿
-//  unsigned char MLK_ADF1_0201[17];  //È¦´æ½»Ò×ÃÜÔ¿
-//  unsigned char MPK_ADF1_0101[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿01
-//  unsigned char MPK_ADF1_0102[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿02
-//  unsigned char MPK_ADF1_0103[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿03
-//  unsigned char MPK_ADF1_0104[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿04
-//  unsigned char MPK_ADF1_0105[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿05
-//  unsigned char MTK_ADF1[17];       //TAC ÃÜÔ¿
-//  unsigned char MPUK_ADF1[17];      //½âËøPIN ÃÜÔ¿
-//  unsigned char MRPK_ADF1[17];      //ÖØ×°PIN ÃÜÔ¿
-//  unsigned char MAMK_ADF1_00[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01
-//  unsigned char MAMK_ADF1_01[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿02
-//  unsigned char MAMK_ADF1_02[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿03
-//  unsigned char MAMK_ADF1_03[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿04
-//  unsigned char PIN_ADF1[4];       //ÃÜÂë
-//  //ADF2ÃÜÔ¿
-//  unsigned char ADF2_TKEY[17];      //´«ÊäÃÜÔ¿
-//  unsigned char ADF2_MKEY[17];      //Ö÷¿ØÃÜÔ¿
-//  unsigned char MLK_ADF2_0201[17];  //È¦´æ½»Ò×ÃÜÔ¿
-//  unsigned char MPK_ADF2_0101[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿01
-//  unsigned char MPK_ADF2_0102[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿02
-//  unsigned char MPK_ADF2_0103[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿03
-//  unsigned char MPK_ADF2_0104[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿04
-//  unsigned char MPK_ADF2_0105[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿05
-//  unsigned char MTK_ADF2[17];       //TAC ÃÜÔ¿
-//  unsigned char MPUK_ADF2[17];      //½âËøPIN ÃÜÔ¿
-//  unsigned char MRPK_ADF2[17];      //ÖØ×°PIN ÃÜÔ¿
-//  unsigned char MAMK_ADF2_00[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01
-//  unsigned char MAMK_ADF2_01[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿02
-//  unsigned char MAMK_ADF2_02[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿03
-//  unsigned char MAMK_ADF2_03[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿04
-//  unsigned char PIN_ADF2[4];       //ÃÜÂë
+//  //MFå¯†é’¥
+//  unsigned char TK_MF[17];  //ä¼ è¾“å¯†é’¥
+//  unsigned char mf_mkey[17];//ä¸»æ§å¯†é’¥
+//  unsigned char mf_mamk[17];//ç»´æŠ¤å¯†é’¥
+//  //ADF1å¯†é’¥
+//  unsigned char adf1_tkey[17];      //ä¼ è¾“å¯†é’¥
+//  unsigned char adf1_mkey[17];      //ä¸»æ§å¯†é’¥
+//  unsigned char MLK_ADF1_0201[17];  //åœˆå­˜äº¤æ˜“å¯†é’¥
+//  unsigned char MPK_ADF1_0101[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥01
+//  unsigned char MPK_ADF1_0102[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥02
+//  unsigned char MPK_ADF1_0103[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥03
+//  unsigned char MPK_ADF1_0104[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥04
+//  unsigned char MPK_ADF1_0105[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥05
+//  unsigned char MTK_ADF1[17];       //TAC å¯†é’¥
+//  unsigned char MPUK_ADF1[17];      //è§£é”PIN å¯†é’¥
+//  unsigned char MRPK_ADF1[17];      //é‡è£…PIN å¯†é’¥
+//  unsigned char MAMK_ADF1_00[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01
+//  unsigned char MAMK_ADF1_01[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥02
+//  unsigned char MAMK_ADF1_02[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥03
+//  unsigned char MAMK_ADF1_03[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥04
+//  unsigned char PIN_ADF1[4];       //å¯†ç 
+//  //ADF2å¯†é’¥
+//  unsigned char ADF2_TKEY[17];      //ä¼ è¾“å¯†é’¥
+//  unsigned char ADF2_MKEY[17];      //ä¸»æ§å¯†é’¥
+//  unsigned char MLK_ADF2_0201[17];  //åœˆå­˜äº¤æ˜“å¯†é’¥
+//  unsigned char MPK_ADF2_0101[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥01
+//  unsigned char MPK_ADF2_0102[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥02
+//  unsigned char MPK_ADF2_0103[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥03
+//  unsigned char MPK_ADF2_0104[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥04
+//  unsigned char MPK_ADF2_0105[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥05
+//  unsigned char MTK_ADF2[17];       //TAC å¯†é’¥
+//  unsigned char MPUK_ADF2[17];      //è§£é”PIN å¯†é’¥
+//  unsigned char MRPK_ADF2[17];      //é‡è£…PIN å¯†é’¥
+//  unsigned char MAMK_ADF2_00[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01
+//  unsigned char MAMK_ADF2_01[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥02
+//  unsigned char MAMK_ADF2_02[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥03
+//  unsigned char MAMK_ADF2_03[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥04
+//  unsigned char PIN_ADF2[4];       //å¯†ç 
 // }TTICK_KEY,*LPTTICKK_KEY;
 
 // typedef struct{
-//  //MFÃÜÔ¿
-//  unsigned char TK_MF[17];  //´«ÊäÃÜÔ¿
-//  unsigned char mf_mkey[17];//Ö÷¿ØÃÜÔ¿
-//  unsigned char mf_mamk[17];//Î¬»¤ÃÜÔ¿
-//  //ADF1ÃÜÔ¿
-//  unsigned char adf1_tkey[17];      //´«ÊäÃÜÔ¿
-//  unsigned char adf1_mkey[17];      //Ö÷¿ØÃÜÔ¿
-//  unsigned char MLK_ADF1_0201[17];  //È¦´æ½»Ò×ÃÜÔ¿
-//  unsigned char MPK_ADF1_0101[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿01
-//  unsigned char MTK_ADF1[17];       //TAC ÃÜÔ¿
-//  unsigned char MPUK_ADF1[17];      //½âËøPIN ÃÜÔ¿
-//  unsigned char MRPK_ADF1[17];      //ÖØ×°PIN ÃÜÔ¿
-//  unsigned char MAMK_ADF1_00[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01
-//  unsigned char MAMK_ADF1_01[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿02
-//  unsigned char MAMK_ADF1_02[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿03
-//  unsigned char MAMK_ADF1_03[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿04
-//  unsigned char PIN_ADF1[4];       //ÃÜÂë
+//  //MFå¯†é’¥
+//  unsigned char TK_MF[17];  //ä¼ è¾“å¯†é’¥
+//  unsigned char mf_mkey[17];//ä¸»æ§å¯†é’¥
+//  unsigned char mf_mamk[17];//ç»´æŠ¤å¯†é’¥
+//  //ADF1å¯†é’¥
+//  unsigned char adf1_tkey[17];      //ä¼ è¾“å¯†é’¥
+//  unsigned char adf1_mkey[17];      //ä¸»æ§å¯†é’¥
+//  unsigned char MLK_ADF1_0201[17];  //åœˆå­˜äº¤æ˜“å¯†é’¥
+//  unsigned char MPK_ADF1_0101[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥01
+//  unsigned char MTK_ADF1[17];       //TAC å¯†é’¥
+//  unsigned char MPUK_ADF1[17];      //è§£é”PIN å¯†é’¥
+//  unsigned char MRPK_ADF1[17];      //é‡è£…PIN å¯†é’¥
+//  unsigned char MAMK_ADF1_00[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01
+//  unsigned char MAMK_ADF1_01[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥02
+//  unsigned char MAMK_ADF1_02[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥03
+//  unsigned char MAMK_ADF1_03[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥04
+//  unsigned char PIN_ADF1[4];       //å¯†ç 
 // }TTICK_KEY,*LPTTICKK_KEY;
 
 // typedef struct
 // {
-//     //MFÃÜÔ¿
-//     unsigned char mf_tkey[17];  //´«ÊäÃÜÔ¿1
-//     unsigned char mf_mkey[17];//Ö÷¿ØÃÜÔ¿2
-//     unsigned char mf_mamk[17];//Î¬»¤ÃÜÔ¿3
+//     //MFå¯†é’¥
+//     unsigned char mf_tkey[17];  //ä¼ è¾“å¯†é’¥1
+//     unsigned char mf_mkey[17];//ä¸»æ§å¯†é’¥2
+//     unsigned char mf_mamk[17];//ç»´æŠ¤å¯†é’¥3
 // //    unsigned char MF_PIN[17];//
-//     //ADF1ÃÜÔ¿
-//     unsigned char adf1_tkey[17];      //´«ÊäÃÜÔ¿4
-//     unsigned char adf1_mkey[17];      //Ö÷¿ØÃÜÔ¿5
-//     unsigned char adf1_mlk_0201[17];  //È¦´æ½»Ò×ÃÜÔ¿6
-//     unsigned char adf1_mpk_0101[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿01 7
-//     unsigned char adf1_mtk[17];       //TAC ÃÜÔ¿8
-//     unsigned char adf1_mpuk[17];      //½âËøPIN ÃÜÔ¿9
-//     unsigned char adf1_mprk[17];      //ÖØ×°PIN ÃÜÔ¿10
-//     unsigned char adf1_mamk_00[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 11
-//     unsigned char adf1_mamk_01[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 12
-//     unsigned char adf1_mamk_02[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿03 13
-//     unsigned char ADF1_MAMK_03[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿04 14
-//     unsigned char adf1_pin[17];       //ÃÜÂë15
+//     //ADF1å¯†é’¥
+//     unsigned char adf1_tkey[17];      //ä¼ è¾“å¯†é’¥4
+//     unsigned char adf1_mkey[17];      //ä¸»æ§å¯†é’¥5
+//     unsigned char adf1_mlk_0201[17];  //åœˆå­˜äº¤æ˜“å¯†é’¥6
+//     unsigned char adf1_mpk_0101[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥01 7
+//     unsigned char adf1_mtk[17];       //TAC å¯†é’¥8
+//     unsigned char adf1_mpuk[17];      //è§£é”PIN å¯†é’¥9
+//     unsigned char adf1_mprk[17];      //é‡è£…PIN å¯†é’¥10
+//     unsigned char adf1_mamk_00[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01 11
+//     unsigned char adf1_mamk_01[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥02 12
+//     unsigned char adf1_mamk_02[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥03 13
+//     unsigned char ADF1_MAMK_03[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥04 14
+//     unsigned char adf1_pin[17];       //å¯†ç 15
 // }TTICK_KEY,*LPTTICKK_KEY;
 
 typedef struct
 {
-	//MFÃÜÔ¿
-	unsigned char mf_tkey[17];  //´«ÊäÃÜÔ¿1
-	unsigned char mf_mkey[17];//Ö÷¿ØÃÜÔ¿2
-	unsigned char mf_mamk[17];//Î¬»¤ÃÜÔ¿3
-	unsigned char mf_eak[17];//Íâ²¿ÈÏÖ¤ÃÜÔ¿
-	//ADF1ÃÜÔ¿
-	unsigned char adf1_tkey[17];      //´«ÊäÃÜÔ¿4
-	unsigned char adf1_mkey[17];      //Ö÷¿ØÃÜÔ¿5
-	unsigned char adf1_mamk_00[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 11
-	unsigned char adf1_mpk_0101[17];  //Ïû·Ñ½»Ò×ÃÜÔ¿01 7
-	unsigned char adf1_mlk_0201[17];  //È¦´æ½»Ò×ÃÜÔ¿6
-	unsigned char adf1_mtk[17];       //TAC ÃÜÔ¿8
-	unsigned char adf1_mamk_01[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 12
-	unsigned char adf1_mamk_02[17];   //Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 13
-	unsigned char adf1_mabk[17];   //Ó¦ÓÃËø¶¨ÃÜÔ¿
-	unsigned char adf1_mauk[17];   //Ó¦ÓÃ½âËøÃÜÔ¿
-	unsigned char adf1_mpuk[17];      //½âËøPIN ÃÜÔ¿9
-	unsigned char adf1_mprk[17];      //ÖØ×°PIN ÃÜÔ¿10
-	unsigned char adf1_muk[17];   //ĞŞ¸ÄÍ¸Ö§ÏŞ¶îÃÜÔ¿
-	unsigned char adf1_mulk[17];   //È¦ÌáÃÜÔ¿
-	unsigned char adf1_eak[17];   //Íâ²¿ÈÏÖ¤ÃÜÔ¿
-	unsigned char adf1_pin[17];       //ÃÜÂë15
+	//MFå¯†é’¥
+	unsigned char mf_tkey[17];  //ä¼ è¾“å¯†é’¥1
+	unsigned char mf_mkey[17];//ä¸»æ§å¯†é’¥2
+	unsigned char mf_mamk[17];//ç»´æŠ¤å¯†é’¥3
+	unsigned char mf_eak[17];//å¤–éƒ¨è®¤è¯å¯†é’¥
+	//ADF1å¯†é’¥
+	unsigned char adf1_tkey[17];      //ä¼ è¾“å¯†é’¥4
+	unsigned char adf1_mkey[17];      //ä¸»æ§å¯†é’¥5
+	unsigned char adf1_mamk_00[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01 11
+	unsigned char adf1_mpk_0101[17];  //æ¶ˆè´¹äº¤æ˜“å¯†é’¥01 7
+	unsigned char adf1_mlk_0201[17];  //åœˆå­˜äº¤æ˜“å¯†é’¥6
+	unsigned char adf1_mtk[17];       //TAC å¯†é’¥8
+	unsigned char adf1_mamk_01[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥01 12
+	unsigned char adf1_mamk_02[17];   //åº”ç”¨ç»´æŠ¤å¯†é’¥02 13
+	unsigned char adf1_mabk[17];   //åº”ç”¨é”å®šå¯†é’¥
+	unsigned char adf1_mauk[17];   //åº”ç”¨è§£é”å¯†é’¥
+	unsigned char adf1_mpuk[17];      //è§£é”PIN å¯†é’¥9
+	unsigned char adf1_mprk[17];      //é‡è£…PIN å¯†é’¥10
+	unsigned char adf1_muk[17];   //ä¿®æ”¹é€æ”¯é™é¢å¯†é’¥
+	unsigned char adf1_mulk[17];   //åœˆæå¯†é’¥
+	unsigned char adf1_eak[17];   //å¤–éƒ¨è®¤è¯å¯†é’¥
+	unsigned char adf1_pin[17];       //å¯†ç 15
 }TTICK_KEY,*LPTTICKK_KEY;
 
 
 typedef struct
 {
-	bcd issuecode[2];               //·¢¿¨·½´úÂë
-	bcd citycode[2];                //³ÇÊĞ´úÂë
-	bcd industrycode[2];            //ĞĞÒµ´úÂë
-	bcd testflag;                   //Ö÷Ó¦ÓÃºÍADF1 Ó¦ÓÃ¹²ÓÃ
-	unsigned char logicnumber[8];   //Ó¦ÓÃĞòÁĞºÅÖ÷Ó¦ÓÃºÍADF1 Ó¦ÓÃ¹²ÓÃ
-	unsigned char cardtype[2];      //¿¨ÀàĞÍ
-	//Ö÷Ó¦ÓÃÇø
-	bcd issuedate[4];//yyyymmdd         //·¢ĞĞÈÕÆÚ
-	unsigned char issuedevice[6];   //·¢ĞĞÉè±¸ĞÅÏ¢
-	unsigned char  cardversion[2];  //¿¨°æ±¾ºÅ
-	unsigned char effectivefrom[4]; //¿¨ÆôÓÃÈÕÆÚyyyymmdd
-	unsigned char effectiveto[4];   //¿¨½ØÖÁÈÕÆÚyyyymmdd
+	bcd issuecode[2];               //å‘å¡æ–¹ä»£ç 
+	bcd citycode[2];                //åŸå¸‚ä»£ç 
+	bcd industrycode[2];            //è¡Œä¸šä»£ç 
+	bcd testflag;                   //ä¸»åº”ç”¨å’ŒADF1 åº”ç”¨å…±ç”¨
+	unsigned char logicnumber[8];   //åº”ç”¨åºåˆ—å·ä¸»åº”ç”¨å’ŒADF1 åº”ç”¨å…±ç”¨
+	unsigned char cardtype[2];      //å¡ç±»å‹
+	//ä¸»åº”ç”¨åŒº
+	bcd issuedate[4];//yyyymmdd         //å‘è¡Œæ—¥æœŸ
+	unsigned char issuedevice[6];   //å‘è¡Œè®¾å¤‡ä¿¡æ¯
+	unsigned char  cardversion[2];  //å¡ç‰ˆæœ¬å·
+	unsigned char effectivefrom[4]; //å¡å¯ç”¨æ—¥æœŸyyyymmdd
+	unsigned char effectiveto[4];   //å¡æˆªè‡³æ—¥æœŸyyyymmdd
 	//ADF1
-	unsigned char szcaps[2];   //¿É³äÖµÉÏÏŞ 2 39 Word
-	unsigned char appstatus;      //ÆôÓÃ±êÊ¶
-	bcd appversion;  //¿¨°æ±¾ºÅ
-	unsigned char appeffectivefrom[4]; //Ó¦ÓÃÆôÓÃÈÕÆÚyyyymmdd
-	unsigned char appeffectiveto[4];   //Ó¦ÓÃ½ØÖÁÈÕÆÚyyyymmdd
+	unsigned char szcaps[2];   //å¯å……å€¼ä¸Šé™ 2 39 Word
+	unsigned char appstatus;      //å¯ç”¨æ ‡è¯†
+	bcd appversion;  //å¡ç‰ˆæœ¬å·
+	unsigned char appeffectivefrom[4]; //åº”ç”¨å¯ç”¨æ—¥æœŸyyyymmdd
+	unsigned char appeffectiveto[4];   //åº”ç”¨æˆªè‡³æ—¥æœŸyyyymmdd
 
 	//============================================
-	unsigned char logiceffectivefrom[7]; //Âß¼­ÆğÊ¼Ê±¼ä
-	unsigned char szlogicectivetime[4]; //Âß¼­ÓĞĞ§ÌìÊı
+	unsigned char logiceffectivefrom[7]; //é€»è¾‘èµ·å§‹æ—¶é—´
+	unsigned char szlogicectivetime[4]; //é€»è¾‘æœ‰æ•ˆå¤©æ•°
 
-	//Ó¦ÓÃ¿ØÖÆÎÄ¼ş
-	unsigned char saleflag;     //·¢ÊÛ¼¤»î±ê¼Ç
-	unsigned char deposit;      //·¢ÊÛÑº½ğ
-	unsigned char saledevice[6];   //·¢ÊÛÉè±¸ĞÅÏ¢
-	unsigned char passmode;     //³öÈëÄ£Ê½ÅĞ¶Ï
-	unsigned char entryline;    //¿ÉÈëÏßÂ·
-	unsigned char entrystation; //¿ÉÈëÕ¾µã
-	unsigned char exitline;     //¿É³öÏßÂ·
-	unsigned char exitstation;  //¿É³öÕ¾µã
+	//åº”ç”¨æ§åˆ¶æ–‡ä»¶
+	unsigned char saleflag;     //å‘å”®æ¿€æ´»æ ‡è®°
+	unsigned char deposit;      //å‘å”®æŠ¼é‡‘
+	unsigned char saledevice[6];   //å‘å”®è®¾å¤‡ä¿¡æ¯
+	unsigned char passmode;     //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	unsigned char entryline;    //å¯å…¥çº¿è·¯
+	unsigned char entrystation; //å¯å…¥ç«™ç‚¹
+	unsigned char exitline;     //å¯å‡ºçº¿è·¯
+	unsigned char exitstation;  //å¯å‡ºç«™ç‚¹
 } TTICKETINF, *LPTTICKETINF;
 
 typedef struct
 {
-	char szorderno[14]; // ¶©µ¥ºÅ 14 0 char
-	char szapplyno[14]; // ÉêÇë±àºÅ 10 14 char
-	uint8_t bcardtype[2];  // ³µÆ±ÀàĞÍ 2 24 Byte[2]
+	char szorderno[14]; // è®¢å•å· 14 0 char
+	char szapplyno[14]; // ç”³è¯·ç¼–å· 10 14 char
+	uint8_t bcardtype[2];  // è½¦ç¥¨ç±»å‹ 2 24 Byte[2]
 
 	unsigned char logicnumber[16];
 	unsigned char physical_id[8];
@@ -523,28 +523,28 @@ TESFUNC esfun_call[2]=
 //static TTICK_KEY l_key=
 //{
 //    //MF
-//    {"\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF"},//´«ÊäÃÜÔ¿
-//    {"\x88\x88\x88\x88\x88\x88\x88\x99\x99\x99\x99\x99\x99\x99\x99\x99"},//Ö÷¿ØÃÜÔ¿
-//    {"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"},//Î¬»¤ÃÜÔ¿
-//    {"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"},//Íâ²¿ÈÏÖ¤ÃÜÔ¿
+//    {"\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF"},//ä¼ è¾“å¯†é’¥
+//    {"\x88\x88\x88\x88\x88\x88\x88\x99\x99\x99\x99\x99\x99\x99\x99\x99"},//ä¸»æ§å¯†é’¥
+//    {"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"},//ç»´æŠ¤å¯†é’¥
+//    {"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F"},//å¤–éƒ¨è®¤è¯å¯†é’¥
 //
 //    //ADF1
-//    {"\xD5\x3A\x54\x37\x86\x3E\x02\x42\x84\xAA\xF4\xC6\x61\x50\xBD\xBB"}, //´«ÊäÃÜÔ¿
-//    {"\xE9\x07\x36\x3D\xC8\xD2\xC4\x7C\x91\x2A\xE2\x88\x15\x73\x33\xA6"},//Ö÷¿ØÃÜÔ¿
-//    {"\x74\x6F\xD0\x3B\x2D\xAA\x35\x60\x57\xF9\x75\x1E\x98\x36\x08\x7B"},//Ó¦ÓÃÎ¬»¤ÃÜÔ¿00
-//    {"\x7D\xF9\x84\x02\xF4\x7B\xFF\xEB\xC8\xDC\x0E\x33\xA8\x06\x57\x16"},//Ïû·Ñ½»Ò×µÄÃÜÔ¿01
-//    {"\x4C\x78\x31\x1A\xFC\x8F\x36\xB4\xAC\xAD\xBC\xB2\x61\xD9\xF5\x9A"},//È¦´æ½»Ò×µÄÃÜÔ¿
-//    {"\xBB\x47\x8B\xA9\xB0\xD2\x0D\x5F\x99\x48\x8F\x84\xBB\x6D\x62\xB0"},//TACµÄÃÜÔ¿
-//    {"\x01\x4B\x6B\xC2\xDC\x80\xE8\x25\x60\x89\x78\xB3\xA3\xB3\x24\x50"},//Ó¦ÓÃÎ¬»¤ÃÜÔ¿01
-//    {"\x9F\xE2\x7F\xC9\x2B\x0E\xA7\x60\x94\xAC\xA3\xF2\xB5\x6E\x61\x6A"},//Ó¦ÓÃÎ¬»¤ÃÜÔ¿02
-//    {"\x69\xA7\x4A\xA1\xE8\xDA\x04\x1D\x85\x5A\x8A\x14\x75\xAB\x22\xBE"},//Ó¦ÓÃËø¶¨ÃÜÔ¿
-//    {"\x22\xB0\xAC\xAD\xB9\x9E\x6C\xF3\x29\x79\xDE\xE7\xE4\xCA\xDA\xA7"},//Ó¦ÓÃ½âËøÃÜÔ¿
-//    {"\x82\xCB\xE1\x95\xC1\x21\xCA\xA3\x10\x09\x04\x50\xEC\x9A\x76\xCF"},//½âËøPINÃÜÔ¿
-//    {"\x29\xA4\x02\x00\x13\xE4\x27\xD4\xD0\x27\x5B\xEA\x03\x8B\xBD\x3A"},//ÖØ×°PINÃÜÔ¿
-//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//È¦ÌáÃÜÔ¿
-//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//ĞŞ¸ÄÍ¸Ö§ÏŞ¶îÃÜÔ¿
-//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//Íâ²¿ÈÏÖ¤ÃÜÔ¿01
-//    {"\x12\x34\x56\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"}  // pinÂë
+//    {"\xD5\x3A\x54\x37\x86\x3E\x02\x42\x84\xAA\xF4\xC6\x61\x50\xBD\xBB"}, //ä¼ è¾“å¯†é’¥
+//    {"\xE9\x07\x36\x3D\xC8\xD2\xC4\x7C\x91\x2A\xE2\x88\x15\x73\x33\xA6"},//ä¸»æ§å¯†é’¥
+//    {"\x74\x6F\xD0\x3B\x2D\xAA\x35\x60\x57\xF9\x75\x1E\x98\x36\x08\x7B"},//åº”ç”¨ç»´æŠ¤å¯†é’¥00
+//    {"\x7D\xF9\x84\x02\xF4\x7B\xFF\xEB\xC8\xDC\x0E\x33\xA8\x06\x57\x16"},//æ¶ˆè´¹äº¤æ˜“çš„å¯†é’¥01
+//    {"\x4C\x78\x31\x1A\xFC\x8F\x36\xB4\xAC\xAD\xBC\xB2\x61\xD9\xF5\x9A"},//åœˆå­˜äº¤æ˜“çš„å¯†é’¥
+//    {"\xBB\x47\x8B\xA9\xB0\xD2\x0D\x5F\x99\x48\x8F\x84\xBB\x6D\x62\xB0"},//TACçš„å¯†é’¥
+//    {"\x01\x4B\x6B\xC2\xDC\x80\xE8\x25\x60\x89\x78\xB3\xA3\xB3\x24\x50"},//åº”ç”¨ç»´æŠ¤å¯†é’¥01
+//    {"\x9F\xE2\x7F\xC9\x2B\x0E\xA7\x60\x94\xAC\xA3\xF2\xB5\x6E\x61\x6A"},//åº”ç”¨ç»´æŠ¤å¯†é’¥02
+//    {"\x69\xA7\x4A\xA1\xE8\xDA\x04\x1D\x85\x5A\x8A\x14\x75\xAB\x22\xBE"},//åº”ç”¨é”å®šå¯†é’¥
+//    {"\x22\xB0\xAC\xAD\xB9\x9E\x6C\xF3\x29\x79\xDE\xE7\xE4\xCA\xDA\xA7"},//åº”ç”¨è§£é”å¯†é’¥
+//    {"\x82\xCB\xE1\x95\xC1\x21\xCA\xA3\x10\x09\x04\x50\xEC\x9A\x76\xCF"},//è§£é”PINå¯†é’¥
+//    {"\x29\xA4\x02\x00\x13\xE4\x27\xD4\xD0\x27\x5B\xEA\x03\x8B\xBD\x3A"},//é‡è£…PINå¯†é’¥
+//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//åœˆæå¯†é’¥
+//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//ä¿®æ”¹é€æ”¯é™é¢å¯†é’¥
+//    {"\x42\x2C\xF9\x81\x18\xF7\xF4\x04\xAA\x47\x11\x8C\xF7\x51\xF9\xE7"},//å¤–éƒ¨è®¤è¯å¯†é’¥01
+//    {"\x12\x34\x56\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"}  // pinç 
 //
 //};
 
@@ -597,7 +597,7 @@ static TINPUT g_input;
 unsigned char g_cardfactory=0;
 
 
-static int function_idx=0;// º¯ÊıÊı×éË÷Òı, 1=´¢Öµ¿¨, 0=ÕÂ³ÌÆ±
+static int function_idx=0;// å‡½æ•°æ•°ç»„ç´¢å¼•, 1=å‚¨å€¼å¡, 0=ç« ç¨‹ç¥¨
 
 // static unsigned short CRC16_TAB[] = {
 //  0x0000, 0x1189, 0x2312, 0x329b, 0x4624, 0x57ad, 0x6536, 0x74bf,
@@ -663,12 +663,12 @@ void add_metro_area_crc(unsigned char * p_metro, unsigned short len_area)
 
 
 //============================================================
-//º¯ÊıÃû: set_function_idx
-//¹¦ÄÜ     :  ÅäÖÃµ÷ÓÃº¯ÊıÀà
-//Èë¿Ú²ÎÊı:
-//                      idx: 0=µ÷ÓÃµ¥³ÌÆ±Ààº¯Êı; 1=µ÷ÓÃ´¢ÖµÆ±Àà
-//³ö¿Ú²ÎÊı: ÎŞ
-//·µ»ØÖµ:      ÎŞ
+//å‡½æ•°å: set_function_idx
+//åŠŸèƒ½     :  é…ç½®è°ƒç”¨å‡½æ•°ç±»
+//å…¥å£å‚æ•°:
+//                      idx: 0=è°ƒç”¨å•ç¨‹ç¥¨ç±»å‡½æ•°; 1=è°ƒç”¨å‚¨å€¼ç¥¨ç±»
+//å‡ºå£å‚æ•°: æ— 
+//è¿”å›å€¼:      æ— 
 //============================================================
 void set_function_idx(int idx )
 {
@@ -689,16 +689,16 @@ void set_function_idx(int idx )
 
 
 //===============================================================
-//º¯Êı: data_encrypt
-//¹¦ÄÜ: ¶ÔÊı¾İÏî½øĞĞ¼ÓÃÜ
-//Èë¿Ú²ÎÊı:
-//                      nlen=Òª½øĞĞ¼ÓÃÜµÄÊı¾İ³¤¶È
-//                   lpdata=Òª½øĞĞ¼ÓÃÜµÄÊı¾İÄÚÈİ
-//                    lpkey=ÃÜÔ¿
-//³ö¿Ú²ÎÊı:
-//                  lpdata=¼ÓÃÜºóµÄÊı¾İÄÚÈİ
-//·µ  »Ø   Öµ:
-//                  ¼ÓÃÜºóµÄÊı¾İ³¤¶È
+//å‡½æ•°: data_encrypt
+//åŠŸèƒ½: å¯¹æ•°æ®é¡¹è¿›è¡ŒåŠ å¯†
+//å…¥å£å‚æ•°:
+//                      nlen=è¦è¿›è¡ŒåŠ å¯†çš„æ•°æ®é•¿åº¦
+//                   lpdata=è¦è¿›è¡ŒåŠ å¯†çš„æ•°æ®å†…å®¹
+//                    lpkey=å¯†é’¥
+//å‡ºå£å‚æ•°:
+//                  lpdata=åŠ å¯†åçš„æ•°æ®å†…å®¹
+//è¿”  å›   å€¼:
+//                  åŠ å¯†åçš„æ•°æ®é•¿åº¦
 //===============================================================
 int data_encrypt(unsigned char nlen, unsigned char *lpdata, unsigned char *lpkey)
 {
@@ -720,7 +720,7 @@ int data_encrypt(unsigned char nlen, unsigned char *lpdata, unsigned char *lpkey
 	if (fill_len)
 	{
 		fill_len = 8 - fill_len;
-		//²»Îª8  µÄÕû±¶
+		//ä¸ä¸º8  çš„æ•´å€
 		memcpy(szdata+data_len, filldata, fill_len);
 		block_len++;
 
@@ -752,15 +752,15 @@ int data_encrypt(unsigned char nlen, unsigned char *lpdata, unsigned char *lpkey
 }
 
 //=============================================
-// º¯ÊıÃû:  apdu_getrandom
-// ¹¦ÄÜ:  »ñÈ¡Ëæ»úÊı
-//Èë¿Ú²ÎÊı:
-//                      lpdata: ½ÓÊÕÊı¾İµÄÊ×Ö·
-//                      ngetlen: È¡Ëæ»úÊı³¤¶È
-//³ö¿Ú²ÎÊı"
-//                      lpdata: Ëæ»úÊı
-//·µ»ØÖµ
-//              0:³É¹¦
+// å‡½æ•°å:  apdu_getrandom
+// åŠŸèƒ½:  è·å–éšæœºæ•°
+//å…¥å£å‚æ•°:
+//                      lpdata: æ¥æ”¶æ•°æ®çš„é¦–å€
+//                      ngetlen: å–éšæœºæ•°é•¿åº¦
+//å‡ºå£å‚æ•°"
+//                      lpdata: éšæœºæ•°
+//è¿”å›å€¼
+//              0:æˆåŠŸ
 //==============================================
 int apdu_getrandom(unsigned char *lpdata, int ngetlen)
 {
@@ -791,16 +791,16 @@ int apdu_getrandom(unsigned char *lpdata, int ngetlen)
 //int apdu_createfile_key(
 
 //====================================================================
-// º¯ÊıÃû:  writeul_direct
-// ¹¦ÄÜ:  ½«Êı¾İÖ±½ÓĞ´ÈëÖ¸¶¨Ò³²»×öÈÎºÎ´¦Àí
-//Èë¿Ú²ÎÊı:
-//                      nstart_page: ½ÓÊÕÊı¾İµÄÊ×Ö·
-//                                 nlen: È¡Ëæ»úÊı³¤¶È
-//        lpbuffer: Êı¾İÖ¸Õë
-//³ö¿Ú²ÎÊı"
-//                      ÎŞ
-//·µ»ØÖµ
-//              0:³É¹¦
+// å‡½æ•°å:  writeul_direct
+// åŠŸèƒ½:  å°†æ•°æ®ç›´æ¥å†™å…¥æŒ‡å®šé¡µä¸åšä»»ä½•å¤„ç†
+//å…¥å£å‚æ•°:
+//                      nstart_page: æ¥æ”¶æ•°æ®çš„é¦–å€
+//                                 nlen: å–éšæœºæ•°é•¿åº¦
+//        lpbuffer: æ•°æ®æŒ‡é’ˆ
+//å‡ºå£å‚æ•°"
+//                      æ— 
+//è¿”å›å€¼
+//              0:æˆåŠŸ
 //====================================================================
 int writeul_direct(int nstart_page, unsigned char nlen, unsigned char *lpbuffer)
 {
@@ -838,16 +838,16 @@ int writeul_direct(int nstart_page, unsigned char nlen, unsigned char *lpbuffer)
 }
 
 //====================================================================
-// º¯ÊıÃû:  ul_4page_encyrpt
-// ¹¦ÄÜ:  ¶Ôµ¥³ÌÆ±Êı¾İ½øĞĞ¼ÓÃÜ¼°Ìî³äCRCÂë
-//Èë¿Ú²ÎÊı:
-//        lpbuffer: 16BYTE Êı¾İÖ¸Õë
-//                              initkey: 1BYTE ¼ÆËãCRC8 µÄ³õÊ¼Öµ
-//                            en_data: 4BYTE ¼ÓÃÜÖµ
-//³ö¿Ú²ÎÊı"
-//                      ÎŞ
-//·µ»ØÖµ
-//              0:³É¹¦
+// å‡½æ•°å:  ul_4page_encyrpt
+// åŠŸèƒ½:  å¯¹å•ç¨‹ç¥¨æ•°æ®è¿›è¡ŒåŠ å¯†åŠå¡«å……CRCç 
+//å…¥å£å‚æ•°:
+//        lpbuffer: 16BYTE æ•°æ®æŒ‡é’ˆ
+//                              initkey: 1BYTE è®¡ç®—CRC8 çš„åˆå§‹å€¼
+//                            en_data: 4BYTE åŠ å¯†å€¼
+//å‡ºå£å‚æ•°"
+//                      æ— 
+//è¿”å›å€¼
+//              0:æˆåŠŸ
 //====================================================================
 void ul_4page_encyrpt(unsigned char *lpbuffer, unsigned char initkey, unsigned char *en_data)
 {
@@ -887,15 +887,15 @@ void ul_4page_encyrpt(unsigned char *lpbuffer, unsigned char initkey, unsigned c
 
 
 //=============================================
-// º¯ÊıÃû:  apdu_exteralauth
-// ¹¦ÄÜ:  Íâ²¿ÈÏÖ¤
-//Èë¿Ú²ÎÊı:
-//                      lprandom: Ëæ»úÊı
-//                      lpkey: 16×Ö½ÚµÄÃÜÔ¿
-//³ö¿Ú²ÎÊıÎŞ
+// å‡½æ•°å:  apdu_exteralauth
+// åŠŸèƒ½:  å¤–éƒ¨è®¤è¯
+//å…¥å£å‚æ•°:
+//                      lprandom: éšæœºæ•°
+//                      lpkey: 16å­—èŠ‚çš„å¯†é’¥
+//å‡ºå£å‚æ•°æ— 
 //
-//·µ»ØÖµ
-//              0:³É¹¦
+//è¿”å›å€¼
+//              0:æˆåŠŸ
 //==============================================
 int apdu_exteralauth(unsigned char *lprandom, unsigned char *lpkey)
 {
@@ -933,12 +933,12 @@ int apdu_exteralauth(unsigned char *lprandom, unsigned char *lpkey)
 
 
 //============================================================
-//º¯ÊıÃû: issue_setvalue
-//¹¦ÄÜ     :  Æ±¿¨³õÊ¼»¯Êı¾İµÄÉèÖÃ(  ÖØ±àÂë¹²ÓÃ´Ë½Ó¿Ú )
-//Èë¿Ú²ÎÊı:
-//                      lpdata: °´ÕÕTINPUT ½á¹¹ÅÅĞòµÄÊı¾İ
-//³ö¿Ú²ÎÊı: ÎŞ
-//·µ»ØÖµ:      ÎŞ
+//å‡½æ•°å: issue_setvalue
+//åŠŸèƒ½     :  ç¥¨å¡åˆå§‹åŒ–æ•°æ®çš„è®¾ç½®(  é‡ç¼–ç å…±ç”¨æ­¤æ¥å£ )
+//å…¥å£å‚æ•°:
+//                      lpdata: æŒ‰ç…§TINPUT ç»“æ„æ’åºçš„æ•°æ®
+//å‡ºå£å‚æ•°: æ— 
+//è¿”å›å€¼:      æ— 
 //============================================================
 void setvalue_issue(void *lpdata)
 {
@@ -946,8 +946,8 @@ void setvalue_issue(void *lpdata)
 
 	LPTISSUE_INPUT lpinput = (LPTISSUE_INPUT)(lpdata);
 	unsigned long ntmp;
-	//È«¾ÖÊäÈë²ÎÊı½á¹¹°üº¬ÁËÈıÖÖÒµÎñÊäÈë½Ó¿ÚµÄÄÚÈİ
-	//¸³ÖµÊ±Ö»Ğè¸³µ½ÏàÓ¦µÄ±äÁ¿£¬ÔÚÒµÎñµ÷ÓÃÊ±Ö±½ÓÊ¹ÓÃ¶ÔÓ¦Êı¾İ¼´¿É
+	//å…¨å±€è¾“å…¥å‚æ•°ç»“æ„åŒ…å«äº†ä¸‰ç§ä¸šåŠ¡è¾“å…¥æ¥å£çš„å†…å®¹
+	//èµ‹å€¼æ—¶åªéœ€èµ‹åˆ°ç›¸åº”çš„å˜é‡ï¼Œåœ¨ä¸šåŠ¡è°ƒç”¨æ—¶ç›´æ¥ä½¿ç”¨å¯¹åº”æ•°æ®å³å¯
 	//
 
 	memcpy(g_input.logicnumber, lpinput->logicalid, 8);
@@ -1027,18 +1027,18 @@ void setvalue_issue(void *lpdata)
 	memcpy(g_input.key.adf1_pin, "\x12\x34\x56", 3);
 
 
-	//===µ÷ÊÔÊ±Ç¿ÖÆ¸³
+	//===è°ƒè¯•æ—¶å¼ºåˆ¶èµ‹
 	//    memcpy(g_input.logicnumber, l_logicnumber, 8);
 #ifdef _ENABLE_FIXKEY_
 	//memcpy((unsigned char *)&g_input.key, (unsigned char *)&l_key, sizeof(l_key));
 #endif
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	memcpy(g_input.inf.issuedate, lpinput->issuedate, 4); //·¢ĞĞÈÕÆÚ
-	memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//·¢¿¨·½´úÂë
-	memcpy(g_input.inf.citycode, lpinput->citycode, 2);//³ÇÊĞ´úÂë
-	memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//ĞĞÒµ´úÂë
-	g_input.inf.testflag = lpinput->testflag;					// ²âÊÔ±ê¼Ç
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	memcpy(g_input.inf.issuedate, lpinput->issuedate, 4); //å‘è¡Œæ—¥æœŸ
+	memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//å‘å¡æ–¹ä»£ç 
+	memcpy(g_input.inf.citycode, lpinput->citycode, 2);//åŸå¸‚ä»£ç 
+	memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//è¡Œä¸šä»£ç 
+	g_input.inf.testflag = lpinput->testflag;					// æµ‹è¯•æ ‡è®°
 
 
 	memcpy(g_input.bcardtype, lpinput->bcardtype, 2);
@@ -1050,15 +1050,15 @@ void setvalue_issue(void *lpdata)
 
 
 
-	memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 	//add by shiyulong in 2013-12-06
 	g_input.inf.deposit = lpinput->bdeposite;
 	g_input.inf.saleflag = lpinput->bactive;
 
 	//dbg_dumpmemory("logiceffectivefrom=",lpinput->logiceffectivefrom,7);
-	memcpy(g_input.inf.logiceffectivefrom, lpinput->logiceffectivefrom, 7); //Âß¼­ÆğÊ¼Ê±¼ä
+	memcpy(g_input.inf.logiceffectivefrom, lpinput->logiceffectivefrom, 7); //é€»è¾‘èµ·å§‹æ—¶é—´
 	
 	ntmp = lpinput->logicectivetime * 24 * 60;
 	//dbg_formatvar("logicectivetime2=%04X",ntmp);
@@ -1067,7 +1067,7 @@ void setvalue_issue(void *lpdata)
 
 	memcpy(g_input.inf.appeffectiveto, lpinput->logiceffectivefrom, 4);
 
-	memcpy(g_input.inf.appeffectivefrom, lpinput->logiceffectivefrom, 7); //Ó¦ÓÃÆôÓÃÈÕÆÚ
+	memcpy(g_input.inf.appeffectivefrom, lpinput->logiceffectivefrom, 7); //åº”ç”¨å¯ç”¨æ—¥æœŸ
 	dbg_dumpmemory("appeffectivefrom=",g_input.inf.appeffectivefrom,4);
 
 	uint8_t temp_buf[8]				= {0};
@@ -1078,7 +1078,7 @@ void setvalue_issue(void *lpdata)
 
 	dbg_dumpmemory("temp_buf=",temp_buf,7);
 
-	memcpy(g_input.inf.appeffectiveto, temp_buf, 4); //Ó¦ÓÃ½ØÖÁÈÕÆÚ
+	memcpy(g_input.inf.appeffectiveto, temp_buf, 4); //åº”ç”¨æˆªè‡³æ—¥æœŸ
 	dbg_dumpmemory("appeffectiveto=",g_input.inf.appeffectiveto,4);
 
 	g_input.inf.szlogicectivetime[0] = ((ntmp & 0xFF000000) >> 24);
@@ -1089,17 +1089,17 @@ void setvalue_issue(void *lpdata)
 	//dbg_dumpmemory("logiceffectivefrom=",g_input.inf.szlogicectivetime,7);
 
 
-	g_input.inf.szcaps[0] = ((lpinput->caps & 0xFF00) >> 8); //³äÖµÉÏÏŞ
-	g_input.inf.szcaps[1] = (lpinput->caps & 0xFF); //³äÖµÉÏÏŞ
+	g_input.inf.szcaps[0] = ((lpinput->caps & 0xFF00) >> 8); //å……å€¼ä¸Šé™
+	g_input.inf.szcaps[1] = (lpinput->caps & 0xFF); //å……å€¼ä¸Šé™
 
 
 
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//·¢¿¨·½´úÂë
-	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//³ÇÊĞ´úÂë
-	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//³ÇÊĞ´úÂë
-	//     g_input.inf.testflag = 0x01;    // ²âÊÔ±ê¼Ç
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//å‘å¡æ–¹ä»£ç 
+	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//åŸå¸‚ä»£ç 
+	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//åŸå¸‚ä»£ç 
+	//     g_input.inf.testflag = 0x01;    // æµ‹è¯•æ ‡è®°
 	//
 	//     memcpy(g_input.inf.cardtype,"\x02\x00", 2);
 	//     memcpy(g_input.inf.issuedate, "\x20\x13\x04\x16", 4);
@@ -1107,63 +1107,63 @@ void setvalue_issue(void *lpdata)
 	//     memcpy(g_input.inf.cardversion, "\x00\x01", 2);
 	//
 	//
-	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	g_input.inf.appstatus=0x01;
 	g_input.inf.appversion=lpinput->appversion;
 
 
 
-	//memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	//memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	//memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	//     g_input.inf.appstatus=0x00;
 	//     g_input.inf.appversion=0x01;
 	//
-	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//Ó¦ÓÃ¿ØÖÆ
-	g_input.inf.saleflag = lpinput->bactive;   //·¢ÊÛ¼¤»î±ê¼Ç
-	g_input.inf.deposit = lpinput->bdeposite;   //·¢ÊÛÑº½ğ
-	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	g_input.inf.passmode = lpinput->passmode;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	g_input.inf.entryline=lpinput->entryline[0];   //¿ÉÈëÏßÂ·
-	g_input.inf.entrystation=lpinput->entryline[1];   //¿ÉÈëÕ¾µã
-	g_input.inf.exitline = lpinput->exitline[0];   //¿É³öÏßÂ·
-	g_input.inf.exitstation = lpinput->exitline[1];  //¿É³öÕ¾µã
-
-
+	//åº”ç”¨æ§åˆ¶
+	g_input.inf.saleflag = lpinput->bactive;   //å‘å”®æ¿€æ´»æ ‡è®°
+	g_input.inf.deposit = lpinput->bdeposite;   //å‘å”®æŠ¼é‡‘
+	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	g_input.inf.passmode = lpinput->passmode;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	g_input.inf.entryline=lpinput->entryline[0];   //å¯å…¥çº¿è·¯
+	g_input.inf.entrystation=lpinput->entryline[1];   //å¯å…¥ç«™ç‚¹
+	g_input.inf.exitline = lpinput->exitline[0];   //å¯å‡ºçº¿è·¯
+	g_input.inf.exitstation = lpinput->exitline[1];  //å¯å‡ºç«™ç‚¹
 
 
-	//Ó¦ÓÃ¿ØÖÆ
-	//     g_input.inf.saleflag = 0;   //·¢ÊÛ¼¤»î±ê¼Ç
-	//     g_input.inf.deposit = 0;   //·¢ÊÛÑº½ğ
-	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	//     g_input.inf.passmode = 0;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	//     g_input.inf.entryline = 0;   //¿ÉÈëÏßÂ·
-	//     g_input.inf.entrystation = 0; //¿ÉÈëÕ¾µã
-	//     g_input.inf.exitline = 0;   //¿É³öÏßÂ·
-	//     g_input.inf.exitstation = 0;  //¿É³öÕ¾µã
+
+
+	//åº”ç”¨æ§åˆ¶
+	//     g_input.inf.saleflag = 0;   //å‘å”®æ¿€æ´»æ ‡è®°
+	//     g_input.inf.deposit = 0;   //å‘å”®æŠ¼é‡‘
+	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	//     g_input.inf.passmode = 0;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	//     g_input.inf.entryline = 0;   //å¯å…¥çº¿è·¯
+	//     g_input.inf.entrystation = 0; //å¯å…¥ç«™ç‚¹
+	//     g_input.inf.exitline = 0;   //å¯å‡ºçº¿è·¯
+	//     g_input.inf.exitstation = 0;  //å¯å‡ºç«™ç‚¹
 
 	//====================================
-	//memcpy(&g_input, lpdata, sizeof(g_input));//ÕıÊ½Ê¹ÓÃÊ±¸³Öµ
+	//memcpy(&g_input, lpdata, sizeof(g_input));//æ­£å¼ä½¿ç”¨æ—¶èµ‹å€¼
 
 }
 
 //============================================================
-//º¯ÊıÃû: setvalue_evaluate
-//¹¦ÄÜ     :  Æ±¿¨Ô¤¸³ÖµÊı¾İµÄÉèÖÃ
-//Èë¿Ú²ÎÊı:
-//                      lpdata: °´ÕÕTINPUT ½á¹¹ÅÅĞòµÄÊı¾İ
-//³ö¿Ú²ÎÊı: ÎŞ
-//·µ»ØÖµ:      ÎŞ
+//å‡½æ•°å: setvalue_evaluate
+//åŠŸèƒ½     :  ç¥¨å¡é¢„èµ‹å€¼æ•°æ®çš„è®¾ç½®
+//å…¥å£å‚æ•°:
+//                      lpdata: æŒ‰ç…§TINPUT ç»“æ„æ’åºçš„æ•°æ®
+//å‡ºå£å‚æ•°: æ— 
+//è¿”å›å€¼:      æ— 
 //============================================================
 void setvalue_evaluate(void *lpdata)
 {
@@ -1171,8 +1171,8 @@ void setvalue_evaluate(void *lpdata)
 	unsigned long ntmp;
 	LPTEVALUATE_INPUT lpinput = (LPTEVALUATE_INPUT)(lpdata);
 
-	//È«¾ÖÊäÈë²ÎÊı½á¹¹°üº¬ÁËÈıÖÖÒµÎñÊäÈë½Ó¿ÚµÄÄÚÈİ
-	//¸³ÖµÊ±Ö»Ğè¸³µ½ÏàÓ¦µÄ±äÁ¿£¬ÔÚÒµÎñµ÷ÓÃÊ±Ö±½ÓÊ¹ÓÃ¶ÔÓ¦Êı¾İ¼´¿É
+	//å…¨å±€è¾“å…¥å‚æ•°ç»“æ„åŒ…å«äº†ä¸‰ç§ä¸šåŠ¡è¾“å…¥æ¥å£çš„å†…å®¹
+	//èµ‹å€¼æ—¶åªéœ€èµ‹åˆ°ç›¸åº”çš„å˜é‡ï¼Œåœ¨ä¸šåŠ¡è°ƒç”¨æ—¶ç›´æ¥ä½¿ç”¨å¯¹åº”æ•°æ®å³å¯
 	g_input.inf.deposit = lpinput->bdeposite;
 	g_input.inf.saleflag = lpinput->bactive;
 
@@ -1181,15 +1181,15 @@ void setvalue_evaluate(void *lpdata)
 
 	//add by shiyulong in 2013-12-06
 	//dbg_dumpmemory("logictime=",lpinput->logiceffectivefrom,7);
-	memcpy(g_input.inf.logiceffectivefrom, lpinput->logiceffectivefrom, 7); //Âß¼­ÆğÊ¼Ê±¼ä
+	memcpy(g_input.inf.logiceffectivefrom, lpinput->logiceffectivefrom, 7); //é€»è¾‘èµ·å§‹æ—¶é—´
 	ntmp = lpinput->logicectivetime * 24 * 60;
 	g_input.inf.szlogicectivetime[0] = ((ntmp & 0xFF000000) >> 24);
 	g_input.inf.szlogicectivetime[1] = ((ntmp & 0x00FF0000) >> 16);
 	g_input.inf.szlogicectivetime[2] = ((ntmp & 0x0000FF00) >> 8);
 	g_input.inf.szlogicectivetime[3] = (ntmp & 0xFF);
 
-	g_input.inf.szcaps[0] = ((lpinput->caps & 0xFF00) >> 8); //³äÖµÉÏÏŞ
-	g_input.inf.szcaps[1] = (lpinput->caps & 0xFF); //³äÖµÉÏÏŞ
+	g_input.inf.szcaps[0] = ((lpinput->caps & 0xFF00) >> 8); //å……å€¼ä¸Šé™
+	g_input.inf.szcaps[1] = (lpinput->caps & 0xFF); //å……å€¼ä¸Šé™
 
 
 
@@ -1246,16 +1246,16 @@ void setvalue_evaluate(void *lpdata)
 	//     memcpy(g_input.key.adf1_pin, lpinput->adf1_pin, 16);
 
 
-	//===µ÷ÊÔÊ±Ç¿ÖÆ¸³
+	//===è°ƒè¯•æ—¶å¼ºåˆ¶èµ‹
 	//    memcpy(g_input.logicnumber, l_logicnumber, 8);
 #ifdef _ENABLE_FIXKEY_
 	//memcpy((unsigned char *)&g_input.key, (unsigned char *)&l_key, sizeof(l_key));
 #endif
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	//    memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//·¢¿¨·½´úÂë
-	//    memcpy(g_input.inf.citycode, lpinput->citycode, 2);//³ÇÊĞ´úÂë
-	//    memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//ĞĞÒµ´úÂë
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	//    memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//å‘å¡æ–¹ä»£ç 
+	//    memcpy(g_input.inf.citycode, lpinput->citycode, 2);//åŸå¸‚ä»£ç 
+	//    memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//è¡Œä¸šä»£ç 
 
 
 
@@ -1268,17 +1268,17 @@ void setvalue_evaluate(void *lpdata)
 
 
 
-	//     memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 
 
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//·¢¿¨·½´úÂë
-	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//³ÇÊĞ´úÂë
-	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//³ÇÊĞ´úÂë
-	//     g_input.inf.testflag = 0x01;    // ²âÊÔ±ê¼Ç
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//å‘å¡æ–¹ä»£ç 
+	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//åŸå¸‚ä»£ç 
+	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//åŸå¸‚ä»£ç 
+	//     g_input.inf.testflag = 0x01;    // æµ‹è¯•æ ‡è®°
 	//
 	//     memcpy(g_input.inf.cardtype,"\x02\x00", 2);
 	//     memcpy(g_input.inf.issuedate, "\x20\x13\x04\x16", 4);
@@ -1286,84 +1286,84 @@ void setvalue_evaluate(void *lpdata)
 	//     memcpy(g_input.inf.cardversion, "\x00\x01", 2);
 	//
 	//
-	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	//     g_input.inf.appstatus=0x01;
 	//     g_input.inf.appversion=lpinput->appversion;
 	//
 	//
 	//
-	//     memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	//     g_input.inf.appstatus=0x00;
 	//     g_input.inf.appversion=0x01;
 	//
-	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//Ó¦ÓÃ¿ØÖÆ
-	//     g_input.inf.saleflag = lpinput->bactive;   //·¢ÊÛ¼¤»î±ê¼Ç
-	//     g_input.inf.deposit = lpinput->bdeposite;   //·¢ÊÛÑº½ğ
-	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	g_input.inf.passmode = lpinput->passmode;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	g_input.inf.entryline=lpinput->entryline[0];   //¿ÉÈëÏßÂ·
-	g_input.inf.entrystation=lpinput->entryline[1];   //¿ÉÈëÕ¾µã
-	g_input.inf.exitline = lpinput->exitline[0];   //¿É³öÏßÂ·
-	g_input.inf.exitstation = lpinput->exitline[1];  //¿É³öÕ¾µã
-
-
+	//åº”ç”¨æ§åˆ¶
+	//     g_input.inf.saleflag = lpinput->bactive;   //å‘å”®æ¿€æ´»æ ‡è®°
+	//     g_input.inf.deposit = lpinput->bdeposite;   //å‘å”®æŠ¼é‡‘
+	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	g_input.inf.passmode = lpinput->passmode;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	g_input.inf.entryline=lpinput->entryline[0];   //å¯å…¥çº¿è·¯
+	g_input.inf.entrystation=lpinput->entryline[1];   //å¯å…¥ç«™ç‚¹
+	g_input.inf.exitline = lpinput->exitline[0];   //å¯å‡ºçº¿è·¯
+	g_input.inf.exitstation = lpinput->exitline[1];  //å¯å‡ºç«™ç‚¹
 
 
-	//Ó¦ÓÃ¿ØÖÆ
-	//     g_input.inf.saleflag = 0;   //·¢ÊÛ¼¤»î±ê¼Ç
-	//     g_input.inf.deposit = 0;   //·¢ÊÛÑº½ğ
-	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	//     g_input.inf.passmode = 0;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	//     g_input.inf.entryline = 0;   //¿ÉÈëÏßÂ·
-	//     g_input.inf.entrystation = 0; //¿ÉÈëÕ¾µã
-	//     g_input.inf.exitline = 0;   //¿É³öÏßÂ·
-	//     g_input.inf.exitstation = 0;  //¿É³öÕ¾µã
+
+
+	//åº”ç”¨æ§åˆ¶
+	//     g_input.inf.saleflag = 0;   //å‘å”®æ¿€æ´»æ ‡è®°
+	//     g_input.inf.deposit = 0;   //å‘å”®æŠ¼é‡‘
+	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	//     g_input.inf.passmode = 0;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	//     g_input.inf.entryline = 0;   //å¯å…¥çº¿è·¯
+	//     g_input.inf.entrystation = 0; //å¯å…¥ç«™ç‚¹
+	//     g_input.inf.exitline = 0;   //å¯å‡ºçº¿è·¯
+	//     g_input.inf.exitstation = 0;  //å¯å‡ºç«™ç‚¹
 
 	//====================================
-	//memcpy(&g_input, lpdata, sizeof(g_input));//ÕıÊ½Ê¹ÓÃÊ±¸³Öµ
+	//memcpy(&g_input, lpdata, sizeof(g_input));//æ­£å¼ä½¿ç”¨æ—¶èµ‹å€¼
 
 }
 
 //============================================================
-//º¯ÊıÃû: setvalue_evaluate
-//¹¦ÄÜ     :  Æ±¿¨Ô¤¸³ÖµÊı¾İµÄÉèÖÃ
-//Èë¿Ú²ÎÊı:
-//                      lpdata: °´ÕÕTINPUT ½á¹¹ÅÅĞòµÄÊı¾İ
-//³ö¿Ú²ÎÊı: ÎŞ
-//·µ»ØÖµ:      ÎŞ
+//å‡½æ•°å: setvalue_evaluate
+//åŠŸèƒ½     :  ç¥¨å¡é¢„èµ‹å€¼æ•°æ®çš„è®¾ç½®
+//å…¥å£å‚æ•°:
+//                      lpdata: æŒ‰ç…§TINPUT ç»“æ„æ’åºçš„æ•°æ®
+//å‡ºå£å‚æ•°: æ— 
+//è¿”å›å€¼:      æ— 
 //============================================================
 void setvalue_destroy(void *lpdata)
 {
 
-	//  ¶©µ¥ºÅ 14
-	//  ÉêÇë±àºÅ 10
-	//  ³µÆ±ÀàĞÍ 2
-	//  Ó¦ÓÃĞòÁĞºÅ 8
-	//  Ñº½ğ 1
-	//  Ç®°üÖµ 4
-	//  ADF1Ïû·ÑÃÜÔ¿01 16
-	//  ADF1µÄTACÃÜÔ¿ 16
-	//  ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿ 16
-	//  ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿01 16
-	//  ADF1Ó¦ÓÃÎ¬»¤ÃÜÔ¿02 16
+	//  è®¢å•å· 14
+	//  ç”³è¯·ç¼–å· 10
+	//  è½¦ç¥¨ç±»å‹ 2
+	//  åº”ç”¨åºåˆ—å· 8
+	//  æŠ¼é‡‘ 1
+	//  é’±åŒ…å€¼ 4
+	//  ADF1æ¶ˆè´¹å¯†é’¥01 16
+	//  ADF1çš„TACå¯†é’¥ 16
+	//  ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥ 16
+	//  ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥01 16
+	//  ADF1åº”ç”¨ç»´æŠ¤å¯†é’¥02 16
 
 
 	LPTDESTROY_INPUT lpinput = (LPTDESTROY_INPUT)(lpdata);
 
-	//È«¾ÖÊäÈë²ÎÊı½á¹¹°üº¬ÁËÈıÖÖÒµÎñÊäÈë½Ó¿ÚµÄÄÚÈİ
-	//¸³ÖµÊ±Ö»Ğè¸³µ½ÏàÓ¦µÄ±äÁ¿£¬ÔÚÒµÎñµ÷ÓÃÊ±Ö±½ÓÊ¹ÓÃ¶ÔÓ¦Êı¾İ¼´¿É
+	//å…¨å±€è¾“å…¥å‚æ•°ç»“æ„åŒ…å«äº†ä¸‰ç§ä¸šåŠ¡è¾“å…¥æ¥å£çš„å†…å®¹
+	//èµ‹å€¼æ—¶åªéœ€èµ‹åˆ°ç›¸åº”çš„å˜é‡ï¼Œåœ¨ä¸šåŠ¡è°ƒç”¨æ—¶ç›´æ¥ä½¿ç”¨å¯¹åº”æ•°æ®å³å¯
 
 	memcpy(g_input.logicnumber, lpinput->logicalid, 8);
 	//g_input.balance = lpinput->lbalance;
@@ -1376,16 +1376,16 @@ void setvalue_destroy(void *lpdata)
 
 
 
-	//===µ÷ÊÔÊ±Ç¿ÖÆ¸³
+	//===è°ƒè¯•æ—¶å¼ºåˆ¶èµ‹
 	//    memcpy(g_input.logicnumber, l_logicnumber, 8);
 #ifdef _ENABLE_FIXKEY_
 	//memcpy((unsigned char *)&g_input.key, (unsigned char *)&l_key, sizeof(l_key));
 #endif
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	//     memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//·¢¿¨·½´úÂë
-	//     memcpy(g_input.inf.citycode, lpinput->citycode, 2);//³ÇÊĞ´úÂë
-	//     memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//ĞĞÒµ´úÂë
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	//     memcpy(g_input.inf.issuecode, lpinput->issuecode, 2);//å‘å¡æ–¹ä»£ç 
+	//     memcpy(g_input.inf.citycode, lpinput->citycode, 2);//åŸå¸‚ä»£ç 
+	//     memcpy(g_input.inf.industrycode, lpinput->industrycode, 2);//è¡Œä¸šä»£ç 
 
 
 
@@ -1398,17 +1398,17 @@ void setvalue_destroy(void *lpdata)
 
 
 
-	//     memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.effectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.effectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 
 
 
-	//·¢ĞĞ»ù±¾ĞÅÏ¢ÎÄ¼ş
-	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//·¢¿¨·½´úÂë
-	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//³ÇÊĞ´úÂë
-	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//³ÇÊĞ´úÂë
-	//     g_input.inf.testflag = 0x01;    // ²âÊÔ±ê¼Ç
+	//å‘è¡ŒåŸºæœ¬ä¿¡æ¯æ–‡ä»¶
+	//     memcpy(g_input.inf.issuecode, "\x53\x20", 2);//å‘å¡æ–¹ä»£ç 
+	//     memcpy(g_input.inf.citycode, "\x41\x00", 2);//åŸå¸‚ä»£ç 
+	//     memcpy(g_input.inf.industrycode, "\x00\x00", 2);//åŸå¸‚ä»£ç 
+	//     g_input.inf.testflag = 0x01;    // æµ‹è¯•æ ‡è®°
 	//
 	//     memcpy(g_input.inf.cardtype,"\x02\x00", 2);
 	//     memcpy(g_input.inf.issuedate, "\x20\x13\x04\x16", 4);
@@ -1416,59 +1416,59 @@ void setvalue_destroy(void *lpdata)
 	//     memcpy(g_input.inf.cardversion, "\x00\x01", 2);
 	//
 	//
-	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.effectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.effectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	//     g_input.inf.appstatus=0x01;
 	//     g_input.inf.appversion=lpinput->appversion;
 
 
 
-	//     memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.appeffectivefrom, lpinput->effectivefrom, 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.appeffectiveto, lpinput->effectiveto, 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
 
-	//¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+	//å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 
 	//     g_input.inf.appstatus=0x00;
 	//     g_input.inf.appversion=0x01;
 	//
-	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //¿¨ÆôÓÃÈÕÆÚ
-	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //¿¨ÓĞĞ§ÈÕÆÚ
+	//     memcpy(g_input.inf.appeffectivefrom, "\x20\x13\x06\x01", 4); //å¡å¯ç”¨æ—¥æœŸ
+	//     memcpy(g_input.inf.appeffectiveto, "\x20\x19\x12\x31", 4);   //å¡æœ‰æ•ˆæ—¥æœŸ
 
-	//Ó¦ÓÃ¿ØÖÆ
-	//     g_input.inf.saleflag = lpinput->bactive;   //·¢ÊÛ¼¤»î±ê¼Ç
-	//     g_input.inf.deposit = lpinput->bdeposite;   //·¢ÊÛÑº½ğ
-	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	//     g_input.inf.passmode = lpinput->passmode;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	//     g_input.inf.entryline=lpinput->entryline[0];   //¿ÉÈëÏßÂ·
-	//     g_input.inf.entrystation=lpinput->entryline[1];   //¿ÉÈëÕ¾µã
-	//     g_input.inf.exitline = lpinput->exitline[0];   //¿É³öÏßÂ·
-	//     g_input.inf.exitstation = lpinput->exitline[1];  //¿É³öÕ¾µã
-
-
+	//åº”ç”¨æ§åˆ¶
+	//     g_input.inf.saleflag = lpinput->bactive;   //å‘å”®æ¿€æ´»æ ‡è®°
+	//     g_input.inf.deposit = lpinput->bdeposite;   //å‘å”®æŠ¼é‡‘
+	memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	//     g_input.inf.passmode = lpinput->passmode;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	//     g_input.inf.entryline=lpinput->entryline[0];   //å¯å…¥çº¿è·¯
+	//     g_input.inf.entrystation=lpinput->entryline[1];   //å¯å…¥ç«™ç‚¹
+	//     g_input.inf.exitline = lpinput->exitline[0];   //å¯å‡ºçº¿è·¯
+	//     g_input.inf.exitstation = lpinput->exitline[1];  //å¯å‡ºç«™ç‚¹
 
 
-	//Ó¦ÓÃ¿ØÖÆ
-	//     g_input.inf.saleflag = 0;   //·¢ÊÛ¼¤»î±ê¼Ç
-	//     g_input.inf.deposit = 0;   //·¢ÊÛÑº½ğ
-	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //·¢ÊÛÉè±¸ĞÅÏ¢
-	//     g_input.inf.passmode = 0;   //³öÈëÄ£Ê½ÅĞ¶Ï
-	//     g_input.inf.entryline = 0;   //¿ÉÈëÏßÂ·
-	//     g_input.inf.entrystation = 0; //¿ÉÈëÕ¾µã
-	//     g_input.inf.exitline = 0;   //¿É³öÏßÂ·
-	//     g_input.inf.exitstation = 0;  //¿É³öÕ¾µã
+
+
+	//åº”ç”¨æ§åˆ¶
+	//     g_input.inf.saleflag = 0;   //å‘å”®æ¿€æ´»æ ‡è®°
+	//     g_input.inf.deposit = 0;   //å‘å”®æŠ¼é‡‘
+	//     memcpy(g_input.inf.saledevice, "\x00\x00\x00\x00\x00\x00", 6);  //å‘å”®è®¾å¤‡ä¿¡æ¯
+	//     g_input.inf.passmode = 0;   //å‡ºå…¥æ¨¡å¼åˆ¤æ–­
+	//     g_input.inf.entryline = 0;   //å¯å…¥çº¿è·¯
+	//     g_input.inf.entrystation = 0; //å¯å…¥ç«™ç‚¹
+	//     g_input.inf.exitline = 0;   //å¯å‡ºçº¿è·¯
+	//     g_input.inf.exitstation = 0;  //å¯å‡ºç«™ç‚¹
 
 	//====================================
-	//memcpy(&g_input, lpdata, sizeof(g_input));//ÕıÊ½Ê¹ÓÃÊ±¸³Öµ
+	//memcpy(&g_input, lpdata, sizeof(g_input));//æ­£å¼ä½¿ç”¨æ—¶èµ‹å€¼
 
 }
 
 
 
-//´¢ÖµÆ±É¾³ıÆ±¿¨Ô­ÓĞ½á¹¹
+//å‚¨å€¼ç¥¨åˆ é™¤ç¥¨å¡åŸæœ‰ç»“æ„
 int svt_newfd_reset(void)
 {
 	unsigned char szdata[8];
@@ -1482,11 +1482,11 @@ int svt_newfd_reset(void)
 	do
 	{
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		nresult = svt_readbinary(0x05, 0, 0x28, szcmd);
 		if (nresult == -2)
 		{
-			//Èç¹û¿¨Îª°×¿¨ÔòÈÏÎªÏ´¿¨³É¹¦
+			//å¦‚æœå¡ä¸ºç™½å¡åˆ™è®¤ä¸ºæ´—å¡æˆåŠŸ
 			nresult = 0;
 			break;
 		}
@@ -1499,10 +1499,10 @@ int svt_newfd_reset(void)
 		//lpmfissueinf = (LPTMF_ISSUE)szcmd;
 
 
-		// Íâ²¿ÈÏÖ¤
+		// å¤–éƒ¨è®¤è¯
 		if (apdu_getrandom(szdata,8)==0)
 		{
-			//memcpy(g_input.key.mf_mkey,"\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF",16);//ÀîÃ÷½ğÏ´¿¨°æ±¾£¬Ç¿ÖÆÊ¹Ö÷¿ØÃÜÔ¿ÎªÈ«FFFF
+			//memcpy(g_input.key.mf_mkey,"\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF",16);//ææ˜é‡‘æ´—å¡ç‰ˆæœ¬ï¼Œå¼ºåˆ¶ä½¿ä¸»æ§å¯†é’¥ä¸ºå…¨FFFF
 			dbg_dumpmemory("mf_mkey =",g_input.key.mf_mkey,16);
 			if (apdu_exteralauth(szdata,g_input.key.mf_mkey))
 			{
@@ -1511,7 +1511,7 @@ int svt_newfd_reset(void)
 			}
 		}
 
-		//	;Ï´¿¨
+		//	;æ´—å¡
 		//	80 0E 0000 00  ;judge:sw=9000
 		memcpy(szcmd, "\x80\x0E\x00\x00\x00", 5);
 		ulen = 5;
@@ -1535,7 +1535,7 @@ int svt_newfd_reset(void)
 }
 
 
-//´¢ÖµÆ±É¾³ıÆ±¿¨Ô­ÓĞ½á¹¹
+//å‚¨å€¼ç¥¨åˆ é™¤ç¥¨å¡åŸæœ‰ç»“æ„
 int svt_newhh_reset(void)
 {
 	unsigned char szdata[8];
@@ -1548,7 +1548,7 @@ int svt_newhh_reset(void)
 
 	do
 	{
-		//modify by shiyulong in 2014-05-26, ¸Ä±äÅĞ¶Ï·½Ê½£¬¸ÄÎª¶ÁÈ¡·¢ĞĞÎÄ¼şÅĞ¶Ï
+		//modify by shiyulong in 2014-05-26, æ”¹å˜åˆ¤æ–­æ–¹å¼ï¼Œæ”¹ä¸ºè¯»å–å‘è¡Œæ–‡ä»¶åˆ¤æ–­
 
 		//	        nresult=svt_selectfile(0x3F00);
 		//
@@ -1562,11 +1562,11 @@ int svt_newhh_reset(void)
 		//	            break;
 		//	        }
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		nresult = svt_readbinary(0x05, 0, 0x28, szcmd);
 		if (nresult == -2)
 		{
-			//Èç¹û¿¨Îª°×¿¨ÔòÈÏÎªÏ´¿¨³É¹¦
+			//å¦‚æœå¡ä¸ºç™½å¡åˆ™è®¤ä¸ºæ´—å¡æˆåŠŸ
 			nresult = 0;
 			break;
 		}
@@ -1578,14 +1578,14 @@ int svt_newhh_reset(void)
 
 		lpmfissueinf = (LPTMF_ISSUE)szcmd;
 
-		//±È½ÏÂß¼­¿¨ºÅ
+		//æ¯”è¾ƒé€»è¾‘å¡å·
 		if (memcmp(lpmfissueinf->logicnumber,g_input.logicnumber,8)!=0)
 		{
 			nresult = 7;
 			break;
 		}
 
-		//modify by shiyulong in 2014-05-26, Íê³É
+		//modify by shiyulong in 2014-05-26, å®Œæˆ
 
 
 		if (apdu_getrandom(szdata,8)==0)
@@ -1639,7 +1639,7 @@ int svt_newhh_reset(void)
 
 
 
-//´¢ÖµÆ±´´½¨Ö÷Ä¿Â¼
+//å‚¨å€¼ç¥¨åˆ›å»ºä¸»ç›®å½•
 int svt_newhh_create_mf(void)
 {
 	unsigned char ulen;
@@ -1655,7 +1655,7 @@ int svt_newhh_create_mf(void)
 	do
 	{
 
-		//ÈÏÖ¤´«ÊäÃÜÔ¿
+		//è®¤è¯ä¼ è¾“å¯†é’¥
 		if (apdu_getrandom(szdata,8)==0)
 		{
 			if (apdu_exteralauth(szdata,g_input.key.mf_tkey))
@@ -1665,23 +1665,23 @@ int svt_newhh_create_mf(void)
 			}
 		}
 
-		//´´½¨MF(PBOC MF:1PAY.SYS.DDF01)(MFµÄÎÄ¼şÃû³¤¶ÈÎª0E£¬²»ÄÜĞŞ¸Ä)
+		//åˆ›å»ºMF(PBOC MF:1PAY.SYS.DDF01)(MFçš„æ–‡ä»¶åé•¿åº¦ä¸º0Eï¼Œä¸èƒ½ä¿®æ”¹)
 		//AID=3F00
-		//MF¿Õ¼ä=1A00
-		//ÎÄ¼şÊôĞÔ=5E:
-		//DFÓĞĞ§ĞÔ=01£¨ÓĞĞ§£©
-		//Ç®°ü³õÊ¼»¯Ê¹ÄÜÎ»=0£¨²»³õÊ¼»¯£©
-		//É¾³ıDFÊ¹ÄÜ=1£¨DF¿ÉÉ¾³ı£©
-		//DFÏÂÊÇ·ñ¾ßÓĞFCIÎÄ¼ş=1£¨¾ßÓĞFCIÎÄ¼ş£©
-		//´´½¨DFÏÂÎÄ¼şÊÇ·ñĞèÒª¼ÓMAC=1£¨ĞèÒª£©£»
-		//ÊÇ·ñPBOCÓ¦ÓÃ=1£¨Ç¿ÖÆÎª1£©
-		//Ç®°üÏû·ÑÊÇ·ñ×·¼Ó½»Ò×¼ÇÂ¼=0(²»×·¼Ó)£»
-		//´´½¨È¨ÏŞ=91(´´½¨MFÏÂµÄEFÇ°ĞèÒª½øĞĞÍâ²¿ÈÏÖ¤)
+		//MFç©ºé—´=1A00
+		//æ–‡ä»¶å±æ€§=5E:
+		//DFæœ‰æ•ˆæ€§=01ï¼ˆæœ‰æ•ˆï¼‰
+		//é’±åŒ…åˆå§‹åŒ–ä½¿èƒ½ä½=0ï¼ˆä¸åˆå§‹åŒ–ï¼‰
+		//åˆ é™¤DFä½¿èƒ½=1ï¼ˆDFå¯åˆ é™¤ï¼‰
+		//DFä¸‹æ˜¯å¦å…·æœ‰FCIæ–‡ä»¶=1ï¼ˆå…·æœ‰FCIæ–‡ä»¶ï¼‰
+		//åˆ›å»ºDFä¸‹æ–‡ä»¶æ˜¯å¦éœ€è¦åŠ MAC=1ï¼ˆéœ€è¦ï¼‰ï¼›
+		//æ˜¯å¦PBOCåº”ç”¨=1ï¼ˆå¼ºåˆ¶ä¸º1ï¼‰
+		//é’±åŒ…æ¶ˆè´¹æ˜¯å¦è¿½åŠ äº¤æ˜“è®°å½•=0(ä¸è¿½åŠ )ï¼›
+		//åˆ›å»ºæƒé™=91(åˆ›å»ºMFä¸‹çš„EFå‰éœ€è¦è¿›è¡Œå¤–éƒ¨è®¤è¯)
 
-		//   ;¡¾´´½¨MF¡¿
-		//   ;¡¾AID = 3F00, MF¿Õ¼ä = 1CD0, ÎÄ¼şÊôĞÔ = 5A( 0101 1010 )(¼û COSÊÖ²á22Ò³ËµÃ÷)½¨Á¢ÎÄ¼şÊ±²»ĞèÒª MAC¡¿
-		//   ;¡¾·âËøÈ¨ÏŞ = 00, ´´½¨È¨ÏŞ = 91( 1001 0001 )£¨¼û COSÊÖ²á26Ò³ËµÃ÷£©¡¿
-		//   ;¡¾ÎÄ¼şÃû³¤¶È = 0E, ÎÄ¼şÃû = 315041592E5359532E4444463031( MF:1PAY.SYS.DDF01 )¡¿
+		//   ;ã€åˆ›å»ºMFã€‘
+		//   ;ã€AID = 3F00, MFç©ºé—´ = 1CD0, æ–‡ä»¶å±æ€§ = 5A( 0101 1010 )(è§ COSæ‰‹å†Œ22é¡µè¯´æ˜)å»ºç«‹æ–‡ä»¶æ—¶ä¸éœ€è¦ MACã€‘
+		//   ;ã€å°é”æƒé™ = 00, åˆ›å»ºæƒé™ = 91( 1001 0001 )ï¼ˆè§ COSæ‰‹å†Œ26é¡µè¯´æ˜ï¼‰ã€‘
+		//   ;ã€æ–‡ä»¶åé•¿åº¦ = 0E, æ–‡ä»¶å = 315041592E5359532E4444463031( MF:1PAY.SYS.DDF01 )ã€‘
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1713,7 +1713,7 @@ int svt_newhh_create_mf(void)
 		}
 
 
-		//ÈÏÖ¤´«ÊäÃÜÔ¿
+		//è®¤è¯ä¼ è¾“å¯†é’¥
 		if (apdu_getrandom(szdata,8)==0)
 		{
 			if (apdu_exteralauth(szdata,g_input.key.mf_tkey))
@@ -1723,14 +1723,14 @@ int svt_newhh_create_mf(void)
 			}
 		}
 
-		//FID=0000 ´´½¨MFÏÂµÄKEYÎÄ¼ş
-		//¿É´´½¨18hÌõÃÜÔ¿£¬Ã¿ÌõÃÜÔ¿¼ÇÂ¼³¤¶È14h
-		//ÎÄ¼şÊôĞÔ=C0£¨Ğ´ÖÁÉÙĞèÒªMAC£¬Ğ´ÖÁÉÙĞèÒª¼ÓÃÜ£©
+		//FID=0000 åˆ›å»ºMFä¸‹çš„KEYæ–‡ä»¶
+		//å¯åˆ›å»º18hæ¡å¯†é’¥ï¼Œæ¯æ¡å¯†é’¥è®°å½•é•¿åº¦14h
+		//æ–‡ä»¶å±æ€§=C0ï¼ˆå†™è‡³å°‘éœ€è¦MACï¼Œå†™è‡³å°‘éœ€è¦åŠ å¯†ï¼‰
 
-		//   ;¡¾´´½¨KeyÎÄ¼ş¡¿
-		//   ;¡¾AID = FF02, ÃÜÔ¿ÊıÁ¿ = 05, ÃÜÔ¿³¤¶È = 14, ÎÄ¼şÊôĞÔ = C0( 1100 0000 )(¼û COSÊÖ²á23Ò³ËµÃ÷)ÃÜÎÄ + MAC¡¿
-		//   ;¡¾µ±Ç°ÃÜÔ¿¼ÇÂ¼ºÅ = 00, ÅäÖÃ×Ö½Ú = 01(¼û COSÊÖ²á104Ò³ËµÃ÷)¡¿
-		//   ;¡¾½âËøPINÈ¨ÏŞÃÜÔ¿È¨ÏŞ = 01, ½¨Á¢/ĞŞ¸ÄPINÈ¨ÏŞ = 01£¨¼û COSÊÖ²á26Ò³ËµÃ÷£©¡¿
+		//   ;ã€åˆ›å»ºKeyæ–‡ä»¶ã€‘
+		//   ;ã€AID = FF02, å¯†é’¥æ•°é‡ = 05, å¯†é’¥é•¿åº¦ = 14, æ–‡ä»¶å±æ€§ = C0( 1100 0000 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)å¯†æ–‡ + MACã€‘
+		//   ;ã€å½“å‰å¯†é’¥è®°å½•å· = 00, é…ç½®å­—èŠ‚ = 01(è§ COSæ‰‹å†Œ104é¡µè¯´æ˜)ã€‘
+		//   ;ã€è§£é”PINæƒé™å¯†é’¥æƒé™ = 01, å»ºç«‹/ä¿®æ”¹PINæƒé™ = 01ï¼ˆè§ COSæ‰‹å†Œ26é¡µè¯´æ˜ï¼‰ã€‘
 
 		//if (apdu_getrandom(szdata,4)==0)
 		{
@@ -1750,8 +1750,8 @@ int svt_newhh_create_mf(void)
 
 		}
 
-		//DCCK  ¿¨Æ¬Ö÷¿ØÃÜÔ¿
-		//   ;¡¾´´½¨MFÖ÷¿ØÃÜÔ¿¡¿
+		//DCCK  å¡ç‰‡ä¸»æ§å¯†é’¥
+		//   ;ã€åˆ›å»ºMFä¸»æ§å¯†é’¥ã€‘
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1782,8 +1782,8 @@ int svt_newhh_create_mf(void)
 
 
 
-		//DCMK  ¿¨Æ¬Ó¦ÓÃÎ¬»¤ÃÜÔ¿
-		//   ;¡¾´´½¨MFÓ¦ÓÃÎ¬»¤ÃÜÔ¿-ÀàĞÍ30/ÎÄ¼ş¸üĞÂÃÜÔ¿-ÀàĞÍ70¡¿
+		//DCMK  å¡ç‰‡åº”ç”¨ç»´æŠ¤å¯†é’¥
+		//   ;ã€åˆ›å»ºMFåº”ç”¨ç»´æŠ¤å¯†é’¥-ç±»å‹30/æ–‡ä»¶æ›´æ–°å¯†é’¥-ç±»å‹70ã€‘
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1812,7 +1812,7 @@ int svt_newhh_create_mf(void)
 		}
 
 
-		//    ;¡¾´´½¨MFÍâ²¿ÈÏÖ¤ÃÜÔ¿¡¿
+		//    ;ã€åˆ›å»ºMFå¤–éƒ¨è®¤è¯å¯†é’¥ã€‘
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1842,10 +1842,10 @@ int svt_newhh_create_mf(void)
 
 
 
-		//FID=0001 ´´½¨Ä¿Â¼ĞÅÏ¢ÎÄ¼ş DCMK
-		//     ;¡¾´´½¨Ä¿Â¼ÎÄ¼ş0001¡¿
-		//   ;¡¾ÎÄ¼ş±êÊ¶ = 0001, ÎÄ¼şÀàĞÍ = 05£¨ÏßĞÔ±ä³¤¼ÇÂ¼ÎÄ¼ş(TLV)£©, ÎÄ¼ş³¤¶È = 0100, ÎÄ¼şÊôĞÔ = 08( 0000 1000 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿¡¿
-		//   ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		//FID=0001 åˆ›å»ºç›®å½•ä¿¡æ¯æ–‡ä»¶ DCMK
+		//     ;ã€åˆ›å»ºç›®å½•æ–‡ä»¶0001ã€‘
+		//   ;ã€æ–‡ä»¶æ ‡è¯† = 0001, æ–‡ä»¶ç±»å‹ = 05ï¼ˆçº¿æ€§å˜é•¿è®°å½•æ–‡ä»¶(TLV)ï¼‰, æ–‡ä»¶é•¿åº¦ = 0100, æ–‡ä»¶å±æ€§ = 08( 0000 1000 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥ã€‘
+		//   ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 		//        if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1864,7 +1864,7 @@ int svt_newhh_create_mf(void)
 
 		}
 
-		//¸üĞÂÄ¿Â¼ĞÅÏ¢0001
+		//æ›´æ–°ç›®å½•ä¿¡æ¯0001
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1889,7 +1889,7 @@ int svt_newhh_create_mf(void)
 
 
 
-		//;FID=0005 ´´½¨·¢¿¨·½»ù±¾ĞÅÏ¢ÎÄ¼ş  DCMK¿ØÖÆ
+		//;FID=0005 åˆ›å»ºå‘å¡æ–¹åŸºæœ¬ä¿¡æ¯æ–‡ä»¶  DCMKæ§åˆ¶
 		//        if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1908,7 +1908,7 @@ int svt_newhh_create_mf(void)
 
 		}
 
-		//¸üĞÂ·¢¿¨·½ĞÅÏ¢ÎÄ¼ş0005
+		//æ›´æ–°å‘å¡æ–¹ä¿¡æ¯æ–‡ä»¶0005
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -1918,19 +1918,19 @@ int svt_newhh_create_mf(void)
 			ulen = 5;
 			lpmfissueinf = (LPTMF_ISSUE)(szcmd+ulen);
 
-			memcpy(lpmfissueinf->issuecode, g_input.inf.issuecode, 2);//·¢¿¨·½´úÂë
-			memcpy(lpmfissueinf->citycode, g_input.inf.citycode, 2);//³ÇÊĞ´úÂë
-			memcpy(lpmfissueinf->industrycode, g_input.inf.industrycode, 2);//³ÇÊĞ´úÂë
-			lpmfissueinf->testflag = g_input.inf.testflag;      // ²âÊÔ±ê¼Ç
-			memcpy(lpmfissueinf->logicnumber, g_input.logicnumber, 8); //Âß¼­¿¨ºÅ
-			memcpy(lpmfissueinf->cardtype,g_input.inf.cardtype, 2); //¿¨ÀàĞÍ
-			memcpy(lpmfissueinf->issuedate, g_input.inf.issuedate, 4);//·¢ĞĞÈÕÆÚ
-			memcpy(lpmfissueinf->issuedevice, g_input.inf.issuedevice, 6);//·¢ĞĞÉè±¸
-			memcpy(lpmfissueinf->cardversion, g_input.inf.cardversion, 2);//¿¨°æ±¾
+			memcpy(lpmfissueinf->issuecode, g_input.inf.issuecode, 2);//å‘å¡æ–¹ä»£ç 
+			memcpy(lpmfissueinf->citycode, g_input.inf.citycode, 2);//åŸå¸‚ä»£ç 
+			memcpy(lpmfissueinf->industrycode, g_input.inf.industrycode, 2);//åŸå¸‚ä»£ç 
+			lpmfissueinf->testflag = g_input.inf.testflag;      // æµ‹è¯•æ ‡è®°
+			memcpy(lpmfissueinf->logicnumber, g_input.logicnumber, 8); //é€»è¾‘å¡å·
+			memcpy(lpmfissueinf->cardtype,g_input.inf.cardtype, 2); //å¡ç±»å‹
+			memcpy(lpmfissueinf->issuedate, g_input.inf.issuedate, 4);//å‘è¡Œæ—¥æœŸ
+			memcpy(lpmfissueinf->issuedevice, g_input.inf.issuedevice, 6);//å‘è¡Œè®¾å¤‡
+			memcpy(lpmfissueinf->cardversion, g_input.inf.cardversion, 2);//å¡ç‰ˆæœ¬
 
 
-			memcpy(lpmfissueinf->effectivefrom, g_input.inf.effectivefrom, 4);//Ó¦ÓÃÆôÓÃÈÕÆÚ
-			memcpy(lpmfissueinf->effectiveto, g_input.inf.effectiveto, 4);//Ó¦ÓÃ½áÊøÈÕÆÚ
+			memcpy(lpmfissueinf->effectivefrom, g_input.inf.effectivefrom, 4);//åº”ç”¨å¯ç”¨æ—¥æœŸ
+			memcpy(lpmfissueinf->effectiveto, g_input.inf.effectiveto, 4);//åº”ç”¨ç»“æŸæ—¥æœŸ
 
 
 			ulen += sizeof(TMF_ISSUE);
@@ -1958,7 +1958,7 @@ int svt_newhh_create_mf(void)
 
 
 
-//´¢ÖµÆ±´´½¨Ó¦ÓÃÄ¿Â¼
+//å‚¨å€¼ç¥¨åˆ›å»ºåº”ç”¨ç›®å½•
 int svt_newhh_create_adf1(void)
 {
 
@@ -1982,7 +1982,7 @@ int svt_newhh_create_adf1(void)
 
 	int i;
 
-	//¶ÔÓ¦7 ¸ö¸´ºÏ¼ÇÂ¼, Êı¾İ·Ö±ğÎª±êÊ¶ºÍ³¤¶È
+	//å¯¹åº”7 ä¸ªå¤åˆè®°å½•, æ•°æ®åˆ†åˆ«ä¸ºæ ‡è¯†å’Œé•¿åº¦
 	unsigned char complex_record[7][2]=
 	{
 		{0x01,0x30},{0x02,0x30},{0x03,0x30},{0x04,0x30},{0x05,0x30},{0x09,0x30},{0x11,0x18}
@@ -1996,11 +1996,11 @@ int svt_newhh_create_adf1(void)
 
 
 		memcpy(m_datetime, CmdSort::m_time_now, 7);
-		//×¢²áADF1
-		//   ;¡¾3F01¡¿
-		//   ;¡¾×¢²á3F01¡¿
-		//   ;¡¾ÎÄ¼ş±êÊ¶ = 3F01, ÎÄ¼ş³¤¶È = 0780, ÎÄ¼şÊôĞÔ = 32( 0011 0010 )(¼û COSÊÖ²á22Ò³ËµÃ÷)(ÔÚREGISTER DFÖĞ£¬ÎÄ¼şÊôĞÔ×Ö½Ú³ı¡°DFÓĞĞ§ĞÔ¡±¿ØÖÆÎ»ÒÔÍâ£¬ÆäËûÎ»ÎŞÊµ¼ÊÒâÒå) ¡¿
-		//   ;¡¾Òª×¢²áµÄDFÎÄ¼şÃû³¤¶È = 09 ´«ÊäÃÜÔ¿ = F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(Ç°Ãæ 4¸ö×Ö½ÚÊÇÃÜÔ¿ÀàĞÍF0, ÃÜÔ¿°æ±¾00, ÃÜÔ¿ºÅ01, ½âËø´ÎÊıFF)¡¿
+		//æ³¨å†ŒADF1
+		//   ;ã€3F01ã€‘
+		//   ;ã€æ³¨å†Œ3F01ã€‘
+		//   ;ã€æ–‡ä»¶æ ‡è¯† = 3F01, æ–‡ä»¶é•¿åº¦ = 0780, æ–‡ä»¶å±æ€§ = 32( 0011 0010 )(è§ COSæ‰‹å†Œ22é¡µè¯´æ˜)(åœ¨REGISTER DFä¸­ï¼Œæ–‡ä»¶å±æ€§å­—èŠ‚é™¤â€œDFæœ‰æ•ˆæ€§â€æ§åˆ¶ä½ä»¥å¤–ï¼Œå…¶ä»–ä½æ— å®é™…æ„ä¹‰) ã€‘
+		//   ;ã€è¦æ³¨å†Œçš„DFæ–‡ä»¶åé•¿åº¦ = 09 ä¼ è¾“å¯†é’¥ = F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(å‰é¢ 4ä¸ªå­—èŠ‚æ˜¯å¯†é’¥ç±»å‹F0, å¯†é’¥ç‰ˆæœ¬00, å¯†é’¥å·01, è§£é”æ¬¡æ•°FF)ã€‘
 
 		//00 EE 0138 20 3F01 38 0780 32 00000000 11 09 F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 		memcpy(sztmp, "\x00\xEE\x01\x38\x20",5);
@@ -2019,11 +2019,11 @@ int svt_newhh_create_adf1(void)
 			//break;
 		}
 
-		//´´½¨ADF1
-		//   ;¡¾´´½¨3F01¡¿
-		//   ;¡¾ÎÄ¼ş±êÊ¶ = 3F01, ÎÄ¼ş³¤¶È = 0780, ÎÄ¼şÊôĞÔ = 7B( 0111 1011 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¡¿
-		//   ;¡¾½âËøPINÈ¨ÏŞÃÜÔ¿È¨ÏŞ = 01, ½¨Á¢/ĞŞ¸ÄPINÈ¨ÏŞ = 01£¨¼û COSÊÖ²á26Ò³ËµÃ÷£©¡¿
-		//   ;¡¾DFÎÄ¼şÃû³¤¶È = 09 DFÎÄ¼şÃû = A00000000386980701¡¿
+		//åˆ›å»ºADF1
+		//   ;ã€åˆ›å»º3F01ã€‘
+		//   ;ã€æ–‡ä»¶æ ‡è¯† = 3F01, æ–‡ä»¶é•¿åº¦ = 0780, æ–‡ä»¶å±æ€§ = 7B( 0111 1011 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)ã€‘
+		//   ;ã€è§£é”PINæƒé™å¯†é’¥æƒé™ = 01, å»ºç«‹/ä¿®æ”¹PINæƒé™ = 01ï¼ˆè§ COSæ‰‹å†Œ26é¡µè¯´æ˜ï¼‰ã€‘
+		//   ;ã€DFæ–‡ä»¶åé•¿åº¦ = 09 DFæ–‡ä»¶å = A00000000386980701ã€‘
 		//  if (apdu_getrandom(szdata,8)==0)
 		{
 			//00 E0 00 38 15 3F01 38 0780 7B 00 00 00 00 91 09 A00000000386980701
@@ -2048,7 +2048,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//ÈÏÖ¤ADF1µÄ´«ÊäÃÜÔ¿
+		//è®¤è¯ADF1çš„ä¼ è¾“å¯†é’¥
 		if (apdu_getrandom(szdata,8)==0)
 		{
 			if (apdu_exteralauth(szdata,g_input.key.adf1_tkey))
@@ -2060,16 +2060,16 @@ int svt_newhh_create_adf1(void)
 
 
 
-		//´´½¨ÃÜÔ¿ÎÄ¼ş0000
+		//åˆ›å»ºå¯†é’¥æ–‡ä»¶0000
 		memcpy(szcmd, "\x00\xE0\x00\x08\x0B\x00\x00\x08\x14\x14\xC0\x00\x01\x00\x01\x01", 16);
 		ulen = 16;
 		//dbg_dumpmemory("create key0000 =",szcmd,ulen);
 		respone_len = MifareProCom(ulen, szcmd, &respone_sw);
 		//dbg_dumpmemory("create key0000 |=",szcmd,respone_len);
 
-		//´´½¨adf1 Ö÷¿ØÃÜÔ¿10 (Íâ²¿ÈÏÖ¤ÃÜÔ¿)
-		//   ;¡¾×¢ÒâÖ÷¿ØÃÜÔ¿±ØĞëÏÈÓÃ´«Êä°²×°MFµÄÖ÷¿Ø£¬ÔÙÓÃMFµÄÖ÷¿Ø°²×°DFµÄÖ÷¿Ø¡¿
-		//   ;¡¾´´½¨DF01µÄÖ÷¿ØÃÜÔ¿1¡¿;Create Main Control Key ADF1
+		//åˆ›å»ºadf1 ä¸»æ§å¯†é’¥10 (å¤–éƒ¨è®¤è¯å¯†é’¥)
+		//   ;ã€æ³¨æ„ä¸»æ§å¯†é’¥å¿…é¡»å…ˆç”¨ä¼ è¾“å®‰è£…MFçš„ä¸»æ§ï¼Œå†ç”¨MFçš„ä¸»æ§å®‰è£…DFçš„ä¸»æ§ã€‘
+		//   ;ã€åˆ›å»ºDF01çš„ä¸»æ§å¯†é’¥1ã€‘;Create Main Control Key ADF1
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2097,7 +2097,7 @@ int svt_newhh_create_adf1(void)
 
 		}
 
-		//   ;¡¾´´½¨DF01µÄÖ÷¿ØÃÜÔ¿¡¿;Create Main Control Key ADF1
+		//   ;ã€åˆ›å»ºDF01çš„ä¸»æ§å¯†é’¥ã€‘;Create Main Control Key ADF1
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2126,7 +2126,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//  ;¡¾´´½¨DF01µÄÓ¦ÓÃÎ¬»¤ÃÜÔ¿-ÀàĞÍ30/ÎÄ¼ş¸üĞÂÃÜÔ¿-ÀàĞÍ70¡¿
+		//  ;ã€åˆ›å»ºDF01çš„åº”ç”¨ç»´æŠ¤å¯†é’¥-ç±»å‹30/æ–‡ä»¶æ›´æ–°å¯†é’¥-ç±»å‹70ã€‘
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2155,7 +2155,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//   ;¡¾´´½¨ DF01 Ïû·ÑÃÜÔ¿01¡¿;80 F0 0003 14 400101 33 s_DPK01_DF01
+		//   ;ã€åˆ›å»º DF01 æ¶ˆè´¹å¯†é’¥01ã€‘;80 F0 0003 14 400101 33 s_DPK01_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2183,7 +2183,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		// ;¡¾´´½¨DF01µÄÈ¦´æÃÜÔ¿¡¿;80 F0 0004 14 E00201 33 s_DLK01_DF01
+		// ;ã€åˆ›å»ºDF01çš„åœˆå­˜å¯†é’¥ã€‘;80 F0 0004 14 E00201 33 s_DLK01_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2210,7 +2210,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		// ;¡¾´´½¨DF01µÄTACÃÜÔ¿¡¿;80 F0 0005 14 600101 33 s_DTK01_DF01
+		// ;ã€åˆ›å»ºDF01çš„TACå¯†é’¥ã€‘;80 F0 0005 14 600101 33 s_DTK01_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2237,7 +2237,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		// ;¡¾´´½¨DF01 Pin¡¿;80 F0 0006 0B 08 0000 33 06 s_PIN_DF01
+		// ;ã€åˆ›å»ºDF01 Pinã€‘;80 F0 0006 0B 08 0000 33 06 s_PIN_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2265,7 +2265,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄÎ¬»¤ÃÜÔ¿01¡¿;80 F0 0007 14 700101 33 s_DAMK01_DF01
+		//;ã€åˆ›å»ºDF01çš„ç»´æŠ¤å¯†é’¥01ã€‘;80 F0 0007 14 700101 33 s_DAMK01_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2292,7 +2292,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄÎ¬»¤ÃÜÔ¿02¡¿;80 F0 0007 14 700101 33 s_DAMK01_DF01
+		//;ã€åˆ›å»ºDF01çš„ç»´æŠ¤å¯†é’¥02ã€‘;80 F0 0007 14 700101 33 s_DAMK01_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2320,7 +2320,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//;¡¾´´½¨DF01µÄÓ¦ÓÃ½âËøÃÜÔ¿¡¿;80 F0 0009 14 200102 33 s_APPUnBlock_DF01
+		//;ã€åˆ›å»ºDF01çš„åº”ç”¨è§£é”å¯†é’¥ã€‘;80 F0 0009 14 200102 33 s_APPUnBlock_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2347,7 +2347,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄÓ¦ÓÃ½âËøÃÜÔ¿¡¿;80 F0 0009 14 200102 33 s_APPUnBlock_DF01
+		//;ã€åˆ›å»ºDF01çš„åº”ç”¨è§£é”å¯†é’¥ã€‘;80 F0 0009 14 200102 33 s_APPUnBlock_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2374,7 +2374,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄPin½âËøÃÜÔ¿¡¿;80 F0 000B 14 200102 33 s_DPUK_DF01
+		//;ã€åˆ›å»ºDF01çš„Pinè§£é”å¯†é’¥ã€‘;80 F0 000B 14 200102 33 s_DPUK_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2401,7 +2401,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄReload PinÃÜÔ¿¡¿;80 F0 000C 14 200103 33 s_DRPK_DF01
+		//;ã€åˆ›å»ºDF01çš„Reload Pinå¯†é’¥ã€‘;80 F0 000C 14 200103 33 s_DRPK_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2429,7 +2429,7 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//;¡¾´´½¨DF01µÄĞŞ¸ÄÍ¸Ö§ÏŞ¶îÃÜÔ¿¡¿;80 F0 000D 14 A00200 33 s_DUK_DF01
+		//;ã€åˆ›å»ºDF01çš„ä¿®æ”¹é€æ”¯é™é¢å¯†é’¥ã€‘;80 F0 000D 14 A00200 33 s_DUK_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2456,7 +2456,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨DF01µÄÈ¦ÌáÃÜÔ¿¡¿;80 F0 000E 14 C00200 33 s_DULK_DF01
+		//;ã€åˆ›å»ºDF01çš„åœˆæå¯†é’¥ã€‘;80 F0 000E 14 C00200 33 s_DULK_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2483,7 +2483,7 @@ int svt_newhh_create_adf1(void)
 			}
 		}
 
-		//;¡¾´´½¨Íâ²¿ÈÏÖ¤01¡¿;80 F0 000F 14 100102 33 s_EAK_DF01
+		//;ã€åˆ›å»ºå¤–éƒ¨è®¤è¯01ã€‘;80 F0 000F 14 100102 33 s_EAK_DF01
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -2511,9 +2511,9 @@ int svt_newhh_create_adf1(void)
 		}
 
 		//
-		//   ;¡¾×¨ÓÃFCIÎÄ¼ş¡¿
-		//   ;¡¾ÎÄ¼ş±êÊ¶ = EF0D, ÎÄ¼şÀàĞÍ = 01, ÎÄ¼ş³¤¶È = 0004, ÎÄ¼şÊôĞÔ = 08( 0000 1000 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿¡¿
-		//   ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		//   ;ã€ä¸“ç”¨FCIæ–‡ä»¶ã€‘
+		//   ;ã€æ–‡ä»¶æ ‡è¯† = EF0D, æ–‡ä»¶ç±»å‹ = 01, æ–‡ä»¶é•¿åº¦ = 0004, æ–‡ä»¶å±æ€§ = 08( 0000 1000 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥ã€‘
+		//   ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 		memcpy(szcmd, "\x00\xE0\x00\x01\x0B\xEF\x0D\x01\x00\x04\x08\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
 		//dbg_dumpmemory("create adf1 file_EF0D =",szcmd,ulen);
@@ -2544,9 +2544,9 @@ int svt_newhh_create_adf1(void)
 
 		}
 
-		// ;¡¾¹«¹²Ó¦ÓÃ»ù±¾ĞÅÏ¢ÎÄ¼ş¡¿
-		// ;¡¾ÎÄ¼ş±êÊ¶ = 0015, ÎÄ¼şÀàĞÍ = 01, ÎÄ¼ş³¤¶È = 001E, ÎÄ¼şÊôĞÔ = 09( 0000 1001 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿¡¿
-		// ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		// ;ã€å…¬å…±åº”ç”¨åŸºæœ¬ä¿¡æ¯æ–‡ä»¶ã€‘
+		// ;ã€æ–‡ä»¶æ ‡è¯† = 0015, æ–‡ä»¶ç±»å‹ = 01, æ–‡ä»¶é•¿åº¦ = 001E, æ–‡ä»¶å±æ€§ = 09( 0000 1001 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥ã€‘
+		// ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 
 		memcpy(szcmd, "\x00\xE0\x00\x01\x0B\x00\x15\x01\x00\x1E\x09\x00\x00\x00\x00\x00", 16);
 
@@ -2560,8 +2560,8 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//¸üĞÂ0015¹«¹²Ó¦ÓÃ»ù±¾ÎÄ¼ş
-		//×¢Òâ¸üĞÂÂß¼­¿¨ºÅ sDData = 9000000010000010
+		//æ›´æ–°0015å…¬å…±åº”ç”¨åŸºæœ¬æ–‡ä»¶
+		//æ³¨æ„æ›´æ–°é€»è¾‘å¡å· sDData = 9000000010000010
 		if (apdu_getrandom(szdata,4)==0)
 		{
 			memset(szcmd, 0x00, sizeof(szcmd));
@@ -2569,17 +2569,17 @@ int svt_newhh_create_adf1(void)
 			ulen = 5;
 
 			lppublic = (LPTPUBLICINF)(szcmd+ulen);
-			memcpy(lppublic->issuecode, g_input.inf.issuecode, 2);//·¢¿¨·½´úÂë
-			memcpy(lppublic->citycode, g_input.inf.citycode, 2);//³ÇÊĞ´úÂë
-			memcpy(lppublic->industrycode, g_input.inf.industrycode, 2);//³ÇÊĞ´úÂë
-			lppublic->appstatus = g_input.inf.appstatus;      //ÆôÓÃ±êÊ¶
-			lppublic->appversion = g_input.inf.appversion;    // Ó¦ÓÃ°æ±¾
-			//lppublic->testflag = g_input.inf.testflag;      // ²âÊÔ±ê¼Ç
-			memcpy(lppublic->logicnumber, g_input.logicnumber, 8); //Âß¼­¿¨ºÅ
-			memcpy(lppublic->effectivefrom, g_input.inf.appeffectivefrom, 4);//Ó¦ÓÃÆôÓÃÈÕÆÚ
-			memcpy(lppublic->effectiveto, g_input.inf.appeffectiveto, 4);//Ó¦ÓÃ½áÊøÈÕÆÚ
+			memcpy(lppublic->issuecode, g_input.inf.issuecode, 2);//å‘å¡æ–¹ä»£ç 
+			memcpy(lppublic->citycode, g_input.inf.citycode, 2);//åŸå¸‚ä»£ç 
+			memcpy(lppublic->industrycode, g_input.inf.industrycode, 2);//åŸå¸‚ä»£ç 
+			lppublic->appstatus = g_input.inf.appstatus;      //å¯ç”¨æ ‡è¯†
+			lppublic->appversion = g_input.inf.appversion;    // åº”ç”¨ç‰ˆæœ¬
+			//lppublic->testflag = g_input.inf.testflag;      // æµ‹è¯•æ ‡è®°
+			memcpy(lppublic->logicnumber, g_input.logicnumber, 8); //é€»è¾‘å¡å·
+			memcpy(lppublic->effectivefrom, g_input.inf.appeffectivefrom, 4);//åº”ç”¨å¯ç”¨æ—¥æœŸ
+			memcpy(lppublic->effectiveto, g_input.inf.appeffectiveto, 4);//åº”ç”¨ç»“æŸæ—¥æœŸ
 
-			ulen +=sizeof(TPUBLICINF); //Êı¾İÎªÈ« 00
+			ulen +=sizeof(TPUBLICINF); //æ•°æ®ä¸ºå…¨ 00
 
 			MAC_3(g_input.key.adf1_mamk_01, ulen, szdata, szcmd, szcmd+ulen);
 
@@ -2595,9 +2595,9 @@ int svt_newhh_create_adf1(void)
 
 		}
 
-		// ;¡¾³Ö¿¨ÈË¸öĞÔĞÅÏ¢ÎÄ¼ş¡¿
-		// ;¡¾ÎÄ¼ş±êÊ¶ = 0016, ÎÄ¼şÀàĞÍ = 01, ÎÄ¼ş³¤¶È = 005C, ÎÄ¼şÊôĞÔ = 0A( 0000 1010 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿02¡¿
-		// ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		// ;ã€æŒå¡äººä¸ªæ€§ä¿¡æ¯æ–‡ä»¶ã€‘
+		// ;ã€æ–‡ä»¶æ ‡è¯† = 0016, æ–‡ä»¶ç±»å‹ = 01, æ–‡ä»¶é•¿åº¦ = 005C, æ–‡ä»¶å±æ€§ = 0A( 0000 1010 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥02ã€‘
+		// ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 		//  00 E0 0001 0B 0016 01 005C 0A 000000 0000
 
 		memcpy(szcmd, "\x00\xE0\x00\x01\x0B\x00\x16\x01\x00\x5C\x0A\x00\x00\x00\x00\x00", 16);
@@ -2611,14 +2611,14 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//¸üĞÂ0016´´½¨³Ö¿¨ÈË»ù±¾ĞÅÏ¢
+		//æ›´æ–°0016åˆ›å»ºæŒå¡äººåŸºæœ¬ä¿¡æ¯
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
 			memset(szcmd, 0x00, sizeof(szcmd));
 			memcpy(szcmd, "\x04\xD6\x96\x00\x60",5);
 			ulen = 5;
-			ulen += 92; //0x38 //Êı¾İÎªÈ« 00
+			ulen += 92; //0x38 //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			////dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -2635,8 +2635,8 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//0002   ´´½¨Ç®°üÎÄ¼ş
-		//Ç®°üÎÄ¼ş(02)
+		//0002   åˆ›å»ºé’±åŒ…æ–‡ä»¶
+		//é’±åŒ…æ–‡ä»¶(02)
 		//00 E0 0022 0B 0002 22 0043 00 6060606060
 		memcpy(szcmd, "\x00\xE0\x00\x22\x0B\x00\x02\x22\x00\x43\x00\x60\x60\x60\x60\x60", 16);
 		ulen = 16;
@@ -2649,9 +2649,9 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//   ;¡¾ÎÄ¼şÊôĞÔ = 01( 0000 0001 )Îª¿ØÖÆ½»Ò×Ê±²»ÈÏÖ¤×¡½¨²¿µÄ mac£¬ÔÊĞíµç×Ó´æÕÛ½øĞĞ¸´ºÏÏû·Ñ(¼û COSÊÖ²á105Ò³ËµÃ÷)¡¿
-		//   ;¡¾ÎÄ¼şÀàĞÍ = 32, ÎÄ¼ş³¤¶È = 0A * 17¡¿
-		//   ;¡¾µç×ÓÇ®°ü±¾µØ½»Ò×Ã÷Ï¸¼ÇÂ¼ÎÄ¼ş¡¿
+		//   ;ã€æ–‡ä»¶å±æ€§ = 01( 0000 0001 )ä¸ºæ§åˆ¶äº¤æ˜“æ—¶ä¸è®¤è¯ä½å»ºéƒ¨çš„ macï¼Œå…è®¸ç”µå­å­˜æŠ˜è¿›è¡Œå¤åˆæ¶ˆè´¹(è§ COSæ‰‹å†Œ105é¡µè¯´æ˜)ã€‘
+		//   ;ã€æ–‡ä»¶ç±»å‹ = 32, æ–‡ä»¶é•¿åº¦ = 0A * 17ã€‘
+		//   ;ã€ç”µå­é’±åŒ…æœ¬åœ°äº¤æ˜“æ˜ç»†è®°å½•æ–‡ä»¶ã€‘
 		// 00 E0 0032 0B 0018 32 0A17 01 000000 0000 ;judge:sw=9000
 		memcpy(szcmd, "\x00\xE0\x00\x32\x0B\x00\x18\x32\x0A\x17\x01\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
@@ -2664,7 +2664,7 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//   ;¡¾µç×ÓÇ®°üÒìµØ½»Ò×Ã÷Ï¸¼ÇÂ¼ÎÄ¼ş¡¿
+		//   ;ã€ç”µå­é’±åŒ…å¼‚åœ°äº¤æ˜“æ˜ç»†è®°å½•æ–‡ä»¶ã€‘
 		// 00 E0 0032 0B 0010 32 0A17 01 000000 0000 ;judge:sw=9000
 		memcpy(szcmd, "\x00\xE0\x00\x32\x0B\x00\x10\x32\x0A\x17\x01\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
@@ -2677,7 +2677,7 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//   ;¡¾µç×ÓÇ®°ü³äÖµ½»Ò×Ã÷Ï¸¼ÇÂ¼ÎÄ¼ş¡¿
+		//   ;ã€ç”µå­é’±åŒ…å……å€¼äº¤æ˜“æ˜ç»†è®°å½•æ–‡ä»¶ã€‘
 		// 00 E0 0032 0B 001A 32 0A17 01 000000 0000 ;judge:sw=9000
 		memcpy(szcmd, "\x00\xE0\x00\x32\x0B\x00\x1A\x32\x0A\x17\x01\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
@@ -2691,8 +2691,8 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//  ;¡¾¸´ºÏ½»Ò×¼ÇÂ¼ÎÄ¼ş¡¿
-		//  ;¡¾ÎÄ¼ş±êÊ¶ = 0017, ÎÄ¼şÀàĞÍ = 05, ÎÄ¼ş³¤¶È = 0150, ÎÄ¼şÊôĞÔ = 0A( 0000 1010 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿02¡¿
+		//  ;ã€å¤åˆäº¤æ˜“è®°å½•æ–‡ä»¶ã€‘
+		//  ;ã€æ–‡ä»¶æ ‡è¯† = 0017, æ–‡ä»¶ç±»å‹ = 05, æ–‡ä»¶é•¿åº¦ = 0150, æ–‡ä»¶å±æ€§ = 0A( 0000 1010 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥02ã€‘
 		//;00 E0 0005 0B 0017 05 00A0 0A 000000 0000 ;judge:sw=9000
 		//00 E0 0005 0B 0017 05 0150 0A 000000 0000 ;judge:sw=9000
 		memcpy(szcmd, "\x00\xE0\x00\x05\x0B\x00\x17\x05\x01\x50\x0A\x00\x00\x00\x00\x00", 16);
@@ -2706,21 +2706,21 @@ int svt_newhh_create_adf1(void)
 			break;
 		}
 
-		//Ôö¼Ó¼ÇÂ¼01
+		//å¢åŠ è®°å½•01
 		for (i=0;i<7;i++)
 		{
 			if (apdu_getrandom(szdata,4)==0)
 			{
 				memset(szcmd, 0x00, sizeof(szcmd));
 				//                 memcpy(szcmd, "\x04\xE2\x00\xB8\x34",5);
-				//                 szcmd[4] = complex_record[i][1]+4; //·¢ËÍÊı¾İ³¤¶È+  MAC 4 ×Ö½Ú³¤¶È
-				//                 szcmd[5] = complex_record[i][0];   //¼ÇÂ¼±êÊ¶
-				//                 szcmd[6] = complex_record[i][1]-2; //¼ÇÂ¼È¥µô2×Ö½Ú±êÍ·µÄ³¤¶È
+				//                 szcmd[4] = complex_record[i][1]+4; //å‘é€æ•°æ®é•¿åº¦+  MAC 4 å­—èŠ‚é•¿åº¦
+				//                 szcmd[5] = complex_record[i][0];   //è®°å½•æ ‡è¯†
+				//                 szcmd[6] = complex_record[i][1]-2; //è®°å½•å»æ‰2å­—èŠ‚æ ‡å¤´çš„é•¿åº¦
 				memcpy(szcmd, "\x04\xDC\x01\xBC\x34",5);
 				szcmd[2] = i+1;
-				szcmd[4] = complex_record[i][1]+4; //·¢ËÍÊı¾İ³¤¶È+ MAC 4 ×Ö½Ú³¤¶È
-				szcmd[5] = complex_record[i][0];   //¼ÇÂ¼±êÊ¶
-				szcmd[6] = complex_record[i][1]-2; //¼ÇÂ¼È¥µô2×Ö½Ú±êÍ·µÄ³¤¶È
+				szcmd[4] = complex_record[i][1]+4; //å‘é€æ•°æ®é•¿åº¦+ MAC 4 å­—èŠ‚é•¿åº¦
+				szcmd[5] = complex_record[i][0];   //è®°å½•æ ‡è¯†
+				szcmd[6] = complex_record[i][1]-2; //è®°å½•å»æ‰2å­—èŠ‚æ ‡å¤´çš„é•¿åº¦
 
 				if (complex_record[i][0]==0x02)
 				{
@@ -2735,11 +2735,11 @@ int svt_newhh_create_adf1(void)
 
 					if (g_input.balance>0)
 					{
-						szcmd[9] =0x11; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+						szcmd[9] =0x11; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 					}
 					else
 					{
-						szcmd[9] =0x09; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+						szcmd[9] =0x09; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 					}
 					add_metro_area_crc(szcmd+5, LEN_METRO);
 
@@ -2754,7 +2754,7 @@ int svt_newhh_create_adf1(void)
 				}
 
 				ulen = 5;
-				ulen += complex_record[i][1]; //0x30  //Êı¾İÎªÈ« 00
+				ulen += complex_record[i][1]; //0x30  //æ•°æ®ä¸ºå…¨ 00
 				MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 				ulen += 4;
 				////dbg_dumpmemory("update adf1 complex record 1 =",szcmd,ulen);
@@ -2770,9 +2770,9 @@ int svt_newhh_create_adf1(void)
 				//                 memset(szcmd, 0x00, sizeof(szcmd));
 				//                 memcpy(szcmd, "\x04\xDC\x01\xBC\x34",5);
 				//                 szcmd[2] = i+1;
-				//                 szcmd[4] = complex_record[i][1]+4; //·¢ËÍÊı¾İ³¤¶È+ MAC 4 ×Ö½Ú³¤¶È
-				//                 szcmd[5] = complex_record[i][0];   //¼ÇÂ¼±êÊ¶
-				//                 szcmd[6] = complex_record[i][1]-2; //¼ÇÂ¼È¥µô2×Ö½Ú±êÍ·µÄ³¤¶È
+				//                 szcmd[4] = complex_record[i][1]+4; //å‘é€æ•°æ®é•¿åº¦+ MAC 4 å­—èŠ‚é•¿åº¦
+				//                 szcmd[5] = complex_record[i][0];   //è®°å½•æ ‡è¯†
+				//                 szcmd[6] = complex_record[i][1]-2; //è®°å½•å»æ‰2å­—èŠ‚æ ‡å¤´çš„é•¿åº¦
 				//
 				//                 szcmd[5+16] = ((Api::current_station_id >> 8) & 0x00FF);
 				//                 szcmd[5+17] = (Api::current_station_id & 0xFF);
@@ -2787,17 +2787,17 @@ int svt_newhh_create_adf1(void)
 				//
 				//                     if (g_input.balance>0)
 				//                     {
-				//                         szcmd[9] =0x11; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+				//                         szcmd[9] =0x11; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 				//
 				//                     }
 				//                     else
 				//                     {
-				//                         szcmd[9] =0x09; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+				//                         szcmd[9] =0x09; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 				//                     }
 				//                 }
 				//
 				//                 ulen = 5;
-				//                 ulen += complex_record[i][1]; //0x30  //Êı¾İÎªÈ« 00
+				//                 ulen += complex_record[i][1]; //0x30  //æ•°æ®ä¸ºå…¨ 00
 				//                 MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 				//                 ulen += 4;
 				//                 ////dbg_dumpmemory("update adf1 complex record 1 =",szcmd,ulen);
@@ -2813,9 +2813,9 @@ int svt_newhh_create_adf1(void)
 		}
 
 
-		//   ;¡¾±£ÁôÎÄ¼ş11¡¿
-		//   ;¡¾ÎÄ¼ş±êÊ¶ = 0011, ÎÄ¼şÀàĞÍ = 01, ÎÄ¼ş³¤¶È = 0020, ÎÄ¼şÊôĞÔ = 09( 0000 1001 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿01¡¿
-		//   ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		//   ;ã€ä¿ç•™æ–‡ä»¶11ã€‘
+		//   ;ã€æ–‡ä»¶æ ‡è¯† = 0011, æ–‡ä»¶ç±»å‹ = 01, æ–‡ä»¶é•¿åº¦ = 0020, æ–‡ä»¶å±æ€§ = 09( 0000 1001 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥01ã€‘
+		//   ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 		//        memcpy(szcmd, "\x00\xE0\x00\x01\x0B\x00\x11\x01\x00\x20\x09\x00\x00\x00\x00\x00", 16);
 		memcpy(szcmd, "\x00\xE0\x00\x01\x0B\x00\x11\x01\x00\x20\x0A\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
@@ -2840,16 +2840,16 @@ int svt_newhh_create_adf1(void)
 			ulen += 4;
 			inf[ulen++]=g_input.inf.deposit;
 			//====
-			ulen += 6; //·¢ÊÛÉè±¸ĞÅÏ¢
+			ulen += 6; //å‘å”®è®¾å¤‡ä¿¡æ¯
 			//====
-			memcpy(inf+ulen, g_input.inf.szcaps, 2); //³äÖµÉÏÏŞ
+			memcpy(inf+ulen, g_input.inf.szcaps, 2); //å……å€¼ä¸Šé™
 			ulen += 2;
 
-			inf[ulen++]=g_input.inf.passmode;     //Í¨Ñ¶Ä£Ê½
-			inf[ulen++]=g_input.inf.entryline;    //¿ÉÈëÏßÂ·
-			inf[ulen++]=g_input.inf.entrystation; //¿ÉÈëÕ¾µã
-			inf[ulen++]=g_input.inf.exitline;     //¿É³öÏßÂ·
-			inf[ulen++]=g_input.inf.exitstation;  //¿É³öÕ¾µã
+			inf[ulen++]=g_input.inf.passmode;     //é€šè®¯æ¨¡å¼
+			inf[ulen++]=g_input.inf.entryline;    //å¯å…¥çº¿è·¯
+			inf[ulen++]=g_input.inf.entrystation; //å¯å…¥ç«™ç‚¹
+			inf[ulen++]=g_input.inf.exitline;     //å¯å‡ºçº¿è·¯
+			inf[ulen++]=g_input.inf.exitstation;  //å¯å‡ºç«™ç‚¹
 
 
 			memset(szcmd, 0x00, sizeof(szcmd));
@@ -2876,16 +2876,16 @@ int svt_newhh_create_adf1(void)
 			//    ulen += 4;
 			//    inf[ulen++]=g_input.inf.deposit;
 			//    //====
-			//    ulen += 6; //·¢ÊÛÉè±¸ĞÅÏ¢
+			//    ulen += 6; //å‘å”®è®¾å¤‡ä¿¡æ¯
 			//    //====
-			//    memcpy(inf+ulen, g_input.inf.szcaps, 2); //³äÖµÉÏÏŞ
+			//    memcpy(inf+ulen, g_input.inf.szcaps, 2); //å……å€¼ä¸Šé™
 			//    ulen += 2;
 			//
-			//    inf[ulen++]=g_input.inf.passmode;   //Í¨Ñ¶Ä£Ê½
-			//    inf[ulen++]=g_input.inf.entryline;   //¿ÉÈëÏßÂ·
-			//    inf[ulen++]=g_input.inf.entrystation; //¿ÉÈëÕ¾µã
-			//    inf[ulen++]=g_input.inf.exitline;   //¿É³öÏßÂ·
-			//    inf[ulen++]=g_input.inf.exitstation;  //¿É³öÕ¾µã
+			//    inf[ulen++]=g_input.inf.passmode;   //é€šè®¯æ¨¡å¼
+			//    inf[ulen++]=g_input.inf.entryline;   //å¯å…¥çº¿è·¯
+			//    inf[ulen++]=g_input.inf.entrystation; //å¯å…¥ç«™ç‚¹
+			//    inf[ulen++]=g_input.inf.exitline;   //å¯å‡ºçº¿è·¯
+			//    inf[ulen++]=g_input.inf.exitstation;  //å¯å‡ºç«™ç‚¹
 			//
 			//    memset(szcmd, 0x00, sizeof(szcmd));
 			//    ulen = 0;
@@ -2902,9 +2902,9 @@ int svt_newhh_create_adf1(void)
 
 		}
 
-		// ;¡¾±£ÁôÎÄ¼ş12¡¿
-		// ;¡¾ÎÄ¼ş±êÊ¶ = 0012, ÎÄ¼şÀàĞÍ = 01, ÎÄ¼ş³¤¶È = 0020, ÎÄ¼şÊôĞÔ = 0A( 0000 1010 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¸üĞÂÒª MAC, Ê¹ÓÃÎ¬»¤ÃÜÔ¿02¡¿
-		// ;¡¾¶ÁÈ¨ÏŞ = 00, Ğ´È¨ÏŞ = 00 (×ÔÓÉ¶ÁĞ´)¡¿
+		// ;ã€ä¿ç•™æ–‡ä»¶12ã€‘
+		// ;ã€æ–‡ä»¶æ ‡è¯† = 0012, æ–‡ä»¶ç±»å‹ = 01, æ–‡ä»¶é•¿åº¦ = 0020, æ–‡ä»¶å±æ€§ = 0A( 0000 1010 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)æ›´æ–°è¦ MAC, ä½¿ç”¨ç»´æŠ¤å¯†é’¥02ã€‘
+		// ;ã€è¯»æƒé™ = 00, å†™æƒé™ = 00 (è‡ªç”±è¯»å†™)ã€‘
 
 		memcpy(szcmd, "\x00\xE0\x00\x01\x0B\x00\x12\x01\x00\x20\x0A\x00\x00\x00\x00\x00", 16);
 		ulen = 16;
@@ -2923,7 +2923,7 @@ int svt_newhh_create_adf1(void)
 			memset(szcmd, 0x00, sizeof(szcmd));
 			memcpy(szcmd, "\x04\xD6\x92\x00\x24",5);
 			ulen = 5;
-			ulen +=32; //Êı¾İÎªÈ« 00
+			ulen +=32; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			//dbg_dumpmemory("update adf1 file_0012 =",szcmd,ulen);
@@ -2940,7 +2940,7 @@ int svt_newhh_create_adf1(void)
 
 		//====================
 		//==========================
-		//Èç¹ûÊÇ´øÖµµÄ³õÊ¼»¯£¬ÔòÖ´ĞĞ³äÖµ
+		//å¦‚æœæ˜¯å¸¦å€¼çš„åˆå§‹åŒ–ï¼Œåˆ™æ‰§è¡Œå……å€¼
 
 		if (g_input.balance>0)
 		{
@@ -2958,7 +2958,7 @@ int svt_newhh_create_adf1(void)
 
 			value = g_input.balance;
 
-			//»ñÈ¡³äÖµĞÅÏ¢
+			//è·å–å……å€¼ä¿¡æ¯
 			ulen = 0;
 			memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 			ulen += 5;
@@ -3048,7 +3048,7 @@ int svt_newhh_create_adf1(void)
 }
 
 
-// ´´½¨Ó¦ÓÃÄ¿Â¼2-20141024-wxf
+// åˆ›å»ºåº”ç”¨ç›®å½•2-20141024-wxf
 int svt_newhh_create_adf8(uint8_t * p_tk_type)
 {
 	int nresult					= 0;
@@ -3057,7 +3057,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 	unsigned char sztmp[256]	= {0};
 	unsigned char szcmd[256]	= {0};
 	unsigned char szdata[256]	= {0};
-	unsigned char keytmp[16]	= {0};		// ADF2ËùÓĞÃÜÔ¿¶¼ÊÇFF
+	unsigned char keytmp[16]	= {0};		// ADF2æ‰€æœ‰å¯†é’¥éƒ½æ˜¯FF
 	unsigned char response_len	= 0;
 	unsigned short response_sw	= 0;
 
@@ -3071,7 +3071,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 
 		memset(keytmp, 0xFF, sizeof(keytmp));
 
-		//¡¾Ñ¡Ôñ3F00¡¿
+		//ã€é€‰æ‹©3F00ã€‘
 		// 00 A4 0400 0E 315041592E5359532E4444463031	;judge:sw=9000
 		ulen = 19;
 		memcpy(szcmd, "\x00\xA4\x04\x00\x0E\x31\x50\x41\x59\x2E\x53\x59\x53\x2E\x44\x44\x46\x30\x31", ulen);
@@ -3082,16 +3082,16 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//¡¾3F08¡¿
-		//¡¾×¢²á3F08¡¿
-		//¡¾ÎÄ¼ş±êÊ¶ = 3F08, ÎÄ¼ş³¤¶È = 0400, ÎÄ¼şÊôĞÔ = 32( 0011 0010 )(¼û COSÊÖ²á22Ò³ËµÃ÷)(ÔÚREGISTER DFÖĞ£¬ÎÄ¼şÊôĞÔ×Ö½Ú³ı¡°DFÓĞĞ§ĞÔ¡±¿ØÖÆÎ»ÒÔÍâ£¬ÆäËûÎ»ÎŞÊµ¼ÊÒâÒå) ¡¿
-		//¡¾Òª×¢²áµÄDFÎÄ¼şÃû³¤¶È = 09 ´«ÊäÃÜÔ¿ = F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(Ç°Ãæ 4¸ö×Ö½ÚÊÇÃÜÔ¿ÀàĞÍF0, ÃÜÔ¿°æ±¾00, ÃÜÔ¿ºÅ01, ½âËø´ÎÊıFF)¡¿
+		//ã€3F08ã€‘
+		//ã€æ³¨å†Œ3F08ã€‘
+		//ã€æ–‡ä»¶æ ‡è¯† = 3F08, æ–‡ä»¶é•¿åº¦ = 0400, æ–‡ä»¶å±æ€§ = 32( 0011 0010 )(è§ COSæ‰‹å†Œ22é¡µè¯´æ˜)(åœ¨REGISTER DFä¸­ï¼Œæ–‡ä»¶å±æ€§å­—èŠ‚é™¤â€œDFæœ‰æ•ˆæ€§â€æ§åˆ¶ä½ä»¥å¤–ï¼Œå…¶ä»–ä½æ— å®é™…æ„ä¹‰) ã€‘
+		//ã€è¦æ³¨å†Œçš„DFæ–‡ä»¶åé•¿åº¦ = 09 ä¼ è¾“å¯†é’¥ = F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(å‰é¢ 4ä¸ªå­—èŠ‚æ˜¯å¯†é’¥ç±»å‹F0, å¯†é’¥ç‰ˆæœ¬00, å¯†é’¥å·01, è§£é”æ¬¡æ•°FF)ã€‘
 		// 00 EE 0138 20 3F08 38 0400 32 00000000 11 09 F0 00 01 FF FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	;judge:sw=9000
 		memcpy(szcmd, "\x00\xEE\x01\x38\x20",5);
 		ulen = 5;
 		memcpy(szcmd + ulen, "\x3F\x08\x38\x08\x00\x32\x00\x00\x00\x00\x11\x09\xF0\x00\x01\xFF", 16);
 		ulen += 16;
-		memcpy(szcmd + ulen, keytmp, 16);	// ADF2ËùÓĞÃÜÔ¿¶¼ÊÇÈ«FF
+		memcpy(szcmd + ulen, keytmp, 16);	// ADF2æ‰€æœ‰å¯†é’¥éƒ½æ˜¯å…¨FF
 		ulen += 16;
 		response_len = MifareProCom(ulen, szcmd, &response_sw);
 		if ((response_len == 0) || (0x9000 != response_sw))
@@ -3100,10 +3100,10 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//¡¾´´½¨3F08¡¿
-		//¡¾ÎÄ¼ş±êÊ¶ = 3F08, ÎÄ¼ş³¤¶È = 0400, ÎÄ¼şÊôĞÔ = 7B( 0111 1011 )(¼û COSÊÖ²á23Ò³ËµÃ÷)¡¿
-		//¡¾½âËøPINÈ¨ÏŞÃÜÔ¿È¨ÏŞ = 01, ½¨Á¢/ĞŞ¸ÄPINÈ¨ÏŞ = 01£¨¼û COSÊÖ²á26Ò³ËµÃ÷£©¡¿
-		//¡¾DFÎÄ¼şÃû³¤¶È = 09 DFÎÄ¼şÃû = A00000000386980701¡¿
+		//ã€åˆ›å»º3F08ã€‘
+		//ã€æ–‡ä»¶æ ‡è¯† = 3F08, æ–‡ä»¶é•¿åº¦ = 0400, æ–‡ä»¶å±æ€§ = 7B( 0111 1011 )(è§ COSæ‰‹å†Œ23é¡µè¯´æ˜)ã€‘
+		//ã€è§£é”PINæƒé™å¯†é’¥æƒé™ = 01, å»ºç«‹/ä¿®æ”¹PINæƒé™ = 01ï¼ˆè§ COSæ‰‹å†Œ26é¡µè¯´æ˜ï¼‰ã€‘
+		//ã€DFæ–‡ä»¶åé•¿åº¦ = 09 DFæ–‡ä»¶å = A00000000386980701ã€‘
 		// 00 E0 00 38 15 3F08 38 0400 7B 00 00 00 00 91 09 A00000000386980708	;judge:sw=9000
 		ulen = 26;
 		memcpy(szcmd, "\x00\xE0\x00\x38\x15\x3F\x08\x38\x08\x00\x7B\x00\x00\x00\x00\x91\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x08", ulen);
@@ -3115,7 +3115,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 		}
 
 
-		//¡¾ÈÏÖ¤DF´«ÊäÃÜÔ¿¡¿
+		//ã€è®¤è¯DFä¼ è¾“å¯†é’¥ã€‘
 		// 00 84 0000 08	;judge:sw=9000
 		// 00 82 0000 08 ENC(LAST,s_DF08_TKey)	;judge:sw=9000
 		if (apdu_getrandom(szdata, 8) != 0)
@@ -3123,13 +3123,13 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			nresult ++;
 			break;
 		}
-		if (apdu_exteralauth(szdata, keytmp) != 0)		// ADF2ËùÓĞÃÜÔ¿¶¼ÊÇÈ«FF
+		if (apdu_exteralauth(szdata, keytmp) != 0)		// ADF2æ‰€æœ‰å¯†é’¥éƒ½æ˜¯å…¨FF
 		{
 			nresult ++;
 			break;
 		}
 
-		//¡¾´´½¨ÃÜÔ¿ÎÄ¼ş¡¿
+		//ã€åˆ›å»ºå¯†é’¥æ–‡ä»¶ã€‘
 		// 00 E0 0008 0B 0000 08 14 14 C0 000100 01 01	;judge:sw=9000
 		ulen = 16;
 		memcpy(szcmd, "\x00\xE0\x00\x08\x0B\x00\x00\x08\x0A\x14\xC0\x00\x01\x00\x01\x01", ulen);
@@ -3140,12 +3140,12 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//¡¾×¢ÒâÖ÷¿ØÃÜÔ¿±ØĞëÏÈÓÃ´«Êä°²×°MFµÄÖ÷¿Ø£¬ÔÙÓÃMFµÄÖ÷¿Ø°²×°DFµÄÖ÷¿Ø¡¿
-		//¡¾´´½¨DF01µÄÖ÷¿ØÃÜÔ¿1¡¿;Create Main Control Key ADF1
+		//ã€æ³¨æ„ä¸»æ§å¯†é’¥å¿…é¡»å…ˆç”¨ä¼ è¾“å®‰è£…MFçš„ä¸»æ§ï¼Œå†ç”¨MFçš„ä¸»æ§å®‰è£…DFçš„ä¸»æ§ã€‘
+		//ã€åˆ›å»ºDF01çš„ä¸»æ§å¯†é’¥1ã€‘;Create Main Control Key ADF1
 		// 00 84 0000 04	;judge:sw=9000
 		// 84 F0 0001 1C DATA_ENC(100101 33 s_MKey_MF,s_DF08_TKey) MAC(84 F0 0001 1C DATA_ENC(100101 33 s_MKey_MF,s_DF08_TKey) ,s_DF01_TKey, Last)
 
-		//¡¾´´½¨DF01µÄÖ÷¿ØÃÜÔ¿¡¿;Create Main Control Key ADF1
+		//ã€åˆ›å»ºDF01çš„ä¸»æ§å¯†é’¥ã€‘;Create Main Control Key ADF1
 		// 00 84 0000 04	;judge:sw=9000
 		// 84 F0 0001 1C DATA_ENC(100101 33 s_MKey_DF08,s_MKey_MF) MAC(84 F0 0001 1C DATA_ENC(100101 33 s_MKey_DF08,s_MKey_MF) ,s_MKey_MF, Last)
 		for (int count=0;count<2;count++)
@@ -3156,7 +3156,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 				break;
 			}
 			memcpy(sztmp,"\x10\x01\x01\x33",4);
-			memcpy(sztmp + 4, keytmp, 16);		// ADF2ËùÓĞÃÜÔ¿¶¼FF
+			memcpy(sztmp + 4, keytmp, 16);		// ADF2æ‰€æœ‰å¯†é’¥éƒ½FF
 			tmplen = data_encrypt(20, sztmp, keytmp);
 
 			memcpy(szcmd,"\x84\xF0\x00\x01\x1C", 5);
@@ -3175,7 +3175,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			}
 		}
 
-		//¡¾Ñ¡Ôñ3F08¡¿
+		//ã€é€‰æ‹©3F08ã€‘
 		// 00 A4 0400 09 A00000000386980708	;judge:sw=9000
 		ulen = 14;
 		memcpy(sztmp, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x08", ulen);
@@ -3186,7 +3186,7 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//¡¾Ñ¡Ôñ3F00¡¿
+		//ã€é€‰æ‹©3F00ã€‘
 		// 00 A4 0400 0E 315041592E5359532E4444463031	;judge:sw=9000
 		ulen = 19;
 		memcpy(sztmp, "\x00\xA4\x04\x00\x0E\x31\x50\x41\x59\x2E\x53\x59\x53\x2E\x44\x44\x46\x30\x31", ulen);
@@ -3203,10 +3203,10 @@ int svt_newhh_create_adf8(uint8_t * p_tk_type)
 }
 
 //===================================================
-//ÒÔÏÂÎª Õë¶Ô»ª´óÆ±¿¨Ôö¼ÓµÄº¯Êı ¿ªÊ¼
+//ä»¥ä¸‹ä¸º é’ˆå¯¹åå¤§ç¥¨å¡å¢åŠ çš„å‡½æ•° å¼€å§‹
 //add by shiyulong on 2016-02-19
 //==================================================
-//´¢ÖµÆ±É¾³ıÆ±¿¨Ô­ÓĞ½á¹¹
+//å‚¨å€¼ç¥¨åˆ é™¤ç¥¨å¡åŸæœ‰ç»“æ„
 int svt_newhd_reset(void)
 {
 	unsigned char szdata[8];
@@ -3221,14 +3221,14 @@ int svt_newhd_reset(void)
 
 	do
 	{
-		//modify by shiyulong in 2014-05-26, ¸Ä±äÅĞ¶Ï·½Ê½£¬¸ÄÎª¶ÁÈ¡·¢ĞĞÎÄ¼şÅĞ¶Ï
+		//modify by shiyulong in 2014-05-26, æ”¹å˜åˆ¤æ–­æ–¹å¼ï¼Œæ”¹ä¸ºè¯»å–å‘è¡Œæ–‡ä»¶åˆ¤æ–­
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 
 		nresult = svt_readbinary(0x05, 0, 0x28, szcmd);
 		if (nresult == -2)
 		{
-			//Èç¹û¿¨Îª°×¿¨ÔòÈÏÎªÏ´¿¨³É¹¦
+			//å¦‚æœå¡ä¸ºç™½å¡åˆ™è®¤ä¸ºæ´—å¡æˆåŠŸ
 			nresult = 0;
 			break;
 		}
@@ -3242,14 +3242,14 @@ int svt_newhd_reset(void)
 		dbg_dumpmemory("lpmfissueinf->logicnumber |",lpmfissueinf->logicnumber,8);
 		dbg_dumpmemory("g_input.logicnumber |",g_input.logicnumber,8);
 
-		//±È½ÏÂß¼­¿¨ºÅ
+		//æ¯”è¾ƒé€»è¾‘å¡å·
 		if (memcmp(lpmfissueinf->logicnumber,g_input.logicnumber,8)!=0)
 		{
 			nresult = 7;
 			break;
 		}
 
-		//modify by shiyulong in 2014-05-26, Íê³É
+		//modify by shiyulong in 2014-05-26, å®Œæˆ
 
 		//dbg_dumpmemory("externalauth=",sztmp,ulen);
 
@@ -3296,7 +3296,7 @@ int svt_newhd_reset(void)
 
 
 
-//´¢ÖµÆ±´´½¨Ö÷Ä¿Â¼
+//å‚¨å€¼ç¥¨åˆ›å»ºä¸»ç›®å½•
 int svt_newfd_create_mf(void)
 {
 	unsigned char ulen;
@@ -3312,7 +3312,7 @@ int svt_newfd_create_mf(void)
 
 	do
 	{
-		// Íâ²¿ÈÏÖ¤
+		// å¤–éƒ¨è®¤è¯
 		if (apdu_getrandom(szdata,8)==0)
 		{
 			//dbg_dumpmemory("mf_tkey =",g_input.key.mf_tkey,16);
@@ -3329,7 +3329,7 @@ int svt_newfd_create_mf(void)
 			break;
 		}
 
-		//	;Ï´¿¨
+		//	;æ´—å¡
 		//	80 0E 0000 00  ;judge:sw=9000
 		memcpy(szcmd, "\x80\x0E\x00\x00\x00", 5);
 		ulen = 5;
@@ -3346,7 +3346,7 @@ int svt_newfd_create_mf(void)
 		//usleep(500);
 
 
-		//	;¡¾´´½¨KeyÎÄ¼ş¡¿
+		//	;ã€åˆ›å»ºKeyæ–‡ä»¶ã€‘
 		//	80 E0 0000 07 3F005001F0FFFF		;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x00\x07\x3F\x00\x50\x01\xF0\xFF\xFF", 12);
 		ulen = 12;
@@ -3361,7 +3361,7 @@ int svt_newfd_create_mf(void)
 			break;
 		}
 
-		//;¡¾ÏßÂ·±£»¤ÃÜÔ¿¡¿
+		//;ã€çº¿è·¯ä¿æŠ¤å¯†é’¥ã€‘
 		//80 D4 0100 15 36F0F0FF33 s_MAMK_MF ;judge:sw=9000
 
 		//if (apdu_getrandom(szdata,4)==0)
@@ -3382,12 +3382,12 @@ int svt_newfd_create_mf(void)
 			break;
 		}
 
-		//;¡¾´´½¨MFÖ÷¿ØÃÜÔ¿¡¿
+		//;ã€åˆ›å»ºMFä¸»æ§å¯†é’¥ã€‘
 		//80 D4 0100 15 39F0F0AA33 s_MKey_MF ;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x15\x39\xF0\xF0\xAA\x33", 10);
 		ulen = 10;
 
-		//ÀîÃ÷½ğÏ´¿¨°æ±¾£¬Ç¿ÖÆÊ¹Ö÷¿ØÃÜÔ¿ÎªÈ«FFFF
+		//ææ˜é‡‘æ´—å¡ç‰ˆæœ¬ï¼Œå¼ºåˆ¶ä½¿ä¸»æ§å¯†é’¥ä¸ºå…¨FFFF
 		//memcpy(g_input.key.mf_mkey,"\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF",16);
 
 		memcpy(szcmd+ulen, g_input.key.mf_mkey, 16);
@@ -3406,7 +3406,7 @@ int svt_newfd_create_mf(void)
 		}
 
 
-		//;¡¾´´½¨Ä¿Â¼ÎÄ¼ş0001¡¿
+		//;ã€åˆ›å»ºç›®å½•æ–‡ä»¶0001ã€‘
 		//80 E0 0001 07 2A0213F000FFFF ;judge:sw=9000
 
 		memcpy(szcmd, "\x80\xE0\x00\x01\x07\x2A\x02\x13\xF0\x00\xFF\xFF",12);
@@ -3423,7 +3423,7 @@ int svt_newfd_create_mf(void)
 		}
 
 
-		//;¡¾Ô¤ÁôÔö¼Ó¼ÇÂ¼¡¿
+		//;ã€é¢„ç•™å¢åŠ è®°å½•ã€‘
 		//00 E2 00 08 13 70 11 61 0F 4F 09 A0 00 00 00 03 86 98 07 01 50 02 3F 01 ;judge:sw=9000
 
 		memcpy(szcmd, "\x00\xE2\x00\x08\x13\x70\x11\x61\x0F\x4F\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x01\x50\x02\x3F\x01",24);
@@ -3440,7 +3440,7 @@ int svt_newfd_create_mf(void)
 		}
 
 
-		//;¡¾´´½¨·¢¿¨·½»ù±¾ĞÅÏ¢ÎÄ¼ş0005¡¿
+		//;ã€åˆ›å»ºå‘å¡æ–¹åŸºæœ¬ä¿¡æ¯æ–‡ä»¶0005ã€‘
 		//80 E0 00 05 07 A8 00 28 F0 F0 FF FF ;judge:sw=9000
 
 		memcpy(szcmd, "\x80\xE0\x00\x05\x07\xA8\x00\x28\xF0\xF0\xFF\xFF",12);
@@ -3456,7 +3456,7 @@ int svt_newfd_create_mf(void)
 			break;
 		}
 
-		//;¡¾Ğ´·¢¿¨ĞÅÏ¢ÎÄ¼ş¡¿
+		//;ã€å†™å‘å¡ä¿¡æ¯æ–‡ä»¶ã€‘
 		//  00 84 0000 04		;judge:sw=9000
 		//; 04 D6 8500 2C 53204100000001004100000300005424020020140401112233445566000120140401204304030000 MAC(04 D6 8500 2C 53204100000001004100000300005424020020140401112233445566000120140401204304030000, s_MAMK_MF, Last)		;judge:sw=9000
 		//04 D6 8500 2C 0731410000000100 s_CardUID 020020151112112233445566000120151112203811110000 MAC(04 D6 8500 2C 0731410000000100 s_CardUID 020020151112112233445566000120151112203811110000, s_MAMK_MF, Last)		;judge:sw=9000
@@ -3469,19 +3469,19 @@ int svt_newfd_create_mf(void)
 			ulen = 5;
 			lpmfissueinf = (LPTMF_ISSUE)(szcmd+ulen);
 
-			memcpy(lpmfissueinf->issuecode, g_input.inf.issuecode, 2);//·¢¿¨·½´úÂë
-			memcpy(lpmfissueinf->citycode, g_input.inf.citycode, 2);//³ÇÊĞ´úÂë
-			memcpy(lpmfissueinf->industrycode, g_input.inf.industrycode, 2);//³ÇÊĞ´úÂë
-			lpmfissueinf->testflag = g_input.inf.testflag;		// ²âÊÔ±ê¼Ç
-			memcpy(lpmfissueinf->logicnumber, g_input.logicnumber, 8); //Âß¼­¿¨ºÅ
-			memcpy(lpmfissueinf->cardtype,g_input.inf.cardtype, 2); //¿¨ÀàĞÍ
-			memcpy(lpmfissueinf->issuedate, g_input.inf.issuedate, 4);//·¢ĞĞÈÕÆÚ
-			memcpy(lpmfissueinf->issuedevice, g_input.inf.issuedevice, 6);//·¢ĞĞÉè±¸
-			memcpy(lpmfissueinf->cardversion, g_input.inf.cardversion, 2);//¿¨°æ±¾
+			memcpy(lpmfissueinf->issuecode, g_input.inf.issuecode, 2);//å‘å¡æ–¹ä»£ç 
+			memcpy(lpmfissueinf->citycode, g_input.inf.citycode, 2);//åŸå¸‚ä»£ç 
+			memcpy(lpmfissueinf->industrycode, g_input.inf.industrycode, 2);//åŸå¸‚ä»£ç 
+			lpmfissueinf->testflag = g_input.inf.testflag;		// æµ‹è¯•æ ‡è®°
+			memcpy(lpmfissueinf->logicnumber, g_input.logicnumber, 8); //é€»è¾‘å¡å·
+			memcpy(lpmfissueinf->cardtype,g_input.inf.cardtype, 2); //å¡ç±»å‹
+			memcpy(lpmfissueinf->issuedate, g_input.inf.issuedate, 4);//å‘è¡Œæ—¥æœŸ
+			memcpy(lpmfissueinf->issuedevice, g_input.inf.issuedevice, 6);//å‘è¡Œè®¾å¤‡
+			memcpy(lpmfissueinf->cardversion, g_input.inf.cardversion, 2);//å¡ç‰ˆæœ¬
 
 
-			memcpy(lpmfissueinf->effectivefrom, g_input.inf.effectivefrom, 4);//Ó¦ÓÃÆôÓÃÈÕÆÚ
-			memcpy(lpmfissueinf->effectiveto, g_input.inf.effectiveto, 4);//Ó¦ÓÃ½áÊøÈÕÆÚ
+			memcpy(lpmfissueinf->effectivefrom, g_input.inf.effectivefrom, 4);//åº”ç”¨å¯ç”¨æ—¥æœŸ
+			memcpy(lpmfissueinf->effectiveto, g_input.inf.effectiveto, 4);//åº”ç”¨ç»“æŸæ—¥æœŸ
 
 
 			ulen += sizeof(TMF_ISSUE);
@@ -3512,7 +3512,7 @@ int svt_newfd_create_mf(void)
 
 
 
-//´¢ÖµÆ±´´½¨Ó¦ÓÃÄ¿Â¼
+//å‚¨å€¼ç¥¨åˆ›å»ºåº”ç”¨ç›®å½•
 int svt_newfd_create_adf1(void)
 {
 
@@ -3575,7 +3575,7 @@ int svt_newfd_create_adf1(void)
 
 
 		memcpy(m_datetime, CmdSort::m_time_now, 7);
-		//¡¾´´½¨3F01¡¿
+		//ã€åˆ›å»º3F01ã€‘
 		// 80 E0 3F 01 11 38 09 00 F0 F0 95 FF FF A0 00 00 00 03 86 98 07 01 ;judge:sw=9000
 
 		memcpy(szcmd, "\x80\xE0\x3F\x01\x11\x38\x09\x00\xF0\xF0\x95\xFF\xFF\xA0\x00\x00\x00\x03\x86\x98\x07\x01",22);
@@ -3592,7 +3592,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		// ;¡¾Ñ¡Ôñ3F01¡¿
+		// ;ã€é€‰æ‹©3F01ã€‘
 		// 00 A4 04 00 09 A0 00 00 00 03 86 98 07 01	;judge:sw=9000
 		memcpy(szcmd, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x01", 14);
 		ulen = 14;
@@ -3603,11 +3603,11 @@ int svt_newfd_create_adf1(void)
 		if ((respone_len==0) || (0x9000!=respone_sw))
 		{
 			g_Record.log_out(0, level_error, "svt_selectfile 3f01= [%04X]",respone_sw);
-			//ÎŞ»ØÓ¦
+			//æ— å›åº”
 			nresult = 2;
 		}
 
-		//;¡¾´´½¨ÃÜÔ¿ÎÄ¼ş, ½¨Á¢ÃÜÔ¿¡°0018¡±ÎÄ¼şÊ±Ó¦½«×îºóÁ½×Ö½ÚÉèÖÃÎªBFFA¡£DAÈ¦´æ²»Ñé PIN¡¿
+		//;ã€åˆ›å»ºå¯†é’¥æ–‡ä»¶, å»ºç«‹å¯†é’¥â€œ0018â€æ–‡ä»¶æ—¶åº”å°†æœ€åä¸¤å­—èŠ‚è®¾ç½®ä¸ºBFFAã€‚DAåœˆå­˜ä¸éªŒ PINã€‘
 		//80 E0 00 00 07 3F 01 B8 95 F0 BF FA	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x00\x07\x3F\x01\xB8\x95\xF0\xBF\xFA",12);
 		ulen = 12;
@@ -3621,7 +3621,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾ÄÚ²¿ÃÜÔ¿, Ìí¼Ó34ÃÜÔ¿£¨TACÃÜÔ¿£©ÊôĞÔÖµµÚËÄÎ»ÉèÖÃ³É90Öµ¡¿
+		//;ã€å†…éƒ¨å¯†é’¥, æ·»åŠ 34å¯†é’¥ï¼ˆTACå¯†é’¥ï¼‰å±æ€§å€¼ç¬¬å››ä½è®¾ç½®æˆ90å€¼ã€‘
 		//80 D4 01 01 15 F4 F0 02 90 00 s_DTK01_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x01\x15\xF4\xF0\x02\x90\x00",10);
 		ulen = 10;
@@ -3639,7 +3639,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾ÏßÂ·±£»¤ÃÜÔ¿¡¿
+		//;ã€çº¿è·¯ä¿æŠ¤å¯†é’¥ã€‘
 		//80 D4 0100 15 36F002FF33 s_DAMK_DF01	;judge:sw=9000
 		//80 D4 0101 15 36F002FF33 s_DAMK01_DF01	;judge:sw=9000
 		//80 D4 0102 15 36F002FF33 s_DAMK02_DF01	;judge:sw=9000
@@ -3690,7 +3690,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾Ó¦ÓÃËø¶¨¡¿
+		//;ã€åº”ç”¨é”å®šã€‘
 		//80 D4 01 FD 15 36 F0F0 FF33 s_APPBLOCK_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\xFD\x15\x36\xF0\xF0\xFF\x33",10);
 		ulen = 10;
@@ -3707,7 +3707,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾Ó¦ÓÃ½âËø¡¿
+		//;ã€åº”ç”¨è§£é”ã€‘
 		//80 D4 01FC 15 36 F0F0 FF33 s_APPUnBlock_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\xFC\x15\x36\xF0\xF0\xFF\x33",10);
 		ulen = 10;
@@ -3724,7 +3724,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾¿ÚÁî½âËøÃÜÔ¿¡¿
+		//;ã€å£ä»¤è§£é”å¯†é’¥ã€‘
 		//80 D4 0100 15 37F002FF33 s_DPUK_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x15\x37\xF0\x02\xFF\x33",10);
 		ulen = 10;
@@ -3741,7 +3741,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾¿ÚÁîÖØ×°ÃÜÔ¿¡¿
+		//;ã€å£ä»¤é‡è£…å¯†é’¥ã€‘
 		//80 D4 0100 15 38F002FF33 s_DRPK_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x15\x38\xF0\x02\xFF\x33",10);
 		ulen = 10;
@@ -3759,7 +3759,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾Íâ²¿ÈÏÖ¤ÃÜÔ¿¡¿
+		//;ã€å¤–éƒ¨è®¤è¯å¯†é’¥ã€‘
 		//80 D4 0100 15 39F0024433 s_EAK_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x15\x39\xF0\x02\x44\x33",10);
 		ulen = 10;
@@ -3777,7 +3777,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾Ïû·ÑÃÜÔ¿¡¿
+		//;ã€æ¶ˆè´¹å¯†é’¥ã€‘
 		//80 D4 0101 15 3EF002 0100 s_DPK01_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x01\x15\x3E\xF0\x02\x01\x00",10);
 		ulen = 10;
@@ -3795,7 +3795,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾È¦´æÃÜÔ¿¡¿
+		//;ã€åœˆå­˜å¯†é’¥ã€‘
 		//80 D4 0101 15 3FF002 0100 s_DLK01_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x01\x15\x3F\xF0\x02\x01\x00",10);
 		ulen = 10;
@@ -3813,7 +3813,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾¿ÚÁî(PIN)¡¿
+		//;ã€å£ä»¤(PIN)ã€‘
 		//80 D4 0100 08 3AF0EF1155 s_PIN_DF01	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x08\x3A\xF0\xEF\x11\x55",10);
 		ulen = 10;
@@ -3831,7 +3831,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾½¨Á¢0015(ÏßÂ·±£»¤¶ÁĞ´)¡¿
+		//;ã€å»ºç«‹0015(çº¿è·¯ä¿æŠ¤è¯»å†™)ã€‘
 		//80 E0 0015 07 A8 001E F0 F0 FF FE	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x15\x07\xA8\x00\x1E\xF0\xF0\xFF\xFE",12);
 		ulen = 12;
@@ -3855,17 +3855,17 @@ int svt_newfd_create_adf1(void)
 			ulen = 5;
 
 			lppublic = (LPTPUBLICINF)(szcmd+ulen);
-			memcpy(lppublic->issuecode, g_input.inf.issuecode, 2);//·¢¿¨·½´úÂë
-			memcpy(lppublic->citycode, g_input.inf.citycode, 2);//³ÇÊĞ´úÂë
-			memcpy(lppublic->industrycode, g_input.inf.industrycode, 2);//³ÇÊĞ´úÂë
-			lppublic->appstatus = g_input.inf.appstatus;      //ÆôÓÃ±êÊ¶
-			lppublic->appversion = g_input.inf.appversion;    // Ó¦ÓÃ°æ±¾
-			//lppublic->testflag = g_input.inf.testflag;      // ²âÊÔ±ê¼Ç
-			memcpy(lppublic->logicnumber, g_input.logicnumber, 8); //Âß¼­¿¨ºÅ
-			memcpy(lppublic->effectivefrom, g_input.inf.appeffectivefrom, 4);//Ó¦ÓÃÆôÓÃÈÕÆÚ
-			memcpy(lppublic->effectiveto, g_input.inf.appeffectiveto, 4);//Ó¦ÓÃ½áÊøÈÕÆÚ
+			memcpy(lppublic->issuecode, g_input.inf.issuecode, 2);//å‘å¡æ–¹ä»£ç 
+			memcpy(lppublic->citycode, g_input.inf.citycode, 2);//åŸå¸‚ä»£ç 
+			memcpy(lppublic->industrycode, g_input.inf.industrycode, 2);//åŸå¸‚ä»£ç 
+			lppublic->appstatus = g_input.inf.appstatus;      //å¯ç”¨æ ‡è¯†
+			lppublic->appversion = g_input.inf.appversion;    // åº”ç”¨ç‰ˆæœ¬
+			//lppublic->testflag = g_input.inf.testflag;      // æµ‹è¯•æ ‡è®°
+			memcpy(lppublic->logicnumber, g_input.logicnumber, 8); //é€»è¾‘å¡å·
+			memcpy(lppublic->effectivefrom, g_input.inf.appeffectivefrom, 4);//åº”ç”¨å¯ç”¨æ—¥æœŸ
+			memcpy(lppublic->effectiveto, g_input.inf.appeffectiveto, 4);//åº”ç”¨ç»“æŸæ—¥æœŸ
 
-			ulen +=sizeof(TPUBLICINF); //Êı¾İÎªÈ« 00
+			ulen +=sizeof(TPUBLICINF); //æ•°æ®ä¸ºå…¨ 00
 
 			MAC_3(g_input.key.adf1_mamk_01, ulen, szdata, szcmd, szcmd+ulen);
 
@@ -3882,7 +3882,7 @@ int svt_newfd_create_adf1(void)
 
 		}
 
-		//;¡¾½¨Á¢0016(ÏßÂ·±£»¤¶ÁĞ´)¡¿
+		//;ã€å»ºç«‹0016(çº¿è·¯ä¿æŠ¤è¯»å†™)ã€‘
 		//80 E0 0016 07 A8 00A4 F0 F0 FF FD	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x16\x07\xA8\x00\xA4\xF0\xF0\xFF\xFD",12);
 		ulen = 12;
@@ -3905,7 +3905,7 @@ int svt_newfd_create_adf1(void)
 			memset(szcmd, 0x00, sizeof(szcmd));
 			memcpy(szcmd, "\x04\xD6\x96\x00\xA8",5);
 			ulen = 5;
-			ulen += 164; //Êı¾İÎªÈ« 00
+			ulen += 164; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -3922,7 +3922,7 @@ int svt_newfd_create_adf1(void)
 
 		}
 
-		//;¡¾½¨Á¢0018(±¾µØ½»Ò×Ã÷Ï¸)( COSÎ¬»¤)¡¿
+		//;ã€å»ºç«‹0018(æœ¬åœ°äº¤æ˜“æ˜ç»†)( COSç»´æŠ¤)ã€‘
 		//80 E0 0018 07 2E0A17F1EFFFFF	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x18\x07\x2E\x0A\x17\xF0\xEF\xFF\xFF",12);
 		ulen = 12;
@@ -3937,7 +3937,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾½¨Á¢0010(ÒìµØ½»Ò×Ã÷Ï¸)( COSÎ¬»¤)¡¿
+		//;ã€å»ºç«‹0010(å¼‚åœ°äº¤æ˜“æ˜ç»†)( COSç»´æŠ¤)ã€‘
 		//80 E0 0010 07 2E0A17F1EFFFFF	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x10\x07\x2E\x0A\x17\xF0\xEF\xFF\xFF",12);
 		ulen = 12;
@@ -3952,7 +3952,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾½¨Á¢001A(³äÖµ½»Ò×Ã÷Ï¸)( COSÎ¬»¤)¡¿
+		//;ã€å»ºç«‹001A(å……å€¼äº¤æ˜“æ˜ç»†)( COSç»´æŠ¤)ã€‘
 		//80 E0 001A 07 2E0A17F1EFFFFF	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x1A\x07\x2E\x0A\x17\xF0\xEF\xFF\xFF",12);
 		ulen = 12;
@@ -3967,7 +3967,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-        //;¡¾½¨Á¢0017(¸´ºÏÏû·Ñ)(ÏßÂ·±£»¤¶ÁĞ´)¡¿
+        //;ã€å»ºç«‹0017(å¤åˆæ¶ˆè´¹)(çº¿è·¯ä¿æŠ¤è¯»å†™)ã€‘
 		//80 E0 0017 07 AC 0150 80 80 FF 8D	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x17\x07\xAC\x01\x50\x80\x80\xFF\x8D",12);
 		ulen = 12;
@@ -3990,7 +3990,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x01\xBC\x34\x01\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4008,8 +4008,8 @@ int svt_newfd_create_adf1(void)
 		if (apdu_getrandom(szdata,4)==0)
 		{
 			memset(szcmd, 0x00, sizeof(szcmd));
-			szcmd[5] = 0x02;   //¼ÇÂ¼±êÊ¶
-			szcmd[6] = 0x2E; //¼ÇÂ¼È¥µô2×Ö½Ú±êÍ·µÄ³¤¶È
+			szcmd[5] = 0x02;   //è®°å½•æ ‡è¯†
+			szcmd[6] = 0x2E; //è®°å½•å»æ‰2å­—èŠ‚æ ‡å¤´çš„é•¿åº¦
 			szcmd[5+16] = ((Api::current_station_id >> 8) & 0x00FF);
 			szcmd[5+17] = (Api::current_station_id & 0xFF);
 			szcmd[5+18] = Api::current_device_type;
@@ -4019,11 +4019,11 @@ int svt_newfd_create_adf1(void)
 			szcmd[5+19] |= (Api::current_device_id & 0xFF);
 			if (g_input.balance>0)
 			{
-				szcmd[9] =0x11; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+				szcmd[9] =0x11; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 			}
 			else
 			{
-				szcmd[9] =0x09; //¹ìµÀ½»Í¨ÎÄ¼ş, 7bit-4bit:×´Ì¬±êÖ¾3bit-0bit:ÌØÊâ±êÖ¾ ( e/s³õÊ¼»¯+ Õı³£)
+				szcmd[9] =0x09; //è½¨é“äº¤é€šæ–‡ä»¶, 7bit-4bit:çŠ¶æ€æ ‡å¿—3bit-0bit:ç‰¹æ®Šæ ‡å¿— ( e/såˆå§‹åŒ–+ æ­£å¸¸)
 			}
 			add_metro_area_crc(szcmd+5, LEN_METRO);
 
@@ -4086,7 +4086,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x02\xBC\x34\x02\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4109,7 +4109,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x03\xBC\x34\x03\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4132,7 +4132,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x04\xBC\x34\x04\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4155,7 +4155,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x05\xBC\x34\x05\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4178,7 +4178,7 @@ int svt_newfd_create_adf1(void)
 
 			memcpy(szcmd, "\x04\xDC\x06\xBC\x34\x09\x2E", 7);
 			ulen = 7;
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -4207,7 +4207,7 @@ int svt_newfd_create_adf1(void)
 				szcmd[7] = 1;
 			}
 			memcpy(szcmd+9, g_input.inf.logiceffectivefrom, 7);
-			ulen += 46; //Êı¾İÎªÈ« 00
+			ulen += 46; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0017-11 =",szcmd,ulen);
@@ -4222,7 +4222,7 @@ int svt_newfd_create_adf1(void)
 			}
 		}
 
-		//;¡¾½¨Á¢0002(µç×ÓÇ®°ü)( COSÎ¬»¤)¡¿
+		//;ã€å»ºç«‹0002(ç”µå­é’±åŒ…)( COSç»´æŠ¤)ã€‘
 		//80 E0 0002 07 2F 0208 F0 00 FF 18	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x02\x07\x2F\x02\x08\xF0\x00\xFF\x18",12);
 		ulen = 12;
@@ -4237,7 +4237,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾½¨Á¢0001(µç×Ó´æÕÛ)( COSÎ¬»¤)¡¿
+		//;ã€å»ºç«‹0001(ç”µå­å­˜æŠ˜)( COSç»´æŠ¤)ã€‘
 		//80 E0 0001 07 2F 0208 F0 00 FF 18	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x01\x07\x2F\x02\x08\xF0\x00\xFF\x18",12);
 		ulen = 12;
@@ -4252,7 +4252,7 @@ int svt_newfd_create_adf1(void)
 			break;
 		}
 
-		//;¡¾½¨Á¢0011(ÏßÂ·±£»¤¶ÁĞ´)¡¿
+		//;ã€å»ºç«‹0011(çº¿è·¯ä¿æŠ¤è¯»å†™)ã€‘
 		//80 E0 0011 07 A8 0020 F0 F0 FF FD	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x11\x07\xA8\x00\x20\xF0\xF0\xFF\xFD",12);
 		ulen = 12;
@@ -4279,16 +4279,16 @@ int svt_newfd_create_adf1(void)
 			ulen += 4;
 			inf[ulen++]=g_input.inf.deposit;
 			//====
-			ulen += 6; //·¢ÊÛÉè±¸ĞÅÏ¢
+			ulen += 6; //å‘å”®è®¾å¤‡ä¿¡æ¯
 			//====
-			memcpy(inf+ulen, g_input.inf.szcaps, 2); //³äÖµÉÏÏŞ
+			memcpy(inf+ulen, g_input.inf.szcaps, 2); //å……å€¼ä¸Šé™
 			ulen += 2;
 
-			inf[ulen++]=g_input.inf.passmode; 	//Í¨Ñ¶Ä£Ê½
-			inf[ulen++]=g_input.inf.entryline;	//¿ÉÈëÏßÂ·
-			inf[ulen++]=g_input.inf.entrystation; //¿ÉÈëÕ¾µã
-			inf[ulen++]=g_input.inf.exitline; 	//¿É³öÏßÂ·
-			inf[ulen++]=g_input.inf.exitstation;	//¿É³öÕ¾µã
+			inf[ulen++]=g_input.inf.passmode; 	//é€šè®¯æ¨¡å¼
+			inf[ulen++]=g_input.inf.entryline;	//å¯å…¥çº¿è·¯
+			inf[ulen++]=g_input.inf.entrystation; //å¯å…¥ç«™ç‚¹
+			inf[ulen++]=g_input.inf.exitline; 	//å¯å‡ºçº¿è·¯
+			inf[ulen++]=g_input.inf.exitstation;	//å¯å‡ºç«™ç‚¹
 
 
 			memset(szcmd, 0x00, sizeof(szcmd));
@@ -4313,7 +4313,7 @@ int svt_newfd_create_adf1(void)
 		}
 
 
-		//;¡¾½¨Á¢0012(ÏßÂ·±£»¤¶ÁĞ´)¡¿
+		//;ã€å»ºç«‹0012(çº¿è·¯ä¿æŠ¤è¯»å†™)ã€‘
 		//80 E0 0012 07 A8 0020 F0 F0 FF FD	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x12\x07\xA8\x00\x20\xF0\xF0\xFF\xFD",12);
 		ulen = 12;
@@ -4333,7 +4333,7 @@ int svt_newfd_create_adf1(void)
 			memset(szcmd, 0x00, sizeof(szcmd));
 			memcpy(szcmd, "\x04\xD6\x92\x00\x24",5);
 			ulen = 5;
-			ulen +=32; //Êı¾İÎªÈ« 00
+			ulen +=32; //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0012 =",szcmd,ulen);
@@ -4351,7 +4351,7 @@ int svt_newfd_create_adf1(void)
 
 		//====================
 		//==========================
-		//Èç¹ûÊÇ´øÖµµÄ³õÊ¼»¯£¬ÔòÖ´ĞĞ³äÖµ
+		//å¦‚æœæ˜¯å¸¦å€¼çš„åˆå§‹åŒ–ï¼Œåˆ™æ‰§è¡Œå……å€¼
 		if (g_input.balance>0)
 		{
 			ulen = 8;
@@ -4384,7 +4384,7 @@ int svt_newfd_create_adf1(void)
 
 			value = g_input.balance;
 
-			//»ñÈ¡³äÖµĞÅÏ¢
+			//è·å–å……å€¼ä¿¡æ¯
 			sam_len = 0;
 			memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 			sam_len += 5;
@@ -4420,12 +4420,12 @@ int svt_newfd_create_adf1(void)
 			dbg_dumpmemory("InitforLoad.Balance=",InitforLoad.Balance, 4);
 
 			//add by shiyulong 2014-05-29
-			//Èç¹û²»ÏàµÈÔòËµÃ÷ÉÏ´ÎÃ»ÓĞ³äÖµ³É¹¦£¬¿ÉÒÔÖØ×ö
+			//å¦‚æœä¸ç›¸ç­‰åˆ™è¯´æ˜ä¸Šæ¬¡æ²¡æœ‰å……å€¼æˆåŠŸï¼Œå¯ä»¥é‡åš
 			//if (memcmp(balance_after, InitforLoad.Balance, 4)!=0)
 			{
 				dbg_formatvar("222222222222");
 				//add by shiyulong in 2014-05-29
-				//ÏÈ¸³Öµ³äÖµºóµÄÓà¶î£¬ÒÔ±ãÔÚÉÁ¿¨ÖØ×öÊ±½øĞĞ±È½ÏÊÇ·ñĞèÒªÖØĞÂ³äÖµ
+				//å…ˆèµ‹å€¼å……å€¼åçš„ä½™é¢ï¼Œä»¥ä¾¿åœ¨é—ªå¡é‡åšæ—¶è¿›è¡Œæ¯”è¾ƒæ˜¯å¦éœ€è¦é‡æ–°å……å€¼
 				ltmp = InitforLoad.Balance[0];
 				ltmp <<= 8;
 				ltmp += InitforLoad.Balance[1];
@@ -4497,7 +4497,7 @@ int svt_newfd_create_adf1(void)
 				dbg_dumpmemory("805CR=",sztmp,respone_len);*/
 
 				//add by shiyulog in 2014-05-29
-				//Ö´ĞĞÍê³ÉÌø³öÑ­»·, ÒÔÃâÖØ×ö3´Î
+				//æ‰§è¡Œå®Œæˆè·³å‡ºå¾ªç¯, ä»¥å…é‡åš3æ¬¡
 				//break;
 
 			}
@@ -4525,7 +4525,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 	unsigned char sztmp[256]	= {0};
 	unsigned char szcmd[256]	= {0};
 	unsigned char szdata[256]	= {0};
-	unsigned char keytmp[16]	= {0};		// ADF2ËùÓĞÃÜÔ¿¶¼ÊÇFF
+	unsigned char keytmp[16]	= {0};		// ADF2æ‰€æœ‰å¯†é’¥éƒ½æ˜¯FF
 	unsigned char response_len	= 0;
 	unsigned short response_sw	= 0;
 
@@ -4543,7 +4543,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 
 		memset(keytmp, 0xFF, sizeof(keytmp));
 
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3f00) < 0)
 		{
 			nresult = 2;
@@ -4551,7 +4551,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 		}
 
 
-				// Íâ²¿ÈÏÖ¤
+				// å¤–éƒ¨è®¤è¯
 		if (apdu_getrandom(szdata,8)==0)
 		{
 			dbg_dumpmemory("mf_mkey =",g_input.key.mf_mkey,16);
@@ -4583,7 +4583,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 
 		//}
 
-		//;¡¾´´½¨3F08¡¿
+		//;ã€åˆ›å»º3F08ã€‘
 		//80 E0 3F 08 11 38 08 00 F0 F0 95 FF FF A0 00 00 00 03 86 98 07 08 ;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x3F\x08\x11\x38\x08\x00\xF0\xF0\x95\xFF\xFF\xA0\x00\x00\x00\x03\x86\x98\x07\x08", 22);
 		ulen = 22;
@@ -4597,7 +4597,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//;¡¾Ñ¡Ôñ3F08¡¿
+		//;ã€é€‰æ‹©3F08ã€‘
 		//00 A4 04 00 09 A0 00 00 00 03 86 98 07 08	;judge:sw=9000
 		ulen = 14;
 		memcpy(sztmp, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x08", ulen);
@@ -4611,7 +4611,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 			break;
 		}
 
-		//;¡¾´´½¨ÃÜÔ¿ÎÄ¼ş, ½¨Á¢ÃÜÔ¿¡°0018¡±ÎÄ¼şÊ±Ó¦½«×îºóÁ½×Ö½ÚÉèÖÃÎªBFFA¡£DAÈ¦´æ²»Ñé PIN¡¿
+		//;ã€åˆ›å»ºå¯†é’¥æ–‡ä»¶, å»ºç«‹å¯†é’¥â€œ0018â€æ–‡ä»¶æ—¶åº”å°†æœ€åä¸¤å­—èŠ‚è®¾ç½®ä¸ºBFFAã€‚DAåœˆå­˜ä¸éªŒ PINã€‘
 		//80 E0 00 00 07 3F 01 B8 95 F0 BF FA	;judge:sw=9000
 		memcpy(szcmd, "\x80\xE0\x00\x00\x07\x3F\x01\xB8\x95\xF0\xBF\xFA",12);
 		ulen = 12;
@@ -4626,7 +4626,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 		}
 
 
-		//;¡¾Íâ²¿ÈÏÖ¤ÃÜÔ¿¡¿
+		//;ã€å¤–éƒ¨è®¤è¯å¯†é’¥ã€‘
 		//80 D4 01 00 15 39 F0 02 44 33 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	;judge:sw=9000
 		memcpy(szcmd, "\x80\xD4\x01\x00\x15\x39\xF0\x02\x44\x33\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF",26);
 		ulen = 26;
@@ -4647,7 +4647,7 @@ int svt_newfd_create_adf8(uint8_t * p_tk_type)
 	return nresult;
 }
 //===================================================
-//ÒÔÒÔÎª Õë¶Ô»ª´óÆ±¿¨Ôö¼ÓµÄº¯Êı ½áÊø
+//ä»¥ä»¥ä¸º é’ˆå¯¹åå¤§ç¥¨å¡å¢åŠ çš„å‡½æ•° ç»“æŸ
 //add by shiyulong on 2016-02-19
 //==================================================
 int svt_newfd_end(void)
@@ -4659,7 +4659,7 @@ int svt_newfd_end(void)
 	unsigned char response_len	= 0;
 	unsigned short response_sw	= 0;
 
-	//	;¡¾½áÊø¸öÈË»¯¡¿
+	//	;ã€ç»“æŸä¸ªäººåŒ–ã€‘
 	//	80 E0 8000   ;judge:sw=9000
 	memcpy(szcmd, "\x80\xE0\x80\x00",4);
 	ulen = 4;
@@ -4673,25 +4673,25 @@ int svt_newfd_end(void)
 }
 
 
-//Æ±¿¨×´Ì¬½âÎö£¬½«Æ±¿¨ÄÚµÄ×´Ì¬¶ÔÓ¦Îª±àÒ»µÄÍâ²¿×´Ì¬¡£
+//ç¥¨å¡çŠ¶æ€è§£æï¼Œå°†ç¥¨å¡å†…çš„çŠ¶æ€å¯¹åº”ä¸ºç¼–ä¸€çš„å¤–éƒ¨çŠ¶æ€ã€‚
 uint8_t unified_status(uint8_t ticket_status)
 {
-#define USTATUS_INIT    (uint8_t)200    // ³õÊ¼»¯
-#define USTATUS_ES     (uint8_t)201    // Init II (Pre¨Cvalue loaded @E/S)(ESÔ¤¸³Öµ)
-#define USTATUS_SALE    (uint8_t)202    // BOM/TVM·¢ÊÛ
-#define USTATUS_EXIT    (uint8_t)203    // ³öÕ¾(exit)
-#define USTATUS_EXIT_T    (uint8_t)204    // ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾(exit during Train¨Cdisruption)
-#define USTATUS_UPD_OUT    (uint8_t)205    // ½øÕ¾BOM¸üĞÂ(upgrade at BOM for Entry)
-#define USTATUS_UPD_OUT_FREE  (uint8_t)206    // ·Ç¸¶·ÑÇøÃâ·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define USTATUS_UPD_OUT_FARE  (uint8_t)207    // ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define USTATUS_ENTRY    (uint8_t)208    // ½øÕ¾(entry)
-#define USTATUS_UPD_IN    (uint8_t)209    // ³öÕ¾BOM¸üĞÂ(upgrade at BOM for Exit)
-#define USTATUS_UPD_WO_STA   (uint8_t)210    // ÎŞ½øÕ¾Âë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_UPD_TM_OUT   (uint8_t)211    // ³¬Ê±¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_UPD_TP_OUT   (uint8_t)212    // ³¬³Ë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_EXIT_ONLY   (uint8_t)213    // ET for Exit(³öÕ¾Æ±)
-#define USTATUS_REFUND    (uint8_t)214    // ÍË¿¨
-#define USTATUS_DETROY    (uint8_t)215    // ³µÆ±×¢Ïú
+#define USTATUS_INIT    (uint8_t)200    // åˆå§‹åŒ–
+#define USTATUS_ES     (uint8_t)201    // Init II (Preâ€“value loaded @E/S)(ESé¢„èµ‹å€¼)
+#define USTATUS_SALE    (uint8_t)202    // BOM/TVMå‘å”®
+#define USTATUS_EXIT    (uint8_t)203    // å‡ºç«™(exit)
+#define USTATUS_EXIT_T    (uint8_t)204    // åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™(exit during Trainâ€“disruption)
+#define USTATUS_UPD_OUT    (uint8_t)205    // è¿›ç«™BOMæ›´æ–°(upgrade at BOM for Entry)
+#define USTATUS_UPD_OUT_FREE  (uint8_t)206    // éä»˜è´¹åŒºå…è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_OUT_FARE  (uint8_t)207    // éä»˜è´¹åŒºä»˜è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define USTATUS_ENTRY    (uint8_t)208    // è¿›ç«™(entry)
+#define USTATUS_UPD_IN    (uint8_t)209    // å‡ºç«™BOMæ›´æ–°(upgrade at BOM for Exit)
+#define USTATUS_UPD_WO_STA   (uint8_t)210    // æ— è¿›ç«™ç æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_TM_OUT   (uint8_t)211    // è¶…æ—¶æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_TP_OUT   (uint8_t)212    // è¶…ä¹˜æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_EXIT_ONLY   (uint8_t)213    // ET for Exit(å‡ºç«™ç¥¨)
+#define USTATUS_REFUND    (uint8_t)214    // é€€å¡
+#define USTATUS_DETROY    (uint8_t)215    // è½¦ç¥¨æ³¨é”€
 
 	uint8_t ret = 0xFF;
 	switch (ticket_status)
@@ -4748,16 +4748,16 @@ uint8_t unified_status(uint8_t ticket_status)
 }
 
 //====================================================
-//º¯Êı:  setularea
-//¹¦ÄÜ: ¶Ôµ¥³ÌÆ±µÄÊı¾İ´¦ÀíĞÅÏ¢Çø½øĞĞÖ¸¶¨ÄÚÈİÌî³ä
-//Èë¿Ú²ÎÊı:
-//                       valbuf: ´¦ÀíÊıÇøÊ×Ö·
-//                       val_idx: ´¦ÀíÇø¶ÔÓ¦µÄ±äÁ¿ĞòÁĞ±àºÅ
-//                                    0=ÏßÂ·; 1=Õ¾µã; 2=Éè±¸ÀàĞÍ ; 3=Éè±¸ÀàĞÍ ; 4=Óà¶î ;
-//                                    5=×´Ì¬; 6=±ê¼Ç; 7=½øÕ¾ÏßÂ·; 8=½øÕ¾Õ¾µã; 9=½»Ò×ÀÛ¼Æ
+//å‡½æ•°:  setularea
+//åŠŸèƒ½: å¯¹å•ç¨‹ç¥¨çš„æ•°æ®å¤„ç†ä¿¡æ¯åŒºè¿›è¡ŒæŒ‡å®šå†…å®¹å¡«å……
+//å…¥å£å‚æ•°:
+//                       valbuf: å¤„ç†æ•°åŒºé¦–å€
+//                       val_idx: å¤„ç†åŒºå¯¹åº”çš„å˜é‡åºåˆ—ç¼–å·
+//                                    0=çº¿è·¯; 1=ç«™ç‚¹; 2=è®¾å¤‡ç±»å‹ ; 3=è®¾å¤‡ç±»å‹ ; 4=ä½™é¢ ;
+//                                    5=çŠ¶æ€; 6=æ ‡è®°; 7=è¿›ç«™çº¿è·¯; 8=è¿›ç«™ç«™ç‚¹; 9=äº¤æ˜“ç´¯è®¡
 //
-//                        val: ÒªĞ´ÈëµÄÖµ
-//³ö¿Ú²ÎÊı:  ÎŞ
+//                        val: è¦å†™å…¥çš„å€¼
+//å‡ºå£å‚æ•°:  æ— 
 //====================================================
 void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 {
@@ -4766,14 +4766,14 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 	switch (val_idx)
 	{
 	case 0:
-		//ÏßÂ·
+		//çº¿è·¯
 		//dbg_formatvar("val=%d",val);
 		tmp1 = val;
 		valbuf[0] &= 0x03;
 		valbuf[0] |= (tmp1 << 2);
 		break;
 	case 1:
-		//Õ¾µã
+		//ç«™ç‚¹
 		tmp1 = val;
 		valbuf[0] &= 0xFC;
 		valbuf[0] |= ((tmp1 & 0x3F) >> 4);
@@ -4781,13 +4781,13 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 		valbuf[1] |= ((tmp1 & 0x0F) << 4);
 		break;
 	case 2:
-		//Éè±¸ÀàĞÍ
+		//è®¾å¤‡ç±»å‹
 		tmp1 = val;
 		valbuf[1] &= 0xF0;
 		valbuf[1] |= ((tmp1 & 0x0F) );
 		break;
 	case 3:
-		//Éè±¸ÀàĞÍ
+		//è®¾å¤‡ç±»å‹
 		tmp2 = val;
 		valbuf[2] &= 0x00;
 		valbuf[3] &= 0x3F;
@@ -4796,7 +4796,7 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 		valbuf[3] |= (tmp1 << 6);
 		break;
 	case 4:
-		//Óà¶î
+		//ä½™é¢
 		tmp2 = val;
 		valbuf[3] &= 0xC0;
 		valbuf[4] &= 0x00;
@@ -4805,25 +4805,25 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 		valbuf[4] |= tmp1;
 		break;
 	case 5:
-		//×´Ì¬
+		//çŠ¶æ€
 		tmp1 = val;
 		valbuf[5] &= 0x07;
 		valbuf[5] |= ((tmp1 & 0x1F) <<3);
 		break;
 	case 6:
-		// ±ê¼Ç
+		// æ ‡è®°
 		tmp1 = val;
 		valbuf[5] &= 0xF8;
 		valbuf[5] |= (tmp1 & 0x07);
 		break;
 	case 7:
-		//½øÕ¾ÏßÂ·
+		//è¿›ç«™çº¿è·¯
 		tmp1 = val;
 		valbuf[6] &= 0x03;
 		valbuf[6] |= (tmp1 << 2);
 		break;
 	case 8:
-		//½øÕ¾Õ¾µã
+		//è¿›ç«™ç«™ç‚¹
 		tmp1 = val;
 		valbuf[6] &= 0xFC;
 		valbuf[6] |= ((tmp1 & 0x3F) >> 4);
@@ -4831,7 +4831,7 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 		valbuf[7] |= ((tmp1 & 0x0F) << 4);
 		break;
 	case 9:
-		//½»Ò×ÀÛ¼Æ
+		//äº¤æ˜“ç´¯è®¡
 		tmp2 = val;
 		valbuf[9] = (tmp2 >> 8);
 		valbuf[10] = tmp2 ;
@@ -4845,7 +4845,7 @@ void setularea(uint8_t *valbuf,int val_idx, uint16_t val)
 
 
 
-//µ¥³ÌÆ±·ÖÎö
+//å•ç¨‹ç¥¨åˆ†æ
 uint16_t es_ul_read(uint8_t *lpoutput)
 {
 	uint8_t buf[500];
@@ -4867,7 +4867,7 @@ uint16_t es_ul_read(uint8_t *lpoutput)
 		switch (nresult)
 		{
 		case 0:
-			//Á½¸öĞÅÏ¢Çø¶¼ÕıÈ·
+			//ä¸¤ä¸ªä¿¡æ¯åŒºéƒ½æ­£ç¡®
 			counter_cmp = memcmp(buf + 45, buf + 61, 2);
 			if (counter_cmp >= 0 && memcmp(buf + 45, "\xff\xff", 2) != 0)
 				m_valid_area_ptr = 0;
@@ -4876,77 +4876,77 @@ uint16_t es_ul_read(uint8_t *lpoutput)
 			nret = 4;
 			break;
 		case 1:
-			//ĞÅÏ¢Çø1ÕıÈ·
+			//ä¿¡æ¯åŒº1æ­£ç¡®
 			m_valid_area_ptr = 1;
 			nret = 4;
 			break;
 		case 2:
-			//ĞÅÏ¢Çø0 ÕıÈ·
+			//ä¿¡æ¯åŒº0 æ­£ç¡®
 			m_valid_area_ptr = 0;
 			nret = 4;
 			break;
 		case 3:
-			//ĞÅÏ¢Çø¶¼´íÎó
+			//ä¿¡æ¯åŒºéƒ½é”™è¯¯
 			nret = 5;
 			break;
 		case -1:
-			nret = 1;//ÎŞ¿¨
+			nret = 1;//æ— å¡
 			break;
 		case -2:
-			nret = 3;//¶ÁÊı¾İ³ö´í
+			nret = 3;//è¯»æ•°æ®å‡ºé”™
 			break;
 		case -5:
-			nret = 2;//sam¿¨²Ù×÷Ê§°Ü
+			nret = 2;//samå¡æ“ä½œå¤±è´¥
 			break;
 		default:
-			//·ÇÏµÍ³¿¨
-			nret = 2; //ÆäËü´íÎó
+			//éç³»ç»Ÿå¡
+			nret = 2; //å…¶å®ƒé”™è¯¯
 			break;
 		}
 
 		if (nret < 3)
 		{
-			//Î´·¢ĞĞ
-			lpresult->bIssueStatus = 0; //Î´·¢ĞĞ
+			//æœªå‘è¡Œ
+			lpresult->bIssueStatus = 0; //æœªå‘è¡Œ
 			dbg_formatvar("bIssueStatus0000000000000");
 			break;
 		}
 
 		if ( m_valid_area_ptr == 1)
 		{
-			m_valid_area_startoffset = 48; //ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
+			m_valid_area_startoffset = 48; //æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
 		}
 		else
 		{
-			m_valid_area_startoffset = 32;//ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
+			m_valid_area_startoffset = 32;//æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
 
 		}
 
-		//·¢ĞĞ×´Ì¬
-		lpresult->bIssueStatus = 1; //ÒÑ·¢ĞĞ
-		//×´Ì¬
+		//å‘è¡ŒçŠ¶æ€
+		lpresult->bIssueStatus = 1; //å·²å‘è¡Œ
+		//çŠ¶æ€
 		utmp[0] = (((buf[m_valid_area_startoffset+9]) & 0xF8) >> 3);
 		if (utmp[0]==15)
 		{
-			lpresult->bIssueStatus = 2;//ÒÑ×¢Ïú
+			lpresult->bIssueStatus = 2;//å·²æ³¨é”€
 		}
 
 		lpresult->bStatus = unified_status(utmp[0]);
 
 
-		//Âß¼­¿¨ºÅ
+		//é€»è¾‘å¡å·
 		//sprintf(sztmp,"%02X%02X%02X%02X%02X%02X%02X%02X    ", 0x00,0x00,0x00,0x03,buf[16], buf[17], buf[18], buf[19]);
 		//memcpy(lpresult->cLogicalID, sztmp, 20);
 		sprintf(sztmp,"%06X%02X%02X%02X%02X%02X%02X%02X", 0, buf[64], buf[65], buf[66], buf[67],buf[68],buf[69],buf[70]);
 		memcpy(lpresult->cPhysicalID, sztmp, 20);
 		lpresult->isTest = buf[25]&0x01;
-		//¿¨ÀàĞÍ
+		//å¡ç±»å‹
 		sprintf(sztmp,"%02X%02X",buf[26], buf[27]);
 		memcpy(lpresult->cTicketType, sztmp, 4);
 
 		sprintf(isTest,"%02X",lpresult->isTest);
 
-		//Âß¼­¿¨ºÅ
+		//é€»è¾‘å¡å·
 		sprintf(sztmp,"%02X%02X%02X%02X%02X%02X%02X%02X    ", 0x83, 0x03, buf[27], 0x00, buf[16], buf[17], buf[18], buf[19]);
 
 		sztmp[6] = isTest[1];
@@ -4954,17 +4954,17 @@ uint16_t es_ul_read(uint8_t *lpoutput)
 		memcpy(lpresult->cLogicalID, sztmp, 20);
 
 
-		//·¢ĞĞÈÕÆÚ
+		//å‘è¡Œæ—¥æœŸ
 		memset(utmp, 0x00, sizeof(utmp));
 		TimesEx::tm2_bcd4_exchange(buf+24, utmp, 1);
 		//dbg_dumpmemory("issue=",buf+24, 2);
 		Publics::bcds_to_string(utmp, 7, lpresult->cIssueDate, 14);
 		//dbg_dumpmemory("issuedate=",lpresult->cIssueDate, 14);
-		//ÎïÀíÀàĞÍ=1 µ¥³ÌÆ±, =2 ´¢ÖµÆ±
+		//ç‰©ç†ç±»å‹=1 å•ç¨‹ç¥¨, =2 å‚¨å€¼ç¥¨
 		lpresult->bCharacter = 1;
-		//ÎïÀíÓĞĞ§ÆÚ
-		//Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä
-		//Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä
+		//ç‰©ç†æœ‰æ•ˆæœŸ
+		//é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´
+		//é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´
 
 		TimesEx::tm4_bcd7_exchange(buf+m_valid_area_startoffset, utmp, true);
 
@@ -4980,54 +4980,54 @@ uint16_t es_ul_read(uint8_t *lpoutput)
 		Publics::bcds_to_string(utmp, 7, lpresult->cStartExpire, 8);
 		Publics::bcds_to_string(utmp, 7, lpresult->cEndExpire, 8);
 
-		//SAMÂß¼­¿¨ºÅ
+		//SAMé€»è¾‘å¡å·
 
 
-		//Ñº½ğ
-		lpresult->lDeposite = 0; //µ¥³ÌÆ±ÎŞÑº½ğ
-		//Óà¶î
+		//æŠ¼é‡‘
+		lpresult->lDeposite = 0; //å•ç¨‹ç¥¨æ— æŠ¼é‡‘
+		//ä½™é¢
 		lpresult->lBalance = (buf[m_valid_area_startoffset+7]) & 0x3F;
 		lpresult->lBalance <<= 8;
 		lpresult->lBalance += buf[m_valid_area_startoffset+8];
 
-		//ÏßÂ·
+		//çº¿è·¯
 		utmp[0] = (buf[m_valid_area_startoffset+4] & 0xFC)>>2;
 		sprintf(sztmp, "%02d", utmp[0]);
 		memcpy(lpresult->cLine, sztmp, 2);
 
-		//Õ¾µã
+		//ç«™ç‚¹
 		utmp[0] = (buf[m_valid_area_startoffset+4] & 0x03);
 		utmp[0] <<= 4;
 		utmp[0] += ((buf[m_valid_area_startoffset+5] & 0xF0)>>4);
 		sprintf(sztmp, "%02d", utmp[0]);
 		memcpy(lpresult->cStationNo, sztmp, 2);
 
-		//add by shiyulong in 2013-10-14 , Ôö¼Ó½»Ò×ÀÛ¼Æ·µ»Ø
+		//add by shiyulong in 2013-10-14 , å¢åŠ äº¤æ˜“ç´¯è®¡è¿”å›
 
 		lpresult->trade_count = buf[m_valid_area_startoffset+13];
 		lpresult->trade_count <<= 8;
 		lpresult->trade_count += buf[m_valid_area_startoffset+14];
 
 
-		//ÒÔÏÂ²ÎÊıµ¥³ÌÆ±ÎŞĞè¹ØĞÄ
-		//¶àÈÕÆ±¼¤»îÊ±¼ä
-		//¶àÈÕÆ±ÓĞĞ§ÌìÊı
+		//ä»¥ä¸‹å‚æ•°å•ç¨‹ç¥¨æ— éœ€å…³å¿ƒ
+		//å¤šæ—¥ç¥¨æ¿€æ´»æ—¶é—´
+		//å¤šæ—¥ç¥¨æœ‰æ•ˆå¤©æ•°
 
 		if (lpresult->bStatus==USTATUS_ES)
 		{
 
-			//ÏŞÖÆ½øÕ¾ÏßÂ·
+			//é™åˆ¶è¿›ç«™çº¿è·¯
 			//         memcpy(lpresult->cLimitEntryLine, lpresult->cLine, 2);
 			//         memcpy(lpresult->cLimitEntryStation, lpresult->cStationNo, 2);
 
-			//ÏŞÖÆ½øÕ¾Õ¾µã
+			//é™åˆ¶è¿›ç«™ç«™ç‚¹
 		}
 
-		//ÏŞÖÆ³öÕ¾ÏßÂ·
+		//é™åˆ¶å‡ºç«™çº¿è·¯
 
-		//ÏŞÖÆ³öÕ¾Õ¾µã
+		//é™åˆ¶å‡ºç«™ç«™ç‚¹
 
-		//ÏŞÖÆÄ£Ê½
+		//é™åˆ¶æ¨¡å¼
 		nret = 0;
 
 	}
@@ -5063,7 +5063,7 @@ uint16_t es_ul_read(uint8_t *lpoutput)
 
 }
 
-//´¢ÖµÆ±·ÖÎö
+//å‚¨å€¼ç¥¨åˆ†æ
 uint16_t es_svt_read(uint8_t *lpoutput)
 {
 
@@ -5092,7 +5092,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 	do
 	{
-		// ¸´Î»
+		// å¤ä½
 		if (svt_active(utmp) != 0)
 		{
 			nret = 1;
@@ -5118,9 +5118,9 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		g_cardfactory = szcmd[0];
 		//====================================
 
-		lpresult->bIssueStatus = 0; //Î´·¢ĞĞ
+		lpresult->bIssueStatus = 0; //æœªå‘è¡Œ
 
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3f00) < 0)
 		{
 
@@ -5130,8 +5130,8 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		}
 		//dbg_formatvar("222222");
 
-		//// ############ÔİÊ±×¢ÊÍ
-		//      //SAMÂß¼­¿¨ºÅ
+		//// ############æš‚æ—¶æ³¨é‡Š
+		//      //SAMé€»è¾‘å¡å·
 		//      if (svt_selectfile(0x3F01) < 0)
 		//      {
 		//          if (svt_selectfile(0x1001) < 0)
@@ -5142,7 +5142,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		//          }
 		//      }
 
-		//      // Ñ¡ÔñÖ÷Ä¿Â¼
+		//      // é€‰æ‹©ä¸»ç›®å½•
 		//      if (svt_selectfile(0x3f00) < 0)
 		//      {
 
@@ -5153,7 +5153,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		//// ####################
 
 
-		// ¶Á·¢ĞĞ»ù±¾ĞÅÏ¢
+		// è¯»å‘è¡ŒåŸºæœ¬ä¿¡æ¯
 		if (svt_readbinary(0x05, 0, 0x28, buf) < 0)
 		{
 			nret = 2;
@@ -5161,7 +5161,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		}
 		//dbg_formatvar("333333");
 
-		//¿¨ÀàĞÍ
+		//å¡ç±»å‹
 		sprintf(sztmp,"%02X%02X",buf[16], buf[17]);
 		memcpy(lpresult->cTicketType, sztmp, 4);
 
@@ -5169,48 +5169,48 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 
 		//###########
-		// wxf-20140401×¢ÊÍ
+		// wxf-20140401æ³¨é‡Š
 		//###########
-		////·¢ĞĞ×´Ì¬
-		//lpresult->bIssueStatus = 1; //ÒÑ·¢ĞĞ
-		////×´Ì¬
+		////å‘è¡ŒçŠ¶æ€
+		//lpresult->bIssueStatus = 1; //å·²å‘è¡Œ
+		////çŠ¶æ€
 		//utmp[0] = (((buf[9]) & 0xF8) >> 3);
 		//if (utmp[0]==15)
 		//{
-		//    lpresult->bIssueStatus = 2;//ÒÑ×¢Ïú
+		//    lpresult->bIssueStatus = 2;//å·²æ³¨é”€
 		//}
 
 		//lpresult->bStatus = unified_status(utmp[0]);
 
-		///·¢ĞĞ×´Ì¬,¶ÁÈ¡3F00³É¹¦´ú±íÒÑ¾­·¢ĞĞ
-		lpresult->bIssueStatus = 1; //ÒÑ·¢ĞĞ
+		///å‘è¡ŒçŠ¶æ€,è¯»å–3F00æˆåŠŸä»£è¡¨å·²ç»å‘è¡Œ
+		lpresult->bIssueStatus = 1; //å·²å‘è¡Œ
 
-		//Âß¼­¿¨ºÅ
+		//é€»è¾‘å¡å·
 		sprintf(sztmp, "%02X%02X%02X%02X%02X%02X%02X%02X    ",
 			buf[8], buf[9], buf[10], buf[11],
 			buf[12], buf[13], buf[14], buf[15]);
 		memcpy(lpresult->cLogicalID, sztmp, 20);
-		//·¢ĞĞÈÕÆÚ
+		//å‘è¡Œæ—¥æœŸ
 		memset(utmp, 0x00, sizeof(utmp));
 		memcpy(utmp, buf+18, 4);
 		Publics::bcds_to_string(utmp, 7, lpresult->cIssueDate, 14);
-		//ÎïÀíÀàĞÍ=1 µ¥³ÌÆ±, =2 ´¢ÖµÆ±
+		//ç‰©ç†ç±»å‹=1 å•ç¨‹ç¥¨, =2 å‚¨å€¼ç¥¨
 		lpresult->bCharacter = 2;
-		//ÎïÀíÓĞĞ§ÆÚ
-		//Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä
-		//Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä
+		//ç‰©ç†æœ‰æ•ˆæœŸ
+		//é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´
+		//é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´
 		//memcpy(utmp, buf+30, 4);
 		//Publics::bcds_to_string(utmp, 7, lpresult->cDateStart, 8);
 		
 		//Publics::bcds_to_string(utmp, 7, lpresult->cDateEnd, 8);
-		//ÎïÀíÓĞĞ§ÆÚĞŞÕı
+		//ç‰©ç†æœ‰æ•ˆæœŸä¿®æ­£
 		memcpy(utmp, buf+30, 4);
 		Publics::bcds_to_string(utmp, 7, lpresult->cStartExpire, 8);
 		memcpy(utmp, buf+34, 4);
 		Publics::bcds_to_string(utmp, 7, lpresult->cEndExpire, 8);
 
-		// ##########ÔİÊ±Ìæ»»
-		////SAMÂß¼­¿¨ºÅ
+		// ##########æš‚æ—¶æ›¿æ¢
+		////SAMé€»è¾‘å¡å·
 		//if (svt_selectfile(0x3F01) < 0)
 		//{
 		//    if (svt_selectfile(0x1001) < 0)
@@ -5220,7 +5220,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		//        break;
 		//    }
 		//}
-		// Ñ¡ÔñADF1
+		// é€‰æ‹©ADF1
 		if (svt_selectfile(0x1001) < 0)
 		{
 			if (svt_selecfileaid(9, (unsigned char *)"\xA0\x00\x00\x00\x03\x86\x98\x07\x01") < 0)
@@ -5244,7 +5244,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 		//        //dbg_dumpmemory("+balance=",utmp,4);
 
-		//Óà¶î
+		//ä½™é¢
 		lpresult->lBalance = utmp[0];
 		lpresult->lBalance <<= 8;
 		lpresult->lBalance += utmp[1];
@@ -5254,7 +5254,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		lpresult->lBalance += utmp[3];
 
 
-		//¶ÁÈ¡¹«¹²Ó¦ÓÃ»ù±¾Êı¾İ
+		//è¯»å–å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®
 		if (svt_readbinary(0x15, 0, LENM_PUBLIC_BASE, buf) < 0)
 		{
 			nret = 15;
@@ -5268,15 +5268,15 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		else
 			lpresult->bIssueStatus = 1;
 
-		//Âß¼­ÓĞĞ§ÆÚ¿ªÊ¼Ê±¼ä
-		//Âß¼­ÓĞĞ§ÆÚ½áÊøÊ±¼ä
+		//é€»è¾‘æœ‰æ•ˆæœŸå¼€å§‹æ—¶é—´
+		//é€»è¾‘æœ‰æ•ˆæœŸç»“æŸæ—¶é—´
 		//memcpy(utmp, buf+20, 4);
 		//Publics::bcds_to_string(utmp, 7, lpresult->cDateStart, 8);
 		//memcpy(utmp, buf+24, 4);
 		//Publics::bcds_to_string(utmp, 7, lpresult->cDateEnd, 8);
 
 
-		// ¹ìµÀ½»Í¨
+		// è½¨é“äº¤é€š
 		if (svt_readrecord(0x17, 2, LEN_METRO, buf) < 0)
 		{
 			nret = 17;
@@ -5286,18 +5286,18 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 		//dbg_formatvar("66666");
 
-		//ÏßÂ·
+		//çº¿è·¯
 		//  //dbg_dumpmemory("buf=", buf,LEN_METRO);
 		//  //dbg_dumpmemory("station=======", buf+16,2);
 		sprintf(sztmp, "%02X", buf[16]);
 		memcpy(lpresult->cLine, sztmp, 2);
 
-		//Õ¾µã
+		//ç«™ç‚¹
 		sprintf(sztmp, "%02X", buf[17]);
 		memcpy(lpresult->cStationNo, sztmp, 2);
 
 		//###########
-		// wxf-20140401×¢ÊÍ
+		// wxf-20140401æ³¨é‡Š
 		//###########
 		tmp = ((buf[4]>>3) & 0x1F);
 		dbg_formatvar((char *)"status-tmp=%02X",tmp);
@@ -5306,12 +5306,12 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 		if ( lpresult->bStatus ==USTATUS_DETROY)
 		{
-			lpresult->bIssueStatus = 2;//ÒÑ×¢Ïú
+			lpresult->bIssueStatus = 2;//å·²æ³¨é”€
 		}
 
 		status_mtr = tmp = ((buf[4]>>3) & 0x1F);
 
-		//ÒÔÏÂ²ÎÊıµ¥³ÌÆ±ÎŞĞè¹ØĞÄ
+		//ä»¥ä¸‹å‚æ•°å•ç¨‹ç¥¨æ— éœ€å…³å¿ƒ
 
 		if (svt_readrecord(0x17, 0x11, LEN_CTRL_RECORD, buf) < 0)
 		{
@@ -5322,11 +5322,11 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		//dbg_formatvar("77777");
 
 		//dbg_dumpmemory("0x11file=",buf, 0x18);
-		//¶àÈÕÆ±¼¤»îÊ±¼ä
+		//å¤šæ—¥ç¥¨æ¿€æ´»æ—¶é—´
 		memcpy(utmp, buf+4, 7);
 		memcpy(lpresult->dtDaliyActive, buf+4, 7);
 
-		// Î´Ëø¶¨±íÊ¾Î´·¢ÊÛ»òÕß¶àÈÕÆ±Î´¼¤»î£¬ÓĞĞ§ÆÚÉĞÎ´¿ªÊ¼
+		// æœªé”å®šè¡¨ç¤ºæœªå‘å”®æˆ–è€…å¤šæ—¥ç¥¨æœªæ¿€æ´»ï¼Œæœ‰æ•ˆæœŸå°šæœªå¼€å§‹
 		tmp = buf[2];
 		if (tmp == 0x00)
 		{
@@ -5345,7 +5345,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 
 
-		// ¶ÁÓ¦ÓÃ¿ØÖÆÎÄ¼ş
+		// è¯»åº”ç”¨æ§åˆ¶æ–‡ä»¶
 		if (svt_readbinary(0x11, 0, LEN_APP_CTRL, buf) < 0)
 		{
 			nret = 11;
@@ -5366,13 +5366,13 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		//dbg_dumpmemory("APP_CTRL=",buf, LEN_APP_CTRL);
 
 		//###########
-		// ×´Ì¬ĞÅÏ¢
+		// çŠ¶æ€ä¿¡æ¯
 		//###########
 		status_globle = buf[0];
 		lpresult->bStatus = es_standard_status(status_globle, status_mtr);
 		lpresult->bIssueStatus = es_get_issue_status(status_globle);
 
-		//¶àÈÕÆ±ÓĞĞ§ÌìÊı
+		//å¤šæ—¥ç¥¨æœ‰æ•ˆå¤©æ•°
 
 		ntmp = buf[1];
 		ntmp <<= 8;
@@ -5384,34 +5384,34 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 
 		lpresult->bEffectDay = ntmp/1440;
 
-		//Ñº½ğ
-		lpresult->lDeposite = buf[5]; //µ¥³ÌÆ±ÎŞÑº½ğ
+		//æŠ¼é‡‘
+		lpresult->lDeposite = buf[5]; //å•ç¨‹ç¥¨æ— æŠ¼é‡‘
 
-		//ÏŞÖÆÄ£Ê½
+		//é™åˆ¶æ¨¡å¼
 
 		//dbg_formatvar("8=%03d",buf[14]);
 		sprintf(sztmp, "%03d", buf[14]);
 		//dbg_formatvar("sztmp=%s",sztmp);
 		memcpy(lpresult->cLimitMode, sztmp, 3);
 
-		//ÏŞÖÆ½øÕ¾ÏßÂ·
+		//é™åˆ¶è¿›ç«™çº¿è·¯
 		sprintf(sztmp,"%02X",buf[15]);
 		memcpy(lpresult->cLimitEntryLine, sztmp, 2);
 
-		//ÏŞÖÆ½øÕ¾Õ¾µã
+		//é™åˆ¶è¿›ç«™ç«™ç‚¹
 		sprintf(sztmp,"%02X",buf[16]);
 		memcpy(lpresult->cLimitEntryStation, sztmp, 2);
 
-		//ÏŞÖÆ³öÕ¾ÏßÂ·
+		//é™åˆ¶å‡ºç«™çº¿è·¯
 		sprintf(sztmp,"%02X",buf[17]);
 		memcpy(lpresult->cLimitExitLine, sztmp, 2);
 
-		//ÏŞÖÆ³öÕ¾Õ¾µã
+		//é™åˆ¶å‡ºç«™ç«™ç‚¹
 		sprintf(sztmp,"%02X",buf[18]);
 		memcpy(lpresult->cLimitExitStation, sztmp, 2);
 
 
-		// ¶Á³Ö¿¨ÈËĞÅÏ¢
+		// è¯»æŒå¡äººä¿¡æ¯
 
 		if (svt_readbinary(0x16, 0, LEN_OWNER_BASE, buf) < 0)
 		{
@@ -5427,7 +5427,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 		lpresult->certificate_type = buf[162];
 		lpresult->certificate_sex = buf[163];
 
-		//add by shiyulong in 2013-10-14 , Ôö¼Ó½»Ò×ÀÛ¼Æ·µ»Ø
+		//add by shiyulong in 2013-10-14 , å¢åŠ äº¤æ˜“ç´¯è®¡è¿”å›
 		lpresult->trade_count = 0;
 		if (svt_getofflineserial(0,buf)>=0)
 		{
@@ -5470,7 +5470,7 @@ uint16_t es_svt_read(uint8_t *lpoutput)
 }
 
 
-//µ¥³ÌÆ±³õÊ¼»¯
+//å•ç¨‹ç¥¨åˆå§‹åŒ–
 uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	uint8_t ulpage[64];
@@ -5491,9 +5491,9 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 		memcpy(g_input.logicnumber, "\x00\x00\x00\x00\x30\x00\x10\x01", 8);
 #endif
 		memset(ulpage, 0, sizeof(ulpage));
-		//·¢ĞĞÇø
+		//å‘è¡ŒåŒº
 		//memcpy(g_input.logicnumber, "\x30\x00\x10\x01", 4);
-		memcpy(ulpage+16, g_input.logicnumber+4, 4);//ÏµÍ³Á÷Ë®ºÅ
+		memcpy(ulpage+16, g_input.logicnumber+4, 4);//ç³»ç»Ÿæµæ°´å·
 
 
 
@@ -5508,11 +5508,11 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 
 #ifdef _ENABLE_FIXKEY_
 		TripleDes(sztmp, sztmp, g_input.key.mf_tkey, ENCRYPT);
-		memcpy(ulpage+20, sztmp, 4);//ÈÏÖ¤ĞÅÏ¢
+		memcpy(ulpage+20, sztmp, 4);//è®¤è¯ä¿¡æ¯
 		//dbg_dumpmemory("sjtmak=",sztmp, 6);
 
 #else
-		memcpy(ulpage+20, g_input.key.mf_mkey, 4);//ÈÏÖ¤ĞÅÏ¢
+		memcpy(ulpage+20, g_input.key.mf_mkey, 4);//è®¤è¯ä¿¡æ¯
 #endif
 		dbg_dumpmemory("issuezone=",ulpage+16, 8);
 
@@ -5545,11 +5545,11 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 
 		//  //dbg_dumpmemory("m_time_now=",CmdSort::m_time_now,7);
 
-		//TimesEx::tm2_bcd4_exchange(ulpage+24,CmdSort::m_time_now, false);//·¢ĞĞÈÕ ÆÚ
+		//TimesEx::tm2_bcd4_exchange(ulpage+24,CmdSort::m_time_now, false);//å‘è¡Œæ—¥ æœŸ
 		TimesEx::tm2_bcd4_exchange(ulpage+24,g_input.inf.issuedate, false);
 		ulpage[25] &= 0xFE;
-		ulpage[25] |= (g_input.inf.testflag & 0x01);//²âÊÔ±ê¼Ç
-		memcpy(ulpage+26, g_input.inf.cardtype, 2); //¿¨ÀàĞÍ( Ö÷ÀàĞÍ+ ×ÓÀàĞÍ )
+		ulpage[25] |= (g_input.inf.testflag & 0x01);//æµ‹è¯•æ ‡è®°
+		memcpy(ulpage+26, g_input.inf.cardtype, 2); //å¡ç±»å‹( ä¸»ç±»å‹+ å­ç±»å‹ )
 		nresult = writeul_direct(4, 16, ulpage+16);
 		if (nresult)
 		{
@@ -5569,9 +5569,9 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 
 
 		dbg_formatvar("current_station_id=%04X",Api::current_station_id);
-		setularea(ulpage+36, 0, Publics::bcd_to_val(((Api::current_station_id >> 8) & 0x00FF))); //ÏßÂ·
-		setularea(ulpage+36, 1, Publics::bcd_to_val((Api::current_station_id & 0xFF))); //Õ¾µã
-		setularea(ulpage+36, 2, 9);//Éè±¸ÀàĞÍ
+		setularea(ulpage+36, 0, Publics::bcd_to_val(((Api::current_station_id >> 8) & 0x00FF))); //çº¿è·¯
+		setularea(ulpage+36, 1, Publics::bcd_to_val((Api::current_station_id & 0xFF))); //ç«™ç‚¹
+		setularea(ulpage+36, 2, 9);//è®¾å¤‡ç±»å‹
 		setularea(ulpage+36, 3, Publics::bcd_to_val(Api::current_device_id));
 
 		dbg_dumpmemory("40_2=",ulpage+36,16);
@@ -5582,23 +5582,23 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 			memset(sztmp, 0, sizeof(sztmp));
 			//            memcpy(sztmp, g_input.inf.effectiveto, 4);
 			memcpy(sztmp, g_input.inf.logiceffectivefrom, 4);
-			TimesEx::tm4_bcd7_exchange(ulpage+32, sztmp, false);// ´¦ÀíÈÕÆÚ
+			TimesEx::tm4_bcd7_exchange(ulpage+32, sztmp, false);// å¤„ç†æ—¥æœŸ
 
 			ntmp = g_input.balance;
 			setularea(ulpage+36, 4, ntmp);
 
-			setularea(ulpage+36, 5, 2);//Ğ´ÈëÔ¤¸³Öµ×´Ì¬
+			setularea(ulpage+36, 5, 2);//å†™å…¥é¢„èµ‹å€¼çŠ¶æ€
 			//dbg_formatvar("entryline=%02X",g_input.inf.entryline);
-			//setularea(ulpage+36, 0, Publics::bcd_to_val((g_input.inf.entryline& 0x00FF))); //ÏßÂ·
-			//setularea(ulpage+36, 1, Publics::bcd_to_val((g_input.inf.entrystation & 0xFF))); //Õ¾µã
+			//setularea(ulpage+36, 0, Publics::bcd_to_val((g_input.inf.entryline& 0x00FF))); //çº¿è·¯
+			//setularea(ulpage+36, 1, Publics::bcd_to_val((g_input.inf.entrystation & 0xFF))); //ç«™ç‚¹
 
 		}
 		else
 		{
-			TimesEx::tm4_bcd7_exchange(ulpage+32,CmdSort::m_time_now, false);//´¦ÀíÈÕ ÆÚ
+			TimesEx::tm4_bcd7_exchange(ulpage+32,CmdSort::m_time_now, false);//å¤„ç†æ—¥ æœŸ
 			dbg_dumpmemory("ulpagetm=",ulpage+32,4);
 
-			setularea(ulpage+36, 5, 1); //Ğ´Èë³õÊ¼»¯×´Ì¬
+			setularea(ulpage+36, 5, 1); //å†™å…¥åˆå§‹åŒ–çŠ¶æ€
 
 		}
 
@@ -5646,11 +5646,11 @@ uint16_t es_ul_init(uint8_t *lpinput, uint8_t *lpoutput)
 }
 
 //==============================================
-//µ¥³ÌÆ±ºÍ´¢ÖµÆ±µÄÒµÎñÊµÏÖ
+//å•ç¨‹ç¥¨å’Œå‚¨å€¼ç¥¨çš„ä¸šåŠ¡å®ç°
 //==============================================
 
 
-//´¢ÖµÆ±³õÊ¼»¯
+//å‚¨å€¼ç¥¨åˆå§‹åŒ–
 uint16_t es_svt_init(uint8_t *lpinput, uint8_t *lpoutput)
 {
 
@@ -5676,14 +5676,14 @@ uint16_t es_svt_init(uint8_t *lpinput, uint8_t *lpoutput)
 #endif
 		//  return 5;
 
-		//É¾³ı½á¹¹£¬ÕıÊ½»·¾³²»ÓÃ
+		//åˆ é™¤ç»“æ„ï¼Œæ­£å¼ç¯å¢ƒä¸ç”¨
 		//         if (svt_new_reset() != 0)
 		//         {
 		//             ret = 0xF001;//ERR_CLEAR_FILE;
 		//             //break;
 		//         }
 		{
-			// Ñ¡ÔñÖ÷Ä¿Â¼
+			// é€‰æ‹©ä¸»ç›®å½•
 			if (svt_selectfile(0x3f00) < 0)
 			{
 
@@ -5734,7 +5734,7 @@ uint16_t es_svt_init(uint8_t *lpinput, uint8_t *lpoutput)
 }
 
 
-//µ¥³ÌÆ±Ô¤¸³Öµ½Ó¿Ú
+//å•ç¨‹ç¥¨é¢„èµ‹å€¼æ¥å£
 uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	uint8_t buf[100];
@@ -5761,7 +5761,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 		switch (nresult)
 		{
 		case 0:
-			//Á½¸öĞÅÏ¢Çø¶¼ÕıÈ·
+			//ä¸¤ä¸ªä¿¡æ¯åŒºéƒ½æ­£ç¡®
 			counter_cmp = memcmp(buf + 45, buf + 61, 2);
 			if (counter_cmp >= 0 && memcmp(buf + 45, "\xff\xff", 2) != 0)
 				m_valid_area_ptr = 0;
@@ -5771,21 +5771,21 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 			nresult = 1;
 			break;
 		case 1:
-			//ĞÅÏ¢Çø1ÕıÈ·
+			//ä¿¡æ¯åŒº1æ­£ç¡®
 			m_valid_area_ptr = 1;
 			nresult = 1;
 			break;
 		case 2:
-			//ĞÅÏ¢Çø0 ÕıÈ·
+			//ä¿¡æ¯åŒº0 æ­£ç¡®
 			m_valid_area_ptr = 0;
 			nresult = 1;
 			break;
 		case 3:
-			//ĞÅÏ¢Çø¶¼´íÎó
+			//ä¿¡æ¯åŒºéƒ½é”™è¯¯
 			nresult = 0;
 			break;
 		default:
-			//·ÇÏµÍ³¿¨
+			//éç³»ç»Ÿå¡
 			nresult = -1;
 			break;
 		}
@@ -5800,15 +5800,15 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 		{
 			if ( m_valid_area_ptr == 1)
 			{
-				m_valid_area_startoffset = 48; //µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 48; //å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 8;
 
 			}
 			else
 			{
-				m_valid_area_startoffset = 32;//µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 48; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 32;//å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 48; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 12;
 
 			}
@@ -5824,45 +5824,45 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 		else
 		{
 			m_current_count = 0;
-			m_valid_area_startoffset = 32;//ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-			m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+			m_valid_area_startoffset = 32;//æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+			m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 			m_next_startpage = 8;
 
 		}
 
 		memset(wpagebuf, 0x00, sizeof(wpagebuf));
 
-		setularea(wpagebuf+4, 0, Publics::bcd_to_val(((Api::current_station_id >> 8) & 0x00FF))); //ÏßÂ·
-		setularea(wpagebuf+4, 1, Publics::bcd_to_val((Api::current_station_id & 0xFF))); //Õ¾µã
+		setularea(wpagebuf+4, 0, Publics::bcd_to_val(((Api::current_station_id >> 8) & 0x00FF))); //çº¿è·¯
+		setularea(wpagebuf+4, 1, Publics::bcd_to_val((Api::current_station_id & 0xFF))); //ç«™ç‚¹
 
-		//setularea(wpagebuf+4, 0, Publics::bcd_to_val((g_input.inf.entryline& 0x00FF))); //ÏßÂ·
-		//setularea(wpagebuf+4, 1, Publics::bcd_to_val((g_input.inf.entrystation & 0xFF))); //Õ¾µã
+		//setularea(wpagebuf+4, 0, Publics::bcd_to_val((g_input.inf.entryline& 0x00FF))); //çº¿è·¯
+		//setularea(wpagebuf+4, 1, Publics::bcd_to_val((g_input.inf.entrystation & 0xFF))); //ç«™ç‚¹
 
-		//        setularea(wpagebuf+4, 0, g_input.inf.entryline);//ÏßÂ·
-		//        setularea(wpagebuf+4, 1, g_input.inf.entrystation);//Õ¾µã
+		//        setularea(wpagebuf+4, 0, g_input.inf.entryline);//çº¿è·¯
+		//        setularea(wpagebuf+4, 1, g_input.inf.entrystation);//ç«™ç‚¹
 
 
 
-		setularea(wpagebuf+4, 2, 9);//Éè±¸ÀàĞÍ
+		setularea(wpagebuf+4, 2, 9);//è®¾å¤‡ç±»å‹
 		setularea(wpagebuf+4, 3, Publics::bcd_to_val(Api::current_device_id));
 		//        if (g_input.balance>0)
 		{
 			memset(sztmp, 0, sizeof(sztmp));
 			//            memcpy(sztmp, CmdSort::m_time_now, 4);
 			memcpy(sztmp, g_input.inf.logiceffectivefrom, 4);
-			TimesEx::tm4_bcd7_exchange(wpagebuf, sztmp, false);// ´¦ÀíÈÕÆÚ
+			TimesEx::tm4_bcd7_exchange(wpagebuf, sztmp, false);// å¤„ç†æ—¥æœŸ
 
 			ntmp = g_input.balance;
 			setularea(wpagebuf+4, 4, ntmp);
 
-			setularea(wpagebuf+4, 5, 2);//Ğ´ÈëÔ¤¸³Öµ×´Ì¬
+			setularea(wpagebuf+4, 5, 2);//å†™å…¥é¢„èµ‹å€¼çŠ¶æ€
 
 		}
 		//         else
 		//         {
-		//             TimesEx::tm4_bcd7_exchange(wpagebuf,CmdSort::m_time_now, false);//´¦ÀíÈÕ ÆÚ
+		//             TimesEx::tm4_bcd7_exchange(wpagebuf,CmdSort::m_time_now, false);//å¤„ç†æ—¥ æœŸ
 		//
-		//             setularea(wpagebuf+4, 5, 1); //Ğ´Èë³õÊ¼»¯×´Ì¬
+		//             setularea(wpagebuf+4, 5, 1); //å†™å…¥åˆå§‹åŒ–çŠ¶æ€
 		//
 		//             //lparea->status=1;
 		//         }
@@ -5890,7 +5890,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 
 }
 
-//´¢ÖµÆ±Ô¤¸³Öµ½Ó¿Ú
+//å‚¨å€¼ç¥¨é¢„èµ‹å€¼æ¥å£
 //uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 //{
 //    unsigned char ulen;
@@ -5949,7 +5949,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 ////
 ////   value = g_input.balance;
 ////
-////         //»ñÈ¡³äÖµĞÅÏ¢
+////         //è·å–å……å€¼ä¿¡æ¯
 ////         sam_len = 0;
 ////         memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 ////         sam_len += 5;
@@ -6060,7 +6060,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 //        }
 //
 //
-//        //¸üĞÂ0011Ó¦ÓÃ¿ØÖÆÎÄ¼ş
+//        //æ›´æ–°0011åº”ç”¨æ§åˆ¶æ–‡ä»¶
 //        if (apdu_getrandom(szdata,4)==0)
 //        {
 //
@@ -6070,16 +6070,16 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 //            ulen += 4;
 //            inf[ulen++]=g_input.inf.deposit;
 //            //====
-//            ulen += 6; //·¢ÊÛÉè±¸ĞÅÏ¢
+//            ulen += 6; //å‘å”®è®¾å¤‡ä¿¡æ¯
 //            //====
-//            memcpy(inf+ulen, g_input.inf.szcaps, 2); //³äÖµÉÏÏŞ
+//            memcpy(inf+ulen, g_input.inf.szcaps, 2); //å……å€¼ä¸Šé™
 //            ulen += 2;
 //
-//            inf[ulen++]=g_input.inf.passmode;   //Í¨Ñ¶Ä£Ê½
-//            inf[ulen++]=g_input.inf.entryline;   //¿ÉÈëÏßÂ·
-//            inf[ulen++]=g_input.inf.entrystation; //¿ÉÈëÕ¾µã
-//            inf[ulen++]=g_input.inf.exitline;   //¿É³öÏßÂ·
-//            inf[ulen++]=g_input.inf.exitstation;  //¿É³öÕ¾µã
+//            inf[ulen++]=g_input.inf.passmode;   //é€šè®¯æ¨¡å¼
+//            inf[ulen++]=g_input.inf.entryline;   //å¯å…¥çº¿è·¯
+//            inf[ulen++]=g_input.inf.entrystation; //å¯å…¥ç«™ç‚¹
+//            inf[ulen++]=g_input.inf.exitline;   //å¯å‡ºçº¿è·¯
+//            inf[ulen++]=g_input.inf.exitstation;  //å¯å‡ºç«™ç‚¹
 //
 //
 //            memset(szcmd, 0x00, sizeof(szcmd));
@@ -6141,7 +6141,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 //
 //	        value = g_input.balance;
 //
-//	        //»ñÈ¡³äÖµĞÅÏ¢
+//	        //è·å–å……å€¼ä¿¡æ¯
 //	        sam_len = 0;
 //	        memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 //	        sam_len += 5;
@@ -6289,7 +6289,7 @@ uint16_t es_ul_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 //
 //}
 
-//´¢ÖµÆ±Ô¤¸³Öµ½Ó¿Ú
+//å‚¨å€¼ç¥¨é¢„èµ‹å€¼æ¥å£
 uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	unsigned char ulen;
@@ -6311,16 +6311,16 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 	int nresult=0;
 
 	//add by shiyulong in 2014-05-29
-	int trycnt;//³¢ÊÔ´ÎÊı
+	int trycnt;//å°è¯•æ¬¡æ•°
 	unsigned long ltmp;
 	unsigned char balance_after[4];
 
-	trycnt = 3;//ÖØÊÔ3´Î
-	memset(balance_after, 0xFF, sizeof(balance_after));//²»Îª0 Öµ£¬ÒÔÃâÎŞÇ®µÄÆ±ÎóÅĞ¶Ï
+	trycnt = 3;//é‡è¯•3æ¬¡
+	memset(balance_after, 0xFF, sizeof(balance_after));//ä¸ä¸º0 å€¼ï¼Œä»¥å…æ— é’±çš„ç¥¨è¯¯åˆ¤æ–­
 	//dbg_dumpmemory("balance_after=",balance_after, 4);
 
 	//modify by shiyulong in 2014-05-29
-	//Ö»Ğè×öÒ»´Î£¬ËùÒÔÒÆµ½Íâ²¿
+	//åªéœ€åšä¸€æ¬¡ï¼Œæ‰€ä»¥ç§»åˆ°å¤–éƒ¨
 	setvalue_evaluate(lpinput);
 	//dbg_dumpmemory("balance_after1=",balance_after, 4);
 	memcpy(m_datetime, CmdSort::m_time_now, 7);
@@ -6334,7 +6334,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 
 
 		//add by shiyulong in 2014-05-29
-		//ÖØĞÂÑ°¿¨
+		//é‡æ–°å¯»å¡
 		ISO14443A_Init(1);
 
 		if (svt_active(sztmp) != 0)
@@ -6344,7 +6344,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 		}
 		//======================
 
-		//¡¾Ñ¡Ôñ3F01¡¿
+		//ã€é€‰æ‹©3F01ã€‘
 		//00 A4 0400 09 A00000000386980701	;judge:sw=9000
 		memcpy(sztmp, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x01",14);
 		ulen = 14;
@@ -6380,7 +6380,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 
 		//dbg_dumpmemory("balance_after4=",balance_after, 4);
 
-		//¸üĞÂ0011Ó¦ÓÃ¿ØÖÆÎÄ¼ş
+		//æ›´æ–°0011åº”ç”¨æ§åˆ¶æ–‡ä»¶
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -6390,16 +6390,16 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 			ulen += 4;
 			inf[ulen++]=g_input.inf.deposit;
 			//====
-			ulen += 6; //·¢ÊÛÉè±¸ĞÅÏ¢
+			ulen += 6; //å‘å”®è®¾å¤‡ä¿¡æ¯
 			//====
-			memcpy(inf+ulen, g_input.inf.szcaps, 2); //³äÖµÉÏÏŞ
+			memcpy(inf+ulen, g_input.inf.szcaps, 2); //å……å€¼ä¸Šé™
 			ulen += 2;
 
-			inf[ulen++]=g_input.inf.passmode;   //Í¨Ñ¶Ä£Ê½
-			inf[ulen++]=g_input.inf.entryline;   //¿ÉÈëÏßÂ·
-			inf[ulen++]=g_input.inf.entrystation; //¿ÉÈëÕ¾µã
-			inf[ulen++]=g_input.inf.exitline;   //¿É³öÏßÂ·
-			inf[ulen++]=g_input.inf.exitstation;  //¿É³öÕ¾µã
+			inf[ulen++]=g_input.inf.passmode;   //é€šè®¯æ¨¡å¼
+			inf[ulen++]=g_input.inf.entryline;   //å¯å…¥çº¿è·¯
+			inf[ulen++]=g_input.inf.entrystation; //å¯å…¥ç«™ç‚¹
+			inf[ulen++]=g_input.inf.exitline;   //å¯å‡ºçº¿è·¯
+			inf[ulen++]=g_input.inf.exitstation;  //å¯å‡ºç«™ç‚¹
 
 
 			memset(szcmd, 0x00, sizeof(szcmd));
@@ -6461,7 +6461,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 
 			value = g_input.balance;
 
-			//»ñÈ¡³äÖµĞÅÏ¢
+			//è·å–å……å€¼ä¿¡æ¯
 			sam_len = 0;
 			memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 			sam_len += 5;
@@ -6497,12 +6497,12 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 			dbg_dumpmemory("InitforLoad.Balance=",InitforLoad.Balance, 4);
 
 			//add by shiyulong 2014-05-29
-			//Èç¹û²»ÏàµÈÔòËµÃ÷ÉÏ´ÎÃ»ÓĞ³äÖµ³É¹¦£¬¿ÉÒÔÖØ×ö
+			//å¦‚æœä¸ç›¸ç­‰åˆ™è¯´æ˜ä¸Šæ¬¡æ²¡æœ‰å……å€¼æˆåŠŸï¼Œå¯ä»¥é‡åš
 			if (memcmp(balance_after, InitforLoad.Balance, 4)!=0)
 			{
 				//dbg_formatvar("222222222222");
 				//add by shiyulong in 2014-05-29
-				//ÏÈ¸³Öµ³äÖµºóµÄÓà¶î£¬ÒÔ±ãÔÚÉÁ¿¨ÖØ×öÊ±½øĞĞ±È½ÏÊÇ·ñĞèÒªÖØĞÂ³äÖµ
+				//å…ˆèµ‹å€¼å……å€¼åçš„ä½™é¢ï¼Œä»¥ä¾¿åœ¨é—ªå¡é‡åšæ—¶è¿›è¡Œæ¯”è¾ƒæ˜¯å¦éœ€è¦é‡æ–°å……å€¼
 				ltmp = InitforLoad.Balance[0];
 				ltmp <<= 8;
 				ltmp += InitforLoad.Balance[1];
@@ -6577,7 +6577,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 				Beep_Sleep(1);
 
 				//add by shiyulog in 2014-05-29
-				//Ö´ĞĞÍê³ÉÌø³öÑ­»·, ÒÔÃâÖØ×ö3´Î
+				//æ‰§è¡Œå®Œæˆè·³å‡ºå¾ªç¯, ä»¥å…é‡åš3æ¬¡
 				break;*/
 
 			}
@@ -6654,7 +6654,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 			//Beep_Sleep(1);
 
 			//add by shiyulog in 2014-05-29
-			//Ö´ĞĞÍê³ÉÌø³öÑ­»·, ÒÔÃâÖØ×ö3´Î
+			//æ‰§è¡Œå®Œæˆè·³å‡ºå¾ªç¯, ä»¥å…é‡åš3æ¬¡
 			break;
 
 		}
@@ -6665,7 +6665,7 @@ uint16_t es_svt_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 	return nresult;
 }
 
-//µ¥³ÌÆ±×¢Ïú½Ó¿Ú
+//å•ç¨‹ç¥¨æ³¨é”€æ¥å£
 uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	uint8_t buf[100];
@@ -6692,7 +6692,7 @@ uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 		switch (nresult)
 		{
 		case 0:
-			//Á½¸öĞÅÏ¢Çø¶¼ÕıÈ·
+			//ä¸¤ä¸ªä¿¡æ¯åŒºéƒ½æ­£ç¡®
 			counter_cmp = memcmp(buf + 45, buf + 61, 2);
 			if (counter_cmp >= 0 && memcmp(buf + 45, "\xff\xff", 2) != 0)
 				m_valid_area_ptr = 0;
@@ -6702,21 +6702,21 @@ uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 			nresult = 1;
 			break;
 		case 1:
-			//ĞÅÏ¢Çø1ÕıÈ·
+			//ä¿¡æ¯åŒº1æ­£ç¡®
 			m_valid_area_ptr = 1;
 			nresult = 1;
 			break;
 		case 2:
-			//ĞÅÏ¢Çø0 ÕıÈ·
+			//ä¿¡æ¯åŒº0 æ­£ç¡®
 			m_valid_area_ptr = 0;
 			nresult = 1;
 			break;
 		case 3:
-			//ĞÅÏ¢Çø¶¼´íÎó
+			//ä¿¡æ¯åŒºéƒ½é”™è¯¯
 			nresult = 0;
 			break;
 		default:
-			//·ÇÏµÍ³¿¨
+			//éç³»ç»Ÿå¡
 			nresult = -1;
 			break;
 		}
@@ -6731,15 +6731,15 @@ uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 		{
 			if ( m_valid_area_ptr == 1)
 			{
-				m_valid_area_startoffset = 48; //µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 48; //å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 8;
 
 			}
 			else
 			{
-				m_valid_area_startoffset = 32;//µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 48; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 32;//å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 48; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 12;
 
 			}
@@ -6755,22 +6755,22 @@ uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 		else
 		{
 			m_current_count = 0;
-			m_valid_area_startoffset = 32;//ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-			m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+			m_valid_area_startoffset = 32;//æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+			m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 			m_next_startpage = 8;
 
 		}
 
 		memset(wpagebuf, 0x00, sizeof(wpagebuf));
 
-		setularea(wpagebuf+4, 0, g_input.inf.entryline);//Éè±¸ÀàĞÍ
-		setularea(wpagebuf+4, 1, g_input.inf.entryline);//Éè±¸ÀàĞÍ
-		setularea(wpagebuf+4, 2, 9);//Éè±¸ÀàĞÍ
+		setularea(wpagebuf+4, 0, g_input.inf.entryline);//è®¾å¤‡ç±»å‹
+		setularea(wpagebuf+4, 1, g_input.inf.entryline);//è®¾å¤‡ç±»å‹
+		setularea(wpagebuf+4, 2, 9);//è®¾å¤‡ç±»å‹
 		setularea(wpagebuf+4, 3, Publics::bcd_to_val(Api::current_device_id));
 
-		TimesEx::tm4_bcd7_exchange(wpagebuf+m_next_area_startoffset,CmdSort::m_time_now, false);//´¦ÀíÈÕ ÆÚ
+		TimesEx::tm4_bcd7_exchange(wpagebuf+m_next_area_startoffset,CmdSort::m_time_now, false);//å¤„ç†æ—¥ æœŸ
 
-		setularea(wpagebuf+4, 5, 15); //Ğ´Èë×¢Ïú
+		setularea(wpagebuf+4, 5, 15); //å†™å…¥æ³¨é”€
 
 		setularea(wpagebuf+4, 9, m_current_count);
 
@@ -6795,7 +6795,7 @@ uint16_t es_ul_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 }
 
 
-//´¢ÖµÆ±×¢Ïú½Ó¿Ú
+//å‚¨å€¼ç¥¨æ³¨é”€æ¥å£
 uint16_t es_svt_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	unsigned char ulen;
@@ -6816,7 +6816,7 @@ uint16_t es_svt_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 		//memcpy(g_input.key.adf1_mamk_02, l_key.adf1_mamk_02, 16);
 #endif
 
-		//ÖØĞÂÑ°¿¨
+		//é‡æ–°å¯»å¡
 		ISO14443A_Init(1);
 
 		if (svt_active(szcmd) != 0)
@@ -6827,7 +6827,7 @@ uint16_t es_svt_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 		}
 
 		//======================
-		// Ñ¡ÔñÖ÷Ä¿Â¼
+		// é€‰æ‹©ä¸»ç›®å½•
 		if (svt_selectfile(0x3f00) < 0)
 		{
 			g_Record.log_out(0, level_error, "svt_selectfile error");
@@ -6836,7 +6836,7 @@ uint16_t es_svt_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 
 		}
 
-		//¡¾Ñ¡Ôñ3F01¡¿
+		//ã€é€‰æ‹©3F01ã€‘
 		//00 A4 0400 09 A00000000386980701	;judge:sw=9000
 		memcpy(szcmd, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x01",14);
 		ulen = 14;
@@ -6934,7 +6934,7 @@ uint16_t es_svt_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 
 }
 
-//µ¥³ÌÆ±ÖØ±àÂë½Ó¿Ú
+//å•ç¨‹ç¥¨é‡ç¼–ç æ¥å£
 uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	uint8_t buf[100];
@@ -6965,7 +6965,7 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 		switch (nresult)
 		{
 		case 0:
-			//Á½¸öĞÅÏ¢Çø¶¼ÕıÈ·
+			//ä¸¤ä¸ªä¿¡æ¯åŒºéƒ½æ­£ç¡®
 			counter_cmp = memcmp(buf + 45, buf + 61, 2);
 			if (counter_cmp >= 0 && memcmp(buf + 45, "\xff\xff", 2) != 0)
 				m_valid_area_ptr = 0;
@@ -6975,21 +6975,21 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 			nresult = 1;
 			break;
 		case 1:
-			//ĞÅÏ¢Çø1ÕıÈ·
+			//ä¿¡æ¯åŒº1æ­£ç¡®
 			m_valid_area_ptr = 1;
 			nresult = 1;
 			break;
 		case 2:
-			//ĞÅÏ¢Çø0 ÕıÈ·
+			//ä¿¡æ¯åŒº0 æ­£ç¡®
 			m_valid_area_ptr = 0;
 			nresult = 1;
 			break;
 		case 3:
-			//ĞÅÏ¢Çø¶¼´íÎó
+			//ä¿¡æ¯åŒºéƒ½é”™è¯¯
 			nresult = 0;
 			break;
 		default:
-			//·ÇÏµÍ³¿¨
+			//éç³»ç»Ÿå¡
 			nresult = -1;
 			break;
 		}
@@ -7004,14 +7004,14 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 		{
 			if ( m_valid_area_ptr == 1)
 			{
-				m_valid_area_startoffset = 48; //µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 48; //å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 8;
 			}
 			else
 			{
-				m_valid_area_startoffset = 32;//µ±Ç°ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-				m_next_area_startoffset = 48; //ÒªĞ´ÈëµÄÊ×Ö·
+				m_valid_area_startoffset = 32;//å½“å‰æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+				m_next_area_startoffset = 48; //è¦å†™å…¥çš„é¦–å€
 				m_next_startpage = 12;
 			}
 
@@ -7026,24 +7026,24 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 		else
 		{
 			m_current_count = 0;
-			m_valid_area_startoffset = 32;//ÓĞĞ§´¦ÀíĞÅÏ¢ÇøÊ××Ö½ÚµØÖ·
-			m_next_area_startoffset = 32; //ÒªĞ´ÈëµÄÊ×Ö·
+			m_valid_area_startoffset = 32;//æœ‰æ•ˆå¤„ç†ä¿¡æ¯åŒºé¦–å­—èŠ‚åœ°å€
+			m_next_area_startoffset = 32; //è¦å†™å…¥çš„é¦–å€
 			m_next_startpage = 8;
 
 		}
 
 		memset(ulpage, 0, sizeof(ulpage));
-		//·¢ĞĞÇø
-		memcpy(ulpage+16, g_input.logicnumber+4, 4);//ÏµÍ³Á÷Ë®ºÅ
+		//å‘è¡ŒåŒº
+		memcpy(ulpage+16, g_input.logicnumber+4, 4);//ç³»ç»Ÿæµæ°´å·
 		memcpy(sztmp, g_input.physical_id+3, 4);
 		memcpy(sztmp+4, ulpage+16, 4);//g_input.logicnumber+4, 4);
-		memcpy(ulpage+20, g_input.key.mf_mkey, 4);//ÈÏÖ¤ĞÅÏ¢
+		memcpy(ulpage+20, g_input.key.mf_mkey, 4);//è®¤è¯ä¿¡æ¯
 		memcpy(sztmp, g_input.physical_id+5, 2);
 		//memcpy(sjtkey, g_input.key.mf_mkey+4, 6);
 		TimesEx::tm2_bcd4_exchange(ulpage+24,g_input.inf.issuedate, false);
 		ulpage[25] &= 0xFE;
-		ulpage[25] |= (g_input.inf.testflag & 0x01);//²âÊÔ±ê¼Ç
-		memcpy(ulpage+26, g_input.inf.cardtype, 2); //¿¨ÀàĞÍ( Ö÷ÀàĞÍ+ ×ÓÀàĞÍ )
+		ulpage[25] |= (g_input.inf.testflag & 0x01);//æµ‹è¯•æ ‡è®°
+		memcpy(ulpage+26, g_input.inf.cardtype, 2); //å¡ç±»å‹( ä¸»ç±»å‹+ å­ç±»å‹ )
 		nresult = writeul_direct(4, 16, ulpage+16);
 		if (nresult)
 		{
@@ -7056,14 +7056,14 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 
 		memset(wpagebuf, 0x00, sizeof(wpagebuf));
 
-		setularea(wpagebuf+4, 0, g_input.inf.entryline);//Éè±¸ÀàĞÍ
-		setularea(wpagebuf+4, 1, g_input.inf.entryline);//Éè±¸ÀàĞÍ
-		setularea(wpagebuf+4, 2, 9);//Éè±¸ÀàĞÍ
+		setularea(wpagebuf+4, 0, g_input.inf.entryline);//è®¾å¤‡ç±»å‹
+		setularea(wpagebuf+4, 1, g_input.inf.entryline);//è®¾å¤‡ç±»å‹
+		setularea(wpagebuf+4, 2, 9);//è®¾å¤‡ç±»å‹
 		setularea(wpagebuf+4, 3, Publics::bcd_to_val(Api::current_device_id));
 
-		TimesEx::tm4_bcd7_exchange(wpagebuf+m_next_area_startoffset,CmdSort::m_time_now, false);//´¦ÀíÈÕÆÚ
+		TimesEx::tm4_bcd7_exchange(wpagebuf+m_next_area_startoffset,CmdSort::m_time_now, false);//å¤„ç†æ—¥æœŸ
 
-		setularea(wpagebuf+4, 5, 1); //Ğ´³õÊ¼»¯×´Ì¬
+		setularea(wpagebuf+4, 5, 1); //å†™åˆå§‹åŒ–çŠ¶æ€
 
 		setularea(wpagebuf+4, 9, m_current_count);
 
@@ -7087,7 +7087,7 @@ uint16_t es_ul_recode(uint8_t *lpinput, uint8_t *lpoutput)
 
 }
 
-//´¢ÖµÆ±ÖØ±àÂë½Ó¿Ú
+//å‚¨å€¼ç¥¨é‡ç¼–ç æ¥å£
 uint16_t es_svt_recode(uint8_t *lpinput, uint8_t *lpoutput)
 {
 
@@ -7160,7 +7160,7 @@ uint16_t es_svt_recode(uint8_t *lpinput, uint8_t *lpoutput)
 
 }
 
-//µ¥³ÌÆ±Ï´¿¨£¬Ö»ÊÇÄÚ²¿µ÷ÊÔÓÃ
+//å•ç¨‹ç¥¨æ´—å¡ï¼Œåªæ˜¯å†…éƒ¨è°ƒè¯•ç”¨
 
 uint16_t es_ul_clear(uint8_t *lpinput, uint8_t *lpoutput)
 {
@@ -7191,7 +7191,7 @@ uint16_t es_ul_clear(uint8_t *lpinput, uint8_t *lpoutput)
 	return nresult;
 }
 
-//´¢ÖµÆ±Ï´¿¨£¬Ö»ÊÇÄÚ²¿µ÷ÊÔÓÃ
+//å‚¨å€¼ç¥¨æ´—å¡ï¼Œåªæ˜¯å†…éƒ¨è°ƒè¯•ç”¨
 
 uint16_t es_svt_clear(uint8_t *lpinput, uint8_t *lpoutput)
 {
@@ -7201,7 +7201,7 @@ uint16_t es_svt_clear(uint8_t *lpinput, uint8_t *lpoutput)
 	dbg_formatvar("es_svt_clear",nresult);
 	do
 	{
-		// modify by shiyulong 2014-05-26, Ï´¿¨Ç°ÏÈ½øĞĞÑ°¿¨£¬·ÀÖ¹³ö´íºóÒªÖØĞÂ¸ĞÓ¦¿¨
+		// modify by shiyulong 2014-05-26, æ´—å¡å‰å…ˆè¿›è¡Œå¯»å¡ï¼Œé˜²æ­¢å‡ºé”™åè¦é‡æ–°æ„Ÿåº”å¡
 		ISO14443A_Init(1);
 
 		if (svt_active(utmp) != 0)
@@ -7210,7 +7210,7 @@ uint16_t es_svt_clear(uint8_t *lpinput, uint8_t *lpoutput)
 			break;
 		}
 		nresult = 0;
-		// modify by shiyulong 2014-05-26, Íê³É
+		// modify by shiyulong 2014-05-26, å®Œæˆ
 
 
 		setvalue_issue(lpinput);
@@ -7237,14 +7237,14 @@ uint16_t es_svt_clear(uint8_t *lpinput, uint8_t *lpoutput)
 
 
 //==============================================
-//µ¥³ÌÆ±ºÍ´¢ÖµÆ±µÄÒµÎñÊµÏÖ½áÊø
+//å•ç¨‹ç¥¨å’Œå‚¨å€¼ç¥¨çš„ä¸šåŠ¡å®ç°ç»“æŸ
 //==============================================
 
 
 
 
 //==============================================
-//µ¥³ÌÆ±ºÍ´¢ÖµÆ±µÄÒµÎñÍâ²¿µ÷ÓÃ½Ó¿Ú
+//å•ç¨‹ç¥¨å’Œå‚¨å€¼ç¥¨çš„ä¸šåŠ¡å¤–éƒ¨è°ƒç”¨æ¥å£
 //==============================================
 RETINFO esapi_analyse(uint8_t *lpoutput)
 {
@@ -7254,7 +7254,7 @@ RETINFO esapi_analyse(uint8_t *lpoutput)
 	char physicalnumber[50]={0};
 	PESANALYZE lpresult = (PESANALYZE)lpoutput;
 
-	// ÉèÖÃÖ÷ÌìÏßÎªĞ¡ÌìÏß¹¤×÷Ä£Ê½
+	// è®¾ç½®ä¸»å¤©çº¿ä¸ºå°å¤©çº¿å·¥ä½œæ¨¡å¼
 	change_antenna(0);
 	ISO14443A_Init(1);
 
@@ -7312,13 +7312,13 @@ RETINFO esapi_analyse(uint8_t *lpoutput)
 		{
 			if (nresult == 1)
 			{
-				//ÎŞ¿¨
+				//æ— å¡
 				ret.wErrCode = 0x02;
 
 			}
 			else if (nresult == 2)
 			{
-				//Î´·¢ĞĞ
+				//æœªå‘è¡Œ
 				ret.wErrCode = 0x00;
 			}
 			else
@@ -7343,7 +7343,7 @@ RETINFO esapi_analyse(uint8_t *lpoutput)
 }
 
 
-//³µÆ±³õÊ¼»¯
+//è½¦ç¥¨åˆå§‹åŒ–
 RETINFO esapi_init(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	int nresult;
@@ -7366,7 +7366,7 @@ RETINFO esapi_init(uint8_t *lpinput, uint8_t *lpoutput)
 	return (ret);
 }
 
-//³µÆ±Ô¤¸¶Öµ
+//è½¦ç¥¨é¢„ä»˜å€¼
 RETINFO esapi_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	int nresult;
@@ -7390,7 +7390,7 @@ RETINFO esapi_evaluate(uint8_t *lpinput, uint8_t *lpoutput)
 	return (ret);
 }
 
-//³µÆ±×¢Ïú
+//è½¦ç¥¨æ³¨é”€
 RETINFO esapi_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	int nresult;
@@ -7414,7 +7414,7 @@ RETINFO esapi_destroy(uint8_t *lpinput, uint8_t *lpoutput)
 	return (ret);
 }
 
-//³µÆ±ÖØ±àÂë
+//è½¦ç¥¨é‡ç¼–ç 
 RETINFO esapi_recode(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	int nresult;
@@ -7438,7 +7438,7 @@ RETINFO esapi_recode(uint8_t *lpinput, uint8_t *lpoutput)
 	return (ret);
 }
 
-//³µÆ±Ï´¿¨
+//è½¦ç¥¨æ´—å¡
 RETINFO esapi_clear(uint8_t *lpinput, uint8_t *lpoutput)
 {
 
@@ -7464,7 +7464,7 @@ RETINFO esapi_clear(uint8_t *lpinput, uint8_t *lpoutput)
 }
 
 
-//³µÆ±¸öÈË»¯ĞÅÏ¢Â¼Èë,  Ö»ÄÜÓ¦ÓÃÓÚ´¢ÖµÆ±
+//è½¦ç¥¨ä¸ªäººåŒ–ä¿¡æ¯å½•å…¥,  åªèƒ½åº”ç”¨äºå‚¨å€¼ç¥¨
 RETINFO esapi_private(uint8_t *lpinput, uint8_t *lpoutput)
 {
 	unsigned char ulen;
@@ -7495,7 +7495,7 @@ RETINFO esapi_private(uint8_t *lpinput, uint8_t *lpoutput)
 		dbg_dumpmemory("key02=",g_input.key.adf1_mamk_02,16);
 
 
-		//ÖØĞÂÑ°¿¨
+		//é‡æ–°å¯»å¡
 		ISO14443A_Init(1);
 
 		if (svt_active(szcmd) != 0)
@@ -7505,7 +7505,7 @@ RETINFO esapi_private(uint8_t *lpinput, uint8_t *lpoutput)
 		}
 		//======================
 
-		//¡¾Ñ¡Ôñ3F01¡¿
+		//ã€é€‰æ‹©3F01ã€‘
 		//00 A4 0400 09 A00000000386980701	;judge:sw=9000
 		memcpy(szcmd, "\x00\xA4\x04\x00\x09\xA0\x00\x00\x00\x03\x86\x98\x07\x01",14);
 		ulen = 14;
@@ -7521,7 +7521,7 @@ RETINFO esapi_private(uint8_t *lpinput, uint8_t *lpoutput)
 
 		//dbg_dumpmemory("key02=",g_input.key.adf1_mamk_02,16);
 
-		//¸üĞÂ0016´´½¨³Ö¿¨ÈË»ù±¾ĞÅÏ¢
+		//æ›´æ–°0016åˆ›å»ºæŒå¡äººåŸºæœ¬ä¿¡æ¯
 		if (apdu_getrandom(szdata,4)==0)
 		{
 
@@ -7529,7 +7529,7 @@ RETINFO esapi_private(uint8_t *lpinput, uint8_t *lpoutput)
 			memcpy(szcmd, "\x04\xD6\x96\x00\xA8",5);
 			ulen = 5;
 			memcpy(szcmd+5, inf, 164);
-			ulen += 164; //0x38  //Êı¾İÎªÈ« 00
+			ulen += 164; //0x38  //æ•°æ®ä¸ºå…¨ 00
 			MAC_3(g_input.key.adf1_mamk_02, ulen, szdata, szcmd, szcmd+ulen);
 			ulen += 4;
 			dbg_dumpmemory("update adf1 file_0016 =",szcmd,ulen);
@@ -7564,11 +7564,11 @@ unsigned char es_get_issue_status(unsigned char globle_status)
 {
 	unsigned char ret = 0;
 
-	if (globle_status == 3)		// ×¢Ïú
+	if (globle_status == 3)		// æ³¨é”€
 	{
 		ret = 2;
 	}
-	else						// ÆäËû×´Ì¬
+	else						// å…¶ä»–çŠ¶æ€
 	{
 		ret = 1;
 	}
@@ -7580,7 +7580,7 @@ unsigned char es_standard_status(unsigned char globle_status, unsigned char metr
 {
 	unsigned char ret = 0;
 
-	if (globle_status == 3)		// ×¢Ïú
+	if (globle_status == 3)		// æ³¨é”€
 	{
 		ret = USTATUS_DETROY;
 	}

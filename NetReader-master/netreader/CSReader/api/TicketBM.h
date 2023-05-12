@@ -2,14 +2,14 @@
 #include "TicketBase.h"
 #include "../link/linker.h"
 
-// M1¿¨¶Á¿¨½á¹¹
+// M1å¡è¯»å¡ç»“æ„
 typedef struct {
 	uint8_t		base_public[64];
 	uint8_t		his_all[16];
 	uint8_t		metro_inf[16];
 }BUS_M1;
 
-// ½»Ò×È·ÈÏÊ±Ê¹ÓÃ
+// äº¤æ˜“ç¡®è®¤æ—¶ä½¿ç”¨
 typedef struct {
 	uint8_t		write_type;
 	uint8_t		write_data[16];
@@ -23,11 +23,11 @@ public:
 	TicketBM(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 	~TicketBM(void);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -46,7 +46,7 @@ public:
 	RETINFO bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station);
 
 	//RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t paytype=1);
 	RETINFO format_history(uint8_t&	his_count, PHSSVT p_his_array, int his_max);
 
@@ -62,7 +62,7 @@ protected:
 
 	//void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
 private:
@@ -78,16 +78,16 @@ private:
 
 	bool format_history(uint8_t * p_his_buffer, HSSVT& his);
 
-	// »ñÈ¡Ğ´¿¨ÀàĞÍ£¬²¢ÅĞ¶Ï´«Èë²ÎÊıÊÇ·ñÕıÈ·
+	// è·å–å†™å¡ç±»å‹ï¼Œå¹¶åˆ¤æ–­ä¼ å…¥å‚æ•°æ˜¯å¦æ­£ç¡®
 	uint16_t get_write_type(ETYTKOPER operType, uint8_t& write_type, long trade_amount, uint8_t * p_time, uint8_t * p_metro);
 
 	void set_metro_area();
 
 	void set_tac_factor(uint8_t * p_tac_buf, uint8_t * p_time, long balance_after, uint16_t trade_amount, uint16_t trade_counter);
 
-	// Æ±¿¨ÀàĞÍÊÇ·ñĞèÒª×ªµ½×¨ÓÃÇ®°ü
+	// ç¥¨å¡ç±»å‹æ˜¯å¦éœ€è¦è½¬åˆ°ä¸“ç”¨é’±åŒ…
 	bool use_wallet_special(uint8_t * p_logic_type);
 
-	// ÊÇ·ñ¼ì²éÆôÓÃ±êÊ¶
+	// æ˜¯å¦æ£€æŸ¥å¯ç”¨æ ‡è¯†
 	bool need_check_use_flag(uint8_t * p_logic_type);
 };

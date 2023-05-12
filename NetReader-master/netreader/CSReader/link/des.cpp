@@ -4,8 +4,8 @@
 
 
 
-/*unsigned char key[8];        //ÃÜÂëÔ­Âë
-unsigned char key_buff[64];  //64Îª¶ş½øÖÆÊı¾İ
+/*unsigned char key[8];        //å¯†ç åŸç 
+unsigned char key_buff[64];  //64ä¸ºäºŒè¿›åˆ¶æ•°æ®
 ////////////////////////
 unsigned char data[8];
 unsigned char data_buff[64];
@@ -126,18 +126,18 @@ const unsigned char data_ip_3[64]={
   
  
 /*
-º¯Êı       void des(unsigned char *key,unsigned char *data,unsigned char flag)£º
-¹¦ÄÜËµÃ÷:  DES Ëã·¨
-Èë²ÎËµÃ÷£º 
-		   InBuff:ÊäÈëÊı¾İ
-		   OutBuff:Êä³öÊı¾İ
- 		   Inkey£ºÃÜÂë 8¸ö×Ö½Ú  
- 		   flag£º0 ¼ÓÃÜ£¬1£º½âÃÜ
-º¯ÊıÊä³ö£º data:¼Ó½âÃÜ½á¹û¾ù·ÅÈëÆäÖĞ	
+å‡½æ•°       void des(unsigned char *key,unsigned char *data,unsigned char flag)ï¼š
+åŠŸèƒ½è¯´æ˜:  DES ç®—æ³•
+å…¥å‚è¯´æ˜ï¼š 
+		   InBuff:è¾“å…¥æ•°æ®
+		   OutBuff:è¾“å‡ºæ•°æ®
+ 		   Inkeyï¼šå¯†ç  8ä¸ªå­—èŠ‚  
+ 		   flagï¼š0 åŠ å¯†ï¼Œ1ï¼šè§£å¯†
+å‡½æ•°è¾“å‡ºï¼š data:åŠ è§£å¯†ç»“æœå‡æ”¾å…¥å…¶ä¸­	
 */															 
 void Des(unsigned char *InBuff,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)
 {
-		unsigned char key_buff[64];  //64Îª¶ş½øÖÆÊı¾İ
+		unsigned char key_buff[64];  //64ä¸ºäºŒè¿›åˆ¶æ•°æ®
 		unsigned char data_buff[64];
 		unsigned char data_out[64];
 
@@ -149,16 +149,16 @@ void Des(unsigned char *InBuff,unsigned char *OutBuff,unsigned char *Inkey,unsig
 		key_data_loop(key_buff,data_buff,data_out,flag,OutBuff);
 }
 /*
-º¯Êı       void DataDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)£º
-¹¦ÄÜËµÃ÷:  ¶ÔÊı¾İ½øĞĞDES¼ÓÃÜ
-Èë²ÎËµÃ÷£º 
-		   InBuff:ÊäÈëÊı¾İ °üº¬LCÊı¾İ
-		   OutBuff:Êä³öÊı¾İ
- 		   Inkey£ºÃÜÂë 8¸ö×Ö½Ú  
- 		   flag£º0 ¼ÓÃÜ£¬1£º½âÃÜ
-º¯ÊıÊä³ö£º data:¼Ó½âÃÜ½á¹û¾ù·ÅÈëÆäÖĞ
-×¢ÒâÊÂÏî£ºInBuffºÍOutBuff×îºÃ²»ÊÇÍ¬Ò»¸ö×éÊı£¬
-          ÊÇÍ¬Ò»¸öÊı×é£¬µØÖ·Æ«ÒÆÁ¿²»ÄÜ³¬¹ı8£¬·ñÔòÊı¾İ±»ĞŞ¸Ä	
+å‡½æ•°       void DataDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)ï¼š
+åŠŸèƒ½è¯´æ˜:  å¯¹æ•°æ®è¿›è¡ŒDESåŠ å¯†
+å…¥å‚è¯´æ˜ï¼š 
+		   InBuff:è¾“å…¥æ•°æ® åŒ…å«LCæ•°æ®
+		   OutBuff:è¾“å‡ºæ•°æ®
+ 		   Inkeyï¼šå¯†ç  8ä¸ªå­—èŠ‚  
+ 		   flagï¼š0 åŠ å¯†ï¼Œ1ï¼šè§£å¯†
+å‡½æ•°è¾“å‡ºï¼š data:åŠ è§£å¯†ç»“æœå‡æ”¾å…¥å…¶ä¸­
+æ³¨æ„äº‹é¡¹ï¼šInBuffå’ŒOutBuffæœ€å¥½ä¸æ˜¯åŒä¸€ä¸ªç»„æ•°ï¼Œ
+          æ˜¯åŒä¸€ä¸ªæ•°ç»„ï¼Œåœ°å€åç§»é‡ä¸èƒ½è¶…è¿‡8ï¼Œå¦åˆ™æ•°æ®è¢«ä¿®æ”¹	
 */															 
 unsigned short DataDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)
 {
@@ -213,16 +213,16 @@ unsigned short DataDes(unsigned char *InBuff,unsigned short InData,unsigned char
 		return (i);
 }
 /*
-º¯Êı       void DataThreeDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)£º
-¹¦ÄÜËµÃ÷:  ¶ÔÊı¾İ½øĞĞDES¼ÓÃÜ
-Èë²ÎËµÃ÷£º 
-		   InBuff:ÊäÈëÊı¾İ °üº¬LCÊı¾İ
-		   OutBuff:Êä³öÊı¾İ
- 		   Inkey£ºÃÜÂë 16¸ö×Ö½Ú  
- 		   flag£º0 ¼ÓÃÜ£¬1£º½âÃÜ
-º¯ÊıÊä³ö£º data:¼Ó½âÃÜ½á¹û¾ù·ÅÈëÆäÖĞ
-×¢ÒâÊÂÏî£ºInBuffºÍOutBuff×îºÃ²»ÊÇÍ¬Ò»¸ö×éÊı£¬
-          ÊÇÍ¬Ò»¸öÊı×é£¬µØÖ·Æ«ÒÆÁ¿²»ÄÜ³¬¹ı8£¬·ñÔòÊı¾İ±»ĞŞ¸Ä	
+å‡½æ•°       void DataThreeDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)ï¼š
+åŠŸèƒ½è¯´æ˜:  å¯¹æ•°æ®è¿›è¡ŒDESåŠ å¯†
+å…¥å‚è¯´æ˜ï¼š 
+		   InBuff:è¾“å…¥æ•°æ® åŒ…å«LCæ•°æ®
+		   OutBuff:è¾“å‡ºæ•°æ®
+ 		   Inkeyï¼šå¯†ç  16ä¸ªå­—èŠ‚  
+ 		   flagï¼š0 åŠ å¯†ï¼Œ1ï¼šè§£å¯†
+å‡½æ•°è¾“å‡ºï¼š data:åŠ è§£å¯†ç»“æœå‡æ”¾å…¥å…¶ä¸­
+æ³¨æ„äº‹é¡¹ï¼šInBuffå’ŒOutBuffæœ€å¥½ä¸æ˜¯åŒä¸€ä¸ªç»„æ•°ï¼Œ
+          æ˜¯åŒä¸€ä¸ªæ•°ç»„ï¼Œåœ°å€åç§»é‡ä¸èƒ½è¶…è¿‡8ï¼Œå¦åˆ™æ•°æ®è¢«ä¿®æ”¹	
 */															 
 unsigned short DataThreeDes(unsigned char *InBuff,unsigned short InData,unsigned char *OutBuff,unsigned char *Inkey,unsigned char flag)
 {
@@ -266,19 +266,19 @@ unsigned short DataThreeDes(unsigned char *InBuff,unsigned short InData,unsigned
 }
 
 /*----------------------------------------------------------------------------
-  ËµÃ÷: ¼ÆËãÒ»×Ö½Ú´®µÄ·ÖÉ¢£¯·´·ÖÉ¢¼ÆËã½á¹û£¬ÃÜÔ¿³¤¶ÈÎª16×Ö½Ú
-  ²ÎÊı: Key:  [I ]ÃÜÔ¿( 16×Ö½Ú )
-        Data: [I ]×Ö½Ú´®( ·ÖÉ¢Îª 8×Ö½Ú; ·´·ÖÉ¢Îª16×Ö½Ú )
-        Ont:  [IO]½á¹û×Ö½Ú´®( ·ÖÉ¢Îª16×Ö½Ú; ·´·ÖÉ¢Îª 8×Ö½Ú )
-        Type: [I ]ÔËËã·½Ê½   0: ·ÖÉ¢   1: ·´·ÖÉ¢
-  ·µ»Ø: ²Î¿¼Öµ    ²Î¿¼ÖµËµÃ÷
-        0         ³É¹¦
-    ·Ç0       Ê§°Ü
+  è¯´æ˜: è®¡ç®—ä¸€å­—èŠ‚ä¸²çš„åˆ†æ•£ï¼ååˆ†æ•£è®¡ç®—ç»“æœï¼Œå¯†é’¥é•¿åº¦ä¸º16å­—èŠ‚
+  å‚æ•°: Key:  [I ]å¯†é’¥( 16å­—èŠ‚ )
+        Data: [I ]å­—èŠ‚ä¸²( åˆ†æ•£ä¸º 8å­—èŠ‚; ååˆ†æ•£ä¸º16å­—èŠ‚ )
+        Ont:  [IO]ç»“æœå­—èŠ‚ä¸²( åˆ†æ•£ä¸º16å­—èŠ‚; ååˆ†æ•£ä¸º 8å­—èŠ‚ )
+        Type: [I ]è¿ç®—æ–¹å¼   0: åˆ†æ•£   1: ååˆ†æ•£
+  è¿”å›: å‚è€ƒå€¼    å‚è€ƒå€¼è¯´æ˜
+        0         æˆåŠŸ
+    é0       å¤±è´¥
   ----------------------------------------------------------------------------*/
 unsigned char  Diversify( unsigned char* Key, unsigned char* Data, unsigned char* Out, unsigned char Type )
 {
-    unsigned char szNotData[9] = { 0 };                                                  /* ÊäÈëÊı¾İµÄ·´ */
-    unsigned char i;                                                                    /* ÁÙÊ±±äÁ¿ */
+    unsigned char szNotData[9] = { 0 };                                                  /* è¾“å…¥æ•°æ®çš„å */
+    unsigned char i;                                                                    /* ä¸´æ—¶å˜é‡ */
 
     if( Type == 0 )
     {
@@ -306,16 +306,16 @@ unsigned char  Diversify( unsigned char* Key, unsigned char* Data, unsigned char
 
 }
 /*
-º¯Êı       void MAC(unsigned char *InBuff,unsigned char inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char flag)
-£º
-¹¦ÄÜËµÃ÷:  ¼ÆËãMACÊı¾İ ÃÜÂëÎª8¸ö×Ö½Ú
-Èë²ÎËµÃ÷£º 
-		   InBuff:ÊäÈëÊı¾İ  inlen ÊäÈëÊı¾İ³¤¶È<=24
-		   ChallengeBuff£ºËæ»úÊı  8¸ö×Ö½Ú 
- 		   Inkey£ºÃÜÂë 8¸ö×Ö½Ú  
- 		   OutBuff£ºÊä³öMACÂë 4¸ö×Ö½Ú
+å‡½æ•°       void MAC(unsigned char *InBuff,unsigned char inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char flag)
+ï¼š
+åŠŸèƒ½è¯´æ˜:  è®¡ç®—MACæ•°æ® å¯†ç ä¸º8ä¸ªå­—èŠ‚
+å…¥å‚è¯´æ˜ï¼š 
+		   InBuff:è¾“å…¥æ•°æ®  inlen è¾“å…¥æ•°æ®é•¿åº¦<=24
+		   ChallengeBuffï¼šéšæœºæ•°  8ä¸ªå­—èŠ‚ 
+ 		   Inkeyï¼šå¯†ç  8ä¸ªå­—èŠ‚  
+ 		   OutBuffï¼šè¾“å‡ºMACç  4ä¸ªå­—èŠ‚
 		        
-º¯ÊıÊä³ö£º 1:Ê§°Ü£¬0£º³É¹¦ 	
+å‡½æ•°è¾“å‡ºï¼š 1:å¤±è´¥ï¼Œ0ï¼šæˆåŠŸ 	
 */	
 unsigned char MAC(unsigned char *InBuff,unsigned short inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char *OutBuff)
 {
@@ -357,16 +357,16 @@ unsigned char MAC(unsigned char *InBuff,unsigned short inlen,unsigned char *Chal
 }
 
 /*
-º¯Êı       void ThreeMAC(unsigned char *InBuff,unsigned char inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char flag)
-£º
-¹¦ÄÜËµÃ÷: ¼ÆËãMACÊı¾İ ÃÜÂëÎª16¸ö×Ö½Ú
-Èë²ÎËµÃ÷£º 
-		   InBuff:ÊäÈëÊı¾İ  inlen ÊäÈëÊı¾İ³¤¶È<=24
-		   ChallengeBuff£ºËæ»úÊı  8¸ö×Ö½Ú 
- 		   Inkey£ºÃÜÂë 16¸ö×Ö½Ú  
- 		   OutBuff£ºÊä³öMACÂë 4¸ö×Ö½Ú
+å‡½æ•°       void ThreeMAC(unsigned char *InBuff,unsigned char inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char flag)
+ï¼š
+åŠŸèƒ½è¯´æ˜: è®¡ç®—MACæ•°æ® å¯†ç ä¸º16ä¸ªå­—èŠ‚
+å…¥å‚è¯´æ˜ï¼š 
+		   InBuff:è¾“å…¥æ•°æ®  inlen è¾“å…¥æ•°æ®é•¿åº¦<=24
+		   ChallengeBuffï¼šéšæœºæ•°  8ä¸ªå­—èŠ‚ 
+ 		   Inkeyï¼šå¯†ç  16ä¸ªå­—èŠ‚  
+ 		   OutBuffï¼šè¾“å‡ºMACç  4ä¸ªå­—èŠ‚
 		        
-º¯ÊıÊä³ö£º 1:Ê§°Ü£¬0£º³É¹¦ 	
+å‡½æ•°è¾“å‡ºï¼š 1:å¤±è´¥ï¼Œ0ï¼šæˆåŠŸ 	
 */	
 unsigned char ThreeMAC(unsigned char *InBuff,unsigned short inlen,unsigned char *ChallengeBuff,unsigned char *Inkey,unsigned char *OutBuff)
 {
@@ -412,26 +412,26 @@ unsigned char ThreeMAC(unsigned char *InBuff,unsigned short inlen,unsigned char 
 
 /*
 *************************************************************************************************************
-- º¯ÊıÃû³Æ : void ThreeDES(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out)
-- º¯ÊıËµÃ÷ : 3DESËã·¨º¯Êı
-- ÊäÈë²ÎÊı : 
--           DoubleKeyStr: 16unsigned charµÄ¼ÓÃÜÃÜÔ¿
--           Data:          8unsigned charµÄÃ÷ÎÄÊı¾İ
--           Out :          8unsigned charµÄ¼ÓÃÜ½á¹û
-	        Type  : 0-->¼ÓÃÜ  1-->½âÃÜ
-- Êä³ö²ÎÊı : ÎŞ
+- å‡½æ•°åç§° : void ThreeDES(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out)
+- å‡½æ•°è¯´æ˜ : 3DESç®—æ³•å‡½æ•°
+- è¾“å…¥å‚æ•° : 
+-           DoubleKeyStr: 16unsigned charçš„åŠ å¯†å¯†é’¥
+-           Data:          8unsigned charçš„æ˜æ–‡æ•°æ®
+-           Out :          8unsigned charçš„åŠ å¯†ç»“æœ
+	        Type  : 0-->åŠ å¯†  1-->è§£å¯†
+- è¾“å‡ºå‚æ•° : æ— 
 *************************************************************************************************************
 */
-void ThreeDES(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out,unsigned char Type)//3DESËã·¨
+void ThreeDES(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out,unsigned char Type)//3DESç®—æ³•
 {
  	  unsigned char Buf1[8],Buf2[8]; 
-	  if (Type)//½âÃÜ
+	  if (Type)//è§£å¯†
 	  {
 		  	Des(Data,Buf1,DoubleKeyStr,DECRYPT); 
 		  	Des(Buf1,Buf2,DoubleKeyStr+8,ENCRYPT);
 		  	Des(Buf2,Out ,DoubleKeyStr,DECRYPT); 
 	  }
-	  else    //¼ÓÃÜ
+	  else    //åŠ å¯†
 	  {
 	  	  	Des(Data,Buf1,DoubleKeyStr,ENCRYPT); 
 		  	Des(Buf1,Buf2,DoubleKeyStr+8,DECRYPT);
@@ -441,20 +441,20 @@ void ThreeDES(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out
 
 /*
 *************************************************************************************************************
-- º¯ÊıÃû³Æ : void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out)
-- º¯ÊıËµÃ÷ : 3DESËã·¨º¯Êı
-- ÊäÈë²ÎÊı : 
--           DoubleKeyStr: 16unsigned charµÄ¼ÓÃÜÃÜÔ¿
--           Data:          16unsigned charµÄÃ÷ÎÄÊı¾İ
--           Out :          16unsigned charµÄ¼ÓÃÜ½á¹û
-	        Type  : 0-->¼ÓÃÜ  1-->½âÃÜ
-- Êä³ö²ÎÊı : ÎŞ
+- å‡½æ•°åç§° : void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out)
+- å‡½æ•°è¯´æ˜ : 3DESç®—æ³•å‡½æ•°
+- è¾“å…¥å‚æ•° : 
+-           DoubleKeyStr: 16unsigned charçš„åŠ å¯†å¯†é’¥
+-           Data:          16unsigned charçš„æ˜æ–‡æ•°æ®
+-           Out :          16unsigned charçš„åŠ å¯†ç»“æœ
+	        Type  : 0-->åŠ å¯†  1-->è§£å¯†
+- è¾“å‡ºå‚æ•° : æ— 
 *************************************************************************************************************
 */
-void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out,unsigned char Type)//DESËã·¨
+void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned char *Out,unsigned char Type)//DESç®—æ³•
 {
 	unsigned char OutTmp[16];
-	  if (Type)//½âÃÜ
+	  if (Type)//è§£å¯†
 	  {
 		  	ThreeDES(DoubleKeyStr,Data,OutTmp,DECRYPT);
 			memcpy(Out,OutTmp,8);
@@ -462,7 +462,7 @@ void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned c
 			memcpy(Out+8,OutTmp,8);
 			
 	  }
-	  else    //¼ÓÃÜ
+	  else    //åŠ å¯†
 	  {
 	  	  	ThreeDES(DoubleKeyStr,Data,OutTmp,ENCRYPT);
 			memcpy(Out,OutTmp,8);
@@ -471,7 +471,7 @@ void ThreeDESWordData(unsigned char *DoubleKeyStr,unsigned char *Data,unsigned c
  	  }
 }			
 /**********************************8
-Êı¾İÑ­»·ÒÆÎ»
+æ•°æ®å¾ªç¯ç§»ä½
 ************************************/
 void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned char*data_out,unsigned char flag,unsigned char *data)
 {
@@ -482,7 +482,7 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
   unsigned char right_data_buff[48];     
   unsigned char right_data_buff1[32];
  // unsigned char right_data_buff2[32];
-  for(i=0;i<16;i++)// ×Ü´ÎÊıÑ­»·
+  for(i=0;i<16;i++)// æ€»æ¬¡æ•°å¾ªç¯
   {
       for(y=0;y<32;y++)
        {
@@ -490,11 +490,11 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
        }
       
       if(flag)
-     // if(0)             //½âÃÜ
+     // if(0)             //è§£å¯†
       {
         if(i)
         {
-         for(y=0;y<shift[16-i];y++)   //ÃÜÂëµüÎ»
+         for(y=0;y<shift[16-i];y++)   //å¯†ç è¿­ä½
          {
           temp1=key_buff[27];
           temp2=key_buff[55];
@@ -508,9 +508,9 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
           }
         }
       }
-      else                     //¼ÓÃÜ
+      else                     //åŠ å¯†
       {
-      for(y=0;y<shift[i];y++)   //ÃÜÂëµüÎ»
+      for(y=0;y<shift[i];y++)   //å¯†ç è¿­ä½
       {
           temp1=key_buff[0];
           temp2=key_buff[28];
@@ -526,8 +526,8 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
     /*  for(y=0;y<48;y++)
       {
              kwork[y]=key_buff[key_ip_2[y]];
-      }  //ÃÜÂëµÄµü´ú Íê³É
-        //Êı¾İµÄµü´ú  
+      }  //å¯†ç çš„è¿­ä»£ å®Œæˆ
+        //æ•°æ®çš„è¿­ä»£  
       for(x=0;x<48;x++)    //32--->48
       {
             right_data_buff[i]=data_buff[32+data_ip_1[i]];
@@ -601,9 +601,9 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
     data_out[32+i] = temp1;}
     for(i=0;i<64;i++)
     {
-        key_buff[i]=data_out[data_ip_3[i]];    //×î½üÊı¾İ
+        key_buff[i]=data_out[data_ip_3[i]];    //æœ€è¿‘æ•°æ®
     }
-       //data,Êä³öÊı¾İ¡£ÃÜÎÄ
+       //data,è¾“å‡ºæ•°æ®ã€‚å¯†æ–‡
      x=0;
     memset(data,0,8);
     for(i=0;i<8;i++)
@@ -618,7 +618,7 @@ void key_data_loop(unsigned char *key_buff,unsigned char* data_buff,unsigned cha
 }
 
 /*********************************
-°ÑÊäÈëÊı¾İ±äÎª64Î»Êı¾İ¡£
+æŠŠè¾“å…¥æ•°æ®å˜ä¸º64ä½æ•°æ®ã€‚
 ***********************************/
 void key_64(unsigned char *power_in,unsigned char *power_out)
 {
@@ -638,7 +638,7 @@ void key_64(unsigned char *power_in,unsigned char *power_out)
 }
 
 /*******************************
-Ñ¡Ôñ¶ÔÓ¦µÄÎ»£¬ºÍ°´Ë³ĞòÅÅÁĞÃÜÂë,È¥´¦Ğ£ÑéÎ»
+é€‰æ‹©å¯¹åº”çš„ä½ï¼Œå’ŒæŒ‰é¡ºåºæ’åˆ—å¯†ç ,å»å¤„æ ¡éªŒä½
 *******************************/
 void key_select(unsigned char *power_in)
 {
@@ -652,7 +652,7 @@ void key_select(unsigned char *power_in)
 }
 
 /***********************************
-°ÑÊäÈëÊı¾İ±äÎª64Î»
+æŠŠè¾“å…¥æ•°æ®å˜ä¸º64ä½
 ************************************/
 void data_64(unsigned char *data_in,unsigned char *data_out1)
 {
@@ -672,7 +672,7 @@ void data_64(unsigned char *data_in,unsigned char *data_out1)
  
 }
 /*********************************
-Êı¾İ°´¹æ¶¨Ë³ĞòÑ¡ÔñÅÅÁĞ
+æ•°æ®æŒ‰è§„å®šé¡ºåºé€‰æ‹©æ’åˆ—
 *********************************/
 void data_selsect(unsigned char *data_in)
 {

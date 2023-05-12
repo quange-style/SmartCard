@@ -24,245 +24,245 @@ public:
 
     bool load_dat_config();
 
-    // ²ÎÊıÀàĞÍÊÇ·ñ¶ÁĞ´Æ÷±ØĞë
+    // å‚æ•°ç±»å‹æ˜¯å¦è¯»å†™å™¨å¿…é¡»
     bool prm_for_reader(uint16_t prm_type);
 
-	// ²ÎÊıÊÇ·ñÔòÅäÖÃÎÄ¼şÖĞ
+	// å‚æ•°æ˜¯å¦åˆ™é…ç½®æ–‡ä»¶ä¸­
 	bool name_in_config(char * p_file_name);
 
-    // ±£´æ²ÎÊıÅäÖÃµ½ÎÄ¼ş
+    // ä¿å­˜å‚æ•°é…ç½®åˆ°æ–‡ä»¶
     bool save_prm_config(uint16_t prm_type, const string& strPath);
 
-    // ²éÑ¯²ÎÊı°æ±¾
+    // æŸ¥è¯¢å‚æ•°ç‰ˆæœ¬
     bool query_prm_version(uint16_t prm_type, char * p_prm_name);
 
-    // ¼ÓÔØËùÓĞ²ÎÊı
+    // åŠ è½½æ‰€æœ‰å‚æ•°
     int load_all_prms();
 
-    // ¼ÓÔØµ¥¸ö²ÎÊı
+    // åŠ è½½å•ä¸ªå‚æ•°
     uint16_t load_prm(const uint16_t prm_type, const char * p_prm_path, bool cmd_reset = false, bool only_check = false);
 
-    // ²éÑ¯Éè±¸¿ØÖÆ²ÎÊı
+    // æŸ¥è¯¢è®¾å¤‡æ§åˆ¶å‚æ•°
     void query_device_ctrl(DEVICE_CTRL& ctrl);
 
-    // ²éÑ¯Õ¾µã
+    // æŸ¥è¯¢ç«™ç‚¹
     uint16_t valid_station(uint16_t station_id);
 
-    // ²éÑ¯¶ÔÓ¦µÄÉè±¸ÊÇ·ñ×¢²á
+    // æŸ¥è¯¢å¯¹åº”çš„è®¾å¤‡æ˜¯å¦æ³¨å†Œ
     int device_registed(uint16_t station_id, uint8_t device_type, uint16_t device_id);
 
-    // ²éÑ¯SAM¿¨¶ÔÕÕ±í
+    // æŸ¥è¯¢SAMå¡å¯¹ç…§è¡¨
     bool device_from_sam(const char * p_sam_id, const uint8_t sam_type, uint8_t * p_bcd_station, uint8_t * p_device_type, uint8_t * p_bcd_device_id);
 
-    // ²éÑ¯SAM¿¨¶ÔÕÕ±í
+    // æŸ¥è¯¢SAMå¡å¯¹ç…§è¡¨
 	bool sam_from_device(const uint8_t * p_bcd_station, const ETPDVC device_type, const uint8_t * p_bcd_device_id, const uint8_t sam_type, char * p_sam_id);
 	bool sam_from_device(const uint16_t station_id, const ETPDVC device_type, const uint16_t device_id, const uint8_t sam_type, char * p_sam_id);
-	// ²éÑ¯SAM¿¨ºÅÊÇ·ñ¶ÔÓ¦µ±Ç°Éè±¸
+	// æŸ¥è¯¢SAMå¡å·æ˜¯å¦å¯¹åº”å½“å‰è®¾å¤‡
 	bool sam_counterpart(uint8_t sam_sock, char * p_sam_id, uint8_t * p_station, uint8_t dev_type, uint8_t * p_dev_id, bool check_sam_match);
 
-    // ²éÑ¯Æ±¿¨²ÎÊı
+    // æŸ¥è¯¢ç¥¨å¡å‚æ•°
     int query_ticket_prm(uint8_t * p_ticket_type, TICKET_PARAM& prm);
 
-    // ²éÑ¯³Ë´ËÆ±²ÎÊı
+    // æŸ¥è¯¢ä¹˜æ­¤ç¥¨å‚æ•°
     int query_tct_prm(uint8_t * p_ticket_type, TCT_PARAM& prm);
 
-    // Éè±¸ÊÇ·ñÖ§³Öµ±Ç°Æ±ÖÖ
+    // è®¾å¤‡æ˜¯å¦æ”¯æŒå½“å‰ç¥¨ç§
     static uint16_t device_support_ticket(ETPDVC target_device_type, char * p_ticket_usable_device);
 
-	// Éè±¸ÊÇ·ñÖ§³Öµ±Ç°Æ±¿¨³äÖµ
+	// è®¾å¤‡æ˜¯å¦æ”¯æŒå½“å‰ç¥¨å¡å……å€¼
 	static uint16_t device_support_charge(ETPDVC target_device_type, char * p_ticket_charge_device);
 
-	// Éè±¸ÊÇ·ñÖ§³Öµ±Ç°Æ±¿¨·¢ÊÛ
+	// è®¾å¤‡æ˜¯å¦æ”¯æŒå½“å‰ç¥¨å¡å‘å”®
 	static uint16_t device_support_sale(ETPDVC target_device_type, char * p_ticket_sell_device);
 
-	// ÊÇ·ñ¿É·¢ÊÛ£¬·¢ÊÛÉè±¸È«²¿Îª0Ê±²»ÔÊĞí·¢ÊÛ
+	// æ˜¯å¦å¯å‘å”®ï¼Œå‘å”®è®¾å¤‡å…¨éƒ¨ä¸º0æ—¶ä¸å…è®¸å‘å”®
 	static bool permit_sale(char * p_ticket_sell_device);
 
-    // ²éÕÒµØÌúºÚÃûµ¥
+    // æŸ¥æ‰¾åœ°é“é»‘åå•
     bool query_black_mtr(char * p_mtr_card_logical_id);
 
-    // ²éÕÒÒ»¿¨Í¨ºÚÃûµ¥
+    // æŸ¥æ‰¾ä¸€å¡é€šé»‘åå•
     bool query_black_oct(char * p_oct_card_logical_id);
 
-    // ÊÇ·ñ³öÕ¾³¬Ê±
+    // æ˜¯å¦å‡ºç«™è¶…æ—¶
     bool exit_timeout(uint16_t entry_station, uint8_t *  p_time_entry, uint8_t *  p_time_exit, long * p_penalty = NULL);
 
-    // ²éÑ¯Æ±¼Û,lTradeÎª½»Ò×µÄÊµ¼Ê½ğ¶î£¬lFareÎªÔ­Æ±¼Û£¨µ¥³ÌÆ±Æ±¼Û£©
+    // æŸ¥è¯¢ç¥¨ä»·,lTradeä¸ºäº¤æ˜“çš„å®é™…é‡‘é¢ï¼ŒlFareä¸ºåŸç¥¨ä»·ï¼ˆå•ç¨‹ç¥¨ç¥¨ä»·ï¼‰
     uint16_t query_fare(uint8_t * p_time_now, uint8_t * p_ticket_type,
                    uint16_t entry_station, uint8_t * p_time_entry, long * p_fare_actual, long * p_fare_init = NULL/**/);
 
-    // ²é×îµÍÆ±¼Û
+    // æŸ¥æœ€ä½ç¥¨ä»·
     int query_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type, long& fare_lowest_actual, long * p_fare_lowest_init = NULL);
 
-	// ²é´Å¸¡×îµÍÆ±¼Û
+	// æŸ¥ç£æµ®æœ€ä½ç¥¨ä»·
     int query_cf_lowest_fare(uint8_t * p_time_now, uint8_t * p_ticket_type, uint16_t entry_station,long& fare_lowest_actual, long * p_fare_lowest_init = NULL);
 
-	//²éÑ¯ÏßÂ·×îµÍÆ±¼Û
+	//æŸ¥è¯¢çº¿è·¯æœ€ä½ç¥¨ä»·
 	int query_line_lowest_fare(uint8_t * p_time_now, uint16_t entry_station,uint8_t * p_ticket_type, long& fare_lowest_actual, long * p_fare_lowest_ini);
 
-	//²éÑ¯µ½±¾Õ¾×î¸ßÆ±¼Û
+	//æŸ¥è¯¢åˆ°æœ¬ç«™æœ€é«˜ç¥¨ä»·
 	int query_highest_fare(uint8_t * p_time_now, /*uint8_t * p_ticket_type, long& fare_lowest_actual, */long * p_fare_lowest_init = NULL);
 
-	// ¸ù¾İÆ±¼Û²éÕÒÊÕ·ÑÇø¶Î
+	// æ ¹æ®ç¥¨ä»·æŸ¥æ‰¾æ”¶è´¹åŒºæ®µ
 	uint16_t fare_zone_by_sjt_fare(uint8_t * p_ticket_type, long fare, uint8_t& fare_zone);
 
-    // ÊÇ·ñÏàÍ¬³µÕ¾
+    // æ˜¯å¦ç›¸åŒè½¦ç«™
     bool same_station(uint16_t station_id0, uint16_t station_id1);
 
-    // ¼ì²é²ÎÊıºÏ·¨ĞÔ
+    // æ£€æŸ¥å‚æ•°åˆæ³•æ€§
     uint16_t valid_prm(const char * p_prm_pathname);
 
-    // ¸ü¸Ä½µ¼¶Ä£Ê½£¬ÓÃÓÚ½ÓÊÕ½µ¼¶ÏûÏ¢
+    // æ›´æ”¹é™çº§æ¨¡å¼ï¼Œç”¨äºæ¥æ”¶é™çº§æ¶ˆæ¯
 	void modify_degrade(uint8_t type, uint8_t * p_time, uint8_t * p_station, uint8_t flag);
 
-    // ²éÑ¯µ±Ç°½µ¼¶Ä£Ê½
+    // æŸ¥è¯¢å½“å‰é™çº§æ¨¡å¼
     void query_degrade_mode(MODE_EFFECT_FLAGS& mdEffect);
 
-	// ½µ¼¶Ä£Ê½ÀúÊ·¼ÇÂ¼ÊÇ·ñ¶Ôµ±Ç°Æ±¿¨ÓĞÓ°Ïì
-	// prepared_period£ºÊÇ·ñÓĞÔ¤ÉúĞ§ÆÚ£¬ p_time_now£ºÏÖÔÚÊ±¼ä£¬p_time_last£ºÉÏ´Î¶ÔÓ¦µÄ²Ù×÷Ê±¼ä£¬station_last£ºÉÏ´Î¶ÔÓ¦µÄ²Ù×÷Õ¾µã
+	// é™çº§æ¨¡å¼å†å²è®°å½•æ˜¯å¦å¯¹å½“å‰ç¥¨å¡æœ‰å½±å“
+	// prepared_periodï¼šæ˜¯å¦æœ‰é¢„ç”Ÿæ•ˆæœŸï¼Œ p_time_nowï¼šç°åœ¨æ—¶é—´ï¼Œp_time_lastï¼šä¸Šæ¬¡å¯¹åº”çš„æ“ä½œæ—¶é—´ï¼Œstation_lastï¼šä¸Šæ¬¡å¯¹åº”çš„æ“ä½œç«™ç‚¹
 	bool tk_in_mode(DGTYPE mode, bool prepared_period, uint8_t * p_time_now, uint8_t * p_time_last, uint16_t station_last);
 
-    // ESµÄµ¥³ÌÆ±Æ±¿¨ÊÇ·ñÊÜÖ¸¶¨Ä£Ê½Ãô¸ĞÆÚµÄÓ°Ïì(ESµÄÓĞĞ§ÆÚÔÚÄ£Ê½¿ªÊ¼»ò¿ªÊ¼Ö®ºó)
+    // ESçš„å•ç¨‹ç¥¨ç¥¨å¡æ˜¯å¦å—æŒ‡å®šæ¨¡å¼æ•æ„ŸæœŸçš„å½±å“(ESçš„æœ‰æ•ˆæœŸåœ¨æ¨¡å¼å¼€å§‹æˆ–å¼€å§‹ä¹‹å)
     bool EsEffectByAppointedMode(DGTYPE dgAppointed, uint8_t * pCurTime, uint8_t * pLExpireE, uint16_t UseStation = 0);
 
-    // ²éÑ¯Õ¢»úÍ¨µÀ²ÎÊı
+    // æŸ¥è¯¢é—¸æœºé€šé“å‚æ•°
     uint16_t passageway_allow_pass(uint8_t * p_ticket_type, uint8_t cur_door_type);
 
-    // ²éÕÒĞĞÕş·£½ğ²ÎÊı
+    // æŸ¥æ‰¾è¡Œæ”¿ç½šé‡‘å‚æ•°
     int query_policy_penalty(uint8_t * p_ticket_type, int policy_code, short& penalty);
 
     uint16_t config_param(char * p_name_prm);
 
     uint16_t get_prm_info(uint16_t prm_type, char * p_prm_name);
 
-	// É¾³ıÅäÖÃÎÄ¼şÖ®ÍâµÄ²ÎÊı
+	// åˆ é™¤é…ç½®æ–‡ä»¶ä¹‹å¤–çš„å‚æ•°
 	void delete_prm_outof_config();
 
-	// Éè±¸ÊÇ·ñÍê³É³õÊ¼»¯£¬¼´¼ÓÔØ²ÎÊı£¨¶ÁĞ´Æ÷Òì³£ÖØÆôºó£¬Éè±¸³ÌĞòÎŞ·¨ÖªÏş£¬µ¼ÖÂÃ»ÓĞµ÷ÓÃÉè±¸³õÊ¼»¯£©
+	// è®¾å¤‡æ˜¯å¦å®Œæˆåˆå§‹åŒ–ï¼Œå³åŠ è½½å‚æ•°ï¼ˆè¯»å†™å™¨å¼‚å¸¸é‡å¯åï¼Œè®¾å¤‡ç¨‹åºæ— æ³•çŸ¥æ™“ï¼Œå¯¼è‡´æ²¡æœ‰è°ƒç”¨è®¾å¤‡åˆå§‹åŒ–ï¼‰
 	void device_initialize();
 	uint16_t device_initialized();
 
-	// ²éÕÒÀë±¾Õ¾×î½üµÄ·¢Éú½ø³ö´ÎĞòÃâ¼ìµÄ³µÕ¾
+	// æŸ¥æ‰¾ç¦»æœ¬ç«™æœ€è¿‘çš„å‘ç”Ÿè¿›å‡ºæ¬¡åºå…æ£€çš„è½¦ç«™
 	uint16_t nearest_uncheckorder_station();
 
 private:
     static PRM_FUNC_LIST m_prm_for_reader[];
 
-    // ²ÎÊıÀàĞÍºÍÎÄ¼şÂ·¾¶ĞÅÏ¢
+    // å‚æ•°ç±»å‹å’Œæ–‡ä»¶è·¯å¾„ä¿¡æ¯
     map<uint16_t, string>	m_prm_config;
 
-    // ³µÕ¾²ÎÊı
+    // è½¦ç«™å‚æ•°
     vector<STATION_CONFIG> m_prm_station_config;
 
-    // Éè±¸¿ØÖÆ²ÎÊı
+    // è®¾å¤‡æ§åˆ¶å‚æ•°
     DEVICE_CTRL m_prm_device_ctrl;
 
-    // sam¿¨¶ÔÕÕ±í
+    // samå¡å¯¹ç…§è¡¨
     SAM_COMPARE_TABLE m_prm_sam_compare;
 
-    // »»³Ë³µÕ¾±í
+    // æ¢ä¹˜è½¦ç«™è¡¨
     vector< std::pair<uint16_t, uint16_t> > m_prm_changing_station;
 
-    // Æ±¿¨²ÎÊı
+    // ç¥¨å¡å‚æ•°
     vector<TICKET_PARAM> m_prm_ticket;
 
-    // Æ±¼Û±í
+    // ç¥¨ä»·è¡¨
     FARE_PARAM m_prm_fare;
 
-    // ½µ¼¶Ä£Ê½
+    // é™çº§æ¨¡å¼
     vector<DEGRADE_MODE> m_prm_degrade;
 
-    // ³Ë´ÎÆ±×¨ÓÃ²ÎÊı
+    // ä¹˜æ¬¡ç¥¨ä¸“ç”¨å‚æ•°
     vector<TCT_PARAM> m_prm_tct;
 
-    // ×¨ÓÃÍ¨µÀ²ÎÊı
+    // ä¸“ç”¨é€šé“å‚æ•°
     map<uint16_t, bool> m_prm_passageway;
 
-    // Ò»¿¨Í¨ºÚÃûµ¥
+    // ä¸€å¡é€šé»‘åå•
     BLACK_PARAM m_prm_oct_black;
 
-    // µØÌúºÚÃûµ¥
+    // åœ°é“é»‘åå•
     BLACK_PARAM m_prm_mtr_black;
 
-    // ĞĞÕş·£½ğ²ÎÊı
+    // è¡Œæ”¿ç½šé‡‘å‚æ•°
     vector<POLICY_PENALTY> m_prm_policy_penaty;
 
 	bool device_init_flag;
 
 protected:
 
-    // ¼ì²é²ÎÊıÅäÖÃÖĞµÄ²ÎÊıÊÇ·ñ×ã¹»
+    // æ£€æŸ¥å‚æ•°é…ç½®ä¸­çš„å‚æ•°æ˜¯å¦è¶³å¤Ÿ
     bool prm_config_unison();
 
-    // ²ÎÊı¶ÎÊ×ÊÇ·ñÆ¥Åä
+    // å‚æ•°æ®µé¦–æ˜¯å¦åŒ¹é…
     bool prm_section_match(char * p_prm_section_header, uint16_t section_type);
 
-    // Éè±¸¿ØÖÆ²ÎÊı
+    // è®¾å¤‡æ§åˆ¶å‚æ•°
     int load_device_control(const char * p_prm_path, bool only_check = false);
     void unload_device_control();
 
-    // ³µÕ¾ÅäÖÃ±í
+    // è½¦ç«™é…ç½®è¡¨
     int load_station_config(const char * p_prm_path, bool only_check = false);
     void unload_station_config();
 
-    // SAM¿¨¶ÔÕÕ±í
+    // SAMå¡å¯¹ç…§è¡¨
     int load_sam_compare(const char * p_prm_path, bool only_check = false);
     void unload_sam_compare();
 
-    // »»³Ë³µÕ¾±í
+    // æ¢ä¹˜è½¦ç«™è¡¨
     int load_change_station(const char * p_prm_path, bool only_check = false);
     void unload_change_station();
 
-    // Æ±¿¨²ÎÊı
+    // ç¥¨å¡å‚æ•°
     int load_ticket_prm(const char * p_prm_path, bool only_check = false);
     void unload_ticket_prm();
 
-    // Æ±¼Û²ÎÊı
+    // ç¥¨ä»·å‚æ•°
     int load_fare_prm(const char * p_prm_path, bool only_check = false);
     void unload_fare_prm();
 
-    // ½µ¼¶Ä£Ê½²ÎÊı
+    // é™çº§æ¨¡å¼å‚æ•°
     int load_degrade_mode(const char * p_prm_path, bool only_check = false);
     void unload_degrade_mode();
 
-    // ³Ë´ËÆ±×¨ÓÃ²ÎÊı
+    // ä¹˜æ­¤ç¥¨ä¸“ç”¨å‚æ•°
     int load_tct_config(const char * p_prm_path, bool only_check = false);
     void unload_tct_config();
 
-    // ÔØÈë×¨ÓÃÍ¨µÀ²ÎÊı
+    // è½½å…¥ä¸“ç”¨é€šé“å‚æ•°
     int load_special_passageway(const char * p_prm_path, bool only_check = false);
     void unload_special_passageway();
 
-    // µØÌúºÚÃûµ¥²ÎÊı
+    // åœ°é“é»‘åå•å‚æ•°
     int load_mtr_single_black(const char * p_prm_path, bool only_check = false);
     void unload_mtr_single_black();
     int load_mtr_section_balck(const char * p_prm_path, bool only_check = false);
     void unload_mtr_section_balck();
 
-    // ÔØÈëOCTºÚÃûµ¥µ¥ºÅ²ÎÊı
+    // è½½å…¥OCTé»‘åå•å•å·å‚æ•°
     int load_oct_single_black(const char * p_prm_path, bool only_check = false);
     void unload_oct_single_black();
     int load_oct_section_balck(const char * p_prm_path, bool only_check = false);
     void unload_oct_section_balck();
 
 
-    // ÔØÈëĞĞÕş·£½ğ²ÎÊı
+    // è½½å…¥è¡Œæ”¿ç½šé‡‘å‚æ•°
     int load_policy_penalty(const char * p_prm_path, bool only_check = false);
     void unload_policy_penalty();
 
-	// ÔØÈë¶ÁĞ´Æ÷Ó¦ÓÃ²ÎÊı
+	// è½½å…¥è¯»å†™å™¨åº”ç”¨å‚æ•°
 	int load_reader_app(const char * p_prm_path, bool only_check = false);
 
-    // ¶ş·Ö·¨²éÕÒÒ»Î¬×Ö·ûÊı×é
+    // äºŒåˆ†æ³•æŸ¥æ‰¾ä¸€ç»´å­—ç¬¦æ•°ç»„
     char * method_of_bisection(char * p_target_str, int len_to_cmp, char * p_array_1d, int foruint16_t_step, int record_count);
 
-	// ¶ş·Ö·¨²éÕÒ¶şÎ¬×Ö·ûÊı×é
+	// äºŒåˆ†æ³•æŸ¥æ‰¾äºŒç»´å­—ç¬¦æ•°ç»„
 	bool method_of_bisection(char * p_target_str, int len_to_cmp, char ** p_array_2d, int size_1d);
 
-	// ¶ş·Ö·¨²éÕÒ¶şÎ¬×Ö·ûÊı×é
+	// äºŒåˆ†æ³•æŸ¥æ‰¾äºŒç»´å­—ç¬¦æ•°ç»„
 	bool method_of_bisection(char * p_target_str, int len_to_cmp, int len_record, char ** p_array_2d, int record_count, char ** pp_find);
 
-    // Æ±¼Û²éÕÒÏà¹Ø
+    // ç¥¨ä»·æŸ¥æ‰¾ç›¸å…³
     uint16_t query_fare_zone(uint16_t entry_station_id, uint8_t& fare_zone);
 	uint16_t query_min_fare_zone(uint16_t entry_station_id, uint8_t& fare_zone);
 	uint16_t query_max_fare_zone(uint16_t entry_station_id,uint8_t& fare_zone);
@@ -272,7 +272,7 @@ protected:
     uint8_t query_time_code(uint8_t * p_time_now, uint16_t ticket_type, uint8_t * p_time_entry);
     uint16_t query_fare_config(uint8_t * p_time_now, uint16_t ticket_type, uint8_t time_code, uint16_t& fare_table_id);
     uint16_t query_fare(uint8_t * p_time_now, uint8_t fare_zone, uint16_t fare_table_id, long * p_fare);
-	// ²éÕÒ½øÕ¾Õ¾µãµ½±¾Õ¾µÄ³öÕ¾³¬Ê±Ê±¼ä
+	// æŸ¥æ‰¾è¿›ç«™ç«™ç‚¹åˆ°æœ¬ç«™çš„å‡ºç«™è¶…æ—¶æ—¶é—´
 	uint16_t query_overtime_min(uint16_t entry_station, uint16_t& timeout_in_minutes);
 };
 

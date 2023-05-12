@@ -11,51 +11,51 @@ class Publics
 public:
     Publics(void);
 
-    // ascll×Ö·û×ª»»ÎªHEX×Ö½Ú£¬Èç'1'->0x01, 'a'->0x0a, 'A'->0x0a
+    // ascllå­—ç¬¦è½¬æ¢ä¸ºHEXå­—èŠ‚ï¼Œå¦‚'1'->0x01, 'a'->0x0a, 'A'->0x0a
     static uint8_t char_to_half_hex(char ch);
 
-    // ½«2×Ö½Úchar×ª»»ÎªÒ»¸öuint8_tµÄHEX
+    // å°†2å­—èŠ‚charè½¬æ¢ä¸ºä¸€ä¸ªuint8_tçš„HEX
     static uint8_t two_char_to_hex(char * p_two_char);
 
-    // °ë×Ö½ÚHex×ª1×Ö½Úascll
+    // åŠå­—èŠ‚Hexè½¬1å­—èŠ‚ascll
     static char half_hex_to_char(uint8_t half_hex);
 
-    // 1×Ö½ÚHex×ª2×Ö½Úascll
+    // 1å­—èŠ‚Hexè½¬2å­—èŠ‚ascll
     static void hex_to_two_char(uint8_t byte_hex, char * p_two_char);
 
-	// ×Ö·û´®ÊÇ·ñÊÇ¿ÉÔ¤¼ûµÄ×Ö·û´®
+	// å­—ç¬¦ä¸²æ˜¯å¦æ˜¯å¯é¢„è§çš„å­—ç¬¦ä¸²
 	enum STRING_TYPE{FREE_SEQ, NUMERIC_SEQ, HEX_SEQ};
 	static bool string_is_expected(char * p_string, int len_string, STRING_TYPE type, char expective_1 = 0, char expective_2 = 0);
 
-    // ×Ö·û´®×ª»»ÎªHEXĞòÁĞ£¬Èç"123456789A"->"\x12\x34\x56\x78\x9A"
+    // å­—ç¬¦ä¸²è½¬æ¢ä¸ºHEXåºåˆ—ï¼Œå¦‚"123456789A"->"\x12\x34\x56\x78\x9A"
     static void string_to_hexs(char * p_string, size_t len_string, uint8_t * p_hexs, size_t size_hexs);
     static void string_to_bcds(char * p_string, size_t len_string, uint8_t * p_bcds, size_t size_bcds);
 
-    // HEX´®×ª»»Îª×Ö·û´®
+    // HEXä¸²è½¬æ¢ä¸ºå­—ç¬¦ä¸²
     static void hexs_to_string(uint8_t * p_hexs, size_t len_hexs, char * p_string, size_t size_string);
     static void bcds_to_string(uint8_t * p_bcds, size_t len_bcds, char * p_string, size_t size_string);
 
-    // ÅĞ¶ÏÒ»¸öuint8_tÖµÊÇ·ñBCDĞÎÊ½£¬¼´hexĞÎÊ½ÖĞÊÇ·ñÓĞa£¬b£¬c£¬d£¬e£¬f
+    // åˆ¤æ–­ä¸€ä¸ªuint8_tå€¼æ˜¯å¦BCDå½¢å¼ï¼Œå³hexå½¢å¼ä¸­æ˜¯å¦æœ‰aï¼Œbï¼Œcï¼Œdï¼Œeï¼Œf
     static bool byte_bcd_valid(uint8_t bcd_byte);
 
-    // °ÑÄÚ´æµ¹Ğò
+    // æŠŠå†…å­˜å€’åº
     static int memory_reverse_order(char * p_memory, int len_memory, int len_reverse_unit);
 
-    // Ìæ»»×Ö·û´®ÖĞµÄÖ¸¶¨×Ö·û£¬²¢¿½±´µ½Ä¿±ê×Ö·û´®
+    // æ›¿æ¢å­—ç¬¦ä¸²ä¸­çš„æŒ‡å®šå­—ç¬¦ï¼Œå¹¶æ‹·è´åˆ°ç›®æ ‡å­—ç¬¦ä¸²
     static void truncat_char(char * p_src_string, size_t len_src, char ch_need_truncat, char ch_truncat_to, char * p_target_string);
 
-	// É¾³ı×Ö·û´®×ó±ßµÄÁ¬ĞøµÄÖ¸¶¨×Ö·û
+	// åˆ é™¤å­—ç¬¦ä¸²å·¦è¾¹çš„è¿ç»­çš„æŒ‡å®šå­—ç¬¦
 	// static char * trim_left(char * p_src, char c_to_trim);
 
-	// É¾³ı×Ö·û´®ÓÒ±ßµÄÁ¬ĞøµÄÖ¸¶¨×Ö·û
+	// åˆ é™¤å­—ç¬¦ä¸²å³è¾¹çš„è¿ç»­çš„æŒ‡å®šå­—ç¬¦
 	// static char * trim_right(char * p_src, char c_to_trim);
 
     static bool char_to_bool(char ch);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    // º¯ÊıÄ£°å
+    // å‡½æ•°æ¨¡æ¿
 
-	// Êı×éÖĞÖ¸¶¨³¤¶ÈÄÚÊÇ·ñ¶¼ÊÇÒ»¸öÊıÖµ
+	// æ•°ç»„ä¸­æŒ‡å®šé•¿åº¦å†…æ˜¯å¦éƒ½æ˜¯ä¸€ä¸ªæ•°å€¼
 	template <class T>
 	static bool every_equal(T tag_val, T * src_buffer, int len)
 	{
@@ -68,7 +68,7 @@ public:
 		return true;
 	};
 
-    // ÀÛ¼ÓºÍ£¬Òç³öµÄ²¿·Ö¶ªµô
+    // ç´¯åŠ å’Œï¼Œæº¢å‡ºçš„éƒ¨åˆ†ä¸¢æ‰
     template <class T>
     static T add_sum(T * p_data, int len_in_T)
     {
@@ -80,7 +80,7 @@ public:
         return sum;
     };
 
-    // Òì»òºÍ
+    // å¼‚æˆ–å’Œ
     template <class T>
     static T xor_sum(T * p_data, int len_in_T)
     {
@@ -92,7 +92,7 @@ public:
         return sum;
     };
 
-    // ×Ö·û´®×ª»»ÎªHexÊıÖµ£¬Èç"789A"->"\x789A"£¬T1×î´óÎª±àÒëÆ÷×î³¤µÄÄÚÖÃÀàĞÍ³¤¶È
+    // å­—ç¬¦ä¸²è½¬æ¢ä¸ºHexæ•°å€¼ï¼Œå¦‚"789A"->"\x789A"ï¼ŒT1æœ€å¤§ä¸ºç¼–è¯‘å™¨æœ€é•¿çš„å†…ç½®ç±»å‹é•¿åº¦
     template <class T>
     static T string_to_hex(char * p_string, int len_string)
     {
@@ -110,7 +110,7 @@ public:
         return string_to_hex<T>(p_string, len_string);
     };
 
-    // ×Ö·û´®×ª»»ÎªÊ®½øÖÆÊıÖµ£¬Èç"7890"->7890£¬T1×î´óÎª±àÒëÆ÷×î³¤µÄÄÚÖÃÀàĞÍ³¤¶È
+    // å­—ç¬¦ä¸²è½¬æ¢ä¸ºåè¿›åˆ¶æ•°å€¼ï¼Œå¦‚"7890"->7890ï¼ŒT1æœ€å¤§ä¸ºç¼–è¯‘å™¨æœ€é•¿çš„å†…ç½®ç±»å‹é•¿åº¦
     template <class T>
     static T string_to_val(char * p_string, int len_string)
     {
@@ -123,8 +123,8 @@ public:
         return val;
     };
 
-    // ½«¶à¸öhex×Ö½Ú×é³ÉÒ»¸öÊıÖµ£¬ÕûÖµµÄ³¤¶ÈÎª±àÒëÆ÷ÄÚÖÃµÄ×î´ó³¤¶È,ÀàËÆVCµÄMAKEuint16_t£¬MAKEuint32_t
-    // bOrder=true\false±íÊ¾×ª»»ºó¸ß×Ö½ÚÔÚÇ°\ÔÚºó
+    // å°†å¤šä¸ªhexå­—èŠ‚ç»„æˆä¸€ä¸ªæ•°å€¼ï¼Œæ•´å€¼çš„é•¿åº¦ä¸ºç¼–è¯‘å™¨å†…ç½®çš„æœ€å¤§é•¿åº¦,ç±»ä¼¼VCçš„MAKEuint16_tï¼ŒMAKEuint32_t
+    // bOrder=true\falseè¡¨ç¤ºè½¬æ¢åé«˜å­—èŠ‚åœ¨å‰\åœ¨å
     template <class T>
     static void make_val(uint8_t * p_hexs, size_t len_hexs, T& var, bool low_byte_front)
     {
@@ -148,7 +148,7 @@ public:
         }
     }
 
-    // ½«ÊıÖµ×ª»»ÎªBCDĞòÁĞ£¬Èç101->"\x01\x01"
+    // å°†æ•°å€¼è½¬æ¢ä¸ºBCDåºåˆ—ï¼Œå¦‚101->"\x01\x01"
     template <class T>
     static void val_to_bcds(T val, uint8_t * p_bcds, int size_bcds)
     {
@@ -167,7 +167,7 @@ public:
         while(pos_bcd >= 0 && val != 0);
     }
 
-    // ½«ÊıÖµ×ª»»ÎªBCDÊıÖµ£¬Èç101->"\x0101"
+    // å°†æ•°å€¼è½¬æ¢ä¸ºBCDæ•°å€¼ï¼Œå¦‚101->"\x0101"
     template <class T>
     static T val_to_bcd(T val)
     {
@@ -189,7 +189,7 @@ public:
         return ret;
     }
 
-    // ½«BCD×ª»»ÎªÊıÖµ£¬Èç"\x0101"->101
+    // å°†BCDè½¬æ¢ä¸ºæ•°å€¼ï¼Œå¦‚"\x0101"->101
     template <class T>
     static T bcd_to_val(T bcd)
     {
@@ -228,7 +228,7 @@ public:
         return hexs_to_val<T>(p_bcd, len_bcd);
     }
 
-    // È¡Ò»¸öÊıµÄÁ¬ĞøÎ»£¬²¢ÏòÓÒ¶ÔÆë
+    // å–ä¸€ä¸ªæ•°çš„è¿ç»­ä½ï¼Œå¹¶å‘å³å¯¹é½
     template<class T>
     static T bits_get_align_right(T src_val, int start_bit, int end_bit)
     {
@@ -247,7 +247,7 @@ public:
         return src_val;
     }
 
-    // È¡Ò»¸öÕûĞÍÖµ£¨±àÒëÆ÷Ö§³ÖµÄ×î³¤ÀàĞÍ£©Ò»¸öbyte
+    // å–ä¸€ä¸ªæ•´å‹å€¼ï¼ˆç¼–è¯‘å™¨æ”¯æŒçš„æœ€é•¿ç±»å‹ï¼‰ä¸€ä¸ªbyte
     template<class T>
     static uint8_t byte_get(T src_val, int byte_pos)
     {

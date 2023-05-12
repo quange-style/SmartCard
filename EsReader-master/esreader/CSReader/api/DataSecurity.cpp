@@ -53,7 +53,7 @@ uint16_t DataSecurity::Crc16(uint8_t * lpData, uint16_t nLen)
 	return (uint16_t)(wCrc^0xFFFF);
 }
 
-// ³õÊ¼»¯CRC32±í
+// åˆå§‹åŒ–CRC32è¡¨
 static uint32_t g_CrcTable[256] =
 {
     0x00000000L, 0x77073096L, 0xee0e612cL, 0x990951baL, 0x076dc419L,
@@ -110,7 +110,7 @@ static uint32_t g_CrcTable[256] =
     0x2d02ef8dL
 };
 
-// ¼ÆËãCRC32
+// è®¡ç®—CRC32
 uint32_t DataSecurity::Crc32(uint8_t * pSrcData, uint32_t nLenData)
 {
     uint32_t dwRet = 0xFFFFFFFF;
@@ -122,7 +122,7 @@ uint32_t DataSecurity::Crc32(uint8_t * pSrcData, uint32_t nLenData)
     return ~dwRet ;
 }
 
-// ¼ÆËãCRC32£¬Ö÷ÒªÓÃÓÚĞ£ÑéÎÄ¼ş
+// è®¡ç®—CRC32ï¼Œä¸»è¦ç”¨äºæ ¡éªŒæ–‡ä»¶
 uint32_t DataSecurity::Crc32Reverse(uint32_t dwInitCrc, uint8_t * pSrcData, uint32_t nLenData)
 {
     for (uint32_t i=0; i<nLenData; i++)
@@ -132,21 +132,21 @@ uint32_t DataSecurity::Crc32Reverse(uint32_t dwInitCrc, uint8_t * pSrcData, uint
     return dwInitCrc ;
 }
 
-// Ğ£ÑéCRC32
+// æ ¡éªŒCRC32
 bool DataSecurity::CheckCrc32(uint8_t * pSrcData, uint32_t nLenData, uint8_t * pCrcTarg)
 {
     uint32_t dwCrc = Crc32(pSrcData, nLenData);
     return (memcmp(&dwCrc, pCrcTarg, 4) == 0);
 }
 
-// Ğ£ÑéCRC32
+// æ ¡éªŒCRC32
 bool DataSecurity::CheckCrc16(uint8_t * pSrcData, uint16_t nLenData, uint8_t * pCrcTarg)
 {
 	uint32_t dwCrc = Crc16(pSrcData, nLenData);
 	return (memcmp(&dwCrc, pCrcTarg, 2) == 0);
 }
 
-// ¼ÆËãÕû¸öÎÄ¼şÄÚÈİµÄCRC32Ğ£Ñé
+// è®¡ç®—æ•´ä¸ªæ–‡ä»¶å†…å®¹çš„CRC32æ ¡éªŒ
 uint32_t DataSecurity::crc32_of_file(char * p_path_file)
 {
 #define READ_SIZE	4096
@@ -189,7 +189,7 @@ uint32_t DataSecurity::crc32_of_file(char * p_path_file)
     return dwCrcCal;
 }
 
-// ÎÄ¼şÄ©Î²
+// æ–‡ä»¶æœ«å°¾
 bool DataSecurity::crc32_in_file_end_valid(const char * p_path_file)
 {
 #define READ_SIZE	4096
@@ -247,9 +247,9 @@ bool DataSecurity::crc32_in_file_end_valid(const char * p_path_file)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// 3DESËã·¨Ïà¹Øº¯Êı
+// 3DESç®—æ³•ç›¸å…³å‡½æ•°
 
-// 64bitÊı¾İµ½64byteÊı¾İ
+// 64bitæ•°æ®åˆ°64byteæ•°æ®
 void DataSecurity::_64_Bit2Bytes(uint8_t * pBits64, uint8_t * pByte64)
 {
     int i, j, k;
@@ -264,7 +264,7 @@ void DataSecurity::_64_Bit2Bytes(uint8_t * pBits64, uint8_t * pByte64)
     }
 }
 
-// Êı¾İ·ÖÉ¢±ä»¯£¬²»±£ÁôÔ­Ê¼Êı¾İ
+// æ•°æ®åˆ†æ•£å˜åŒ–ï¼Œä¸ä¿ç•™åŸå§‹æ•°æ®
 void DataSecurity::_Disperse(uint8_t * pBuffer, const uint8_t pRule[], int nLen)
 {
     uint8_t pTemp[64] = {0};
@@ -277,7 +277,7 @@ void DataSecurity::_Disperse(uint8_t * pBuffer, const uint8_t pRule[], int nLen)
     }
 }
 
-// Êı¾İ·ÖÉ¢±ä»¯£¬±£ÁôÔ­Ê¼Êı¾İ
+// æ•°æ®åˆ†æ•£å˜åŒ–ï¼Œä¿ç•™åŸå§‹æ•°æ®
 void DataSecurity::_Disperse(uint8_t * pTarg, uint8_t * pSrc, const uint8_t pRule[], int nLen)
 {
     for (int i=0; i<nLen; i++)
@@ -286,7 +286,7 @@ void DataSecurity::_Disperse(uint8_t * pTarg, uint8_t * pSrc, const uint8_t pRul
     }
 }
 
-/* Table - s1¡«s8 */
+/* Table - s1ï½s8 */
 const uint8_t STable[8][64] =
 {
     {14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7, 0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8,
@@ -324,36 +324,36 @@ const uint8_t binary[64] =
     0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1,	0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1,
     1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1,	1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1
 };
-// Êı¾İ³õÊ¼±ä»»±í
+// æ•°æ®åˆå§‹å˜æ¢è¡¨
 static const uint8_t RuleD_Init[64] =
 {
     57, 49,41,33,25,17, 9, 1,59,51,43,35,27,19,11, 3,61,53,45,37,29,21,13, 5,63,55,47,39,31,23,15,7,
     56,48,40,32,24,16, 8, 0,58,50,42,34,26,18,10, 2,60,52,44,36,28,20,12, 4,62,54,46,38,30,22,14, 6
 };
-// ÃÜÔ¿³õÊ¼±ä»»±í
+// å¯†é’¥åˆå§‹å˜æ¢è¡¨
 static const uint8_t RuleK_Init[56] =
 {
     56,48,40,32,24,16, 8, 0,57,49,41,33,25,17, 9, 1,58,50,42,34,26,18,10, 2,59,51,43,35,62,54,46,38,
     30,22,14, 6,61,53,45,37,29,21,13, 5,60,52,44,36,28,20,12, 4,27,19,11, 3
 };
-// EµÄnÂÖÖÃ»»±í
+// Eçš„nè½®ç½®æ¢è¡¨
 static const uint8_t RuleE_n[48] =
 {
     31, 0, 1, 2, 3, 4, 3, 4, 5, 6, 7, 8, 7, 8, 9,10,11,12,11,12,13,14,15,16,
     15,16,17,18,19,20,19,20,21,22,23,24,23,24,25,26,27,28,27,28,29,30,31, 0
 };
-// keyµÄPC2ÖÃ»»±í
+// keyçš„PC2ç½®æ¢è¡¨
 static const uint8_t RuleE_pc2[48] =
 {
     13,16,10,23, 0, 4, 2,27,14, 5,20, 9,22,18,11, 3,25, 7,15, 6,26,19,12, 1,
     40,51,30,36,46,54,29,39,50,44,32,47,43,48,38,55,33,52,45,41,49,35,28,31
 };
-// keyµÄPÖÃ»»±í
+// keyçš„Pç½®æ¢è¡¨
 static const uint8_t RuleE_p[32] =
 {
     15, 6,19,20,28,11,27,16, 0,14,22,25, 4,17,30, 9, 1, 7,23,13,31,26, 2, 8,18,12,29, 5,21,10, 3,24
 };
-// Êı¾İ×îºóÄæ±ä»»±í
+// æ•°æ®æœ€åé€†å˜æ¢è¡¨
 static const uint8_t RuleD_Rv[64] =
 {
     39, 7,47,15,55,23,63,31,38, 6,46,14,54,22,62,30,37, 5,45,13,53,21,61,29,36, 4,44,12,52,20,60,28,
@@ -373,15 +373,15 @@ void DataSecurity::_TripleDes(uint8_t * pDataSrc, uint8_t * pInitKey, bool flag)
     int valindex;
     uint8_t i, j, k, iter;
 
-    // Êı¾İºÍÃÜÔ¿¶¼ÓÉ64bit×ª»»Îª64byte
+    // æ•°æ®å’Œå¯†é’¥éƒ½ç”±64bitè½¬æ¢ä¸º64byte
     _64_Bit2Bytes(pDataSrc, Data_Ext);
     _64_Bit2Bytes(pInitKey, Key_Ext);
 
-    // Êı¾İºÍÃÜÔ¿½øĞĞ³õÊ¼ÖÃ»»
+    // æ•°æ®å’Œå¯†é’¥è¿›è¡Œåˆå§‹ç½®æ¢
     _Disperse(Data_Temp, Data_Ext, RuleD_Init, sizeof(RuleD_Init));
     _Disperse(Key_Work, Key_Ext, RuleK_Init, sizeof(RuleK_Init));
 
-    // 16ÂÖÖÃ»»
+    // 16è½®ç½®æ¢
     for (iter=0; iter<16; iter++)
     {
         memcpy(Data_Ext, Data_Temp + 32, 32);
@@ -456,7 +456,7 @@ void DataSecurity::_TripleDes(uint8_t * pDataSrc, uint8_t * pInitKey, bool flag)
     } /* End of Iter */
 
     /* Prepare Output */
-    // Ç°32byteÓëºó32×Ö½Ú½»»»
+    // å‰32byteä¸å32å­—èŠ‚äº¤æ¢
     memcpy(bTemp, Data_Temp, 32);
     memcpy(Data_Temp, Data_Temp + 32, 32);
     memcpy(Data_Temp + 32, bTemp, 32);
@@ -476,25 +476,25 @@ void DataSecurity::_TripleDes(uint8_t * pDataSrc, uint8_t * pInitKey, bool flag)
     }
 }
 
-// ¶Ô³¤¶ÈÊÇ8±¶ÊıµÄÊı¾İ½øĞĞ¶à´Î3DES
+// å¯¹é•¿åº¦æ˜¯8å€æ•°çš„æ•°æ®è¿›è¡Œå¤šæ¬¡3DES
 void DataSecurity::_TripleDesEx(uint8_t * pData, int nLenData, uint8_t * pKey, uint8_t * pFactor, uint8_t * pMac)
 {
-    int i,j;									// ÁÙÊ±±äÁ¿
+    int i,j;									// ä¸´æ—¶å˜é‡
     uint8_t bAddData[8]	= {0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
     uint8_t bAddLen		= (uint8_t)(8 - nLenData % 8);
 
-    //- ¶ÔÊı¾İ²¹80 00 00 00...... -//
+    //- å¯¹æ•°æ®è¡¥80 00 00 00...... -//
     memcpy(pData + nLenData, bAddData, bAddLen);
     nLenData += bAddLen;
 
-    //- 8 ×Ö½ÚÃÜÔ¿½øĞĞ¼ÓÃÜ -//
+    //- 8 å­—èŠ‚å¯†é’¥è¿›è¡ŒåŠ å¯† -//
     memset(pMac, 0, 8);
-    memcpy(pMac, pFactor, 8);			// ³õÊ¼Öµ¸¶Èë
+    memcpy(pMac, pFactor, 8);			// åˆå§‹å€¼ä»˜å…¥
     for(i=0; i<nLenData/8; i++)
     {
         for(j=0; j<8; j++)
         {
-            //- µÃµ½µÄ½á¹ûºÍºóĞø8 ×Ö½ÚÒì»ò -//
+            //- å¾—åˆ°çš„ç»“æœå’Œåç»­8 å­—èŠ‚å¼‚æˆ– -//
             pMac[j] ^= pData[i * 8 + j];
         }
 
@@ -504,6 +504,6 @@ void DataSecurity::_TripleDesEx(uint8_t * pData, int nLenData, uint8_t * pKey, u
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// Ê±¼äº¯Êı
+// æ—¶é—´å‡½æ•°
 
 /////////////////////////////////////////////////////////////////////////////////////////////////

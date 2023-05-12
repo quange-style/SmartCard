@@ -10,10 +10,10 @@ class TimesEx
 public:
     TimesEx(void);
 
-    // ÊÇ·ñÈòÄê
+    // æ˜¯å¦é—°å¹´
     static bool year_is_leapyear(uint16_t year);
 
-    // ÊÇ·ñÈòÄê,pYearÎªBCDĞÎÊ½
+    // æ˜¯å¦é—°å¹´,pYearä¸ºBCDå½¢å¼
     static bool year_is_leapyear(uint8_t * p_bcd_year);
 
 #define T_YY		0x01
@@ -25,40 +25,40 @@ public:
 #define T_MNMN		(0x01 << 5)
 #define T_SS		(0x01 << 6)
 #define T_TIME		(T_DATE | T_HH | T_MNMN | T_SS)
-    // BCDÊ±¼äÊÇ·ñºÏ·¨
+    // BCDæ—¶é—´æ˜¯å¦åˆæ³•
     static bool bcd_time_valid(uint8_t * p_bcd_time, uint8_t time_format);
 
-    // BCDÄêÔÂÖĞÃ¿¸öÔÂµÄ×î´óÌìÊı
+    // BCDå¹´æœˆä¸­æ¯ä¸ªæœˆçš„æœ€å¤§å¤©æ•°
     static uint8_t month_max_day(uint8_t * p_bcd_yyyymm);
     static uint8_t month_max_day(uint16_t year, uint8_t month);
 
-    // BCDÓëTM»¥×ª
+    // BCDä¸TMäº’è½¬
     static void tm2_bcd4_exchange(uint8_t * p_tm2, uint8_t * p_bcd4, bool exchage_direction);
     static void tm4_bcd7_exchange(uint8_t * p_tm4, uint8_t * p_bcd7, bool exchage_direction);
     static void TM_BCD(uint8_t * lpTm, int lenTm, uint8_t * lpBCD, int lenBCD, bool bForuint16_t);
 
-    // BCDÊ±¼ä¼Ó¼õ
+    // BCDæ—¶é—´åŠ å‡
     static void bcd_time_calculate(uint8_t * p_bcd_time, uint8_t time_format, int days = 0, int hours = 0, int mins = 0, int secs = 0);
 
-    // ±È½ÏBCDÓĞĞ§ÆÚ
+    // æ¯”è¾ƒBCDæœ‰æ•ˆæœŸ
     static int CmpExpire(uint8_t * lpBcdNow, uint8_t * lpBcdExpire, uint8_t bFormat, short nDays = 0, short nHours = 0, short nMin = 0, short nSec = 0);
 
-    // ÅĞ¶ÏÊÇ·ñ³¬Ê±
+    // åˆ¤æ–­æ˜¯å¦è¶…æ—¶
     static bool timeout(uint8_t * p_bcd_time_target, uint8_t * p_bcd_time_src, int sub_in_minute);
 
-    // »ñÈ¡Ä³¸öÊ±¼äµãËùÔÚµÄÔËÓªÈÕ
+    // è·å–æŸä¸ªæ—¶é—´ç‚¹æ‰€åœ¨çš„è¿è¥æ—¥
     static void TimeForWorkDay(uint8_t * pTimePoint, uint8_t * pSWorkDay = NULL, uint8_t * pEWorkDay = NULL);
 
-    // Ê±¼äpTimeSrc¶ÔÓÚÊ±¼äpTimeTargµÄÔËÓªÈÕµÄÎ»ÖÃ£¬Ğ¡ÓÚ0:ÔËÓªÈÕÇ°£¬0:ÔËÓªÈÕÖĞ£¬´óÓÚ0:ÔËÓªÈÕºó
+    // æ—¶é—´pTimeSrcå¯¹äºæ—¶é—´pTimeTargçš„è¿è¥æ—¥çš„ä½ç½®ï¼Œå°äº0:è¿è¥æ—¥å‰ï¼Œ0:è¿è¥æ—¥ä¸­ï¼Œå¤§äº0:è¿è¥æ—¥å
     static int TimeWorkDayCmp(uint8_t * pTimeSrc, uint8_t * pTimeTarg);
 
-	// ½«BCDÊ±¼ä×ª»»ÎªtmÊ±¼ä
+	// å°†BCDæ—¶é—´è½¬æ¢ä¸ºtmæ—¶é—´
 	static void time_bcd_to_tm(uint8_t * p_time_bcd, uint8_t bFormat, PTMSTRUCT p_tm);
 
-	// ÅĞ¶ÏÄ³¸öÈÕÆÚÊÇĞÇÆÚ¼¸
+	// åˆ¤æ–­æŸä¸ªæ—¥æœŸæ˜¯æ˜ŸæœŸå‡ 
 	static uint8_t weekday_theday(uint8_t * p_date_bcd);
 
-	// ²¹×ãÄê·İÖĞµÄ¸ßÁ½Î»
+	// è¡¥è¶³å¹´ä»½ä¸­çš„é«˜ä¸¤ä½
 	static void century_fill(uint8_t * p_time);
 };
 

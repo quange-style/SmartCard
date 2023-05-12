@@ -10,73 +10,73 @@
 #define _IN_P(bits, ptr)		bits, &ptr, (int)sizeof(ptr)
 #define _IN_NULL(bits)			bits, 0, 0
 #define _OUT_B(bits, val)		bits, val
-#define _OUT_NULL(bits)			0, bits				// ´ËÊ±ÓÃÓÚÕ¼Î»·û£¬µÚ¶ş¸öÔªËØ±ä³ÉËùÕ¼µÄÎ»Êı
+#define _OUT_NULL(bits)			0, bits				// æ­¤æ—¶ç”¨äºå ä½ç¬¦ï¼Œç¬¬äºŒä¸ªå…ƒç´ å˜æˆæ‰€å çš„ä½æ•°
 #define ENDLE	0, 0
 
-// ½»Ò×ĞÅÏ¢½á¹¹£¬¿ÉÒÔÊÇ½øÕ¾£¬³öÕ¾¡¢¸üĞÂµÈ
+// äº¤æ˜“ä¿¡æ¯ç»“æ„ï¼Œå¯ä»¥æ˜¯è¿›ç«™ï¼Œå‡ºç«™ã€æ›´æ–°ç­‰
 typedef struct
 {
-    uint16_t		station_id;				// Õ¾µã
-    ETPDVC			dvc_type;				// Éè±¸ÀàĞÍ
-    uint16_t		dvc_id;					// Éè±¸±àÂë
-    uint8_t			time[7];				// ½»Ò×Ê±¼ä
-    char			sam[17];				// SAM¿¨ºÅ
+    uint16_t		station_id;				// ç«™ç‚¹
+    ETPDVC			dvc_type;				// è®¾å¤‡ç±»å‹
+    uint16_t		dvc_id;					// è®¾å¤‡ç¼–ç 
+    uint8_t			time[7];				// äº¤æ˜“æ—¶é—´
+    char			sam[17];				// SAMå¡å·
 } TradeInfo, * PTradeInfo;
 
-// ¿¨Êı¾İ½á¹¹
+// å¡æ•°æ®ç»“æ„
 typedef struct
 {
-    ETPMDM			physical_type;			// ÎïÀíÀàĞÍ
-	char			issue_code[4];			// ·¢ĞĞ·½Ö÷´úÂë
-	char			city_code[4];			// ³ÇÊĞ´úÂë
-	char			industry_code[4];		// ĞĞÒµ´úÂë
-    char			physical_id[21];		// ÎïÀí¿¨ºÅ
-    char			logical_id[21];			// Âß¼­¿¨ºÅ
-    uint8_t			key_flag;				// Ó¦ÓÃ±êÊ¶£¨ÕıÊ½Æ±£¬²âÊÔÆ±£©
+    ETPMDM			physical_type;			// ç‰©ç†ç±»å‹
+	char			issue_code[4];			// å‘è¡Œæ–¹ä¸»ä»£ç 
+	char			city_code[4];			// åŸå¸‚ä»£ç 
+	char			industry_code[4];		// è¡Œä¸šä»£ç 
+    char			physical_id[21];		// ç‰©ç†å¡å·
+    char			logical_id[21];			// é€»è¾‘å¡å·
+    uint8_t			key_flag;				// åº”ç”¨æ ‡è¯†ï¼ˆæ­£å¼ç¥¨ï¼Œæµ‹è¯•ç¥¨ï¼‰
 
-    uint8_t			date_issue[4];			// ·¢ĞĞÊ±¼ä
-    uint8_t			phy_peroidE[4];			// ÎïÀíÓĞĞ§ÆÚ
-    uint8_t			logical_peroidS[7];		// Âß¼­ÓĞĞ§ÆÚ
+    uint8_t			date_issue[4];			// å‘è¡Œæ—¶é—´
+    uint8_t			phy_peroidE[4];			// ç‰©ç†æœ‰æ•ˆæœŸ
+    uint8_t			logical_peroidS[7];		// é€»è¾‘æœ‰æ•ˆæœŸ
     uint8_t			logical_peroidE[7];
-	int				effect_mins;			// ÓĞĞ§·ÖÖÓÊı£¨·¢ÊÛÊ±Ğ´Èë·¢ÊÛºóµÄÓĞĞ§ÆÚÊ±¼ä£¬ÑÓÆÚÊ±¼ÓÉÏ¿ÉÑÓÆÚÊ±¼ä£©
+	int				effect_mins;			// æœ‰æ•ˆåˆ†é’Ÿæ•°ï¼ˆå‘å”®æ—¶å†™å…¥å‘å”®åçš„æœ‰æ•ˆæœŸæ—¶é—´ï¼Œå»¶æœŸæ—¶åŠ ä¸Šå¯å»¶æœŸæ—¶é—´ï¼‰
 
-	char			certificate_name[128];	// Ö¤¼ş³ÖÓĞÈËĞÕÃû
-	char			certificate_code[32];	// Ö¤¼ş´úÂë
-	uint8_t			certificate_type;		// Ö¤¼şÀàĞÍ
+	char			certificate_name[128];	// è¯ä»¶æŒæœ‰äººå§“å
+	char			certificate_code[32];	// è¯ä»¶ä»£ç 
+	uint8_t			certificate_type;		// è¯ä»¶ç±»å‹
 
-	uint8_t			cert_peroidE[4];		// Ö¤¼şÓĞĞ§ÆÚ
-    uint8_t			charge_peroidS[4];		// ³äÖµÓĞĞ§ÆÚ
+	uint8_t			cert_peroidE[4];		// è¯ä»¶æœ‰æ•ˆæœŸ
+    uint8_t			charge_peroidS[4];		// å……å€¼æœ‰æ•ˆæœŸ
     uint8_t			charge_peroidE[4];
-    uint8_t			active_peroidS[7];		// ¼¤»îÓĞĞ§ÆÚ
+    uint8_t			active_peroidS[7];		// æ¿€æ´»æœ‰æ•ˆæœŸ
     uint8_t			active_peroidE[7];
 
-    uint8_t			logical_type[2];		// Âß¼­Æ±¿¨ÀàĞÍ
-	uint8_t			fare_type[2];			// Æ±¼ÛÀàĞÍ
-    long			wallet_value;			// Ç®°üÓàÖµ
-    long			deposit;				// Ñº½ğ
-    long			wallet_value_max;		// Ç®°üÉÏÏŞ
-    uint8_t			list_falg;				// Ãûµ¥±êÊ¶
-    uint16_t		charge_counter;			// ³äÖµÀÛ¼Æ
-    long			daliy_trade_counter;	// ÈÕ½»Ò×´ÎÊı
-    long			total_trade_counter;	// ×Ü½»Ò×´ÎÊı
-    long			daliy_update_counter;	// ÈÕ¸üĞÂ´ÎÊı
-    long			total_update_counter;	// ×Ü¸üĞÂ´ÎÊı
-	uint8_t			app_lock_flag;			// Ó¦ÓÃËø¶¨±ê¼Ç£¨·¢ÊÛ»ò¶àÈÕÆ±¼¤»îÊ±Ê¹ÓÃ£©
-    uint8_t			globle_status;			// È«¾Ö×´Ì¬(³õÊ¼»¯£¬¿ÉÊ¹ÓÃ£¬ÍË¿î£¬)
-    uint8_t			init_status;			// Ô­Ê¼×´Ì¬
-    SimpleStatus	simple_status;			// ×ª»»Îª±ê×¼µÄÆ±¿¨×´Ì¬
+    uint8_t			logical_type[2];		// é€»è¾‘ç¥¨å¡ç±»å‹
+	uint8_t			fare_type[2];			// ç¥¨ä»·ç±»å‹
+    long			wallet_value;			// é’±åŒ…ä½™å€¼
+    long			deposit;				// æŠ¼é‡‘
+    long			wallet_value_max;		// é’±åŒ…ä¸Šé™
+    uint8_t			list_falg;				// åå•æ ‡è¯†
+    uint16_t		charge_counter;			// å……å€¼ç´¯è®¡
+    long			daliy_trade_counter;	// æ—¥äº¤æ˜“æ¬¡æ•°
+    long			total_trade_counter;	// æ€»äº¤æ˜“æ¬¡æ•°
+    long			daliy_update_counter;	// æ—¥æ›´æ–°æ¬¡æ•°
+    long			total_update_counter;	// æ€»æ›´æ–°æ¬¡æ•°
+	uint8_t			app_lock_flag;			// åº”ç”¨é”å®šæ ‡è®°ï¼ˆå‘å”®æˆ–å¤šæ—¥ç¥¨æ¿€æ´»æ—¶ä½¿ç”¨ï¼‰
+    uint8_t			globle_status;			// å…¨å±€çŠ¶æ€(åˆå§‹åŒ–ï¼Œå¯ä½¿ç”¨ï¼Œé€€æ¬¾ï¼Œ)
+    uint8_t			init_status;			// åŸå§‹çŠ¶æ€
+    SimpleStatus	simple_status;			// è½¬æ¢ä¸ºæ ‡å‡†çš„ç¥¨å¡çŠ¶æ€
 
-	uint8_t			limit_mode;				// ÏŞÖÆ½ø³öÄ£Ê½
-	uint8_t			limit_entry_station[2];	// ÏŞÖÆ½øÕ¾Õ¾µã
-	uint8_t			limit_exit_station[2];	// ÏŞÖÆ³öÕ¾Õ¾µã
+	uint8_t			limit_mode;				// é™åˆ¶è¿›å‡ºæ¨¡å¼
+	uint8_t			limit_entry_station[2];	// é™åˆ¶è¿›ç«™ç«™ç‚¹
+	uint8_t			limit_exit_station[2];	// é™åˆ¶å‡ºç«™ç«™ç‚¹
 
-    PTradeInfo		p_entry_info;			// ½øÕ¾ĞÅÏ¢
-    PTradeInfo		p_update_info;			// ¸üĞÂĞÅÏ¢
-    PTradeInfo		p_exit_info;			// ³öÕ¾ĞÅÏ¢
-    TradeInfo		read_last_info;			// ÉÏ´Î½»Ò×ĞÅÏ¢£¬¸³ÖµÓÃread_last_info£¬Ğ´¿¨ÓÃwrite_last_info
+    PTradeInfo		p_entry_info;			// è¿›ç«™ä¿¡æ¯
+    PTradeInfo		p_update_info;			// æ›´æ–°ä¿¡æ¯
+    PTradeInfo		p_exit_info;			// å‡ºç«™ä¿¡æ¯
+    TradeInfo		read_last_info;			// ä¸Šæ¬¡äº¤æ˜“ä¿¡æ¯ï¼Œèµ‹å€¼ç”¨read_last_infoï¼Œå†™å¡ç”¨write_last_info
     TradeInfo		write_last_info;
 
-	char			ticket_app_mode;		// ¿¨Ó¦ÓÃÄ£Ê½
+	char			ticket_app_mode;		// å¡åº”ç”¨æ¨¡å¼
 
 } TICKET_DATA, * P_TICKET_DATA;
 
@@ -90,27 +90,27 @@ class TicketBase
 public:
 	enum MStatus
 	{
-		MS_Init				= (uint8_t)1,	// ³õÊ¼»¯
-		MS_Es				= (uint8_t)2,	// Ô¤¸³Öµ
-		MS_Sale				= (uint8_t)3,	// BOM·¢ÊÛ
-		MS_Entry			= (uint8_t)4,	// ½øÕ¢
-		MS_Exit				= (uint8_t)5,	// ³öÕ¢
-		MS_Exit_Only		= (uint8_t)6,	// ³öÕ¾Æ±
-		MS_Exit_Tt			= (uint8_t)7,	// ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾
-		MS_Upd_FZone_Free	= (uint8_t)8,	// ·Ç¸¶·ÑÇøÃâ·Ñ¸üĞÂ
-		MS_Upd_FZone_Fare	= (uint8_t)9,	// ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ
-		MS_Upd_Wzone_Entry	= (uint8_t)10,	// ¸¶·ÑÇøÈëÕ¾Âë¸üĞÂ
-		MS_Upd_Wzone_Exit	= (uint8_t)11,	// ¸¶·ÑÇø³öÕ¾Âë¸üĞÂ
-		MS_Upd_Wzone_Time	= (uint8_t)12,	// ¸¶·ÑÇø³¬Ê±¸üĞÂ
-		MS_Upd_Wzone_Trip	= (uint8_t)13,	// ¸¶·ÑÇø³¬³Ì¸üĞÂ
-		MS_Upd_Wzone_Free	= (uint8_t)14,	// ¸¶·ÑÇøÃâ·Ñ¸üĞÂ
-		MS_Refund			= (uint8_t)15,	// ÍË¿î
-		MS_Increase			= (uint8_t)16,	// ³äÖµ(ÀúÊ·Çø×¨ÓÃ)
-		MS_Decrease			= (uint8_t)17,	// ¼õÖµ(ÀúÊ·Çø×¨ÓÃ)
-		MS_Destroy			= (uint8_t)18,	// ×¢Ïú
-		MS_Lock				= (uint8_t)19,	// ¼ÓËø(ÀúÊ·Çø×¨ÓÃ)
-		MS_Unlock			= (uint8_t)20,	// ½âËø(ÀúÊ·Çø×¨ÓÃ)
-		MS_Deffer			= (uint8_t)21	// ÑÓÆÚ(ÀúÊ·Çø×¨ÓÃ)
+		MS_Init				= (uint8_t)1,	// åˆå§‹åŒ–
+		MS_Es				= (uint8_t)2,	// é¢„èµ‹å€¼
+		MS_Sale				= (uint8_t)3,	// BOMå‘å”®
+		MS_Entry			= (uint8_t)4,	// è¿›é—¸
+		MS_Exit				= (uint8_t)5,	// å‡ºé—¸
+		MS_Exit_Only		= (uint8_t)6,	// å‡ºç«™ç¥¨
+		MS_Exit_Tt			= (uint8_t)7,	// åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™
+		MS_Upd_FZone_Free	= (uint8_t)8,	// éä»˜è´¹åŒºå…è´¹æ›´æ–°
+		MS_Upd_FZone_Fare	= (uint8_t)9,	// éä»˜è´¹åŒºä»˜è´¹æ›´æ–°
+		MS_Upd_Wzone_Entry	= (uint8_t)10,	// ä»˜è´¹åŒºå…¥ç«™ç æ›´æ–°
+		MS_Upd_Wzone_Exit	= (uint8_t)11,	// ä»˜è´¹åŒºå‡ºç«™ç æ›´æ–°
+		MS_Upd_Wzone_Time	= (uint8_t)12,	// ä»˜è´¹åŒºè¶…æ—¶æ›´æ–°
+		MS_Upd_Wzone_Trip	= (uint8_t)13,	// ä»˜è´¹åŒºè¶…ç¨‹æ›´æ–°
+		MS_Upd_Wzone_Free	= (uint8_t)14,	// ä»˜è´¹åŒºå…è´¹æ›´æ–°
+		MS_Refund			= (uint8_t)15,	// é€€æ¬¾
+		MS_Increase			= (uint8_t)16,	// å……å€¼(å†å²åŒºä¸“ç”¨)
+		MS_Decrease			= (uint8_t)17,	// å‡å€¼(å†å²åŒºä¸“ç”¨)
+		MS_Destroy			= (uint8_t)18,	// æ³¨é”€
+		MS_Lock				= (uint8_t)19,	// åŠ é”(å†å²åŒºä¸“ç”¨)
+		MS_Unlock			= (uint8_t)20,	// è§£é”(å†å²åŒºä¸“ç”¨)
+		MS_Deffer			= (uint8_t)21	// å»¶æœŸ(å†å²åŒºä¸“ç”¨)
 	};
 
 public:
@@ -126,11 +126,11 @@ public:
     void get_ticket_infos(TICKET_DATA& ticket_data);
 
 	//
-    // ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+    // å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
     //
     virtual RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL) = 0;
 
-    // Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+    // ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
     virtual uint8_t unified_status();
 
     virtual RETINFO analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade_falgs, TICKET_PARAM * p_ticket_prm, PTICKETLOCK p_lock, uint16_t& lenlock, PBOMANALYZE p_analyse, char * p_mode) = 0;
@@ -182,15 +182,15 @@ public:
 
 	ETYTKOPER confirm_trade_type();
 
-	// ¶ÁÈ¡½»Ò×È·ÈÏÀúÊ·ĞÅÏ¢
+	// è¯»å–äº¤æ˜“ç¡®è®¤å†å²ä¿¡æ¯
 	static void load_confirm_from_file();
 
-	// ¼ì²âÊÇ·ñ´æÔÚĞèÒª½»Ò×È·ÈÏµÄÀúÊ·
+	// æ£€æµ‹æ˜¯å¦å­˜åœ¨éœ€è¦äº¤æ˜“ç¡®è®¤çš„å†å²
 	static bool check_confirm_his(int time_limit_min);
 
 	bool confirm_current_card();
 
-	// »ñÈ¡µ±Ç°·¢ÉúµÄ½µ¼¶Ä£Ê½ºÍÃô¸ĞÆÚÓ°ÏìĞÅÏ¢
+	// è·å–å½“å‰å‘ç”Ÿçš„é™çº§æ¨¡å¼å’Œæ•æ„ŸæœŸå½±å“ä¿¡æ¯
 	void get_degrade_mode(MODE_EFFECT_FLAGS& degrade_falgs, uint8_t * p_time_now);
 
 protected:
@@ -203,12 +203,12 @@ protected:
 	static CONFIRM_POINT cfm_point;
 
 	//
-    // º¯ÊıÅäºÏºê_pairÊ¹ÓÃ£¬ÒÔÃâ²ÎÊıÂ©µô²ÎÊıÔì³ÉÒì³£
+    // å‡½æ•°é…åˆå®_pairä½¿ç”¨ï¼Œä»¥å…å‚æ•°æ¼æ‰å‚æ•°é€ æˆå¼‚å¸¸
 	//
     //uint8_t cmd_sprintf(int nStart, uint8_t * p_dst_buf, ...);
 
 	//
-    // º¯ÊıÅäºÏºê_thrÊ¹ÓÃ£¬ÒÔÃâ²ÎÊıÂ©µô²ÎÊıÔì³ÉÒì³£
+    // å‡½æ•°é…åˆå®_thrä½¿ç”¨ï¼Œä»¥å…å‚æ•°æ¼æ‰å‚æ•°é€ æˆå¼‚å¸¸
 	//
     //void cmd_scanf(int nStart, uint8_t * p_src_buf, ...);
 
@@ -220,22 +220,22 @@ protected:
 
 	void add_metro_area_crc(uint8_t * p_metro, uint16_t len_area);
 
-	// ±£´æĞ´¿¨¶ÏµãĞÅÏ¢
+	// ä¿å­˜å†™å¡æ–­ç‚¹ä¿¡æ¯
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸ù¾İ½»Ò×È·ÈÏ½á¹¹£¬»ñÈ¡½»Ò×È·ÈÏÒò×Ó
+	// æ ¹æ®äº¤æ˜“ç¡®è®¤ç»“æ„ï¼Œè·å–äº¤æ˜“ç¡®è®¤å› å­
 	static CONFIRM_FACTOR get_confirm_factor();
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	/*virtual*/ void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
-	// ¼ì²éÊÇ·ñ¸´ºÏ½»Ò×È·ÈÏµÄ»ù±¾Ìõ¼ş
+	// æ£€æŸ¥æ˜¯å¦å¤åˆäº¤æ˜“ç¡®è®¤çš„åŸºæœ¬æ¡ä»¶
 	bool check_confirm(uint8_t status_targ, uint8_t status_src, uint16_t err_targ, uint16_t err_src);
 
-	// ²Ù×÷ÊÇ·ñÖ§³Ö½»Ò×È·ÈÏ
+	// æ“ä½œæ˜¯å¦æ”¯æŒäº¤æ˜“ç¡®è®¤
 	uint8_t support_confirm(ETYTKOPER operType);
 
-	// ½«½»Ò×È·ÈÏ½á¹¹±£´æµ½ÎÄ¼ş
+	// å°†äº¤æ˜“ç¡®è®¤ç»“æ„ä¿å­˜åˆ°æ–‡ä»¶
 	void save_confirm_to_file();
 
 	bool need_check_period(uint8_t wk_area, SimpleStatus s_status);

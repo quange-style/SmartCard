@@ -37,15 +37,15 @@ void TicketElectDepositBase::getDealData(ETYTKOPER operType,uint16_t& len_data,u
             length += 14;
             memcpy(dealData + length, exittime, 14);
             length += 14;
-            memcpy(dealData + length, LineCode, 2);//ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);//çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);//Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);//ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);//Éè±¸ÀàĞÍ
+            memcpy(dealData + length, DeviceType, 2);//è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);//Éè±¸±àºÅ
+            memcpy(dealData + length, DeviceCode, 3);//è®¾å¤‡ç¼–å·
             length += 3;
-            memcpy(dealData + length, "112233445566", 12);//ÔİÊ±²»Ğ´
+            memcpy(dealData + length, "112233445566", 12);//æš‚æ—¶ä¸å†™
             length += 12;
             memcpy(dealData + length, "00", 2);
             length += 2;
@@ -61,17 +61,17 @@ void TicketElectDepositBase::getDealData(ETYTKOPER operType,uint16_t& len_data,u
             length += 2;
             memcpy(dealData + length, time, 14);
             length += 14;
-            memcpy(dealData + length, LineCode, 2);//ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);//çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);//Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);//ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);//Éè±¸ÀàĞÍ
+            memcpy(dealData + length, DeviceType, 2);//è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);//Éè±¸±àºÅ
+            memcpy(dealData + length, DeviceCode, 3);//è®¾å¤‡ç¼–å·
             length += 3;
             memcpy(dealData + length, "112233445566", 12);
             length += 12;
-            //Ó¦¿Û½ğ¶î
+            //åº”æ‰£é‡‘é¢
             sprintf(dealData + length,"%08X",amount);
             length += 8;
 
@@ -84,180 +84,180 @@ void TicketElectDepositBase::getDealData(ETYTKOPER operType,uint16_t& len_data,u
         }
             break;
 
-        case operPenaltyRes:										//·£¿îÍ¨Öª
+        case operPenaltyRes:										//ç½šæ¬¾é€šçŸ¥
         {
-            memcpy(dealData, "07", 2);								//½»Ò×Âë 07·£¿î
+            memcpy(dealData, "07", 2);								//äº¤æ˜“ç  07ç½šæ¬¾
             length += 2;
-            memcpy(dealData + length, time, 14);					//Ê±¼ä
+            memcpy(dealData + length, time, 14);					//æ—¶é—´
             length += 14;
             memcpy(dealData + length, "0000", 4);
             length += 4;
-            memcpy(dealData + length, Api::operator_id, 6);			//²Ù×÷Ô±ID operator_id¶¨ÒåÊÇ10Î»£¬BOM²Ù×÷Ô±IDÎª6Î»Ç°²¹4Î»0
+            memcpy(dealData + length, Api::operator_id, 6);			//æ“ä½œå‘˜ID operator_idå®šä¹‰æ˜¯10ä½ï¼ŒBOMæ“ä½œå‘˜IDä¸º6ä½å‰è¡¥4ä½0
             length += 6;
-            memcpy(dealData + length, LineCode, 2);				    //ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);				    //çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);				//Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);				//ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, "01", 2);						//·£¿îÀàĞÍ 01-³¬Ê±·£¿î
+            memcpy(dealData + length, "01", 2);						//ç½šæ¬¾ç±»å‹ 01-è¶…æ—¶ç½šæ¬¾
             length += 2;
-            sprintf(dealData + length, "%08X", amount);				//½ğ¶î
+            sprintf(dealData + length, "%08X", amount);				//é‡‘é¢
             length += 8;
-            memcpy(dealData + length, exittime, 14);				//ÓĞĞ§³öÕ¾Ê±¼ä
+            memcpy(dealData + length, exittime, 14);				//æœ‰æ•ˆå‡ºç«™æ—¶é—´
             length += 14;
-            // ·£¿îÃèÊöÃ»ÓĞ´« ¾­Óë»ªÌÚ¹µÍ¨£¬²»´«¿ÉÒÔ
-            memcpy(dealData + length, "00000000", 8);				//ÑéÖ¤Âë
+            // ç½šæ¬¾æè¿°æ²¡æœ‰ä¼  ç»ä¸åè…¾æ²Ÿé€šï¼Œä¸ä¼ å¯ä»¥
+            memcpy(dealData + length, "00000000", 8);				//éªŒè¯ç 
             length += 8;
             len_data = length;
         }
             break;
-        case operClearEntry:										//Çå½øÕ¾
+        case operClearEntry:										//æ¸…è¿›ç«™
         {
-            memcpy(dealData, "21", 2);								//½»Ò×Âë 21Çå½øÕ¾
+            memcpy(dealData, "21", 2);								//äº¤æ˜“ç  21æ¸…è¿›ç«™
             length += 2;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryTime, 14);//½øÕ¾Ê±¼ä TODO ÎÒ¾õµÃÕâ¸öÓ¦¸ÃÊÇÒÑ¼ÇÂ¼µÄ½øÕ¾Ê±¼ä
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryTime, 14);//è¿›ç«™æ—¶é—´ TODO æˆ‘è§‰å¾—è¿™ä¸ªåº”è¯¥æ˜¯å·²è®°å½•çš„è¿›ç«™æ—¶é—´
             length += 14;
-            memcpy(dealData + length, exittime, 14);				//ÓĞĞ§³öÕ¾Ê±¼ä
+            memcpy(dealData + length, exittime, 14);				//æœ‰æ•ˆå‡ºç«™æ—¶é—´
             length += 14;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.startStation, 4);//½øÕ¾µÄ³µÕ¾id
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.startStation, 4);//è¿›ç«™çš„è½¦ç«™id
             length += 4;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryDeviceType, 2);	//Éè±¸ÀàĞÍ
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryDeviceType, 2);	//è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryDeviceCode, 3);//Éè±¸±àºÅ
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.entryDeviceCode, 3);//è®¾å¤‡ç¼–å·
             length += 3;
             memcpy(dealData + length, "0000", 4);
             length += 4;
-            memcpy(dealData + length, Api::operator_id, 6);				//²Ù×÷Ô±ID
+            memcpy(dealData + length, Api::operator_id, 6);				//æ“ä½œå‘˜ID
             length += 6;
-            memcpy(dealData + length, LineCode, 2);				        //Çå½øÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);				        //æ¸…è¿›ç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);					//Çå½øÕ¾Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);					//æ¸…è¿›ç«™ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);				    //Çå½øÕ¾Éè±¸ÀàĞÍ
+            memcpy(dealData + length, DeviceType, 2);				    //æ¸…è¿›ç«™è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);				    //Çå½øÕ¾Éè±¸±àºÅ
+            memcpy(dealData + length, DeviceCode, 3);				    //æ¸…è¿›ç«™è®¾å¤‡ç¼–å·
             length += 3;
-            memcpy(dealData + length, time, 14);					    //Çå½øÕ¾µÄÊ±¼ä
+            memcpy(dealData + length, time, 14);					    //æ¸…è¿›ç«™çš„æ—¶é—´
             length += 14;
-            memcpy(dealData + length, m_p_current_sam + 4, 12);		    //ÖÕ¶ËºÅ
+            memcpy(dealData + length, m_p_current_sam + 4, 12);		    //ç»ˆç«¯å·
             length += 12;
-            memcpy(dealData + length, "00", 2);						    //×´Ì¬Âë0¡ªÕı³££»1¡ªÊ§°Ü
+            memcpy(dealData + length, "00", 2);						    //çŠ¶æ€ç 0â€”æ­£å¸¸ï¼›1â€”å¤±è´¥
             length += 2;
-            memcpy(dealData + length, "00000000", 8);				    //ÑéÖ¤Âë
+            memcpy(dealData + length, "00000000", 8);				    //éªŒè¯ç 
             length += 8;
             len_data = length;
         }
             break;
-        case operClearExit:												      //Çå³öÕ¾
+        case operClearExit:												      //æ¸…å‡ºç«™
         {
-            memcpy(dealData, "22", 2);								            //½»Ò×Âë 22Çå³öÕ¾
+            memcpy(dealData, "22", 2);								            //äº¤æ˜“ç  22æ¸…å‡ºç«™
             length += 2;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitTime, 14);//³öÕ¾Ê±¼ä TODO ÎÒ¾õµÃÕâ¸öÓ¦¸ÃÊÇÒÑ¼ÇÂ¼µÄ³öÕ¾Ê±¼ä
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitTime, 14);//å‡ºç«™æ—¶é—´ TODO æˆ‘è§‰å¾—è¿™ä¸ªåº”è¯¥æ˜¯å·²è®°å½•çš„å‡ºç«™æ—¶é—´
             length += 14;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitStation, 4);//³öÕ¾µÄ³µÕ¾id
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitStation, 4);//å‡ºç«™çš„è½¦ç«™id
             length += 4;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitDeviceType, 2);//Éè±¸ÀàĞÍ
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitDeviceType, 2);//è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitDeviceCode, 3);//Éè±¸±àºÅ
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.exitDeviceCode, 3);//è®¾å¤‡ç¼–å·
             length += 3;
-            memcpy(dealData + length, m_p_current_sam + 4, 12);		//ÖÕ¶ËºÅ
+            memcpy(dealData + length, m_p_current_sam + 4, 12);		//ç»ˆç«¯å·
             length += 12;
-            //Ó¦¿Û½ğ¶î
+            //åº”æ‰£é‡‘é¢
             sprintf(dealData + length, "%08X", amount);
             length += 8;
             memcpy(dealData + length, "0000", 4);
             length += 4;
-            memcpy(dealData + length, Api::operator_id, 6);			//²Ù×÷Ô±ID
+            memcpy(dealData + length, Api::operator_id, 6);			//æ“ä½œå‘˜ID
             length += 6;
-            memcpy(dealData + length, LineCode, 2);				    //Çå½øÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);				    //æ¸…è¿›ç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);				//Çå½øÕ¾Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);				//æ¸…è¿›ç«™ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);				//Çå½øÕ¾Éè±¸ÀàĞÍ
+            memcpy(dealData + length, DeviceType, 2);				//æ¸…è¿›ç«™è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);				//Çå½øÕ¾Éè±¸±àºÅ
+            memcpy(dealData + length, DeviceCode, 3);				//æ¸…è¿›ç«™è®¾å¤‡ç¼–å·
             length += 3;
-            memcpy(dealData + length, time, 14);					//Çå³öÕ¾µÄÊ±¼ä
+            memcpy(dealData + length, time, 14);					//æ¸…å‡ºç«™çš„æ—¶é—´
             length += 14;
-            memcpy(dealData + length, "00", 2);						//×´Ì¬Âë0¡ªÕı³££»1¡ªÊ§°Ü
+            memcpy(dealData + length, "00", 2);						//çŠ¶æ€ç 0â€”æ­£å¸¸ï¼›1â€”å¤±è´¥
             length += 2;
-            memcpy(dealData + length, "00000000", 8);				//ÑéÖ¤Âë
+            memcpy(dealData + length, "00000000", 8);				//éªŒè¯ç 
             length += 8;
             len_data = length;
         }
             break;
-        case operAddEntry:											//²¹½øÕ¾
+        case operAddEntry:											//è¡¥è¿›ç«™
         {
-            memcpy(dealData, "23", 2);								//½»Ò×Âë 23²¹½øÕ¾
+            memcpy(dealData, "23", 2);								//äº¤æ˜“ç  23è¡¥è¿›ç«™
             length += 2;
-            memcpy(dealData + length,time, 14);						//²¹½øÕ¾Ê±¼ä TODO ÓÃµÄÏÖÔÚÊ±¼ä
+            memcpy(dealData + length,time, 14);						//è¡¥è¿›ç«™æ—¶é—´ TODO ç”¨çš„ç°åœ¨æ—¶é—´
             length += 14;
-            memcpy(dealData + length, exittime, 14);				//ÓĞĞ§³öÕ¾Ê±¼ä
+            memcpy(dealData + length, exittime, 14);				//æœ‰æ•ˆå‡ºç«™æ—¶é—´
             length += 14;
-            memcpy(dealData + length, m_ticket_data.qr_ticketdata.startStation, 4);//½øÕ¾µÄ³µÕ¾id
+            memcpy(dealData + length, m_ticket_data.qr_ticketdata.startStation, 4);//è¿›ç«™çš„è½¦ç«™id
             length += 4;
-            //½øÕ¾Éè±¸ÀàĞÍ  Îª¹Ì¶¨Öµ00
+            //è¿›ç«™è®¾å¤‡ç±»å‹  ä¸ºå›ºå®šå€¼00
             memcpy(dealData + length, "00", 2);
             length += 2;
-            //½øÕ¾Éè±¸±àºÅ   ¹Ì¶¨ÖµÎª000
+            //è¿›ç«™è®¾å¤‡ç¼–å·   å›ºå®šå€¼ä¸º000
             memcpy(dealData + length, "000", 3);
             length += 3;
-            //²Ù×÷Ô±ID  Ò»¹²10Î»
+            //æ“ä½œå‘˜ID  ä¸€å…±10ä½
             memcpy(dealData + length, "0000", 4);
             length += 4;
             memcpy(dealData + length, Api::operator_id, 6);
-            //²¹½øÕ¾Éè±¸±àÂë
+            //è¡¥è¿›ç«™è®¾å¤‡ç¼–ç 
             length += 6;
-            memcpy(dealData + length, LineCode, 2);			    	//²¹½øÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);			    	//è¡¥è¿›ç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);				//²¹½øÕ¾Õ¾µã±àÂë
+            memcpy(dealData + length, StationCode, 2);				//è¡¥è¿›ç«™ç«™ç‚¹ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);				//²¹½øÕ¾Éè±¸ÀàĞÍ
+            memcpy(dealData + length, DeviceType, 2);				//è¡¥è¿›ç«™è®¾å¤‡ç±»å‹
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);				//²¹½øÕ¾Éè±¸±àºÅ
+            memcpy(dealData + length, DeviceCode, 3);				//è¡¥è¿›ç«™è®¾å¤‡ç¼–å·
             length += 3;
-            memcpy(dealData + length, m_p_current_sam + 4, 12);		//ÖÕ¶ËºÅ
+            memcpy(dealData + length, m_p_current_sam + 4, 12);		//ç»ˆç«¯å·
             length += 12;
-            memcpy(dealData + length, "00", 2);						//×´Ì¬Âë0¡ªÕı³££»1¡ªÊ§°Ü
+            memcpy(dealData + length, "00", 2);						//çŠ¶æ€ç 0â€”æ­£å¸¸ï¼›1â€”å¤±è´¥
             length += 2;
-            memcpy(dealData + length, "00000000", 8);				//ÑéÖ¤Âë
+            memcpy(dealData + length, "00000000", 8);				//éªŒè¯ç 
             length += 8;
             len_data = length;
         }
             break;
-        case operAddExit:											//²¹³öÕ¾
+        case operAddExit:											//è¡¥å‡ºç«™
         {
-            memcpy(dealData, "24", 2);								//½»Ò×Âë 24²¹³öÕ¾
+            memcpy(dealData, "24", 2);								//äº¤æ˜“ç  24è¡¥å‡ºç«™
             length += 2;
-            memcpy(dealData + length, time, 14);					//²¹³öÕ¾Ê±¼ä TODO ÓÃµÄÏÖÔÚÊ±¼ä
+            memcpy(dealData + length, time, 14);					//è¡¥å‡ºç«™æ—¶é—´ TODO ç”¨çš„ç°åœ¨æ—¶é—´
             length += 14;
-            memcpy(dealData + length, LineCode, 2);				    //²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);				    //è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);				//²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, StationCode, 2);				//è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, "00", 2);						//Éè±¸ÀàĞÍ ¹Ì¶¨Îª00
+            memcpy(dealData + length, "00", 2);						//è®¾å¤‡ç±»å‹ å›ºå®šä¸º00
             length += 2;
-            memcpy(dealData + length, "000", 3);					//Éè±¸±àºÅ ¹Ì¶¨Îª000
+            memcpy(dealData + length, "000", 3);					//è®¾å¤‡ç¼–å· å›ºå®šä¸º000
             length += 3;
-            sprintf(dealData + length, "%08X", amount);				//Ó¦¿Û½ğ¶î
+            sprintf(dealData + length, "%08X", amount);				//åº”æ‰£é‡‘é¢
             length += 8;
-            //10Î»²Ù×÷Ô±ID
+            //10ä½æ“ä½œå‘˜ID
             memcpy(dealData + length, "0000", 4);
             length += 4;
-            memcpy(dealData + length, Api::operator_id, 6);			//²Ù×÷Ô±ID
+            memcpy(dealData + length, Api::operator_id, 6);			//æ“ä½œå‘˜ID
             length += 6;
-            memcpy(dealData + length, LineCode, 2);				    //²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, LineCode, 2);				    //è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, StationCode, 2);				//²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, StationCode, 2);				//è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceType, 2);				//²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, DeviceType, 2);				//è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 2;
-            memcpy(dealData + length, DeviceCode, 3);				//²¹³öÕ¾ÏßÂ·±àÂë
+            memcpy(dealData + length, DeviceCode, 3);				//è¡¥å‡ºç«™çº¿è·¯ç¼–ç 
             length += 3;
-            memcpy(dealData + length, m_p_current_sam + 4, 12);		    //ÖÕ¶ËºÅ
+            memcpy(dealData + length, m_p_current_sam + 4, 12);		    //ç»ˆç«¯å·
             length += 12;
-            memcpy(dealData + length, "00", 2);						    //×´Ì¬Âë0¡ªÕı³££»1¡ªÊ§°Ü
+            memcpy(dealData + length, "00", 2);						    //çŠ¶æ€ç 0â€”æ­£å¸¸ï¼›1â€”å¤±è´¥
             length += 2;    
-            memcpy(dealData + length, "00000000", 8);			    	//ÑéÖ¤Âë
+            memcpy(dealData + length, "00000000", 8);			    	//éªŒè¯ç 
             length += 8;
             len_data = length;
         }

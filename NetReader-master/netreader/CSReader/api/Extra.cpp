@@ -168,7 +168,7 @@ void * Extra::ble_seq_proc(void * arg)
 		if (sem_wait(&ble_semaphore) == 0)
 		{
 			usleep(1000);
-			//ÆäËûÏß³ÌÖĞ²»ÄÜÊ¹ÓÃÈÕÖ¾´òÓ¡£¬·ñÔò»áµ¼ÖÂÄÚ´æĞ¹Â¶
+			//å…¶ä»–çº¿ç¨‹ä¸­ä¸èƒ½ä½¿ç”¨æ—¥å¿—æ‰“å°ï¼Œå¦åˆ™ä¼šå¯¼è‡´å†…å­˜æ³„éœ²
 			//g_Record.log_out(0, level_error, "ble_seq_proc start");
 			ble::ble_all_oper(ble_factor.operType,ble_factor.passcode, ble_factor.p_eTicket_info, ble_factor.lengthData);
 		}

@@ -1,4 +1,4 @@
-//ʱ����㹤��
+//时间计算工具
 // Created by flpkp on 2020/3/18.
 //
 #pragma once
@@ -8,7 +8,7 @@
 
 class TimeCalcUtils {
 public:
-    //���ݿ�ʼ������ʱ������ʱ�ĺ�����
+    //根据开始、结束时间计算耗时的毫秒数
    static long calcMsec(timeval &start,timeval  &end);
 };
 

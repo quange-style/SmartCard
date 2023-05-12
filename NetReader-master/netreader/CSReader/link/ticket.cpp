@@ -27,90 +27,90 @@
 #define MI_OK 0
 
 //=================================================================
-//CPU¿¨ÓÃ
+//CPUå¡ç”¨
 typedef struct
 {
-    unsigned char       balance[4];                 // Óà¶î
-    unsigned char       offlinedealserial[2];       // Ç®°üÍÑ»ú½»Ò×ĞòºÅ
-    unsigned char       overdraft[3];               // Í¸Ö§ÏŞ¶î
-    unsigned char       encryver;                   // ÃÜÔ¿°æ±¾ºÅ
-    unsigned char       calcmarker;                 // Ëã·¨±êÊ¶
-    unsigned char       random[4];                  // Î±Ëæ»úÊı
+    unsigned char       balance[4];                 // ä½™é¢
+    unsigned char       offlinedealserial[2];       // é’±åŒ…è„±æœºäº¤æ˜“åºå·
+    unsigned char       overdraft[3];               // é€æ”¯é™é¢
+    unsigned char       encryver;                   // å¯†é’¥ç‰ˆæœ¬å·
+    unsigned char       calcmarker;                 // ç®—æ³•æ ‡è¯†
+    unsigned char       random[4];                  // ä¼ªéšæœºæ•°
 } TINITCONSUME,*LPTINITCONSUME;
 
 typedef struct
 {
-    unsigned char        balance[4];                 // Óà¶î
-    unsigned char        onlinedealSerial[2]; 				/// Áª»ú½»Ò×ĞòºÅ
-    unsigned char        encryver;                   // ÃÜÔ¿°æ±¾ºÅ
-    unsigned char        calcmarker;                 // Ëã·¨±êÊ¶
-    unsigned char        random[4];                  // Î±Ëæ»úÊı
+    unsigned char        balance[4];                 // ä½™é¢
+    unsigned char        onlinedealSerial[2]; 				/// è”æœºäº¤æ˜“åºå·
+    unsigned char        encryver;                   // å¯†é’¥ç‰ˆæœ¬å·
+    unsigned char        calcmarker;                 // ç®—æ³•æ ‡è¯†
+    unsigned char        random[4];                  // ä¼ªéšæœºæ•°
     unsigned char        mac1[4];                      // mac1
 } TINITRECHARGE,*LPTINITRECHARGE;
 
 typedef struct
 {
-    unsigned char      random[4];                  // Î±Ëæ»úÊı
-    unsigned char      offlinedealserial[2];       // Ç®°üÍÑ»ú½»Ò×ĞòºÅ
-    unsigned char      money[4];                   // ½»Ò×½ğ¶î
-    unsigned char      trflag;                 // ½»Ò×ÀàĞÍ±êÊ¶
-    unsigned char      tm[7];                 // ½»Ò×Ê±¼ä
-    unsigned char      encryver;                   // ÃÜÔ¿°æ±¾ºÅ
-    unsigned char      calcmarker;                 // Ëã·¨±êÊ¶
+    unsigned char      random[4];                  // ä¼ªéšæœºæ•°
+    unsigned char      offlinedealserial[2];       // é’±åŒ…è„±æœºäº¤æ˜“åºå·
+    unsigned char      money[4];                   // äº¤æ˜“é‡‘é¢
+    unsigned char      trflag;                 // äº¤æ˜“ç±»å‹æ ‡è¯†
+    unsigned char      tm[7];                 // äº¤æ˜“æ—¶é—´
+    unsigned char      encryver;                   // å¯†é’¥ç‰ˆæœ¬å·
+    unsigned char      calcmarker;                 // ç®—æ³•æ ‡è¯†
     unsigned char      logicnumber[8];
-//	    unsigned char      EncryptSeeds2[8];           //¶ş¼¶·ÖÉ¢Òò×Ó
+//	    unsigned char      EncryptSeeds2[8];           //äºŒçº§åˆ†æ•£å› å­
 //	    unsigned char      EncryptSeeds1[8];
 } TPSAMGETMAC,*LPTPSAMGETMAC;
 
 typedef struct
 {
-	unsigned char       random[4];                  // Î±Ëæ»úÊı
-	unsigned char       offlinedealserial[2];       // Ç®°üÍÑ»ú½»Ò×ĞòºÅ
-	unsigned char       money[4];                   // ½»Ò×½ğ¶î
-	unsigned char       trflag;					   // ½»Ò×ÀàĞÍ±êÊ¶
-	unsigned char       tm[7];                      // ½»Ò×Ê±¼ä
-	unsigned char       encryver;                   // ÃÜÔ¿°æ±¾ºÅ
-	unsigned char       calcmarker;                 // Ëã·¨±êÊ¶
+	unsigned char       random[4];                  // ä¼ªéšæœºæ•°
+	unsigned char       offlinedealserial[2];       // é’±åŒ…è„±æœºäº¤æ˜“åºå·
+	unsigned char       money[4];                   // äº¤æ˜“é‡‘é¢
+	unsigned char       trflag;					   // äº¤æ˜“ç±»å‹æ ‡è¯†
+	unsigned char       tm[7];                      // äº¤æ˜“æ—¶é—´
+	unsigned char       encryver;                   // å¯†é’¥ç‰ˆæœ¬å·
+	unsigned char       calcmarker;                 // ç®—æ³•æ ‡è¯†
 	unsigned char       logicnumber[8];
 	unsigned char       issuecode[2];
-	unsigned char       citycode[2];                //³ÇÊĞ´úÂë
+	unsigned char       citycode[2];                //åŸå¸‚ä»£ç 
 	unsigned char       Rfu[4];
 } PSAM_GETMAC_T,*PPSAM_GETMAC_T;
 
 
 typedef struct
 {
-    char 	cMsgType[2];			// ÏûÏ¢ÀàĞÍ"51"
-    unsigned char	dtTime[7];				// ÉêÇëÊ±¼ä
-    char	cStation [4];			// Õ¾µã
-    char	cDevType[2];			// Éè±¸ÀàĞÍ
-    char	cDevId[3];				// Éè±¸±àÂë
-    char	cSamId[16];				// SAM¿¨ºÅ
-    long	lPosSeq;				// ÖÕ¶Ë½»Ò×ĞòÁĞºÅ
-    char	cNetPoint[16];			// Íøµã±àÂë
-    char	cIssueCodeMain[4];		// ·¢ĞĞÉÌÖ÷±àÂë
-    char 	cIssueCodeSub[4];		// ·¢ĞĞÉÌ×Ó±àÂë
-    unsigned char	bTicketType[2];			// Æ±¿¨ÀàĞÍ
-    char	cLogicalId[20];			// Æ±¿¨Âß¼­¿¨ºÅ
-    char 	cPhysicalId[20];		// Æ±¿¨ÎïÀí¿¨ºÅ
-    unsigned char	bTestFlag;				// Æ±¿¨ÒıÓÃ±êÊ¶
-    long	lTradeSeqOnLine;		// Áª»ú½»Ò×Á÷Ë®
-    long	lTradeSeqOffLine;		// ÍÑ»ú½»Ò×Á÷Ë®
-    char	cBusinessType[2];		// ÒµÎñÀàĞÍ"14"
-    unsigned char	bWalletType;			// ÖµÀàĞÍ
-    long	lAmount;				// ³äÖµ½ğ¶î
-    long	lBalcance;				// Óà¶î
-    char	cMac[8];				// ³äÖµÈÏÖ¤Âë
-    char	cFreedom[8];			// Ëæ»úÊı
-    char	cStationLast [4];		// ÉÏ´ÎÕ¾µã
-    char	cDevTypeLast[2];		// ÉÏ´ÎÉè±¸ÀàĞÍ
-    char	cDevIdLast[3];			// ÉÏ´ÎÉè±¸±àÂë
-    unsigned char	dtTimeLast[7];			// ÉÏ´ÎÊ±¼ä
-    char	cOperatorId[6];			// ²Ù×÷Ô±±àÂë
+    char 	cMsgType[2];			// æ¶ˆæ¯ç±»å‹"51"
+    unsigned char	dtTime[7];				// ç”³è¯·æ—¶é—´
+    char	cStation [4];			// ç«™ç‚¹
+    char	cDevType[2];			// è®¾å¤‡ç±»å‹
+    char	cDevId[3];				// è®¾å¤‡ç¼–ç 
+    char	cSamId[16];				// SAMå¡å·
+    long	lPosSeq;				// ç»ˆç«¯äº¤æ˜“åºåˆ—å·
+    char	cNetPoint[16];			// ç½‘ç‚¹ç¼–ç 
+    char	cIssueCodeMain[4];		// å‘è¡Œå•†ä¸»ç¼–ç 
+    char 	cIssueCodeSub[4];		// å‘è¡Œå•†å­ç¼–ç 
+    unsigned char	bTicketType[2];			// ç¥¨å¡ç±»å‹
+    char	cLogicalId[20];			// ç¥¨å¡é€»è¾‘å¡å·
+    char 	cPhysicalId[20];		// ç¥¨å¡ç‰©ç†å¡å·
+    unsigned char	bTestFlag;				// ç¥¨å¡å¼•ç”¨æ ‡è¯†
+    long	lTradeSeqOnLine;		// è”æœºäº¤æ˜“æµæ°´
+    long	lTradeSeqOffLine;		// è„±æœºäº¤æ˜“æµæ°´
+    char	cBusinessType[2];		// ä¸šåŠ¡ç±»å‹"14"
+    unsigned char	bWalletType;			// å€¼ç±»å‹
+    long	lAmount;				// å……å€¼é‡‘é¢
+    long	lBalcance;				// ä½™é¢
+    char	cMac[8];				// å……å€¼è®¤è¯ç 
+    char	cFreedom[8];			// éšæœºæ•°
+    char	cStationLast [4];		// ä¸Šæ¬¡ç«™ç‚¹
+    char	cDevTypeLast[2];		// ä¸Šæ¬¡è®¾å¤‡ç±»å‹
+    char	cDevIdLast[3];			// ä¸Šæ¬¡è®¾å¤‡ç¼–ç 
+    unsigned char	dtTimeLast[7];			// ä¸Šæ¬¡æ—¶é—´
+    char	cOperatorId[6];			// æ“ä½œå‘˜ç¼–ç 
 }TRECHARGE_PKG_INIT, * LPTRECHARGE_PKG_INIT;
 
 
-//Ğ´¿¨Êä³ö²ÎÊı
+//å†™å¡è¾“å‡ºå‚æ•°
 typedef struct
 {
     unsigned char sam_terminalnumber[6];
@@ -184,13 +184,13 @@ TSJT_CARD	sjt_card;
 
 typedef struct
 {
-    unsigned char keyidx;				//ÃÜÔ¿Ë÷Òı
-	unsigned char len_terminal_id;		//ÖÕ¶ËºÅ³¤¶È
-    unsigned char sam_terminal_id[8];	//ÖÕ¶ËºÅ
+    unsigned char keyidx;				//å¯†é’¥ç´¢å¼•
+	unsigned char len_terminal_id;		//ç»ˆç«¯å·é•¿åº¦
+    unsigned char sam_terminal_id[8];	//ç»ˆç«¯å·
 
-	unsigned char len_logical_id;		//Âß¼­¿¨ºÅ³¤¶È
-	unsigned char offset_logical;		//È¡Âß¼­¿¨ºÅµÄÆ«ÒÆ
-    unsigned char sam_logical_id[8];	//Âß¼­¿¨ºÅ
+	unsigned char len_logical_id;		//é€»è¾‘å¡å·é•¿åº¦
+	unsigned char offset_logical;		//å–é€»è¾‘å¡å·çš„åç§»
+    unsigned char sam_logical_id[8];	//é€»è¾‘å¡å·
 	unsigned int  dsn;
 } TSAMINF, *LPTSAMINF;
 
@@ -221,35 +221,35 @@ const unsigned char id_ul[2][4]=
 
 //=================================================
 
-/* ¸¨ÖúĞÅÏ¢ */
+/* è¾…åŠ©ä¿¡æ¯ */
 struct ASSIST_DATA
 {
-    char sjt_key[6];															 /* ¿¨ÃÜÔ¿ */
+    char sjt_key[6];															 /* å¡å¯†é’¥ */
 } ass;
 
-/* Ö¸ÁîĞÅÏ¢ÅĞ¶Ï */
-struct ST_CMD_IN_DATA														  /* ÊäÈëÊı¾İ½á¹¹ */
+/* æŒ‡ä»¤ä¿¡æ¯åˆ¤æ–­ */
+struct ST_CMD_IN_DATA														  /* è¾“å…¥æ•°æ®ç»“æ„ */
 {
-    unsigned char ln; 														  /* ÊäÈëÊı¾İ³¤¶È */
+    unsigned char ln; 														  /* è¾“å…¥æ•°æ®é•¿åº¦ */
 } si;
 
-struct ST_CMD_OT_DATA														  /* Êä³öÊı¾İ½á¹¹ */
+struct ST_CMD_OT_DATA														  /* è¾“å‡ºæ•°æ®ç»“æ„ */
 {
     char data[64];
-    unsigned char ln; 														  /* ÊäÈëÊı¾İ³¤¶È */
+    unsigned char ln; 														  /* è¾“å…¥æ•°æ®é•¿åº¦ */
 } so;
 
 //=================================================
 
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúSAM  ½øĞĞ³õÊ¼»¯
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//³ö¿Ú²ÎÊı
-//       saminf=6×Ö½ÚµÄsam  ¿¨ºÅ
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“SAM  è¿›è¡Œåˆå§‹åŒ–
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//å‡ºå£å‚æ•°
+//       saminf=6å­—èŠ‚çš„sam  å¡å·
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * p_sam_id, unsigned char * p_len_terminal_id, unsigned char * p_terminal_id)
 {
@@ -315,12 +315,12 @@ int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * 
 		g_saminf[nsamsck].keyidx=sztmp[0];
 		nresult = 0;
 
-		//modify by shiyulong 2013-11-05, ¶ÁÈ¡Á÷Ë®ºÅ
+		//modify by shiyulong 2013-11-05, è¯»å–æµæ°´å·
 		if (nsamsck == 0)
 		{
 			for(int i=0; i<2; i++)
 			{
-				g_saminf[nsamsck].dsn = 0;//³õÊ¼Öµ
+				g_saminf[nsamsck].dsn = 0;//åˆå§‹å€¼
 				sam_len = 5;
 				memcpy(sztmp, "\x00\xB0\x98\x00\x04",sam_len);
 				status = sam_cmd(nsamsck,sam_len,sztmp, sztmp, &sam_sw);
@@ -337,7 +337,7 @@ int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * 
 				}
 				else if (0x6A82 == sam_sw)
 				{
-					//Ã»ÓĞÎÄ¼şÖ±½ÓÍË³ö
+					//æ²¡æœ‰æ–‡ä»¶ç›´æ¥é€€å‡º
 					nresult = -1;
 					break;
 				}
@@ -351,13 +351,13 @@ int sam_metro_active(int nsamsck, unsigned char * p_len_sam_id, unsigned char * 
 
 
 //========================================================
-//¹¦ÄÜ:¶Ô½»Í¨²¿SAM  ½øĞĞ³õÊ¼»¯
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//³ö¿Ú²ÎÊı
-//       saminf=6×Ö½ÚµÄsam  ¿¨ºÅ
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹äº¤é€šéƒ¨SAM  è¿›è¡Œåˆå§‹åŒ–
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//å‡ºå£å‚æ•°
+//       saminf=6å­—èŠ‚çš„sam  å¡å·
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int octjtb_saminit(int nsamsck, unsigned char * p_len_sam_id, unsigned char * p_sam_id, unsigned char * p_len_terminal_id, unsigned char * p_terminal_id)
 {
@@ -468,7 +468,7 @@ int searchcard(unsigned char *lpcardno)
 			}
 			else
 			{
-				//ULµ¥³ÌÆ±
+				//ULå•ç¨‹ç¥¨
 				if (ISO14443A_Anticoll_UL(0x93, snr) == 0)
 				{
 					if (ISO14443A_Select_UL(0x93, snr, tmp) == 0)
@@ -532,7 +532,7 @@ unsigned short search_card_type(char * cCenterCodeIn, char * type)
 
 	g_Record.log_out(0, level_warning,"search_card_type");
 
-	//¿ªÕ¢½»Ò×ÊÇÉÏ±Ê½»Ò×²¢ĞĞµÄÒ»±Ê½»Ò×
+	//å¼€é—¸äº¤æ˜“æ˜¯ä¸Šç¬”äº¤æ˜“å¹¶è¡Œçš„ä¸€ç¬”äº¤æ˜“
 	if(memcmp(cCenterCodeIn, Api::m_tdeticket.centerCode, 32) == 0 )
 	{
 		g_Record.log_out(0, level_warning,"search_card_type [%s]>> cCenterCodeIn = centerCode", Api::m_tdeticket.centerCode);
@@ -565,10 +565,10 @@ unsigned short search_qr_card_ex(unsigned char *lpcardno, unsigned char& type)
 	{
 		if((Api::qr_readbuf[2+7]==0x43)&&(Api::qr_readbuf[3+7]==0x53)&&(Api::qr_readbuf[4+7]==0x4D)&&(Api::qr_readbuf[5+7]==0x47))
 		{
-			//1,±ØĞëÒª½âÎöÂëÍ·µÄ°æ±¾ĞÅÏ¢£¬»ñÈ¡µç×ÓÆ±ÀàĞÍ
+			//1,å¿…é¡»è¦è§£æç å¤´çš„ç‰ˆæœ¬ä¿¡æ¯ï¼Œè·å–ç”µå­ç¥¨ç±»å‹
 			get_qrHeadVersion(Api::qr_readbuf);
 			g_Record.log_out(0, level_disaster, "search_qr_card_ex(headVersion=%s)",Api::qr_headversion);
-			//2£¬»ñÈ¡ÂëÍ·¼ÓÃÜ·½Ê½
+			//2ï¼Œè·å–ç å¤´åŠ å¯†æ–¹å¼
 			get_qrHeadInfo(Api::qr_readbuf,encMode);
 			if(memcmp(encMode, "01", 2) == 0)//3DES
 			{
@@ -578,9 +578,9 @@ unsigned short search_qr_card_ex(unsigned char *lpcardno, unsigned char& type)
                     g_Record.log_out(0, level_disaster, "enc_block_len <=0");
                     ret = ERR_ETICKET_QR_INVALID;
 			    }else{
-                    //µÃµ½ÃÜÔ¿
+                    //å¾—åˆ°å¯†é’¥
                     memcpy(key,"\x1E\xCA\x7F\x90\x4E\xED\x8E\x3E\xCC\xB5\xD5\x7B\x5B\xE4\x2A\xB6",16);
-                    //Ê×ÏÈ½âÃÜ¶şÎ¬Âë×ª³ÉÃ÷ÎÄ
+                    //é¦–å…ˆè§£å¯†äºŒç»´ç è½¬æˆæ˜æ–‡
                     get_qrClearInfo(Api::qr_readbuf + 42 + 7,key);
 
                     if((Api::clear_qr_readbuf[17] == 0x30)&&(Api::clear_qr_readbuf[18] == 0x30))
@@ -596,8 +596,8 @@ unsigned short search_qr_card_ex(unsigned char *lpcardno, unsigned char& type)
                     //g_Record.log_out(0,level_error,"type = %02x", type);
 			    }
 
-				//Ğ£ÑéÆ±¿¨ºÏ·¨ĞÔ
-			}else if(memcmp(encMode, "00", 2) == 0)//Ã÷ÎÄ
+				//æ ¡éªŒç¥¨å¡åˆæ³•æ€§
+			}else if(memcmp(encMode, "00", 2) == 0)//æ˜æ–‡
 			{
 				dbg_formatvar("cardType = %02x%02x",Api::qr_readbuf[59 + 7],Api::qr_readbuf[60 + 7]);
 				//g_Record.log_out(0,level_error,"cardType = %02x%02x", Api::qr_readbuf[59],Api::qr_readbuf[60]);
@@ -651,12 +651,12 @@ unsigned short search_third_card_ex(unsigned char *lpcardno, unsigned char& type
 	if((Api::qr_readbuf[0] == 0x51)&&(Api::qr_readbuf[1] == 0x52))
 	{
 		memcpy(tmp_package_time, Api::qr_readbuf+2, 7);
-		TimesEx::bcd_time_calculate(tmp_package_time, T_TIME, 0, 0, 0, 4);//·¶Î§4ÃëÄÚµÄ¶¼ÈÏ
-		if(memcmp(Api::get_package_time, tmp_package_time, 7) > 0)//ËµÃ÷¸ÃÂëÊÇÖ®Ç°É¨µÄ£¬ÅĞ¶ÏÎªÎŞĞ§
+		TimesEx::bcd_time_calculate(tmp_package_time, T_TIME, 0, 0, 0, 4);//èŒƒå›´4ç§’å†…çš„éƒ½è®¤
+		if(memcmp(Api::get_package_time, tmp_package_time, 7) > 0)//è¯´æ˜è¯¥ç æ˜¯ä¹‹å‰æ‰«çš„ï¼Œåˆ¤æ–­ä¸ºæ— æ•ˆ
 		{
 			g_Record.log_buffer("auth code is invalid ,valid date is over two second:", tmp_package_time, 7);
 			g_Record.log_buffer("Api::get_package_time ", Api::get_package_time, 7);
-			memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+			memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 			ret = ERR_CARD_NONE;
 		}else
 			type = mediThirdPay;
@@ -724,22 +724,22 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type,ETYTK
 	int card_type[2]			= {0};
 	unsigned short ret			= 0;
 	bool isValidity = false;
-	char encMode[2+1] = {0}; //ÂëÌå¼ÓÃÜ·½Ê½
+	char encMode[2+1] = {0}; //ç ä½“åŠ å¯†æ–¹å¼
 	uint8_t key[16] = {0};
     g_Record.log_out(0, level_warning, "search_card_ex(oper_type=%d)",oper_type);
-    //·¢ÊÛµÄÊ±ºò²»ÅĞ¶Ï¶şÎ¬Âë£¬ÒòÊµÌåÆ±Ö»·¢ÊÛÊµÌåÆ±
+    //å‘å”®çš„æ—¶å€™ä¸åˆ¤æ–­äºŒç»´ç ï¼Œå› å®ä½“ç¥¨åªå‘å”®å®ä½“ç¥¨
 
 	//if(oper_type != operSale&&oper_type != operAnalyse&&
-	//Ö»ÔÚÕ¢»ú½ø³öÕ¢Ê±£¬ÅĞ¶ÏÉ¨ÂëÓë¶ÁÈ¡ÊµÌå¿¨¾ºÕù£¬ÆäËûµç×ÓÆ±µ¥¶À´¦Àí£¬¾Í×ßµç×ÓÆ±µ¥¶À´¦Àí½Ó¿Ú
+	//åªåœ¨é—¸æœºè¿›å‡ºé—¸æ—¶ï¼Œåˆ¤æ–­æ‰«ç ä¸è¯»å–å®ä½“å¡ç«äº‰ï¼Œå…¶ä»–ç”µå­ç¥¨å•ç‹¬å¤„ç†ï¼Œå°±èµ°ç”µå­ç¥¨å•ç‹¬å¤„ç†æ¥å£
 	if((oper_type == operEntry||oper_type == operExit)&&
 		(Api::qr_readbuf[0] == 0x51)&&(Api::qr_readbuf[1] == 0x52))
 	{
 		if((Api::qr_readbuf[2 + 7]==0x43)&&(Api::qr_readbuf[3 + 7]==0x53)&&(Api::qr_readbuf[4 + 7]==0x4D)&&(Api::qr_readbuf[5 + 7]==0x47))
 		{
 
-			//½âÎöÂëÍ·
+			//è§£æç å¤´
 			get_qrHeadInfo(Api::qr_readbuf,encMode);
-			//½âÃÜ³ÉÃ÷ÎÄ
+			//è§£å¯†æˆæ˜æ–‡
 			if(memcmp(encMode, "01", 2) == 0)//3DES
 			{
                 int enc_block_len = Api::qr_readbuf_len - 1 - 40;
@@ -750,18 +750,18 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type,ETYTK
                     memcpy(key,"\x1E\xCA\x7F\x90\x4E\xED\x8E\x3E\xCC\xB5\xD5\x7B\x5B\xE4\x2A\xB6",16);
                     get_qrClearInfo(Api::qr_readbuf + 42 + 7,key);
 				}
-			}else if(memcmp(encMode, "00", 2) == 0)//Ã÷ÎÄ
+			}else if(memcmp(encMode, "00", 2) == 0)//æ˜æ–‡
 			{
 				memcpy(Api::clear_qr_readbuf, Api::qr_readbuf + 42 + 7, 512);
 			}
 
-			//1,±ØĞëÒª½âÎöÂëÍ·µÄ°æ±¾ĞÅÏ¢£¬»ñÈ¡µç×ÓÆ±ÀàĞÍ
+			//1,å¿…é¡»è¦è§£æç å¤´çš„ç‰ˆæœ¬ä¿¡æ¯ï¼Œè·å–ç”µå­ç¥¨ç±»å‹
 			get_qrHeadVersion(Api::qr_readbuf);
 			g_Record.log_out(0, level_disaster, "qrVer=%s",Api::qr_headversion);
 			if(memcmp(Api::qr_headversion,"99",2)==0)
 			{
 				g_Record.log_out(0, level_disaster, "search_card_ex(mediElecOfflineTictet)");
-				type = mediElecOfflineTictet;//0x99 ÌØÊâµç×ÓÆ±
+				type = mediElecOfflineTictet;//0x99 ç‰¹æ®Šç”µå­ç¥¨
 			}
 			else if(memcmp(encMode, "01", 2) == 0 || memcmp(encMode, "00", 2) == 0)
 			{
@@ -797,10 +797,10 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type,ETYTK
 				{
 					dbg_formatvar("ISO14443A_Anticoll");
 
-					if (ISO14443A_Anticoll(snr) == 0)//·À³åÍ»
+					if (ISO14443A_Anticoll(snr) == 0)//é˜²å†²çª
 					{
 						//g_Record.log_out_debug(0, level_error,"ISO14443A_Anticoll");
-						if (ISO14443A_Select(snr, tmp) == 0)//Ñ¡¿¨
+						if (ISO14443A_Select(snr, tmp) == 0)//é€‰å¡
 						{
 							dbg_formatvar("card_type");
 							//g_Record.log_out_debug(0, level_error,"ISO14443A_Select");
@@ -812,7 +812,7 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type,ETYTK
 				else
 				{
 					//g_Record.log_out_debug(0, level_error,"ISO14443A_request");
-					//ULµ¥³ÌÆ±
+					//ULå•ç¨‹ç¥¨
 					if (ISO14443A_Anticoll_UL(0x93, snr) == 0)
 					{
 						//g_Record.log_out_debug(0, level_error,"ISO14443A_Select_UL");
@@ -835,7 +835,7 @@ unsigned short search_card_ex(unsigned char *lpcardno, unsigned char& type,ETYTK
 				}
 			}
 		}
-		if (card_type[0] == 0)//µ¥³ÌÆ±
+		if (card_type[0] == 0)//å•ç¨‹ç¥¨
 		{
 			memcpy(lpcardno, ack[1], 8);
 			type = card_type[1];
@@ -903,7 +903,7 @@ int searchcard_es(unsigned char *lpcardno)
 			}
 			else
 			{
-				//ULµ¥³ÌÆ±
+				//ULå•ç¨‹ç¥¨
 				if (ISO14443A_Anticoll_UL(0x93, snr) == 0)
 				{
 					if (ISO14443A_Select_UL(0x93, snr, tmp) == 0)
@@ -996,11 +996,11 @@ int distinguish_cpu(unsigned char * p_pid)
 		{
 			if (memcmp(sztmp, "\x53\x20",2)==0 || memcmp(sztmp, "\x07\x31",2)==0)//add test 2016-02-25
 			{
-				nresult = 3;				//µØÌú
+				nresult = 3;				//åœ°é“
 			}
 			else if (memcmp(sztmp, "\x59\x44",2)==0)
 			{
-				nresult = 4;				//¹«½»
+				nresult = 4;				//å…¬äº¤
 			}
 			else
 			{
@@ -1155,7 +1155,7 @@ unsigned short distinguish_cpu_ex(unsigned char * p_pid, unsigned char& type)
 				}
 			}
 
-			if (ISO14443A_Anticoll(g_lstphysical) == 0)//·À³åÍ»
+			if (ISO14443A_Anticoll(g_lstphysical) == 0)//é˜²å†²çª
 			{
 				dbg_formatvar("ISO14443A_Anticoll");
 				if (ISO14443A_Select(g_lstphysical, sztmp) != 0)
@@ -1182,7 +1182,7 @@ unsigned short distinguish_cpu_ex(unsigned char * p_pid, unsigned char& type)
 
 			/*
 
-			if (ISO14443A_Anticoll(g_lstphysical) == 0)//·À³åÍ»
+			if (ISO14443A_Anticoll(g_lstphysical) == 0)//é˜²å†²çª
 			{
 				if (ISO14443A_Select(g_lstphysical, sztmp) != 0)
 				{
@@ -1247,18 +1247,18 @@ unsigned short distinguish_cpu_ex(unsigned char * p_pid, unsigned char& type)
 
 		if (response_sw==0x9000)
 		{
-			cardtype = sztmp[16];//Æ±¿¨Ö÷ÀàĞÍ
+			cardtype = sztmp[16];//ç¥¨å¡ä¸»ç±»å‹
 
 			if (memcmp(sztmp, "\x53\x20",2)==0 || memcmp(sztmp, "\x07\x31",2)==0)
 			{
 				if( cardtype == 0x03 )
-					type = 6;				//´ÎÆ±
+					type = 6;				//æ¬¡ç¥¨
 				else
-					type = 3;				//µØÌú
+					type = 3;				//åœ°é“
 			}
 			else if (memcmp(sztmp, "\x59\x44",2)==0)
 			{
-				type = 4;				//¹«½»
+				type = 4;				//å…¬äº¤
 			}
 			else
 			{
@@ -1279,12 +1279,12 @@ unsigned short distinguish_cpu_ex(unsigned char * p_pid, unsigned char& type)
 }
 
 //=================================
-//¹¦ÄÜ: CPU ¿¨¸´Î»,  ´ËÇ°±ØĞë×ö¹ısearchcardº¯Êı
-//Èë¿Ú²ÎÊı:  ÎŞ
-//³ö¿Ú²ÎÊı:
-//                         lpinf: ¸´Î»ĞÅÏ¢
-//·µ»ØÖµ:
-//                =0³É¹¦
+//åŠŸèƒ½: CPU å¡å¤ä½,  æ­¤å‰å¿…é¡»åšè¿‡searchcardå‡½æ•°
+//å…¥å£å‚æ•°:  æ— 
+//å‡ºå£å‚æ•°:
+//                         lpinf: å¤ä½ä¿¡æ¯
+//è¿”å›å€¼:
+//                =0æˆåŠŸ
 //=================================
 int svt_active(unsigned char *lpinf)
 {
@@ -1324,19 +1324,19 @@ int svt_active(unsigned char *lpinf)
 
 
 //========================================================
-//¹¦ÄÜ:¶Áµ¥³ÌÆ±Êı¾İ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//³ö¿Ú²ÎÊı
-//       lpbuffer=½âÂëºóµÄÆ±¿¨Êı¾İ£¬´ÓµÚ4Ò³µ½µÚ15Ò³(48BYTE)
-//·µ»ØÖµ
-//       0=¶Á¿¨³É¹¦, ÇÒÁ½¸ö´¦ÀíÇøcrc  ¶¼ÕıÈ·
-//       1=¶Á¿¨³É¹¦, µÚÒ»¸ö´¦ÀíÇøcrc  ´íÎó
-//       2=¶Á¿¨³É¹¦, µÚ¶ş¸ö´¦ÀíÇøcrc  ´íÎó
-//       3=¶Á¿¨³É¹¦, Á½¸ö´¦ÀíÇøcrc  ¶¼´íÎó
-//      -1=ÎŞ¿¨
-//      -2=¶ÁÊı¾İÊ§°Ü
-//      -5=²Ù×÷sam  ¿¨Ê§°Ü
+//åŠŸèƒ½:è¯»å•ç¨‹ç¥¨æ•°æ®
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//å‡ºå£å‚æ•°
+//       lpbuffer=è§£ç åçš„ç¥¨å¡æ•°æ®ï¼Œä»ç¬¬4é¡µåˆ°ç¬¬15é¡µ(48BYTE)
+//è¿”å›å€¼
+//       0=è¯»å¡æˆåŠŸ, ä¸”ä¸¤ä¸ªå¤„ç†åŒºcrc  éƒ½æ­£ç¡®
+//       1=è¯»å¡æˆåŠŸ, ç¬¬ä¸€ä¸ªå¤„ç†åŒºcrc  é”™è¯¯
+//       2=è¯»å¡æˆåŠŸ, ç¬¬äºŒä¸ªå¤„ç†åŒºcrc  é”™è¯¯
+//       3=è¯»å¡æˆåŠŸ, ä¸¤ä¸ªå¤„ç†åŒºcrc  éƒ½é”™è¯¯
+//      -1=æ— å¡
+//      -2=è¯»æ•°æ®å¤±è´¥
+//      -5=æ“ä½œsam  å¡å¤±è´¥
 //========================================================
 int readul(int nsamsck, unsigned char *lpbuffer)
 {
@@ -1407,14 +1407,14 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 	}
 
 
-	/* ¶ÁËùÓĞÊı¾İ */
+	/* è¯»æ‰€æœ‰æ•°æ® */
 	// Read all data
 	for (i=0; i<=15; i+=4)
 	{
 		status = ISO14443A_Read_UL(i, (uint8_t *)(sjt_card.data+(i<<2)));
 		if (status != MI_OK)
 		{
-			//³¢ÊÔ¶à¶ÁÒ»´Î
+			//å°è¯•å¤šè¯»ä¸€æ¬¡
 			status = ISO14443A_Read_UL(i, (uint8_t *)(sjt_card.data+(i<<2)));
 			if (status != MI_OK)
 			{
@@ -1424,7 +1424,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 		}
 	}
 
-	g_Record.log_buffer("data_before£º",(uint8_t *)sjt_card.data,64);
+	g_Record.log_buffer("data_beforeï¼š",(uint8_t *)sjt_card.data,64);
 
 	cmd_ln = 18;
 	memcpy(&cmd[0], "\x80\xFC\x01\x01\x0D", 5);
@@ -1435,7 +1435,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 
 	status = sam_cmd(nsamsck,cmd_ln,cmd, cmd, &sam_sw);
 
-	/* ¼ÆËãÃÜÔ¿ */
+	/* è®¡ç®—å¯†é’¥ */
 	if (0x9000!=sam_sw)
 	{
 
@@ -1447,7 +1447,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 
 	memcpy(key_crypt, cmd, 6);
 
-	g_Record.log_buffer("key_crypt£º",key_crypt,6);
+	g_Record.log_buffer("key_cryptï¼š",key_crypt,6);
 
 	dbg_dumpmemory("key_crypt:",key_crypt,6);
 
@@ -1493,7 +1493,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 
 	if (generate_crc8((uint8_t *)(sjt_card.data+32),16,key_crypt[0])!=0)
 	{
-		//´¦Àí0  ÇøCRC  ´í
+		//å¤„ç†0  åŒºCRC  é”™
 		g_Record.log_out(0, level_disaster,"generate_crc8 1 err");
 		dbg_formatvar("generate_crc8-1");
 		errcnt += 1;
@@ -1501,7 +1501,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 
 	if (generate_crc8((uint8_t *)(sjt_card.data+48),16,key_crypt[1])!=0)
 	{
-		//´¦Àí1  ÇøCRC  ´í
+		//å¤„ç†1  åŒºCRC  é”™
 		g_Record.log_out(0, level_disaster,"generate_crc8 2 err");
 		dbg_formatvar("generate_crc8-2");
 		errcnt += 2;
@@ -1513,7 +1513,7 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 
 	dbg_dumpmemory("lpbuffer:",lpbuffer,64);
 
-	g_Record.log_buffer("data_after£º",lpbuffer,64);
+	g_Record.log_buffer("data_afterï¼š",lpbuffer,64);
 
 	return errcnt;
 }
@@ -1521,16 +1521,16 @@ int readul(int nsamsck, unsigned char *lpbuffer)
 #define USERZONE_PAGER1 8
 #define USERZONE_PAGER2 12
 //========================================================
-//¹¦ÄÜ:Ğ´µ¥³ÌÆ±Êı¾İ
-//Èë¿Ú²ÎÊı
-//        nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//        nzone=Êı¾İÇøÓò£¬0-´¦ÀíÊı¾İÇø0£¬1-´¦ÀíÊı¾İÇø0
-//        lpbuffer=16×Ö½Ú´¦ÀíÇøÊı¾İ£¬
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
-//      -3=Ğ´¿¨Ê§°Ü
+//åŠŸèƒ½:å†™å•ç¨‹ç¥¨æ•°æ®
+//å…¥å£å‚æ•°
+//        nsamsck=samå¡å¯¹åº”å¡æ§½
+//        nzone=æ•°æ®åŒºåŸŸï¼Œ0-å¤„ç†æ•°æ®åŒº0ï¼Œ1-å¤„ç†æ•°æ®åŒº0
+//        lpbuffer=16å­—èŠ‚å¤„ç†åŒºæ•°æ®ï¼Œ
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
+//      -3=å†™å¡å¤±è´¥
 //========================================================
 int writeul(int nsamsck, int nzone, unsigned char *lpbuffer)
 {
@@ -1544,14 +1544,14 @@ int writeul(int nsamsck, int nzone, unsigned char *lpbuffer)
 	int offset_pager;
 
 
-	//Ô­Ê¼Êı¾İÏÈ¼ÆËã²¢Ìî³ä crc8
+	//åŸå§‹æ•°æ®å…ˆè®¡ç®—å¹¶å¡«å…… crc8
 	if ( idx>1 ) idx=1;
 	crc8 = generate_crc8(lpbuffer, 15, key_crypt[idx]);
 	lpbuffer[15] = crc8;
 
 	memcpy(write_buf, lpbuffer, 16);
 
-	//Ğ´Êı¾İÇ°½øĞĞ¼ÓÃÜ
+	//å†™æ•°æ®å‰è¿›è¡ŒåŠ å¯†
 
 	memcpy(en_tmp, key_crypt+2, 4);
 
@@ -1573,7 +1573,7 @@ int writeul(int nsamsck, int nzone, unsigned char *lpbuffer)
 		en_tmp[3] = en_next[3];
 	}
 
-	//Ğ´Êı¾İ
+	//å†™æ•°æ®
 	if ( nzone == 0)
 		offset_pager = USERZONE_PAGER1;
 	else
@@ -1602,7 +1602,7 @@ uint16_t writeul_new(int nsamsck, int nzone, unsigned char *lpbuffer)
 
 	memcpy(write_buf, lpbuffer, 16);
 
-	//Ğ´Êı¾İÇ°½øĞĞ¼ÓÃÜ
+	//å†™æ•°æ®å‰è¿›è¡ŒåŠ å¯†
 	memcpy(en_tmp, key_crypt+2, 4);
 
 	for (i = 0; i < 4; i ++)
@@ -1623,7 +1623,7 @@ uint16_t writeul_new(int nsamsck, int nzone, unsigned char *lpbuffer)
 		en_tmp[3] = en_next[3];
 	}
 
-	//Ğ´Êı¾İ
+	//å†™æ•°æ®
 	if ( nzone == 0)
 		offset_pager = USERZONE_PAGER1;
 	else if (nzone == 1)
@@ -1659,15 +1659,15 @@ uint16_t add_ul_crc8(unsigned char data_point, unsigned char * p_area_data)
 //=====================================================================
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúSAM  ½øĞĞ¹¦ÄÜ¼¤»î£¬Ö»ÓĞ¼¤»î¹ıºóµÄ²ÅÄÜ½øĞĞ·¢ÊÛÑÓÆÚ½âËø
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    direct=Êı¾İ·½Ïò, 0=±íÊ¾È¡¼¤»îĞÅÏ¢£¬´ËĞÅÏ¢Ğè·¢ËÍ¸ø·şÎñÆ÷; 1=±íÊ¾¼¤»î²Ù×÷£¬½«·şÎñÆ÷·µ»ØĞÅÏ¢·¢ËÍµ½SAM  ¿¨
-//    lpinf=µ±direct=1Ê±ÎªÊäÈë ²ÎÊı
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“SAM  è¿›è¡ŒåŠŸèƒ½æ¿€æ´»ï¼Œåªæœ‰æ¿€æ´»è¿‡åçš„æ‰èƒ½è¿›è¡Œå‘å”®å»¶æœŸè§£é”
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//    direct=æ•°æ®æ–¹å‘, 0=è¡¨ç¤ºå–æ¿€æ´»ä¿¡æ¯ï¼Œæ­¤ä¿¡æ¯éœ€å‘é€ç»™æœåŠ¡å™¨; 1=è¡¨ç¤ºæ¿€æ´»æ“ä½œï¼Œå°†æœåŠ¡å™¨è¿”å›ä¿¡æ¯å‘é€åˆ°SAM  å¡
+//    lpinf=å½“direct=1æ—¶ä¸ºè¾“å…¥ å‚æ•°
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int sam_metro_function_active(int nsamsck, int direct, unsigned char *lpinf)
 {
@@ -1680,7 +1680,7 @@ int sam_metro_function_active(int nsamsck, int direct, unsigned char *lpinf)
 
 	if (direct==0)
 	{
-		//»ñÈ¡Ëæ»úÊı
+		//è·å–éšæœºæ•°
 		sam_len = 5;
 		memcpy(sztmp, "\x00\x84\x00\x00\x08",sam_len);
 		status = sam_cmd(nsamsck,sam_len,sztmp, sztmp, &sam_sw);
@@ -1696,7 +1696,7 @@ int sam_metro_function_active(int nsamsck, int direct, unsigned char *lpinf)
 	else
 	{
 
-		//Ö´ĞĞÍâ²¿ÈÏÖ¤
+		//æ‰§è¡Œå¤–éƒ¨è®¤è¯
 		nresult=-2;
 
 		sam_len = 5;
@@ -1722,13 +1722,13 @@ int sam_metro_function_active(int nsamsck, int direct, unsigned char *lpinf)
 }
 
 //========================================================
-//¹¦ÄÜ:Ñ¡ÔñÓ¦ÓÃÄ¿Â¼
-//Èë¿Ú²ÎÊı
-//	 aid=Ó¦ÓÃÄ¿Â¼±êÊ¶, 0x3F00=Ö÷Ó¦ÓÃÄ¿Â¼,  0x1001=ADF1Ä¿Â¼, 0x1002=ADF2Ä¿Â¼
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½:é€‰æ‹©åº”ç”¨ç›®å½•
+//å…¥å£å‚æ•°
+//	 aid=åº”ç”¨ç›®å½•æ ‡è¯†, 0x3F00=ä¸»åº”ç”¨ç›®å½•,  0x1001=ADF1ç›®å½•, 0x1002=ADF2ç›®å½•
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_selectfile(unsigned short aid)
 {
@@ -1750,13 +1750,13 @@ int svt_selectfile(unsigned short aid)
 
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else if (0x9000!=response_sw)
 	{
 		//g_Record.log_out(0, level_error, "svt_selectfile(aid=%d)|response_sw:%04X",aid,response_sw);
-		//ÏìÓ¦´íÎó
+		//å“åº”é”™è¯¯
 		nresult = -2;
 	}
 	else
@@ -1769,15 +1769,15 @@ int svt_selectfile(unsigned short aid)
 }
 
 //========================================================
-//¹¦ÄÜ: ¶Á¶ş½øÖÆÎÄ¼ş,  ÒªÏÈ½øÈëÏàÓ¦µÄÓ¦ÓÃÄ¿Â¼²ÅÄÜÕıÈ·¶ÁÈ¡
-//Èë¿Ú²ÎÊı
-//	 aid=¶ÌÎÄ¼ş±êÊ¶, 0x05=·¢ĞĞÎÄ¼ş,  0x11=Ó¦ÓÃ¿ØÖÆÎÄ¼ş£¬0x15=¹«¹²ĞÅÏ¢ÎÄ¼ş,  0x16=³Ö¿¨ÈË¸öÈËĞÅÏ¢ÎÄ¼ş
-//    start_offset:¶ÁÈ¡ÎÄ¼şµÄÆğÊ¼Æ«ÒÆµØÖ·
-//    len:Òª¶ÁÈ¡µÄ³¤¶È
-//³ö¿Ú²ÎÊı
-//       lpdata: ¶ÁÈ¡µÄÊı¾İ»º³å
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: è¯»äºŒè¿›åˆ¶æ–‡ä»¶,  è¦å…ˆè¿›å…¥ç›¸åº”çš„åº”ç”¨ç›®å½•æ‰èƒ½æ­£ç¡®è¯»å–
+//å…¥å£å‚æ•°
+//	 aid=çŸ­æ–‡ä»¶æ ‡è¯†, 0x05=å‘è¡Œæ–‡ä»¶,  0x11=åº”ç”¨æ§åˆ¶æ–‡ä»¶ï¼Œ0x15=å…¬å…±ä¿¡æ¯æ–‡ä»¶,  0x16=æŒå¡äººä¸ªäººä¿¡æ¯æ–‡ä»¶
+//    start_offset:è¯»å–æ–‡ä»¶çš„èµ·å§‹åç§»åœ°å€
+//    len:è¦è¯»å–çš„é•¿åº¦
+//å‡ºå£å‚æ•°
+//       lpdata: è¯»å–çš„æ•°æ®ç¼“å†²
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_readbinary(unsigned char aid, unsigned char start_offset, unsigned char len, unsigned char *lpdata)
 {
@@ -1799,13 +1799,13 @@ int svt_readbinary(unsigned char aid, unsigned char start_offset, unsigned char 
 	//g_Record.log_out(0, level_error, "response_sw:%04X",response_sw);
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else if (0x9000!=response_sw)
 	{
 		g_Record.log_out(0, level_error, "svt_readbinary|(AID=%02X):response_sw:%04X",aid,response_sw);
-		//ÏìÓ¦´íÎó
+		//å“åº”é”™è¯¯
 		nresult = -2;
 	}
 	else
@@ -1820,15 +1820,15 @@ int svt_readbinary(unsigned char aid, unsigned char start_offset, unsigned char 
 }
 
 //========================================================
-//¹¦ÄÜ: ¶Á¼ÇÂ¼ÎÄ¼ş,  ÒªÏÈ½øÈëÏàÓ¦µÄÓ¦ÓÃÄ¿Â¼²ÅÄÜÕıÈ·¶ÁÈ¡
-//Èë¿Ú²ÎÊı
-//	 aid=¶ÌÎÄ¼ş±êÊ¶, 0x17=¸´ºÏÎÄ¼ş£¬0x18=ÀúÊ·Ã÷Ï¸
-//    record_no:Òª¶ÁÈ¡ÎÄ¼ş¼ÇÂ¼ºÅ
-//    len:Òª¶ÁÈ¡µÄ³¤¶È
-//³ö¿Ú²ÎÊı
-//       lpdata: ¶ÁÈ¡µÄÊı¾İ»º³å
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: è¯»è®°å½•æ–‡ä»¶,  è¦å…ˆè¿›å…¥ç›¸åº”çš„åº”ç”¨ç›®å½•æ‰èƒ½æ­£ç¡®è¯»å–
+//å…¥å£å‚æ•°
+//	 aid=çŸ­æ–‡ä»¶æ ‡è¯†, 0x17=å¤åˆæ–‡ä»¶ï¼Œ0x18=å†å²æ˜ç»†
+//    record_no:è¦è¯»å–æ–‡ä»¶è®°å½•å·
+//    len:è¦è¯»å–çš„é•¿åº¦
+//å‡ºå£å‚æ•°
+//       lpdata: è¯»å–çš„æ•°æ®ç¼“å†²
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_readrecord(unsigned char aid, unsigned char record_no, unsigned char len, unsigned char *lpdata)
 {
@@ -1854,13 +1854,13 @@ int svt_readrecord(unsigned char aid, unsigned char record_no, unsigned char len
 	//dbg_dumpmemory("svt_readrecord |=",sztmp,response_len);
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else
 		if (0x9000!=response_sw)
 		{
-			//ÏìÓ¦´íÎó
+			//å“åº”é”™è¯¯
 			nresult = -2;
 			g_Record.log_out(0, level_error, "svt_readrecord|(AID=%02X):response_sw:%04X",aid,response_sw);
 		}
@@ -1878,15 +1878,15 @@ int svt_readrecord(unsigned char aid, unsigned char record_no, unsigned char len
 
 
 //========================================================
-//¹¦ÄÜ: ¶Á¼ÇÂ¼ÎÄ¼ş,  ÒªÏÈ½øÈëÏàÓ¦µÄÓ¦ÓÃÄ¿Â¼²ÅÄÜÕıÈ·¶ÁÈ¡
-//Èë¿Ú²ÎÊı
-//	 aid=¶ÌÎÄ¼ş±êÊ¶, 0x17=¸´ºÏÎÄ¼ş£¬0x18=ÀúÊ·Ã÷Ï¸
-//    record_no:Òª¶ÁÈ¡ÎÄ¼ş¼ÇÂ¼ºÅ
-//    len:Òª¶ÁÈ¡µÄ³¤¶È
-//³ö¿Ú²ÎÊı
-//       lpdata: ¶ÁÈ¡µÄÊı¾İ»º³å
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: è¯»è®°å½•æ–‡ä»¶,  è¦å…ˆè¿›å…¥ç›¸åº”çš„åº”ç”¨ç›®å½•æ‰èƒ½æ­£ç¡®è¯»å–
+//å…¥å£å‚æ•°
+//	 aid=çŸ­æ–‡ä»¶æ ‡è¯†, 0x17=å¤åˆæ–‡ä»¶ï¼Œ0x18=å†å²æ˜ç»†
+//    record_no:è¦è¯»å–æ–‡ä»¶è®°å½•å·
+//    len:è¦è¯»å–çš„é•¿åº¦
+//å‡ºå£å‚æ•°
+//       lpdata: è¯»å–çš„æ•°æ®ç¼“å†²
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_jtbreadrecord(unsigned char aid, unsigned char record_no, unsigned char len, unsigned char *lpdata)
 {
@@ -1907,13 +1907,13 @@ int svt_jtbreadrecord(unsigned char aid, unsigned char record_no, unsigned char 
 	//dbg_dumpmemory("sztmp=",sztmp,response_len);
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else
 		if (0x9000!=response_sw)
 		{
-			//ÏìÓ¦´íÎó
+			//å“åº”é”™è¯¯
 			nresult = -2;
 		}
 		else
@@ -1929,15 +1929,15 @@ int svt_jtbreadrecord(unsigned char aid, unsigned char record_no, unsigned char 
 
 
 //========================================================
-//¹¦ÄÜ: ¶ÁÀúÊ·Ã÷Ï¸,  ÒªÏÈ½øÈëÏàÓ¦µÄÓ¦ÓÃÄ¿Â¼²ÅÄÜÕıÈ·¶ÁÈ¡
-//Èë¿Ú²ÎÊı
-//	 aid=¶ÌÎÄ¼ş±êÊ¶, 0x17=¸´ºÏÎÄ¼ş£¬0x18=ÀúÊ·Ã÷Ï¸
-//    record_start: Òª¶ÁÈ¡ÆğÊ¼¼ÇÂ¼ºÅ
-//      record_cnt:Òª¶ÁÈ¡µÄ¼ÇÂ¼ÌõÊı
-//³ö¿Ú²ÎÊı
-//       lpdata: ¶ÁÈ¡µÄÊı¾İ»º³å
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: è¯»å†å²æ˜ç»†,  è¦å…ˆè¿›å…¥ç›¸åº”çš„åº”ç”¨ç›®å½•æ‰èƒ½æ­£ç¡®è¯»å–
+//å…¥å£å‚æ•°
+//	 aid=çŸ­æ–‡ä»¶æ ‡è¯†, 0x17=å¤åˆæ–‡ä»¶ï¼Œ0x18=å†å²æ˜ç»†
+//    record_start: è¦è¯»å–èµ·å§‹è®°å½•å·
+//      record_cnt:è¦è¯»å–çš„è®°å½•æ¡æ•°
+//å‡ºå£å‚æ•°
+//       lpdata: è¯»å–çš„æ•°æ®ç¼“å†²
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_readhistory(unsigned char aid, unsigned char record_start, unsigned char record_cnt, unsigned char *lpdata)
 {
@@ -1967,19 +1967,19 @@ int svt_readhistory(unsigned char aid, unsigned char record_start, unsigned char
 		dbg_dumpmemory("svt_readhistory |=",sztmp,response_len);
 		if (response_len==0)
 		{
-			//ÎŞ»ØÓ¦
+			//æ— å›åº”
 			nresult = -1;
 			break;
 		}
 		else if (0x6a82 == response_sw || 0x6a83 == response_sw)
 		{
-			// ÎŞÎÄ¼ş»òÕßÎŞ¼ÇÂ¼
+			// æ— æ–‡ä»¶æˆ–è€…æ— è®°å½•
 			break;
 		}
 		else if (0x9000!=response_sw)
 		{
 			g_Record.log_out(0, level_error, "svt_readhistory|(AID=%02X):response_sw:%04X",aid,response_sw);
-			//ÏìÓ¦´íÎó
+			//å“åº”é”™è¯¯
 			//nresult = -2;
 			break;
 		}
@@ -1999,13 +1999,13 @@ int svt_readhistory(unsigned char aid, unsigned char record_start, unsigned char
 }
 
 //========================================================
-//¹¦ÄÜ: ¶ÁÇ®°üÖµ,  ÒªÏÈ½øÈëÏàÓ¦µÄÓ¦ÓÃÄ¿Â¼²ÅÄÜÕıÈ·¶ÁÈ¡
-//Èë¿Ú²ÎÊı
-//	 ÎŞ
-//³ö¿Ú²ÎÊı
-//       lpdata: 4×Ö½ÚµÄÇ®°üÖµ,  ¸ß×Ö½ÚÔÚÇ°
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: è¯»é’±åŒ…å€¼,  è¦å…ˆè¿›å…¥ç›¸åº”çš„åº”ç”¨ç›®å½•æ‰èƒ½æ­£ç¡®è¯»å–
+//å…¥å£å‚æ•°
+//	 æ— 
+//å‡ºå£å‚æ•°
+//       lpdata: 4å­—èŠ‚çš„é’±åŒ…å€¼,  é«˜å­—èŠ‚åœ¨å‰
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_getbalance(unsigned char *lpdata, uint8_t type)
 {
@@ -2017,7 +2017,7 @@ int svt_getbalance(unsigned char *lpdata, uint8_t type)
 	//int i;
 	int nresult =  -1;
 
-	//Ç®°ü
+	//é’±åŒ…
 	ulen = 5;
 	memcpy(sztmp, "\x80\x5C\x00\x02\x04", ulen);
 	sztmp[2] = type;
@@ -2028,13 +2028,13 @@ int svt_getbalance(unsigned char *lpdata, uint8_t type)
 	//g_Record.log_out(0, level_error, "response_sw:%04X",response_sw);
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else if (0x9000!=response_sw)
 	{
 		g_Record.log_out(0, level_error, "svt_getbalance|response_sw:%04X",response_sw);
-		//ÏìÓ¦´íÎó
+		//å“åº”é”™è¯¯
 		nresult = -2;
 	}
 	else
@@ -2057,7 +2057,7 @@ int jtb_selectppse()
 	unsigned char response_len;
 	int u_ret =  0;
 
-	//Í¨¹ıAIDµÄ·½Ê½Ñ¡Ôñ»¥Áª»¥Í¨µç×ÓÇ®°üÓ¦ÓÃ
+	//é€šè¿‡AIDçš„æ–¹å¼é€‰æ‹©äº’è”äº’é€šç”µå­é’±åŒ…åº”ç”¨
 	ulen = 13;
 	memcpy(sztmp, "\x00\xA4\x04\x00\x08\xA0\x00\x00\x06\x32\x01\x01\x05", ulen);
 	dbg_dumpmemory("aid=",sztmp,13);
@@ -2074,13 +2074,13 @@ int jtb_selectppse()
 
 
 //========================================================
-//¹¦ÄÜ: È¡Áª»ú½»Ò×¼ÆÊı
-//Èë¿Ú²ÎÊı
-//	 nsamsck: µØÌúSAM  ¿¨¶ÔÓ¦µÄ¿¨×ù,  ´Ó0  ¿ªÊ¼
-//³ö¿Ú²ÎÊı
-//       lpdata: 2×Ö½ÚµÄÁª»úĞòÁĞºÅ,  ¸ß×Ö½ÚÔÚÇ°
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: å–è”æœºäº¤æ˜“è®¡æ•°
+//å…¥å£å‚æ•°
+//	 nsamsck: åœ°é“SAM  å¡å¯¹åº”çš„å¡åº§,  ä»0  å¼€å§‹
+//å‡ºå£å‚æ•°
+//       lpdata: 2å­—èŠ‚çš„è”æœºåºåˆ—å·,  é«˜å­—èŠ‚åœ¨å‰
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_getonlineserial(int nsamsck,unsigned char *lpserial)
 {
@@ -2093,7 +2093,7 @@ int svt_getonlineserial(int nsamsck,unsigned char *lpserial)
 
 	do
 	{
-		if(nsamsck != 3)//½»Í¨²¿µÄÆ±¿¨È¡½»Ò×¼ÆÊı£¬²»ÓÃÑépin
+		if(nsamsck != 3)//äº¤é€šéƒ¨çš„ç¥¨å¡å–äº¤æ˜“è®¡æ•°ï¼Œä¸ç”¨éªŒpin
 		{
 			ulen = 8;
 			memcpy(sztmp, "\x00\x20\x00\x00\x03\x12\x34\x56",8);
@@ -2150,13 +2150,13 @@ int svt_getonlineserial(int nsamsck,unsigned char *lpserial)
 }
 
 //========================================================
-//¹¦ÄÜ: È¡ÍÑ»ú½»Ò×¼ÆÊı
-//Èë¿Ú²ÎÊı
-//	 nsamsck: µØÌúSAM  ¿¨¶ÔÓ¦µÄ¿¨×ù,  ´Ó0  ¿ªÊ¼
-//³ö¿Ú²ÎÊı
-//       lpdata: 2×Ö½ÚµÄ½º»úĞòÁĞºÅ,  ¸ß×Ö½ÚÔÚÇ°
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½: å–è„±æœºäº¤æ˜“è®¡æ•°
+//å…¥å£å‚æ•°
+//	 nsamsck: åœ°é“SAM  å¡å¯¹åº”çš„å¡åº§,  ä»0  å¼€å§‹
+//å‡ºå£å‚æ•°
+//       lpdata: 2å­—èŠ‚çš„èƒ¶æœºåºåˆ—å·,  é«˜å­—èŠ‚åœ¨å‰
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_getofflineserial(int nsamsck,unsigned char *lpserial)
 {
@@ -2213,32 +2213,32 @@ int svt_getofflineserial(int nsamsck,unsigned char *lpserial)
 
 
 //=================================================================================
-//º¯ Êı Ãû: svt_read
-//¹¦    ÄÜ: ¶ÁÈ¡µØÌúÆ±µÄÊı¾İÄÚÈİ
-//Èë¿Ú²ÎÊı:
-//          nmode:¶Á¿¨·½Ê½,=0ÆÕÍ¨·½Ê½, =1È«¶Á·½Ê½£¬ĞèÒª¶ÁÈ¡³Ö¿¨ÈËĞÅÏ¢ºÍËùÓĞÀúÊ·
-//³ö¿Ú²ÎÊı:
-//          lpcardinf:·µ»ØµÄÊı¾İ»º³åÇø
-//          µ±nmode=0Ê±
-//            ·¢ĞĞ»ù±¾ĞÅÏ¢:40Byte
-//            ¹«¹²ĞÅÏ¢:30Byte
-//            ½»Ò×¸¨ÖúĞÅÏ¢:48Byte
-//            µØÌúĞÅÏ¢:48Byte
-//            Ó¦ÓÃ¿ØÖÆĞÅÏ¢:32Byte
-//            Ç®°üÖµ:4Byte
-//            ×î½üÒ»´ÎÀúÊ·¼ÇÂ¼:23Byte
-//          µ±nmode=1Ê±
-//            ·¢ĞĞ»ù±¾ĞÅÏ¢:40Byte
-//            ¹«¹²ĞÅÏ¢:30Byte
-//            ½»Ò×¸¨ÖúĞÅÏ¢:48Byte
-//            µØÌúĞÅÏ¢:48Byte
-//            Ó¦ÓÃ¿ØÖÆĞÅÏ¢:32Byte
-//            Ç®°üÖµ:4Byte
-//            ³Ö¿¨ÈË¸öÈËĞÅÏ¢:23Byte
-//            10ÌõÀúÊ·¼ÇÂ¼:230Byte
-//·µ »Ø Öµ:
-//        >0: ·µ»ØµÄÊı¾İ³¤¶È
-//        <0: ²Ù×÷³ö´í
+//å‡½ æ•° å: svt_read
+//åŠŸ    èƒ½: è¯»å–åœ°é“ç¥¨çš„æ•°æ®å†…å®¹
+//å…¥å£å‚æ•°:
+//          nmode:è¯»å¡æ–¹å¼,=0æ™®é€šæ–¹å¼, =1å…¨è¯»æ–¹å¼ï¼Œéœ€è¦è¯»å–æŒå¡äººä¿¡æ¯å’Œæ‰€æœ‰å†å²
+//å‡ºå£å‚æ•°:
+//          lpcardinf:è¿”å›çš„æ•°æ®ç¼“å†²åŒº
+//          å½“nmode=0æ—¶
+//            å‘è¡ŒåŸºæœ¬ä¿¡æ¯:40Byte
+//            å…¬å…±ä¿¡æ¯:30Byte
+//            äº¤æ˜“è¾…åŠ©ä¿¡æ¯:48Byte
+//            åœ°é“ä¿¡æ¯:48Byte
+//            åº”ç”¨æ§åˆ¶ä¿¡æ¯:32Byte
+//            é’±åŒ…å€¼:4Byte
+//            æœ€è¿‘ä¸€æ¬¡å†å²è®°å½•:23Byte
+//          å½“nmode=1æ—¶
+//            å‘è¡ŒåŸºæœ¬ä¿¡æ¯:40Byte
+//            å…¬å…±ä¿¡æ¯:30Byte
+//            äº¤æ˜“è¾…åŠ©ä¿¡æ¯:48Byte
+//            åœ°é“ä¿¡æ¯:48Byte
+//            åº”ç”¨æ§åˆ¶ä¿¡æ¯:32Byte
+//            é’±åŒ…å€¼:4Byte
+//            æŒå¡äººä¸ªäººä¿¡æ¯:23Byte
+//            10æ¡å†å²è®°å½•:230Byte
+//è¿” å› å€¼:
+//        >0: è¿”å›çš„æ•°æ®é•¿åº¦
+//        <0: æ“ä½œå‡ºé”™
 //=================================================================================
 int svt_read(int opertion, unsigned char *lpcardinf)
 {
@@ -2306,7 +2306,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			}
 
 
-			//·¢ĞĞÇøĞÅÏ¢
+			//å‘è¡ŒåŒºä¿¡æ¯
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB0\x85\x00\x28", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2335,7 +2335,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			}
 
 
-			//¹«¹²ĞÅÏ¢Çø
+			//å…¬å…±ä¿¡æ¯åŒº
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB0\x95\x00\x1E", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2347,7 +2347,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			memcpy(lpcardinf+data_len, sztmp, 30);
 			data_len += 30;
 
-			//½»Ò×¸¨ÖúĞÅÏ¢
+			//äº¤æ˜“è¾…åŠ©ä¿¡æ¯
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB2\x01\xBC\x00", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2359,7 +2359,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			memcpy(lpcardinf+data_len, sztmp, 48);
 			data_len += 48;
 
-			//µØÌúĞÅÏ¢Çø
+			//åœ°é“ä¿¡æ¯åŒº
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB2\x02\xBC\x00", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2373,7 +2373,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			data_len += 48;
 
 
-			//Ó¦ÓÃ¿ØÖÆĞÅÏ¢Çø
+			//åº”ç”¨æ§åˆ¶ä¿¡æ¯åŒº
 			ulen = 5;
 			memcpy(sztmp, "\x00\xB0\x91\x00\x1E", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2386,7 +2386,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			data_len += 32;
 
 			//805C000204;
-			//Ç®°ü
+			//é’±åŒ…
 			ulen = 5;
 			memcpy(sztmp, "\x80\x5C\x00\x02\x04", ulen);
 			status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2400,7 +2400,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 
 			if (opertion==0)
 			{
-				//×îºóÒ»´ÎÀúÊ·
+				//æœ€åä¸€æ¬¡å†å²
 				ulen = 5;
 				memcpy(sztmp, "\x00\xB2\x01\xC4\x00", ulen);
 				status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2416,7 +2416,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 			else
 			{
 
-				//³Ö¿¨ÈËĞÅÏ¢
+				//æŒå¡äººä¿¡æ¯
 				ulen = 5;
 				memcpy(sztmp, "\x00\xB0\x96\x00\x37", ulen);
 				status = MifareProCom(ulen, sztmp, &sam_sw);
@@ -2429,7 +2429,7 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 				memcpy(lpcardinf+data_len, sztmp, 55);
 				data_len += 55;
 
-				//¶ÁÀúÊ·10Ìõ
+				//è¯»å†å²10æ¡
 				for (i=1;i<11;i++)
 				{
 					ulen = 5;
@@ -2469,31 +2469,31 @@ int svt_read(int opertion, unsigned char *lpcardinf)
 
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúsvt ¿¨½øĞĞ³äÖµ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    nstep=µ±=0Ê±±íÊ¾»ñÈ¡³äÖµĞÅÏ¢£¬=1Ê±±íÊ¾¶ÔÆ±¿¨½øĞĞ³äÖµ²Ù×÷
-//    value=Òª³äµ½Æ±¿¨ÄÚµÄ½ğ¶î(  ·Ö)
-//    lpinf =µ±nstep=1Ê±ÎªÊäÈëÊı¾İ
-//            ÊäÈëÊı¾İ½á¹¹:
-//                       ½»Ò×Ê±¼ä7Byte
+//åŠŸèƒ½:å¯¹åœ°é“svt å¡è¿›è¡Œå……å€¼
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//    nstep=å½“=0æ—¶è¡¨ç¤ºè·å–å……å€¼ä¿¡æ¯ï¼Œ=1æ—¶è¡¨ç¤ºå¯¹ç¥¨å¡è¿›è¡Œå……å€¼æ“ä½œ
+//    value=è¦å……åˆ°ç¥¨å¡å†…çš„é‡‘é¢(  åˆ†)
+//    lpinf =å½“nstep=1æ—¶ä¸ºè¾“å…¥æ•°æ®
+//            è¾“å…¥æ•°æ®ç»“æ„:
+//                       äº¤æ˜“æ—¶é—´7Byte
 //                        MAC2   4Byte
 //
-//³ö¿Ú²ÎÊı
-//       pinf = Êä³öÊı¾İ
-//          nstep=0   Êä³öÊı¾İ½á¹¹:
-//                               Óà¶î4Byte,
-//                       Áª»ú½»Ò×ĞòºÅ2Byte,
-//                           ÃÜÔ¿°æ±¾1Byte,
-//                           Ëã·¨±êÊ¶1Byte,
-//                           Î±Ëæ»úÊı4Byte,
+//å‡ºå£å‚æ•°
+//       pinf = è¾“å‡ºæ•°æ®
+//          nstep=0   è¾“å‡ºæ•°æ®ç»“æ„:
+//                               ä½™é¢4Byte,
+//                       è”æœºäº¤æ˜“åºå·2Byte,
+//                           å¯†é’¥ç‰ˆæœ¬1Byte,
+//                           ç®—æ³•æ ‡è¯†1Byte,
+//                           ä¼ªéšæœºæ•°4Byte,
 //                                       MAC1  4Byte
-//                ÍÑ»ú½»Ò×ĞòºÅ2Byte,
-//                      ÖÕ¶Ë»úĞòºÅ4Byte
-//          nstep=1   Êä³öÊı¾İ½á¹¹:
+//                è„±æœºäº¤æ˜“åºå·2Byte,
+//                      ç»ˆç«¯æœºåºå·4Byte
+//          nstep=1   è¾“å‡ºæ•°æ®ç»“æ„:
 //                                        TAC   4Byte
-//·µ»ØÖµ
-//       0=³É¹¦
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int svt_recharge(unsigned char trType, unsigned char * p_timenow, int nsamsck, int nstep, unsigned long value, unsigned char *lpinf)
 {
@@ -2606,7 +2606,7 @@ int svt_recharge(unsigned char trType, unsigned char * p_timenow, int nsamsck, i
 			}
 
 
-			//»ñÈ¡³äÖµĞÅÏ¢
+			//è·å–å……å€¼ä¿¡æ¯
 			sam_len = 0;
 			memcpy(sztmp, "\x80\x50\x00\x02\x0B",5);
 			sam_len += 5;
@@ -2649,7 +2649,7 @@ int svt_recharge(unsigned char trType, unsigned char * p_timenow, int nsamsck, i
 			//usleep(5000000);
 			dbg_formatvar("==============================================================");
 
-			//Ö´ĞĞ³äÖµ, ±ØĞëÔÚ»ñÈ¡³äÖµĞÅÏ¢ºó£¬ÖĞ¼ä²»ÄÜÖ´ĞĞÆäËü²Ù×÷
+			//æ‰§è¡Œå……å€¼, å¿…é¡»åœ¨è·å–å……å€¼ä¿¡æ¯åï¼Œä¸­é—´ä¸èƒ½æ‰§è¡Œå…¶å®ƒæ“ä½œ
 			sam_len = 0;
 			memcpy(sztmp, "\x80\x52\x00\x00\x0B",5);
 			sam_len += 5;
@@ -2661,7 +2661,7 @@ int svt_recharge(unsigned char trType, unsigned char * p_timenow, int nsamsck, i
 			gettimeofday(&start,NULL);
 			respone_len = MifareProCom(sam_len,sztmp, &sam_sw);
 			gettimeofday(&end,NULL);
-			time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//Î¢Ãë
+			time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//å¾®ç§’
 			msec = time_use / 1000;
 			//g_Record.log_out(0, level_error, "8052 use msec:%ldms",msec);
 			dbg_dumpmemory("svt_recharge |=",sztmp,respone_len);
@@ -2687,16 +2687,16 @@ int svt_recharge(unsigned char trType, unsigned char * p_timenow, int nsamsck, i
 }
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúÆ±½øĞĞÍÑ»úÏû·Ñ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    value = Ïû·Ñ½ğ¶î
-//    trtype=½»Ò×ÀàĞÍ, 06=ÆÕÍ¨Ïû·Ñ,09=¸´ºÏÏû·Ñ
-//    lpmetrofile=µ±trtype=09  Ê±£¬×÷Îª¸´ºÏÎÄ¼ş¸üĞÂµÄÊı¾İÄÚÈİ£¬ÆÕÍ¨Ïû·ÑÊ±²»Ê¹ÓÃ
-//³ö¿Ú²ÎÊı
-//       respone_data=SAMÖÕ¶ËºÅ(6BYTE) +  SAMÖÕ¶ËÁ÷Ë®( 4Byte) + TAC (4Byte)
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“ç¥¨è¿›è¡Œè„±æœºæ¶ˆè´¹
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//    value = æ¶ˆè´¹é‡‘é¢
+//    trtype=äº¤æ˜“ç±»å‹, 06=æ™®é€šæ¶ˆè´¹,09=å¤åˆæ¶ˆè´¹
+//    lpmetrofile=å½“trtype=09  æ—¶ï¼Œä½œä¸ºå¤åˆæ–‡ä»¶æ›´æ–°çš„æ•°æ®å†…å®¹ï¼Œæ™®é€šæ¶ˆè´¹æ—¶ä¸ä½¿ç”¨
+//å‡ºå£å‚æ•°
+//       respone_data=SAMç»ˆç«¯å·(6BYTE) +  SAMç»ˆç«¯æµæ°´( 4Byte) + TAC (4Byte)
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int svt_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnumber, unsigned long value,unsigned char trtype, unsigned char *lpmetrofile, unsigned char *respone_data)
 {
@@ -2723,7 +2723,7 @@ int svt_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 		}
 		else
 		{
-			nresult = -9; //²ÎÊı´íÎó
+			nresult = -9; //å‚æ•°é”™è¯¯
 			break;
 		}
 		ulen += 5;
@@ -2857,19 +2857,19 @@ int svt_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 
 
 //===============================================================
-//¹¦ÄÜ:¶ÔSVTÆ±µÄÓ¦ÓÃ¿ØÖÆÎÄ¼ş½øĞĞ¸üĞÂ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//       file_id=¶ÌÎÄ¼ş±êÊ¶£¬Ä¿Ç°Ö»Ö§³Ö0x11(Ó¦ÓÃ¿ØÖÆÎÄ¼ş)ºÍ0x16(¸öÈËĞÅÏ¢ÎÄ¼ş)
-//        offset=Òª¸üĞÂÎÄ¼şµÄÆğÊ¼µØÖ·
-//           nle=Òª¸üĞÂµÄÊı¾İ³¤¶È
-//         lpinf=ÒªĞ´ÈëµÄÊı¾İ
+//åŠŸèƒ½:å¯¹SVTç¥¨çš„åº”ç”¨æ§åˆ¶æ–‡ä»¶è¿›è¡Œæ›´æ–°
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//       file_id=çŸ­æ–‡ä»¶æ ‡è¯†ï¼Œç›®å‰åªæ”¯æŒ0x11(åº”ç”¨æ§åˆ¶æ–‡ä»¶)å’Œ0x16(ä¸ªäººä¿¡æ¯æ–‡ä»¶)
+//        offset=è¦æ›´æ–°æ–‡ä»¶çš„èµ·å§‹åœ°å€
+//           nle=è¦æ›´æ–°çš„æ•°æ®é•¿åº¦
+//         lpinf=è¦å†™å…¥çš„æ•°æ®
 
 //
-//³ö¿Ú²ÎÊı
-//	ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
+//å‡ºå£å‚æ•°
+//	æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //===============================================================
 int svt_update_binfile(int nsamsck,unsigned char *lplogicnumber,int file_id, int offset, int nlen, unsigned char *lpinf)
 {
@@ -2894,7 +2894,7 @@ int svt_update_binfile(int nsamsck,unsigned char *lplogicnumber,int file_id, int
 
 		if ((file_id==0x11) ||((file_id==0x16)))
 		{
-			paramter_p1=  (0x11 & 0x1F) | 0x80; //¶ÌÎÄ¼ş0x11  ,  Ó¦ÓÃ¿ØÖÆÇø
+			paramter_p1=  (0x11 & 0x1F) | 0x80; //çŸ­æ–‡ä»¶0x11  ,  åº”ç”¨æ§åˆ¶åŒº
 
 		}
 		else
@@ -3018,17 +3018,17 @@ int svt_update_binfile(int nsamsck,unsigned char *lplogicnumber,int file_id, int
 }
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúÆ±Ö¸¶¨µÄ¼ÇÂ¼½øĞĞ¸üĞÂ
-//Èë¿Ú²ÎÊı
-//    nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    lplogicnumber=Òª¸üĞÂÆ±¿¨µÄ8×Ö½ÚÂß¼­¿¨ºÅ(Ó¦ÓÃĞòÁĞºÅ)
-//    record_id=ÎÄµµÖĞ¶ÔÓ¦µÄ¼ÇÂ¼ºÅ
-//    lock=Ëø¶¨±êÊ¶,=0²»Ëø¶¨
-//    lpfile=¸´ºÏÎÄ¼ş¸üĞÂµÄÊı¾İÄÚÈİ
-//³ö¿Ú²ÎÊı
-//       respone_data=SAMÖÕ¶ËºÅ(6BYTE) +  SAMÖÕ¶ËÁ÷Ë®( 4Byte) + TAC (4Byte)
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“ç¥¨æŒ‡å®šçš„è®°å½•è¿›è¡Œæ›´æ–°
+//å…¥å£å‚æ•°
+//    nsamsck=samå¡å¯¹åº”å¡æ§½
+//    lplogicnumber=è¦æ›´æ–°ç¥¨å¡çš„8å­—èŠ‚é€»è¾‘å¡å·(åº”ç”¨åºåˆ—å·)
+//    record_id=æ–‡æ¡£ä¸­å¯¹åº”çš„è®°å½•å·
+//    lock=é”å®šæ ‡è¯†,=0ä¸é”å®š
+//    lpfile=å¤åˆæ–‡ä»¶æ›´æ–°çš„æ•°æ®å†…å®¹
+//å‡ºå£å‚æ•°
+//       respone_data=SAMç»ˆç«¯å·(6BYTE) +  SAMç»ˆç«¯æµæ°´( 4Byte) + TAC (4Byte)
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int svt_updata_complex(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnumber, unsigned char record_id, unsigned char lock, unsigned char *lpfile, unsigned char *respone_data)
 {
@@ -3178,19 +3178,19 @@ int svt_updata_complex(unsigned char * p_timenow, int nsamsck, unsigned char *lp
 }
 
 //===============================================================
-//¹¦ÄÜ:¶ÔSVTÆ±µÄ¸´ºÏÎÄ¼şÖ¸¶¨¼ÇÂ¼½øĞĞ¸üĞÂ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//  lplogicnumber=Æ±¿¨Âß¼­¿¨ºÅ
-//        record_id=¼ÇÂ¼ID
-//           lock=Ëø¶¨±ê¼Ç
-//         lpinf=¸´ºÏÎÄ¼ş¶ÔÓ¦ÒªĞ´ÈëµÄÊı¾İ(ÒªÓë¶ÁÈ¡Ê±»ñµÃµÄÏàÍ¬)
+//åŠŸèƒ½:å¯¹SVTç¥¨çš„å¤åˆæ–‡ä»¶æŒ‡å®šè®°å½•è¿›è¡Œæ›´æ–°
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//  lplogicnumber=ç¥¨å¡é€»è¾‘å¡å·
+//        record_id=è®°å½•ID
+//           lock=é”å®šæ ‡è®°
+//         lpinf=å¤åˆæ–‡ä»¶å¯¹åº”è¦å†™å…¥çš„æ•°æ®(è¦ä¸è¯»å–æ—¶è·å¾—çš„ç›¸åŒ)
 
 //
-//³ö¿Ú²ÎÊı
-//	ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
+//å‡ºå£å‚æ•°
+//	æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //===============================================================
 int svt_unlock_recordfile(int nsamsck,unsigned char *lplogicnumber,int record_id, unsigned char lock, unsigned char *lpinf)
 {
@@ -3328,10 +3328,10 @@ int svt_unlock_recordfile(int nsamsck,unsigned char *lplogicnumber,int record_id
 
 
 //
-//³ö¿Ú²ÎÊı
-//	ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
+//å‡ºå£å‚æ•°
+//	æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //===============================================================
 int jtb_lock_card(int nsamsck,unsigned char *lplogicnumber, unsigned char *issueno)
 {
@@ -3364,9 +3364,9 @@ int jtb_lock_card(int nsamsck,unsigned char *lplogicnumber, unsigned char *issue
 
 		sam_len = 5;
 		memcpy(sztmp, "\x80\x1A\x45\x02\x10",5);
-		memcpy(sztmp+sam_len, lplogicnumber + 2, 8);//¿¨Ó¦ÓÃĞòÁĞºÅ
+		memcpy(sztmp+sam_len, lplogicnumber + 2, 8);//å¡åº”ç”¨åºåˆ—å·
 		sam_len += 8;
-		memcpy(sztmp+sam_len, issueno, 8);//·¢¿¨»ú¹¹´úÂë
+		memcpy(sztmp+sam_len, issueno, 8);//å‘å¡æœºæ„ä»£ç 
 		sam_len += 8;
 
 		//g_Record.log_buffer("macinit = ", sztmp,sam_len);
@@ -3429,18 +3429,18 @@ int jtb_lock_card(int nsamsck,unsigned char *lplogicnumber, unsigned char *issue
 }
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúÆ±Ö¸¶¨µÄ¼ÇÂ¼½øĞĞ¸üĞÂ
-//Èë¿Ú²ÎÊı
-//    nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    lplogicnumber=Òª¸üĞÂÆ±¿¨µÄ8×Ö½ÚÂß¼­¿¨ºÅ(Ó¦ÓÃĞòÁĞºÅ)
-//    recordcnt=Òª¸üĞÂµÄ¼ÇÂ¼×ÜÊı
-//    dim_record_id=Òª¸üĞÂµÄ¶àÌõ¼ÇÂ¼ºÅÊı×é
-//    dim_lock=¶ÔÓ¦¶àÌõ¼ÇÂ¼µÄËø¶¨±êÊ¶Êı×é,=0²»Ëø¶¨
-//    dim_lpfile=¸´ºÏÎÄ¼ş¸üĞÂµÄ¶àÌõ¼ÇÂ¼µÄÊı¾İÄÚÈİ£¬¸³ÖµÊ±ĞèÒª×¢Òâ²»Í¬µÄ¼ÇÂ¼ºÅ¶ÔÓ¦µÄÊı¾İ³¤¶È( Êı¾İÄÚÈİÎª²»º¬¼ÇÂ¼Ç°Èı¸öÌØ¶¨Êı¾İµÄÄÚÈİ)
-//³ö¿Ú²ÎÊı
-//       respone_data=SAMÖÕ¶ËºÅ(6BYTE) +  SAMÖÕ¶ËÁ÷Ë®( 4Byte) + TAC (4Byte)
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“ç¥¨æŒ‡å®šçš„è®°å½•è¿›è¡Œæ›´æ–°
+//å…¥å£å‚æ•°
+//    nsamsck=samå¡å¯¹åº”å¡æ§½
+//    lplogicnumber=è¦æ›´æ–°ç¥¨å¡çš„8å­—èŠ‚é€»è¾‘å¡å·(åº”ç”¨åºåˆ—å·)
+//    recordcnt=è¦æ›´æ–°çš„è®°å½•æ€»æ•°
+//    dim_record_id=è¦æ›´æ–°çš„å¤šæ¡è®°å½•å·æ•°ç»„
+//    dim_lock=å¯¹åº”å¤šæ¡è®°å½•çš„é”å®šæ ‡è¯†æ•°ç»„,=0ä¸é”å®š
+//    dim_lpfile=å¤åˆæ–‡ä»¶æ›´æ–°çš„å¤šæ¡è®°å½•çš„æ•°æ®å†…å®¹ï¼Œèµ‹å€¼æ—¶éœ€è¦æ³¨æ„ä¸åŒçš„è®°å½•å·å¯¹åº”çš„æ•°æ®é•¿åº¦( æ•°æ®å†…å®¹ä¸ºä¸å«è®°å½•å‰ä¸‰ä¸ªç‰¹å®šæ•°æ®çš„å†…å®¹)
+//å‡ºå£å‚æ•°
+//       respone_data=SAMç»ˆç«¯å·(6BYTE) +  SAMç»ˆç«¯æµæ°´( 4Byte) + TAC (4Byte)
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsigned char * p_time_now, int nsamsck,
 								 unsigned char *p_public_base, unsigned char *metro,unsigned char *his_all,long lAmount,long lbalance, unsigned char *respone_data)
@@ -3462,7 +3462,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 
 	do
 	{
-		// 1£¬Ïû·Ñ³õÊ¼»¯
+		// 1ï¼Œæ¶ˆè´¹åˆå§‹åŒ–
 		ulen=0;
 		memcpy(sztmp, "\x80\x50\x03\x02\x0B", 5);
 		if (tac_type == 0x06)	sztmp[2] = 0x01;
@@ -3480,7 +3480,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 		memcpy(sztmp+ulen, g_saminf[nsamsck].sam_terminal_id, g_saminf[nsamsck].len_terminal_id);
 		ulen += g_saminf[nsamsck].len_terminal_id;
 
-		//Ïû·Ñ³õÊ¼»¯Ö¸Áî
+		//æ¶ˆè´¹åˆå§‹åŒ–æŒ‡ä»¤
 		response_len = MifareProCom(ulen, sztmp, &sam_sw);
 		if ((response_len==0) || (0x9000!=sam_sw))
 		{
@@ -3489,7 +3489,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 			break;
 		}
 
-		//2,»ñÈ¡mac1
+		//2,è·å–mac1
 		lpinitconsume = (LPTINITCONSUME)sztmp;
 		PsamGetMac1.encryver = lpinitconsume->encryver;
 		PsamGetMac1.calcmarker = lpinitconsume->calcmarker;
@@ -3506,27 +3506,27 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 		PsamGetMac1.money[2] = ((lAmount >> 8) & 0xFF);
 		PsamGetMac1.money[3] = (lAmount & 0xFF);
 		memcpy(PsamGetMac1.Rfu,"\xFF\xFF\xFF\xFF",4);
-		//¿ªÊ¼×ésam¿¨Ö¸Áî  ¼ÆËãmac
+		//å¼€å§‹ç»„samå¡æŒ‡ä»¤  è®¡ç®—mac
 		memcpy(sztmp,"\x80\x70\x00\x00\x24",5);
 		ulen = 5;
 		memcpy(sztmp+5, (char *)&PsamGetMac1, sizeof(PsamGetMac1));
 		ulen += sizeof(PsamGetMac1);
-		//¿ªÊ¼¼ÆËãmac
+		//å¼€å§‹è®¡ç®—mac
 		response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &sam_sw);
 		if ((response_len==0) || (0x9000!=sam_sw))
 		{
 			g_Record.log_out(0, level_error,"jtb_update get mac err sam_sw =(%04X),,need comfirm",sam_sw);
-			nresult = 4;//TODO:ĞèÒª½»Ò×È·ÈÏ
+			nresult = 4;//TODO:éœ€è¦äº¤æ˜“ç¡®è®¤
 			break;
 		}
-		//ÉèÖÃ½»Ò×ĞèÒªµÄsam¿¨µÄĞòºÅ
+		//è®¾ç½®äº¤æ˜“éœ€è¦çš„samå¡çš„åºå·
 		memcpy(szmac, sztmp, 8);
 		memcpy(lpout->sam_terminalserial, sztmp, 4);
 		memcpy(lpout->sam_terminalnumber, g_saminf[nsamsck].sam_terminal_id, g_saminf[nsamsck].len_terminal_id);
 
 		if(tac_type == 0x09)
 		{
-			//3£¬ ¸üĞÂ¹«¹²½»Í¨¹ı³ÌĞÅÏ¢ 0x1AÎÄ¼ş
+			//3ï¼Œ æ›´æ–°å…¬å…±äº¤é€šè¿‡ç¨‹ä¿¡æ¯ 0x1Aæ–‡ä»¶
 			memset(sztmp, 0x00, 133);//128+5
 			memcpy(sztmp, "\x80\xDC\x01\xD0\x80", 5);
 
@@ -3548,15 +3548,15 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 			if ((response_len==0) || (0x9000!=sam_sw))
 			{
 				g_Record.log_out(0, level_error,"jtb_update update 1A err sam_sw =(%04X)",sam_sw);
-				nresult = 5;//Íâ²ãÒ²±¨Ğ´¿¨Ê§°Ü£¬µ«ÊÇ²»±¨ĞèÒª½»Ò×È·ÈÏ
+				nresult = 5;//å¤–å±‚ä¹ŸæŠ¥å†™å¡å¤±è´¥ï¼Œä½†æ˜¯ä¸æŠ¥éœ€è¦äº¤æ˜“ç¡®è®¤
 				break;
 			}
 
 			memcpy(his_all + 1, g_saminf[nsamsck].sam_terminal_id, 6);
-			//´ËÌõÓï¾ä¶àÓà£¿
+			//æ­¤æ¡è¯­å¥å¤šä½™ï¼Ÿ
 			memcpy(metro + 6, "\x00\x00", 2);
 
-			//4£¬Ğ´1EÎÄ¼ş
+			//4ï¼Œå†™1Eæ–‡ä»¶
 			memcpy(sztmp,"\x80\xDC\x00\xF0\x30", 5);
 			ulen = 5;
 			memcpy(sztmp+ulen, his_all, 48);
@@ -3569,7 +3569,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 				break;
 			}
 		}
-		//TODO:8054Ö¸ÁîÊÇÊ²Ã´Ö¸Áî£¿
+		//TODO:8054æŒ‡ä»¤æ˜¯ä»€ä¹ˆæŒ‡ä»¤ï¼Ÿ
 		memcpy(sztmp,"\x80\x54\x01\x00\x0F", 5);
 		ulen = 5;
 		memcpy(sztmp+ulen, szmac, 4);
@@ -3583,7 +3583,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 		if ((response_len==0) || (0x9000!=sam_sw))
 		{
 			g_Record.log_out(0, level_error,"jtb_update write 8054 err sam_sw =(%04X),need comfirm",sam_sw);
-			nresult = 4;//Todo: ĞèÒª½»Ò×È·ÈÏ2
+			nresult = 4;//Todo: éœ€è¦äº¤æ˜“ç¡®è®¤2
 			break;
 		}
 		memcpy(lpout->tac, sztmp, 4);
@@ -3591,7 +3591,7 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 
 		nresult = 0;
 
-		//ÔİÊ±ÏÈ²»²â8072Ö¸Áî
+		//æš‚æ—¶å…ˆä¸æµ‹8072æŒ‡ä»¤
 		memcpy(sztmp,"\x80\x72\x00\x00\x04",5);
 		ulen = 5;
 		memcpy(sztmp+5, szmac+4, 4);
@@ -3607,18 +3607,18 @@ uint16_t jtb_updata_more_complex(ETYTKOPER operType,unsigned char tac_type, unsi
 
 
 //========================================================
-//¹¦ÄÜ:¶ÔµØÌúÆ±Ö¸¶¨µÄ¼ÇÂ¼½øĞĞ¸üĞÂ
-//Èë¿Ú²ÎÊı
-//    nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    lplogicnumber=Òª¸üĞÂÆ±¿¨µÄ8×Ö½ÚÂß¼­¿¨ºÅ(Ó¦ÓÃĞòÁĞºÅ)
-//    recordcnt=Òª¸üĞÂµÄ¼ÇÂ¼×ÜÊı
-//    dim_record_id=Òª¸üĞÂµÄ¶àÌõ¼ÇÂ¼ºÅÊı×é
-//    dim_lock=¶ÔÓ¦¶àÌõ¼ÇÂ¼µÄËø¶¨±êÊ¶Êı×é,=0²»Ëø¶¨
-//    dim_lpfile=¸´ºÏÎÄ¼ş¸üĞÂµÄ¶àÌõ¼ÇÂ¼µÄÊı¾İÄÚÈİ£¬¸³ÖµÊ±ĞèÒª×¢Òâ²»Í¬µÄ¼ÇÂ¼ºÅ¶ÔÓ¦µÄÊı¾İ³¤¶È( Êı¾İÄÚÈİÎª²»º¬¼ÇÂ¼Ç°Èı¸öÌØ¶¨Êı¾İµÄÄÚÈİ)
-//³ö¿Ú²ÎÊı
-//       respone_data=SAMÖÕ¶ËºÅ(6BYTE) +  SAMÖÕ¶ËÁ÷Ë®( 4Byte) + TAC (4Byte)
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹åœ°é“ç¥¨æŒ‡å®šçš„è®°å½•è¿›è¡Œæ›´æ–°
+//å…¥å£å‚æ•°
+//    nsamsck=samå¡å¯¹åº”å¡æ§½
+//    lplogicnumber=è¦æ›´æ–°ç¥¨å¡çš„8å­—èŠ‚é€»è¾‘å¡å·(åº”ç”¨åºåˆ—å·)
+//    recordcnt=è¦æ›´æ–°çš„è®°å½•æ€»æ•°
+//    dim_record_id=è¦æ›´æ–°çš„å¤šæ¡è®°å½•å·æ•°ç»„
+//    dim_lock=å¯¹åº”å¤šæ¡è®°å½•çš„é”å®šæ ‡è¯†æ•°ç»„,=0ä¸é”å®š
+//    dim_lpfile=å¤åˆæ–‡ä»¶æ›´æ–°çš„å¤šæ¡è®°å½•çš„æ•°æ®å†…å®¹ï¼Œèµ‹å€¼æ—¶éœ€è¦æ³¨æ„ä¸åŒçš„è®°å½•å·å¯¹åº”çš„æ•°æ®é•¿åº¦( æ•°æ®å†…å®¹ä¸ºä¸å«è®°å½•å‰ä¸‰ä¸ªç‰¹å®šæ•°æ®çš„å†…å®¹)
+//å‡ºå£å‚æ•°
+//       respone_data=SAMç»ˆç«¯å·(6BYTE) +  SAMç»ˆç«¯æµæ°´( 4Byte) + TAC (4Byte)
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 uint16_t svt_updata_more_complex(unsigned char tac_type, unsigned char * p_time_now, int nsamsck,
 								 unsigned char *lplogicnumber, long lAmount, unsigned char recordcnt,
@@ -3640,7 +3640,7 @@ uint16_t svt_updata_more_complex(unsigned char tac_type, unsigned char * p_time_
 
 	do
 	{
-		//1£¬ Ïû·Ñ³õÊ¼»¯
+		//1ï¼Œ æ¶ˆè´¹åˆå§‹åŒ–
 		ulen=0;
 		memcpy(sztmp, "\x80\x50\x03\x02\x0B", 5);
 		if (recordcnt == 0)	sztmp[2] = 0x01;
@@ -3680,11 +3680,11 @@ uint16_t svt_updata_more_complex(unsigned char tac_type, unsigned char * p_time_
 		PsamGetMac1.money[2] = ((lAmount >> 8) & 0xFF);
 		PsamGetMac1.money[3] = (lAmount & 0xFF);
 
-		// ¸üĞÂ¸´ºÏÎÄ¼ş
+		// æ›´æ–°å¤åˆæ–‡ä»¶
 		offset=0;
 		for (i=0;i<recordcnt;i++)
 		{
-			//Ä¿Ç°Ö»ÓĞ0x11ÎÄ¼ş³¤¶ÈÊÇ24, Î´À´ÓĞ¿ÉÄÜĞèÒª¼ÓÈëĞÂ¼ÇÂ¼±êÊ¶
+			//ç›®å‰åªæœ‰0x11æ–‡ä»¶é•¿åº¦æ˜¯24, æœªæ¥æœ‰å¯èƒ½éœ€è¦åŠ å…¥æ–°è®°å½•æ ‡è¯†
 			if (dim_record_id[i]==0x11)
 			{
 				real_len = _METROFILE_SIZE2_;
@@ -3714,7 +3714,7 @@ uint16_t svt_updata_more_complex(unsigned char tac_type, unsigned char * p_time_
 			offset += real_len-1;
 
 		}
-		// SAM¿¨Ïû·Ñ³õÊ¼»¯£¬²¢»ñÈ¡SAMÁ÷Ë®
+		// SAMå¡æ¶ˆè´¹åˆå§‹åŒ–ï¼Œå¹¶è·å–SAMæµæ°´
 		memcpy(sztmp,"\x80\x70\x00\x00\x1C",5);
 		ulen = 5;
 		memcpy(sztmp+5, (char *)&PsamGetMac1, sizeof(PsamGetMac1));
@@ -3730,7 +3730,7 @@ uint16_t svt_updata_more_complex(unsigned char tac_type, unsigned char * p_time_
 		memcpy(lpout->sam_terminalserial, sztmp, 4);
 		memcpy(lpout->sam_terminalnumber, g_saminf[nsamsck].sam_terminal_id, g_saminf[nsamsck].len_terminal_id);
 
-		// Ïû·Ñ²¢²úÉúTACÂë£¨Ç°ÃæËùÓĞµ½ÕâÒ»²½¶¼ÊÇ¸öÕûÌå£¬¾ßÓĞÊÂÎñÌØĞÔ£©
+		// æ¶ˆè´¹å¹¶äº§ç”ŸTACç ï¼ˆå‰é¢æ‰€æœ‰åˆ°è¿™ä¸€æ­¥éƒ½æ˜¯ä¸ªæ•´ä½“ï¼Œå…·æœ‰äº‹åŠ¡ç‰¹æ€§ï¼‰
 		memcpy(szmac, sztmp, 8);
 		memcpy(sztmp,"\x80\x54\x01\x00\x0F", 5);
 		ulen = 5;
@@ -3781,7 +3781,7 @@ uint16_t updata_more_complex(unsigned char * p_time_now, int nsamsck, unsigned c
 
 	do
 	{
-		// Ïû·Ñ³õÊ¼»¯
+		// æ¶ˆè´¹åˆå§‹åŒ–
 		ulen=0;
 		memcpy(sztmp, "\x80\x50\x03\x02\x0B", 5);
 		if (recordcnt == 0)
@@ -3827,7 +3827,7 @@ uint16_t updata_more_complex(unsigned char * p_time_now, int nsamsck, unsigned c
 		PsamGetMac1.money[2] = ((lAmount >> 8) & 0xFF);
 		PsamGetMac1.money[3] = (lAmount & 0xFF);
 
-		// ¸üĞÂ¸´ºÏÎÄ¼ş
+		// æ›´æ–°å¤åˆæ–‡ä»¶
 		for (i=0;i<recordcnt;i++)
 		{
 			memcpy(sztmp, "\x80\xDC\x02\xB8\x30", 5);
@@ -3850,7 +3850,7 @@ uint16_t updata_more_complex(unsigned char * p_time_now, int nsamsck, unsigned c
 			}
 		}
 
-		// SAM¿¨Ïû·Ñ³õÊ¼»¯£¬²¢»ñÈ¡SAMÁ÷Ë®
+		// SAMå¡æ¶ˆè´¹åˆå§‹åŒ–ï¼Œå¹¶è·å–SAMæµæ°´
 		memcpy(sztmp,"\x80\x70\x00\x00\x1C",5);
 		ulen = 5;
 		memcpy(sztmp+5, (char *)&PsamGetMac1, sizeof(PsamGetMac1));
@@ -3865,7 +3865,7 @@ uint16_t updata_more_complex(unsigned char * p_time_now, int nsamsck, unsigned c
 		memcpy(lpout->sam_terminalserial, sztmp, 4);
 		memcpy(lpout->sam_terminalnumber, g_saminf[nsamsck].sam_terminal_id, g_saminf[nsamsck].len_terminal_id);
 
-		// Ïû·Ñ²¢²úÉúTACÂë£¨Ç°ÃæËùÓĞµ½ÕâÒ»²½¶¼ÊÇ¸öÕûÌå£©
+		// æ¶ˆè´¹å¹¶äº§ç”ŸTACç ï¼ˆå‰é¢æ‰€æœ‰åˆ°è¿™ä¸€æ­¥éƒ½æ˜¯ä¸ªæ•´ä½“ï¼‰
 		memcpy(szmac, sztmp, 8);
 		memcpy(sztmp,"\x80\x54\x01\x00\x0F", 5);
 		ulen = 5;
@@ -3901,16 +3901,16 @@ uint16_t updata_more_complex(unsigned char * p_time_now, int nsamsck, unsigned c
 }
 
 //========================================================
-//¹¦ÄÜ:¶ÔÒ»¿¨Í¨Æ±½øĞĞÍÑ»úÏû·Ñ
-//Èë¿Ú²ÎÊı
-//	 nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    value = Ïû·Ñ½ğ¶î
-//    trtype=½»Ò×ÀàĞÍ, 06=ÆÕÍ¨Ïû·Ñ,09=¸´ºÏÏû·Ñ
-//    lpmetrofile=µ±trtype=09  Ê±£¬×÷Îª¸´ºÏÎÄ¼ş¸üĞÂµÄÊı¾İÄÚÈİ£¬ÆÕÍ¨Ïû·ÑÊ±²»Ê¹ÓÃ
-//³ö¿Ú²ÎÊı
-//       respone_data=SAMÖÕ¶ËºÅ(6BYTE) +  SAMÖÕ¶ËÁ÷Ë®( 4Byte) + TAC (4Byte)
-//·µ»ØÖµ
-//       0=³É¹¦
+//åŠŸèƒ½:å¯¹ä¸€å¡é€šç¥¨è¿›è¡Œè„±æœºæ¶ˆè´¹
+//å…¥å£å‚æ•°
+//	 nsamsck=samå¡å¯¹åº”å¡æ§½
+//    value = æ¶ˆè´¹é‡‘é¢
+//    trtype=äº¤æ˜“ç±»å‹, 06=æ™®é€šæ¶ˆè´¹,09=å¤åˆæ¶ˆè´¹
+//    lpmetrofile=å½“trtype=09  æ—¶ï¼Œä½œä¸ºå¤åˆæ–‡ä»¶æ›´æ–°çš„æ•°æ®å†…å®¹ï¼Œæ™®é€šæ¶ˆè´¹æ—¶ä¸ä½¿ç”¨
+//å‡ºå£å‚æ•°
+//       respone_data=SAMç»ˆç«¯å·(6BYTE) +  SAMç»ˆç«¯æµæ°´( 4Byte) + TAC (4Byte)
+//è¿”å›å€¼
+//       0=æˆåŠŸ
 //========================================================
 int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnumber, unsigned long value,unsigned char trtype, unsigned char *lpmetrofile, unsigned char *respone_data)
 {
@@ -3929,7 +3929,7 @@ int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 	do
 	{
 		//######################################################
-		// Õë¶Ô²»Í¬Åú´ÎµÄSAM¿¨(°üÀ¨¶ÁĞ´Æ÷) 20140527£­wxf
+		// é’ˆå¯¹ä¸åŒæ‰¹æ¬¡çš„SAMå¡(åŒ…æ‹¬è¯»å†™å™¨) 20140527ï¼wxf
 
 		if (sam_rst(nsamsck,sztmp) <= 0)	break;
 
@@ -3977,7 +3977,7 @@ int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 		}
 		else
 		{
-			nresult = -9; //²ÎÊı´íÎó
+			nresult = -9; //å‚æ•°é”™è¯¯
 			break;
 		}
 		ulen += 5;
@@ -4026,7 +4026,7 @@ int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 
 		if (0x09==trtype)
 		{
-			memcpy(sztmp, "\x80\xDC\x03\xB8\x20", 5);//³¤É³Ò»¿¨Í¨
+			memcpy(sztmp, "\x80\xDC\x03\xB8\x20", 5);//é•¿æ²™ä¸€å¡é€š
 			ulen = 5;
 			memcpy(sztmp+ulen, "\x03\x1E\x00", 3);
 			ulen += 3;
@@ -4094,18 +4094,18 @@ int oct_consum(unsigned char * p_timenow, int nsamsck, unsigned char *lplogicnum
 }
 
 //========================================================
-//¹¦ÄÜ:¶ÔOCT¼Ó½âËø
-//Èë¿Ú²ÎÊı
-//   nsamsck=sam¿¨¶ÔÓ¦¿¨²Û
-//    lplogicnumber = Æ±¿¨Ó¦ÓÃĞòÁĞºÅ
-//    lpcitycode=³ÇÊĞ´úÂë
-//    optflag=²Ù×÷ÀàĞÍ(1-¼ÓËø,0-½âËø)
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       0=³É¹¦
-//×¢:ºÚ¿¨ÅĞ¶Ï
-//ÔÚ3F00Ó¦ÓÃÄ¿Â¼·¢ËÍ00B203D400£¬Ç°Á½×Ö½ÚÎª0x53,0x4BÔòÎªÒÑËø¶¨ºÚ¿¨
+//åŠŸèƒ½:å¯¹OCTåŠ è§£é”
+//å…¥å£å‚æ•°
+//   nsamsck=samå¡å¯¹åº”å¡æ§½
+//    lplogicnumber = ç¥¨å¡åº”ç”¨åºåˆ—å·
+//    lpcitycode=åŸå¸‚ä»£ç 
+//    optflag=æ“ä½œç±»å‹(1-åŠ é”,0-è§£é”)
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       0=æˆåŠŸ
+//æ³¨:é»‘å¡åˆ¤æ–­
+//åœ¨3F00åº”ç”¨ç›®å½•å‘é€00B203D400ï¼Œå‰ä¸¤å­—èŠ‚ä¸º0x53,0x4Båˆ™ä¸ºå·²é”å®šé»‘å¡
 //========================================================
 int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcitycode, unsigned char optflag)
 {
@@ -4118,7 +4118,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 
 	do
 	{
-		//È¡Ëæ»úÊı
+		//å–éšæœºæ•°
 		ulen = 5;
 		memcpy(sztmp, "\x00\x84\x00\x00\x08",5);
 
@@ -4134,7 +4134,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 		memset(random, 0, sizeof(random));
 		memcpy(random, sztmp, 8);
 
-		//PSAMÑ¡Ôñ»¥Áª»¥Í¨Ó¦ÓÃ
+		//PSAMé€‰æ‹©äº’è”äº’é€šåº”ç”¨
 		ulen = 11;
 		memcpy(sztmp, "\x00\xA4\x04\x00\x06\xBD\xA8\xC9\xE8\xB2\xBF",11);
 		response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
@@ -4145,7 +4145,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 			break;
 		}
 
-		//PSAM¿¨Íâ²¿ÈÏÖ¤ÃÜÔ¿³õÊ¼»¯
+		//PSAMå¡å¤–éƒ¨è®¤è¯å¯†é’¥åˆå§‹åŒ–
 		ulen = 0;
 		memcpy(sztmp, "\x80\x1A\x45\x01\x10",5);
 		ulen = 5;
@@ -4164,7 +4164,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 			break;
 		}
 
-		//PSAM¿¨Íâ²¿ÈÏÖ¤CPUÓÃ»§¿¨
+		//PSAMå¡å¤–éƒ¨è®¤è¯CPUç”¨æˆ·å¡
 		ulen = 0;
 		memcpy(sztmp, "\x80\xFA\x00\x00\x08",5);
 		ulen += 5;
@@ -4181,7 +4181,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 
 		memcpy(mac, sztmp, 8);
 
-		//CPUÓÃ»§¿¨Íâ²¿ÈÏÖ¤
+		//CPUç”¨æˆ·å¡å¤–éƒ¨è®¤è¯
 		ulen = 0;
 		memcpy(sztmp, "\x00\x82\x00\x03\x08", 5);
 		ulen += 5;
@@ -4198,7 +4198,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 			break;
 		}
 
-		//Ğ´±ê¼Ç
+		//å†™æ ‡è®°
 		ulen = 0;
 		memcpy(sztmp, "\x00\xDC\x03\xD4\x10",5);
 		ulen += 5;
@@ -4219,7 +4219,7 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 		}
 
 
-		//PSAM»Ö¸´µ½Ó¦ÓÃÄ¿Â¼
+		//PSAMæ¢å¤åˆ°åº”ç”¨ç›®å½•
 		ulen = 7;
 		memcpy(sztmp, "\x00\xA4\x00\x00\x02\x10\x01",7);
 		response_len = sam_cmd(nsamsck, ulen, sztmp, sztmp, &response_sw);
@@ -4238,17 +4238,17 @@ int oct_cpu_lock(int nsamsck, unsigned char *lplogicnumber, unsigned char *lpcit
 }
 
 //=============================================================================================================
-//º¯ Êı Ãû: generate_tac
-//¹¦    ÄÜ: ¼ÆËãµ¥³ÌÆ±TACÂë
-//Èë¿Ú²ÎÊı:
-//          nsamsck: sam¿¨¶ÔÓ¦¿¨²Û
-//   *lplogicnumber: 8byteÂß¼­¿¨ºÅ
-//            money: 4byte½»Ò×½ğ¶î,longĞÍ
-//   trade_datetime: 7byte½»Ò×Ê±¼ä
-//³ö¿Ú²ÎÊı:
-//        lpresult:¼ÆËã½á¹û(samid(6B)+dsn(4B)+tac(4B))£¬µ±·µ»ØÖµ=0Ê±ÓĞĞ§
-//·µ»ØÖµ:
-//       =0³É¹¦
+//å‡½ æ•° å: generate_tac
+//åŠŸ    èƒ½: è®¡ç®—å•ç¨‹ç¥¨TACç 
+//å…¥å£å‚æ•°:
+//          nsamsck: samå¡å¯¹åº”å¡æ§½
+//   *lplogicnumber: 8byteé€»è¾‘å¡å·
+//            money: 4byteäº¤æ˜“é‡‘é¢,longå‹
+//   trade_datetime: 7byteäº¤æ˜“æ—¶é—´
+//å‡ºå£å‚æ•°:
+//        lpresult:è®¡ç®—ç»“æœ(samid(6B)+dsn(4B)+tac(4B))ï¼Œå½“è¿”å›å€¼=0æ—¶æœ‰æ•ˆ
+//è¿”å›å€¼:
+//       =0æˆåŠŸ
 //=============================================================================================================
 int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money, unsigned char *trade_datetime, unsigned char *lpresult)
 {
@@ -4268,7 +4268,7 @@ int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money
 	tmpbuf[9] = (g_saminf[nsamsck].dsn & 0xff);
 
 
-	//des³õÊ¼»¯
+	//desåˆå§‹åŒ–
 	ulen = 5;
 	memcpy(sztmp, "\x80\x1A\x24\x01\x08", 5);
 	memcpy(sztmp+ulen, lplogicnumber, 8);
@@ -4285,33 +4285,33 @@ int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money
 		sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
 	}
 
-	//¼ÆËãTAC
+	//è®¡ç®—TAC
 	ulen = 0;
 	//    memcpy(sztmp, "\x80\xFA\x05\x00\x18", 5);
 	memset(sztmp, 0x00, sizeof(sztmp));
 	memcpy(sztmp, "\x80\xFA\x05\x00\x20", 5);
 	ulen += 5;
-	//vi,8byteÈ«0
+	//vi,8byteå…¨0
 	ulen += 8;
-	//4byte½»Ò×½ğ¶î
+	//4byteäº¤æ˜“é‡‘é¢
 	sztmp[ulen++] = ((money & 0xFF000000) >> 24);
 	sztmp[ulen++] = ((money & 0x00FF0000) >> 16);
 	sztmp[ulen++] = ((money & 0x0000FF00) >> 8);
 	sztmp[ulen++] = (money & 0xFF);
-	//1byte½»Ò×ÀàĞÍ
+	//1byteäº¤æ˜“ç±»å‹
 	sztmp[ulen++] = 0x05;
-	//6byte samÖÕ¶ËºÅ
+	//6byte samç»ˆç«¯å·
 	memcpy(sztmp+ulen, g_saminf[nsamsck].sam_terminal_id, g_saminf[nsamsck].len_terminal_id);
 	ulen += 6;
-	//4byte samÁ÷Ë®
+	//4byte samæµæ°´
 	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0xFF000000) >> 24);
 	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0x00FF0000) >> 16);
 	sztmp[ulen++] = ((g_saminf[nsamsck].dsn & 0x0000FF00) >> 8);
 	sztmp[ulen++] = (g_saminf[nsamsck].dsn & 0xFF);
-	//7byte½»Ò×Ê±¼ä
+	//7byteäº¤æ˜“æ—¶é—´
 	memcpy(sztmp+ulen, trade_datetime, 7);
 	ulen += 7;
-	//2byte ½áÊø±êÖ¾
+	//2byte ç»“æŸæ ‡å¿—
 	memcpy(sztmp+ulen, "\x80\x00", 2);
 	ulen += 2;
 
@@ -4322,7 +4322,7 @@ int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money
 		memcpy(tmpbuf+10,sztmp, 4);
 	}
 
-	//»ØĞ´sam  Á÷Ë®
+	//å›å†™sam  æµæ°´
 	g_saminf[nsamsck].dsn++;
 	memcpy(sztmp, "\x00\xD6\x98\x00\x04\x00\x00\x00\x00", 9);
 	ulen = 9;
@@ -4331,7 +4331,7 @@ int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money
 	sztmp[7] = ((g_saminf[nsamsck].dsn >> 8) & 0xFF);
 	sztmp[8] = (g_saminf[nsamsck].dsn  & 0xFF);
 
-	memcpy(lpresult+6, sztmp+5, 4);//samÁ÷Ë®
+	memcpy(lpresult+6, sztmp+5, 4);//samæµæ°´
 
 	//response_len = sam_cmd(nsamsck,ulen,sztmp, sztmp, &response_sw);
 	Extra::sam_seq_add(nsamsck, sztmp, ulen);
@@ -4342,13 +4342,13 @@ int  generate_tac(int nsamsck, unsigned char *lplogicnumber, unsigned long money
 }
 
 //========================================================
-//¹¦ÄÜ:Í¨¹ıaid Ñ¡ÔñÓ¦ÓÃÄ¿Â¼
-//Èë¿Ú²ÎÊı
-//	 aid=Ó¦ÓÃÄ¿Â¼±êÊ¶,
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½:é€šè¿‡aid é€‰æ‹©åº”ç”¨ç›®å½•
+//å…¥å£å‚æ•°
+//	 aid=åº”ç”¨ç›®å½•æ ‡è¯†,
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int svt_selecfileaid(unsigned char ulen, unsigned char *lpaid)
 {
@@ -4377,13 +4377,13 @@ int svt_selecfileaid(unsigned char ulen, unsigned char *lpaid)
 
 	if (response_len==0)
 	{
-		//ÎŞ»ØÓ¦
+		//æ— å›åº”
 		nresult = -1;
 	}
 	else if (0x9000!=response_sw)
 	{
 		g_Record.log_out(0, level_error, "svt_selecfileaid|response_sw:%04X",response_sw);
-		//ÏìÓ¦´íÎó
+		//å“åº”é”™è¯¯
 		nresult = -2;
 	}
 	else
@@ -4396,13 +4396,13 @@ int svt_selecfileaid(unsigned char ulen, unsigned char *lpaid)
 }
 
 //========================================================
-//¹¦ÄÜ:»ñÈ¡CPU¿¨ÉÏ´Î½»Ò×µÄTACÂë
-//Èë¿Ú²ÎÊı
-//	 aid=Ó¦ÓÃÄ¿Â¼±êÊ¶,
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       >=0³É¹¦
+//åŠŸèƒ½:è·å–CPUå¡ä¸Šæ¬¡äº¤æ˜“çš„TACç 
+//å…¥å£å‚æ•°
+//	 aid=åº”ç”¨ç›®å½•æ ‡è¯†,
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       >=0æˆåŠŸ
 //========================================================
 int get_cpu_last_tac(uint16_t off_line_counter, uint8_t tac_type, unsigned char * p_recv)
 {
@@ -4444,11 +4444,11 @@ int get_cpu_last_tac(uint16_t off_line_counter, uint8_t tac_type, unsigned char 
 }
 
 //========================================================
-//¹¦ÄÜ:CPU¿¨pinĞ£Ñé
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       =0³É¹¦
+//åŠŸèƒ½:CPUå¡pinæ ¡éªŒ
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       =0æˆåŠŸ
 //========================================================
 int mtr_cpu_pin_check()
 {
@@ -4467,10 +4467,10 @@ int mtr_cpu_pin_check()
 }
 
 //========================================================
-//¹¦ÄÜ:³õÊ¼»¯SAM¿¨È«¾ÖÏà¹ØĞÅÏ¢
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
+//åŠŸèƒ½:åˆå§‹åŒ–SAMå¡å…¨å±€ç›¸å…³ä¿¡æ¯
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
 //========================================================
 void init_sam_inf()
 {
@@ -4491,11 +4491,11 @@ void init_sam_inf()
 
 
 //========================================================
-//¹¦ÄÜ:ÅĞ¶ÏQRµç×ÓÆ±ÊÇ·ñºÏ·¨
-//³ö¿Ú²ÎÊı
-//       ÎŞ
-//·µ»ØÖµ
-//       =0³É¹¦
+//åŠŸèƒ½:åˆ¤æ–­QRç”µå­ç¥¨æ˜¯å¦åˆæ³•
+//å‡ºå£å‚æ•°
+//       æ— 
+//è¿”å›å€¼
+//       =0æˆåŠŸ
 //========================================================
 bool check_ElecT_isValidty()
 {

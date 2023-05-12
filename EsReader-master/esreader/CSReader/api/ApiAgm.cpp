@@ -10,7 +10,7 @@ static ETPDVC device_type_file	= dvcBidirectAGM;
 
 
 //
-// Õ¢»ú½Ó¿Ú
+// é—¸æœºæŽ¥å£
 //
 void Api::Gate_AisleModel(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data)
 {
@@ -111,15 +111,15 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 			break;
 		}
 
-        // ·ÖÎöÆ±¿¨¿ªÊ¼
+        // åˆ†æžç¥¨å¡å¼€å§‹
         ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
         if (ret.wErrCode)	break;
 
-		// ¼ì²é×¨ÓÃÍ¨µÀ
+		// æ£€æŸ¥ä¸“ç”¨é€šé“
 		ret.wErrCode = g_Parameter.passageway_allow_pass(ticket_data.logical_type, door_type);
 		if (ret.wErrCode)	break;
 
-        // Éè±¸Ö§³Ö
+        // è®¾å¤‡æ”¯æŒ
         ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
         if (ret.wErrCode != 0)	break;
 
@@ -128,7 +128,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 
         ret = p_ticket->analyse_free_zone(&md_effect, &ticket_prm, NULL);
 
-		// ½»Ò×È·ÈÏ
+		// äº¤æ˜“ç¡®è®¤
 		if (ret.wErrCode != 0)
 		{
 			if (!p_ticket->confirm_current_card())
@@ -236,15 +236,15 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 			break;
 		}
 
-        // ·ÖÎöÆ±¿¨¿ªÊ¼
+        // åˆ†æžç¥¨å¡å¼€å§‹
         ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
         if (ret.wErrCode)	break;
 
-        // Éè±¸Ö§³Ö
+        // è®¾å¤‡æ”¯æŒ
         ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
         if (ret.wErrCode != 0)	break;
 
-		// ¼ì²é×¨ÓÃÍ¨µÀ
+		// æ£€æŸ¥ä¸“ç”¨é€šé“
 		ret.wErrCode = g_Parameter.passageway_allow_pass(ticket_data.logical_type, door_type);
 		if (ret.wErrCode)	break;
 
@@ -253,7 +253,7 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 
         ret = p_ticket->analyse_work_zone(&md_effect, &ticket_prm, NULL, &exit);
 
-		// ½»Ò×È·ÈÏ
+		// äº¤æ˜“ç¡®è®¤
 		if (ret.wErrCode != 0)
 		{
 			if (!p_ticket->confirm_current_card())

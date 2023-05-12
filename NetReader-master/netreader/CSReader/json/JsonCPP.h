@@ -14,7 +14,7 @@ class JsonCPP
 public:
     JsonCPP(void);
 
-    // 组织返回的Json数据
+    // 缁勭粐杩斿洖鐨凧son鏁版嵁
     static string GetRespJson(Value json_ticket,Value json_ticket_add);
 
 };

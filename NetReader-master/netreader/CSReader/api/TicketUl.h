@@ -23,7 +23,7 @@ typedef struct {
 	UL_AREA		area_data[2];
 }ULINF, * P_ULINF;
 
-//µØÌúµ¥³ÌÆ±
+//åœ°é“å•ç¨‹ç¥¨
 class TicketUl : public TicketBase
 {
 protected:
@@ -43,14 +43,14 @@ protected:
     RETINFO write_card(ETYTKOPER operType, long trade_amount, long& sam_seq, char * p_trade_tac);
 	
 	uint16_t get_valid_ptr(ETYTKOPER operType, int read_result);
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
 public:
     TicketUl(void);
     TicketUl(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
     RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);

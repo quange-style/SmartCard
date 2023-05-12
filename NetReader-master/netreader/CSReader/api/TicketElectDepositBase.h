@@ -1,4 +1,4 @@
-//µç×Ó´¢ÖµÆ±»ù´¡Àà
+//ç”µå­å‚¨å€¼ç¥¨åŸºç¡€ç±»
 // Created by flpkp on 2020/3/22.
 //
 
@@ -8,7 +8,7 @@
 
 class TicketElectDepositBase : public TicketElectBase{
 protected:
-    //µç×ÓÆ±½»Ò×£¬À¶ÑÀ»ØĞ´
+    //ç”µå­ç¥¨äº¤æ˜“ï¼Œè“ç‰™å›å†™
     void getDealData(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,long amount);
 };
 

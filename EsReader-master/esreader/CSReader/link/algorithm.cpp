@@ -81,14 +81,14 @@ unsigned long ucrc32(unsigned long crc, const unsigned char *buf, unsigned int l
 }
 
 //==================================================================
-//º¯ÊıÃû³Æ: generate_crc16
-//ÊµÏÖ¹¦ÄÜ: ¶Ô¹ı°ë×Ö²é±í¼ÆËãcrc16  Öµ, ¶àÏîÊ½Îª0x1021, Ô¤ÖÃÖµÎª0
-//Èë¿Ú²ÎÊı:
-//                      ptr - Òª½øĞĞ¼ÆËãµÄÊı¾İ»º³åÊ×µØÖ·
-//                      ltn - Òª½øĞĞ¼ÆËãµÄÊı¾İ³¤¶È
-//·µ»Ø²ÎÊı:
-//                      ÎŞ
-//·µ»Ø½á¹û: crc16 ¼ÆËãÖµ
+//å‡½æ•°åç§°: generate_crc16
+//å®ç°åŠŸèƒ½: å¯¹è¿‡åŠå­—æŸ¥è¡¨è®¡ç®—crc16  å€¼, å¤šé¡¹å¼ä¸º0x1021, é¢„ç½®å€¼ä¸º0
+//å…¥å£å‚æ•°:
+//                      ptr - è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®ç¼“å†²é¦–åœ°å€
+//                      ltn - è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®é•¿åº¦
+//è¿”å›å‚æ•°:
+//                      æ— 
+//è¿”å›ç»“æœ: crc16 è®¡ç®—å€¼
 //=================================================================
 unsigned int generate_crc16(unsigned char *ptr, unsigned int len)
 {
@@ -119,14 +119,14 @@ unsigned int generate_crc16(unsigned char *ptr, unsigned int len)
 
 
 //==============================================================
-//º¯ÊıÃû³Æ: generate_table_crc16
-//ÊµÏÖ¹¦ÄÜ: Í¨¹ı²é±í·¨¼ÆËãcrc16  Öµ, ¶àÏîÊ½Îª0x1021, Ô¤ÖÃÖµÎª0
-//Èë¿Ú²ÎÊı:
-//                      ptr - Òª½øĞĞ¼ÆËãµÄÊı¾İ»º³åÊ×µØÖ·
-//                      ltn - Òª½øĞĞ¼ÆËãµÄÊı¾İ³¤¶È
-//·µ»Ø²ÎÊı:
-//                      ÎŞ
-//·µ»Ø½á¹û: crc16 ¼ÆËãÖµ
+//å‡½æ•°åç§°: generate_table_crc16
+//å®ç°åŠŸèƒ½: é€šè¿‡æŸ¥è¡¨æ³•è®¡ç®—crc16  å€¼, å¤šé¡¹å¼ä¸º0x1021, é¢„ç½®å€¼ä¸º0
+//å…¥å£å‚æ•°:
+//                      ptr - è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®ç¼“å†²é¦–åœ°å€
+//                      ltn - è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®é•¿åº¦
+//è¿”å›å‚æ•°:
+//                      æ— 
+//è¿”å›ç»“æœ: crc16 è®¡ç®—å€¼
 //==============================================================
 unsigned short int generate_table_crc16(unsigned char *ptr, unsigned int len)
 {
@@ -197,7 +197,7 @@ unsigned short int generate_table_crc16(unsigned char *ptr, unsigned int len)
 //====================================================================
 unsigned char generate_crc8(unsigned char *ptr, unsigned int len, unsigned char initval)
 {
-//¶àÏîÊ½0x8C
+//å¤šé¡¹å¼0x8C
     unsigned char i;
     unsigned char crc=initval;
     while (len--)
@@ -820,17 +820,17 @@ void TripleDes( unsigned char *pOut, unsigned char *pIn, unsigned char *pKey, un
 
 
 //================================================================================
-//	º¯ÊıÃû:  MAC
-//	¹¦      ÄÜ:  ÓÃÊäÈëÊı¾İ¼ÆËãÊä³ö8 ×Ö½ÚµÄÈÏÖ¤Âë
-//	Èë¿Ú²ÎÊı:
-//				lpkey : 8 ×Ö½ÚµÄÃÜÔ¿
-//	                        nlen: ²ÎÓë¼ÆËãµÄÊı¾İ³¤¶È
-//	                  lpvector: 8 ×Ö½Ú¼ÆËãÔ¤ÖÃÏòÁ¿Öµ
-//	                     lpdata: ÊäÈëÊı¾İ
-//	³ö¿Ú²ÎÊı:
-//                         lpdata: 8 ×Ö½ÚµÄ¼ÆËã½á¹û
-//   ·µ»ØÖµ
-//                ÎŞ
+//	å‡½æ•°å:  MAC
+//	åŠŸ      èƒ½:  ç”¨è¾“å…¥æ•°æ®è®¡ç®—è¾“å‡º8 å­—èŠ‚çš„è®¤è¯ç 
+//	å…¥å£å‚æ•°:
+//				lpkey : 8 å­—èŠ‚çš„å¯†é’¥
+//	                        nlen: å‚ä¸è®¡ç®—çš„æ•°æ®é•¿åº¦
+//	                  lpvector: 8 å­—èŠ‚è®¡ç®—é¢„ç½®å‘é‡å€¼
+//	                     lpdata: è¾“å…¥æ•°æ®
+//	å‡ºå£å‚æ•°:
+//                         lpdata: 8 å­—èŠ‚çš„è®¡ç®—ç»“æœ
+//   è¿”å›å€¼
+//                æ— 
 //================================================================================
 void MAC(const unsigned char *lpkey, int nlen, const unsigned char *lpvector, const unsigned char *lpdata, unsigned char *lpresult)
 {
@@ -869,7 +869,7 @@ void MAC(const unsigned char *lpkey, int nlen, const unsigned char *lpvector, co
     //	//dbg_dumpmemory("block_len",lpdata, nlen);
 
     offset = 0;
-    memcpy( sztmpnot, lpvector, 8 );                                              /* ³õÊ¼Öµ¸¶Èë */
+    memcpy( sztmpnot, lpvector, 8 );                                              /* åˆå§‹å€¼ä»˜å…¥ */
     do
     {
 
@@ -878,7 +878,7 @@ void MAC(const unsigned char *lpkey, int nlen, const unsigned char *lpvector, co
             ////dbg_dumpmemory("data=",lstblkdata, 8);
             for ( j = 0; j < 8; j++ )
             {
-                sztmpnot[j] ^= lstblkdata[j];									  /* µÃµ½µÄ½á¹ûºÍºóĞø8 ×Ö½ÚÒì»ò  */
+                sztmpnot[j] ^= lstblkdata[j];									  /* å¾—åˆ°çš„ç»“æœå’Œåç»­8 å­—èŠ‚å¼‚æˆ–  */
             }
         }
         else
@@ -886,7 +886,7 @@ void MAC(const unsigned char *lpkey, int nlen, const unsigned char *lpvector, co
             ////dbg_dumpmemory("data=",lpdata+offset, 8);
             for ( j = 0; j < 8; j++ )
             {
-                sztmpnot[j] ^= lpdata[offset++];									  /* µÃµ½µÄ½á¹ûºÍºóĞø8 ×Ö½ÚÒì»ò  */
+                sztmpnot[j] ^= lpdata[offset++];									  /* å¾—åˆ°çš„ç»“æœå’Œåç»­8 å­—èŠ‚å¼‚æˆ–  */
             }
 
         }
@@ -906,16 +906,16 @@ void MAC(const unsigned char *lpkey, int nlen, const unsigned char *lpvector, co
 
 
 //===============================================================
-//º¯Êı: MAC_3
-//¹¦ÄÜ: ¶ÔÊı¾İÏî½øĞĞÏßÂ·mac  ¼ÆËã
-//Èë¿Ú²ÎÊı:
-//					  lpkey=ÃÜÔ¿
-//					   nlen=Òª½øĞĞ¼ÆËãµÄÊı¾İ³¤¶È
-//					 lpdata=Òª½øĞĞ¼ÆËãµÄÊı¾İÄÚÈİ
-//³ö¿Ú²ÎÊı:
-//					lpresult=¼ÆËãµÄ4×Ö½Úmac  Êı¾İ
-//·µ  »Ø   Öµ:
-//					ÎŞ
+//å‡½æ•°: MAC_3
+//åŠŸèƒ½: å¯¹æ•°æ®é¡¹è¿›è¡Œçº¿è·¯mac  è®¡ç®—
+//å…¥å£å‚æ•°:
+//					  lpkey=å¯†é’¥
+//					   nlen=è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®é•¿åº¦
+//					 lpdata=è¦è¿›è¡Œè®¡ç®—çš„æ•°æ®å†…å®¹
+//å‡ºå£å‚æ•°:
+//					lpresult=è®¡ç®—çš„4å­—èŠ‚mac  æ•°æ®
+//è¿”  å›   å€¼:
+//					æ— 
 //===============================================================
 void MAC_3(unsigned char *lpkey, int nlen, unsigned char *vector, const unsigned char *lpdata, unsigned char *lpresult )
 {
@@ -954,7 +954,7 @@ void MAC_3(unsigned char *lpkey, int nlen, unsigned char *vector, const unsigned
     //	//dbg_dumpmemory("block_len",lpdata, nlen);
 
     offset = 0;
-    memcpy( sztmpnot, vector, 8 );                                              /* ³õÊ¼Öµ¸¶Èë */
+    memcpy( sztmpnot, vector, 8 );                                              /* åˆå§‹å€¼ä»˜å…¥ */
     do
     {
 
@@ -963,7 +963,7 @@ void MAC_3(unsigned char *lpkey, int nlen, unsigned char *vector, const unsigned
             ////dbg_dumpmemory("data=",lstblkdata, 8);
             for ( j = 0; j < 8; j++ )
             {
-                sztmpnot[j] ^= lstblkdata[j];									  /* µÃµ½µÄ½á¹ûºÍºóĞø8 ×Ö½ÚÒì»ò  */
+                sztmpnot[j] ^= lstblkdata[j];									  /* å¾—åˆ°çš„ç»“æœå’Œåç»­8 å­—èŠ‚å¼‚æˆ–  */
             }
         }
         else
@@ -971,7 +971,7 @@ void MAC_3(unsigned char *lpkey, int nlen, unsigned char *vector, const unsigned
             ////dbg_dumpmemory("data=",lpdata+offset, 8);
             for ( j = 0; j < 8; j++ )
             {
-                sztmpnot[j] ^= lpdata[offset++];									  /* µÃµ½µÄ½á¹ûºÍºóĞø8 ×Ö½ÚÒì»ò  */
+                sztmpnot[j] ^= lpdata[offset++];									  /* å¾—åˆ°çš„ç»“æœå’Œåç»­8 å­—èŠ‚å¼‚æˆ–  */
             }
 
         }

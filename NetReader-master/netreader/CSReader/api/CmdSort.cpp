@@ -60,7 +60,7 @@ int CmdSort::Serial_Listening()
 
 		if (received > 0)
 		{
-			// Ã¿¿çÒ»¸öÔËÓªÈÕ£¬¼ì²éÈÕÖ¾ÊÇ·ñ´óÓÚ50M
+			// æ¯è·¨ä¸€ä¸ªè¿è¥æ—¥ï¼Œæ£€æŸ¥æ—¥å¿—æ˜¯å¦å¤§äº50M
 			if (memcmp(m_time_now, readbuf + 7, 4) != 0)
 			{
 				memcpy(m_time_now, readbuf + 7, 7);
@@ -71,7 +71,7 @@ int CmdSort::Serial_Listening()
 				memcpy(m_time_now, readbuf + 7, 7);
 			}
 
-			memcpy(Api::get_package_time, m_time_now, 7);//¼ÇÂ¼ÏÂ±»µ÷ÓÃ½Ó¿ÚµÄÊ±¼ä
+			memcpy(Api::get_package_time, m_time_now, 7);//è®°å½•ä¸‹è¢«è°ƒç”¨æ¥å£çš„æ—¶é—´
 
 			m_antenna_mode = readbuf[6] & 0x03;
 
@@ -83,7 +83,7 @@ int CmdSort::Serial_Listening()
 
 			if (m_sys_reboot)
 			{
-				sync(); // Í¬²½´ÅÅÌÊı¾İ,½«»º´æÊı¾İ»ØĞ´µ½Ó²ÅÌ,ÒÔ·ÀÊı¾İ¶ªÊ§[luther.gliethttp]
+				sync(); // åŒæ­¥ç£ç›˜æ•°æ®,å°†ç¼“å­˜æ•°æ®å›å†™åˆ°ç¡¬ç›˜,ä»¥é˜²æ•°æ®ä¸¢å¤±[luther.gliethttp]
 				reboot(RB_AUTOBOOT);
 			}
 		}
@@ -95,7 +95,7 @@ int CmdSort::Serial_Listening()
 void CmdSort::Serial_Listening_USB_SCAN(){
 	TYPE_QR_COM beforeCom = TYPE_QR_COM4;
 	TYPE_QR_COM currentCom = TYPE_QR_COM4;
-	//¼àÌıÕ¢»úÉ¨ÂëÍ·ÒÔ¼°usbÉ¨ÂëÇ¹´®¿ÚÊÇ·ñ´æÔÚ£¬ÒÔ½â¾öÍ¬Ò»¸ö°æ±¾¿ÉÍ¬Ê±ÔÚBOM¡¢AGMÉÏÊ¹ÓÃ
+	//ç›‘å¬é—¸æœºæ‰«ç å¤´ä»¥åŠusbæ‰«ç æªä¸²å£æ˜¯å¦å­˜åœ¨ï¼Œä»¥è§£å†³åŒä¸€ä¸ªç‰ˆæœ¬å¯åŒæ—¶åœ¨BOMã€AGMä¸Šä½¿ç”¨
 	while(m_flag_app_run)
 	{
 		if (access((char *)COM4, 0) == 0)
@@ -131,7 +131,7 @@ void CmdSort::Serial_Listening_USB_SCAN(){
 
 		}
 		beforeCom = currentCom;
-		usleep(1000 * 1000 * 2);//TODO:2s¼àÌıÒ»´Î
+		usleep(1000 * 1000 * 2);//TODO:2sç›‘å¬ä¸€æ¬¡
 	}
 }
 
@@ -169,7 +169,7 @@ int CmdSort::Serial_ListeningQR()
 			Api::qr_readbuf[1] = 0x52;//QR
 
 			//memcpy(&Api::qr_readbuf[2], readbuf, received+2);
-			//¼ÓÉÏÊ±¼ä´ÁÓÃÀ´È¥³ıµôÎŞĞ§µÄË¢Âë
+			//åŠ ä¸Šæ—¶é—´æˆ³ç”¨æ¥å»é™¤æ‰æ— æ•ˆçš„åˆ·ç 
 			memcpy(&Api::qr_readbuf[2], CmdSort::m_time_now, 7);
 			memcpy(&Api::qr_readbuf[9], readbuf, received+2);
 			Api::qr_readbuf_len = received;
@@ -235,12 +235,12 @@ int CmdSort::cmd_send_ble(ETBLEOPER operType,uint8_t * p_cmd_recved, uint8_t * p
 	gettimeofday(&start,NULL);
 	if(operType!=operBleReset)
 	{
-		timeout = 15;//TODO:À¶ÑÀ³¬Ê±Ê±¼ä
+		timeout = 15;//TODO:è“ç‰™è¶…æ—¶æ—¶é—´
 		length = libserial_recv_package_local_ble(operType,SIZE_MAX_RECV, timeout, readbuf);
 	}
 	gettimeofday(&end,NULL);
 
-	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//Î¢Ãë
+	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//å¾®ç§’
 	*msec = time_use / 1000;
 
 	return length;
@@ -259,8 +259,8 @@ void CmdSort::cmd_classic(uint8_t * p_cmd_recved, uint8_t * p_data_to_send, uint
 	CmdSort::m_beep_counter = (uint8_t)((p_cmd_recved[6] >> 2) & 0x03);
 
 	memcpy(Api::testTmpData, p_cmd_recved, 14);
-	//FIXME:¸ù¾İÊµ¼Ê³¤¶È·µ»Ø´òÓ¡ÊÕµ½µÄÊı¾İ
-	memcpy(datalenBuff, p_cmd_recved + 14, 2);//»ñÈ¡ÊÕµ½µÄ±¨ÎÄ³¤¶È
+	//FIXME:æ ¹æ®å®é™…é•¿åº¦è¿”å›æ‰“å°æ”¶åˆ°çš„æ•°æ®
+	memcpy(datalenBuff, p_cmd_recved + 14, 2);//è·å–æ”¶åˆ°çš„æŠ¥æ–‡é•¿åº¦
 	dataLen=datalenBuff[1]<<8|datalenBuff[0];
 	g_Record.log_buffer("recved:", p_cmd_recved, 16+dataLen,level_error);
 
@@ -281,7 +281,7 @@ void CmdSort::cmd_classic(uint8_t * p_cmd_recved, uint8_t * p_data_to_send, uint
 			dl.file_mgr(p_cmd_recved, p_data_to_send, lentosend);
 		}
 		break;
-	case COMMAND_C:			// COMMAND_CµÄ´¦Àí°üº¬ÔÚdownload_file()ÖĞ,´Ë´¦µ÷ÓÃÓ¦»Ø¸´ÖØµş
+	case COMMAND_C:			// COMMAND_Cçš„å¤„ç†åŒ…å«åœ¨download_file()ä¸­,æ­¤å¤„è°ƒç”¨åº”å›å¤é‡å 
 		{
 			SysCmd::sys_calling(p_cmd_recved[4], p_cmd_recved + 16, p_data_to_send, lentosend, app_valid);
 		}
@@ -320,8 +320,8 @@ void CmdSort::cmd_send(uint8_t * p_cmd_recved, uint8_t * p_data_send, uint16_t l
 	memcpy(cmd_send + 7, p_data_send, len_data_send);
 
 	//g_Record.log_buffer("cmd_send() = ", cmd_send,len_data_send+7);
-	//FIXME:·µ»ØÎŞ¿¨¿ÉÒÔ²»´òÓ¡
-	if ((cmd_send[7] != 0x02))//Ñ°¿¨Ê§°Ü²»´òÓ¡£¬²éÑ¯SAM¿¨×´Ì¬²»´òÓ¡
+	//FIXME:è¿”å›æ— å¡å¯ä»¥ä¸æ‰“å°
+	if ((cmd_send[7] != 0x02))//å¯»å¡å¤±è´¥ä¸æ‰“å°ï¼ŒæŸ¥è¯¢SAMå¡çŠ¶æ€ä¸æ‰“å°
 	{
 		g_Record.log_buffer("sendback:", cmd_send,len_data_send+7,level_error);
 	}else{

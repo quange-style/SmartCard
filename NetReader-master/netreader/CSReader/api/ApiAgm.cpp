@@ -12,7 +12,7 @@ static ETPDVC device_type_file	= dvcBidirectAGM;
 
 extern CLoopList	g_LoopList;
 //
-// Õ¢»ú½Ó¿Ú
+// é—¸æœºæ¥å£
 //
 void Api::Gate_AisleModel(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data)
 {
@@ -61,7 +61,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
     ENTRYGATE entry;
 	ETICKETDEALINFO eticketdealinfo;
 	ETICKETAUTHINFO eticketauthinfo;
-	char cOnlineRes = '1';			//Áª»úÑéÆ±½á¹û£¬0Îª³É¹¦ ·Ç0ÎªÑéÖ¤Ê§°Ü
+	char cOnlineRes = '1';			//è”æœºéªŒç¥¨ç»“æœï¼Œ0ä¸ºæˆåŠŸ é0ä¸ºéªŒè¯å¤±è´¥
     TICKETLOCK locked;
     uint16_t len_entry			= 0;
     uint16_t len_lock			= 0;
@@ -127,19 +127,19 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 			break;
 		}
 
-        // ·ÖÎöÆ±¿¨¿ªÊ¼
+        // åˆ†æç¥¨å¡å¼€å§‹
         ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
         if (ret.wErrCode)	break;
 
-		// ¼ì²é×¨ÓÃÍ¨µÀ
+		// æ£€æŸ¥ä¸“ç”¨é€šé“
 		ret.wErrCode = g_Parameter.passageway_allow_pass(ticket_data.logical_type, door_type);
 		if (ret.wErrCode)	break;
 
-        // Éè±¸Ö§³Ö
+        // è®¾å¤‡æ”¯æŒ
         ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
         if (ret.wErrCode != 0)	break;
 
-		//¼ì²éÊÇ·ñÖØ¸´¹ıÕ¢ Èç¹ûÊÇµç×ÓÆ±¿¨µÄ»°£¬ĞèÒª¼ì²éÖØ¸´Ê¹ÓÃ¶şÎ¬Âğ
+		//æ£€æŸ¥æ˜¯å¦é‡å¤è¿‡é—¸ å¦‚æœæ˜¯ç”µå­ç¥¨å¡çš„è¯ï¼Œéœ€è¦æ£€æŸ¥é‡å¤ä½¿ç”¨äºŒç»´å—
 
 		if(ticket_data.qr_flag != 0x00)
 		{
@@ -147,8 +147,8 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 			{
                 g_Record.log_out(0, level_error,"this is the same qr code");
 				ret.wErrCode = ERR_CARD_NONE;
-				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 				break;
 			}else{
 				g_Record.log_out(0, level_error,"this is the same qr code else");
@@ -160,7 +160,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 
         ret = p_ticket->analyse_free_zone(&md_effect, &ticket_prm, NULL, NULL);
 
-		// ½»Ò×È·ÈÏ
+		// äº¤æ˜“ç¡®è®¤
 		if (ret.wErrCode != 0)
 		{
 
@@ -202,7 +202,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
     }
     while (0);
 
-	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//½»Ò×È·ÈÏ
+	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//äº¤æ˜“ç¡®è®¤
 	{
 		p_ticket->get_ticket_infos(ticket_data);
 		ret = p_ticket->continue_last_trade(&eticketdealinfo);
@@ -212,7 +212,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 		ret.bRfu[0] = 0x11;
 		ret.bRfu[1] = 0x00;
 	}
-	//FIXME: ²»¹Ü³É¹¦Óë·ñ£¬¶¼Ìí¼ÓÈç¶ÓÁĞ Èç¹ûÊÇÖØ¸´µÄÂë¾ÍÖ±½Ó·µ»ØÎŞ¿¨
+	//FIXME: ä¸ç®¡æˆåŠŸä¸å¦ï¼Œéƒ½æ·»åŠ å¦‚é˜Ÿåˆ— å¦‚æœæ˜¯é‡å¤çš„ç å°±ç›´æ¥è¿”å›æ— å¡
 	if(ticket_data.qr_flag != 0x00&&ret.wErrCode != ERR_SUCCEED ){
 		g_LoopList.UpdateList((char *)ticket_data.timeAndcenterCode,operEntry);
 	}
@@ -226,8 +226,8 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 
 	if (ret.wErrCode != ERR_CARD_NONE)
 	{
-		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 	}
 
 	if (ret.wErrCode)
@@ -248,7 +248,7 @@ void Api::Gate_EntryFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t
 	}
 
 	gettimeofday(&end,NULL);
-	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//Î¢Ãë
+	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//å¾®ç§’
 	msec = time_use / 1000;
 
 	if(ret.wErrCode != ERR_CARD_NONE){
@@ -275,7 +275,7 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 	uint8_t forbid_ant			= 0;
 	ETPMDM forbid_type			= mediUltraLight;
 	uint8_t current_id[7]		= {0};
-	char cOnlineRes = '1';		//Áª»úÑéÆ±½á¹û£¬0Îª³É¹¦ ·Ç0ÎªÑéÖ¤Ê§°Ü
+	char cOnlineRes = '1';		//è”æœºéªŒç¥¨ç»“æœï¼Œ0ä¸ºæˆåŠŸ é0ä¸ºéªŒè¯å¤±è´¥
 
     long time_use=0;
 	struct timeval start;
@@ -335,34 +335,34 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 			break;
 		}
 
-		//¼ì²éÊÇ·ñÖØ¸´¹ıÕ¢ Èç¹ûÊÇµç×ÓÆ±¿¨µÄ»°£¬ĞèÒª¼ì²éÖØ¸´Ê¹ÓÃ¶şÎ¬Âë
+		//æ£€æŸ¥æ˜¯å¦é‡å¤è¿‡é—¸ å¦‚æœæ˜¯ç”µå­ç¥¨å¡çš„è¯ï¼Œéœ€è¦æ£€æŸ¥é‡å¤ä½¿ç”¨äºŒç»´ç 
 		if(ticket_data.qr_flag != 0x00)
 		{
 			if(g_LoopList.QueryList((char *)ticket_data.timeAndcenterCode,operExit))
 			{
                 g_Record.log_out(0, level_error,"this is the same qr code");
 				ret.wErrCode = ERR_CARD_NONE;
-				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 				break;
 			}else{
 				g_Record.log_out(0, level_error,"this is the same qr code else");
 			}
 		}
 
-        // ·ÖÎöÆ±¿¨¿ªÊ¼
+        // åˆ†æç¥¨å¡å¼€å§‹
         ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
         if (ret.wErrCode)	break;
-        // Éè±¸Ö§³Ö
+        // è®¾å¤‡æ”¯æŒ
         ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
         if (ret.wErrCode != 0)	break;
-		// ¼ì²é×¨ÓÃÍ¨µÀ
+		// æ£€æŸ¥ä¸“ç”¨é€šé“
 		ret.wErrCode = g_Parameter.passageway_allow_pass(ticket_data.logical_type, door_type);
 		if (ret.wErrCode)	break;
         ret = p_ticket->analyse_common(1, &md_effect, &ticket_prm, &locked, len_lock, NULL, &exit.cExitMode);
 		if (ret.wErrCode != 0)	break;
         ret = p_ticket->analyse_work_zone(&md_effect, &ticket_prm, NULL, &exit, NULL);
-		// ½»Ò×È·ÈÏ
+		// äº¤æ˜“ç¡®è®¤
 		if (ret.wErrCode != 0)
 		{
 			if(ticket_data.qr_flag == 0x00)
@@ -398,7 +398,7 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 
     } while (0);
 
-	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//½»Ò×È·ÈÏ
+	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//äº¤æ˜“ç¡®è®¤
 	{
 		p_ticket->get_ticket_infos(ticket_data);
 		ret = p_ticket->continue_last_trade(&eticketdealinfo);
@@ -409,7 +409,7 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 		ret.bRfu[1] = 0x00;
 	}
 
-	//FIXME: ²»¹Ü³É¹¦Óë·ñ£¬¶¼Ìí¼ÓÈç¶ÓÁĞ Èç¹ûÊÇÖØ¸´µÄÂë¾ÍÖ±½Ó·µ»ØÎŞ¿¨
+	//FIXME: ä¸ç®¡æˆåŠŸä¸å¦ï¼Œéƒ½æ·»åŠ å¦‚é˜Ÿåˆ— å¦‚æœæ˜¯é‡å¤çš„ç å°±ç›´æ¥è¿”å›æ— å¡
 	if(ticket_data.qr_flag != 0x00&&ret.wErrCode != ERR_SUCCEED ){
 		g_LoopList.UpdateList((char *)ticket_data.timeAndcenterCode,operEntry);
 	}
@@ -425,8 +425,8 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 
 	if (ret.wErrCode != ERR_CARD_NONE)
 	{
-		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 	}
 
 	if (ret.wErrCode)
@@ -447,7 +447,7 @@ void Api::Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 	}
 
 	gettimeofday(&end,NULL);
-	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//Î¢Ãë
+	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//å¾®ç§’
 	msec = time_use / 1000;
 
 	if(ret.wErrCode != ERR_CARD_NONE){
@@ -479,8 +479,8 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 	struct timeval start;
 	struct timeval end;
 	long msec = 0;
-	char cCenterCodeIn[32 + 1] = {0};	//´«ÈëµÄÖĞĞÄÆ±ºÅ
-	char cOnlineRes = '1';			    //Áª»úÑéÆ±½á¹û
+	char cCenterCodeIn[32 + 1] = {0};	//ä¼ å…¥çš„ä¸­å¿ƒç¥¨å·
+	char cOnlineRes = '1';			    //è”æœºéªŒç¥¨ç»“æœ
 	char dealType[2 + 1] = {0};
 	ETYTKOPER oper_type;
 
@@ -514,7 +514,7 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
         ret.wErrCode = api_match_device(device_type_file);
         if (ret.wErrCode != 0)
         {
-			if(memcmp(dealType,"07",2) == 0){ //Èç¹û²»ÊÇË«ÏòÕ¢»ú£¬ĞèÒª¸ù¾İÀàĞÍÀ´ÅĞ¶Ï½øÕ¢»¹ÊÇ³öÕ¢
+			if(memcmp(dealType,"07",2) == 0){ //å¦‚æœä¸æ˜¯åŒå‘é—¸æœºï¼Œéœ€è¦æ ¹æ®ç±»å‹æ¥åˆ¤æ–­è¿›é—¸è¿˜æ˜¯å‡ºé—¸
 				ret.wErrCode = api_match_device(dvcEntryAGM);
 			}else{
 				ret.wErrCode = api_match_device(dvcExitAGM);
@@ -567,26 +567,26 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 			break;
 		}
 
-		//¼ì²éÊÇ·ñÖØ¸´¹ıÕ¢ Èç¹ûÊÇµç×ÓÆ±¿¨µÄ»°£¬ĞèÒª¼ì²éÖØ¸´Ê¹ÓÃ¶şÎ¬Âğ
+		//æ£€æŸ¥æ˜¯å¦é‡å¤è¿‡é—¸ å¦‚æœæ˜¯ç”µå­ç¥¨å¡çš„è¯ï¼Œéœ€è¦æ£€æŸ¥é‡å¤ä½¿ç”¨äºŒç»´å—
 		if(ticket_data.qr_flag == 0x01)
 		{
 			if(g_LoopList.QueryList((char *)ticket_data.timeAndcenterCode,oper_type))
 			{
                 g_Record.log_out(0, level_error,"this is the same qr code");
 				ret.wErrCode = ERR_CARD_NONE;
-				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+				memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+				memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 				break;
 			}
 		}
 
-        // ·ÖÎöÆ±¿¨¿ªÊ¼
+        // åˆ†æç¥¨å¡å¼€å§‹
         ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
         if (ret.wErrCode)	break;
-        // Éè±¸Ö§³Ö
+        // è®¾å¤‡æ”¯æŒ
         ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
         if (ret.wErrCode != 0)	break;
-		// ¼ì²é×¨ÓÃÍ¨µÀ
+		// æ£€æŸ¥ä¸“ç”¨é€šé“
 		ret.wErrCode = g_Parameter.passageway_allow_pass(ticket_data.logical_type, door_type);
 		if (ret.wErrCode)	break;
         ret = p_ticket->analyse_common(1, &md_effect, &ticket_prm, &locked, len_lock, NULL, &exit.cExitMode);
@@ -598,7 +598,7 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 			ret = p_ticket->analyse_work_zone(&md_effect, &ticket_prm, NULL, &exit,NULL);
 		}
 
-		// ½»Ò×È·ÈÏ
+		// äº¤æ˜“ç¡®è®¤
 		if (ret.wErrCode != 0)
 		{
 			if(ticket_data.qr_flag == 0x00)
@@ -635,7 +635,7 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 
     } while (0);
 
-	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//½»Ò×È·ÈÏ
+	if(ret.wErrCode == ERR_NEED_CONTINUE_LAST)//äº¤æ˜“ç¡®è®¤
 	{
 		p_ticket->get_ticket_infos(ticket_data);
 		ret = p_ticket->continue_last_trade(&eticketdealinfo);
@@ -646,7 +646,7 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 		ret.bRfu[1] = 0x00;
 	}
 
-	//×îºó¹Ø¼üopenFlow½Ó¿Ú ²»¹ÜÊÇ·ñ³É¹¦¶¼ĞèÒªÌí¼Ó¶ÓÁĞÈ¥ÅĞ¶ÏÖØ¸´¶şÎ¬Âë
+	//æœ€åå…³é”®openFlowæ¥å£ ä¸ç®¡æ˜¯å¦æˆåŠŸéƒ½éœ€è¦æ·»åŠ é˜Ÿåˆ—å»åˆ¤æ–­é‡å¤äºŒç»´ç 
 	if(ticket_data.qr_flag != 0x00){
 		g_LoopList.UpdateList((char *)ticket_data.timeAndcenterCode,oper_type);
 		g_Record.log_buffer("timeAndcenterCode=", ticket_data.timeAndcenterCode,27);
@@ -663,8 +663,8 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 
 	if (ret.wErrCode != ERR_CARD_NONE)
 	{
-		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+		memset(Api::clear_qr_readbuf,0x00,sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 	}
 
 	if (ret.wErrCode)
@@ -685,7 +685,7 @@ void Api::Gate_OpenFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t&
 	}
 
 	gettimeofday(&end,NULL);
-	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//Î¢Ãë
+	time_use=(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec);//å¾®ç§’
 	msec = time_use / 1000;
 
 	if(ret.wErrCode != ERR_CARD_NONE){

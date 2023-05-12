@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 
-// ³£ÓÃºê
+// å¸¸ç”¨å®
 #define SIZE_THREAD_STACK		4096
 #define UTC_TIME_START			"\x19\x70\x01\x01\x00\x00\x00"
 
@@ -17,85 +17,85 @@
 #define NAME_TEMP_APP			(char *)"CSReader"
 #define NAME_SCRIPT				(char *)"api_script.sh"
 
-// SAM¿¨ÀàĞÍ
+// SAMå¡ç±»å‹
 #define SAM_TYPE_PSAM				(uint8_t)0x00
 #define SAM_TYPE_ISAM				(uint8_t)0x01
 #define SAM_TYPE_CSAM				(uint8_t)0x02
 #define SAM_TYPE_MSAM				(uint8_t)0x03
 #define SAM_TYPE_HSAM				(uint8_t)0x04
 
-// ²¨ÌØÂÊ
+// æ³¢ç‰¹ç‡
 #define BAUD_ID_9600				(uint8_t)0x00
 #define BAUD_ID_19200				(uint8_t)0x01
 #define BAUD_ID_38400				(uint8_t)0x02
 #define BAUD_ID_57600				(uint8_t)0x03
 #define BAUD_ID_115200				(uint8_t)0x04
 
-// BOM¡¢TVM·ÖÎöÆ±¿¨Ê±µÄ¿É²Ù×÷×´Ì¬
-#define ALLOW_CHARGE				0x01				// ÊÇ·ñ¿É³ä(Öµ/³Ë´Î)
-#define ALLOW_UPDATE				0x01<<1				// ÊÇ·ñ¿É¸üĞÂ
-#define ALLOW_SALE					0x01<<2				// ÊÇ·ñ¿É·¢ÊÛ
-#define ALLOW_ACTIVE				0x01<<3				// ÊÇ·ñ¿É¼¤»î
-#define ALLOW_DIFFER				0x01<<4				// ÊÇ·ñ¿ÉÑÓÆÚ
-#define ALLOW_REFUND				0x01<<5				// ÊÇ·ñ¿ÉÍË¿î
-#define ALLOW_UNLOCK				0x01<<6				// ÊÇ·ñ¿É½âËø
-#define ALLOW_REFUND_DE				0x01<<7				// ÊÇ·ñ¿ÉÍËÑº½ğ
+// BOMã€TVMåˆ†æç¥¨å¡æ—¶çš„å¯æ“ä½œçŠ¶æ€
+#define ALLOW_CHARGE				0x01				// æ˜¯å¦å¯å……(å€¼/ä¹˜æ¬¡)
+#define ALLOW_UPDATE				0x01<<1				// æ˜¯å¦å¯æ›´æ–°
+#define ALLOW_SALE					0x01<<2				// æ˜¯å¦å¯å‘å”®
+#define ALLOW_ACTIVE				0x01<<3				// æ˜¯å¦å¯æ¿€æ´»
+#define ALLOW_DIFFER				0x01<<4				// æ˜¯å¦å¯å»¶æœŸ
+#define ALLOW_REFUND				0x01<<5				// æ˜¯å¦å¯é€€æ¬¾
+#define ALLOW_UNLOCK				0x01<<6				// æ˜¯å¦å¯è§£é”
+#define ALLOW_REFUND_DE				0x01<<7				// æ˜¯å¦å¯é€€æŠ¼é‡‘
 
-// Æ±¿¨±ê×¼×´Ì¬
-#define USTATUS_INIT				(uint8_t)200			 // ³õÊ¼»¯
-#define USTATUS_ES					(uint8_t)201			 // Init II (Pre¨Cvalue loaded @E/S)(ESÔ¤¸³Öµ)
-#define USTATUS_SALE				(uint8_t)202			 // BOM/TVM·¢ÊÛ
-#define USTATUS_EXIT				(uint8_t)203			 // ³öÕ¾(exit)
-#define USTATUS_EXIT_T				(uint8_t)204			 // ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾(exit during Train¨Cdisruption)
-#define USTATUS_UPD_OUT				(uint8_t)205			 // ½øÕ¾BOM¸üĞÂ(upgrade at BOM for Entry)
-#define USTATUS_UPD_OUT_FREE		(uint8_t)206			 // ·Ç¸¶·ÑÇøÃâ·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define USTATUS_UPD_OUT_FARE		(uint8_t)207			 // ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define USTATUS_ENTRY				(uint8_t)208			 // ½øÕ¾(entry)
-#define USTATUS_UPD_IN				(uint8_t)209			 // ³öÕ¾BOM¸üĞÂ(upgrade at BOM for Exit)
-#define USTATUS_UPD_WO_STA			(uint8_t)210			 // ÎŞ½øÕ¾Âë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_UPD_TM_OUT			(uint8_t)211			 // ³¬Ê±¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_UPD_TP_OUT			(uint8_t)212			 // ³¬³Ë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define USTATUS_EXIT_ONLY			(uint8_t)213			 // ET for Exit(³öÕ¾Æ±)
-#define USTATUS_REFUND				(uint8_t)214			 // ÍË¿¨
-#define USTATUS_DETROY				(uint8_t)215			 // ³µÆ±×¢Ïú
-#define USTATUS_UNDEFINED			(uint8_t)255			 // Î´Öª×´Ì¬
+// ç¥¨å¡æ ‡å‡†çŠ¶æ€
+#define USTATUS_INIT				(uint8_t)200			 // åˆå§‹åŒ–
+#define USTATUS_ES					(uint8_t)201			 // Init II (Preâ€“value loaded @E/S)(ESé¢„èµ‹å€¼)
+#define USTATUS_SALE				(uint8_t)202			 // BOM/TVMå‘å”®
+#define USTATUS_EXIT				(uint8_t)203			 // å‡ºç«™(exit)
+#define USTATUS_EXIT_T				(uint8_t)204			 // åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™(exit during Trainâ€“disruption)
+#define USTATUS_UPD_OUT				(uint8_t)205			 // è¿›ç«™BOMæ›´æ–°(upgrade at BOM for Entry)
+#define USTATUS_UPD_OUT_FREE		(uint8_t)206			 // éä»˜è´¹åŒºå…è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_OUT_FARE		(uint8_t)207			 // éä»˜è´¹åŒºä»˜è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define USTATUS_ENTRY				(uint8_t)208			 // è¿›ç«™(entry)
+#define USTATUS_UPD_IN				(uint8_t)209			 // å‡ºç«™BOMæ›´æ–°(upgrade at BOM for Exit)
+#define USTATUS_UPD_WO_STA			(uint8_t)210			 // æ— è¿›ç«™ç æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_TM_OUT			(uint8_t)211			 // è¶…æ—¶æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_UPD_TP_OUT			(uint8_t)212			 // è¶…ä¹˜æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define USTATUS_EXIT_ONLY			(uint8_t)213			 // ET for Exit(å‡ºç«™ç¥¨)
+#define USTATUS_REFUND				(uint8_t)214			 // é€€å¡
+#define USTATUS_DETROY				(uint8_t)215			 // è½¦ç¥¨æ³¨é”€
+#define USTATUS_UNDEFINED			(uint8_t)255			 // æœªçŸ¥çŠ¶æ€
 
-// Æ±¿¨ÉúÃüÖÜÆÚ×´Ì¬
-#define LIFE_INIT					(uint8_t)100			 // ³õÊ¼»¯
-#define LIFE_ES						(uint8_t)101			 // Init II (Pre¨Cvalue loaded @E/S)(ESÔ¤¸³Öµ)
-#define LIFE_SALE					(uint8_t)102			 // BOM/TVM·¢ÊÛ
-#define LIFE_EXIT					(uint8_t)103			 // ³öÕ¾(exit)
-#define LIFE_EXIT_T					(uint8_t)104			 // ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾(exit during Train¨Cdisruption)
-#define LIFE_UPD_OUT				(uint8_t)105			 // ½øÕ¾BOM¸üĞÂ(upgrade at BOM for Entry)
-#define LIFE_UPD_OUT_FREE			(uint8_t)106			 // ·Ç¸¶·ÑÇøÃâ·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define LIFE_UPD_OUT_FARE			(uint8_t)107			 // ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ£¨BOM/pca ·Ç¸¶·ÑÇø£©
-#define LIFE_ENTRY					(uint8_t)108			 // ½øÕ¾(entry)
-#define LIFE_UPD_IN					(uint8_t)109			 // ³öÕ¾BOM¸üĞÂ(upgrade at BOM for Exit)
-#define LIFE_UPD_WO_STA				(uint8_t)110			 // ÎŞ½øÕ¾Âë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define LIFE_UPD_TM_OUT				(uint8_t)111			 // ³¬Ê±¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define LIFE_UPD_TP_OUT				(uint8_t)112			 // ³¬³Ë¸üĞÂ£¨BOM/pca ¸¶·ÑÇø£©
-#define LIFE_EXIT_ONLY				(uint8_t)113			 // ET for Exit(³öÕ¾Æ±)
-#define LIFE_REFUND					(uint8_t)114			 // ÍË¿¨
-#define LIFE_DETROY					(uint8_t)115			 // ³µÆ±×¢Ïú
-#define LIFE_DEFFER					(uint8_t)116			 // ÑÓÆÚ
-#define LIFE_CHARGE					(uint8_t)117			 // ³äÖµ
-#define LIFE_ACTIVE					(uint8_t)118			 // ¼¤»î
-#define LIFE_DECREASE				(uint8_t)119			 // ¼õÖµ
-#define LIFE_LOCKED					(uint8_t)120			 // ¼ÓËø
-#define LIFE_UNLOCKED				(uint8_t)121			 // ½âËø
-#define LIFE_EXIT_TK_EXIT			(uint8_t)122			 // ³öÕ¾Æ±³öÕ¾
-#define LIFE_CONSUME_COMMON			(uint8_t)180			 // ÆÕÍ¨Ïû·Ñ
-#define LIFE_CONSUME_COMPOUND		(uint8_t)181			 // ¸´ºÏÏû·Ñ
-#define LIFE_CONFIRM				(uint8_t)198			 // ½»Ò×È·ÈÏ³É¹¦
-#define LIFE_CONFIRM_RM				(uint8_t)199			 // ½â³ı½»Ò×È·ÈÏ
-#define LIFE_UNDEFINED				(uint8_t)255			 // Î´¶¨Òå²Ù×÷
+// ç¥¨å¡ç”Ÿå‘½å‘¨æœŸçŠ¶æ€
+#define LIFE_INIT					(uint8_t)100			 // åˆå§‹åŒ–
+#define LIFE_ES						(uint8_t)101			 // Init II (Preâ€“value loaded @E/S)(ESé¢„èµ‹å€¼)
+#define LIFE_SALE					(uint8_t)102			 // BOM/TVMå‘å”®
+#define LIFE_EXIT					(uint8_t)103			 // å‡ºç«™(exit)
+#define LIFE_EXIT_T					(uint8_t)104			 // åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™(exit during Trainâ€“disruption)
+#define LIFE_UPD_OUT				(uint8_t)105			 // è¿›ç«™BOMæ›´æ–°(upgrade at BOM for Entry)
+#define LIFE_UPD_OUT_FREE			(uint8_t)106			 // éä»˜è´¹åŒºå…è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define LIFE_UPD_OUT_FARE			(uint8_t)107			 // éä»˜è´¹åŒºä»˜è´¹æ›´æ–°ï¼ˆBOM/pca éä»˜è´¹åŒºï¼‰
+#define LIFE_ENTRY					(uint8_t)108			 // è¿›ç«™(entry)
+#define LIFE_UPD_IN					(uint8_t)109			 // å‡ºç«™BOMæ›´æ–°(upgrade at BOM for Exit)
+#define LIFE_UPD_WO_STA				(uint8_t)110			 // æ— è¿›ç«™ç æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define LIFE_UPD_TM_OUT				(uint8_t)111			 // è¶…æ—¶æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define LIFE_UPD_TP_OUT				(uint8_t)112			 // è¶…ä¹˜æ›´æ–°ï¼ˆBOM/pca ä»˜è´¹åŒºï¼‰
+#define LIFE_EXIT_ONLY				(uint8_t)113			 // ET for Exit(å‡ºç«™ç¥¨)
+#define LIFE_REFUND					(uint8_t)114			 // é€€å¡
+#define LIFE_DETROY					(uint8_t)115			 // è½¦ç¥¨æ³¨é”€
+#define LIFE_DEFFER					(uint8_t)116			 // å»¶æœŸ
+#define LIFE_CHARGE					(uint8_t)117			 // å……å€¼
+#define LIFE_ACTIVE					(uint8_t)118			 // æ¿€æ´»
+#define LIFE_DECREASE				(uint8_t)119			 // å‡å€¼
+#define LIFE_LOCKED					(uint8_t)120			 // åŠ é”
+#define LIFE_UNLOCKED				(uint8_t)121			 // è§£é”
+#define LIFE_EXIT_TK_EXIT			(uint8_t)122			 // å‡ºç«™ç¥¨å‡ºç«™
+#define LIFE_CONSUME_COMMON			(uint8_t)180			 // æ™®é€šæ¶ˆè´¹
+#define LIFE_CONSUME_COMPOUND		(uint8_t)181			 // å¤åˆæ¶ˆè´¹
+#define LIFE_CONFIRM				(uint8_t)198			 // äº¤æ˜“ç¡®è®¤æˆåŠŸ
+#define LIFE_CONFIRM_RM				(uint8_t)199			 // è§£é™¤äº¤æ˜“ç¡®è®¤
+#define LIFE_UNDEFINED				(uint8_t)255			 // æœªå®šä¹‰æ“ä½œ
 
-// µØÌúCPU¿¨ÎÄ¼ş³¤¶È
+// åœ°é“CPUå¡æ–‡ä»¶é•¿åº¦
 #define LENM_ISSUE_BASE				0x28	
 #define LENM_PUBLIC_BASE			0x1E	
 #define LENM_OWNER_BASE				0xA4
 #define LENM_WALLET					0x04			
-#define LENM_HIS_ALL				0x02B2					// ±¾µØÏû·Ñ£¬ÒìµØÏû·Ñ£¬³äÖµ0x17 * 0x0A * 3			
+#define LENM_HIS_ALL				0x02B2					// æœ¬åœ°æ¶ˆè´¹ï¼Œå¼‚åœ°æ¶ˆè´¹ï¼Œå……å€¼0x17 * 0x0A * 3			
 #define LENM_TRADE_ASSIST			0x30			
 #define LENM_METRO					0x30			
 #define LENM_CTRL_RECORD			0x18
@@ -103,7 +103,7 @@
 #define LENM_CHANGE_CNT				0x02
 #define LENM_CONSUME_CNT			0x02
 
-// ¹«½»CPU¿¨ÎÄ¼ş³¤¶È
+// å…¬äº¤CPUå¡æ–‡ä»¶é•¿åº¦
 #define LENB_ISSUE_BASE				0x30	
 #define LENB_APP_INDEX				0x10
 #define LENB_PUBLIC_BASE			0x1E	
@@ -115,8 +115,8 @@
 #define LENB_CONSUME_CNT			0x02
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ³£ÓÃBAE_±ê¼ÇÀàĞÍ¶¨Òå
-// µØÌúÉè±¸ÀàĞÍ
+// å¸¸ç”¨BAE_æ ‡è®°ç±»å‹å®šä¹‰
+// åœ°é“è®¾å¤‡ç±»å‹
 typedef enum
 {
     dvcLCC			= 0,
@@ -132,13 +132,13 @@ typedef enum
     dvcICCS			= 99
 } ETPDVC;
 
-// Æ±¿¨²Ù×÷ÀàĞÍ
+// ç¥¨å¡æ“ä½œç±»å‹
 typedef enum
 {
 	operNone,
     operAnalyse,
     operUpdate,
-	operSale,		// °üº¬operSvtSaleºÍoperSjtSale
+	operSale,		// åŒ…å«operSvtSaleå’ŒoperSjtSale
     operSvtSale,
     operSjtSale,
     operSjtClear,
@@ -162,7 +162,7 @@ typedef enum
 	mediBusMfEX		= 0x05
 } ETPMDM;
 
-// ¾«¼òÆ±¿¨×´Ì¬£¬ËùÓĞµÄ×´Ì¬¶¼ÄÜ¶ÔÓ¦³É¾«¼ò×´Ì¬£¬±ãÓÚÁ÷³ÌÍ³Ò»
+// ç²¾ç®€ç¥¨å¡çŠ¶æ€ï¼Œæ‰€æœ‰çš„çŠ¶æ€éƒ½èƒ½å¯¹åº”æˆç²¾ç®€çŠ¶æ€ï¼Œä¾¿äºæµç¨‹ç»Ÿä¸€
 typedef enum
 {
 	SStatus_Exit = 1,

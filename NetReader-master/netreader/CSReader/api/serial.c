@@ -39,7 +39,7 @@ typedef struct _SERIALVAR{
 #define TIMEOUT_SEC(buflen,baud) (buflen*20/baud+2)
 #define TIMEOUT_USEC 20000
 
-#define MAXPORT 5 //֧�ֵĴ�������
+#define MAXPORT 5 //支持的串口数量
 
 
 SERIALVAR hCOM[MAXPORT];
@@ -131,25 +131,25 @@ void CloseComPort (INT32 ComPort)
 }
 
 //======================================================================================================
-//����:ReadComPort
-//����:��ָ���Ķ˿ڽ�������
-//��ڲ���:
-//         ComPort-�������ݵĶ˿ں�,
-//         maxrecv-���ջ����������,
-//         timeout-���ճ�ʱʱ���趨(΢�룬=0ʱ��ʾ���޵ȴ�),
-//         data-����ָ��,
-//         pfun-�ص�����(���ڶԽ��յ����ݽ����ж�)
-//���ڲ���:
-//         data-���յ�����(������ֵ=0ʱ��Ч)
-//����ֵ: 0-�ɹ���������
+//名称:ReadComPort
+//功能:从指定的端口接收数据
+//入口参数:
+//         ComPort-接收数据的端口号,
+//         maxrecv-接收缓冲最大容量,
+//         timeout-接收超时时间设定(微秒，=0时表示无限等待),
+//         data-缓冲指针,
+//         pfun-回调函数(用于对接收的数据进行判断)
+//出口参数:
+//         data-接收的数据(当返回值=0时有效)
+//返回值: 0-成功接收数据
 //======================================================================================================
 INT32 ReadComPort(INT32 ComPort, INT32 maxrecv, UINT32 timeout, void *data, INT32 (*pfun)(INT32 *,void *))
 {
     INT32 retval=0;
     INT32 sumlen=0, pos=0, len=0;
-    INT32 maxlimite=maxrecv;//�����ճ��ȣ���ֹ�������
+    INT32 maxlimite=maxrecv;//最大接收长度，防止缓冲溢出
     UINT32 tmo=timeout;
-    if (0 == PortIsValid(ComPort))//�ж϶˿��Ƿ���Ч
+    if (0 == PortIsValid(ComPort))//判断端口是否用效
     {
     	while(1)
     	{
@@ -185,10 +185,10 @@ INT32 ReadComPort(INT32 ComPort, INT32 maxrecv, UINT32 timeout, void *data, INT3
 
 			    if (0 == maxlimite)
 			    {
-			    	return(sumlen);//��������
+			    	return(sumlen);//缓冲区满
 			    }
 
-			    tmo = 50000;//���յ���һ������ʱ���п�������̫����Ҫ���ն�Σ����Խ������״̬�������ʱʱ��
+			    tmo = 50000;//当收到第一次数据时，有可能数据太长需要接收多次，所以进入接收状态后调整超时时间
 
 
 		    }

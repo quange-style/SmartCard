@@ -14,7 +14,7 @@ CLoopList::~CLoopList(void)
 
 }
 
-// ²éÕÒ·ûºÏÌõ¼şµÄ½Úµã
+// æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„èŠ‚ç‚¹
 bool CLoopList::QueryList(char * lpLogicalID,ETYTKOPER operType)
 {
 	bool bRet = false;
@@ -34,7 +34,7 @@ bool CLoopList::QueryList(char * lpLogicalID,ETYTKOPER operType)
 		length = 27;
 	}
 
-	if(length==27)//½ø³öÕ¢Ê¹ÓÃÁíÍâÒ»ÖÖÅĞÖØ·½Ê½
+	if(length==27)//è¿›å‡ºé—¸ä½¿ç”¨å¦å¤–ä¸€ç§åˆ¤é‡æ–¹å¼
 	{
 		for (int i=0;i<TRADE_SPACE_COUNT;i++)
 		{
@@ -43,15 +43,15 @@ bool CLoopList::QueryList(char * lpLogicalID,ETYTKOPER operType)
 
 			memcpy(currentTime,lpLogicalID,7);
 			memcpy(currentCardNo,lpLogicalID+7,20);
-			TimesEx::bcd_time_calculate(timeTemp, T_TIME, 0, 0, 0, 30);//µ±Ç°Ê±¼äÌí¼Ó30s
-			if (memcmp(cardNoTemp, currentCardNo, 20) == 0&&memcmp(timeTemp, currentTime, 7) > 0)//¿¨ºÅÏàµÈ²¢ÇÒÊ±¼äÃ»ÓĞ³¬¹ı30s,ÅĞ¶ÏÎªÖØ¸´
+			TimesEx::bcd_time_calculate(timeTemp, T_TIME, 0, 0, 0, 30);//å½“å‰æ—¶é—´æ·»åŠ 30s
+			if (memcmp(cardNoTemp, currentCardNo, 20) == 0&&memcmp(timeTemp, currentTime, 7) > 0)//å¡å·ç›¸ç­‰å¹¶ä¸”æ—¶é—´æ²¡æœ‰è¶…è¿‡30s,åˆ¤æ–­ä¸ºé‡å¤
 			{
 				bRet = true;
 				break;
 			}
 		}
 	}
-	else//ÆäËû·½Ê½±£Áô
+	else//å…¶ä»–æ–¹å¼ä¿ç•™
 	{
 		for (int i=0;i<TRADE_SPACE_COUNT;i++)
 		{
@@ -66,7 +66,7 @@ bool CLoopList::QueryList(char * lpLogicalID,ETYTKOPER operType)
 	return bRet;
 }
 
-// ¸üĞÂ½øÕ¢¶ÓÁĞ
+// æ›´æ–°è¿›é—¸é˜Ÿåˆ—
 void CLoopList::UpdateList(char * lpLogicalID,ETYTKOPER operType)
 {
 	char uTempID[256]	= {0};

@@ -16,7 +16,7 @@ uint8_t Api::current_device_type	= 0;
 uint16_t Api::current_device_id		= 0;
 uint16_t Api::current_station_id	= 0;
 uint16_t Api::current_city_id	    = 0;
-uint8_t Api::bLocalInstitutionCode[8] = {0};			    // ÊÜÀí»ú¹¹´úÂë
+uint8_t Api::bLocalInstitutionCode[8] = {0};			    // å—ç†æœºæ„ä»£ç 
 uint8_t Api::door_type				= 3;
 uint8_t Api::locked_entry_id[7]		= {0};
 uint8_t Api::locked_exit_id[7]		= {0};
@@ -26,17 +26,17 @@ uint8_t	Api::clear_qr_readbuf[512]  = {0};
 uint8_t	Api::get_package_time[7]  = {0};
 //uint8_t	Api::last_qr_readbuf[512]  = {0};
 uint8_t	Api::qr_passcode[32+1]  = {0};
-char	Api::cCenterCode[32+1] = {0};// ±£´æ½ø³öÕ¢µÄÖĞĞÄÆ±ºÅ
-char	Api::qr_headversion[2+1] = {0};// ¶şÎ¬Âë½á¹¹°æ±¾ĞÅÏ¢,È«²¿±äÁ¿ĞèÒªÎ¬»¤
+char	Api::cCenterCode[32+1] = {0};// ä¿å­˜è¿›å‡ºé—¸çš„ä¸­å¿ƒç¥¨å·
+char	Api::qr_headversion[2+1] = {0};// äºŒç»´ç ç»“æ„ç‰ˆæœ¬ä¿¡æ¯,å…¨éƒ¨å˜é‡éœ€è¦ç»´æŠ¤
 
 ETICKETTRADELAST Api::m_tdeticket				= {0, 0, 0};
 uint8_t Api::antFlag = 0;
 uint16_t Api::ble_count = 0;
 int Api::search_card_err = 0;
 TRADELAST Api::m_tdLast				= {{0}, {0}, 0, {0}, 0};
-long Api::m_sam_seq_charge			= 0;			// SAMÁ÷Ë®£¬³äÖµÊ±Ê¹ÓÃ
-long Api::m_trade_val				= 0;			// ³äÖµ½ğ¶î£¬³äÖµÊ±Ê¹ÓÃ
-int Api::sysFlag = 0;//ÆæÊıÊÇÆ»¹û,Å¼ÊıÊÇ°²×¿
+long Api::m_sam_seq_charge			= 0;			// SAMæµæ°´ï¼Œå……å€¼æ—¶ä½¿ç”¨
+long Api::m_trade_val				= 0;			// å……å€¼é‡‘é¢ï¼Œå……å€¼æ—¶ä½¿ç”¨
+int Api::sysFlag = 0;//å¥‡æ•°æ˜¯è‹¹æœ,å¶æ•°æ˜¯å®‰å“
 
 uint8_t	Api::testTmpData[14+1]  = {0};
 
@@ -178,7 +178,7 @@ void Api::api_calling(uint8_t api_addr, uint8_t * param_stack, uint8_t * data_to
         {50,	Tcm_GetTicketInfo},
 
 		{51,	Bom_EticketUpdate},
-		{61,	Bom_ETicketAnalyze},//»ñÈ¡¶şÎ¬ÂëĞÅÏ¢²¢½øĞĞ·ÖÎö  ¼ÆËã³¬Ê±³¬³ËÇé¿ö
+		{61,	Bom_ETicketAnalyze},//è·å–äºŒç»´ç ä¿¡æ¯å¹¶è¿›è¡Œåˆ†æ  è®¡ç®—è¶…æ—¶è¶…ä¹˜æƒ…å†µ
 
 		{253,	Get_Configurations},
 		{254,	Set_Configurations},
@@ -195,7 +195,7 @@ void Api::api_calling(uint8_t api_addr, uint8_t * param_stack, uint8_t * data_to
         }
     }
 
-	// ²»´æÔÚµÄ
+	// ä¸å­˜åœ¨çš„
 	valid_app_addr = false;
 }
 
@@ -217,13 +217,13 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 	do
     {
 		////////////////////////
-		///////Ä¬ÈÏ³ÇÊĞ´úÂë/////
+		///////é»˜è®¤åŸå¸‚ä»£ç /////
 		////////////////////////
 		param_stack[5] = 0x55;
 		param_stack[6] = 0x10;
 
 		////////////////////////
-		///////Ä¬ÈÏ»ú¹¹´úÂë/////
+		///////é»˜è®¤æœºæ„ä»£ç /////
 		////////////////////////
 		//memcpy(bLocalInstitutionCode,"\x02\x19\x55\x10\x00\x00\x00\x02",8);
 		memcpy(bLocalInstitutionCode,"\x02\x19\x55\x10\xFF\xFF\xFF\xFF",8);
@@ -237,8 +237,8 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 		current_city_id = (uint16_t)((param_stack[5] << 8) + param_stack[6]);
 		//memcpy(bLocalInstitutionCode,&param_stack[7],8);
 
-		//Ê×ÏÈÇåµô¶şÎ¬ÂëÊı¾İ//
-		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+		//é¦–å…ˆæ¸…æ‰äºŒç»´ç æ•°æ®//
+		memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 
 		//dbg_formatvar("current_station_id=%04X",current_station_id);
 		//dbg_formatvar("current_device_type:%02X",current_device_type);
@@ -301,7 +301,7 @@ void Api::Common_Initialize_Device(uint8_t * param_stack, uint8_t * data_to_send
 		g_Parameter.delete_prm_outof_config();
 
 		ubeep(50);
-		//FIXME:»ñÈ¡À¶ÑÀ°æ±¾ĞÅÏ¢½Ó¿ÚÓĞÎÊÌâ£¬×ÜÊÇ±¨³¬Ê±
+		//FIXME:è·å–è“ç‰™ç‰ˆæœ¬ä¿¡æ¯æ¥å£æœ‰é—®é¢˜ï¼Œæ€»æ˜¯æŠ¥è¶…æ—¶
 		ble::ble_reset(0);
 		uint8_t sendData[256] = {0};
 		ble::ble_get_version(sendData);
@@ -324,7 +324,7 @@ void Api::Common_GetSamInfo(uint8_t * param_stack, uint8_t * data_to_send, uint1
 
     memset(sst, 0, sizeof(sst));
 
-	memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+	memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 
 	ret.wErrCode = g_Parameter.device_initialized();
 	if (ret.wErrCode == 0)
@@ -630,7 +630,7 @@ void Api::Set_Configurations(uint8_t * param_stack, uint8_t * data_to_send, uint
 	memcpy(&loc_conf.log_save_days, param_stack + 2, 2);
 	memcpy(&loc_conf.log_level, param_stack + 4, 2);
 
-	//todo:¿ÉĞ´±¾µØÊ¼ÖÕ±£´æ×´Ì¬ÈÕÖ¾×´Ì¬£¬Ä©Î²Ìí¼ÓcrcĞ£Ñé·ÀÖ¹´®¸Ä
+	//todo:å¯å†™æœ¬åœ°å§‹ç»ˆä¿å­˜çŠ¶æ€æ—¥å¿—çŠ¶æ€ï¼Œæœ«å°¾æ·»åŠ crcæ ¡éªŒé˜²æ­¢ä¸²æ”¹
 	ret.wErrCode = g_Record.set_record_param(loc_conf.trade_save_days, loc_conf.log_save_days, loc_conf.log_level);
 
 	len_data = organize_data_region(data_to_send, &ret);
@@ -656,7 +656,7 @@ void Api::Common_TimeSynchronization(uint8_t * param_stack, uint8_t * data_to_se
 	//uint16_t entry_station;
 
 	memcpy(time_now, param_stack, 7);
-	//TODO:Í¬²½¶ÁĞ´Æ÷ÏµÍ³Ê±¼ä ÏµÍ³Ê±¼äÉèÖÃÖ¸ÁîÎª£ºdate -s "2021-02-02 14:33:01"
+	//TODO:åŒæ­¥è¯»å†™å™¨ç³»ç»Ÿæ—¶é—´ ç³»ç»Ÿæ—¶é—´è®¾ç½®æŒ‡ä»¤ä¸ºï¼šdate -s "2021-02-02 14:33:01"
 	len_data = organize_data_region(data_to_send, &ret, 7, time_now);
 
 	g_Record.log_out(ret.wErrCode, level_error,
@@ -702,7 +702,7 @@ void Api::Common_GetThirdPayCode(uint8_t * param_stack, uint8_t * data_to_send, 
         p_ticket->get_ticket_infos(ticket_data);
         g_Record.log_out(0, level_disaster,"third_qr_info:",ticket_data.third_qr_info,18);
 
-        //¼ì²éÊÇ·ñÖØ¸´ÉÏËÍÊÚÈ¨Âë  //todo£ºÃ»ÓĞĞ£ÑéÂëÌå¹æÔò
+        //æ£€æŸ¥æ˜¯å¦é‡å¤ä¸Šé€æˆæƒç   //todoï¼šæ²¡æœ‰æ ¡éªŒç ä½“è§„åˆ™
         if(ticket_data.qr_flag == 0x01)
         {
             dbg_formatvar("third_qr_info:%s",ticket_data.third_qr_info);
@@ -712,7 +712,7 @@ void Api::Common_GetThirdPayCode(uint8_t * param_stack, uint8_t * data_to_send, 
                 dbg_formatvar("this is the same qr code");
                 //g_Record.log_out(0, level_error,"QueryList:clear the same qr");
                 ret.wErrCode = ERR_CARD_NONE;
-                memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+                memset(Api::qr_readbuf,0x00,sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
                 break;
             }
         }
@@ -731,7 +731,7 @@ void Api::Common_GetThirdPayCode(uint8_t * param_stack, uint8_t * data_to_send, 
         }
     }
 
-    //×é°ü¸øÉÏÎ»»ú
+    //ç»„åŒ…ç»™ä¸Šä½æœº
     if(ret.wErrCode != ERR_SUCCEED){
         len_data = organize_data_region(data_to_send, &ret, 0, NULL);
     }
@@ -739,11 +739,11 @@ void Api::Common_GetThirdPayCode(uint8_t * param_stack, uint8_t * data_to_send, 
         len_data = organize_data_region(data_to_send, &ret, 64, ticket_data.third_qr_info);
     }
 
-	//²»¹ÜÊÇ·ñ³É¹¦¶¼ÖÃ¿ÕÇ°Ò»´ÎµÄÉ¨Âë
-	memset(Api::qr_readbuf, 0x00, sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-    memset(Api::clear_qr_readbuf, 0x00, sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+	//ä¸ç®¡æ˜¯å¦æˆåŠŸéƒ½ç½®ç©ºå‰ä¸€æ¬¡çš„æ‰«ç 
+	memset(Api::qr_readbuf, 0x00, sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+    memset(Api::clear_qr_readbuf, 0x00, sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 
-    //ÈÕÖ¾¼ÇÂ¼
+    //æ—¥å¿—è®°å½•
     if(ret.wErrCode != ERR_CARD_NONE){
         g_Record.log_out(0, level_disaster,"Tvm_ThirdPayGetETicket = %s",ticket_data.third_qr_info);
     }
@@ -766,7 +766,7 @@ void Api::common_getElectQrMsg(uint8_t *param_stack, uint8_t *data_to_send, uint
     long msec = 0;
     gettimeofday(&start, NULL);
 
-	//×é·ÖÎöÊı¾İ°ü
+	//ç»„åˆ†ææ•°æ®åŒ…
     ret.bRfu[0] = 0x11;
     ret.bRfu[1] = 0x00;
 
@@ -784,21 +784,21 @@ void Api::common_getElectQrMsg(uint8_t *param_stack, uint8_t *data_to_send, uint
 
         memset(&ticket_data, 0, sizeof(ticket_data));
 
-        //1£¬Ñ°¿¨
+        //1ï¼Œå¯»å¡
         ret.wErrCode = TicketBase::search_card(&p_ticket, NULL, NULL, NULL, operGetETicket);
         if (ret.wErrCode != 0)	break;
-        //2£¬¶Á¿¨
+        //2ï¼Œè¯»å¡
         ret = p_ticket->read_card(operAnalyse, ticket_prm);
         if (ret.wErrCode != 0)	break;
         p_ticket->get_ticket_infos(ticket_data);
     	if (memcmp(ticket_data.qr_ticketdata.subType, "00", 2) == 0)
-    	{//µç×Óµ¥³ÌÆ±
+    	{//ç”µå­å•ç¨‹ç¥¨
         	len_eticket = sizeof(ReturnSJT);
         	p_ticket->transfer_edata_for_out(operESJT, &ReturnSJT);
         	len_data = organize_data_region(data_to_send, &ret, len_eticket, &ReturnSJT, 0, NULL);
     	}
     	else
-    	{//µç×Ó´¢ÖµÆ±
+    	{//ç”µå­å‚¨å€¼ç¥¨
         	len_eticket = sizeof(ReturnSVT);
        		p_ticket->transfer_edata_for_out(operESVT, &ReturnSVT);
        		len_data = organize_data_region(data_to_send, &ret, len_eticket, &ReturnSVT, 0, NULL);
@@ -808,12 +808,12 @@ void Api::common_getElectQrMsg(uint8_t *param_stack, uint8_t *data_to_send, uint
 
 
     if (ret.wErrCode != ERR_SUCCEED)
-    {//Ö»ÒªÒì³££¬Êı¾İÓò³¤¶È·µ»ØÎª0
+    {//åªè¦å¼‚å¸¸ï¼Œæ•°æ®åŸŸé•¿åº¦è¿”å›ä¸º0
 		len_data = organize_data_region(data_to_send, &ret, len_eticket, &ReturnSJT, 0, NULL);
     }
-	//²»¹ÜÊÇ·ñ³É¹¦¶¼ÖÃ¿ÕÇ°Ò»´ÎµÄÉ¨Âë
-	memset(Api::qr_readbuf, 0x00, sizeof(Api::qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
-    memset(Api::clear_qr_readbuf, 0x00, sizeof(Api::clear_qr_readbuf));//½»Ò×½áÊø£¬²»¹ÜÊÇ·ñ³É¹¦£¬ÔÙ´ÎÇåµô¶şÎ¬Âë
+	//ä¸ç®¡æ˜¯å¦æˆåŠŸéƒ½ç½®ç©ºå‰ä¸€æ¬¡çš„æ‰«ç 
+	memset(Api::qr_readbuf, 0x00, sizeof(Api::qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
+    memset(Api::clear_qr_readbuf, 0x00, sizeof(Api::clear_qr_readbuf));//äº¤æ˜“ç»“æŸï¼Œä¸ç®¡æ˜¯å¦æˆåŠŸï¼Œå†æ¬¡æ¸…æ‰äºŒç»´ç 
 
     gettimeofday(&end, NULL);
     msec = TimeCalcUtils::calcMsec(start, end);

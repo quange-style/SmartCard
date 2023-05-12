@@ -16,7 +16,7 @@ class bleBaseProtocol
 public:
 	bleBaseProtocol(void);
 
-	// 组织返回的Json数据
+	// 缁勭粐杩斿洖鐨凧son鏁版嵁
 	static int baseProtocol(uint8_t * passcode, uint8_t *  p_eTicket_info, int len_eTicket, uint8_t * revData);
 
 //protected:

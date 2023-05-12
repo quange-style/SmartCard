@@ -31,8 +31,8 @@ public:
 	static uint8_t locked_entry_id[7];
 	static uint8_t locked_exit_id[7];
 
-	static long m_sam_seq_charge;		// SAMÁ÷Ë®£¬³äÖµÊ±Ê¹ÓÃ
-	static long m_trade_val;			// ½»Ò×½ğ¶î£¬³äÖµ»ò³äÖµ³·ÏúÊ±Ê¹ÓÃ
+	static long m_sam_seq_charge;		// SAMæµæ°´ï¼Œå……å€¼æ—¶ä½¿ç”¨
+	static long m_trade_val;			// äº¤æ˜“é‡‘é¢ï¼Œå……å€¼æˆ–å……å€¼æ’¤é”€æ—¶ä½¿ç”¨
 
 
 public:
@@ -91,7 +91,7 @@ private:
 
 	static void Common_LastTrade(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
     //
-    // Õ¢»ú½Ó¿Ú
+    // é—¸æœºæ¥å£
     //
     static void Gate_AisleModel(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -100,7 +100,7 @@ private:
     static void Gate_ExitFlow(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
     //
-    // TVM½Ó¿Ú
+    // TVMæ¥å£
     //
     static void Tvm_Ticket_Sale(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -116,7 +116,7 @@ private:
 
 	static void Tvm_GetTopPrice(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
     //
-    // BOM½Ó¿Ú
+    // BOMæ¥å£
     //
     static void Bom_Login (uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -157,12 +157,12 @@ private:
 	static void Bom_Query_OverTrip_Val(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
 	//
-    // TCM½Ó¿Ú
+    // TCMæ¥å£
     //
     static void Tcm_GetTicketInfo(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
 	//
-	// ES½Ó¿Ú
+	// ESæ¥å£
 	//
 	static void Es_Ticket_Analyse(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
@@ -179,7 +179,7 @@ private:
 	static void Es_Ticket_Clear(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 
 	//
-	// ÁÙÊ±½Ó¿Ú
+	// ä¸´æ—¶æ¥å£
 	//
 	static void Temp_interface_1(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data);
 

@@ -10,7 +10,7 @@
 #define _IN_P(bits, ptr)		bits, &ptr, (int)sizeof(ptr)
 #define _IN_NULL(bits)			bits, 0, 0
 #define _OUT_B(bits, val)		bits, val
-#define _OUT_NULL(bits)			0, bits				// ´ËÊ±ÓÃÓÚÕ¼Î»·û£¬µÚ¶ş¸öÔªËØ±ä³ÉËùÕ¼µÄÎ»Êı
+#define _OUT_NULL(bits)			0, bits				// æ­¤æ—¶ç”¨äºå ä½ç¬¦ï¼Œç¬¬äºŒä¸ªå…ƒç´ å˜æˆæ‰€å çš„ä½æ•°
 #define ENDLE	0, 0
 
 #define SEARCH_CARD_ERR_TIME		100
@@ -25,27 +25,27 @@ class TicketBase
 public:
 	enum MStatus
 	{
-		MS_Init				= (uint8_t)1,	// ³õÊ¼»¯
-		MS_Es				= (uint8_t)2,	// Ô¤¸³Öµ
-		MS_Sale				= (uint8_t)3,	// BOM·¢ÊÛ
-		MS_Entry			= (uint8_t)4,	// ½øÕ¢
-		MS_Exit				= (uint8_t)5,	// ³öÕ¢
-		MS_Exit_Only		= (uint8_t)6,	// ³öÕ¾Æ±
-		MS_Exit_Tt			= (uint8_t)7,	// ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾
-		MS_Upd_FZone_Free	= (uint8_t)8,	// ·Ç¸¶·ÑÇøÃâ·Ñ¸üĞÂ
-		MS_Upd_FZone_Fare	= (uint8_t)9,	// ·Ç¸¶·ÑÇø¸¶·Ñ¸üĞÂ
-		MS_Upd_Wzone_Entry	= (uint8_t)10,	// ¸¶·ÑÇøÈëÕ¾Âë¸üĞÂ
-		MS_Upd_Wzone_Exit	= (uint8_t)11,	// ¸¶·ÑÇø³öÕ¾Âë¸üĞÂ
-		MS_Upd_Wzone_Time	= (uint8_t)12,	// ¸¶·ÑÇø³¬Ê±¸üĞÂ
-		MS_Upd_Wzone_Trip	= (uint8_t)13,	// ¸¶·ÑÇø³¬³Ì¸üĞÂ
-		MS_Upd_Wzone_Free	= (uint8_t)14,	// ¸¶·ÑÇøÃâ·Ñ¸üĞÂ
-		MS_Refund			= (uint8_t)15,	// ÍË¿î
-		MS_Increase			= (uint8_t)16,	// ³äÖµ(ÀúÊ·Çø×¨ÓÃ)
-		MS_Decrease			= (uint8_t)17,	// ¼õÖµ(ÀúÊ·Çø×¨ÓÃ)
-		MS_Destroy			= (uint8_t)18,	// ×¢Ïú
-		MS_Lock				= (uint8_t)19,	// ¼ÓËø(ÀúÊ·Çø×¨ÓÃ)
-		MS_Unlock			= (uint8_t)20,	// ½âËø(ÀúÊ·Çø×¨ÓÃ)
-		MS_Deffer			= (uint8_t)21	// ÑÓÆÚ(ÀúÊ·Çø×¨ÓÃ)
+		MS_Init				= (uint8_t)1,	// åˆå§‹åŒ–
+		MS_Es				= (uint8_t)2,	// é¢„èµ‹å€¼
+		MS_Sale				= (uint8_t)3,	// BOMå‘å”®
+		MS_Entry			= (uint8_t)4,	// è¿›é—¸
+		MS_Exit				= (uint8_t)5,	// å‡ºé—¸
+		MS_Exit_Only		= (uint8_t)6,	// å‡ºç«™ç¥¨
+		MS_Exit_Tt			= (uint8_t)7,	// åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™
+		MS_Upd_FZone_Free	= (uint8_t)8,	// éä»˜è´¹åŒºå…è´¹æ›´æ–°
+		MS_Upd_FZone_Fare	= (uint8_t)9,	// éä»˜è´¹åŒºä»˜è´¹æ›´æ–°
+		MS_Upd_Wzone_Entry	= (uint8_t)10,	// ä»˜è´¹åŒºå…¥ç«™ç æ›´æ–°
+		MS_Upd_Wzone_Exit	= (uint8_t)11,	// ä»˜è´¹åŒºå‡ºç«™ç æ›´æ–°
+		MS_Upd_Wzone_Time	= (uint8_t)12,	// ä»˜è´¹åŒºè¶…æ—¶æ›´æ–°
+		MS_Upd_Wzone_Trip	= (uint8_t)13,	// ä»˜è´¹åŒºè¶…ç¨‹æ›´æ–°
+		MS_Upd_Wzone_Free	= (uint8_t)14,	// ä»˜è´¹åŒºå…è´¹æ›´æ–°
+		MS_Refund			= (uint8_t)15,	// é€€æ¬¾
+		MS_Increase			= (uint8_t)16,	// å……å€¼(å†å²åŒºä¸“ç”¨)
+		MS_Decrease			= (uint8_t)17,	// å‡å€¼(å†å²åŒºä¸“ç”¨)
+		MS_Destroy			= (uint8_t)18,	// æ³¨é”€
+		MS_Lock				= (uint8_t)19,	// åŠ é”(å†å²åŒºä¸“ç”¨)
+		MS_Unlock			= (uint8_t)20,	// è§£é”(å†å²åŒºä¸“ç”¨)
+		MS_Deffer			= (uint8_t)21	// å»¶æœŸ(å†å²åŒºä¸“ç”¨)
 	};
 
 public:
@@ -60,7 +60,7 @@ public:
     void transfer_data_for_out(ETYTKOPER operType, void * pTradeStruct);
 
 	void transfer_jtb_data_for_out(ETYTKOPER operType, void * pTradeStruct);
-	//ÌØ¸ÄÎªĞéº¯Êı£¬ÎªÍÑ»úµç×ÓÆ±×ÓÀà¸´Ğ´
+	//ç‰¹æ”¹ä¸ºè™šå‡½æ•°ï¼Œä¸ºè„±æœºç”µå­ç¥¨å­ç±»å¤å†™
 	virtual void transfer_edata_for_out(ETYTKOPER operType, void * pTradeStruct/*, uint8_t bPaymentMeans*/);
 
 	static void getDealDataUpload(ETYTKOPER operType,uint16_t& len_data,uint8_t * dataBack,char * succMount, char * failMount/*, char * date*/);
@@ -71,11 +71,11 @@ public:
 
 	void get_itpData(uint8_t* param_stack);
 	//
-    // ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+    // å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
     //
     virtual RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL) = 0;
 
-    // Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+    // ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
     virtual uint8_t unified_status();
 
     virtual RETINFO analyse_common(uint8_t wk_area, MODE_EFFECT_FLAGS * p_degrade_falgs, TICKET_PARAM * p_ticket_prm, PTICKETLOCK p_lock, uint16_t& lenlock, PBOMANALYZE p_analyse, char * p_mode) = 0;
@@ -112,7 +112,7 @@ public:
     virtual RETINFO bom_refund(PDIRECTREFUND p_refund);
 
 	//virtual RETINFO svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t * p_mac2);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	virtual RETINFO svt_increase(PPURSETRADE p_purse, uint8_t* p_time, uint8_t* p_mac2, uint8_t paytype=1);
 
 	virtual RETINFO EPayData(ETICKETPAYDEALINFO p_purse, uint8_t* p_time, char* paytype);
@@ -121,7 +121,7 @@ public:
 #define PAY_INC_DESIND		(uint8_t)2
 #define PAY_BUY_TOKEN		(uint8_t)3
 	//virtual RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	virtual RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t paytype=1);
 
 	virtual RETINFO format_history(uint8_t&	his_count, PHSSVT p_his_array, int his_max);
@@ -146,15 +146,15 @@ public:
 
 	ETYTKOPER confirm_trade_type();
 
-	// ¶ÁÈ¡½»Ò×È·ÈÏÀúÊ·ĞÅÏ¢
+	// è¯»å–äº¤æ˜“ç¡®è®¤å†å²ä¿¡æ¯
 	static void load_confirm_from_file();
 
-	// ¼ì²âÊÇ·ñ´æÔÚĞèÒª½»Ò×È·ÈÏµÄÀúÊ·
+	// æ£€æµ‹æ˜¯å¦å­˜åœ¨éœ€è¦äº¤æ˜“ç¡®è®¤çš„å†å²
 	static bool check_confirm_his(int time_limit_min);
 
 	bool confirm_current_card();
 
-	// »ñÈ¡µ±Ç°·¢ÉúµÄ½µ¼¶Ä£Ê½ºÍÃô¸ĞÆÚÓ°ÏìĞÅÏ¢
+	// è·å–å½“å‰å‘ç”Ÿçš„é™çº§æ¨¡å¼å’Œæ•æ„ŸæœŸå½±å“ä¿¡æ¯
 	void get_degrade_mode(MODE_EFFECT_FLAGS& degrade_falgs, uint8_t * p_time_now);
 
 protected:
@@ -169,12 +169,12 @@ protected:
 	static CONFIRM_POINT cfm_point;
 
 	//
-    // º¯ÊıÅäºÏºê_pairÊ¹ÓÃ£¬ÒÔÃâ²ÎÊıÂ©µô²ÎÊıÔì³ÉÒì³£
+    // å‡½æ•°é…åˆå®_pairä½¿ç”¨ï¼Œä»¥å…å‚æ•°æ¼æ‰å‚æ•°é€ æˆå¼‚å¸¸
 	//
     //uint8_t cmd_sprintf(int nStart, uint8_t * p_dst_buf, ...);
 
 	//
-    // º¯ÊıÅäºÏºê_thrÊ¹ÓÃ£¬ÒÔÃâ²ÎÊıÂ©µô²ÎÊıÔì³ÉÒì³£
+    // å‡½æ•°é…åˆå®_thrä½¿ç”¨ï¼Œä»¥å…å‚æ•°æ¼æ‰å‚æ•°é€ æˆå¼‚å¸¸
 	//
     //void cmd_scanf(int nStart, uint8_t * p_src_buf, ...);
 
@@ -188,37 +188,37 @@ protected:
 
 	void add_metro_area_crc(uint8_t * p_metro, uint16_t len_area);
 
-	// ±£´æĞ´¿¨¶ÏµãĞÅÏ¢
+	// ä¿å­˜å†™å¡æ–­ç‚¹ä¿¡æ¯
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸ù¾İ½»Ò×È·ÈÏ½á¹¹£¬»ñÈ¡½»Ò×È·ÈÏÒò×Ó
+	// æ ¹æ®äº¤æ˜“ç¡®è®¤ç»“æ„ï¼Œè·å–äº¤æ˜“ç¡®è®¤å› å­
 	static CONFIRM_FACTOR get_confirm_factor();
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	/*virtual*/ void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
-	// ¼ì²éÊÇ·ñ¸´ºÏ½»Ò×È·ÈÏµÄ»ù±¾Ìõ¼ş
+	// æ£€æŸ¥æ˜¯å¦å¤åˆäº¤æ˜“ç¡®è®¤çš„åŸºæœ¬æ¡ä»¶
 	bool check_confirm(uint8_t status_targ, uint8_t status_src, uint16_t err_targ, uint16_t err_src);
 
-	// ²Ù×÷ÊÇ·ñÖ§³Ö½»Ò×È·ÈÏ
+	// æ“ä½œæ˜¯å¦æ”¯æŒäº¤æ˜“ç¡®è®¤
 	uint8_t support_confirm(ETYTKOPER operType);
 
-	// ½«½»Ò×È·ÈÏ½á¹¹±£´æµ½ÎÄ¼ş
+	// å°†äº¤æ˜“ç¡®è®¤ç»“æ„ä¿å­˜åˆ°æ–‡ä»¶
 	void save_confirm_to_file();
 
 	bool need_check_period(uint8_t wk_area, SimpleStatus s_status);
 
 	static CONFIRM_POINT_E cfm_point_e;
-	//µç×ÓÆ±½»Ò×È·ÈÏÒò×Ó
-	//±£´æĞ´¿¨¶ÏµãĞÅÏ¢
+	//ç”µå­ç¥¨äº¤æ˜“ç¡®è®¤å› å­
+	//ä¿å­˜å†™å¡æ–­ç‚¹ä¿¡æ¯
 	void save_last_stack_eticket(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸ù¾İ½»Ò×È·ÈÏ½á¹¹£¬»ñÈ¡½»Ò×È·ÈÏÒò×Ó
+	// æ ¹æ®äº¤æ˜“ç¡®è®¤ç»“æ„ï¼Œè·å–äº¤æ˜“ç¡®è®¤å› å­
 	static CONFIRM_POINT_E get_confirm_factor_e();
 
-	//ÉêÇë½»Ò×½á¹¹ÄÚ´æ´óĞ¡Ö¸Õë
+	//ç”³è¯·äº¤æ˜“ç»“æ„å†…å­˜å¤§å°æŒ‡é’ˆ
 	uint8_t * pMemoryPos;
-	//½»Í¨²¿¿¨ ½»Ò×½á¹¹ÄÚ´æ´óĞ¡Ö¸Õë
+	//äº¤é€šéƒ¨å¡ äº¤æ˜“ç»“æ„å†…å­˜å¤§å°æŒ‡é’ˆ
 	uint8_t * pMemoryPos1;
 
 };

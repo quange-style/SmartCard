@@ -8,10 +8,10 @@ public:
 	CLoopList(void);
 	~CLoopList(void);
 
-	// ²éÕÒ·ûºÏÌõ¼şµÄ½Úµã
+	// æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„èŠ‚ç‚¹
 	bool QueryList(char * passcord,ETYTKOPER operType);
 
-	// ¸üĞÂ½øÕ¢¶ÓÁĞ
+	// æ›´æ–°è¿›é—¸é˜Ÿåˆ—
 	void UpdateList(char * lpLogicalID,ETYTKOPER operType);
 
 private:

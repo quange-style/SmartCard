@@ -9,166 +9,166 @@
 using namespace std;
 
 
-// Éè±¸¿ØÖÆ²ÎÊı
+// è®¾å¤‡æ§åˆ¶å‚æ•°
 typedef struct
 {
-    long		sc_auto_destroy;				// SC²Ù×÷Ô±ÎŞ²Ù×÷×Ô¶¯×¢ÏúÊ±¼ä [µ¥Î»: Ãë]
-    long		sc_reconnect_lcc;				// SCÖØĞÂÁ¬½ÓLCCµÄÖÜÆÚ [µ¥Î»: Ãë]
-    long		bom_auto_destroy;				// BOMÔËÓªÈËÔ±×Ô¶¯×¢ÏúÊ±¼ä [µ¥Î»: Ãë]
-    long		entry_exit_timeout;				// ½ø/³öÕ¢TIMEOUT [µ¥Î»: Ãë]
-    long		degrade_effect_time;			// ½µ¼¶Ä£Ê½µÄÓ°ÏìÓĞĞ§ÆÚ [µ¥Î»£ºÌì]
-    long		svt_charge_max;					// ´¢Öµ¿¨³äÖµÇ®°ü³äÖµÉÏÏŞ¡£Unit : ·Ö
-    long		loyate_charge_max;				// »ı·ÖÇ®°ü³äÖµÉÏÏŞ¡£Unit : ´Î
-    long		sjt_sale_max;					// µ¥³ÌÆ±·¢ÊÛÇ®°ü³äÖµÉÏÏŞ¡£Unit : ÕÅ
-    long		svt_charge_min;					// ´¢Öµ¿¨³äÖµÇ®°ü³äÖµÏÂÏŞ¡£Unit : ·Ö
-    long		loyate_charge_min;				// »ı·ÖÇ®°ü³äÖµÏÂÏŞ¡£Unit : ´Î
-    long		sjt_sale_min;					// µ¥³ÌÆ±·¢ÊÛÇ®°ü³äÖµÏÂÏŞ¡£Unit : ÕÅ
+    long		sc_auto_destroy;				// SCæ“ä½œå‘˜æ— æ“ä½œè‡ªåŠ¨æ³¨é”€æ—¶é—´ [å•ä½: ç§’]
+    long		sc_reconnect_lcc;				// SCé‡æ–°è¿æ¥LCCçš„å‘¨æœŸ [å•ä½: ç§’]
+    long		bom_auto_destroy;				// BOMè¿è¥äººå‘˜è‡ªåŠ¨æ³¨é”€æ—¶é—´ [å•ä½: ç§’]
+    long		entry_exit_timeout;				// è¿›/å‡ºé—¸TIMEOUT [å•ä½: ç§’]
+    long		degrade_effect_time;			// é™çº§æ¨¡å¼çš„å½±å“æœ‰æ•ˆæœŸ [å•ä½ï¼šå¤©]
+    long		svt_charge_max;					// å‚¨å€¼å¡å……å€¼é’±åŒ…å……å€¼ä¸Šé™ã€‚Unit : åˆ†
+    long		loyate_charge_max;				// ç§¯åˆ†é’±åŒ…å……å€¼ä¸Šé™ã€‚Unit : æ¬¡
+    long		sjt_sale_max;					// å•ç¨‹ç¥¨å‘å”®é’±åŒ…å……å€¼ä¸Šé™ã€‚Unit : å¼ 
+    long		svt_charge_min;					// å‚¨å€¼å¡å……å€¼é’±åŒ…å……å€¼ä¸‹é™ã€‚Unit : åˆ†
+    long		loyate_charge_min;				// ç§¯åˆ†é’±åŒ…å……å€¼ä¸‹é™ã€‚Unit : æ¬¡
+    long		sjt_sale_min;					// å•ç¨‹ç¥¨å‘å”®é’±åŒ…å……å€¼ä¸‹é™ã€‚Unit : å¼ 
 
 } DEVICE_CTRL, * P_DEVICE_CTRL;
 
-// ³µÕ¾ÅäÖÃ±í
+// è½¦ç«™é…ç½®è¡¨
 typedef struct
 {
-    uint16_t	station_id;						// ³µÕ¾±í
+    uint16_t	station_id;						// è½¦ç«™è¡¨
     uint16_t	device_id;
     uint8_t		device_type;
 
 } STATION_CONFIG, * P_STATION_CONFIG;
 
-// SAM¿¨¶ÔÕÕ±í
+// SAMå¡å¯¹ç…§è¡¨
 typedef struct
 {
-    int			record_count;					// ¼ÇÂ¼ÌõÊı
-    char **		sam_device_info;				// SAM¿¨ºÅÉè±¸ĞÅÏ¢
+    int			record_count;					// è®°å½•æ¡æ•°
+    char **		sam_device_info;				// SAMå¡å·è®¾å¤‡ä¿¡æ¯
 
 } SAM_COMPARE_TABLE, * P_SAM_COMPARE_TABLE;
 
-// Æ±¿¨²ÎÊı½á¹¹
+// ç¥¨å¡å‚æ•°ç»“æ„
 typedef struct
 {
-    uint16_t	ticket_type;					// Æ±¿¨ÀàĞÍ
-    uint8_t		wallet_type;					// Ç®°üÀàĞÍ
-    long		balance_max;					// ³µÆ±Óà¶î/´ÎÉÏÏŞ
-    bool		permit_over_draft;				// ÊÇ·ñÔÊĞíÍ¸Ö§
-    long		value_over_draft;				// Í¸Ö§¶î¶È
-    bool		permit_charge;					// ÊÇ·ñÔÊĞí³äÖµ
-    long		charge_max;						// Ã¿´Î³äÖµÉÏÏŞ
-    uint8_t		update_fare_mode;				// ¸üĞÂÊ±ÊÕ·Ñ·½Ê½
-    bool		check_update_station;			// ÊÇ·ñ¼ì²é¸¶·ÑÇø·Ç±¾Õ¾¸üĞÂ
-    bool		check_update_day;				// ÊÇ·ñ¼ì²é¸¶·ÑÇø·Ç±¾ÈÕ¸üĞÂ
-    bool		pemite_refund;					// ÊÇ·ñÔÊĞíÍË¿î
-    long		refund_min_count;				// ÍË¿îÊ±Ê¹ÓÃ´ÎÊıÏŞÖÆ
-    long		daliy_trade_max;				// ÈÕ³Ë×ø´ÎÊıÉÏÏŞ
-    long		month_trade_max;				// ÔÂ³Ë×ø´ÎÊıÉÏÏß
-    long		effect_time_from_sale;			// ÓĞĞ§Ê±¼ä£¨´Ó·¢ÊÛ¿ªÊ¼µÄÊ±¼ä£¬µ¥Î»£º·ÖÖÓ£©
-    bool		permit_deffer;					// ÊÇ·ñÔÊĞíÑÓÆÚ
-    long		deffer_days;					// ¿ÉÑÓ³¤ÌìÊı
-    long		deposite;						// Ñº½ğ
-    long		prime_cost;						// ÊÛ¼Û£¨¿¨³É±¾£©
-    long		sale_brokerage;					// ·¢ÊÛÊÖĞø·Ñ
-    bool		need_active_for_use;			// Ê¹ÓÃÇ°ÊÇ·ñĞè¼¤»î
-    bool		check_blacklist;				// ÊÇ·ñ¼ì²éºÚÃûµ¥
-    bool		check_balance;					// ÊÇ·ñ¼ì²éÓà¶î/Óà´Î
+    uint16_t	ticket_type;					// ç¥¨å¡ç±»å‹
+    uint8_t		wallet_type;					// é’±åŒ…ç±»å‹
+    long		balance_max;					// è½¦ç¥¨ä½™é¢/æ¬¡ä¸Šé™
+    bool		permit_over_draft;				// æ˜¯å¦å…è®¸é€æ”¯
+    long		value_over_draft;				// é€æ”¯é¢åº¦
+    bool		permit_charge;					// æ˜¯å¦å…è®¸å……å€¼
+    long		charge_max;						// æ¯æ¬¡å……å€¼ä¸Šé™
+    uint8_t		update_fare_mode;				// æ›´æ–°æ—¶æ”¶è´¹æ–¹å¼
+    bool		check_update_station;			// æ˜¯å¦æ£€æŸ¥ä»˜è´¹åŒºéæœ¬ç«™æ›´æ–°
+    bool		check_update_day;				// æ˜¯å¦æ£€æŸ¥ä»˜è´¹åŒºéæœ¬æ—¥æ›´æ–°
+    bool		pemite_refund;					// æ˜¯å¦å…è®¸é€€æ¬¾
+    long		refund_min_count;				// é€€æ¬¾æ—¶ä½¿ç”¨æ¬¡æ•°é™åˆ¶
+    long		daliy_trade_max;				// æ—¥ä¹˜åæ¬¡æ•°ä¸Šé™
+    long		month_trade_max;				// æœˆä¹˜åæ¬¡æ•°ä¸Šçº¿
+    long		effect_time_from_sale;			// æœ‰æ•ˆæ—¶é—´ï¼ˆä»å‘å”®å¼€å§‹çš„æ—¶é—´ï¼Œå•ä½ï¼šåˆ†é’Ÿï¼‰
+    bool		permit_deffer;					// æ˜¯å¦å…è®¸å»¶æœŸ
+    long		deffer_days;					// å¯å»¶é•¿å¤©æ•°
+    long		deposite;						// æŠ¼é‡‘
+    long		prime_cost;						// å”®ä»·ï¼ˆå¡æˆæœ¬ï¼‰
+    long		sale_brokerage;					// å‘å”®æ‰‹ç»­è´¹
+    bool		need_active_for_use;			// ä½¿ç”¨å‰æ˜¯å¦éœ€æ¿€æ´»
+    bool		check_blacklist;				// æ˜¯å¦æ£€æŸ¥é»‘åå•
+    bool		check_balance;					// æ˜¯å¦æ£€æŸ¥ä½™é¢/ä½™æ¬¡
 
-	bool		check_phy_expire;				// ÊÇ·ñ¼ì²éÎïÀíÓĞĞ§ÆÚ
-	bool		check_logic_expire;				// ÊÇ·ñ¼ì²éÂß¼­ÓĞĞ§ÆÚ
-    //uint8_t		check_order;				// ½ø³ö´ÎĞò¼ì²é
-    // (0£º½ø³öÕ¾¾ù²»¼ì²é,1£º½ø³öÕ¾¾ù¼ì²é,2£º½øÕ¾²»¼ì³öÕ¾¼ì²é,3£º½øÕ¾¼ì²é³öÕ¾²»¼ì²é)
+	bool		check_phy_expire;				// æ˜¯å¦æ£€æŸ¥ç‰©ç†æœ‰æ•ˆæœŸ
+	bool		check_logic_expire;				// æ˜¯å¦æ£€æŸ¥é€»è¾‘æœ‰æ•ˆæœŸ
+    //uint8_t		check_order;				// è¿›å‡ºæ¬¡åºæ£€æŸ¥
+    // (0ï¼šè¿›å‡ºç«™å‡ä¸æ£€æŸ¥,1ï¼šè¿›å‡ºç«™å‡æ£€æŸ¥,2ï¼šè¿›ç«™ä¸æ£€å‡ºç«™æ£€æŸ¥,3ï¼šè¿›ç«™æ£€æŸ¥å‡ºç«™ä¸æ£€æŸ¥)
     bool		check_entry_order;
     bool		check_exit_order;
-    bool		check_exit_timeout;				// ÊÇ·ñ¼ì²é³¬Ê±
-    bool		check_over_travel;				// ÊÇ·ñ¼ì²é³¬³Ë
-    bool		limit_station;					// ÊÇ·ñÏŞÖÆ½ø³öÕ¾µã
-    bool		limit_the_Station;				// ÊÇ·ñÖ»ÔÊĞí±¾Õ¾½ø³ö
-    char		chargable_device[16];			// ³äÖµÉè±¸
-    char		usable_device[16];				// ÄÄÖÖÉè±¸¿ÉÊ¹ÓÃ
-    bool		entry_sell_station;				// ±¾Õ¾½ø³ö¿ØÖÆ±ê¼Ç
-    long		refund_max_value;				// ¼´Ê±ÍË¿îÓà¶îÉÏÏŞ£¬³¬¹ı´ËÉÏÏŞĞèÉêÇë
-    long		refund_brokerage;				// ÍË¿îÊÖĞø·Ñ
-	char		sell_device[16];				// ·¢ÊÛÉè±¸
-	bool		permit_refund_deposite;			// ÊÇ·ñÔÊĞíÍË³É±¾Ñº½ğ
+    bool		check_exit_timeout;				// æ˜¯å¦æ£€æŸ¥è¶…æ—¶
+    bool		check_over_travel;				// æ˜¯å¦æ£€æŸ¥è¶…ä¹˜
+    bool		limit_station;					// æ˜¯å¦é™åˆ¶è¿›å‡ºç«™ç‚¹
+    bool		limit_the_Station;				// æ˜¯å¦åªå…è®¸æœ¬ç«™è¿›å‡º
+    char		chargable_device[16];			// å……å€¼è®¾å¤‡
+    char		usable_device[16];				// å“ªç§è®¾å¤‡å¯ä½¿ç”¨
+    bool		entry_sell_station;				// æœ¬ç«™è¿›å‡ºæ§åˆ¶æ ‡è®°
+    long		refund_max_value;				// å³æ—¶é€€æ¬¾ä½™é¢ä¸Šé™ï¼Œè¶…è¿‡æ­¤ä¸Šé™éœ€ç”³è¯·
+    long		refund_brokerage;				// é€€æ¬¾æ‰‹ç»­è´¹
+	char		sell_device[16];				// å‘å”®è®¾å¤‡
+	bool		permit_refund_deposite;			// æ˜¯å¦å…è®¸é€€æˆæœ¬æŠ¼é‡‘
 
-	bool		has_query;						// ±íÊ¾µ±Ç°Æ±¿¨¶ÔÓ¦µÄÆ±¿¨²ÎÊıÊÇ·ñÒÑ¾­±»²éÑ¯£¬Ìá¸ßĞ§ÂÊ
+	bool		has_query;						// è¡¨ç¤ºå½“å‰ç¥¨å¡å¯¹åº”çš„ç¥¨å¡å‚æ•°æ˜¯å¦å·²ç»è¢«æŸ¥è¯¢ï¼Œæé«˜æ•ˆç‡
 
 } TICKET_PARAM, * P_TICKET_PARAM;
 
-// ³Ë´ÎÆ±×¨ÓÃ²ÎÊı
+// ä¹˜æ¬¡ç¥¨ä¸“ç”¨å‚æ•°
 typedef struct
 {
-    uint16_t ticket_type;						// Æ±¿¨ÀàĞÍ
-    long	once_charge_value;					// Ã¿´Î³äÖµ½ğ¶î
-    long	once_charge_count;					// Ã¿´Î³äÖµ³Ë´Î
-    uint8_t	charge_start_next_month;			// ÏÂÔÂ³äÖµÆğÊ¼ÈÕ
-    uint8_t	charge_end_next_month;				// ÏÂÔÂ³äÖµ½ØÖÁÈÕ
-    long	exit_timeout_penalty_count;			// ³öÕ¾³¬Ê±³Ë´Î·£½ğ
-    long	exit_timeout_penalty_value;			// ³öÕ¾³¬Ê±ÆÕÍ¨·£½ğ
-    long	entry_timeout_penalty_count;		// ½øÕ¾³¬Ê±³Ë´Î·£½ğ
-    long	entry_timeout_penalty_value;		// ½øÕ¾³¬Ê±ÆÕÍ¨·£½ğ
+    uint16_t ticket_type;						// ç¥¨å¡ç±»å‹
+    long	once_charge_value;					// æ¯æ¬¡å……å€¼é‡‘é¢
+    long	once_charge_count;					// æ¯æ¬¡å……å€¼ä¹˜æ¬¡
+    uint8_t	charge_start_next_month;			// ä¸‹æœˆå……å€¼èµ·å§‹æ—¥
+    uint8_t	charge_end_next_month;				// ä¸‹æœˆå……å€¼æˆªè‡³æ—¥
+    long	exit_timeout_penalty_count;			// å‡ºç«™è¶…æ—¶ä¹˜æ¬¡ç½šé‡‘
+    long	exit_timeout_penalty_value;			// å‡ºç«™è¶…æ—¶æ™®é€šç½šé‡‘
+    long	entry_timeout_penalty_count;		// è¿›ç«™è¶…æ—¶ä¹˜æ¬¡ç½šé‡‘
+    long	entry_timeout_penalty_value;		// è¿›ç«™è¶…æ—¶æ™®é€šç½šé‡‘
 
 } TCT_PARAM, * P_TCT_PARAM;
 
 ////////////////////////////////////////////////////////////////
-// ÊÕ·ÑÇø¶Î½á¹¹£¬ÒÔ½øÕ¾Õ¾µã×÷Îª¼üÖµ
+// æ”¶è´¹åŒºæ®µç»“æ„ï¼Œä»¥è¿›ç«™ç«™ç‚¹ä½œä¸ºé”®å€¼
 typedef struct
 {
     uint16_t	station_id;
 	uint16_t	exit_station_id;
-    uint8_t		fare_zone;						// ÊÕ·ÑÇø¶Î
-    uint16_t	ride_time_limit;				// ³Ë³µÊ±¼äÏŞÖÆ
-    uint16_t	penalty_for_timeout;			// ³¬Ê±·£½ğ
+    uint8_t		fare_zone;						// æ”¶è´¹åŒºæ®µ
+    uint16_t	ride_time_limit;				// ä¹˜è½¦æ—¶é—´é™åˆ¶
+    uint16_t	penalty_for_timeout;			// è¶…æ—¶ç½šé‡‘
 
 } FARE_ZONE, * P_FARE_ZONE;
 
 ////////////////////////////////////////////////////////////////
-// Ã¿¸öÕ¾µãĞèÒª±£´æ´Å¸¡µÄÕ¾µãÇø¶Î
+// æ¯ä¸ªç«™ç‚¹éœ€è¦ä¿å­˜ç£æµ®çš„ç«™ç‚¹åŒºæ®µ
 typedef struct
 {
     uint16_t	cf_station_id;
 	uint16_t	cf_exit_station_id;
-    uint8_t		fare_zone;						// ÊÕ·ÑÇø¶Î
-    uint16_t	ride_time_limit;				// ³Ë³µÊ±¼äÏŞÖÆ
-    uint16_t	penalty_for_timeout;			// ³¬Ê±·£½ğ
+    uint8_t		fare_zone;						// æ”¶è´¹åŒºæ®µ
+    uint16_t	ride_time_limit;				// ä¹˜è½¦æ—¶é—´é™åˆ¶
+    uint16_t	penalty_for_timeout;			// è¶…æ—¶ç½šé‡‘
 
 } CF_FARE_ZONE, * P_CF_FARE_ZONE;
 
-// ÊÕ·ÑÅäÖÃ½á¹¹£¬ÒÔ±¾½á¹¹×÷Îª¼üÖµ
+// æ”¶è´¹é…ç½®ç»“æ„ï¼Œä»¥æœ¬ç»“æ„ä½œä¸ºé”®å€¼
 typedef struct
 {
-    uint16_t	ticket_type;					// Æ±¼Û±íID
-    uint8_t		ride_time_code;					// ³Ë³µÊ±¼ä´úÂë
-    uint16_t	fare_table_id;					// Æ±¼Û±íID
+    uint16_t	ticket_type;					// ç¥¨ä»·è¡¨ID
+    uint8_t		ride_time_code;					// ä¹˜è½¦æ—¶é—´ä»£ç 
+    uint16_t	fare_table_id;					// ç¥¨ä»·è¡¨ID
 } FARE_CONFIG_TABLE, * P_FARE_CONFIG_TABLE;
 
-// Æ±¼Û½á¹¹
+// ç¥¨ä»·ç»“æ„
 typedef struct
 {
-    uint16_t	fare_table_id;					// Æ±¼Û±íID
-    uint8_t		fare_zone;						// ÊÕ·ÑÇø¶Î
+    uint16_t	fare_table_id;					// ç¥¨ä»·è¡¨ID
+    uint8_t		fare_zone;						// æ”¶è´¹åŒºæ®µ
     long		fare;
 
 } FARE_TABLE, * P_FARE_TABLE;
 
-// ½Ú¼ÙÈÕ½á¹¹
+// èŠ‚å‡æ—¥ç»“æ„
 typedef struct
 {
-    uint8_t		holiday_code;					// ½Ú¼ÙÈÕ´úÂë
-    uint8_t		start_date[4];					// ¿ªÊ¼Ê±¼ä
-    uint8_t		end_date[4];					// ½áÊøÊ±¼ä
+    uint8_t		holiday_code;					// èŠ‚å‡æ—¥ä»£ç 
+    uint8_t		start_date[4];					// å¼€å§‹æ—¶é—´
+    uint8_t		end_date[4];					// ç»“æŸæ—¶é—´
 
 } HOLIDAY_TABLE, * P_HOLIDAY_TABLE;
 
-// ·Ç·±Ã¦Ê±¼ä½á¹¹
+// éç¹å¿™æ—¶é—´ç»“æ„
 typedef struct
 {
-    uint8_t		weekday;						// ĞÇÆÚ
-    uint8_t		start_time[2];					// ¿ªÊ¼Ê±¼ä
-    uint8_t		end_time[2];					// ½áÊøÊ±¼ä
+    uint8_t		weekday;						// æ˜ŸæœŸ
+    uint8_t		start_time[2];					// å¼€å§‹æ—¶é—´
+    uint8_t		end_time[2];					// ç»“æŸæ—¶é—´
 
 } IDLE_TIME_TABLE, * P_IDLE_TIME_TABLE;
 
 ///////////////////////////////////////////////////////////////
 
-// ½µ¼¶Ä£Ê½
+// é™çº§æ¨¡å¼
 typedef enum DEGRADE_TYPE
 {
 	degrade_null				= 0,
@@ -182,48 +182,48 @@ typedef enum DEGRADE_TYPE
 
 typedef struct
 {
-    uint16_t	degrade_station;				// ·¢Éú½µ¼¶µÄÕ¾µã
-    DGTYPE		degrade_type;					// ½µ¼¶Ä£Ê½µÄÀàĞÍ
-    uint8_t		degrade_start_time[7];			// ½µ¼¶Ä£Ê½µÄ¿ªÊ¼Ê±¼ä
-    uint8_t		degrade_end_time[7];			// ½µ¼¶Ä£Ê½½áÊøÊ±¼ä
-    uint8_t		degrade_susceptive[7];			// ½µ¼¶Ä£Ê½Ó°ÏìÆÚ½áÊøÊ±¼ä£¬ÔÚÊ¹ÓÃÊ±¼ÆËã
+    uint16_t	degrade_station;				// å‘ç”Ÿé™çº§çš„ç«™ç‚¹
+    DGTYPE		degrade_type;					// é™çº§æ¨¡å¼çš„ç±»å‹
+    uint8_t		degrade_start_time[7];			// é™çº§æ¨¡å¼çš„å¼€å§‹æ—¶é—´
+    uint8_t		degrade_end_time[7];			// é™çº§æ¨¡å¼ç»“æŸæ—¶é—´
+    uint8_t		degrade_susceptive[7];			// é™çº§æ¨¡å¼å½±å“æœŸç»“æŸæ—¶é—´ï¼Œåœ¨ä½¿ç”¨æ—¶è®¡ç®—
 
 } DEGRADE_MODE, * P_DEGRADE_MODE;
 
-// ºÚÃûµ¥²ÎÊı
-// ºÚÃûµ¥µ¥ºÅ
+// é»‘åå•å‚æ•°
+// é»‘åå•å•å·
 typedef struct
 {
-    int		record_count;						// ¼ÇÂ¼ÌõÊı
-    char ** logical_id;							// Âß¼­¿¨ºÅ
+    int		record_count;						// è®°å½•æ¡æ•°
+    char ** logical_id;							// é€»è¾‘å¡å·
 
 } SINGLE_BLACK, * P_SINGLE_BLACK;
 
-// ĞĞÕş·£½ğ²ÎÊı£¬ÒÔ´Ë½á¹¹Îª¼üÖµ
+// è¡Œæ”¿ç½šé‡‘å‚æ•°ï¼Œä»¥æ­¤ç»“æ„ä¸ºé”®å€¼
 typedef struct
 {
-    uint8_t		policy_code;					// ĞĞÕş´úÂë
-    uint16_t	ticket_type;					// Æ±¿¨ÀàĞÍ
-	uint16_t	line_station;					// ³µÕ¾´úÂë
-    uint16_t	penalty;						// ·£½ğ
+    uint8_t		policy_code;					// è¡Œæ”¿ä»£ç 
+    uint16_t	ticket_type;					// ç¥¨å¡ç±»å‹
+	uint16_t	line_station;					// è½¦ç«™ä»£ç 
+    uint16_t	penalty;						// ç½šé‡‘
 } POLICY_PENALTY, * P_POLICY_PENALTY;
 
-// µ±Ç°Æ±¿¨ËùÊÜµÄ½µ¼¶Ä£Ê½Ó°Ïì
+// å½“å‰ç¥¨å¡æ‰€å—çš„é™çº§æ¨¡å¼å½±å“
 typedef struct
 {
-    bool		emergency;						// ½ô¼±Ä£Ê½
-    bool		train_trouble;					// ÁĞ³µ¹ÊÕÏ
-    bool		uncheck_order;					// ½ø³ö´ÎĞòÃâ¼ì
-    bool		uncheck_datetime;				// ÓĞĞ§ÆÚÊ±¼äÃâ¼ì
-    bool		uncheck_fare;					// ³µ·ÑÃâ¼ì
-    bool		entry_by_emergency;				// ÒÑ½øÕ¾µÄ³µÆ±ÊÇ·ñÊÜ½ô¼±Ä£Ê½Ãô¸ĞÆÚÓ°Ïì
-    bool		es_sjt_by_emergency;			// ESµÄµ¥³ÌÆ±ÊÇ·ñÊÜ½ô¼±Ä£Ê½Ãô¸ĞÆÚÓ°Ïì
-    bool		sell_sjt_by_emergency;			// ·¢ÊÛµÄµ¥³ÌÆ±·ñÊÜ½ô¼±Ä£Ê½Ãô¸ĞÆÚÓ°Ïì
-    bool		exit_train_trouble_effect;		// ÁĞ³µ¹ÊÕÏÄ£Ê½³öÕ¾µÄµ¥³ÌÆ±ÊÇ·ñÊÜÁĞ³µ¹ÊÕÏµÄÃô¸ĞÆÚÓ°Ïì
-    bool		es_sjt_by_train_trouble;		// ESµÄµ¥³ÌÆ±ÊÇ·ñÊÜÁĞ³µ¹ÊÕÏÄ£Ê½Ãô¸ĞÆÚÓ°Ïì
-    bool		sell_sjt_by_train_trouble;		// ·¢ÊÛµÄµ¥³ÌÆ±ÊÇ·ñÊÜÁĞ³µ¹ÊÕÏÄ£Ê½Ãô¸ĞÆÚÓ°Ïì
-	bool		update_free_by_emergency;		// ·Ç¸¶·ÑÇø¸üĞÂµÄµ¥³ÌÆ±·ñÊÜ½ô¼±Ä£Ê½Ãô¸ĞÆÚÓ°Ïì
-	bool		update_work_by_emergency;		// ¸¶·ÑÇø¸üĞÂ³µÆ±·ñÊÜ½ô¼±Ä£Ê½Ãô¸ĞÆÚÓ°Ïì
+    bool		emergency;						// ç´§æ€¥æ¨¡å¼
+    bool		train_trouble;					// åˆ—è½¦æ•…éšœ
+    bool		uncheck_order;					// è¿›å‡ºæ¬¡åºå…æ£€
+    bool		uncheck_datetime;				// æœ‰æ•ˆæœŸæ—¶é—´å…æ£€
+    bool		uncheck_fare;					// è½¦è´¹å…æ£€
+    bool		entry_by_emergency;				// å·²è¿›ç«™çš„è½¦ç¥¨æ˜¯å¦å—ç´§æ€¥æ¨¡å¼æ•æ„ŸæœŸå½±å“
+    bool		es_sjt_by_emergency;			// ESçš„å•ç¨‹ç¥¨æ˜¯å¦å—ç´§æ€¥æ¨¡å¼æ•æ„ŸæœŸå½±å“
+    bool		sell_sjt_by_emergency;			// å‘å”®çš„å•ç¨‹ç¥¨å¦å—ç´§æ€¥æ¨¡å¼æ•æ„ŸæœŸå½±å“
+    bool		exit_train_trouble_effect;		// åˆ—è½¦æ•…éšœæ¨¡å¼å‡ºç«™çš„å•ç¨‹ç¥¨æ˜¯å¦å—åˆ—è½¦æ•…éšœçš„æ•æ„ŸæœŸå½±å“
+    bool		es_sjt_by_train_trouble;		// ESçš„å•ç¨‹ç¥¨æ˜¯å¦å—åˆ—è½¦æ•…éšœæ¨¡å¼æ•æ„ŸæœŸå½±å“
+    bool		sell_sjt_by_train_trouble;		// å‘å”®çš„å•ç¨‹ç¥¨æ˜¯å¦å—åˆ—è½¦æ•…éšœæ¨¡å¼æ•æ„ŸæœŸå½±å“
+	bool		update_free_by_emergency;		// éä»˜è´¹åŒºæ›´æ–°çš„å•ç¨‹ç¥¨å¦å—ç´§æ€¥æ¨¡å¼æ•æ„ŸæœŸå½±å“
+	bool		update_work_by_emergency;		// ä»˜è´¹åŒºæ›´æ–°è½¦ç¥¨å¦å—ç´§æ€¥æ¨¡å¼æ•æ„ŸæœŸå½±å“
 } MODE_EFFECT_FLAGS, * P_MODE_EFFECT_FLAGS;
 
 
@@ -240,7 +240,7 @@ typedef struct
 
 typedef struct
 {
-	SINGLE_BLACK					blacks_single;					// ºÚÃûµ¥µ¥ºÅ
-	vector< std::pair<string, string> >	blacks_section;				// ºÚÃûµ¥¶ÎºÅ
+	SINGLE_BLACK					blacks_single;					// é»‘åå•å•å·
+	vector< std::pair<string, string> >	blacks_section;				// é»‘åå•æ®µå·
 
 } BLACK_PARAM, * P_BLACK_PARAM;

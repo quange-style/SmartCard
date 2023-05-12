@@ -6,7 +6,7 @@
  *    Description:
  *
  *        Version:  1.0
- *        Created:  2011Äê03ÔÂ10ÈÕ 09Ê±23·Ö25Ãë UTC
+ *        Created:  2011å¹´03æœˆ10æ—¥ 09æ—¶23åˆ†25ç§’ UTC
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -20,7 +20,7 @@
 
 #pragma pack(1)
 
-//±¨ÎÄ½ÓÊÕ½á¹¹
+//æŠ¥æ–‡æ¥æ”¶ç»“æ„
 typedef struct{
 	uchar	stx;
 	uchar	node;
@@ -33,7 +33,7 @@ typedef struct{
 	ushort	len;//Hi
 } TPKGHEADER_RECV, *LPTPKGHEADER_RECV;
 
-//±¨ÎÄ·¢ËÍ½á¹¹
+//æŠ¥æ–‡å‘é€ç»“æ„
 typedef struct{
 	uchar	stx;
 	uchar	node;
@@ -45,13 +45,13 @@ typedef struct{
 
 #pragma pack()
 
-#define ERR_RECV_TIMEOUT -1 //½ÓÊÕ³¬Ê±
-#define ERR_RECV_FULL -2 //Êı¾İ½ÓÊÕ»º³åÇøÂú
-#define ERR_RECV_PKGCRC -3 //Êı¾İĞ£Ñé´í
-#define ERR_RECV_CONTINUE -6 //½ÓÊÕÎ´Íê³É£¬¼ÌĞø
+#define ERR_RECV_TIMEOUT -1 //æ¥æ”¶è¶…æ—¶
+#define ERR_RECV_FULL -2 //æ•°æ®æ¥æ”¶ç¼“å†²åŒºæ»¡
+#define ERR_RECV_PKGCRC -3 //æ•°æ®æ ¡éªŒé”™
+#define ERR_RECV_CONTINUE -6 //æ¥æ”¶æœªå®Œæˆï¼Œç»§ç»­
 
-#define CLA_FILE_COUNT 3 //ÎÄ¼şÀà¿ÉÓÃº¯ÊıÊıÁ¿
-#define CLA_BUSSINE_COUNT 3 //ÎÄ¼şÀà¿ÉÓÃº¯ÊıÊıÁ¿
+#define CLA_FILE_COUNT 3 //æ–‡ä»¶ç±»å¯ç”¨å‡½æ•°æ•°é‡
+#define CLA_BUSSINE_COUNT 3 //æ–‡ä»¶ç±»å¯ç”¨å‡½æ•°æ•°é‡
 
 #ifdef _WIN32
 const int speed_arr[] = {CBR_128000, CBR_115200, CBR_57600, CBR_38400, CBR_19200, CBR_9600, CBR_4800, CBR_2400, CBR_1200, CBR_300, 0};
@@ -90,16 +90,16 @@ unsigned short int pkg_crc16_local(const uchar *ptr, unsigned int len)
 }
 
 //===================================================
-//º¯Êı:listenpackchk
-//¹¦ÄÜ:¶ÔÉÏÎ»»úÏÂ·¢µÄÊı¾İ½øĞĞĞ£Ñé£¬µ±Êı¾İ°üºÏ·¨Ê±£¬¶ÔÊı¾İÄÚÈİ½øĞĞ´¦Àí²¢»Ø´«
-//²ÎÊı:
-//     Èë¿Ú²ÎÊı:len-½ÓÊÕµÄÊı¾İ×Ü³¤¶È, data-½ÓÊÕµÄÊı¾İÄÚÈİ
-//     ³ö¿Ú²ÎÊı:µ±·µ»ØÖµ=0Ê±£¬²ÎÊıÓĞĞ§£¬len-µ±Ç°ÓĞÍêÕûÊı¾İ°ü³¤¶È(²»º¬Ğ£Ñé×Ö), data-Êı¾İÄÚÈİ
-//·µ»ØÖµ:
-//     0-Êı¾İÓĞĞ§
-//     1-Êı¾İ°üÍ·´í
-//     -2 - ³¤¶È²»×ã
-//     -3 - Ğ£Ñé´í
+//å‡½æ•°:listenpackchk
+//åŠŸèƒ½:å¯¹ä¸Šä½æœºä¸‹å‘çš„æ•°æ®è¿›è¡Œæ ¡éªŒï¼Œå½“æ•°æ®åŒ…åˆæ³•æ—¶ï¼Œå¯¹æ•°æ®å†…å®¹è¿›è¡Œå¤„ç†å¹¶å›ä¼ 
+//å‚æ•°:
+//     å…¥å£å‚æ•°:len-æ¥æ”¶çš„æ•°æ®æ€»é•¿åº¦, data-æ¥æ”¶çš„æ•°æ®å†…å®¹
+//     å‡ºå£å‚æ•°:å½“è¿”å›å€¼=0æ—¶ï¼Œå‚æ•°æœ‰æ•ˆï¼Œlen-å½“å‰æœ‰å®Œæ•´æ•°æ®åŒ…é•¿åº¦(ä¸å«æ ¡éªŒå­—), data-æ•°æ®å†…å®¹
+//è¿”å›å€¼:
+//     0-æ•°æ®æœ‰æ•ˆ
+//     1-æ•°æ®åŒ…å¤´é”™
+//     -2 - é•¿åº¦ä¸è¶³
+//     -3 - æ ¡éªŒé”™
 //====================================================
 int listenpackchk_local(unsigned int nlen, uchar *buffer)
 {
@@ -122,7 +122,7 @@ int listenpackchk_local(unsigned int nlen, uchar *buffer)
 
         if (nlen<sizeof(TPKGHEADER_RECV))
         {
-            //Èç¹ûµ±Ç°½ÓÊÕµÄ³¤¶ÈĞ¡ÓÚ±¨ÎÄ³¤¶ÈÔòÊı¾İ°ü»¹Î´½ÓÊÕÍêÕû
+            //å¦‚æœå½“å‰æ¥æ”¶çš„é•¿åº¦å°äºæŠ¥æ–‡é•¿åº¦åˆ™æ•°æ®åŒ…è¿˜æœªæ¥æ”¶å®Œæ•´
             nret = ERR_RECV_CONTINUE;
             break;
         }
@@ -133,7 +133,7 @@ int listenpackchk_local(unsigned int nlen, uchar *buffer)
         if (nlen>=(pkglen+18))
         {
 
-            crc2 = pkg_crc16_local(buffer,pkglen+16); //Ğ£ÑéÊı¾İ´Ó³¤¶È(2byte) ¿ªÊ¼µ½Ğ£ÑéÂë(1byte) Ç°(pklen+2-1)
+            crc2 = pkg_crc16_local(buffer,pkglen+16); //æ ¡éªŒæ•°æ®ä»é•¿åº¦(2byte) å¼€å§‹åˆ°æ ¡éªŒç (1byte) å‰(pklen+2-1)
             crc1 = buffer[pkglen+17];
             crc1<<=8;
             crc1 += buffer[pkglen+16];
@@ -184,14 +184,14 @@ int libserial_re_set_local(struct termios *save_tios)
 }
 
 //=================================================================================================
-// ´®¿Ú³õÊ¼»¯º¯Êı¡£
-// dev£º´®¿ÚÉè±¸Ãû£¬´®¿Ú1ÊÇ"/dev/ttyS0"£¬´®¿Ú2ÊÇ"/dev/ttyS1"£¬ÒÀ´ËÀàÍÆ¡£
-// speed£º´®¿Ú²¨ÌØÂÊ£¬¿ÉÒÔÊÇ230400, 115200, 57600, 38400,  19200,  9600, 4800, 2400, 1200, 300, 0¡£
-// parity£ºÆæÅ¼Ğ£Ñé¡£ÖµÎª'N','E','O','S'¡£
-// databits£ºÊı¾İÎ»£¬ÖµÊÇ5¡¢6¡¢7»òÕß8¡£
-// stopbits£ºÍ£Ö¹Î»£¬ÖµÊÇ1»òÕß2¡£
-// hwf£ºÓ²¼şÁ÷¿ØÖÆ¡£1Îª´ò¿ª£¬0Îª¹Ø±Õ¡£
-// swf£ºÈí¼şÁ÷¿ØÖÆ¡£1Îª´ò¿ª£¬0Îª¹Ø±Õ¡£
+// ä¸²å£åˆå§‹åŒ–å‡½æ•°ã€‚
+// devï¼šä¸²å£è®¾å¤‡åï¼Œä¸²å£1æ˜¯"/dev/ttyS0"ï¼Œä¸²å£2æ˜¯"/dev/ttyS1"ï¼Œä¾æ­¤ç±»æ¨ã€‚
+// speedï¼šä¸²å£æ³¢ç‰¹ç‡ï¼Œå¯ä»¥æ˜¯230400, 115200, 57600, 38400,  19200,  9600, 4800, 2400, 1200, 300, 0ã€‚
+// parityï¼šå¥‡å¶æ ¡éªŒã€‚å€¼ä¸º'N','E','O','S'ã€‚
+// databitsï¼šæ•°æ®ä½ï¼Œå€¼æ˜¯5ã€6ã€7æˆ–è€…8ã€‚
+// stopbitsï¼šåœæ­¢ä½ï¼Œå€¼æ˜¯1æˆ–è€…2ã€‚
+// hwfï¼šç¡¬ä»¶æµæ§åˆ¶ã€‚1ä¸ºæ‰“å¼€ï¼Œ0ä¸ºå…³é—­ã€‚
+// swfï¼šè½¯ä»¶æµæ§åˆ¶ã€‚1ä¸ºæ‰“å¼€ï¼Œ0ä¸ºå…³é—­ã€‚
 //==================================================================================================
 int libserial_init_local(char *dev, int speed, int parity, int databits, int stopbits, int hwf, int swf)
 {
@@ -219,7 +219,7 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
         g_fd = -1;
         return -1;
     }
-    //ÉèÖÃ²¨ÌØÂÊ
+    //è®¾ç½®æ³¢ç‰¹ç‡
     for (i=0; i<(int)(sizeof(speed_arr)/sizeof(int)); i++)
     {
         if (speed == name_arr[i])
@@ -236,7 +236,7 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
         }
     }
 
-    //ÉèÖÃÊı¾İÎ»
+    //è®¾ç½®æ•°æ®ä½
     switch (databits)
     {
     case 5:
@@ -254,35 +254,35 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
         break;
     }
 
-    //ÉèÖÃÍ£Ö¹Î»
+    //è®¾ç½®åœæ­¢ä½
     if (stopbits == 2)
         tty.c_cflag |= CSTOPB;
     else
         tty.c_cflag &= ~CSTOPB;
 
-    //ÉèÖÃÆæÅ¼Ğ£Ñé
+    //è®¾ç½®å¥‡å¶æ ¡éªŒ
     switch (parity)
     {
-        //ÎŞÆæÅ¼Ğ£Ñé
+        //æ— å¥‡å¶æ ¡éªŒ
     case 'n':
     case 'N':
         tty.c_cflag &= ~PARENB;   /* Clear parity enable */
         tty.c_iflag &= ~INPCK;    /* Enable parity checking */
         break;
-        //ÆæĞ£Ñé
+        //å¥‡æ ¡éªŒ
     case 'o':
     case 'O':
-        tty.c_cflag |= (PARODD | PARENB); /* ÉèÖÃÎªÆæĞ§Ñé*/
+        tty.c_cflag |= (PARODD | PARENB); /* è®¾ç½®ä¸ºå¥‡æ•ˆéªŒ*/
         tty.c_iflag |= INPCK;             /* Disable parity checking */
         break;
-        //Å¼Ğ£Ñé
+        //å¶æ ¡éªŒ
     case 'e':
     case 'E':
         tty.c_cflag |= PARENB;    /* Enable parity */
-        tty.c_cflag &= ~PARODD;   /* ×ª»»ÎªÅ¼Ğ§Ñé*/
+        tty.c_cflag &= ~PARODD;   /* è½¬æ¢ä¸ºå¶æ•ˆéªŒ*/
         tty.c_iflag |= INPCK;     /* Disable parity checking */
         break;
-        //µÈĞ§ÓÚ¡°ÎŞÆæÅ¼Ğ£Ñé¡±
+        //ç­‰æ•ˆäºâ€œæ— å¥‡å¶æ ¡éªŒâ€
     case 'S':
     case 's':  /*as no parity*/
         tty.c_cflag &= ~PARENB;
@@ -294,7 +294,7 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
         break;
     }
 
-    //ÉèÖÃÓ²¼şÁ÷¿ØÖÆ
+    //è®¾ç½®ç¡¬ä»¶æµæ§åˆ¶
     if (hwf)
         tty.c_cflag |= CRTSCTS;
     else
@@ -303,13 +303,13 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
     /*if (hwf) */
     /*tty.c_cflag |= CIREN;*/
 
-    //ÉèÖÃÈí¼şÁ÷¿ØÖÆ
+    //è®¾ç½®è½¯ä»¶æµæ§åˆ¶
     if (swf)
         tty.c_iflag |= IXON | IXOFF;
     else
         tty.c_iflag &= ~(IXON|IXOFF|IXANY);
 
-    //ÉèÖÃÎªRAWÄ£Ê½
+    //è®¾ç½®ä¸ºRAWæ¨¡å¼
     tty.c_iflag &= ~(IGNBRK | IGNCR | INLCR | ICRNL | IUCLC |
                      IXANY | IXON | IXOFF | INPCK | ISTRIP);
     tty.c_iflag |= (BRKINT | IGNPAR);
@@ -318,12 +318,12 @@ int libserial_init_local(char *dev, int speed, int parity, int databits, int sto
     tty.c_lflag &= ~(ICANON | ISIG | ECHO);
     tty.c_cflag |= (CLOCAL | CREAD);
 
-    //tty.c_cc[VTIME] = 1;   /*£¨·Ç×èÈûÄ£Ê½£©²Ù×÷³¬Ê±£¬µ¥Î»Îª0.1Ãë*/
-    //tty.c_cc[VMIN] = 1;   /* 1Îª×èÈûÄ£Ê½£¬0Îª·Ç×èÈûÄ£Ê½*/
-    tty.c_cc[VTIME] = 2;   /*£¨·Ç×èÈûÄ£Ê½£©²Ù×÷³¬Ê±£¬µ¥Î»Îª0.1Ãë*/
-    tty.c_cc[VMIN] = 0;   /* 1Îª×èÈûÄ£Ê½£¬0Îª·Ç×èÈûÄ£Ê½*/
+    //tty.c_cc[VTIME] = 1;   /*ï¼ˆéé˜»å¡æ¨¡å¼ï¼‰æ“ä½œè¶…æ—¶ï¼Œå•ä½ä¸º0.1ç§’*/
+    //tty.c_cc[VMIN] = 1;   /* 1ä¸ºé˜»å¡æ¨¡å¼ï¼Œ0ä¸ºéé˜»å¡æ¨¡å¼*/
+    tty.c_cc[VTIME] = 2;   /*ï¼ˆéé˜»å¡æ¨¡å¼ï¼‰æ“ä½œè¶…æ—¶ï¼Œå•ä½ä¸º0.1ç§’*/
+    tty.c_cc[VMIN] = 0;   /* 1ä¸ºé˜»å¡æ¨¡å¼ï¼Œ0ä¸ºéé˜»å¡æ¨¡å¼*/
 
-    //ÉèÖÃ´®¿ÚÊôĞÔ
+    //è®¾ç½®ä¸²å£å±æ€§
     ret = tcsetattr(g_fd, TCSANOW, &tty);
 
     if (ret<0)
@@ -358,16 +358,16 @@ void libserial_chang_baud_local(int speed)
 #else
     struct termios tty;
 
-    // È¡µÃµ±Ç°´®¿Ú²ÎÊı
+    // å–å¾—å½“å‰ä¸²å£å‚æ•°
     tcgetattr(g_fd, &tty);
 
-    //ÉèÖÃ²¨ÌØÂÊ
+    //è®¾ç½®æ³¢ç‰¹ç‡
     for (i= 0;  i < (int)(sizeof(speed_arr) / sizeof(int));  i++)
     {
         if (speed == name_arr[i])
         {
-            cfsetispeed(&tty, speed_arr[i]); // ÊäÈë²¨ÌØÂÊ
-            cfsetospeed(&tty, speed_arr[i]); // Êä³ö²¨ÌØÂÊ
+            cfsetispeed(&tty, speed_arr[i]); // è¾“å…¥æ³¢ç‰¹ç‡
+            cfsetospeed(&tty, speed_arr[i]); // è¾“å‡ºæ³¢ç‰¹ç‡
             break;
         }
         if (name_arr[i] == 0)
@@ -378,7 +378,7 @@ void libserial_chang_baud_local(int speed)
         }
     }
 
-    // ÉèÖÃĞÂµÄ´®¿Ú²ÎÊı
+    // è®¾ç½®æ–°çš„ä¸²å£å‚æ•°
     tcsetattr(g_fd,TCSANOW,&tty);
 #endif
 }
@@ -396,7 +396,7 @@ void libserial_null_read_local(void)
 
     libserial_save_set_local(&old);
 
-    // ÉèÖÃ³¬Ê±Ê±¼ä
+    // è®¾ç½®è¶…æ—¶æ—¶é—´
     tcgetattr(g_fd, &options);
     options.c_cc[VTIME]=1;
     tcsetattr(g_fd, TCSANOW, &options);
@@ -442,7 +442,7 @@ int libserial_send_package_local(uchar *buf, const int buflen)
 
     unsigned short crc16;
 
-    // Ë¢ĞÂ¶ÁĞ´Êı¾İ
+    // åˆ·æ–°è¯»å†™æ•°æ®
     crc16 = pkg_crc16_local(buf, buflen-2);
     memcpy((char *)(buf+(buflen-2)), (char *)&crc16, 2);
     /*tcflush(fd, TCIOFLUSH);*/
@@ -460,7 +460,7 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
     int rc = 0/*,record = 0*/;
     //int i = 0;
     int sumlen=0, pos=0/*, len=0*/;
-    int maxlimite=maxrecv;//×î´ó½ÓÊÕ³¤¶È£¬·ÀÖ¹»º³åÒç³ö
+    int maxlimite=maxrecv;//æœ€å¤§æ¥æ”¶é•¿åº¦ï¼Œé˜²æ­¢ç¼“å†²æº¢å‡º
     //uchar c = 0;
     int result = -1;
 
@@ -480,11 +480,11 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
     while (1)
     {
 
-        rc = read(g_fd, buf+pos, maxlimite); // ½ÓÊÕ×Ö·û
+        rc = read(g_fd, buf+pos, maxlimite); // æ¥æ”¶å­—ç¬¦
 
         if (rc < 1)
         {
-            // ³¬Ê±
+            // è¶…æ—¶
             result = ERR_RECV_TIMEOUT;
             break;
         }
@@ -513,7 +513,7 @@ int libserial_recv_package_local(int maxrecv, int timeout, uchar *buf)
             }
             else if(ERR_RECV_PKGCRC==result)
             {
-            	//±¨ÎÄĞ£ÑéÂë´í
+            	//æŠ¥æ–‡æ ¡éªŒç é”™
             	break;
             }
           }

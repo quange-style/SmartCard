@@ -1,5 +1,5 @@
 // typedefine.h
-// Í³Ò»ËùÓĞµÄÄÚÖÃÀàĞÍµÄºê¶¨Òå£¬°üÀ¨linuxºÍwindows
+// ç»Ÿä¸€æ‰€æœ‰çš„å†…ç½®ç±»å‹çš„å®å®šä¹‰ï¼ŒåŒ…æ‹¬linuxå’Œwindows
 
 #pragma once
 
@@ -23,7 +23,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////
 //
-// WIN32Ïà¹Ø
+// WIN32ç›¸å…³
 //
 #ifdef _WIN32
 #pragma warning (disable : 4996)
@@ -37,7 +37,7 @@ typedef WORD ushort;
 #include <io.h>
 #define _ACCESS_			_access
 
-// LINUXÎÄ¼şÈ¨ÏŞ
+// LINUXæ–‡ä»¶æƒé™
 #define S_IRUSR				00400
 #define S_IXUSR				00100
 #define S_IWUSR				00200
@@ -46,35 +46,35 @@ typedef WORD ushort;
 #define S_IXOTH				00001
 #define S_IROTH				00004
 
-// ´´½¨Ä¿Â¼
+// åˆ›å»ºç›®å½•
 #define _MKDIR_(path, win_param, linux_param) \
 	CreateDirectory(path, win_param)
 
-// ´´½¨ĞÅºÅÁ¿
+// åˆ›å»ºä¿¡å·é‡
 #define _CREATE_SEMAPHORE(a)	\
 	(*a = CreateEvent(NULL, FALSE, FALSE, NULL)) != NULL
 
-// ÉèÖÃĞÅºÅÁ¿
+// è®¾ç½®ä¿¡å·é‡
 #define _SET_SEMAPHORE(a)	\
 	SetEvent(a)
 
-// µÈ´ıĞÅºÅÁ¿
+// ç­‰å¾…ä¿¡å·é‡
 #define  _WAIT_SEMAPHORE_ALWAYS(a)	\
 	WaitForSingleObject(a, INFINITE) == WAIT_OBJECT_0
 
-// Ïú»ÙĞÅºÅÁ¿
+// é”€æ¯ä¿¡å·é‡
 #define _DESTORY_SEMAPHORE(a)	\
 	CloseHandle(a)
 
-// ´´½¨Ïß³Ì
+// åˆ›å»ºçº¿ç¨‹
 #define _CREATE_THREAD(thread_handle, stack_size, thread_proc, thread_param)	\
 	CreateThread(NULL, stack_size, (LPTHREAD_START_ROUTINE)thread_proc, thread_param, 0, NULL) != NULL
 
-// Ïß³ÌÍË³ö£¬ÊÍ·Å×ÊÔ´£¬Ö÷ÒªÎªlinux¶¨Òå
+// çº¿ç¨‹é€€å‡ºï¼Œé‡Šæ”¾èµ„æºï¼Œä¸»è¦ä¸ºlinuxå®šä¹‰
 #define _THREAD_RELEASE(run_flag, thread_handle, p_thread_result)	\
 	run_flag = false;
 
-// Ïß³ÌĞİÃß
+// çº¿ç¨‹ä¼‘çœ 
 #define _USLEEP_(a)	\
 	Sleep(a / 1000)
 
@@ -86,7 +86,7 @@ extern char _ioctl(int, int, uchar *);
 	ExitWindowsEx(EWX_REBOOT | EWX_FORCE, 0);
 ////////////////////////////////////////////////////////////////////////////
 //
-// linuxÏà¹Ø
+// linuxç›¸å…³
 //
 #else
 #include <stdint.h>
@@ -107,8 +107,8 @@ extern char _ioctl(int, int, uchar *);
 #include <termios.h>
 #include <errno.h>
 
-// linuxÏß³ÌÏà¹ØÍ·ÎÄ¼ş
-#define _REENTRANT						// Ïß³Ì¿ÉÈëºê£¬±ØĞëÔÚËùÓĞÍ·ÎÄ¼şÒıÓÃÇ°
+// linuxçº¿ç¨‹ç›¸å…³å¤´æ–‡ä»¶
+#define _REENTRANT						// çº¿ç¨‹å¯å…¥å®ï¼Œå¿…é¡»åœ¨æ‰€æœ‰å¤´æ–‡ä»¶å¼•ç”¨å‰
 #include <pthread.h>
 #include <semaphore.h>
 
@@ -123,35 +123,35 @@ typedef unsigned short WORD;
 typedef unsigned char BYTE;
 typedef unsigned char UINT8;
 
-// ´´½¨Ä¿Â¼
+// åˆ›å»ºç›®å½•
 #define _MKDIR_(path, win_param, linux_param) \
 	mkdir(path, linux_param) == 0
 
-// ´´½¨ĞÅºÅÁ¿
+// åˆ›å»ºä¿¡å·é‡
 #define _CREATE_SEMAPHORE(a)	\
 	sem_init(a, 0, 0) == 0
 
-// ÉèÖÃĞÅºÅÁ¿
+// è®¾ç½®ä¿¡å·é‡
 #define _SET_SEMAPHORE(a)	\
 	sem_post(&a)
 
-// µÈ´ıĞÅºÅÁ¿
+// ç­‰å¾…ä¿¡å·é‡
 #define  _WAIT_SEMAPHORE_ALWAYS(a)	\
 	sem_wait(&a) == 0
 
-// Ïú»ÙĞÅºÅÁ¿
+// é”€æ¯ä¿¡å·é‡
 #define _DESTORY_SEMAPHORE(a)	\
 	sem_destroy(&a)
 
-// ´´½¨Ïß³Ì
+// åˆ›å»ºçº¿ç¨‹
 #define _CREATE_THREAD(thread_handle, stack_size, thread_proc, thread_param)	\
 pthread_create(&thread_handle, NULL, thread_proc, thread_param) != 0
 
-// Ïß³ÌÍË³ö£¬ÊÍ·Å×ÊÔ´£¬Ö÷ÒªÎªlinux¶¨Òå
+// çº¿ç¨‹é€€å‡ºï¼Œé‡Šæ”¾èµ„æºï¼Œä¸»è¦ä¸ºlinuxå®šä¹‰
 #define _THREAD_RELEASE(run_flag, thread_handle, p_thread_result)	\
 	pthread_join(thread_handle, p_thread_result);
 
-// Ïß³ÌĞİÃß
+// çº¿ç¨‹ä¼‘çœ 
 #define _USLEEP_(a)	\
 	usleep(a)
 
@@ -159,7 +159,7 @@ pthread_create(&thread_handle, NULL, thread_proc, thread_param) != 0
 #define _IOCTRL_(handler, type, cmd)	\
 	ioctl(handler, type, cmd)
 
-// Í¬²½´ÅÅÌÊı¾İ,½«»º´æÊı¾İ»ØĞ´µ½Ó²ÅÌ,ÒÔ·ÀÊı¾İ¶ªÊ§[luther.gliethttp]
+// åŒæ­¥ç£ç›˜æ•°æ®,å°†ç¼“å­˜æ•°æ®å›å†™åˆ°ç¡¬ç›˜,ä»¥é˜²æ•°æ®ä¸¢å¤±[luther.gliethttp]
 #define _REBOOT_SYSTEM_		\
 	sync();		\
 	reboot(RB_AUTOBOOT);

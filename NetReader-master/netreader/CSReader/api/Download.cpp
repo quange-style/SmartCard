@@ -21,7 +21,7 @@ Download::~Download()
 
 void Download::file_mgr(uint8_t * p_msg_file, uint8_t * p_data_send, uint16_t& len_send)
 {
-    uint8_t flag_start_end			= 0; //²ÎÊıÏÂÔØÆôÓÃ±êÊ¶
+    uint8_t flag_start_end			= 0; //å‚æ•°ä¸‹è½½å¯ç”¨æ ‡è¯†
     uint32_t file_size				= 0;	// size in cmd
     uint32_t file_crc				= 0;	// real size
     uint8_t file_name_len			= 0;
@@ -93,7 +93,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
         return;
     }
 
-    // ´ğ¸´×¼±¸½ÓÊÕ
+    // ç­”å¤å‡†å¤‡æ¥æ”¶
     CmdSort::cmd_send(p_msg_file, (uint8_t *)(&ret), sizeof(ret));
 
     while(true)
@@ -105,7 +105,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
             //ret.wErrCode = ERR_RECIVE_DATA;
             //break;
             len_send = 0;
-            return;		// ³¬Ê±²»ÏìÓ¦
+            return;		// è¶…æ—¶ä¸å“åº”
         }
 
         memcpy(&len_cur_recv, file_buffer + 16, 2);
@@ -126,7 +126,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
 
     fclose(fp);
 
-    // ¼ì²éÎÄ¼şÊÇ·ñÕıÈ·
+    // æ£€æŸ¥æ–‡ä»¶æ˜¯å¦æ­£ç¡®
     if (size_last == 0)
     {
         if (total_recv != size_file || crc_file != crc_calc)
@@ -143,7 +143,7 @@ void Download::recv_new_file(uint8_t * p_msg_file, char * p_file_name, uint32_t 
 
 void Download::file_mgr_itp(uint8_t * p_msg_file, uint8_t * p_data_send, uint16_t& len_send)
 {
-	uint8_t flag_start_end			= 0; //²ÎÊıÏÂÔØÆôÓÃ±êÊ¶
+	uint8_t flag_start_end			= 0; //å‚æ•°ä¸‹è½½å¯ç”¨æ ‡è¯†
 	uint32_t file_size				= 0;	// size in cmd
 	uint32_t file_crc				= 0;	// real size
 	uint8_t file_name_len			= 0;
@@ -215,7 +215,7 @@ void Download::recv_new_file_itp(uint8_t * p_msg_file, char * p_file_name, uint3
 		return;
 	}
 
-	// ´ğ¸´×¼±¸½ÓÊÕ
+	// ç­”å¤å‡†å¤‡æ¥æ”¶
 	CmdSort::cmd_send(p_msg_file, (uint8_t *)(&ret), sizeof(ret));
 
 	while(true)
@@ -227,7 +227,7 @@ void Download::recv_new_file_itp(uint8_t * p_msg_file, char * p_file_name, uint3
 			//ret.wErrCode = ERR_RECIVE_DATA;
 			//break;
 			len_send = 0;
-			return;		// ³¬Ê±²»ÏìÓ¦
+			return;		// è¶…æ—¶ä¸å“åº”
 		}
 
 		memcpy(&len_cur_recv, file_buffer + 16, 2);
@@ -248,7 +248,7 @@ void Download::recv_new_file_itp(uint8_t * p_msg_file, char * p_file_name, uint3
 
 	fclose(fp);
 
-	// ¼ì²éÎÄ¼şÊÇ·ñÕıÈ·
+	// æ£€æŸ¥æ–‡ä»¶æ˜¯å¦æ­£ç¡®
 	if (size_last == 0)
 	{
 		if (total_recv != size_file/* || crc_file != crc_calc*/)

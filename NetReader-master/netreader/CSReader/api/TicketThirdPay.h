@@ -3,84 +3,84 @@
 #include "../link/linker.h"
 #include "../ble/ble.h"
 
-//½øÕ¾ĞÅÏ¢
+//è¿›ç«™ä¿¡æ¯
 typedef struct
 {
-	char		cTxnCode[2];					// ½»Ò×ÀàĞÍ
+	char		cTxnCode[2];					// äº¤æ˜“ç±»å‹
 
-	char		cInTime[14];					// ½øÕ¾ÈÕÆÚÊ±¼äÈç;20060211160903
-	char		cLineCode[2];					// ÏßÂ·±àºÅ
-	char		cStationCode[2];				// Õ¾µã±àºÅ
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	char		cStatus[2];						// ×´Ì¬Âë
-	char		cVerifyCode[8];					// ÑéÖ¤Âë
+	char		cInTime[14];					// è¿›ç«™æ—¥æœŸæ—¶é—´å¦‚;20060211160903
+	char		cLineCode[2];					// çº¿è·¯ç¼–å·
+	char		cStationCode[2];				// ç«™ç‚¹ç¼–å·
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	char		cStatus[2];						// çŠ¶æ€ç 
+	char		cVerifyCode[8];					// éªŒè¯ç 
 
 }THIRD_ETICKET_ENTRY_INF, * P_THIRD_ETICKET_ENTRY_INF;
 
-//³öÕ¾ĞÅÏ¢
+//å‡ºç«™ä¿¡æ¯
 typedef struct
 {
-	char		cTxnCode[2];					// ½»Ò×ÀàĞÍ
+	char		cTxnCode[2];					// äº¤æ˜“ç±»å‹
 
-	char		cInTime[14];					// ³öÕ¾ÈÕÆÚÊ±¼äÈç;20060211160903
-	char		cLineCode[2];					// ÏßÂ·±àºÅ
-	char		cStationCode[2];				// Õ¾µã±àºÅ
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	long		lDebitAmount;					// Êµ¿Û½ğ¶î
-	char		cStatus[2];						// ×´Ì¬Âë
-	char		cVerifyCode[8];					// ÑéÖ¤Âë
+	char		cInTime[14];					// å‡ºç«™æ—¥æœŸæ—¶é—´å¦‚;20060211160903
+	char		cLineCode[2];					// çº¿è·¯ç¼–å·
+	char		cStationCode[2];				// ç«™ç‚¹ç¼–å·
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	long		lDebitAmount;					// å®æ‰£é‡‘é¢
+	char		cStatus[2];						// çŠ¶æ€ç 
+	char		cVerifyCode[8];					// éªŒè¯ç 
 
 }THIRD_ETICKET_EXIT_INF, * P_THIRD_ETICKET_EXIT_INF;
 
-//È¡Æ±ĞÅÏ¢
+//å–ç¥¨ä¿¡æ¯
 typedef struct
 {
-	char		cTxnCode[2];					// ½»Ò×ÀàĞÍ
+	char		cTxnCode[2];					// äº¤æ˜“ç±»å‹
 
-	char		cInTime[14];					// ³öÆ±ÈÕÆÚÊ±¼äÈç;20060211160903
-	char		cLineCode[2];					// ÏßÂ·±àºÅ
-	char		cStationCode[2];				// Õ¾µã±àºÅ
-	char		cDevType[2];					// Éè±¸ÀàĞÍ
-	char		cDeviceID[3];					// Éè±¸´úÂë(BCD)£¬µÚ0×Ö½Ú½öµÍ4bitÓĞĞ§
-	char		cSAMID[16];						// SAM¿¨Âß¼­¿¨ºÅ
-	long		lSAMTrSeqNo;					// SAM¿¨ÍÑ»ú½»Ò×Á÷Ë®ºÅ
-	char		cCardNo[16];					// Âß¼­¿¨ºÅ
-	char		cStatus[2];						// ×´Ì¬Âë
-	char		cVerifyCode[8];					// ÑéÖ¤Âë
+	char		cInTime[14];					// å‡ºç¥¨æ—¥æœŸæ—¶é—´å¦‚;20060211160903
+	char		cLineCode[2];					// çº¿è·¯ç¼–å·
+	char		cStationCode[2];				// ç«™ç‚¹ç¼–å·
+	char		cDevType[2];					// è®¾å¤‡ç±»å‹
+	char		cDeviceID[3];					// è®¾å¤‡ä»£ç (BCD)ï¼Œç¬¬0å­—èŠ‚ä»…ä½4bitæœ‰æ•ˆ
+	char		cSAMID[16];						// SAMå¡é€»è¾‘å¡å·
+	long		lSAMTrSeqNo;					// SAMå¡è„±æœºäº¤æ˜“æµæ°´å·
+	char		cCardNo[16];					// é€»è¾‘å¡å·
+	char		cStatus[2];						// çŠ¶æ€ç 
+	char		cVerifyCode[8];					// éªŒè¯ç 
 
 }THIRD_ETICKET_GET_INF, * P_THIRD_ETICKET_GET_INF;
 
-// µØÌúCPU¿¨Ïà¹Ø½á¹¹
+// åœ°é“CPUå¡ç›¸å…³ç»“æ„
 typedef struct
 {
-	uint8_t * p_issue_base;			// ·¢ĞĞ»ù±¾Ó¦ÓÃ
-	uint8_t * p_public_base;		// ¹«¹²Ó¦ÓÃ»ù±¾Êı¾İÎÄ¼ş
-	uint8_t * p_owner_base;			// ³Ö¿¨ÈË»ù±¾Êı¾İÎÄ¼ş
-	uint8_t * p_manage_info;		// ¹ÜÀíĞÅÏ¢ÎÄ¼ş-ÅĞ¶ÏÊÇ·ñ»¥Áª»¥Í¨Æ±¿¨
-	uint8_t * p_wallet;				// Ç®°ü×¨ÓÃ
-	uint8_t * p_his_all;			// ËùÓĞÀúÊ·¼ÇÂ¼
-	uint8_t * p_trade_assist;		// ½»Ò×¸¨Öú£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
-	uint8_t * p_metro;				// ¹ìµÀ½»Í¨£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
-	uint8_t * p_ctrl_record;		// Ó¦ÓÃ¸¨Öú£¬¼´Ó¦ÓÃ¿ØÖÆ¼ÇÂ¼£¨·ûºÏ¼ÇÂ¼ÎÄ¼ş£©
-	uint8_t * p_app_ctrl;			// Ó¦ÓÃ¿ØÖÆÎÄ¼ş
-	uint8_t * p_charge_count;		// Áª»ú½»Ò×¼ÆÊı
-	uint8_t * p_consume_count;		// ÍÑ»ú½»Ò×¼ÆÊı
+	uint8_t * p_issue_base;			// å‘è¡ŒåŸºæœ¬åº”ç”¨
+	uint8_t * p_public_base;		// å…¬å…±åº”ç”¨åŸºæœ¬æ•°æ®æ–‡ä»¶
+	uint8_t * p_owner_base;			// æŒå¡äººåŸºæœ¬æ•°æ®æ–‡ä»¶
+	uint8_t * p_manage_info;		// ç®¡ç†ä¿¡æ¯æ–‡ä»¶-åˆ¤æ–­æ˜¯å¦äº’è”äº’é€šç¥¨å¡
+	uint8_t * p_wallet;				// é’±åŒ…ä¸“ç”¨
+	uint8_t * p_his_all;			// æ‰€æœ‰å†å²è®°å½•
+	uint8_t * p_trade_assist;		// äº¤æ˜“è¾…åŠ©ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
+	uint8_t * p_metro;				// è½¨é“äº¤é€šï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
+	uint8_t * p_ctrl_record;		// åº”ç”¨è¾…åŠ©ï¼Œå³åº”ç”¨æ§åˆ¶è®°å½•ï¼ˆç¬¦åˆè®°å½•æ–‡ä»¶ï¼‰
+	uint8_t * p_app_ctrl;			// åº”ç”¨æ§åˆ¶æ–‡ä»¶
+	uint8_t * p_charge_count;		// è”æœºäº¤æ˜“è®¡æ•°
+	uint8_t * p_consume_count;		// è„±æœºäº¤æ˜“è®¡æ•°
 
-	uint8_t *  p_eTicket_base_info;			    // Æ±¿¨ĞÅÏ¢
-	uint8_t *  p_eTicket_entry_info;			// ½øÕ¾ĞÅÏ¢
-	uint8_t *  p_eTicket_exit_info;				// ³öÕ¾ĞÅÏ¢
-	uint8_t *  p_eTicket_get_info;			    // È¡Æ±ĞÅÏ¢
+	uint8_t *  p_eTicket_base_info;			    // ç¥¨å¡ä¿¡æ¯
+	uint8_t *  p_eTicket_entry_info;			// è¿›ç«™ä¿¡æ¯
+	uint8_t *  p_eTicket_exit_info;				// å‡ºç«™ä¿¡æ¯
+	uint8_t *  p_eTicket_get_info;			    // å–ç¥¨ä¿¡æ¯
 
 	/*
-	P_ETICKET_ENTRY_INF p_eTicket_entry_info;			// ½øÕ¾ĞÅÏ¢
-	P_ETICKET_EXIT_INF  p_eTicket_exit_info;			// ³öÕ¾ĞÅÏ¢
-	P_ETICKET_GET_INF  p_eTicket_get_info;			    // È¡Æ±ĞÅÏ¢
+	P_ETICKET_ENTRY_INF p_eTicket_entry_info;			// è¿›ç«™ä¿¡æ¯
+	P_ETICKET_EXIT_INF  p_eTicket_exit_info;			// å‡ºç«™ä¿¡æ¯
+	P_ETICKET_GET_INF  p_eTicket_get_info;			    // å–ç¥¨ä¿¡æ¯
 	*/
 
 }THIRD_METRO_ELECT_INF, * P_THIRD_METRO_ELECT_INF;
@@ -88,21 +88,21 @@ typedef struct
 
 class TicketThirdPay : public TicketBase
 {
-#define EXTERN_STATUS_INIT		0		// ³õÊ¼»¯
-#define EXTERN_STATUS_SALE		1		// ES»ò·¢ÊÛ
-#define EXTERN_STATUS_RFND		2		// ÍË¿î
-#define EXTERN_STATUS_DSTY		3		// ×¢Ïú
+#define EXTERN_STATUS_INIT		0		// åˆå§‹åŒ–
+#define EXTERN_STATUS_SALE		1		// ESæˆ–å‘å”®
+#define EXTERN_STATUS_RFND		2		// é€€æ¬¾
+#define EXTERN_STATUS_DSTY		3		// æ³¨é”€
 
 public:
 	TicketThirdPay(void);
 	TicketThirdPay(char * p_current_sam, char * p_sam_posid, uint8_t * physic_info);
 	~TicketThirdPay(void);
 
-	// Í³Ò»Æ±¿¨×´Ì¬£¬·ÖÎöºÍ½»Ò×ÖĞµÄ×´Ì¬¶¼ÓÃ´Ë×´Ì¬
+	// ç»Ÿä¸€ç¥¨å¡çŠ¶æ€ï¼Œåˆ†æå’Œäº¤æ˜“ä¸­çš„çŠ¶æ€éƒ½ç”¨æ­¤çŠ¶æ€
 	uint8_t unified_status();
 
 	//
-	// ¶ÔÓÚËùÓĞÆ±¿¨¶¼ÓĞ£¬µ«ÊÇÊµÏÖÉÏ²»Í¬µÄ½Ó¿ÚÈ«²¿¶¨ÒåÎª´¿Ğéº¯Êı
+	// å¯¹äºæ‰€æœ‰ç¥¨å¡éƒ½æœ‰ï¼Œä½†æ˜¯å®ç°ä¸Šä¸åŒçš„æ¥å£å…¨éƒ¨å®šä¹‰ä¸ºçº¯è™šå‡½æ•°
 	//
 	RETINFO read_card(ETYTKOPER operType, TICKET_PARAM& ticket_prm, uint8_t * p_read_init = NULL);
 
@@ -132,12 +132,12 @@ public:
 	RETINFO bom_update(PTICKETUPDATE p_update, uint8_t * p_entry_station);
 
 	RETINFO bom_refund(PDIRECTREFUND p_refund);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	RETINFO svt_increase(PPURSETRADE p_purse, uint8_t* p_time, uint8_t* p_mac2, uint8_t paytype=1);
 	//RETINFO svt_increase(PPURSETRADE p_purse, uint8_t * p_time, uint8_t * p_mac2);
 
 	//RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag);
-	//Ö§¸¶·½Ê½Ä¬ÈÏÎª01 ÏÖ½ğ
+	//æ”¯ä»˜æ–¹å¼é»˜è®¤ä¸º01 ç°é‡‘
 	RETINFO svt_decrease(PPURSETRADE p_purse, uint8_t u_pay_flag, uint8_t paytype=1);
 
 	RETINFO format_history(uint8_t&	his_count, PHSSVT p_his_array, int his_max);
@@ -195,7 +195,7 @@ protected:
 
 	void save_last_stack(ETYTKOPER operType, void * p_trade, size_t size_trade, void * p_written_inf, size_t size_written, bool save_to_file);
 
-	// ¸³Öµ¸øÉÏ´Î½»Ò×Î´¸³ÖµµÄ½»Ò×Òò×Ó
+	// èµ‹å€¼ç»™ä¸Šæ¬¡äº¤æ˜“æœªèµ‹å€¼çš„äº¤æ˜“å› å­
 	//void set_confirm_factor(uint8_t status, long sam_seq, char * p_tac);
 
 private:

@@ -1,6 +1,6 @@
 #pragma once
 
-#define _REENTRANT						// Ïß³Ì¿É³äÈëºê£¬±ØĞëÔÚËùÓĞÍ·ÎÄ¼şÒıÓÃÇ°
+#define _REENTRANT						// çº¿ç¨‹å¯å……å…¥å®ï¼Œå¿…é¡»åœ¨æ‰€æœ‰å¤´æ–‡ä»¶å¼•ç”¨å‰
 
 #include <stdint.h>
 #include <pthread.h>
@@ -9,26 +9,26 @@
 #include <vector>
 using namespace std;
 
-// ½»Ò×ĞÅÏ¢½á¹¹
+// äº¤æ˜“ä¿¡æ¯ç»“æ„
 typedef struct _TRADE_STRUCT{
-	uint8_t		trade_type;				// ½»Ò×ÀàĞÍ
-	uint8_t		trade_time[4];			// ½»Ò×ÈÕÆÚ
-	size_t		size;					// ½»Ò×½á¹¹µÄ´óĞ¡
-	uint8_t		trade_data[512];		// ½»Ò×Êı¾İ
+	uint8_t		trade_type;				// äº¤æ˜“ç±»å‹
+	uint8_t		trade_time[4];			// äº¤æ˜“æ—¥æœŸ
+	size_t		size;					// äº¤æ˜“ç»“æ„çš„å¤§å°
+	uint8_t		trade_data[512];		// äº¤æ˜“æ•°æ®
 }TDSTRUCT, * PTDSTRUCT;
 
 typedef struct _TRADE_SUFFIX{
-	uint8_t		trade_type;				// ½»Ò×ÀàĞÍ
-	char		file_suffix[4];			// ½»Ò×ÎÄ¼şºó×ºÃû
+	uint8_t		trade_type;				// äº¤æ˜“ç±»å‹
+	char		file_suffix[4];			// äº¤æ˜“æ–‡ä»¶åç¼€å
 }TRADESUFFIX, * PTRADESUFFIX;
 
 enum LOG_LEVEL
 {
-	level_invalid = 1,		// ÎŞĞ§
-	level_normal,			// ÆÕÍ¨£¬Ò»°ãÕı³£µÄÒµÎñ
-	level_warning,			// ¾¯¸æ£¬ÒµÎñÅĞ¶Ï·ÇÕı³£
-	level_error,			// ´íÎó£¬µ×²ã´íÎó£¬°üÀ¨Æ±¿¨¶ÁĞ´£¬ÉÁ¿¨µÈµÈ
-	level_disaster			// ÔÖÄÑ£¬Ó²¼şÎŞ·¨Õı³£¹¤×÷£¬ÄÚ´æ·ÖÅäÊ§°ÜµÈ»áÔì³É¶ÁĞ´Æ÷Ó¦ÓÃÎŞ·¨Õı³£¹¤×÷
+	level_invalid = 1,		// æ— æ•ˆ
+	level_normal,			// æ™®é€šï¼Œä¸€èˆ¬æ­£å¸¸çš„ä¸šåŠ¡
+	level_warning,			// è­¦å‘Šï¼Œä¸šåŠ¡åˆ¤æ–­éæ­£å¸¸
+	level_error,			// é”™è¯¯ï¼Œåº•å±‚é”™è¯¯ï¼ŒåŒ…æ‹¬ç¥¨å¡è¯»å†™ï¼Œé—ªå¡ç­‰ç­‰
+	level_disaster			// ç¾éš¾ï¼Œç¡¬ä»¶æ— æ³•æ­£å¸¸å·¥ä½œï¼Œå†…å­˜åˆ†é…å¤±è´¥ç­‰ä¼šé€ æˆè¯»å†™å™¨åº”ç”¨æ— æ³•æ­£å¸¸å·¥ä½œ
 };
 
 typedef struct {
@@ -43,7 +43,7 @@ public:
 	~Records(void);
 
 
-	// Ğ´ÈÕÖ¾£¬err_code:µ±Ç°µ÷ÓÃ´íÎóÂë£¬lvl:µ±Ç°Ö¸¶¨¼¶±ğ£¬Ö»Ó°Ïì±¾´Î£¬Ö»ÒªÍ¨¹ıerr_code²éÕÒµ½µÄ¼¶±ğ»òÕßlvl_appoint¼¶±ğ¸ßÓÚÏµÍ³ÈÕÖ¾¼¶±ğ£¬¾ÍĞ´ÈÕÖ¾
+	// å†™æ—¥å¿—ï¼Œerr_code:å½“å‰è°ƒç”¨é”™è¯¯ç ï¼Œlvl:å½“å‰æŒ‡å®šçº§åˆ«ï¼Œåªå½±å“æœ¬æ¬¡ï¼Œåªè¦é€šè¿‡err_codeæŸ¥æ‰¾åˆ°çš„çº§åˆ«æˆ–è€…lvl_appointçº§åˆ«é«˜äºç³»ç»Ÿæ—¥å¿—çº§åˆ«ï¼Œå°±å†™æ—¥å¿—
 	void log_out(uint16_t err_code, LOG_LEVEL lvl_appoint, const char * fmt, ...);
 	void log_buffer(const char * p_discription, uint8_t * p_buffer, int size_buffer, LOG_LEVEL lvl_appoint = level_disaster);
 
@@ -64,19 +64,19 @@ public:
 
 	void delete_file_overdue();
 
-	// ÅĞ¶ÏÒ»¸öÎÄ¼ş¼ĞÊÇ·ñÎª¿Õ
+	// åˆ¤æ–­ä¸€ä¸ªæ–‡ä»¶å¤¹æ˜¯å¦ä¸ºç©º
 	static bool folder_null(char * p_folder);
 
 	void run_time_count_start();
 
 	void run_time_count_end();
 
-	//»ñÈ¡ÈÕÖ¾ÎÄ¼ş¼Ğ´óĞ¡
+	//è·å–æ—¥å¿—æ–‡ä»¶å¤¹å¤§å°
 	static unsigned long GetLogDirSize(char * path);
 
 private:
 
-	// ³ÌĞò¼ÆÊ±½á¹¹
+	// ç¨‹åºè®¡æ—¶ç»“æ„
 	struct timeval m_tp_start;
 	struct timeval m_tp_end;
 

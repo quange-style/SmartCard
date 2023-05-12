@@ -9,7 +9,7 @@ static ETPDVC device_type_file	= dvcTCM;
 
 
 //
-// TCM接口
+// TCM鎺ュ彛
 //
 void Api::Tcm_GetTicketInfo(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data)
 {
@@ -47,7 +47,7 @@ void Api::Tcm_GetTicketInfo(uint8_t * param_stack, uint8_t * data_to_send, uint1
 		ret.wErrCode = g_Parameter.query_ticket_prm(ticket_data.logical_type, ticket_prm);
 		if (ret.wErrCode)	break;
 
-		// 设备支持
+		// 璁惧鏀寔
 		ret.wErrCode = ParamMgr::device_support_ticket(device_type_file, ticket_prm.usable_device);
 		if (ret.wErrCode != 0)	break;
 

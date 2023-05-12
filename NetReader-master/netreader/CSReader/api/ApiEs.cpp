@@ -23,7 +23,7 @@
 
 
 
-//add by shiyulong in 2011-10-11, ÓÃÓÚµ÷ÊÔĞÅÏ¢Êä³ö
+//add by shiyulong in 2011-10-11, ç”¨äºè°ƒè¯•ä¿¡æ¯è¾“å‡º
 void Api::Es_Ticket_Analyse(uint8_t * param_stack, uint8_t * data_to_send, uint16_t& len_data)
 {
     RETINFO ret					= {0};
@@ -52,7 +52,7 @@ void Api::Es_Ticket_Analyse(uint8_t * param_stack, uint8_t * data_to_send, uint1
 //
 //	        	if (ret.wErrCode != 2)
 //	        	{
-//	            //Î´·¢ĞĞµÄ¿¨Í¨¹ıÉÏ·½Ê½È¡ÎïÀí¿¨ºÅ
+//	            //æœªå‘è¡Œçš„å¡é€šè¿‡ä¸Šæ–¹å¼å–ç‰©ç†å¡å·
 //				p_ticket->get_ticket_infos(ticket_data);
 //				memcpy(analyse.cLogicalID, ticket_data.physical_id, 20);
 //	            p_ticket->get_physical_id(analyse.cLogicalID);
@@ -84,12 +84,12 @@ void Api::Es_Ticket_Analyse(uint8_t * param_stack, uint8_t * data_to_send, uint1
 //
 //	        analyse.bStatus = p_ticket->unified_status();
 //
-//	        // ¸³Öµ
+//	        // èµ‹å€¼
 //	        analyse.bIssueStatus = 1;
 //	        Publics::hexs_to_string(ticket_data.logical_type, sizeof(ticket_data.logical_type), analyse.cTicketType, sizeof(analyse.cTicketType));
 //	        memcpy(analyse.cLogicalID, ticket_data.logical_id, sizeof(analyse.cLogicalID));
 //	        memcpy(analyse.cPhysicalID, ticket_data.physical_id, sizeof(analyse.cPhysicalID));
-//	        //analyse.bCharacter;					// Æ±¿¨ÎïÀíÀàĞÍ 1£ºOCT£»2£º020£»3£º080£»4£ºUL£»5£ºFM£»F:ÆäËû
+//	        //analyse.bCharacter;					// ç¥¨å¡ç‰©ç†ç±»å‹ 1ï¼šOCTï¼›2ï¼š020ï¼›3ï¼š080ï¼›4ï¼šULï¼›5ï¼šFMï¼›F:å…¶ä»–
 //	        Publics::bcds_to_string(CmdSort::m_time_now, 7, analyse.cIssueDate, 14);
 //	        Publics::bcds_to_string(ticket_data.phy_peroidE, 4, analyse.cExpire, 8);
 //	        memset(analyse.RFU, '0', sizeof(analyse.RFU));
@@ -229,7 +229,7 @@ void estest(void)
 //	        issue_setvalue(sztmp);
 //
 //
-//	//É¾³ı½á¹¹£¬ÕıÊ½»·¾³²»ÓÃ
+//	//åˆ é™¤ç»“æ„ï¼Œæ­£å¼ç¯å¢ƒä¸ç”¨
 //	        if (ticket_reset() != 0)
 //	        {
 //	            nresult = ERR_CLEAR_FILE;

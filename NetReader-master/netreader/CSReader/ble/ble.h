@@ -15,35 +15,35 @@ using namespace std;
 extern CmdSort cmd_ble;
 
 
-// bleµ¥¸öµØÖ··µ»Ø
+// bleå•ä¸ªåœ°å€è¿”å›
 typedef struct
 {
-	uint8_t head[12];				// ±¨ÎÄÍ·
-	uint8_t mac_address[6];			// MACµØÖ·
-	uint8_t unknowInfo[6];			// Î´ÖªĞÅÏ¢1
-	uint8_t ble_name[16];			// À¶ÑÀÃû³Æ
-	uint8_t endInfo[11];			// ½áÊøĞÅÏ¢
+	uint8_t head[12];				// æŠ¥æ–‡å¤´
+	uint8_t mac_address[6];			// MACåœ°å€
+	uint8_t unknowInfo[6];			// æœªçŸ¥ä¿¡æ¯1
+	uint8_t ble_name[16];			// è“ç‰™åç§°
+	uint8_t endInfo[11];			// ç»“æŸä¿¡æ¯
 
 }SCAN_SINGLE_BLE_INF, * P_SCAN_SINGLE_BLE_INF;
 
-// bleÈ«²¿µØÖ··µ»Ø
+// bleå…¨éƒ¨åœ°å€è¿”å›
 typedef struct
 {
 	SCAN_SINGLE_BLE_INF ssbi[100];
 
 }SCAN_ALL_BLE_INF, * P_SCAN_ALL_BLE_INF;
 
-// À¶ÑÀÊı¾İ½»»¥Êı¾İ¸ñÊ½»¯
+// è“ç‰™æ•°æ®äº¤äº’æ•°æ®æ ¼å¼åŒ–
 typedef struct
 {
-	uint8_t head[12];				// ±¨ÎÄÍ·
-	uint8_t data_len[2];			// Êı¾İÓò³¤¶È
-	uint8_t flag;					// °ü±ê¼Ç
-	uint8_t data[19];				// Êı¾İÓò
-	uint8_t endInfo[5];				// ½áÊøĞÅÏ¢
+	uint8_t head[12];				// æŠ¥æ–‡å¤´
+	uint8_t data_len[2];			// æ•°æ®åŸŸé•¿åº¦
+	uint8_t flag;					// åŒ…æ ‡è®°
+	uint8_t data[19];				// æ•°æ®åŸŸ
+	uint8_t endInfo[5];				// ç»“æŸä¿¡æ¯
 
 }BLE_PACKAGE_SINGLE, * P_BLE_PACKAGE_SINGLE;
-// À¶ÑÀÊı¾İ½»»¥Êı¾İ¸ñÊ½»¯
+// è“ç‰™æ•°æ®äº¤äº’æ•°æ®æ ¼å¼åŒ–
 typedef struct
 {
 	BLE_PACKAGE_SINGLE bps[50];
@@ -59,7 +59,7 @@ public:
 	static SCAN_ALL_BLE_INF scanAllBleInf;
 
 
-    // ×éÖ¯·µ»ØµÄJsonÊı¾İ
+    // ç»„ç»‡è¿”å›çš„Jsonæ•°æ®
     static string ble_getDealJson(ETYTKOPER operType,uint16_t& len_data);
 
 	static int ble_writeBack(ETYTKOPER operType,uint8_t *  p_eTicket_entry_info,uint8_t *  p_eTicket_exit_info,uint8_t *  p_eTicket_get_info, uint16_t length);
@@ -96,7 +96,7 @@ public:
 
 	static void ble_handshake();
 
-	static void ble_reset(int flag);//0£º½»Ò×ÖĞ¸´Î»£¬1:ÏÂÔØ¸´Î»
+	static void ble_reset(int flag);//0ï¼šäº¤æ˜“ä¸­å¤ä½ï¼Œ1:ä¸‹è½½å¤ä½
 	static bool ble_get_version(uint8_t * ble_version);
 
 	static void ble_set_baud(int speed);
