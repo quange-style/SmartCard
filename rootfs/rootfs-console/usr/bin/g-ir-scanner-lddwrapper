@@ -1,0 +1,2 @@
+#!/bin/sh
+prelink-rtld --root=/home/diskc/home/liyue/poky/fsl-arm-yocto-bsp/imx6ulevk/tmp/sysroots/imx6ulevk "$@"

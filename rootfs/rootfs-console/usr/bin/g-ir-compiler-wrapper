@@ -1,0 +1,2 @@
+#!/bin/sh
+/home/diskc/home/liyue/poky/fsl-arm-yocto-bsp/imx6ulevk/tmp/sysroots/imx6ulevk/usr/bin/g-ir-scanner-qemuwrapper /home/diskc/home/liyue/poky/fsl-arm-yocto-bsp/imx6ulevk/tmp/sysroots/imx6ulevk/usr/bin/g-ir-compiler "$@"
