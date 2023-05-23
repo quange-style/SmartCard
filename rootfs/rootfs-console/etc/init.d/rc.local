@@ -22,7 +22,7 @@ do_start() {
 	fi
 	cd /lib/modules/4.1.15-00025-gc980b04
 	./S80insmod.sh
-	/daemon.sh
+	/daemon.sh &
 }
 
 case "$1" in
