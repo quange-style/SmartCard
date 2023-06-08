@@ -1,1 +1,1 @@
-/bin/busybox.nosuid
+/bin/dmesg.util-linux
