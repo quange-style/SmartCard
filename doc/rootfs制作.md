@@ -122,5 +122,5 @@ quange@quange-VirtualBox:~/Work/test/smartCard.git/rootfs/rootfs-console$ tar cv
 
 ## 6、替换升级包
 
-在路径I:\tempfile\读卡器\mfgtools\Profiles\Linux\OS Firmware\files\linux下，将rootfs.tar.bz2替换成rootfs-qt.tar.bz2。
+在路径I:\tempfile\读卡器\mfgtools\Profiles\Linux\OS Firmware\files\linux下，将rootfs.tar.bz2替换成rootfs-console.tar.bz2。
 
